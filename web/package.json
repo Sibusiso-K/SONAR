@@ -6,9 +6,10 @@
   "scripts": {
     "sync": "node scripts/sync-data.mjs",
     "dev": "npm run sync && next dev",
-    "build": "npm run sync && next build",
+    "build": "npm run sync && next build && node scripts/build-preview.mjs",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "preview": "node scripts/build-preview.mjs"
   },
   "dependencies": {
     "geist": "^1.3.1",
