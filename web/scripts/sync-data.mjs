@@ -19,6 +19,7 @@ const repoRoot = join(webRoot, "..");
 const files = [
   ["data", "opportunities.json"],
   ["data", "updates.json"],
+  ["data", "predictions.json"],
 ];
 const destDir = join(webRoot, "data");
 mkdirSync(destDir, { recursive: true });

@@ -44,6 +44,12 @@ jobs:
         with:
           python-version: "3.12"
 
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+
       - name: Rebuild opportunities.json from the source of truth
         run: python3 scripts/migrate_to_opportunities.py
 
@@ -61,6 +67,21 @@ jobs:
           print(f"ok — {len(ids)} opportunities validated")
           PY
 
+      # Supabase is optional. Without credentials the board still works — you
+      # just lose forecasting, which needs history the JSON file can't query.
+      - name: Sync to Supabase and refresh forecasts
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+        run: |
+          if [ -z "$SUPABASE_URL" ] || [ -z "$SUPABASE_SERVICE_KEY" ]; then
+            echo "::notice::Supabase not configured — skipping sync and forecast."
+            exit 0
+          fi
+          python3 scripts/sonar_db.py push
+          python3 scripts/sonar_db.py forecast
+          python3 scripts/sonar_db.py health || true
+
       - name: Commit only if the data actually moved
         run: |
           git config user.name  "sonar-bot"
@@ -72,6 +93,12 @@ jobs:
             git commit -m "data: scheduled refresh $(date -u +%Y-%m-%d)"
             git push
           fi
+
+      - name: Verify the site still builds
+        working-directory: web
+        run: |
+          npm ci --no-audit --no-fund
+          npm run build
 
   deploy:
     runs-on: ubuntu-latest

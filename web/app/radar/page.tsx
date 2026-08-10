@@ -1,10 +1,25 @@
-import { CONFIDENCE_LABEL, past, radarOpportunities, sources } from "@/lib/data";
+import { formatDate, past, radarOpportunities, sources } from "@/lib/data";
 import { Board } from "@/components/ui";
+import predictionsRaw from "@/data/predictions.json";
+
+interface Prediction {
+  opportunity_slug: string;
+  predicted_announce_start: string;
+  predicted_announce_end: string;
+  predicted_event_start: string;
+  predicted_event_end: string;
+  basis: string;
+  n_editions: number;
+  confidence: number;
+}
 
 export default function RadarPage() {
   const radar = radarOpportunities();
   const missed = past();
   const srcs = sources();
+  const preds = ((predictionsRaw as { predictions: Prediction[] }).predictions ?? []).sort(
+    (a, b) => a.predicted_announce_start.localeCompare(b.predicted_announce_start)
+  );
 
   return (
     <main className="page">
@@ -30,6 +45,66 @@ export default function RadarPage() {
       </div>
 
       <Board items={radar} />
+
+      <h2 className="title" style={{ fontSize: 18, marginTop: 42, marginBottom: 4 }}>
+        Predicted windows
+      </h2>
+      <p className="subtitle" style={{ marginBottom: 14 }}>
+        Forecast from prior editions — when to start watching for next year&rsquo;s
+        announcement. These are not dates; they are windows to raise the check
+        frequency in. Superseded automatically the moment a real source confirms.
+      </p>
+      {preds.length === 0 ? (
+        <div className="card">
+          <p style={{ margin: 0, fontSize: 14, color: "var(--text-2)" }}>
+            No forecasts yet. Prediction needs at least two prior editions of the same
+            opportunity. Backfill the <code style={{ fontFamily: "var(--mono)" }}>editions</code>{" "}
+            table — Gradhack, FNB App of the Year, Geekulcha, Huawei and Entelect all recur —
+            then run{" "}
+            <code style={{ fontFamily: "var(--mono)" }}>python3 scripts/sonar_db.py forecast</code>.
+          </p>
+        </div>
+      ) : (
+        <div className="card" style={{ padding: 0 }}>
+          {preds.map((p, i) => (
+            <div
+              key={p.opportunity_slug}
+              style={{
+                padding: "13px 18px",
+                borderBottom: i === preds.length - 1 ? "none" : "1px solid var(--rule)",
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  gap: 10,
+                  alignItems: "baseline",
+                  flexWrap: "wrap",
+                  marginBottom: 4,
+                }}
+              >
+                <span style={{ fontWeight: 570, fontSize: 14.5 }}>{p.opportunity_slug}</span>
+                <span className="chip">
+                  {Math.round(p.confidence * 100)}% · {p.n_editions} editions
+                </span>
+              </div>
+              <div className="dline" style={{ borderBottom: "none", padding: "3px 0" }}>
+                <span className="dk">Start watching</span>
+                <span className="dv">
+                  {formatDate(p.predicted_announce_start)} – {formatDate(p.predicted_announce_end)}
+                </span>
+              </div>
+              <div className="dline" style={{ borderBottom: "none", padding: "3px 0" }}>
+                <span className="dk">Event likely</span>
+                <span className="dv">
+                  {formatDate(p.predicted_event_start)} – {formatDate(p.predicted_event_end)}
+                </span>
+              </div>
+              <div style={{ fontSize: 12.5, color: "var(--faint)", marginTop: 5 }}>{p.basis}</div>
+            </div>
+          ))}
+        </div>
+      )}
 
       <h2 className="title" style={{ fontSize: 18, marginTop: 42, marginBottom: 4 }}>
         Past &amp; missed
