@@ -16,3 +16,12 @@ models/
 *.safetensors
 *.bin
 data/raw/
+
+# web app
+node_modules/
+.next/
+out/
+web/data/
+next-env.d.ts
+.vercel
+*.tsbuildinfo

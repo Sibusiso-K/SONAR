@@ -1,0 +1,91 @@
+name: Refresh board
+
+# The site is a static export: every countdown ("14d") is computed at BUILD
+# time, not in the browser. Without a scheduled rebuild the numbers freeze on
+# the day of the last push and quietly go wrong — which is exactly the failure
+# mode SONAR exists to prevent.
+#
+# So: rebuild every morning before the 08:00 SAST board review.
+#
+# Two jobs, deliberately separate:
+#   regenerate — recompute derived fields, commit only if something changed
+#   deploy     — ping Vercel's deploy hook so the site rebuilds regardless
+#
+# The deploy step runs even when nothing changed, because "nothing changed in
+# the data" still means "every countdown is one day shorter".
+
+on:
+  schedule:
+    # 03:10 UTC = 05:10 SAST. Ahead of the Monday 08:00 review, and off the
+    # hour because GitHub's scheduler is heavily contended on :00.
+    - cron: "10 3 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "data/**"
+      - "web/**"
+      - ".github/workflows/refresh-board.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-board
+  cancel-in-progress: false
+
+jobs:
+  regenerate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Rebuild opportunities.json from the source of truth
+        run: python3 scripts/migrate_to_opportunities.py
+
+      - name: Validate against the schema
+        run: |
+          python3 - <<'PY'
+          import json, sys
+          board = json.load(open("data/opportunities.json"))
+          ids = [o["id"] for o in board["opportunities"]]
+          assert len(ids) == len(set(ids)), "duplicate opportunity ids"
+          for o in board["opportunities"]:
+              assert o.get("name"), f"{o['id']}: missing name"
+              assert o.get("confidence"), f"{o['id']}: missing confidence"
+          json.load(open("data/updates.json"))
+          print(f"ok — {len(ids)} opportunities validated")
+          PY
+
+      - name: Commit only if the data actually moved
+        run: |
+          git config user.name  "sonar-bot"
+          git config user.email "actions@github.com"
+          if git diff --quiet -- data/; then
+            echo "no data change"
+          else
+            git add data/
+            git commit -m "data: scheduled refresh $(date -u +%Y-%m-%d)"
+            git push
+          fi
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: regenerate
+    if: ${{ always() }}
+    steps:
+      # Vercel → Project → Settings → Git → Deploy Hooks → create one,
+      # then store the URL as the VERCEL_DEPLOY_HOOK repository secret.
+      - name: Trigger Vercel rebuild
+        env:
+          HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK }}
+        run: |
+          if [ -z "$HOOK" ]; then
+            echo "::warning::VERCEL_DEPLOY_HOOK not set — countdowns will go stale."
+            exit 0
+          fi
+          curl -fsSL -X POST "$HOOK" -o /dev/null -w "vercel hook: %{http_code}\n"

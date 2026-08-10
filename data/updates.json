@@ -1,0 +1,52 @@
+{
+  "note": "Append-only activity log. The verification pipeline writes an entry for every field-level change it makes; humans write entries for decisions. This is what the /updates page renders, and it is the audit trail that makes an autonomous board trustworthy.",
+  "kinds": {
+    "added": "New opportunity entered the board",
+    "changed": "A tracked field changed on an existing entry",
+    "verified": "Confidence moved up — a claim got corroborated or confirmed",
+    "missed": "A deadline passed without us acting",
+    "system": "Pipeline or schema change"
+  },
+  "updates": [
+    {
+      "at": "2026-08-10T17:30:00+02:00",
+      "kind": "system",
+      "target": null,
+      "title": "Board widened from hackathons to opportunities",
+      "body": "Added a `kind` field so the board covers competitions, graduate programmes, recruiting events and accelerators — not just hackathons. Two entries were reclassified on migration: BCG Platinion is a `recruiting_event` (the event is the interview) and Mintek-SCi is a `grad_programme`. Also added `career_track` to mark the three entries that are direct hiring routes.",
+      "by": "migrate_to_opportunities.py"
+    },
+    {
+      "at": "2026-08-10T16:05:00+02:00",
+      "kind": "missed",
+      "target": "discovery-gradhack-2026",
+      "title": "Discovery Gradhack 2026 — missed by three days",
+      "body": "Ran 7 August 2026 at Discovery Place, Sandton. 50 IT students from SA universities, teams of 2–4, free entry, R12 500 per winning team member, plus a permanent-employment pathway. It was the board's #1 open action item and the only signal was an empty team calendar. Moved to past. Predicted-window watch set for ~August 2027.",
+      "by": "verification sweep"
+    },
+    {
+      "at": "2026-08-10T15:40:00+02:00",
+      "kind": "verified",
+      "target": "adtc-2026",
+      "title": "ADTC prize conflict closed — arithmetic confirms the earlier ruling",
+      "body": "Press reported \"$20,000+\" against Devpost's itemised $16,500. Confirmed by arithmetic that both are correct and describe different things: 8000+4000+3000+1500 = $16,500 cash, and 10×$250 + 20×$50 = $3,500 in GPU credits, totalling exactly $20,000. No action needed.",
+      "by": "verification sweep"
+    },
+    {
+      "at": "2026-08-10T15:38:00+02:00",
+      "kind": "changed",
+      "target": "adtc-2026",
+      "title": "ADTC — possible second stage, unresolved",
+      "body": "Sources still report 25 August against the board's 24 August, and one describes it as a \"first-stage deadline\" for \"initial proposals\". The board models this as a single submit-once deadline. Keeping Devpost's earlier date — submitting early is free — but flagged for a manual check of the organiser page before the 24th.",
+      "by": "verification sweep"
+    },
+    {
+      "at": "2026-08-10T09:00:00+02:00",
+      "kind": "system",
+      "target": null,
+      "title": "Initial board — 17 entries, calendar, playbook, CLI",
+      "body": "First full research pass. Every date carries a source link and a confidence level; conflicts recorded with the reasoning behind each ruling.",
+      "by": "Sibusiso K"
+    }
+  ]
+}
