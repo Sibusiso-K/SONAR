@@ -406,7 +406,37 @@ Use them where they're genuinely better:
 - **AIML API for cheap non-Claude specialty work** — embeddings for dedupe clustering, an OSS OCR pass on low-value flyers before spending vision tokens, and as a **failover** if Anthropic rate-limits mid-run.
 - **Keep every Claude call first-party** for caching, batching, and server tools.
 
-### 8.4 The weekly deep dive is the one place an agent belongs
+### 8.4 Subscription or API? Both — and the subscription covers more than you'd think
+
+Claude Pro / Max / Team subscriptions **can** legitimately drive automation, via `claude-code-action` in GitHub Actions. Run `claude setup-token` locally, store the result as the repo secret `CLAUDE_CODE_OAUTH_TOKEN`, and pass it as `claude_code_oauth_token:` instead of `anthropic_api_key:`. Runs then bill against the subscription, not the API account. Give the step a `prompt:` input and it runs in **automation mode** on any trigger — including `cron`. This is a documented, supported path, not a workaround.
+
+**Where the subscription is the right tool:** agentic, low-frequency, judgement-heavy work — the weekly deep dive, the Monday brief, conflict adjudication. That's what Claude Code is built for.
+
+**Where it isn't:** triaging ~1,500 candidates a month. That's batch inference, not agent work. Claude Code is an agent harness — pushing 1,500 classification calls through it is slow, burns rate limits, and forfeits the two features that make that stage cheap (Batch API, prompt caching). Same for high-volume extraction.
+
+**But that volume is a design choice, not a requirement.** It comes almost entirely from Tier-C SERP fan-out. Drop Tier C, lean on Tier A feeds and the Tier-B org watchlist, and candidate volume collapses to something one daily agent run handles comfortably:
+
+| | **Subscription-first** | **Full pipeline** |
+|---|---|---|
+| Discovery | Tier A feeds + Tier B watchlist | + Tier C SERP fan-out, Tier D social |
+| Candidates/month | ~100–200 | ~1,500 |
+| Compute | 1 daily `claude-code-action` cron run | Staged pipeline, Batch API, caching |
+| Auth | `CLAUDE_CODE_OAUTH_TOKEN` | `ANTHROPIC_API_KEY` |
+| Extra cost | **~$0** on top of the subscription | ~$28/month |
+| Trade-off | Slower on the true long tail; niche events found late or missed | Broadest coverage |
+
+**Recommendation: start subscription-first.** It costs nothing extra, proves the loop, and covers the events that actually matter most (Tier B is where Gradhack lives). Add the API pipeline in Phase 2 only if the long tail proves worth it.
+
+Four caveats worth knowing before you wire it up:
+
+- **The OAuth token is tied to one person's subscription** and draws on their rate limits. If it's Sbu's token, a heavy weekend of automation eats the quota Sbu wants for interactive work. Anthropic's own guidance is to use an API key for team-owned automation. Mitigation: keep scheduled runs few and bounded (`--max-turns`, workflow timeouts).
+- **If both secrets are set, `ANTHROPIC_API_KEY` wins** and you get billed on the API without noticing. Set one.
+- **GitHub disables scheduled workflows on public repos after 60 days of no activity.** Ours will be active, but know it exists.
+- **Scheduled runs skip the write-access check but still reject bot actors** — the run is attributed to whoever last edited the cron line.
+
+Max 5× is $100/month and Max 20× is $200/month, with weekly caps on top of the 5-hour windows; Pro is the entry point. If you're already paying for one of these, the marginal cost of SONAR's intelligence is genuinely zero.
+
+### 8.5 The weekly deep dive is the one place an agent belongs
 
 Sunday night, so it lands before the existing Monday 08:00 board review. An Opus 5 agent with web search + web fetch, given a genuinely open brief:
 
@@ -540,21 +570,23 @@ Everything writes through a PR when confidence is below `corroborated`, and dire
 
 ## 13. Cost
 
-Estimated at ~1,500 candidates/month, ~120 extractions, ~40 actively tracked entries.
+**These are my estimates from assumed volumes, not quotes.** The volumes are the guess; the unit prices are real. Full pipeline, at ~1,500 candidates/month, ~120 extractions, ~40 actively tracked entries:
 
-| Line | Monthly |
-|---|---|
-| Triage — Haiku 4.5, batched | ~$1.50 |
-| Extraction — Sonnet 5, cached | ~$6 |
-| Re-verification (most skip the LLM on hash match) | ~$7 |
-| Adjudication — Opus 5 | ~$3 |
-| Deep dive — Opus 5 × 4 | ~$10 |
-| **Claude subtotal** | **~$28** |
-| Bright Data (after 5k free tier) | ~$10–15 |
-| Google Calendar API | $0 |
-| GitHub Actions | $0 |
-| Telegram | $0 |
-| **Total** | **≈ $40–50 / month (~R750–R950)** |
+| Line | Monthly | What the money actually buys |
+|---|---|---|
+| Triage — Haiku 4.5, batched | ~$1.50 | Reading ~1,500 candidate links and answering "is this a hackathon, is it relevant to us, is it new?" |
+| Extraction — Sonnet 5, cached | ~$6 | Turning the ~120 survivors into structured records with quoted evidence |
+| Re-verification | ~$7 | Re-checking ~40 live entries on the §6.4 cadence. Most cost **zero tokens** — unchanged page hash means no model call. This is the ~150/month that actually changed. |
+| Adjudication — Opus 5 | ~$3 | Resolving ~25 source conflicts (the "24th or 25th?" decisions) |
+| Deep dive — Opus 5 × 4 | ~$10 | Four weekly agent runs chasing the long tail and writing Monday's brief |
+| **Claude subtotal** | **~$28** | |
+| Bright Data | ~$10–15 | Fetching pages that block ordinary requests (Zindi, LinkedIn) and Google results at volume. **First 5,000 requests/month are free** — at this scale you may pay nothing. |
+| Google Calendar · GitHub Actions · Telegram | $0 | All comfortably inside free tiers |
+| **Total** | **≈ $40–50 / month (~R750–R950)** | |
+
+**Most of this is optional.** On the subscription-first build (§8.4) the entire Claude subtotal goes to **$0** — it's covered by a Pro/Max plan you may already have — and Bright Data likely stays inside its free tier. That version costs nothing extra and gives up breadth of discovery, not correctness: the verification, calendar and alerting layers are identical.
+
+The single biggest cost driver is **discovery breadth**, not the system existing. Triage volume is what SERP fan-out buys you.
 
 Against a board carrying a $700k+ Shipaton pool, $77k RSNA, $16.5k ADTC, and BCG Platinion's career value, this is a rounding error. Sonnet 5's intro pricing ends **31 August 2026**, after which extraction roughly rises to ~$9/month — still immaterial.
 
