@@ -1,5 +1,5 @@
 {
-  "$schema": "./schema.json",
+  "$schema": "../schema/hackathon.schema.json",
   "meta": {
     "repo": "git@github.com:Sibusiso-K/SONAR.git",
     "team": ["Sibusiso K", "Lethabo"],
@@ -20,26 +20,6 @@
     }
   },
   "hackathons": [
-    {
-      "id": "discovery-gradhack-2026",
-      "name": "Discovery Gradhack 2026",
-      "organiser": "Discovery",
-      "scope": "local",
-      "format": "hybrid",
-      "location": "Virtual event → final at Sandton",
-      "status": "verify",
-      "tier": 2,
-      "score": null,
-      "scores": { "career_leverage": null, "winnability": null, "prize": null, "urgency": null },
-      "dates": { "confidence": "unconfirmed", "note": "There is already a Google Calendar named 'Discovery Gradhack -Team Sonar- 2026' on Sibusiso's account, described as tracking 'all key dates from virtual event through the Sandton final' — but it contains no events. Fill in the real dates." },
-      "prize": { "currency": "ZAR", "pool": null },
-      "eligibility": "Graduate programme hackathon — confirm criteria.",
-      "team_fit": "Already have a team calendar for it, so presumably committed.",
-      "what_to_build": "TBC",
-      "deliverables": [],
-      "links": { "main": "https://www.discovery.co.za/" },
-      "notes": "ACTION: this was not on the original list but you clearly already have a team calendar for it. Find the dates, score it, and slot it into the board — it may collide with the August/October crunch. Discovery graduate programmes are a strong SA employment route, so career leverage is likely high."
-    },
     {
       "id": "adtc-2026",
       "name": "Africa Deep Tech Challenge 2026 — The Laptop LLM Challenge",
@@ -429,7 +409,8 @@
     { "name": "MICT SETA National Skills Challenge 2026", "reason": "Ran 27–31 March 2026 (UWC regional + Rosebank grand finale). R200,000 prize pool. Diarise for 2027.", "link": "https://hackathon.mict.org.za/" },
     { "name": "Monkey and River Hackathon 2026", "reason": "Ran 31 July–1 August 2026 at Momentum, Centurion. R50,000+ in cash and prizes. Diarise for 2027.", "link": "https://monkeyandriver.com/hackathon/" },
     { "name": "Geekulcha SS26Hack Kimberley", "reason": "Ran 22 May 2026 at Sol Plaatje University.", "link": "https://gklink.co/ss26hack" },
-    { "name": "GirlCode Pan-African Hackathon 2026", "reason": "SA/Botswana leg 15–16 August 2026. Women-only — noted for awareness only.", "link": "https://www.itweb.co.za/article/girlcode-opens-registration-for-2026-pan-african-hackathon/j5alrMQAwVRMpYQk" }
+    { "name": "GirlCode Pan-African Hackathon 2026", "reason": "SA/Botswana leg 15–16 August 2026. Women-only — noted for awareness only.", "link": "https://www.itweb.co.za/article/girlcode-opens-registration-for-2026-pan-african-hackathon/j5alrMQAwVRMpYQk" },
+    { "name": "Discovery Gradhack 2026", "reason": "MISSED — ran 7 August 2026 at Discovery Place, Sandton. Verified 10 Aug 2026, three days after the fact. Format: 50 IT students from SA universities, teams of 2–4, free entry, R12 500 cash per winning team member, plus a permanent-employment pathway at Discovery. This was the board's #1 open action item ('find the dates, score it') and the only signal was an empty Google Calendar named 'Discovery Gradhack -Team Sonar- 2026'. Nothing was watching it. This is the founding case for docs/AUTONOMY.md — see §0 and §7.4 (prediction from history[]). ACTION: set a predicted-window watch for ~August 2027 and log this in the first retro.", "link": "https://www.discovery.co.za/corporate/discovery-gradhack" }
   ],
   "monitoring_sources": [
     { "name": "Devpost hackathons", "url": "https://devpost.com/hackathons", "cadence": "weekly" },
