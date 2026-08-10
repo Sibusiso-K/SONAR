@@ -1,0 +1,626 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//SONAR//Hackathon Board//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:SONAR — Hackathons 2026
+X-WR-TIMEZONE:Africa/Johannesburg
+X-WR-CALDESC:Hackathon deadlines\, events and prep blocks for Sibusiso & L
+ ethabo.
+BEGIN:VTIMEZONE
+TZID:Africa/Johannesburg
+X-LIC-LOCATION:Africa/Johannesburg
+BEGIN:STANDARD
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0200
+TZNAME:SAST
+DTSTART:19700101T000000
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:sonar-weekly-review@sonar.hackathons
+DTSTAMP:20260810T162943Z
+DTSTART;TZID=Africa/Johannesburg:20260810T080000
+DTEND;TZID=Africa/Johannesburg:20260810T083000
+RRULE:FREQ=WEEKLY;BYDAY=MO;UNTIL=20261228T060000Z
+SUMMARY:SONAR board review
+DESCRIPTION:Run: python3 scripts/sonar.py next. Check monitoring sources i
+ n data/hackathons.json (Devpost\, Zindi\, Kaggle\, Geekulcha\, dev.events
+ \, FNB\, Mintek\, MTN). Log anything new into hackathons.json and score i
+ t.
+CATEGORIES:REVIEW
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:SONAR board review
+TRIGGER:-PT10M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:adtc-kickoff@sonar.hackathons
+DTSTAMP:20260810T162943Z
+DTSTART;TZID=Africa/Johannesburg:20260810T180000
+DTEND;TZID=Africa/Johannesburg:20260810T210000
+SUMMARY:ADTC kickoff — register\, clone\, GPU credits\, pick domain
+DESCRIPTION:1. Register on Devpost: https://adtc-2026.devpost.com/\n2. Clo
+ ne submission template: https://github.com/Africa-Deep-Tech-Foundation/ad
+ tc-2026-submission-template\n3. Clone profiler: https://github.com/Africa
+ -Deep-Tech-Foundation/adtc-profiler\n4. Apply for GPU credits: https://ag
+ hcloud.ai/p/3850810a-8f62-474c-b448-e204d026b189\n5. Pick ONE domain (rec
+ ommend Agriculture or Healthcare — Best African Use Case prize is $1\,5
+ 00)\n6. Run the profiler on your actual laptop to get a baseline.
+CATEGORIES:PREP
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ADTC kickoff — register\, clone\, GPU credits\, pick domain
+TRIGGER:-PT60M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:sonar-admin-block@sonar.hackathons
+DTSTAMP:20260810T162943Z
+DTSTART;TZID=Africa/Johannesburg:20260811T180000
+DTEND;TZID=Africa/Johannesburg:20260811T200000
+SUMMARY:SONAR admin — BCG\, MoMo\, IBM Bob\, Mintek\, GovTech
+DESCRIPTION:1. BCG Platinion application (CV + motivation letter) — appl
+ y individually\, both of you: https://bcg.eightfold.ai/events/candidate/l
+ anding?plannedEventId=33rM9beDD\n2. Fill the MTN MoMo Mini App registrati
+ on form + register on https://momodeveloper.mtn.com/ for sandbox keys.\n3
+ . Request free IBM Bob trial: https://bob.ibm.com/trial\n4. PHONE MINTEK 
+ — confirm whether the 2026 Grad Hackathon has closed. https://mintek.co
+ .za/media/news/\n5. Read GovTech T&Cs and decide in/out: https://www.govt
+ ech.gov.za/wp-content/uploads/2026/07/GovTech-2026-Hackathon-Terms-and-Co
+ ndition.pdf
+CATEGORIES:ADMIN
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:SONAR admin — BCG\, MoMo\, IBM Bob\, Mintek\, GovTech
+TRIGGER:-PT60M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:unesco-work@sonar.hackathons
+DTSTAMP:20260810T162943Z
+DTSTART;TZID=Africa/Johannesburg:20260813T180000
+DTEND;TZID=Africa/Johannesburg:20260813T210000
+SUMMARY:UNESCO Youth Hackathon submission — one evening\, then done
+DESCRIPTION:Theme: 'Play Your Part: Youth Designing the Future of Media an
+ d Information Literacy'. Concept/project submission\, not code. Brief: ht
+ tps://www.unesco.org/en/articles/unesco-youth-hackathon-2026\nDeadline is
+  16 Aug 23:59 Paris = 23:59 SAST. Submit tonight\, don't leave it to Sund
+ ay.
+CATEGORIES:PREP
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:UNESCO Youth Hackathon submission — one evening\, then done
+TRIGGER:-PT120M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:unesco-deadline@sonar.hackathons
+DTSTAMP:20260810T162943Z
+DTSTART;VALUE=DATE:20260816
+DTEND;VALUE=DATE:20260817
+SUMMARY:DEADLINE: UNESCO Youth Hackathon 2026
+DESCRIPTION:23:59 Paris time = 23:59 SAST. https://www.unesco.org/en/artic
+ les/unesco-youth-hackathon-2026
+CATEGORIES:DEADLINE
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:DEADLINE: UNESCO Youth Hackathon 2026
+TRIGGER:-PT1440M
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:DEADLINE: UNESCO Youth Hackathon 2026
+TRIGGER:-PT120M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:adtc-sprint-1@sonar.hackathons
+DTSTAMP:20260810T162943Z
+DTSTART;TZID=Africa/Johannesburg:20260815T090000
+DTEND;TZID=Africa/Johannesburg:20260816T170000
+SUMMARY:ADTC build sprint 1 — model selection + quantisation
+DESCRIPTION:Target: a candidate model running under 7GB peak RAM at >15 to
+ k/s on the ADTC Standard Laptop profile (i5 10-12th gen / Ryzen 5 3000-50
+ 00\, 8GB DDR4\, integrated graphics\, Ubuntu 22.04).\nRemember the score:
+  50% accuracy\, 30% throughput\, 20% efficiency\, -10 if you throttle abo
+ ve 85C. OOM = disqualification.
+CATEGORIES:PREP
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ADTC build sprint 1 — model selection + quantisation
+TRIGGER:-PT1440M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:adtc-freeze@sonar.hackathons
+DTSTAMP:20260810T162943Z
+DTSTART;TZID=Africa/Johannesburg:20260820T180000
+DTEND;TZID=Africa/Johannesburg:20260820T210000
+SUMMARY:ADTC feature freeze + full benchmark run
+DESCRIPTION:No new features after tonight. Run the official profiler end-t
+ o-end. Record latency\, throughput\, peak RAM\, CPU and thermals. If it O
+ OMs on 8GB you have three days to fix it — that's the point of freezing
+  now.
+CATEGORIES:PREP
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ADTC feature freeze + full benchmark run
+TRIGGER:-PT60M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:adtc-sprint-2@sonar.hackathons
+DTSTAMP:20260810T162943Z
+DTSTART;TZID=Africa/Johannesburg:20260822T090000
+DTEND;TZID=Africa/Johannesburg:20260823T170000
+SUMMARY:ADTC build sprint 2 — report\, benchmarks\, 2-min video
+DESCRIPTION:Deliverables: open-source repo on the ADTC template\; report c
+ overing problem definition\, constraints\, design alternatives\, tools an
+ d why\, performance tests\, screenshots\; video max 2 minutes.\nThe repor
+ t is worth real marks — do not treat it as an afterthought.
+CATEGORIES:PREP
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ADTC build sprint 2 — report\, benchmarks\, 2-min video
+TRIGGER:-PT1440M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:adtc-submit@sonar.hackathons
+DTSTAMP:20260810T162943Z
+DTSTART;VALUE=DATE:20260824
+DTEND;VALUE=DATE:20260825
+SUMMARY:SUBMIT: Africa Deep Tech Challenge ($16\,500)
+DESCRIPTION:Hard deadline: 24 Aug 23:45 PDT = 25 Aug 08:45 SAST. SUBMIT ON
+  THE 24TH\, not in the small hours of the 25th.\nhttps://adtc-2026.devpos
+ t.com/
+CATEGORIES:DEADLINE
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:SUBMIT: Africa Deep Tech Challenge ($16\,500)
+TRIGGER:-PT1440M
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:SUBMIT: Africa Deep Tech Challenge ($16\,500)
+TRIGGER:-PT240M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ibm-bob-prep@sonar.hackathons
+DTSTAMP:20260810T162943Z
+DTSTART;TZID=Africa/Johannesburg:20260826T180000
+DTEND;TZID=Africa/Johannesburg:20260826T200000
+SUMMARY:IBM Bob prep — trial working\, workflow problem chosen
+DESCRIPTION:Bob 2.0 trial installed and running. Pick ONE developer workfl
+ ow to improve: onboarding onto a legacy codebase\, debugging\, code revie
+ w\, testing\, maintenance\, or release/deploy. Have a real or sample proj
+ ect ready. Judges want Agent mode\, parallel tasks\, subagents\, document
+  understanding — not autocomplete.
+CATEGORIES:PREP
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:IBM Bob prep — trial working\, workflow problem chosen
+TRIGGER:-PT60M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ibm-devday@sonar.hackathons
+DTSTAMP:20260810T162943Z
+DTSTART;TZID=Africa/Johannesburg:20260827T160000
+DTEND;TZID=Africa/Johannesburg:20260827T203000
+SUMMARY:IBM Dev Day: Bob in Action — enablement + tracks
+DESCRIPTION:10:00-11:00 ET enablement session = 16:00-17:00 SAST. Kick-off
+  tracks 11:00 ET = 17:00 SAST (IBM Z modernization / AI-powered dev for I
+ BM i).\nRegister: https://ibmdevday-bob-platform.bemyapp.com/#/register
+CATEGORIES:EVENT
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:IBM Dev Day: Bob in Action — enablement + tracks
+TRIGGER:-PT1440M
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:IBM Dev Day: Bob in Action — enablement + tracks
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ibm-hackathon@sonar.hackathons
+DTSTAMP:20260810T162943Z
+DTSTART;VALUE=DATE:20260828
+DTEND;VALUE=DATE:20260831
+SUMMARY:IBM Dev Day Hackathon (Bob 2.0) — top 50 teams win TechXchange p
+ asses
+DESCRIPTION:28-30 August. Grand prize up to $2\,000 + travel to IBM TechXc
+ hange 2026\, Atlanta\, 26-29 Oct. Top 50 qualified submissions get a conf
+ erence pass per team member.\nBest odds-to-reward on the board — small\
+ , enterprise-skewed field.\nhttps://ibmdevday-bob.bemyapp.com/
+CATEGORIES:EVENT
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:IBM Dev Day Hackathon (Bob 2.0) — top 50 teams win TechXchan
+ ge passes
+TRIGGER:-PT1440M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:bcg-apply-real@sonar.hackathons
+DTSTAMP:20260810T162943Z
+DTSTART;VALUE=DATE:20260907
+DTEND;VALUE=DATE:20260908
+SUMMARY:DEADLINE: BCG Platinion Hackathon application (treat as real)
+DESCRIPTION:Landing-page banner says 7 Sept\; body text says 13 Sept. Assu
+ me 7 Sept.\nAPPLY INDIVIDUALLY — Sibusiso and Lethabo each submit separ
+ ately. Teams form on-site.\nSA link: https://bcg.eightfold.ai/events/cand
+ idate/landing?plannedEventId=33rM9beDD
+CATEGORIES:DEADLINE
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:DEADLINE: BCG Platinion Hackathon application (treat as real)
+TRIGGER:-PT10080M
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:DEADLINE: BCG Platinion Hackathon application (treat as real)
+TRIGGER:-PT1440M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:bcg-apply-stated@sonar.hackathons
+DTSTAMP:20260810T162943Z
+DTSTART;VALUE=DATE:20260913
+DTEND;VALUE=DATE:20260914
+SUMMARY:BCG Platinion — stated application deadline (backstop)
+DESCRIPTION:Body-text deadline. If you somehow missed 7 Sept\, this is the
+  last chance. https://www.bcgplatinion.com/hackathon
+CATEGORIES:DEADLINE
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:BCG Platinion — stated application deadline (backstop)
+TRIGGER:-PT1440M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:govtech@sonar.hackathons
+DTSTAMP:20260810T162943Z
+DTSTART;VALUE=DATE:20260917
+DTEND;VALUE=DATE:20260920
+SUMMARY:SITA GovTech 2026 Hackathon — Durban ICC or remote
+DESCRIPTION:17-19 Sept. ELIGIBILITY RISK: open to SMMEs in EME category re
+ gistered in SA\; teams of 3-5. Confirm before committing.\nT&Cs: https://
+ www.govtech.gov.za/wp-content/uploads/2026/07/GovTech-2026-Hackathon-Term
+ s-and-Condition.pdf
+CATEGORIES:EVENT
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:SITA GovTech 2026 Hackathon — Durban ICC or remote
+TRIGGER:-PT10080M
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:SITA GovTech 2026 Hackathon — Durban ICC or remote
+TRIGGER:-PT1440M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:shipaton-sprint-1@sonar.hackathons
+DTSTAMP:20260810T162943Z
+DTSTART;TZID=Africa/Johannesburg:20260905T090000
+DTEND;TZID=Africa/Johannesburg:20260906T170000
+SUMMARY:Shipaton build sprint — core app + RevenueCat SDK
+DESCRIPTION:Ship a NEW iOS or Android app to a real store with the Revenue
+ Cat SDK integrated. Nine prize categories\, $700\,000+ pool.\nPrep guide:
+  https://revenuecat.github.io/codelabs/shipaton-2026-prep.html
+CATEGORIES:PREP
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Shipaton build sprint — core app + RevenueCat SDK
+TRIGGER:-PT1440M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:shipaton-sprint-2@sonar.hackathons
+DTSTAMP:20260810T162943Z
+DTSTART;TZID=Africa/Johannesburg:20260912T090000
+DTEND;TZID=Africa/Johannesburg:20260913T170000
+SUMMARY:Shipaton build sprint — monetisation + polish
+CATEGORIES:PREP
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Shipaton build sprint — monetisation + polish
+TRIGGER:-PT1440M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:shipaton-store-submit@sonar.hackathons
+DTSTAMP:20260810T162943Z
+DTSTART;VALUE=DATE:20260916
+DTEND;VALUE=DATE:20260917
+SUMMARY:Shipaton: submit app to App Store / Play Store (review buffer)
+DESCRIPTION:CRITICAL BUFFER. Store review can take a week or more and reje
+ ctions happen. Submitting on 29 September is how teams lose this competit
+ ion.
+CATEGORIES:DEADLINE
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Shipaton: submit app to App Store / Play Store (review buffer)
+TRIGGER:-PT2880M
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Shipaton: submit app to App Store / Play Store (review buffer)
+TRIGGER:-PT1440M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:shipaton-deadline@sonar.hackathons
+DTSTAMP:20260810T162943Z
+DTSTART;VALUE=DATE:20260930
+DTEND;VALUE=DATE:20261001
+SUMMARY:DEADLINE: RevenueCat Shipaton 2026 ($700k+)
+DESCRIPTION:30 Sept 23:45 PDT = 1 Oct 08:45 SAST. App must be LIVE on a st
+ ore.\nhttps://revenuecat-shipaton-2026.devpost.com/
+CATEGORIES:DEADLINE
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:DEADLINE: RevenueCat Shipaton 2026 ($700k+)
+TRIGGER:-PT10080M
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:DEADLINE: RevenueCat Shipaton 2026 ($700k+)
+TRIGGER:-PT1440M
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:DEADLINE: RevenueCat Shipaton 2026 ($700k+)
+TRIGGER:-PT240M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ibmz-reg@sonar.hackathons
+DTSTAMP:20260810T162943Z
+DTSTART;VALUE=DATE:20261001
+DTEND;VALUE=DATE:20261002
+SUMMARY:DEADLINE: IBM Z Datathon 2026 registration
+DESCRIPTION:Register by 1 Oct midnight or you go on the waitlist. Individu
+ al registration first\, then team lead completes the team form.\nhttps://
+ www.starhacks.org/ibm-z-datathon-2026
+CATEGORIES:DEADLINE
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:DEADLINE: IBM Z Datathon 2026 registration
+TRIGGER:-PT4320M
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:DEADLINE: IBM Z Datathon 2026 registration
+TRIGGER:-PT1440M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:rsna-sprint@sonar.hackathons
+DTSTAMP:20260810T162943Z
+DTSTART;TZID=Africa/Johannesburg:20261003T090000
+DTEND;TZID=Africa/Johannesburg:20261004T170000
+SUMMARY:RSNA Kaggle sprint — reuse ADTC efficiency work
+DESCRIPTION:12 abnormalities on knee MRI. First RSNA challenge using both 
+ images AND radiology report text — 5\,000+ exams\, reports in 12 langua
+ ges\, 16 sites.\n2026 adds prizes for the MOST EFFICIENT MODELS — that'
+ s the ADTC skillset\, use it.\nhttps://www.kaggle.com/competitions/rsna-k
+ nee-abnormality-detection
+CATEGORIES:PREP
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:RSNA Kaggle sprint — reuse ADTC efficiency work
+TRIGGER:-PT1440M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:rsna-entry@sonar.hackathons
+DTSTAMP:20260810T162943Z
+DTSTART;VALUE=DATE:20261015
+DTEND;VALUE=DATE:20261016
+SUMMARY:DEADLINE: RSNA Knee Detection — entry / team merger
+DESCRIPTION:$77\,000 pool. Entry deadline 15 Oct\; final submissions 22 Oc
+ t.
+CATEGORIES:DEADLINE
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:DEADLINE: RSNA Knee Detection — entry / team merger
+TRIGGER:-PT4320M
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:DEADLINE: RSNA Knee Detection — entry / team merger
+TRIGGER:-PT1440M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:bcg-event@sonar.hackathons
+DTSTAMP:20260810T162943Z
+DTSTART;VALUE=DATE:20261016
+DTEND;VALUE=DATE:20261018
+SUMMARY:BCG Platinion Hackathon — Johannesburg (HIGHEST PRIORITY)
+DESCRIPTION:16-17 October\, Johannesburg hub. Arrival may be scheduled for
+  Thursday 15 Oct. Travel + accommodation covered. Both days mandatory.\nT
+ heme: fighting world hunger — food distribution logistics\, water acces
+ s\, smallholder farmers\, nutrition tracking\, malnutrition detection.\nC
+ LASHES with IBM Z Datathon (17-18 Oct). BCG wins.\nhttps://www.bcgplatini
+ on.com/hackathon
+CATEGORIES:EVENT
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:BCG Platinion Hackathon — Johannesburg (HIGHEST PRIORITY)
+TRIGGER:-PT10080M
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:BCG Platinion Hackathon — Johannesburg (HIGHEST PRIORITY)
+TRIGGER:-PT1440M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ibmz-event@sonar.hackathons
+DTSTAMP:20260810T162943Z
+DTSTART;VALUE=DATE:20261017
+DTEND;VALUE=DATE:20261019
+SUMMARY:IBM Z Datathon 2026 (clashes with BCG — only if BCG falls throug
+ h)
+DESCRIPTION:17-18 Oct\, virtual\, $30\,000+ prizes\, beginners welcome\, s
+ tudents. Backup only if the BCG application doesn't land.
+CATEGORIES:EVENT
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:IBM Z Datathon 2026 (clashes with BCG — only if BCG falls th
+ rough)
+TRIGGER:-PT1440M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:rsna-final@sonar.hackathons
+DTSTAMP:20260810T162943Z
+DTSTART;VALUE=DATE:20261022
+DTEND;VALUE=DATE:20261023
+SUMMARY:DEADLINE: RSNA Knee Detection — final submission
+CATEGORIES:DEADLINE
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:DEADLINE: RSNA Knee Detection — final submission
+TRIGGER:-PT1440M
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:DEADLINE: RSNA Knee Detection — final submission
+TRIGGER:-PT240M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:fnb-window@sonar.hackathons
+DTSTAMP:20260810T162943Z
+DTSTART;VALUE=DATE:20261023
+DTEND;VALUE=DATE:20261026
+SUMMARY:FNB App of the Year Hackathon — expected window (VERIFY DATE)
+DESCRIPTION:UNCONFIRMED — based on 2025 (24 Oct)\, 72-hour format\, 10\,
+ 000+ participants. Problem statements are ALREADY published: jobs & econo
+ mic resilience\, infrastructure & essential services\, inequality & socia
+ l cohesion\, climate resilience & food security\, public safety & GBV. Pr
+ e-build against them.\nhttps://appoftheyear.co.za/hackathon/
+CATEGORIES:EVENT
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:FNB App of the Year Hackathon — expected window (VERIFY DATE
+ )
+TRIGGER:-PT10080M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:techxchange@sonar.hackathons
+DTSTAMP:20260810T162943Z
+DTSTART;VALUE=DATE:20261026
+DTEND;VALUE=DATE:20261030
+SUMMARY:IBM TechXchange 2026\, Atlanta (only if we place top 50)
+DESCRIPTION:Placeholder. Top 50 IBM Dev Day teams get conference passes (t
+ ravel/lodging not included)\; 1st place gets travel.
+CATEGORIES:REWARD
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:nasa-spaceapps@sonar.hackathons
+DTSTAMP:20260810T162943Z
+DTSTART;VALUE=DATE:20261114
+DTEND;VALUE=DATE:20261116
+SUMMARY:NASA International Space Apps Challenge 2026
+DESCRIPTION:14-15 November (moved from its usual early-October slot). Free
+ \, global\, no cash prize. https://www.spaceappschallenge.org/
+CATEGORIES:EVENT
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:NASA International Space Apps Challenge 2026
+TRIGGER:-PT10080M
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:NASA International Space Apps Challenge 2026
+TRIGGER:-PT1440M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:unesco-festival@sonar.hackathons
+DTSTAMP:20260810T162943Z
+DTSTART;VALUE=DATE:20261126
+DTEND;VALUE=DATE:20261129
+SUMMARY:UNESCO Voices Festival\, Thessaloniki (only if we win)
+DESCRIPTION:Placeholder — winning UNESCO Youth Hackathon teams are flown
+  to the Voices European Festival of Journalism and Media Freedom\, 26-28 
+ Nov.
+CATEGORIES:REWARD
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:rsna-annual@sonar.hackathons
+DTSTAMP:20260810T162943Z
+DTSTART;VALUE=DATE:20261129
+DTEND;VALUE=DATE:20261204
+SUMMARY:RSNA 2026 Annual Meeting\, Chicago (winners recognised)
+DESCRIPTION:Placeholder — winners recognised in the AI Theater at McCorm
+ ick Place\, 29 Nov - 3 Dec.
+CATEGORIES:REWARD
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:sonar-2027-planning@sonar.hackathons
+DTSTAMP:20260810T162943Z
+DTSTART;TZID=Africa/Johannesburg:20261214T090000
+DTEND;TZID=Africa/Johannesburg:20261214T120000
+SUMMARY:SONAR: full-year retro + build the 2027 board
+DESCRIPTION:Retro on every entry. Then diarise the 2027 cycle now:\n- ITWe
+ b Security Summit Hackathon — registration ~Feb\, event ~June\n- MICT S
+ ETA National Skills Challenge — ~March\n- Entelect University Cup — ~
+ April\n- Monkey and River Hackathon — ~July\n- Mintek-SCi Grad Hackatho
+ n — applications ~15 July\n- Geekulcha Annual — ~Sept/Oct\n- Huawei I
+ CT Competition — registration ~Sept
+CATEGORIES:REVIEW
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:SONAR: full-year retro + build the 2027 board
+TRIGGER:-PT10080M
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:SONAR: full-year retro + build the 2027 board
+TRIGGER:-PT1440M
+END:VALARM
+END:VEVENT
+END:VCALENDAR

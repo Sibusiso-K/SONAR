@@ -1,0 +1,78 @@
+{
+  "meta": {
+    "timezone": "Africa/Johannesburg",
+    "generated": "2026-08-10",
+    "note": "Source for calendar/sonar-2026.ics. Regenerate with: python3 scripts/sonar.py ics",
+    "kinds": {
+      "deadline": "Hard cutoff. Missing it ends the entry.",
+      "event": "The hackathon itself.",
+      "prep": "Work block we scheduled for ourselves.",
+      "admin": "Registration, forms, emails, verification.",
+      "review": "Recurring board review.",
+      "reward": "Only happens if we win — placeholder."
+    }
+  },
+  "events": [
+    { "id": "sonar-weekly-review", "kind": "review", "summary": "SONAR board review", "start": "2026-08-10T08:00", "end": "2026-08-10T08:30", "rrule": "FREQ=WEEKLY;BYDAY=MO;UNTIL=20261228T060000Z", "reminders": [10], "description": "Run: python3 scripts/sonar.py next. Check monitoring sources in data/hackathons.json (Devpost, Zindi, Kaggle, Geekulcha, dev.events, FNB, Mintek, MTN). Log anything new into hackathons.json and score it." },
+
+    { "id": "adtc-kickoff", "kind": "prep", "summary": "ADTC kickoff — register, clone, GPU credits, pick domain", "start": "2026-08-10T18:00", "end": "2026-08-10T21:00", "reminders": [60], "description": "1. Register on Devpost: https://adtc-2026.devpost.com/\n2. Clone submission template: https://github.com/Africa-Deep-Tech-Foundation/adtc-2026-submission-template\n3. Clone profiler: https://github.com/Africa-Deep-Tech-Foundation/adtc-profiler\n4. Apply for GPU credits: https://aghcloud.ai/p/3850810a-8f62-474c-b448-e204d026b189\n5. Pick ONE domain (recommend Agriculture or Healthcare — Best African Use Case prize is $1,500)\n6. Run the profiler on your actual laptop to get a baseline." },
+
+    { "id": "sonar-admin-block", "kind": "admin", "summary": "SONAR admin — BCG, MoMo, IBM Bob, Mintek, GovTech", "start": "2026-08-11T18:00", "end": "2026-08-11T20:00", "reminders": [60], "description": "1. BCG Platinion application (CV + motivation letter) — apply individually, both of you: https://bcg.eightfold.ai/events/candidate/landing?plannedEventId=33rM9beDD\n2. Fill the MTN MoMo Mini App registration form + register on https://momodeveloper.mtn.com/ for sandbox keys.\n3. Request free IBM Bob trial: https://bob.ibm.com/trial\n4. PHONE MINTEK — confirm whether the 2026 Grad Hackathon has closed. https://mintek.co.za/media/news/\n5. Read GovTech T&Cs and decide in/out: https://www.govtech.gov.za/wp-content/uploads/2026/07/GovTech-2026-Hackathon-Terms-and-Condition.pdf" },
+
+    { "id": "unesco-work", "kind": "prep", "summary": "UNESCO Youth Hackathon submission — one evening, then done", "start": "2026-08-13T18:00", "end": "2026-08-13T21:00", "reminders": [120], "description": "Theme: 'Play Your Part: Youth Designing the Future of Media and Information Literacy'. Concept/project submission, not code. Brief: https://www.unesco.org/en/articles/unesco-youth-hackathon-2026\nDeadline is 16 Aug 23:59 Paris = 23:59 SAST. Submit tonight, don't leave it to Sunday." },
+
+    { "id": "unesco-deadline", "kind": "deadline", "summary": "DEADLINE: UNESCO Youth Hackathon 2026", "start": "2026-08-16", "all_day": true, "reminders": [1440, 120], "description": "23:59 Paris time = 23:59 SAST. https://www.unesco.org/en/articles/unesco-youth-hackathon-2026" },
+
+    { "id": "adtc-sprint-1", "kind": "prep", "summary": "ADTC build sprint 1 — model selection + quantisation", "start": "2026-08-15T09:00", "end": "2026-08-16T17:00", "reminders": [1440], "description": "Target: a candidate model running under 7GB peak RAM at >15 tok/s on the ADTC Standard Laptop profile (i5 10-12th gen / Ryzen 5 3000-5000, 8GB DDR4, integrated graphics, Ubuntu 22.04).\nRemember the score: 50% accuracy, 30% throughput, 20% efficiency, -10 if you throttle above 85C. OOM = disqualification." },
+
+    { "id": "adtc-freeze", "kind": "prep", "summary": "ADTC feature freeze + full benchmark run", "start": "2026-08-20T18:00", "end": "2026-08-20T21:00", "reminders": [60], "description": "No new features after tonight. Run the official profiler end-to-end. Record latency, throughput, peak RAM, CPU and thermals. If it OOMs on 8GB you have three days to fix it — that's the point of freezing now." },
+
+    { "id": "adtc-sprint-2", "kind": "prep", "summary": "ADTC build sprint 2 — report, benchmarks, 2-min video", "start": "2026-08-22T09:00", "end": "2026-08-23T17:00", "reminders": [1440], "description": "Deliverables: open-source repo on the ADTC template; report covering problem definition, constraints, design alternatives, tools and why, performance tests, screenshots; video max 2 minutes.\nThe report is worth real marks — do not treat it as an afterthought." },
+
+    { "id": "adtc-submit", "kind": "deadline", "summary": "SUBMIT: Africa Deep Tech Challenge ($16,500)", "start": "2026-08-24", "all_day": true, "reminders": [1440, 240], "description": "Hard deadline: 24 Aug 23:45 PDT = 25 Aug 08:45 SAST. SUBMIT ON THE 24TH, not in the small hours of the 25th.\nhttps://adtc-2026.devpost.com/" },
+
+    { "id": "ibm-bob-prep", "kind": "prep", "summary": "IBM Bob prep — trial working, workflow problem chosen", "start": "2026-08-26T18:00", "end": "2026-08-26T20:00", "reminders": [60], "description": "Bob 2.0 trial installed and running. Pick ONE developer workflow to improve: onboarding onto a legacy codebase, debugging, code review, testing, maintenance, or release/deploy. Have a real or sample project ready. Judges want Agent mode, parallel tasks, subagents, document understanding — not autocomplete." },
+
+    { "id": "ibm-devday", "kind": "event", "summary": "IBM Dev Day: Bob in Action — enablement + tracks", "start": "2026-08-27T16:00", "end": "2026-08-27T20:30", "reminders": [1440, 30], "description": "10:00-11:00 ET enablement session = 16:00-17:00 SAST. Kick-off tracks 11:00 ET = 17:00 SAST (IBM Z modernization / AI-powered dev for IBM i).\nRegister: https://ibmdevday-bob-platform.bemyapp.com/#/register" },
+
+    { "id": "ibm-hackathon", "kind": "event", "summary": "IBM Dev Day Hackathon (Bob 2.0) — top 50 teams win TechXchange passes", "start": "2026-08-28", "end": "2026-08-31", "all_day": true, "reminders": [1440], "description": "28-30 August. Grand prize up to $2,000 + travel to IBM TechXchange 2026, Atlanta, 26-29 Oct. Top 50 qualified submissions get a conference pass per team member.\nBest odds-to-reward on the board — small, enterprise-skewed field.\nhttps://ibmdevday-bob.bemyapp.com/" },
+
+    { "id": "bcg-apply-real", "kind": "deadline", "summary": "DEADLINE: BCG Platinion Hackathon application (treat as real)", "start": "2026-09-07", "all_day": true, "reminders": [10080, 1440], "description": "Landing-page banner says 7 Sept; body text says 13 Sept. Assume 7 Sept.\nAPPLY INDIVIDUALLY — Sibusiso and Lethabo each submit separately. Teams form on-site.\nSA link: https://bcg.eightfold.ai/events/candidate/landing?plannedEventId=33rM9beDD" },
+
+    { "id": "bcg-apply-stated", "kind": "deadline", "summary": "BCG Platinion — stated application deadline (backstop)", "start": "2026-09-13", "all_day": true, "reminders": [1440], "description": "Body-text deadline. If you somehow missed 7 Sept, this is the last chance. https://www.bcgplatinion.com/hackathon" },
+
+    { "id": "govtech", "kind": "event", "summary": "SITA GovTech 2026 Hackathon — Durban ICC or remote", "start": "2026-09-17", "end": "2026-09-20", "all_day": true, "reminders": [10080, 1440], "description": "17-19 Sept. ELIGIBILITY RISK: open to SMMEs in EME category registered in SA; teams of 3-5. Confirm before committing.\nT&Cs: https://www.govtech.gov.za/wp-content/uploads/2026/07/GovTech-2026-Hackathon-Terms-and-Condition.pdf" },
+
+    { "id": "shipaton-sprint-1", "kind": "prep", "summary": "Shipaton build sprint — core app + RevenueCat SDK", "start": "2026-09-05T09:00", "end": "2026-09-06T17:00", "reminders": [1440], "description": "Ship a NEW iOS or Android app to a real store with the RevenueCat SDK integrated. Nine prize categories, $700,000+ pool.\nPrep guide: https://revenuecat.github.io/codelabs/shipaton-2026-prep.html" },
+
+    { "id": "shipaton-sprint-2", "kind": "prep", "summary": "Shipaton build sprint — monetisation + polish", "start": "2026-09-12T09:00", "end": "2026-09-13T17:00", "reminders": [1440] },
+
+    { "id": "shipaton-store-submit", "kind": "deadline", "summary": "Shipaton: submit app to App Store / Play Store (review buffer)", "start": "2026-09-16", "all_day": true, "reminders": [2880, 1440], "description": "CRITICAL BUFFER. Store review can take a week or more and rejections happen. Submitting on 29 September is how teams lose this competition." },
+
+    { "id": "shipaton-deadline", "kind": "deadline", "summary": "DEADLINE: RevenueCat Shipaton 2026 ($700k+)", "start": "2026-09-30", "all_day": true, "reminders": [10080, 1440, 240], "description": "30 Sept 23:45 PDT = 1 Oct 08:45 SAST. App must be LIVE on a store.\nhttps://revenuecat-shipaton-2026.devpost.com/" },
+
+    { "id": "ibmz-reg", "kind": "deadline", "summary": "DEADLINE: IBM Z Datathon 2026 registration", "start": "2026-10-01", "all_day": true, "reminders": [4320, 1440], "description": "Register by 1 Oct midnight or you go on the waitlist. Individual registration first, then team lead completes the team form.\nhttps://www.starhacks.org/ibm-z-datathon-2026" },
+
+    { "id": "rsna-sprint", "kind": "prep", "summary": "RSNA Kaggle sprint — reuse ADTC efficiency work", "start": "2026-10-03T09:00", "end": "2026-10-04T17:00", "reminders": [1440], "description": "12 abnormalities on knee MRI. First RSNA challenge using both images AND radiology report text — 5,000+ exams, reports in 12 languages, 16 sites.\n2026 adds prizes for the MOST EFFICIENT MODELS — that's the ADTC skillset, use it.\nhttps://www.kaggle.com/competitions/rsna-knee-abnormality-detection" },
+
+    { "id": "rsna-entry", "kind": "deadline", "summary": "DEADLINE: RSNA Knee Detection — entry / team merger", "start": "2026-10-15", "all_day": true, "reminders": [4320, 1440], "description": "$77,000 pool. Entry deadline 15 Oct; final submissions 22 Oct." },
+
+    { "id": "bcg-event", "kind": "event", "summary": "BCG Platinion Hackathon — Johannesburg (HIGHEST PRIORITY)", "start": "2026-10-16", "end": "2026-10-18", "all_day": true, "reminders": [10080, 1440], "description": "16-17 October, Johannesburg hub. Arrival may be scheduled for Thursday 15 Oct. Travel + accommodation covered. Both days mandatory.\nTheme: fighting world hunger — food distribution logistics, water access, smallholder farmers, nutrition tracking, malnutrition detection.\nCLASHES with IBM Z Datathon (17-18 Oct). BCG wins.\nhttps://www.bcgplatinion.com/hackathon" },
+
+    { "id": "ibmz-event", "kind": "event", "summary": "IBM Z Datathon 2026 (clashes with BCG — only if BCG falls through)", "start": "2026-10-17", "end": "2026-10-19", "all_day": true, "reminders": [1440], "description": "17-18 Oct, virtual, $30,000+ prizes, beginners welcome, students. Backup only if the BCG application doesn't land." },
+
+    { "id": "rsna-final", "kind": "deadline", "summary": "DEADLINE: RSNA Knee Detection — final submission", "start": "2026-10-22", "all_day": true, "reminders": [1440, 240] },
+
+    { "id": "fnb-window", "kind": "event", "summary": "FNB App of the Year Hackathon — expected window (VERIFY DATE)", "start": "2026-10-23", "end": "2026-10-26", "all_day": true, "reminders": [10080], "description": "UNCONFIRMED — based on 2025 (24 Oct), 72-hour format, 10,000+ participants. Problem statements are ALREADY published: jobs & economic resilience, infrastructure & essential services, inequality & social cohesion, climate resilience & food security, public safety & GBV. Pre-build against them.\nhttps://appoftheyear.co.za/hackathon/" },
+
+    { "id": "techxchange", "kind": "reward", "summary": "IBM TechXchange 2026, Atlanta (only if we place top 50)", "start": "2026-10-26", "end": "2026-10-30", "all_day": true, "reminders": [], "description": "Placeholder. Top 50 IBM Dev Day teams get conference passes (travel/lodging not included); 1st place gets travel." },
+
+    { "id": "nasa-spaceapps", "kind": "event", "summary": "NASA International Space Apps Challenge 2026", "start": "2026-11-14", "end": "2026-11-16", "all_day": true, "reminders": [10080, 1440], "description": "14-15 November (moved from its usual early-October slot). Free, global, no cash prize. https://www.spaceappschallenge.org/" },
+
+    { "id": "unesco-festival", "kind": "reward", "summary": "UNESCO Voices Festival, Thessaloniki (only if we win)", "start": "2026-11-26", "end": "2026-11-29", "all_day": true, "reminders": [], "description": "Placeholder — winning UNESCO Youth Hackathon teams are flown to the Voices European Festival of Journalism and Media Freedom, 26-28 Nov." },
+
+    { "id": "rsna-annual", "kind": "reward", "summary": "RSNA 2026 Annual Meeting, Chicago (winners recognised)", "start": "2026-11-29", "end": "2026-12-04", "all_day": true, "reminders": [], "description": "Placeholder — winners recognised in the AI Theater at McCormick Place, 29 Nov - 3 Dec." },
+
+    { "id": "sonar-2027-planning", "kind": "review", "summary": "SONAR: full-year retro + build the 2027 board", "start": "2026-12-14T09:00", "end": "2026-12-14T12:00", "reminders": [10080, 1440], "description": "Retro on every entry. Then diarise the 2027 cycle now:\n- ITWeb Security Summit Hackathon — registration ~Feb, event ~June\n- MICT SETA National Skills Challenge — ~March\n- Entelect University Cup — ~April\n- Monkey and River Hackathon — ~July\n- Mintek-SCi Grad Hackathon — applications ~15 July\n- Geekulcha Annual — ~Sept/Oct\n- Huawei ICT Competition — registration ~Sept" }
+  ]
+}
