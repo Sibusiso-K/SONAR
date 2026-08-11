@@ -190,11 +190,62 @@ export function EventGlobe({ opportunities }: { opportunities: Opportunity[] }) 
   }, [opportunities]);
 
   useEffect(() => {
-    const controls = globeRef.current?.controls();
-    if (controls) {
+    const el = containerRef.current;
+    if (!el) return;
+
+    // globeRef.current.controls() is undefined until the WebGL scene has
+    // actually initialized, which happens asynchronously after mount —
+    // reading it once, synchronously, when this effect first runs (right
+    // after Globe finishes loading) is too early and silently no-ops.
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const getControls = () => globeRef.current?.controls() as any;
+
+    let cancelled = false;
+    const initControls = () => {
+      const controls = getControls();
+      if (!controls) {
+        if (!cancelled) requestAnimationFrame(initControls);
+        return;
+      }
       controls.autoRotate = true;
       controls.autoRotateSpeed = 0.4;
-    }
+      // Globe.gl's globe radius is 100 units — minDistance just above
+      // that lets you zoom in close to a single pin; the default range
+      // was too narrow to feel like it was zooming at all.
+      controls.minDistance = 110;
+      controls.maxDistance = 1000;
+      controls.zoomSpeed = 1.3;
+      controls.enableZoom = true;
+    };
+    initControls();
+
+    // Pins are DOM elements repositioned every animation frame while the
+    // globe auto-rotates, so a pin can drift out from under the cursor
+    // between mousedown and mouseup — the click lands on empty space, not
+    // the pin. Stop auto-rotating the moment the user touches the globe.
+    // Resolved fresh on every call (not the closed-over `controls` from
+    // initControls) so this works even if it fires before init settles.
+    const stopAutoRotate = () => {
+      const controls = getControls();
+      if (controls) controls.autoRotate = false;
+    };
+    // The container sits in a normal scrollable page. A wheel event over
+    // the globe bubbles up and scrolls the *page* at the same time
+    // OrbitControls tries to zoom, so most of the scroll "leaks" away and
+    // zooming barely does anything. preventDefault stops the page scroll
+    // so the whole gesture goes to the globe — must be a non-passive
+    // listener, since preventDefault is a no-op on a passive one.
+    const trapWheel = (e: WheelEvent) => {
+      e.preventDefault();
+      stopAutoRotate();
+    };
+    el.addEventListener("pointerdown", stopAutoRotate);
+    el.addEventListener("wheel", trapWheel, { passive: false });
+    return () => {
+      cancelled = true;
+      el.removeEventListener("pointerdown", stopAutoRotate);
+      el.removeEventListener("wheel", trapWheel);
+    };
   }, [Globe]);
 
   return (
