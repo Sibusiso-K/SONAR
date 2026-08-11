@@ -435,3 +435,92 @@ footer.ft {
 }
 footer.ft a { color: var(--muted); }
 footer.ft a:hover { color: var(--brand); }
+
+/* ============================================================
+   LANDING (/about)
+   Scope note: taste-skill explicitly excludes dashboards. The board
+   stays an instrument; this page is the one surface that gets the
+   editorial treatment. Motion deliberately low — a page arguing
+   "we don't invent facts" should not show off.
+   ============================================================ */
+
+.lp { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+
+.lp-hero { padding: 74px 0 56px; border-bottom: 1px solid var(--rule); }
+.lp-eyebrow {
+  font-family: var(--mono); font-size: 11.5px; letter-spacing: .13em;
+  text-transform: uppercase; color: var(--brand); font-weight: 600; margin-bottom: 22px;
+}
+.lp-h1 {
+  font-size: clamp(38px, 6.4vw, 74px); line-height: .99; letter-spacing: -.042em;
+  font-weight: 680; margin: 0 0 26px; max-width: 17ch; text-wrap: balance;
+}
+.lp-h1 em { font-style: normal; color: var(--brand); }
+.lp-sub { font-size: clamp(17px, 2vw, 20px); line-height: 1.5; color: var(--text-2); max-width: 54ch; margin: 0; }
+
+/* the live data strip — this is the hero's real content */
+.lp-strip {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  border: 1px solid var(--rule); border-radius: var(--radius);
+  background: var(--surface); margin-top: 42px; overflow: hidden;
+}
+.lp-strip > div { padding: 18px 20px; border-right: 1px solid var(--rule); }
+.lp-strip > div:last-child { border-right: 0; }
+.lp-strip .k { font-size: 10.5px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); font-weight: 650; }
+.lp-strip .v {
+  font-family: var(--mono); font-size: 30px; font-weight: 600; letter-spacing: -.035em;
+  font-variant-numeric: tabular-nums; line-height: 1.05; margin: 7px 0 2px;
+}
+.lp-strip .m { font-size: 12.5px; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+@media (max-width: 700px) {
+  .lp-strip > div { border-right: 0; border-bottom: 1px solid var(--rule); }
+  .lp-strip > div:last-child { border-bottom: 0; }
+}
+
+/* asymmetric section — deliberately not three equal cards */
+.lp-sec { padding: 66px 0; border-bottom: 1px solid var(--rule); }
+.lp-split { display: grid; grid-template-columns: minmax(0,1fr); gap: 34px; }
+@media (min-width: 900px) { .lp-split { grid-template-columns: 0.82fr 1.18fr; gap: 76px; } }
+.lp-label {
+  font-family: var(--mono); font-size: 11px; letter-spacing: .11em; text-transform: uppercase;
+  color: var(--muted); font-weight: 600; padding-top: 7px;
+}
+.lp-h2 { font-size: clamp(25px, 3.1vw, 35px); line-height: 1.11; letter-spacing: -.03em; font-weight: 670; margin: 0 0 18px; text-wrap: balance; }
+.lp-body { font-size: 16.5px; line-height: 1.66; color: var(--text-2); max-width: 62ch; }
+.lp-body p { margin: 0 0 15px; }
+.lp-body p:last-child { margin-bottom: 0; }
+.lp-body strong { color: var(--text); font-weight: 620; }
+
+/* the failure story — a real quote, set like one */
+.lp-quote {
+  border-left: 2px solid var(--critical); padding: 4px 0 4px 22px; margin: 26px 0;
+  font-size: 18px; line-height: 1.5; color: var(--text); max-width: 46ch;
+}
+.lp-quote cite { display: block; font-style: normal; font-size: 13px; color: var(--muted); margin-top: 11px; font-family: var(--mono); }
+
+/* the verification demo */
+.lp-demo { border: 1px solid var(--rule); border-radius: var(--radius); overflow: hidden; background: var(--surface); margin-top: 8px; }
+.lp-demo-row { display: grid; grid-template-columns: 108px minmax(0,1fr); gap: 0; border-bottom: 1px solid var(--rule); font-size: 13.5px; }
+.lp-demo-row:last-child { border-bottom: 0; }
+.lp-demo-row dt { padding: 12px 16px; color: var(--muted); font-family: var(--mono); font-size: 11.5px; text-transform: uppercase; letter-spacing: .06em; background: var(--bg-sunk); }
+.lp-demo-row dd { padding: 12px 16px; margin: 0; overflow-wrap: anywhere; }
+.lp-demo-row dd.mono { font-family: var(--mono); font-size: 12.5px; }
+.lp-verdict { display: flex; align-items: center; gap: 9px; padding: 13px 16px; background: var(--stable-soft); color: var(--stable); font-weight: 600; font-size: 13.5px; }
+.lp-verdict.no { background: var(--critical-soft); color: var(--critical); }
+
+.lp-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 1px; background: var(--rule); border: 1px solid var(--rule); border-radius: var(--radius); overflow: hidden; }
+.lp-list li { background: var(--surface); padding: 15px 18px; display: grid; grid-template-columns: 26px minmax(0,1fr); gap: 14px; align-items: baseline; }
+.lp-list .n { font-family: var(--mono); font-size: 11.5px; color: var(--brand); font-weight: 600; }
+.lp-list .t { font-weight: 590; font-size: 14.5px; margin-bottom: 3px; letter-spacing: -.008em; }
+.lp-list .d { font-size: 13.5px; color: var(--muted); line-height: 1.55; }
+
+.lp-cta { padding: 66px 0 88px; display: flex; gap: 13px; flex-wrap: wrap; align-items: center; }
+.lp-btn {
+  display: inline-flex; align-items: center; gap: 8px; padding: 12px 22px;
+  border-radius: var(--radius); font-weight: 600; font-size: 15px;
+  background: var(--brand); color: var(--brand-ink);
+  transition: background .14s ease;
+}
+.lp-btn:hover { background: var(--brand-hover); }
+.lp-btn.ghost { background: transparent; color: var(--text); border: 1px solid var(--rule-strong); }
+.lp-btn.ghost:hover { background: var(--surface-hover); border-color: var(--muted); }

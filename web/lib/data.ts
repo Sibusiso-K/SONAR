@@ -116,12 +116,20 @@ export const CONFIDENCE_LABEL: Record<Confidence, string> = {
 
 /* ------------------------------------------------------------------ money */
 
+/* Plain string math, not Intl/toLocaleString: ICU data for "en-ZA" thousands
+   grouping is not guaranteed identical between the Node build and the
+   browser hydrating it, which was silently causing a React #418 hydration
+   mismatch on every row with a priced prize pool. */
+function groupThousands(n: number): string {
+  return Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+}
+
 export function formatPrize(o: Opportunity): string {
   const p = o.prize;
   if (!p) return "—";
   if (typeof p.pool === "number" && p.pool > 0) {
     const cur = p.currency ?? "";
-    return `${cur} ${p.pool.toLocaleString("en-ZA")}`.trim();
+    return `${cur} ${groupThousands(p.pool)}`.trim();
   }
   if (p.non_cash) return "Non-cash";
   return "TBA";

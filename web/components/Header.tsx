@@ -81,6 +81,9 @@ export function Header({
           <Link href="/updates/" className="tab" data-active={isActive("/updates")}>
             Updates
           </Link>
+          <Link href="/about/" className="tab" data-active={isActive("/about")}>
+            About
+          </Link>
         </nav>
 
         {next && (
