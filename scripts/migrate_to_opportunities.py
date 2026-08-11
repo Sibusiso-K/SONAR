@@ -14,7 +14,7 @@ scripts/sonar.py keeps working against hackathons.json until it's retired.
 
 import json
 import os
-from datetime import date, datetime
+from datetime import date, datetime, timezone
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC = os.path.join(ROOT, "data", "hackathons.json")
@@ -150,7 +150,7 @@ def main():
         "$schema": "../schema/hackathon.schema.json",
         "meta": {
             **src["meta"],
-            "generated": datetime.utcnow().isoformat(timespec="seconds") + "Z",
+            "generated": datetime.now(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z"),
             "generator": "scripts/migrate_to_opportunities.py",
             "kinds": {
                 "hackathon": "Build something in a fixed window",

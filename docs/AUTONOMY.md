@@ -11,9 +11,9 @@ Written 10 August 2026. This is a design document, not a build. Nothing here is 
 Both are live board items. Fix these before reading the rest.
 
 **1. Discovery Gradhack 2026 already happened — 7 August 2026, at Discovery Place, Sandton.**
-The README lists it as a "loose end: find the dates, score it, add it." That window closed three days ago. Format was 50 IT students from SA universities, teams of 2–4, free entry, R12 500 per winning team member, and a permanent-employment track at Discovery. The empty Google Calendar named *"Discovery Gradhack -Team Sonar- 2026"* was the only warning, and nothing was watching it.
+The README lists it as a "loose end: find the dates, score it, add it." That window closed three days ago. Format was 50 IT students from SA universities, teams of 2–4, free entry, R12 500 per winning team member, and a permanent-employment track at Discovery. The empty Google Calendar named *"Discovery Gradhack -Team Sonar- 2026"* was the only warning, and nothing was watching it early.
 
-This is the exact failure v2 exists to prevent: a known-about, high-career-value, local event with an unresolved date, lost to nobody re-checking. Move it to `dropped_or_past` with reason `missed — date never verified`, and log it in the first retro. Discovery runs this annually; set a predicted-window watch for ~August 2027 (see §7.4).
+**Correction, logged 11 Aug 2026:** this was originally recorded here as missed entirely. It wasn't — the team made the deadline and competed, placing Top 6 (`data/hackathons.json`, `dropped_or_past`). The underlying failure this section exists to describe still happened — discovery was late, and the only warning was an empty calendar nobody filled in — but the outcome was good, not lost. Move it to `dropped_or_past` with a `result` of `"Top 6"`, not a missed reason, and log it in the first retro. Discovery runs this annually; set a predicted-window watch for ~August 2027 (see §7.4).
 
 **2. ADTC — the prize conflict is settled; a possible second stage is not.**
 

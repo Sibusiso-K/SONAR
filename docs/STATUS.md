@@ -6,11 +6,22 @@ repo as it exists right now, not from memory.
 
 ## What's live today
 
-A static Next.js site (`web/`), rebuilt from `data/*.json`, hosted free on
-Vercel. Four pages: Board, Radar, Updates, About. No server, no database in
-the loop for the site itself — the repo is the database. Design system,
-data model, verification-confidence machine and forecasting math are all
-documented in `docs/AUTONOMY.md` and `docs/DATA.md`.
+`web/` is now the sonar-radar app (TanStack Start + Supabase), not the old
+static Next.js export — replaced 2026-08-11. It's the more complete Lovable
+rebuild `docs/LOVABLE_PROMPT.md` specced: four routes (Board, Radar, Stats,
+Updates), a shared no-login watchlist, and an AI assistant, backed by its
+own live Supabase project. Design system, data model, verification-confidence
+machine and forecasting math for the *board content* are still documented in
+`docs/AUTONOMY.md` and `docs/DATA.md` — those apply to what data means, not
+which frontend renders it.
+
+`scripts/sync_radar.py push` makes that Supabase project's `opportunities`
+and `past_opportunities` tables match `data/opportunities.json` exactly,
+deleting anything not in the JSON. It's wired into
+`.github/workflows/refresh-board.yml`, gated on the `RADAR_SUPABASE_URL` /
+`RADAR_SUPABASE_SERVICE_KEY` repo secrets (see Pending below) — until those
+are set, the workflow no-ops that step and the live site keeps whatever it
+last had.
 
 **Fixed this pass:**
 - The pre-existing React hydration error (#418) on `/` and `/radar` is
@@ -29,34 +40,20 @@ documented in `docs/AUTONOMY.md` and `docs/DATA.md`.
   manifest/icons) — kept all of it, it's good work and matches the
   "professional, not generic" bar. No conflicts, build verified clean.
 
-## Decision needed before more UI work: which app are we building?
+## Decision made: sonar-radar is the app
 
-`docs/LOVABLE_PROMPT.md` (Sbu, today) specs a *second, different*
-application — a Supabase-backed dynamic dashboard rebuilt in Lovable, with
-login-free shared watchlists, a `/stats` analytics view (win-probability,
-expected value, collision forecasting), and an in-app AI assistant over a
-free Hugging Face model. That is a legitimate, well-thought-out direction,
-but it is **architecturally a different app** from the static-export site
-above — dynamic Postgres reads instead of a build-time JSON snapshot,
-a live edge function instead of nothing running server-side.
+The "which app are we building" fork is resolved — sonar-radar (the Lovable
+rebuild from `docs/LOVABLE_PROMPT.md`) replaced the static Next.js site in
+`web/` on 2026-08-11. It already has `/stats`, the shared watchlist, and the
+AI assistant that were the whole reason to consider it. The static-export
+code is gone from this repo (still recoverable from git history before that
+commit if needed).
 
-Both can't be "the" site. Before either of us puts more hours into UI:
-- **If Lovable is the future**: the static site's job shrinks to being the
-  read-only public mirror / cheap fallback, and the real work moves to the
-  Supabase schema (already drafted in `supabase/migrations/0001_init.sql`,
-  not yet applied — see below) plus whatever Lovable generates.
-  `watchlist` becomes a real shared table instead of per-browser
-  `localStorage`, which also directly fixes the "watching only works on
-  one person's laptop" limitation called out in the prompt.
-- **If the static site stays primary**: the `/stats` ideas (win-probability
-  ranking, expected-value sort, deadline-collision warnings,
-  discovery-lag tracking) are all still worth having — they can be built as
-  a plain `/stats` route reading the same `data/*.json`, no Supabase or
-  Lovable required, just more derived fields in `lib/data.ts`.
-
-Recommendation: don't fork effort into both. Pick one this week — everything
-in the pending list below assumes we keep going on the current static site
-until that call is made, since it's the one that's actually live.
+What this did *not* automatically fix: sonar-radar has its own Supabase
+project, separate from `supabase/migrations/0001_init.sql` (still unapplied,
+still the "everything ever seen" discovery-pipeline schema — a different,
+larger initiative, not this one). `scripts/sync_radar.py` now bridges
+`data/opportunities.json` into sonar-radar's tables — see above.
 
 ## Pending — integrations that exist on paper but aren't verified live
 
@@ -80,7 +77,15 @@ until that call is made, since it's the one that's actually live.
   `VERCEL_DEPLOY_HOOK` and (optionally) Supabase creds as repo secrets.
   Unconfirmed whether these are set — if not, the daily scheduled job
   will run the data-regeneration half fine but silently no-op the deploy
-  trigger.
+  trigger. `VERCEL_DEPLOY_HOOK` also needs re-checking against whatever
+  sonar-radar actually deploys to now (its Nitro config defaults to a
+  Cloudflare Workers target, not Vercel) — not yet verified.
+- **`RADAR_SUPABASE_URL` / `RADAR_SUPABASE_SERVICE_KEY`** (new): needed for
+  `scripts/sync_radar.py` to push the real board into sonar-radar's
+  Supabase project. sonar-radar's own dashboard → Project Settings → API
+  → service_role key. Without these set, the daily job silently skips the
+  sync and the live site keeps showing whatever it last had — currently
+  still the Lovable-seeded placeholder data until this runs once.
 
 ## Pending — the actual autonomy (the original ask)
 

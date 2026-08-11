@@ -17,7 +17,14 @@ import json
 import os
 import re
 import sys
-from datetime import date, datetime, timedelta
+from datetime import date, datetime, timedelta, timezone
+
+# Board text uses non-ASCII punctuation (—, ·, →). On Windows, stdout defaults
+# to the console codepage (cp1252), which can't encode "→" and crashes with
+# UnicodeEncodeError. Force UTF-8 so the CLI works the same on every platform.
+for _stream in (sys.stdout, sys.stderr):
+    if hasattr(_stream, "reconfigure"):
+        _stream.reconfigure(encoding="utf-8")
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 HACKATHONS = os.path.join(ROOT, "data", "hackathons.json")
@@ -224,7 +231,7 @@ END:VTIMEZONE"""
 def cmd_ics(args):
     data = load(CAL_EVENTS)
     tz = data["meta"]["timezone"]
-    stamp = datetime.utcnow().strftime("%Y%m%dT%H%M%SZ")
+    stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
 
     lines = [
         "BEGIN:VCALENDAR", "VERSION:2.0",
