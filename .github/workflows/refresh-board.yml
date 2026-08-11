@@ -1,11 +1,11 @@
 name: Refresh board
 
-# The site is a static export: every countdown ("14d") is computed at BUILD
-# time, not in the browser. Without a scheduled rebuild the numbers freeze on
-# the day of the last push and quietly go wrong — which is exactly the failure
-# mode SONAR exists to prevent.
-#
-# So: rebuild every morning before the 08:00 SAST board review.
+# sonar-radar (web/) reads live from its own Supabase project, so countdowns
+# render fresh on every page load - this workflow isn't keeping numbers from
+# going stale on a static build. Its job now is upstream of that: keep
+# data/opportunities.json (the human-reviewed source of truth) in sync with
+# the SONAR discovery-pipeline Supabase project, then push that same data
+# into sonar-radar's project so the live site actually reflects it.
 #
 # Two jobs, deliberately separate:
 #   regenerate — recompute derived fields, commit only if something changed
@@ -44,11 +44,12 @@ jobs:
         with:
           python-version: "3.12"
 
-      - uses: actions/setup-node@v4
-        with:
-          node-version: "22"
-          cache: npm
-          cache-dependency-path: web/package-lock.json
+      # web/ (sonar-radar) is a bun project now, not npm - actions/setup-node's
+      # npm cache pointed at web/package-lock.json, which no longer exists
+      # since the rebuild (bun.lock replaced it). That silently failed this
+      # step on every run since, skipping everything after it including the
+      # sonar-radar sync below.
+      - uses: oven-sh/setup-bun@v2
 
       - name: Rebuild opportunities.json from the source of truth
         run: python3 scripts/migrate_to_opportunities.py
@@ -112,8 +113,8 @@ jobs:
       - name: Verify the site still builds
         working-directory: web
         run: |
-          npm ci --no-audit --no-fund
-          npm run build
+          bun install --frozen-lockfile
+          bun run build
 
   deploy:
     runs-on: ubuntu-latest
