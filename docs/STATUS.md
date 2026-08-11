@@ -89,16 +89,24 @@ larger initiative, not this one). `scripts/sync_radar.py` now bridges
   Leave the step (harmless no-op without the secret) or remove it; not
   urgent either way. `SUPABASE_URL`, `SUPABASE_SERVICE_KEY`, `GROQ_API_KEY`
   and `AISA_API_KEY` are set. `RADAR_SUPABASE_URL`/`RADAR_SUPABASE_SERVICE_KEY`
-  still need confirming (see below) — those are a different pair of secrets
-  from the `SUPABASE_*` ones, pointed at a different project.
-- **`RADAR_SUPABASE_URL` / `RADAR_SUPABASE_SERVICE_KEY`**: needed for
-  `scripts/sync_radar.py` to push the real board into sonar-radar's
-  Supabase project on the daily schedule. sonar-radar's own dashboard →
-  Project Settings → API → service_role key. Already run once by hand
-  (2026-08-11) — the fabricated Lovable seed data is gone and the live
-  site shows the real 16 opportunities — but without these secrets set,
-  every future scheduled run silently skips the sync and the board will
-  drift stale again.
+  are also set and confirmed working (see below) — those are a different pair
+  of secrets from the `SUPABASE_*` ones, pointed at a different project.
+- **`refresh-board.yml` had been silently broken since the sonar-radar
+  rebuild.** `actions/setup-node`'s npm cache pointed at
+  `web/package-lock.json`, deleted when `web/` switched to bun. That failed
+  the step outright on every run, skipping everything after it — including
+  the sonar-radar sync — with the workflow otherwise looking "fine" (the
+  `deploy` job runs `if: always()`, so it still pinged Vercel with stale
+  data every time, quietly). Confirmed by actually triggering it this pass,
+  not by inspection. Fixed: swapped in `oven-sh/setup-bun@v2`, updated the
+  build-verification step to `bun install`/`bun run`, and added a
+  rebase-and-retry to the data-commit step after hitting a real push race
+  against a direct push to `main` during testing.
+- **`RADAR_SUPABASE_URL` / `RADAR_SUPABASE_SERVICE_KEY`**: set, and now
+  confirmed actually working end to end via the scheduled workflow itself
+  (not just a one-off manual run) — the `refresh-board.yml` fix above was
+  required to get there, since the step had never successfully run in CI
+  before this pass despite secrets being set correctly.
 
 ## Pending — the actual autonomy (the original ask)
 
@@ -202,13 +210,26 @@ production:
   win probability, expected value, deadline collisions, the timeline, the
   scatter. `sync_radar.py` pushes all of these fields for real, so these
   charts are trustworthy today.
-- **Decorative right now** — the code is correct, but nothing feeds it real
-  dates: `discoveryLag()` groups by `o.source`, which `sync_radar.py`
-  hardcodes to the literal string `"SONAR data pipeline"` for every row, and
-  needs `went_live_on`/`noticed_on` per opportunity, which nothing sets.
-  `confidenceTrend()`'s promotion window needs an update row with
-  `change_kind: "confidence"`, but `sync_radar.py` only ever writes
-  `change_kind: "sync"`. Both charts will render, just as all-zero or empty.
+- **`discoveryLag()` is now real, wired and confirmed live.** `source`,
+  `went_live_on`, `noticed_on` are real per-entry fields on
+  `data/hackathons.json` now (added deliberately, not fabricated -
+  `noticed_on` is backfilled from git history: every current entry's id
+  already existed in the repo's very first commit, so all 16 genuinely share
+  one `noticed_on` of 2026-08-10; `went_live_on` stays honestly `null`
+  everywhere, since no entry has recorded announcement-date evidence yet).
+  `sync_radar.py` now reads and pushes all three instead of hardcoding
+  `source`. Confirmed pushed for real via `refresh-board.yml`'s "Sync the
+  board to sonar-radar's Supabase project" step, which had actually been
+  silently failing on every run since the sonar-radar rebuild (see the CI
+  fix below) until this pass. The chart will show one real cluster (16
+  items, one source, one date) rather than fabricated variety - it starts
+  differentiating for real once opportunities get discovered incrementally
+  by `watch_sources.py` instead of in one research sprint.
+- **`confidenceTrend()`'s promotion window is still decorative** — needs an
+  update row with `change_kind: "confidence"`, but `sync_radar.py` only
+  ever writes `change_kind: "sync"`. Not fixed this pass; same shape of fix
+  as above, lower priority since nothing currently logs a confidence
+  promotion as a distinct event at all.
 - **A separate, unconnected prediction system**: `scripts/sonar_db.py`'s
   circular-mean date forecasting (predicts *when* a recurring event's next
   edition will likely open, from multi-year history — different from
