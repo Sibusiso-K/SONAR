@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { AppShell } from "@/components/AppShell";
+import { EventCalendar } from "@/components/EventCalendar";
 import { Reveal, RevealWords } from "@/components/Reveal";
 import { useOpportunities, usePastOpportunities } from "@/lib/sonar-data";
 import { formatMoney } from "@/lib/analytics";
@@ -53,6 +54,12 @@ function Radar() {
             Entries we believe exist but can't put in a calendar with a straight face. Kept visible
             so a predicted window doesn't quietly become a missed deadline.
           </p>
+        </Reveal>
+      </section>
+
+      <section className="mx-auto max-w-[88rem] px-5 pb-12 md:px-10">
+        <Reveal>
+          <EventCalendar opportunities={all} />
         </Reveal>
       </section>
 
