@@ -128,19 +128,30 @@ network policy made impossible to catch before pushing:
    by `call_groq()` sending no `User-Agent` (Python's default,
    `Python-urllib/3.x`, is a known signature Cloudflare's WAF rejects
    outright). Fixed by adding a real one.
-4. **Run #4: clean.** `[zindi] https://zindi.africa/competitions` →
-   `1 candidate(s), 1 verified` → `1 candidates, 1 verified, 0 rejected`.
-   A real quote, copied verbatim from the live page by Groq, passed the
-   span-check, and was written to `observations` in the `SONAR` Supabase
-   project.
+4. Run #4: clean. `[zindi] https://zindi.africa/competitions` →
+   `1 candidate(s), 1 verified`. A real quote, copied verbatim from the live
+   page by Groq, passed the span-check, and was written to `observations`.
 
-It currently has **one real URL to watch** — `zindi.africa/competitions`,
-via `sonar_db.py`'s `WATCHLIST`. The other ~50 organisations there have a
-slug/name/sector but no URL on purpose: bulk-guessing career/news page URLs
-and presenting them as fact would be exactly the kind of unverified claim
-this project exists to catch. Add one at a time, after actually opening and
-confirming it: `update organisations set events_url = '...' where slug =
-'fnb';` (or `careers_url`/`news_url`, whichever fits the org).
+**Watching three organisations now**, all via URLs reused from
+human-verified `links` already in `data/opportunities.json` rather than
+freshly guessed (this session's network policy blocks WebFetch too -
+confirmed `EGRESS_BLOCKED` trying to browser-check a candidate - so reusing
+already-checked links beat guessing new ones). Run #5 result:
+- `zindi.world/competitions` (corrected from `.africa`, matching the board's
+  actual verified link) — 1 candidate, 1 verified
+- `www.geekulcha.dev/events` — 5 candidates, 5 verified
+- `appoftheyear.co.za/hackathon/` — **404 Not Found.** Even a link a human
+  verified when the board entry was written can go stale — this looks like
+  a per-edition FNB page that got taken down after the event, not a durable
+  "watch this org" URL. Left as-is rather than guessing a replacement;
+  `partner: https://www.22onsloane.co/fnb-aoty-hackathon/` in the same JSON
+  entry is untried and might fare the same way for the same reason.
+
+Total: **6 candidates, 6 verified, 0 rejected** across the two working
+sources. The other ~48 organisations in `WATCHLIST` still have no URL, on
+purpose. Add one at a time: `update organisations set events_url = '...'
+where slug = 'x';` (or `careers_url`/`news_url`), preferring a link already
+verified in `data/opportunities.json` over a fresh guess wherever one exists.
 
 It also only writes to `observations` — raw, unreviewed evidence. Nothing
 lifts a verified observation back into `data/opportunities.json`
