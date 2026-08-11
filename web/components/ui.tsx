@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { useMemo, useState } from "react";
 import type { Confidence, Opportunity, Tone } from "@/lib/types";
 import {
   CONFIDENCE_LABEL,
@@ -8,6 +11,7 @@ import {
   prettyLabel,
   toneFor,
 } from "@/lib/data";
+import { useWatchlist } from "@/lib/watchlist";
 
 /* ------------------------------------------------------------------ chips */
 
@@ -73,16 +77,39 @@ export function Countdown({ days, tone }: { days: number | null; tone: Tone }) {
 
 /* ------------------------------------------------------------- board rows */
 
+export function WatchStar({ id }: { id: string }) {
+  const { isWatching, toggle } = useWatchlist();
+  const on = isWatching(id);
+  return (
+    <button
+      type="button"
+      className="watchbtn"
+      data-on={on}
+      aria-pressed={on}
+      aria-label={on ? "Stop watching" : "Watch this opportunity"}
+      title={on ? "Stop watching" : "Watch this opportunity"}
+      onClick={(e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        toggle(id);
+      }}
+    >
+      {on ? "★" : "☆"}
+    </button>
+  );
+}
+
 export function BoardHeader() {
   return (
     <div className="board-hd" role="row">
-      <div />
-      <div style={{ textAlign: "right" }}>Closes</div>
-      <div>Opportunity</div>
-      <div>Type</div>
-      <div style={{ textAlign: "center" }}>Tier</div>
-      <div style={{ textAlign: "right" }}>Prize</div>
-      <div>Confidence</div>
+      <div role="columnheader" aria-hidden />
+      <div role="columnheader" aria-hidden />
+      <div role="columnheader" style={{ textAlign: "right" }}>Closes</div>
+      <div role="columnheader">Opportunity</div>
+      <div role="columnheader">Type</div>
+      <div role="columnheader" style={{ textAlign: "center" }}>Tier</div>
+      <div role="columnheader" style={{ textAlign: "right" }}>Prize</div>
+      <div role="columnheader">Confidence</div>
     </div>
   );
 }
@@ -92,10 +119,13 @@ export function OpportunityRow({ o }: { o: Opportunity }) {
   return (
     <Link href={`/o/${o.id}/`} className="row" role="row">
       <div className="stripe" data-t={tone} aria-hidden />
-      <div className="cdcell">
+      <div className="watchcell" role="cell">
+        <WatchStar id={o.id} />
+      </div>
+      <div className="cdcell" role="cell">
         <Countdown days={o.days_remaining} tone={tone} />
       </div>
-      <div className="nmcell">
+      <div className="nmcell" role="cell">
         <div className="nm">{o.name}</div>
         <div className="org">
           {o.organiser}
@@ -107,17 +137,17 @@ export function OpportunityRow({ o }: { o: Opportunity }) {
           )}
         </div>
       </div>
-      <div className="kindcell">
+      <div className="kindcell" role="cell">
         <Chip square>{KIND_LABEL[o.kind] ?? o.kind}</Chip>
         {o.career_track === "direct" && <Chip tone="brand">Hiring</Chip>}
       </div>
-      <div className="tiercell">
+      <div className="tiercell" role="cell">
         <TierBadge tier={o.tier} />
       </div>
-      <div className="prizecell">
+      <div className="prizecell" role="cell">
         <div className={formatPrize(o) === "—" ? "prize none" : "prize"}>{formatPrize(o)}</div>
       </div>
-      <div className="confcell">
+      <div className="confcell" role="cell">
         <ConfidenceChip c={o.confidence} />
       </div>
     </Link>
@@ -135,6 +165,66 @@ export function Board({ items }: { items: Opportunity[] }) {
         <OpportunityRow key={o.id} o={o} />
       ))}
     </div>
+  );
+}
+
+/* --------------------------------------------------------- filterable board */
+
+export function FilterableBoard({ items }: { items: Opportunity[] }) {
+  const [q, setQ] = useState("");
+  const [kind, setKind] = useState<string | null>(null);
+  const [watchingOnly, setWatchingOnly] = useState(false);
+  const { ids: watched } = useWatchlist();
+
+  const kinds = useMemo(
+    () => [...new Set(items.map((o) => o.kind))].sort((a, b) => (KIND_LABEL[a] ?? a).localeCompare(KIND_LABEL[b] ?? b)),
+    [items]
+  );
+
+  const filtered = useMemo(() => {
+    const needle = q.trim().toLowerCase();
+    return items.filter((o) => {
+      if (watchingOnly && !watched.has(o.id)) return false;
+      if (kind && o.kind !== kind) return false;
+      if (needle && !`${o.name} ${o.organiser}`.toLowerCase().includes(needle)) return false;
+      return true;
+    });
+  }, [items, q, kind, watchingOnly, watched]);
+
+  return (
+    <>
+      <div className="filters">
+        <input
+          className="search"
+          type="search"
+          placeholder="Search opportunities…"
+          value={q}
+          onChange={(e) => setQ(e.target.value)}
+          aria-label="Search opportunities"
+        />
+        <button
+          type="button"
+          className="fbtn"
+          data-on={watchingOnly}
+          onClick={() => setWatchingOnly((v) => !v)}
+        >
+          ★ Watching{watched.size > 0 ? ` (${watched.size})` : ""}
+        </button>
+        <span className="fsep" aria-hidden />
+        {kinds.map((k) => (
+          <button
+            key={k}
+            type="button"
+            className="fbtn"
+            data-on={kind === k}
+            onClick={() => setKind((cur) => (cur === k ? null : k))}
+          >
+            {KIND_LABEL[k] ?? k}
+          </button>
+        ))}
+      </div>
+      <Board items={filtered} />
+    </>
   );
 }
 

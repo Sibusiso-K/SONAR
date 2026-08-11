@@ -180,6 +180,13 @@ button { font: inherit; color: inherit; }
 .hdr-next .nm  { font-size: 13px; color: var(--text-2); max-width: 190px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 @media (max-width: 900px) { .hdr-next .nm { display: none; } }
 
+.themebtn {
+  flex: none; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center;
+  border: 1px solid var(--rule-strong); border-radius: 999px; background: var(--surface);
+  color: var(--muted); font-size: 14px; cursor: pointer; transition: color .12s, background .12s;
+}
+.themebtn:hover { color: var(--text); background: var(--surface-hover); }
+
 /* ============================================================ layout */
 .page { max-width: 1320px; margin: 0 auto; padding: 26px 20px 90px; }
 .page-head { display: flex; flex-wrap: wrap; gap: 14px; align-items: flex-end; justify-content: space-between; margin-bottom: 20px; }
@@ -225,7 +232,7 @@ h1.title { font-size: 25px; font-weight: 660; letter-spacing: -.026em; margin: 0
 /* ============================================================ board rows */
 .board { border: 1px solid var(--rule); border-radius: var(--radius); overflow: hidden; background: var(--surface); box-shadow: var(--shadow); }
 .board-hd {
-  display: grid; grid-template-columns: 3px 78px minmax(0,1fr) 132px 62px 124px 104px;
+  display: grid; grid-template-columns: 3px 30px 78px minmax(0,1fr) 132px 62px 124px 104px;
   gap: 0; align-items: center;
   background: var(--bg-sunk); border-bottom: 1px solid var(--rule);
   font-size: 10.5px; text-transform: uppercase; letter-spacing: .07em; color: var(--muted); font-weight: 650;
@@ -234,7 +241,7 @@ h1.title { font-size: 25px; font-weight: 660; letter-spacing: -.026em; margin: 0
 .board-hd > :first-child { padding: 0; }
 
 .row {
-  display: grid; grid-template-columns: 3px 78px minmax(0,1fr) 132px 62px 124px 104px;
+  display: grid; grid-template-columns: 3px 30px 78px minmax(0,1fr) 132px 62px 124px 104px;
   align-items: center; border-bottom: 1px solid var(--rule);
   transition: background .1s; position: relative;
 }
@@ -272,17 +279,43 @@ h1.title { font-size: 25px; font-weight: 660; letter-spacing: -.026em; margin: 0
 .tierbadge[data-t="1"] { background: var(--brand); color: var(--brand-ink); }
 .tierbadge[data-t="2"] { background: var(--brand-soft); color: var(--brand); }
 
+/* watch star */
+.watchbtn {
+  width: 100%; height: 100%; min-height: 24px; display: flex; align-items: center; justify-content: center;
+  border: none; background: transparent; cursor: pointer; font-size: 16px; line-height: 1;
+  color: var(--faint); border-radius: var(--radius-s); transition: color .12s, background .12s;
+}
+.watchbtn:hover { background: var(--bg-sunk); color: var(--muted); }
+.watchbtn[data-on="true"] { color: var(--warning); }
+
 /* mobile: rows become stacked cards */
 @media (max-width: 860px) {
   .board-hd { display: none; }
-  .row { grid-template-columns: 3px 1fr auto; grid-template-areas: "s main cd" "s meta cd"; row-gap: 0; }
+  .row {
+    grid-template-columns: 3px 1fr auto auto;
+    grid-template-areas: "s main watch cd" "s meta meta cd" "s price price cd";
+    row-gap: 0;
+  }
   .row > .stripe { grid-area: s; }
+  .row > .watchcell { grid-area: watch; }
   .row > .cdcell  { grid-area: cd; }
   .row > .nmcell  { grid-area: main; padding-bottom: 4px; }
-  .row > .kindcell { grid-area: meta; padding-top: 0; padding-bottom: 11px; display: flex; gap: 6px; flex-wrap: wrap; }
-  .row > .tiercell, .row > .prizecell, .row > .confcell { display: none; }
+  .row > .kindcell { grid-area: meta; padding-top: 0; padding-bottom: 6px; display: flex; gap: 6px; flex-wrap: wrap; }
+  .row > .prizecell { grid-area: price; padding-top: 0; padding-bottom: 11px; }
+  .row > .prizecell .prize { text-align: left; font-size: 12.5px; }
+  .row > .tiercell, .row > .confcell { display: none; }
   .nm { white-space: normal; }
 }
+
+/* search input, shared with .fbtn filter row */
+.search {
+  padding: 6px 12px; border-radius: 999px; border: 1px solid var(--rule-strong);
+  background: var(--surface); color: var(--text); font-size: 13px; min-width: 0; width: 200px;
+  font-family: inherit;
+}
+.search::placeholder { color: var(--faint); }
+.search:focus-visible { outline: 2px solid var(--brand); outline-offset: 1px; }
+@media (max-width: 480px) { .search { width: 100%; } }
 
 /* ============================================================ chips */
 .chip {

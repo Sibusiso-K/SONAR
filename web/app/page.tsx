@@ -4,7 +4,7 @@ import {
   past,
   totalTrackedUsd,
 } from "@/lib/data";
-import { Alert, Board, Tile } from "@/components/ui";
+import { Alert, FilterableBoard, Tile } from "@/components/ui";
 import Link from "next/link";
 
 export default function BoardPage() {
@@ -78,7 +78,7 @@ export default function BoardPage() {
         />
       </div>
 
-      <Board items={live} />
+      <FilterableBoard items={live} />
 
       <p
         className="subtitle"

@@ -491,7 +491,7 @@
       "scope": "local",
       "format": "hybrid",
       "location": "South Africa",
-      "status": "verify",
+      "status": "applied",
       "tier": 2,
       "score": 6.2,
       "scores": {
@@ -519,7 +519,7 @@
         "news": "https://mintek.co.za/media/news/",
         "prior_faq": "https://mintek.co.za/site_content/content/documents/mintek90/mintek-grad-hackathon-faq.pdf"
       },
-      "notes": "URGENT VERIFICATION NEEDED: if 2026 follows the 2025 calendar, applications closed in July and you have already missed it. Email or call Mintek this week to confirm. Highest-fit event on the board for an unemployed-graduate team — worth the phone call. If closed, diarise the July 2027 window now.",
+      "notes": "Applied in time. Awaiting response from Mintek — dates below are the prior-year pattern, not yet confirmed for this cycle.",
       "kind": "grad_programme",
       "career_track": "direct",
       "next_date": null,
@@ -928,10 +928,11 @@
     },
     {
       "name": "Discovery Gradhack 2026",
-      "summary": "ran 7 August 2026 at Discovery Place, Sandton. Verified 10 Aug 2026, three days after the fact.",
-      "reason": "MISSED — ran 7 August 2026 at Discovery Place, Sandton. Verified 10 Aug 2026, three days after the fact. Format: 50 IT students from SA universities, teams of 2–4, free entry, R12 500 cash per winning team member, plus a permanent-employment pathway at Discovery. This was the board's #1 open action item ('find the dates, score it') and the only signal was an empty Google Calendar named 'Discovery Gradhack -Team Sonar- 2026'. Nothing was watching it. This is the founding case for docs/AUTONOMY.md — see §0 and §7.4 (prediction from history[]). ACTION: set a predicted-window watch for ~August 2027 and log this in the first retro.",
+      "summary": "Ran 7 August 2026 at Discovery Place, Sandton. Team Sonar competed and placed Top 6.",
+      "reason": "Ran 7 August 2026 at Discovery Place, Sandton. Format: 50 IT students from SA universities, teams of 2–4, free entry, R12 500 cash per winning team member, plus a permanent-employment pathway at Discovery. Team Sonar competed and placed Top 6. Correction logged 11 Aug 2026 — an earlier pass had this recorded as missed; discovery was late (the only signal beforehand was an empty team calendar) but the team still made the deadline and competed. See docs/AUTONOMY.md §0 for the discovery-timing gap that this surfaced — worth fixing even though the outcome was good.",
       "link": "https://www.discovery.co.za/corporate/discovery-gradhack",
-      "missed": true
+      "missed": false,
+      "result": "Top 6"
     }
   ],
   "monitoring_sources": [

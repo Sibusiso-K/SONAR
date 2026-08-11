@@ -71,6 +71,7 @@ export interface PastItem {
   reason: string;
   link?: string | null;
   missed?: boolean;
+  result?: string | null;
 }
 
 export interface Source {

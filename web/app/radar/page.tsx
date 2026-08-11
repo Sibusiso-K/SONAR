@@ -1,5 +1,5 @@
 import { formatDate, past, radarOpportunities, sources } from "@/lib/data";
-import { Board } from "@/components/ui";
+import { FilterableBoard } from "@/components/ui";
 import predictionsRaw from "@/data/predictions.json";
 
 interface Prediction {
@@ -44,7 +44,7 @@ export default function RadarPage() {
         </div>
       </div>
 
-      <Board items={radar} />
+      <FilterableBoard items={radar} />
 
       <h2 className="title" style={{ fontSize: 18, marginTop: 42, marginBottom: 4 }}>
         Predicted windows
@@ -126,10 +126,10 @@ export default function RadarPage() {
           >
             <span
               className="chip"
-              data-tone={p.missed ? "critical" : undefined}
+              data-tone={p.missed ? "critical" : p.result ? "stable" : undefined}
               style={{ flex: "none" }}
             >
-              {p.missed ? "Missed" : "Past"}
+              {p.missed ? "Missed" : p.result ?? "Past"}
             </span>
             <div style={{ minWidth: 0 }}>
               <div style={{ fontWeight: 560, fontSize: 14.5, marginBottom: 2 }}>
