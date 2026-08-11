@@ -11,6 +11,12 @@ node_modules
 dist
 dist-ssr
 .output
+
+# bun.lock is the pinned lockfile Vercel builds with. A committed
+# package-lock.json makes Vercel install with npm instead of bun, which
+# breaks the TanStack Start isomorphic-fn macro transform at runtime
+# ("createCsrfMiddleware is not a function") despite building clean.
+package-lock.json
 .vinxi
 .tanstack/**
 .nitro
