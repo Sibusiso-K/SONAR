@@ -82,6 +82,21 @@ jobs:
           python3 scripts/sonar_db.py forecast
           python3 scripts/sonar_db.py health || true
 
+      # web/ (sonar-radar) reads the live board from its OWN, separate
+      # Supabase project — not the one above, and not data/opportunities.json
+      # directly. Without this, the deployed site drifts from the repo's
+      # verified data (it shipped with Lovable-generated placeholder rows).
+      - name: Sync the board to sonar-radar's Supabase project
+        env:
+          RADAR_SUPABASE_URL: ${{ secrets.RADAR_SUPABASE_URL }}
+          RADAR_SUPABASE_SERVICE_KEY: ${{ secrets.RADAR_SUPABASE_SERVICE_KEY }}
+        run: |
+          if [ -z "$RADAR_SUPABASE_URL" ] || [ -z "$RADAR_SUPABASE_SERVICE_KEY" ]; then
+            echo "::warning::RADAR_SUPABASE_URL/RADAR_SUPABASE_SERVICE_KEY not set — the live site will keep showing whatever it last had, not this data."
+            exit 0
+          fi
+          python3 scripts/sync_radar.py push
+
       - name: Commit only if the data actually moved
         run: |
           git config user.name  "sonar-bot"
