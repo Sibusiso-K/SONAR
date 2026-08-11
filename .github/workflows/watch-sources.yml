@@ -1,0 +1,53 @@
+name: Watch sources
+
+# Tier-B organisation-watchlist sweep (docs/AUTONOMY.md). Fetches every
+# organisation's careers/news/events page that has a URL set, asks Groq to
+# point at concrete opportunity mentions, and rejects anything it can't
+# back with an exact quote from the page. Writes to `observations` only —
+# nothing here reaches the published board without a human-reviewed PR.
+#
+# Runs more often than the daily board refresh because a capped-intake
+# event (Gradhack: 50 seats) is won or lost in the announcement's first
+# 48 hours - a daily check is already borderline too slow.
+
+on:
+  schedule:
+    - cron: "17 */6 * * *"  # every 6 hours, off the hour
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: "Only sweep the first N organisations (leave empty for all)"
+        required: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: watch-sources
+  cancel-in-progress: false
+
+jobs:
+  sweep:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Sweep the watchlist
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+        run: |
+          if [ -z "$SUPABASE_URL" ] || [ -z "$SUPABASE_SERVICE_KEY" ] || [ -z "$GROQ_API_KEY" ]; then
+            echo "::warning::SUPABASE_URL/SUPABASE_SERVICE_KEY/GROQ_API_KEY not all set — skipping sweep."
+            exit 0
+          fi
+          if [ -n "${{ github.event.inputs.limit }}" ]; then
+            python3 scripts/watch_sources.py --limit "${{ github.event.inputs.limit }}"
+          else
+            python3 scripts/watch_sources.py
+          fi

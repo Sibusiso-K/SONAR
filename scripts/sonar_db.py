@@ -107,8 +107,15 @@ def upsert(table, rows, on_conflict):
 # carries the announcement on day one. These are real organisations that run
 # graduate, innovation or hackathon programmes in South Africa. No dates are
 # asserted here — the pipeline discovers those.
+#
+# `url` (careers/news/events page for scripts/watch_sources.py to fetch) is
+# deliberately populated for only a handful of orgs so far. Bulk-guessing ~50
+# organisation URLs and presenting them as fact would be exactly the kind of
+# unverified claim this whole project exists to catch — add a real one only
+# once you've actually opened the page and confirmed it's current.
 WATCHLIST = [
-    # slug, name, sector
+    # slug, name, sector, url
+    ("zindi", "Zindi", "platform", "https://zindi.africa/competitions"),
     ("discovery",        "Discovery",                    "insurer"),
     ("fnb",              "FNB",                          "bank"),
     ("absa",             "Absa",                         "bank"),
@@ -152,7 +159,6 @@ WATCHLIST = [
     ("innovation-hub",   "The Innovation Hub",           "state"),
     ("geekulcha",        "Geekulcha",                    "community"),
     ("girlcode",         "GirlCode",                     "community"),
-    ("zindi",            "Zindi",                        "platform"),
     ("umuzi",            "Umuzi",                        "training"),
     ("wethinkcode",      "WeThinkCode_",                 "training"),
     ("explore-ai",       "ExploreAI",                    "training"),
@@ -166,13 +172,18 @@ WATCHLIST = [
 
 def cmd_seed_orgs(_args):
     rows = [
-        {"slug": s, "name": n, "sector": sec, "country": "ZA", "active": True}
-        for s, n, sec in WATCHLIST
+        {
+            "slug": entry[0], "name": entry[1], "sector": entry[2],
+            "country": "ZA", "active": True,
+            "events_url": entry[3] if len(entry) > 3 else None,
+        }
+        for entry in WATCHLIST
     ]
     out = upsert("organisations", rows, on_conflict="slug")
     print(f"seeded {len(out)} organisations")
     by_sector = {}
-    for _, _, sec in WATCHLIST:
+    for entry in WATCHLIST:
+        sec = entry[2]
         by_sector[sec] = by_sector.get(sec, 0) + 1
     for sec, n in sorted(by_sector.items(), key=lambda x: -x[1]):
         print(f"  {n:>3}  {sec}")
