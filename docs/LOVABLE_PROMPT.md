@@ -4,7 +4,9 @@ Copy everything below into Lovable as the starting prompt.
 
 ---
 
-Build **SONAR**, a two-person opportunity-tracking dashboard for hackathons, competitions, grad programmes and recruiting events. It replaces a static Next.js site — same data, much better UI, plus two new capabilities (analytics and an AI assistant). Use Supabase as the backend (auth for 2 named users: Sibusiso and Lethabo, Postgres for data, edge functions for the AI chat).
+Build **SONAR**, a two-person opportunity-tracking dashboard for hackathons, competitions, grad programmes and recruiting events. It replaces a static Next.js site — same data, much better UI, plus two new capabilities (analytics and an AI assistant). Use Supabase as the backend (Postgres for data, edge functions for the AI chat).
+
+**No login wall.** This is a private link shared between two people, not a multi-tenant product — do not build sign-up/sign-in/password auth. The whole board is open the moment you land on the URL. For attribution only (so the shared watchlist can show *who* is watching something), add a lightweight client-side identity switch — a simple "I'm Sibusiso / I'm Lethabo" picker stored in localStorage, no account, no password, nothing server-authenticated. Every visitor sees and can edit the same shared data either way; the picker just labels who starred what.
 
 ## Design direction
 
@@ -24,7 +26,7 @@ Three views today, keep all of them, redesign the shell:
 - **Radar** — unverified/predicted entries not yet calendar-safe, plus a "past & missed" archive that records outcomes honestly (including corrections — e.g. one entry was wrongly marked "missed" and later corrected to "Top 6" placement once we found out we'd actually competed).
 - **Updates** — an append-only audit trail: every data change, timestamped, with who or what made it (human or the verification pipeline).
 
-Data model per opportunity: `id, name, organiser, kind, format (in-person/online/hybrid), scope, tier (1-3), score, scores{career_leverage, winnability, prize, urgency}, dates{}, next_date, confidence (confirmed/reported/unconfirmed/predicted/conflicted), prize{currency,pool,breakdown}, career_track (direct/adjacent/none), eligibility, what_to_build, links{}, notes`. Bring this over as Supabase tables (`opportunities`, `past_opportunities`, `updates`, `watchlist`) instead of static JSON — that also fixes today's limitation where "watching" an item only persists in one person's browser; make it a shared, per-user table so Sibusiso and Lethabo each see what the other is watching.
+Data model per opportunity: `id, name, organiser, kind, format (in-person/online/hybrid), scope, tier (1-3), score, scores{career_leverage, winnability, prize, urgency}, dates{}, next_date, confidence (confirmed/reported/unconfirmed/predicted/conflicted), prize{currency,pool,breakdown}, career_track (direct/adjacent/none), eligibility, what_to_build, links{}, notes`. Bring this over as Supabase tables (`opportunities`, `past_opportunities`, `updates`, `watchlist`) instead of static JSON — that also fixes today's limitation where "watching" an item only persists in one person's browser: make `watchlist` one shared table (no auth/user_id required) with a `watched_by` text column set from the localStorage identity picker, so both of you see the same live watchlist the moment either of you stars something.
 
 ## New: Statistics & Analytics section
 
