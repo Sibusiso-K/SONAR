@@ -35,7 +35,12 @@ function write(next: Set<string>) {
  * watching it" — for whoever has the tab open.
  */
 export function useWatchlist() {
-  const [ids, setIds] = useState<Set<string>>(store);
+  /* Lazy-init to an empty Set so the client's first render matches the
+     server's (which always sees an empty Set, since window is undefined
+     at build time) — reading `store` directly here caused a hydration
+     mismatch for any returning visitor with a non-empty watchlist. The
+     effect below immediately syncs the real value after mount. */
+  const [ids, setIds] = useState<Set<string>>(() => new Set());
 
   useEffect(() => {
     setIds(read());
