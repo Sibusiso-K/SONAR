@@ -147,10 +147,29 @@ already-checked links beat guessing new ones). Run #5 result:
   `partner: https://www.22onsloane.co/fnb-aoty-hackathon/` in the same JSON
   entry is untried and might fare the same way for the same reason.
 
-Total: **6 candidates, 6 verified, 0 rejected** across the two working
-sources. The other ~48 organisations in `WATCHLIST` still have no URL, on
-purpose. Add one at a time: `update organisations set events_url = '...'
-where slug = 'x';` (or `careers_url`/`news_url`), preferring a link already
+**Run #6, after adding RevenueCat's Shipaton (`shipaton.com`, its own
+dedicated event site — chosen deliberately after FNB's sub-page 404'd):**
+`20 candidates, 19 verified, 1 rejected across 4 organisations` — zindi 1/1,
+fnb 0/0 (page loaded fine this time, just nothing extractable — a org
+homepage without a live campaign is a legitimately valid "nothing to see"
+result, not a bug), geekulcha 0/0 (down from 5/5 last run — see note below),
+shipaton 18/19 verified **plus the gate correctly rejecting a real
+hallucination**: the model claimed `"the world's biggest mobile hackathon"`
+was a verbatim quote; it wasn't actually on the page, so it was thrown away
+rather than promoted. Exactly the mechanism working as designed.
+
+Worth being honest about: geekulcha going from 5 candidates to 0 between two
+runs of the same page, minutes apart, is very likely LLM non-determinism —
+`temperature: 0` reduces but doesn't eliminate run-to-run variance, and nothing
+here retries a zero-result page to double-check. Not a bug to fix so much as
+a known characteristic to design around later (e.g. only trust a "nothing
+found" result after N consecutive empty sweeps, not one).
+
+Total across all runs so far: **26 candidates, 25 verified, 1 correctly
+rejected**, into `observations` in the `SONAR` Supabase project. The other
+~48 organisations in `WATCHLIST` still have no URL, on purpose. Add one at a
+time: `update organisations set events_url = '...' where slug = 'x';` (or
+`careers_url`/`news_url`), preferring a link already
 verified in `data/opportunities.json` over a fresh guess wherever one exists.
 
 It also only writes to `observations` — raw, unreviewed evidence. Nothing
@@ -167,6 +186,45 @@ Still not built:
 - Google Calendar sync (`docs/CALENDAR.md` documents the design; no
   calendar has actually been written to)
 - Notifications (no Slack/email/push wiring exists)
+
+## `/stats` — the prediction/forecasting page, what's real vs decorative
+
+`web/src/routes/stats.tsx` + `web/src/lib/analytics.ts` already implement
+everything `docs/LOVABLE_PROMPT.md`'s Statistics section asked for: win
+probability, expected value, deadline-collision detection, a 90-day
+timeline, a winnability/prize scatter, discovery-lag-by-source, and a
+confidence-mix/promotion-window chart. This was already built (Lovable),
+not something to build again — but two of the six are silently empty in
+production:
+
+- **Working now**, computed purely from real fields already on each
+  opportunity (`scores`, `score`, `tier`, `confidence`, `notes`, `prize`):
+  win probability, expected value, deadline collisions, the timeline, the
+  scatter. `sync_radar.py` pushes all of these fields for real, so these
+  charts are trustworthy today.
+- **Decorative right now** — the code is correct, but nothing feeds it real
+  dates: `discoveryLag()` groups by `o.source`, which `sync_radar.py`
+  hardcodes to the literal string `"SONAR data pipeline"` for every row, and
+  needs `went_live_on`/`noticed_on` per opportunity, which nothing sets.
+  `confidenceTrend()`'s promotion window needs an update row with
+  `change_kind: "confidence"`, but `sync_radar.py` only ever writes
+  `change_kind: "sync"`. Both charts will render, just as all-zero or empty.
+- **A separate, unconnected prediction system**: `scripts/sonar_db.py`'s
+  circular-mean date forecasting (predicts *when* a recurring event's next
+  edition will likely open, from multi-year history — different from
+  win-probability, which scores *current* live entries) writes to the
+  `SONAR` Supabase project's `predictions` table and `data/predictions.json`.
+  Nothing in sonar-radar reads either. `radar.tsx`'s "predicted" bucket is
+  driven by a static `confidence` field a human sets in the JSON, not by
+  this forecast at all.
+
+Fixing the two decorative charts needs a real decision, not just code: where
+does "when did this go live" and "when did we first notice it" actually come
+from for opportunities that already exist? The `SONAR` project's
+`opportunities.first_seen_at` / `observations.observed_at` are designed for
+exactly this, but connecting them means `sync_radar.py` reading from a
+second project it doesn't talk to today, and accepting that anything
+entered before this pipeline existed has no real history to backfill.
 
 ## Pending — small UI polish (not blocking)
 
