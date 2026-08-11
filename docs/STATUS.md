@@ -64,28 +64,31 @@ larger initiative, not this one). `scripts/sync_radar.py` now bridges
   the MCP and apply it directly. Until this happens, `scripts/sonar_db.py`
   has nothing to talk to and the whole "Supabase = everything ever seen"
   half of the architecture is inert.
-- **Vercel**: connected earlier in the build but never confirmed with an
-  actual `get_project` / `list_deployments` check from a session — we've
-  been going on the README's manual deploy instructions (Root Directory =
-  `web`), not a verified live URL. Confirm the project exists and is
-  wired to this repo, and get the real `*.vercel.app` URL into this doc.
+- **Vercel**: confirmed live — project `sonar` (`sonar-two-brown.vercel.app`).
+  It was connected to `Sibusiso-K/sonar-radar`, a repo Lethabo doesn't have
+  access to; every early deploy attempt from `Sibusiso-K/SONAR` itself had
+  actually failed (`Couldn't find any pages or app directory` — Root
+  Directory wasn't set). Repointed 2026-08-11 to `Sibusiso-K/SONAR` with
+  Root Directory = `web`, so both contributors' commits now reach the same
+  deployment. `sonar-radar` is no longer the deploy source; treat it as
+  retired unless someone decides otherwise.
 - **Mobbin MCP**: requested for UI mockup reference, was never actually
   connected long enough to call. Still unused. Given the board's current
   design already reads as clean/professional (see screenshots taken this
   pass), this is now optional polish research rather than a blocker.
-- **GitHub Actions secrets**: `.github/workflows/refresh-board.yml` expects
-  `VERCEL_DEPLOY_HOOK` and (optionally) Supabase creds as repo secrets.
-  Unconfirmed whether these are set — if not, the daily scheduled job
-  will run the data-regeneration half fine but silently no-op the deploy
-  trigger. `VERCEL_DEPLOY_HOOK` also needs re-checking against whatever
-  sonar-radar actually deploys to now (its Nitro config defaults to a
-  Cloudflare Workers target, not Vercel) — not yet verified.
-- **`RADAR_SUPABASE_URL` / `RADAR_SUPABASE_SERVICE_KEY`** (new): needed for
+- **GitHub Actions secrets**: `.github/workflows/refresh-board.yml`'s
+  `VERCEL_DEPLOY_HOOK` step is now redundant for `web/` — Vercel's Git
+  integration deploys directly on push to `SONAR`'s `main`, no hook needed.
+  Leave the step (harmless no-op without the secret) or remove it; not
+  urgent either way.
+- **`RADAR_SUPABASE_URL` / `RADAR_SUPABASE_SERVICE_KEY`**: needed for
   `scripts/sync_radar.py` to push the real board into sonar-radar's
-  Supabase project. sonar-radar's own dashboard → Project Settings → API
-  → service_role key. Without these set, the daily job silently skips the
-  sync and the live site keeps showing whatever it last had — currently
-  still the Lovable-seeded placeholder data until this runs once.
+  Supabase project on the daily schedule. sonar-radar's own dashboard →
+  Project Settings → API → service_role key. Already run once by hand
+  (2026-08-11) — the fabricated Lovable seed data is gone and the live
+  site shows the real 16 opportunities — but without these secrets set,
+  every future scheduled run silently skips the sync and the board will
+  drift stale again.
 
 ## Pending — the actual autonomy (the original ask)
 
