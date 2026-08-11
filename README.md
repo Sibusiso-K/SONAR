@@ -45,9 +45,9 @@ Nov 14  NASA Space Apps
 
 Full board with reasoning: [`docs/PRIORITY_BOARD.md`](docs/PRIORITY_BOARD.md)
 
-> **Closed loose end — and the reason SONAR needs to run itself.** That empty Google Calendar named *"Discovery Gradhack -Team Sonar- 2026"* was tracking a real event: **Discovery Gradhack ran on 7 August 2026 at Discovery Place, Sandton** — three days before this line was written. 50 IT students, teams of 2–4, R12 500 per winning team member, and a permanent-employment pathway at Discovery. We missed it, and the only warning was a calendar nobody filled in.
+> **Closed loose end — and the reason SONAR needs to run itself.** That empty Google Calendar named *"Discovery Gradhack -Team Sonar- 2026"* was tracking a real event: **Discovery Gradhack ran on 7 August 2026 at Discovery Place, Sandton.** 50 IT students, teams of 2–4, R12 500 per winning team member, and a permanent-employment pathway at Discovery. An earlier pass recorded this as missed — it wasn't: the team made the deadline and competed, placing **Top 6**. Correction logged 11 Aug 2026 in `data/hackathons.json`. The near-miss stands regardless of the good outcome — the only warning beforehand was a calendar nobody filled in, and discovery was late.
 >
-> Moved to `dropped_or_past`. Watch set for ~August 2027. This is finding #1 in [`docs/AUTONOMY.md`](docs/AUTONOMY.md), which is the plan for making sure it doesn't happen twice.
+> Moved to `dropped_or_past`. Watch set for ~August 2027. This is finding #1 in [`docs/AUTONOMY.md`](docs/AUTONOMY.md), which is the plan for making sure the *discovery-timing* gap doesn't happen twice.
 
 ---
 

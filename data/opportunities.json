@@ -21,7 +21,7 @@
       "reported": "From a secondary source (news/aggregator); verify before relying on it",
       "unconfirmed": "Not yet announced for 2026; based on prior-year pattern"
     },
-    "generated": "2026-08-11T14:19:34Z",
+    "generated": "2026-08-11T16:30:41Z",
     "generator": "scripts/migrate_to_opportunities.py",
     "kinds": {
       "hackathon": "Build something in a fixed window",
@@ -541,7 +541,7 @@
       "format": "online",
       "location": "Virtual",
       "status": "open",
-      "tier": 3,
+      "tier": 2,
       "score": 6.0,
       "scores": {
         "career_leverage": 6,
@@ -797,7 +797,7 @@
       "location": "South Africa",
       "status": "registered",
       "tier": 3,
-      "score": 5.35,
+      "score": 5.65,
       "scores": {
         "career_leverage": 8,
         "winnability": 6,

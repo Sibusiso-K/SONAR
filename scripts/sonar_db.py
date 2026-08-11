@@ -34,7 +34,14 @@ import sys
 import urllib.error
 import urllib.parse
 import urllib.request
-from datetime import date, datetime, timedelta
+from datetime import date, datetime, timedelta, timezone
+
+# Status/error text uses non-ASCII punctuation (—, →, ↔). On Windows, stdout
+# defaults to the console codepage (cp1252), which can't encode "→" and
+# crashes with UnicodeEncodeError. Force UTF-8 so this works on every platform.
+for _stream in (sys.stdout, sys.stderr):
+    if hasattr(_stream, "reconfigure"):
+        _stream.reconfigure(encoding="utf-8")
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OPPS = os.path.join(ROOT, "data", "opportunities.json")
@@ -209,7 +216,7 @@ def _clean(o):
         "eligibility":     o.get("eligibility"),
         "what_to_build":   o.get("what_to_build"),
         "notes":           o.get("notes"),
-        "last_checked_at": datetime.utcnow().isoformat() + "Z",
+        "last_checked_at": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
     }
 
 
@@ -373,7 +380,7 @@ def cmd_forecast(_args):
 
     rest("POST", "predictions", body=preds, prefer="return=minimal")
     with open(PREDICTIONS_OUT, "w", encoding="utf-8") as fh:
-        json.dump({"generated": datetime.utcnow().isoformat() + "Z",
+        json.dump({"generated": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
                    "predictions": preds}, fh, indent=2)
         fh.write("\n")
 
@@ -390,7 +397,7 @@ def cmd_forecast(_args):
 def cmd_pull(_args):
     rows = rest("GET", "v_watch_now", params={"select": "*"})
     with open(PREDICTIONS_OUT, "w", encoding="utf-8") as fh:
-        json.dump({"generated": datetime.utcnow().isoformat() + "Z",
+        json.dump({"generated": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
                    "predictions": rows}, fh, indent=2)
         fh.write("\n")
     print(f"pulled {len(rows)} active watch windows → {PREDICTIONS_OUT}")
