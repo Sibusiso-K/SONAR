@@ -57,13 +57,20 @@ larger initiative, not this one). `scripts/sync_radar.py` now bridges
 
 ## Pending — integrations that exist on paper but aren't verified live
 
-- **Supabase**: `supabase/migrations/0001_init.sql` has never been applied
-  to a real project from inside a session — the Supabase MCP connection
-  has dropped every time it's been tried. Someone needs to either run
-  `supabase db push` locally against the connected project, or reconnect
-  the MCP and apply it directly. Until this happens, `scripts/sonar_db.py`
-  has nothing to talk to and the whole "Supabase = everything ever seen"
-  half of the architecture is inert.
+- **Supabase — two separate projects, don't confuse them:**
+  - **`SONAR`** (`txmxygjqndenkcdpweym`, eu-west-2, $0/month, under Lethabo's
+    account) — the discovery-pipeline backend from `docs/DATA.md`:
+    organisations/observations/snapshots/editions/predictions/sources. Both
+    `0001_init.sql` and a `0002_security_hardening.sql` follow-up (4
+    SECURITY DEFINER views were silently bypassing RLS on tables that are
+    deliberately private — `get_advisors` caught it, fixed same session) are
+    applied. `SUPABASE_URL`/`SUPABASE_SERVICE_KEY` repo secrets point here.
+    Nothing here reaches the board directly — it's raw evidence, not
+    verified fact.
+  - **sonar-radar's project** (Sbu's account) — what the *live website*
+    reads from. Unrelated to the one above beyond sharing a similar name.
+    Fed by `scripts/sync_radar.py push` from `data/opportunities.json`, per
+    `RADAR_SUPABASE_URL`/`RADAR_SUPABASE_SERVICE_KEY` below.
 - **Vercel**: confirmed live — project `sonar` (`sonar-two-brown.vercel.app`).
   It was connected to `Sibusiso-K/sonar-radar`, a repo Lethabo doesn't have
   access to; every early deploy attempt from `Sibusiso-K/SONAR` itself had
@@ -80,7 +87,10 @@ larger initiative, not this one). `scripts/sync_radar.py` now bridges
   `VERCEL_DEPLOY_HOOK` step is now redundant for `web/` — Vercel's Git
   integration deploys directly on push to `SONAR`'s `main`, no hook needed.
   Leave the step (harmless no-op without the secret) or remove it; not
-  urgent either way.
+  urgent either way. `SUPABASE_URL`, `SUPABASE_SERVICE_KEY`, `GROQ_API_KEY`
+  and `AISA_API_KEY` are set. `RADAR_SUPABASE_URL`/`RADAR_SUPABASE_SERVICE_KEY`
+  still need confirming (see below) — those are a different pair of secrets
+  from the `SUPABASE_*` ones, pointed at a different project.
 - **`RADAR_SUPABASE_URL` / `RADAR_SUPABASE_SERVICE_KEY`**: needed for
   `scripts/sync_radar.py` to push the real board into sonar-radar's
   Supabase project on the daily schedule. sonar-radar's own dashboard →
@@ -92,39 +102,54 @@ larger initiative, not this one). `scripts/sync_radar.py` now bridges
 
 ## Pending — the actual autonomy (the original ask)
 
-Worth being blunt about this: **nothing scrapes anything yet.** The pipeline
-architecture, source tiers, confidence state machine and JSON schema in
-`docs/AUTONOMY.md` are a complete design, and the data on the board today
-was entered by hand (by Sbu, verified against real source links). None of
-the following exist as running code yet:
-- Bright Data / SERP fan-out jobs for tier-C discovery
-- The organisation-watchlist crawler for tier-B (the highest-leverage piece
-  — watching ~50 orgs' careers/news pages beats keyword search)
+**One piece now actually runs.** `scripts/watch_sources.py` +
+`.github/workflows/watch-sources.yml` (every 6 hours + manual dispatch) is a
+real Tier-B watchlist sweep into the `SONAR` Supabase project above: fetch an
+organisation's page, ask Groq to point at concrete opportunity mentions,
+reject anything it can't back with an exact quote copied from the page.
+Verified offline with mocked network calls (HTML/script/style stripping, and
+the span-verification gate correctly rejecting a fabricated quote while
+accepting a real one) — not yet with a live run, since no environment this
+was built in has had outbound access to Groq, Supabase's REST endpoint, or
+any target site directly. First real test: trigger `watch-sources.yml` via
+`workflow_dispatch` and read the run log.
+
+It currently has **one real URL to watch** — `zindi.africa/competitions`,
+via `sonar_db.py`'s `WATCHLIST`. The other ~50 organisations there have a
+slug/name/sector but no URL on purpose: bulk-guessing career/news page URLs
+and presenting them as fact would be exactly the kind of unverified claim
+this project exists to catch. Add one at a time, after actually opening and
+confirming it: `update organisations set events_url = '...' where slug =
+'fnb';` (or `careers_url`/`news_url`, whichever fits the org).
+
+It also only writes to `observations` — raw, unreviewed evidence. Nothing
+lifts a verified observation back into `data/opportunities.json`
+automatically yet; a human still has to notice it and write the JSON entry.
+That promotion step is the next piece worth building.
+
+Still not built:
+- Bright Data / SERP fan-out for tier-C discovery
 - LinkedIn/Instagram/Facebook/TikTok scraping (tier-D, last resort)
-- The AIML/Claude extraction step that turns a snapshot into a candidate
-  `evidence[]` entry with a `quoted_span`
+- AIsa.one wiring (X/Twitter/Perplexity lookups, its vision model for
+  image-only sources) — designed for, not yet called from any script
+- The observations → `data/opportunities.json` promotion step (above)
 - Google Calendar sync (`docs/CALENDAR.md` documents the design; no
   calendar has actually been written to)
 - Notifications (no Slack/email/push wiring exists)
 
-This is the biggest gap between "what we designed" and "what runs." It's
-also the part that actually delivers on "we don't have to check manually" —
-until it exists, the board is only as fresh as the last manual edit.
-
 ## Pending — small UI polish (not blocking)
 
-- `/stats` route (see decision above — build it plain-JSON if we're staying
-  static)
-- Org-initials badge (`OrgIcon`) has no collision-avoidance across the 6
-  hash colours for orgs with only 1–2 letters of overlap; harmless
-  cosmetically, not worth fixing unless it actually collides visibly.
-- The PWA icon is a plain radar-ring mark — fine, but nobody has actually
-  installed the PWA on a phone and checked home-screen icon cropping.
+The old Next.js-specific items here (org-initials badge, PWA icon) no longer
+apply — that app is gone, replaced by sonar-radar. Nobody has yet installed
+sonar-radar as a PWA on a phone and checked icon cropping, if it offers one;
+otherwise nothing outstanding on this front right now.
 
 ## What's genuinely solid and doesn't need revisiting
 
-Design-token theming (light/dark), the anti-hallucination
-evidence/quoted-span mechanic, the circular-mean forecasting math (tested
-against the Dec/Jan year-wrap case), the `/about` page, and the data model
-migration from `hackathons.json` → `opportunities.json`. Don't re-litigate
-these without a concrete reason.
+The anti-hallucination evidence/quoted-span mechanic (now with a second,
+working implementation in `scripts/watch_sources.py`, not just the schema),
+the circular-mean forecasting math in `scripts/sonar_db.py` (tested against
+the Dec/Jan year-wrap case), and the data model migration from
+`hackathons.json` → `opportunities.json`. Don't re-litigate these without a
+concrete reason. (The `/about` page and the old Next.js design-token system
+were removed along with the static site — no longer applicable.)
