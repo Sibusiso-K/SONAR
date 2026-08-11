@@ -23,8 +23,7 @@ type GlobePoint = {
   lat: number;
   lng: number;
   color: string;
-  altitude: number;
-  radius: number;
+  pinHeight: number;
   days: number | null;
 };
 
@@ -63,6 +62,101 @@ function useContainerWidth<T extends HTMLElement>() {
   return [ref, width] as const;
 }
 
+/** A tear-drop map pin (not a globe.gl built-in — built as a real DOM/SVG
+ * node since htmlElementsData renders whatever element the accessor
+ * returns). Height varies with prize pool so bigger opportunities still
+ * read as "bigger," without the pole/spike look. */
+function makePinElement(p: GlobePoint, onSelect: (p: GlobePoint) => void) {
+  const el = document.createElement("div");
+  const h = p.pinHeight;
+  const w = h * 0.76;
+  el.innerHTML = `
+    <svg width="${w}" height="${h}" viewBox="0 0 26 34" style="display:block; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.6));">
+      <path d="M13 0C5.8 0 0 5.8 0 13c0 9 13 21 13 21s13-12 13-21C26 5.8 20.2 0 13 0z"
+            fill="${p.color}" stroke="rgba(255,255,255,0.9)" stroke-width="1.5" />
+      <circle cx="13" cy="13" r="5" fill="rgba(255,255,255,0.95)" />
+    </svg>
+  `;
+  el.style.cursor = "pointer";
+  el.style.pointerEvents = "auto";
+  el.style.transformOrigin = "bottom center";
+  el.style.transform = "translate(-50%, -100%)";
+  el.style.transition = "transform 0.15s ease";
+  el.onclick = () => onSelect(p);
+  el.onmouseenter = () => {
+    el.style.transform = "translate(-50%, -100%) scale(1.18)";
+  };
+  el.onmouseleave = () => {
+    el.style.transform = "translate(-50%, -100%) scale(1)";
+  };
+  return el;
+}
+
+/** Pure-CSS space dressing behind the globe: the canvas has a transparent
+ * background, so this layer shows through everywhere the sphere isn't
+ * drawn. Stars use a box-shadow trick (one element, many dots) so it's
+ * cheap; the moon and comets are plain divs animated with CSS. */
+function SpaceBackdrop() {
+  // Math.random() must never run during SSR — the server and the client
+  // would each roll different star positions and React would flag every
+  // one as a hydration mismatch. Start empty (matches the server's render)
+  // and only roll the field after mount, client-side only.
+  const [stars, setStars] = useState<{ small: string; big: string } | null>(null);
+
+  useEffect(() => {
+    const layer = (n: number, size: number) =>
+      Array.from({ length: n }, () => `${Math.round(Math.random() * 1000)}px ${Math.round(Math.random() * 480)}px 0 ${size === 1 ? "" : size + "px "}rgba(255,255,255,${(0.5 + Math.random() * 0.5).toFixed(2)})`).join(",\n");
+    setStars({ small: layer(140, 1), big: layer(50, 0) });
+  }, []);
+
+  return (
+    <div className="pointer-events-none absolute inset-0 overflow-hidden" style={{ zIndex: 0 }}>
+      {stars && (
+        <>
+          <div
+            className="absolute inset-0 animate-[twinkle_4s_ease-in-out_infinite]"
+            style={{ boxShadow: stars.small, width: 1, height: 1 }}
+          />
+          <div
+            className="absolute inset-0 animate-[twinkle_6s_ease-in-out_infinite_1s]"
+            style={{ boxShadow: stars.big, width: 1, height: 1 }}
+          />
+        </>
+      )}
+
+      <div
+        className="absolute rounded-full"
+        style={{
+          top: 28,
+          right: 48,
+          width: 46,
+          height: 46,
+          background: "radial-gradient(circle at 35% 32%, #f6f4ee 0%, #e2ddd0 45%, #b9b2a4 75%, #8f8879 100%)",
+          boxShadow: "0 0 24px 4px rgba(246,244,238,0.35)",
+        }}
+      >
+        <div className="absolute rounded-full bg-black/10" style={{ top: 10, left: 14, width: 8, height: 8 }} />
+        <div className="absolute rounded-full bg-black/10" style={{ top: 22, left: 26, width: 5, height: 5 }} />
+        <div className="absolute rounded-full bg-black/10" style={{ top: 28, left: 12, width: 4, height: 4 }} />
+      </div>
+
+      {[0, 6, 12].map((delay, i) => (
+        <div
+          key={i}
+          className="absolute h-px w-24 animate-[comet_9s_linear_infinite]"
+          style={{
+            top: `${10 + i * 25}%`,
+            left: -100,
+            animationDelay: `${delay}s`,
+            background: "linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.9) 100%)",
+            transform: "rotate(-20deg)",
+          }}
+        />
+      ))}
+    </div>
+  );
+}
+
 export function EventGlobe({ opportunities }: { opportunities: Opportunity[] }) {
   const Globe = useGlobeLib();
   const [containerRef, width] = useContainerWidth<HTMLDivElement>();
@@ -75,6 +169,8 @@ export function EventGlobe({ opportunities }: { opportunities: Opportunity[] }) 
         const loc = EVENT_LOCATIONS[o.id];
         if (!loc) return null;
         const prizeUsd = toUsd(o.prize?.pool, o.prize?.currency);
+        // "Heat" reads as pin size: bigger prize pool, bigger pin.
+        const heat = Math.max(0, Math.min(1, Math.log10(prizeUsd + 10) / 6));
         return {
           id: o.id,
           name: o.name,
@@ -86,9 +182,7 @@ export function EventGlobe({ opportunities }: { opportunities: Opportunity[] }) 
           lat: loc.lat,
           lng: loc.lng,
           color: tierHex(o.tier),
-          // "Heat" reads as height: bigger prize pool, taller spike.
-          altitude: Math.max(0.02, Math.min(0.35, Math.log10(prizeUsd + 10) / 22)),
-          radius: loc.kind === "venue" ? 0.55 : 0.4,
+          pinHeight: 22 + heat * 18,
           days: daysUntil(o.next_date),
         };
       })
@@ -109,7 +203,7 @@ export function EventGlobe({ opportunities }: { opportunities: Opportunity[] }) 
         <div>
           <h3 className="font-display text-xl font-bold">Where it's happening</h3>
           <p className="mt-0.5 text-xs text-muted-foreground">
-            Drag to rotate, scroll to zoom, click a marker for details.
+            Drag to rotate, scroll to zoom, click a pin for details.
           </p>
         </div>
         <div className="flex items-center gap-4 font-mono text-[11px] text-muted-foreground">
@@ -124,39 +218,34 @@ export function EventGlobe({ opportunities }: { opportunities: Opportunity[] }) 
         </div>
       </div>
 
-      <div ref={containerRef} className="relative" style={{ height: 480, background: "#05080d" }}>
+      <div ref={containerRef} className="relative" style={{ height: 480, background: "#0a1020" }}>
+        <SpaceBackdrop />
+
         {Globe && width > 0 ? (
-          <Globe
-            ref={globeRef}
-            width={width}
-            height={480}
-            backgroundColor="rgba(0,0,0,0)"
-            globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
-            atmosphereColor="#3fbfc4"
-            atmosphereAltitude={0.18}
-            pointsData={points}
-            pointLat={(d: object) => (d as GlobePoint).lat}
-            pointLng={(d: object) => (d as GlobePoint).lng}
-            pointColor={(d: object) => (d as GlobePoint).color}
-            pointAltitude={(d: object) => (d as GlobePoint).altitude}
-            pointRadius={(d: object) => (d as GlobePoint).radius}
-            pointResolution={12}
-            pointLabel={() => ""}
-            onPointClick={(p: object) => setSelected(p as GlobePoint)}
-            onPointHover={(p: object | null) => {
-              if (containerRef.current) {
-                containerRef.current.style.cursor = p ? "pointer" : "grab";
-              }
-            }}
-          />
+          <div className="relative" style={{ zIndex: 1 }}>
+            <Globe
+              ref={globeRef}
+              width={width}
+              height={480}
+              backgroundColor="rgba(0,0,0,0)"
+              globeImageUrl="//unpkg.com/three-globe/example/img/earth-blue-marble.jpg"
+              atmosphereColor="#7fd8dc"
+              atmosphereAltitude={0.22}
+              htmlElementsData={points}
+              htmlLat={(d: object) => (d as GlobePoint).lat}
+              htmlLng={(d: object) => (d as GlobePoint).lng}
+              htmlAltitude={0.015}
+              htmlElement={(d: object) => makePinElement(d as GlobePoint, setSelected)}
+            />
+          </div>
         ) : (
-          <div className="flex h-full items-center justify-center font-mono text-xs text-white/50">
+          <div className="relative flex h-full items-center justify-center font-mono text-xs text-white/50" style={{ zIndex: 1 }}>
             Loading globe…
           </div>
         )}
 
         {selected && (
-          <div className="absolute bottom-4 left-4 right-4 max-w-sm rounded-md border border-white/15 bg-black/80 p-4 backdrop-blur-sm md:right-auto">
+          <div className="absolute bottom-4 left-4 right-4 z-10 max-w-sm rounded-md border border-white/15 bg-black/80 p-4 backdrop-blur-sm md:right-auto">
             <div className="flex items-start justify-between gap-3">
               <div>
                 <p className="font-mono text-[10px] uppercase tracking-widest" style={{ color: selected.color }}>

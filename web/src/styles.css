@@ -263,3 +263,32 @@
     transform: none;
   }
 }
+
+/* ---------- Globe space backdrop ---------- */
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes comet {
+  0% {
+    transform: translateX(0) rotate(-20deg);
+    opacity: 0;
+  }
+  8% {
+    opacity: 1;
+  }
+  22% {
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(900px) rotate(-20deg);
+    opacity: 0;
+  }
+}
