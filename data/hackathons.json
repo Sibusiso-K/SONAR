@@ -22,6 +22,9 @@
   "hackathons": [
     {
       "id": "adtc-2026",
+      "noticed_on": "2026-08-10",
+      "went_live_on": null,
+      "source": "manual research",
       "name": "Africa Deep Tech Challenge 2026 — The Laptop LLM Challenge",
       "organiser": "Africa Deep Tech Foundation (with Africa AI XPrize, MIT Kuo Sharper, Future Africa)",
       "scope": "continental",
@@ -53,6 +56,9 @@
     },
     {
       "id": "bcg-platinion-2026",
+      "noticed_on": "2026-08-10",
+      "went_live_on": null,
+      "source": "manual research",
       "name": "BCG Platinion Hackathon 2026 — Fighting World Hunger",
       "organiser": "BCG Platinion",
       "scope": "international",
@@ -83,6 +89,9 @@
     },
     {
       "id": "ibm-devday-bob-2026",
+      "noticed_on": "2026-08-10",
+      "went_live_on": null,
+      "source": "manual research",
       "name": "IBM Dev Day: Bob in Action + Hackathon",
       "organiser": "IBM (via BeMyApp) — TechXchange 2026 pre-conference",
       "scope": "international",
@@ -114,6 +123,9 @@
     },
     {
       "id": "shipaton-2026",
+      "noticed_on": "2026-08-10",
+      "went_live_on": null,
+      "source": "manual research",
       "name": "RevenueCat Shipaton 2026",
       "organiser": "RevenueCat",
       "scope": "international",
@@ -143,6 +155,9 @@
     },
     {
       "id": "govtech-2026",
+      "noticed_on": "2026-08-10",
+      "went_live_on": null,
+      "source": "manual research",
       "name": "SITA GovTech 2026 Hackathon",
       "organiser": "SITA / GovTech",
       "scope": "local",
@@ -167,6 +182,9 @@
     },
     {
       "id": "rsna-knee-2026",
+      "noticed_on": "2026-08-10",
+      "went_live_on": null,
+      "source": "manual research",
       "name": "RSNA Knee Abnormality Detection (Kaggle)",
       "organiser": "Radiological Society of North America + Kaggle",
       "scope": "international",
@@ -196,6 +214,9 @@
     },
     {
       "id": "fnb-aoty-2026",
+      "noticed_on": "2026-08-10",
+      "went_live_on": null,
+      "source": "manual research",
       "name": "FNB App of the Year Hackathon 2026",
       "organiser": "FNB South Africa",
       "scope": "local",
@@ -216,6 +237,9 @@
     },
     {
       "id": "mtn-momo-miniapp-2026",
+      "noticed_on": "2026-08-10",
+      "went_live_on": null,
+      "source": "manual research",
       "name": "MTN MoMo Mini App Hackathon 2026",
       "organiser": "MTN Group / MoMo",
       "scope": "continental",
@@ -236,6 +260,9 @@
     },
     {
       "id": "mintek-sci-2026",
+      "noticed_on": "2026-08-10",
+      "went_live_on": null,
+      "source": "manual research",
       "name": "Mintek-SCi Grad Hackathon 2026",
       "organiser": "Mintek",
       "scope": "local",
@@ -256,6 +283,9 @@
     },
     {
       "id": "ibm-z-datathon-2026",
+      "noticed_on": "2026-08-10",
+      "went_live_on": null,
+      "source": "manual research",
       "name": "IBM Z Datathon 2026",
       "organiser": "IBM Z / StarHacks / Hack2Skill",
       "scope": "international",
@@ -276,6 +306,9 @@
     },
     {
       "id": "unesco-youth-2026",
+      "noticed_on": "2026-08-10",
+      "went_live_on": null,
+      "source": "manual research",
       "name": "UNESCO Youth Hackathon 2026",
       "organiser": "UNESCO",
       "scope": "international",
@@ -301,6 +334,9 @@
     },
     {
       "id": "zindi-rolling",
+      "noticed_on": "2026-08-10",
+      "went_live_on": null,
+      "source": "manual research",
       "name": "Zindi Challenges (rolling)",
       "organiser": "Zindi",
       "scope": "continental",
@@ -321,6 +357,9 @@
     },
     {
       "id": "geekulcha-2026",
+      "noticed_on": "2026-08-10",
+      "went_live_on": null,
+      "source": "manual research",
       "name": "Geekulcha Annual Hackathon (#GKHack26)",
       "organiser": "Geekulcha",
       "scope": "local",
@@ -341,6 +380,9 @@
     },
     {
       "id": "huawei-ict-2026-2027",
+      "noticed_on": "2026-08-10",
+      "went_live_on": null,
+      "source": "manual research",
       "name": "Huawei ICT Competition 2026–2027",
       "organiser": "Huawei ICT Academy",
       "scope": "international",
@@ -365,6 +407,9 @@
     },
     {
       "id": "entelect-university-cup-2027",
+      "noticed_on": "2026-08-10",
+      "went_live_on": null,
+      "source": "manual research",
       "name": "Entelect University Cup",
       "organiser": "Entelect",
       "scope": "local",
@@ -385,6 +430,9 @@
     },
     {
       "id": "nasa-space-apps-2026",
+      "noticed_on": "2026-08-10",
+      "went_live_on": null,
+      "source": "manual research",
       "name": "NASA International Space Apps Challenge 2026",
       "organiser": "NASA + international space agency partners",
       "scope": "international",

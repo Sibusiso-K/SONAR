@@ -20,6 +20,21 @@
     "format": { "enum": ["online", "in-person", "hybrid"] },
     "location": { "type": "string" },
 
+    "source": {
+      "type": "string",
+      "description": "How this was actually found - 'manual research', or the discovering org/feed name once the pipeline promotes something. Feeds /stats' discovery-lag-by-source chart."
+    },
+    "went_live_on": {
+      "type": ["string", "null"],
+      "format": "date",
+      "description": "When the organiser announced/opened this, if evidence establishes it. Null is honest for anything with no announcement-date evidence - never fabricate this."
+    },
+    "noticed_on": {
+      "type": ["string", "null"],
+      "format": "date",
+      "description": "When SONAR first recorded this. For the initial 2026-08-10 research sprint, backfilled from git history, not guessed."
+    },
+
     "status": {
       "enum": ["open", "closing", "monitor", "monitor-weekly", "verify", "closed", "past", "dropped"],
       "description": "Externally observable state of the competition itself."

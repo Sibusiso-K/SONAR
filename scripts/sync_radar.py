@@ -142,7 +142,15 @@ def to_radar_opportunity(o):
         "deliverables": deliverables,
         "links": o.get("links") or {},
         "notes": o.get("notes"),
-        "source": "SONAR data pipeline",
+        # Real per-entry facts, not a fixed string: `source` is how each
+        # opportunity was actually found (manual research for the initial
+        # board; the discovering org/feed name once the watch_sources.py
+        # pipeline promotes something). `went_live_on`/`noticed_on` feed
+        # /stats' discoveryLag() - null went_live_on is honest for entries
+        # with no announcement-date evidence, not a placeholder to paper over.
+        "source": o.get("source") or "manual research",
+        "went_live_on": o.get("went_live_on"),
+        "noticed_on": o.get("noticed_on"),
         "archived": o.get("status") in ("past", "dropped"),
     }
 
