@@ -1,20 +1,8 @@
 import { useMemo, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import type { Opportunity } from "@/lib/sonar-types";
+import { TIER_COLOR, tierColor } from "@/lib/tierColor";
 import { cn } from "@/lib/utils";
-
-/** Priority = tier. Deliberately its own palette, distinct from the
- * days-remaining severity colours used on the Board rows, so "closes soon"
- * and "matters most" don't get visually conflated. */
-const TIER_COLOR: Record<number, string> = {
-  1: "var(--accent)",
-  2: "var(--warning)",
-  3: "var(--unknown)",
-};
-
-function tierColor(tier: number | null | undefined) {
-  return TIER_COLOR[tier ?? 3] ?? TIER_COLOR[3];
-}
 
 function monthLabel(d: Date) {
   return d.toLocaleDateString("en-ZA", { month: "long", year: "numeric" });
