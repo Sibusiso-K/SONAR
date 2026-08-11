@@ -114,19 +114,25 @@ was built in has had outbound access to Groq, Supabase's REST endpoint, or
 any target site directly. First real test: trigger `watch-sources.yml` via
 `workflow_dispatch` and read the run log.
 
-**Live-tested now, and it caught a real config bug on the first try:**
-`workflow_dispatch` run #1 confirmed Supabase connectivity works end to end
-(a real `GET organisations` from GitHub Actions), but came back empty — traced
-to `cmd_seed_orgs` never being wired into any scheduled step, fixed by adding
-it to `watch-sources.yml`. Run #2 then failed with `42501: new row violates
-row-level security policy for table "organisations"` on the seed insert.
-That specific error is the signature of using the **anon key**, not the
-**service_role** key — service_role bypasses RLS entirely, so a real one
-would never hit this. **Action needed:** re-check the `SUPABASE_SERVICE_KEY`
-GitHub secret's actual value against the `SONAR` project's dashboard
-(Project Settings → API → `service_role`, not `anon`/`publishable`) — it may
-have gotten mixed up with the anon key, or with `RADAR_SUPABASE_SERVICE_KEY`
-(a different project's key, for a different secret slot).
+**Live-tested end to end now, working.** Three bugs surfaced and got fixed
+across `workflow_dispatch` runs #1-#4, each one a real thing this session's
+network policy made impossible to catch before pushing:
+1. Run #1: sweep found no organisations — `cmd_seed_orgs` was never wired
+   into a scheduled step. Fixed by adding it to `watch-sources.yml`.
+2. Run #2: seed insert failed `42501: new row violates row-level security
+   policy` — the `SUPABASE_SERVICE_KEY` secret held the anon key, not
+   service_role (which bypasses RLS). Fixed by the secret's owner correcting
+   the value.
+3. Run #3: seeding worked, but the Groq call failed `403: error code 1010` —
+   Cloudflare's bot-fingerprint block in front of `api.groq.com`, triggered
+   by `call_groq()` sending no `User-Agent` (Python's default,
+   `Python-urllib/3.x`, is a known signature Cloudflare's WAF rejects
+   outright). Fixed by adding a real one.
+4. **Run #4: clean.** `[zindi] https://zindi.africa/competitions` →
+   `1 candidate(s), 1 verified` → `1 candidates, 1 verified, 0 rejected`.
+   A real quote, copied verbatim from the live page by Groq, passed the
+   span-check, and was written to `observations` in the `SONAR` Supabase
+   project.
 
 It currently has **one real URL to watch** — `zindi.africa/competitions`,
 via `sonar_db.py`'s `WATCHLIST`. The other ~50 organisations there have a
