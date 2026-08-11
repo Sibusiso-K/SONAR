@@ -1,4 +1,5 @@
 import { Star } from "lucide-react";
+import { OrgLogo } from "@/components/OrgLogo";
 import { WinRing } from "@/components/WinRing";
 import {
   daysUntil,
@@ -65,7 +66,10 @@ export function OpportunityRow({
           </span>
         </div>
 
-        <h3 className="mt-2 text-2xl font-bold leading-none md:text-3xl">{o.name}</h3>
+        <div className="mt-2 flex items-center gap-2.5">
+          <OrgLogo organiser={o.organiser} />
+          <h3 className="text-2xl font-bold leading-none md:text-3xl">{o.name}</h3>
+        </div>
         <p className="mt-1.5 text-sm text-muted-foreground">
           {o.organiser} · {o.scope} · {o.career_track} career track
         </p>

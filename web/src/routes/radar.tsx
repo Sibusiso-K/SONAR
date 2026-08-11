@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { AppShell } from "@/components/AppShell";
 import { EventCalendar } from "@/components/EventCalendar";
+import { OrgLogo } from "@/components/OrgLogo";
 import { Reveal, RevealWords } from "@/components/Reveal";
 import { useOpportunities, usePastOpportunities } from "@/lib/sonar-data";
 import { formatMoney } from "@/lib/analytics";
@@ -79,7 +80,10 @@ function Radar() {
                     {o.confidence}
                   </span>
                 </div>
-                <h3 className="mt-3 text-xl font-bold">{o.name}</h3>
+                <div className="mt-3 flex items-center gap-2.5">
+                  <OrgLogo organiser={o.organiser} size={24} />
+                  <h3 className="text-xl font-bold">{o.name}</h3>
+                </div>
                 <p className="mt-1 text-sm text-muted-foreground">{o.organiser}</p>
                 <dl className="mt-4 space-y-2">
                   <div>
