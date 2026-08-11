@@ -167,9 +167,10 @@ def sweep(limit=None, dry_run=False):
 
     if not orgs:
         print(
-            "No organisations have a careers_url/news_url set yet.\n"
-            "This is expected on a fresh watchlist — add one to test:\n"
-            "  update organisations set careers_url = '...' where slug = 'zindi';"
+            "No organisations have a careers_url/news_url/events_url set yet.\n"
+            "Run `python3 scripts/sonar_db.py seed-orgs` first (idempotent - "
+            "safe to rerun), which sets zindi's events_url. To add another:\n"
+            "  update organisations set events_url = '...' where slug = 'fnb';"
         )
         return
 

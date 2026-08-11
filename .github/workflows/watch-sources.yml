@@ -36,6 +36,20 @@ jobs:
         with:
           python-version: "3.12"
 
+      # Idempotent (upsert on slug) - safe to run every time. Without this,
+      # the organisations table stays empty and the sweep below has nothing
+      # to fetch, which is exactly what happened on the first real run.
+      - name: Seed the watchlist
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+        run: |
+          if [ -z "$SUPABASE_URL" ] || [ -z "$SUPABASE_SERVICE_KEY" ]; then
+            echo "::warning::Supabase not configured — skipping seed and sweep."
+            exit 0
+          fi
+          python3 scripts/sonar_db.py seed-orgs
+
       - name: Sweep the watchlist
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
