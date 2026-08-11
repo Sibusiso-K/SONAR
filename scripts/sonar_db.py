@@ -115,9 +115,13 @@ def upsert(table, rows, on_conflict):
 # once you've actually opened the page and confirmed it's current.
 WATCHLIST = [
     # slug, name, sector, url
-    ("zindi", "Zindi", "platform", "https://zindi.africa/competitions"),
+    # URL sources: reused from the human-verified `links` already committed
+    # in data/opportunities.json (zindi-rolling, geekulcha-2026, fnb-aoty-2026)
+    # rather than freshly guessed - same anti-hallucination reasoning as the
+    # rest of this file, just applied to which URLs we trust enough to seed.
+    ("zindi", "Zindi", "platform", "https://zindi.world/competitions"),
     ("discovery",        "Discovery",                    "insurer"),
-    ("fnb",              "FNB",                          "bank"),
+    ("fnb",              "FNB",                          "bank",     "https://appoftheyear.co.za/hackathon/"),
     ("absa",             "Absa",                         "bank"),
     ("standard-bank",    "Standard Bank",                "bank"),
     ("nedbank",          "Nedbank",                      "bank"),
@@ -157,7 +161,7 @@ WATCHLIST = [
     ("sansa",            "SANSA",                        "research"),
     ("mict-seta",        "MICT SETA",                    "state"),
     ("innovation-hub",   "The Innovation Hub",           "state"),
-    ("geekulcha",        "Geekulcha",                    "community"),
+    ("geekulcha",        "Geekulcha",                    "community", "https://www.geekulcha.dev/events"),
     ("girlcode",         "GirlCode",                     "community"),
     ("umuzi",            "Umuzi",                        "training"),
     ("wethinkcode",      "WeThinkCode_",                 "training"),
