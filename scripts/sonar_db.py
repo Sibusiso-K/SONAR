@@ -170,7 +170,7 @@ WATCHLIST = [
     ("google",           "Google",                       "lab"),
     ("anthropic",        "Anthropic",                    "lab"),
     ("nvidia",           "NVIDIA",                       "lab"),
-    ("revenuecat",       "RevenueCat",                   "platform"),
+    ("revenuecat",       "RevenueCat",                   "platform", "https://www.shipaton.com/"),
 ]
 
 
