@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import "./globals.css";
@@ -9,6 +9,11 @@ export const metadata: Metadata = {
   title: "SONAR — opportunity board",
   description:
     "Hackathons, competitions, graduate programmes and recruiting events — found, verified and scheduled automatically.",
+  appleWebApp: { capable: true, statusBarStyle: "black-translucent", title: "SONAR" },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#0e6e75",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

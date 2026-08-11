@@ -42,6 +42,50 @@ export function ConfidenceChip({ c }: { c: Confidence }) {
   );
 }
 
+/* Organisers don't ship a logo feed we can pull from, and hotlinking
+   trademarked company logos into a public site is its own can of worms —
+   so this is a deterministic initials badge, not a real logo. */
+const ORG_COLORS = ["#0e6e75", "#a8620a", "#1b7a4b", "#7a3ea1", "#b6394a", "#3a5da8"];
+
+function orgHash(name: string): number {
+  let h = 0;
+  for (let i = 0; i < name.length; i++) h = (h * 31 + name.charCodeAt(i)) >>> 0;
+  return h;
+}
+
+export function OrgIcon({ name, size = 22 }: { name: string; size?: number }) {
+  const initials = name
+    .split(/[\s/&]+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((w) => w[0])
+    .join("")
+    .toUpperCase();
+  const color = ORG_COLORS[orgHash(name) % ORG_COLORS.length];
+  return (
+    <span
+      className="orgicon"
+      style={{ width: size, height: size, background: color, fontSize: size * 0.42 }}
+      title={name}
+      aria-hidden
+    >
+      {initials || "?"}
+    </span>
+  );
+}
+
+const FORMAT_LABEL: Record<string, string> = {
+  "in-person": "In-person",
+  online: "Online",
+  hybrid: "Hybrid",
+  virtual: "Online",
+};
+
+export function FormatChip({ format }: { format?: string }) {
+  if (!format) return null;
+  return <Chip square>{FORMAT_LABEL[format] ?? prettyLabel(format)}</Chip>;
+}
+
 export function TierBadge({ tier }: { tier: number | null }) {
   return (
     <span className="tierbadge" data-t={tier ?? "?"} title={tier ? `Tier ${tier}` : "Unscored"}>
@@ -126,7 +170,10 @@ export function OpportunityRow({ o }: { o: Opportunity }) {
         <Countdown days={o.days_remaining} tone={tone} />
       </div>
       <div className="nmcell" role="cell">
-        <div className="nm">{o.name}</div>
+        <div className="nmrow">
+          <OrgIcon name={o.organiser} />
+          <div className="nm">{o.name}</div>
+        </div>
         <div className="org">
           {o.organiser}
           {o.next_date_label && (
@@ -139,6 +186,7 @@ export function OpportunityRow({ o }: { o: Opportunity }) {
       </div>
       <div className="kindcell" role="cell">
         <Chip square>{KIND_LABEL[o.kind] ?? o.kind}</Chip>
+        <FormatChip format={o.format} />
         {o.career_track === "direct" && <Chip tone="brand">Hiring</Chip>}
       </div>
       <div className="tiercell" role="cell">

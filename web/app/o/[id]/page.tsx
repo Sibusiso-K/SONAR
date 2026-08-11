@@ -13,7 +13,7 @@ import {
   primaryUrl,
   toneFor,
 } from "@/lib/data";
-import { Chip, ConfidenceChip, TierBadge } from "@/components/ui";
+import { Chip, ConfidenceChip, OrgIcon, TierBadge } from "@/components/ui";
 
 export function generateStaticParams() {
   return opportunityIds().map((id) => ({ id }));
@@ -96,7 +96,8 @@ export default async function OpportunityPage({
           <h1 className="title" style={{ fontSize: 27, lineHeight: 1.2 }}>
             {o.name}
           </h1>
-          <p className="subtitle">
+          <p className="subtitle" style={{ display: "flex", alignItems: "center", gap: 8 }}>
+            <OrgIcon name={o.organiser} size={20} />
             {o.organiser}
             {o.location ? ` · ${o.location}` : ""}
           </p>
