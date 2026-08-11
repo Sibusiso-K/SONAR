@@ -133,6 +133,11 @@ def call_groq(url: str, page_text: str) -> tuple[list, dict]:
         headers={
             "Authorization": f"Bearer {GROQ_KEY}",
             "Content-Type": "application/json",
+            # Cloudflare (in front of api.groq.com) WAF-blocks the default
+            # urllib UA ("Python-urllib/3.x") with a 403/error-1010 bot
+            # fingerprint rejection before the request even reaches Groq's
+            # API - confirmed live. A real client UA clears it.
+            "User-Agent": "SONAR-watchlist/1.0 (+https://github.com/Sibusiso-K/SONAR)",
         },
     )
     try:
