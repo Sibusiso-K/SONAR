@@ -9,6 +9,14 @@
   },
   "updates": [
     {
+      "at": "2026-08-11T09:10:00+02:00",
+      "kind": "changed",
+      "target": "mintek-sci-2026",
+      "title": "Mintek-SCi Grad Hackathon 2026 — REEFPRINT abstract recorded",
+      "body": "Added the submitted abstract to what_to_build: REEFPRINT (Problem 3 — Computer Vision for Real-Time Mineralogical Characterisation), by Lethabo. Distills SEM/XRD/QEMSCAN output into a fast optical model across five Bushveld phases, reports per-class recall on sub-1% base-metal sulphide ahead of aggregate accuracy, converts texture into liberation/reagent demand/grindability with calibrated abstention, costs in Rand/tCO2e, and is positioned as a StarCS/FloatStar/MillStar module.",
+      "by": "Sibusiso K"
+    },
+    {
       "at": "2026-08-11T09:05:00+02:00",
       "kind": "changed",
       "target": "entelect-university-cup-2027",

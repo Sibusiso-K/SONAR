@@ -21,7 +21,7 @@
       "reported": "From a secondary source (news/aggregator); verify before relying on it",
       "unconfirmed": "Not yet announced for 2026; based on prior-year pattern"
     },
-    "generated": "2026-08-11T09:16:52Z",
+    "generated": "2026-08-11T09:19:05Z",
     "generator": "scripts/migrate_to_opportunities.py",
     "kinds": {
       "hackathon": "Build something in a fixed window",
@@ -510,7 +510,7 @@
       },
       "eligibility": "University students, unemployed graduates, and interns under 35. Team-based, mentored.",
       "team_fit": "Excellent — explicitly aimed at unemployed graduates. Directly on-target for your situation.",
-      "what_to_build": "Real-world minerals/energy problems — e.g. AI for mineral processing efficiency, renewable alternatives for energy-intensive smelting. 2025 theme: 'The Next Frontier: Emerging Scientists Driving Change'.",
+      "what_to_build": "Submitted abstract: REEFPRINT (Category: Problem 3 — Computer Vision for Real-Time Mineralogical Characterisation, by Lethabo). Rather than building a mineral classifier that competes with lab instruments (SEM/XRD/QEMSCAN), distills those instruments' existing output as a 'teacher' into a cheap optical model that reproduces their maps in seconds instead of days. Targets five Bushveld-relevant phases — chromite, orthopyroxene, plagioclase, base-metal sulphide, talc/serpentine — deliberately including base-metal sulphide even at <1% by area since that's where PGM economic value sits; the abstract commits to reporting per-class recall on that sub-1% class ahead of any aggregate accuracy number. Converts texture/liberation into three metallurgical response variables (liberation, reagent demand, grindability) feeding a plant setpoint recommendation with calibrated uncertainty — abstains rather than guessing when confidence is low. Frames cost/impact in Rand and tCO2e using real SA gazetted rates (Eskom Megaflex, carbon tax). Positioned as a module for Mintek's existing StarCS/FloatStar/MillStar platform, not a competing product. Code has since been re-scoped to match the submitted phase set.",
       "deliverables": [
         "Electronic solution submission at end of build month"
       ],
@@ -519,7 +519,7 @@
         "news": "https://mintek.co.za/media/news/",
         "prior_faq": "https://mintek.co.za/site_content/content/documents/mintek90/mintek-grad-hackathon-faq.pdf"
       },
-      "notes": "Applied in time. Awaiting response from Mintek — dates below are the prior-year pattern, not yet confirmed for this cycle.",
+      "notes": "Abstract submitted (REEFPRINT). Applied in time — awaiting Mintek's response. Dates below are the prior-year pattern, not yet confirmed for this cycle.",
       "kind": "grad_programme",
       "career_track": "direct",
       "next_date": null,
