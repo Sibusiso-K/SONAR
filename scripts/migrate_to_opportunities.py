@@ -143,6 +143,7 @@ def main():
             "reason": reason,
             "link": p.get("link"),
             "missed": missed,
+            "result": p.get("result"),
         })
 
     out = {

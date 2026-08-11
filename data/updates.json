@@ -9,6 +9,14 @@
   },
   "updates": [
     {
+      "at": "2026-08-11T09:05:00+02:00",
+      "kind": "changed",
+      "target": "entelect-university-cup-2027",
+      "title": "Entelect University Cup — registered, dates confirmed",
+      "body": "The board had this marked as passed for 2026. It's live: 22 Aug 2026, 10:00-15:00 SAST. Team (Sibusiso + Lethabo) registered, confirmed via the team registration page. Moved to committed, confidence to confirmed.",
+      "by": "Sibusiso K"
+    },
+    {
       "at": "2026-08-11T09:00:00+02:00",
       "kind": "changed",
       "target": "mintek-sci-2026",

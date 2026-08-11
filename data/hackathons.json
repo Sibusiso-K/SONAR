@@ -241,7 +241,7 @@
       "scope": "local",
       "format": "hybrid",
       "location": "South Africa",
-      "status": "verify",
+      "status": "applied",
       "tier": 2,
       "score": 6.2,
       "scores": { "career_leverage": 8, "winnability": 7, "prize": 5, "urgency": 2 },
@@ -252,7 +252,7 @@
       "what_to_build": "Real-world minerals/energy problems — e.g. AI for mineral processing efficiency, renewable alternatives for energy-intensive smelting. 2025 theme: 'The Next Frontier: Emerging Scientists Driving Change'.",
       "deliverables": ["Electronic solution submission at end of build month"],
       "links": { "main": "https://mintek.co.za/", "news": "https://mintek.co.za/media/news/", "prior_faq": "https://mintek.co.za/site_content/content/documents/mintek90/mintek-grad-hackathon-faq.pdf" },
-      "notes": "URGENT VERIFICATION NEEDED: if 2026 follows the 2025 calendar, applications closed in July and you have already missed it. Email or call Mintek this week to confirm. Highest-fit event on the board for an unemployed-graduate team — worth the phone call. If closed, diarise the July 2027 window now."
+      "notes": "Applied in time. Awaiting response from Mintek — dates below are the prior-year pattern, not yet confirmed for this cycle."
     },
     {
       "id": "ibm-z-datathon-2026",
@@ -370,18 +370,18 @@
       "scope": "local",
       "format": "in-person",
       "location": "South Africa",
-      "status": "monitor",
+      "status": "registered",
       "tier": 3,
       "score": 5.35,
-      "scores": { "career_leverage": 8, "winnability": 6, "prize": 3, "urgency": 1 },
-      "dates": { "prior_edition": "13 April 2024", "expected_window": "Likely Q1–Q2 2027 for the next cycle", "confidence": "unconfirmed" },
+      "scores": { "career_leverage": 8, "winnability": 6, "prize": 3, "urgency": 3 },
+      "dates": { "event_start": "2026-08-22T10:00:00+02:00", "submission_deadline_sast": "2026-08-22T15:00:00+02:00", "confidence": "confirmed", "source": "challenge.entelect.co.za team registration page" },
       "prize": { "currency": "ZAR", "pool": null, "non_cash": "Prior prizes were Nintendo Switches; real value is the Entelect graduate-hiring pipeline" },
       "eligibility": "University students, teams of 2–3.",
       "team_fit": "Perfect team size — if you qualify as students.",
       "what_to_build": "Algorithmic optimisation problem, timeboxed single-day contest.",
       "deliverables": ["Solution to the optimisation problem"],
       "links": { "main": "https://www.entelect.co.za/", "linkedin": "https://www.linkedin.com/company/entelect" },
-      "notes": "The 2026 cycle appears to have passed. Entelect is one of the strongest SA graduate employers in software — also look at the separate Entelect Challenge. Follow Entelect on LinkedIn and set a reminder for January 2027."
+      "notes": "Team registered — Sibusiso + Lethabo, confirmed via the team registration page. The board had this wrongly marked as the 2026 cycle having passed; it's live and running 22 Aug 2026. Entelect is one of the strongest SA graduate employers in software — also look at the separate Entelect Challenge."
     },
     {
       "id": "nasa-space-apps-2026",
@@ -410,7 +410,7 @@
     { "name": "Monkey and River Hackathon 2026", "reason": "Ran 31 July–1 August 2026 at Momentum, Centurion. R50,000+ in cash and prizes. Diarise for 2027.", "link": "https://monkeyandriver.com/hackathon/" },
     { "name": "Geekulcha SS26Hack Kimberley", "reason": "Ran 22 May 2026 at Sol Plaatje University.", "link": "https://gklink.co/ss26hack" },
     { "name": "GirlCode Pan-African Hackathon 2026", "reason": "SA/Botswana leg 15–16 August 2026. Women-only — noted for awareness only.", "link": "https://www.itweb.co.za/article/girlcode-opens-registration-for-2026-pan-african-hackathon/j5alrMQAwVRMpYQk" },
-    { "name": "Discovery Gradhack 2026", "reason": "MISSED — ran 7 August 2026 at Discovery Place, Sandton. Verified 10 Aug 2026, three days after the fact. Format: 50 IT students from SA universities, teams of 2–4, free entry, R12 500 cash per winning team member, plus a permanent-employment pathway at Discovery. This was the board's #1 open action item ('find the dates, score it') and the only signal was an empty Google Calendar named 'Discovery Gradhack -Team Sonar- 2026'. Nothing was watching it. This is the founding case for docs/AUTONOMY.md — see §0 and §7.4 (prediction from history[]). ACTION: set a predicted-window watch for ~August 2027 and log this in the first retro.", "link": "https://www.discovery.co.za/corporate/discovery-gradhack" }
+    { "name": "Discovery Gradhack 2026", "reason": "Ran 7 August 2026 at Discovery Place, Sandton. Format: 50 IT students from SA universities, teams of 2–4, free entry, R12 500 cash per winning team member, plus a permanent-employment pathway at Discovery. Team Sonar competed and placed Top 6. Correction logged 11 Aug 2026 — an earlier pass had this recorded as missed; discovery was late (the only signal beforehand was an empty team calendar) but the team still made the deadline and competed. See docs/AUTONOMY.md §0 for the discovery-timing gap that this surfaced — worth fixing even though the outcome was good.", "link": "https://www.discovery.co.za/corporate/discovery-gradhack", "result": "Top 6" }
   ],
   "monitoring_sources": [
     { "name": "Devpost hackathons", "url": "https://devpost.com/hackathons", "cadence": "weekly" },
