@@ -107,7 +107,11 @@ jobs:
           else
             git add data/
             git commit -m "data: scheduled refresh $(date -u +%Y-%m-%d)"
-            git push
+            # main can have moved since checkout (someone pushing directly,
+            # or two runs overlapping despite concurrency: group above) -
+            # rebase onto the current tip once and retry rather than fail
+            # outright on a plain "fetch first" rejection.
+            git push || { git pull --rebase origin main && git push; }
           fi
 
       - name: Verify the site still builds
