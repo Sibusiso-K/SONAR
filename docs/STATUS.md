@@ -114,6 +114,20 @@ was built in has had outbound access to Groq, Supabase's REST endpoint, or
 any target site directly. First real test: trigger `watch-sources.yml` via
 `workflow_dispatch` and read the run log.
 
+**Live-tested now, and it caught a real config bug on the first try:**
+`workflow_dispatch` run #1 confirmed Supabase connectivity works end to end
+(a real `GET organisations` from GitHub Actions), but came back empty — traced
+to `cmd_seed_orgs` never being wired into any scheduled step, fixed by adding
+it to `watch-sources.yml`. Run #2 then failed with `42501: new row violates
+row-level security policy for table "organisations"` on the seed insert.
+That specific error is the signature of using the **anon key**, not the
+**service_role** key — service_role bypasses RLS entirely, so a real one
+would never hit this. **Action needed:** re-check the `SUPABASE_SERVICE_KEY`
+GitHub secret's actual value against the `SONAR` project's dashboard
+(Project Settings → API → `service_role`, not `anon`/`publishable`) — it may
+have gotten mixed up with the anon key, or with `RADAR_SUPABASE_SERVICE_KEY`
+(a different project's key, for a different secret slot).
+
 It currently has **one real URL to watch** — `zindi.africa/competitions`,
 via `sonar_db.py`'s `WATCHLIST`. The other ~50 organisations there have a
 slug/name/sector but no URL on purpose: bulk-guessing career/news page URLs
