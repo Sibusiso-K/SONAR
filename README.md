@@ -21,6 +21,7 @@ You just pulled the repo. Everything you need is here — no context transfer re
 | Where every fact came from | [`docs/SOURCES.md`](docs/SOURCES.md) |
 | How to add or update an entry | [`CONTRIBUTING.md`](CONTRIBUTING.md) |
 | Getting set up from scratch | [`docs/ONBOARDING.md`](docs/ONBOARDING.md) |
+| **Where this is going — the autonomous v2 design** | [**`docs/AUTONOMY.md`**](docs/AUTONOMY.md) |
 
 Import `calendar/sonar-2026.ics` into your Google Calendar and you have the same dates Sibusiso does.
 
@@ -44,7 +45,9 @@ Nov 14  NASA Space Apps
 
 Full board with reasoning: [`docs/PRIORITY_BOARD.md`](docs/PRIORITY_BOARD.md)
 
-> **Loose end:** there's a Google Calendar on Sibusiso's account called *"Discovery Gradhack -Team Sonar- 2026"* — described as tracking "all key dates from virtual event through the Sandton final" — but it's empty. That event isn't on the board yet. Find the dates, score it, and add it, because it may collide with the crunch above.
+> **Closed loose end — and the reason SONAR needs to run itself.** That empty Google Calendar named *"Discovery Gradhack -Team Sonar- 2026"* was tracking a real event: **Discovery Gradhack ran on 7 August 2026 at Discovery Place, Sandton** — three days before this line was written. 50 IT students, teams of 2–4, R12 500 per winning team member, and a permanent-employment pathway at Discovery. We missed it, and the only warning was a calendar nobody filled in.
+>
+> Moved to `dropped_or_past`. Watch set for ~August 2027. This is finding #1 in [`docs/AUTONOMY.md`](docs/AUTONOMY.md), which is the plan for making sure it doesn't happen twice.
 
 ---
 

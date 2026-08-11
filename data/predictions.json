@@ -1,0 +1,5 @@
+{
+  "note": "Written by scripts/sonar_db.py forecast. Predictions are never facts — they render on Radar as watch windows only, and are superseded automatically the moment a real source confirms a date. Empty until `editions` is backfilled with at least two years per recurring opportunity.",
+  "generated": null,
+  "predictions": []
+}

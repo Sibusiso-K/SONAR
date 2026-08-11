@@ -1,0 +1,26 @@
+{
+  "name": "sonar-web",
+  "version": "2.0.0",
+  "private": true,
+  "description": "SONAR — opportunity board. Static-rendered from the repo's JSON, hosted free on Vercel.",
+  "scripts": {
+    "sync": "node scripts/sync-data.mjs",
+    "dev": "npm run sync && next dev",
+    "build": "npm run sync && next build && node scripts/build-preview.mjs",
+    "start": "next start",
+    "lint": "next lint",
+    "preview": "node scripts/build-preview.mjs"
+  },
+  "dependencies": {
+    "geist": "^1.3.1",
+    "next": "^15.1.6",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.7",
+    "@types/react": "^19.0.7",
+    "@types/react-dom": "^19.0.3",
+    "typescript": "^5.7.3"
+  }
+}

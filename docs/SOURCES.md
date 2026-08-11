@@ -37,6 +37,8 @@ Researched **10 August 2026**. Anything marked *unconfirmed* has no 2026 primary
 | FNB 2025 hackathon: 24 Oct 2025, 10,000+ participants, 72-hour format, December awards | [ITWeb](https://www.itweb.co.za/article/over-10-000-coders-participate-in-fnb-hackathon/mYZRXv9g5bEMOgA8) |
 | Monkey and River Hackathon 2026: 31 July – 1 Aug, Momentum Centurion, R50,000+ | [monkeyandriver.com/hackathon](https://monkeyandriver.com/hackathon/) |
 | GirlCode Pan-African Hackathon 2026: SA/Botswana 15–16 Aug | [ITWeb](https://www.itweb.co.za/article/girlcode-opens-registration-for-2026-pan-african-hackathon/j5alrMQAwVRMpYQk) |
+| **Discovery Gradhack 2026: ran 7 August 2026 at Discovery Place, Sandton. 50 IT students from SA universities, teams of 2–4, free entry, R12 500 per winning team member, permanent-employment pathway** — *verified 10 Aug 2026, three days after the event. Entry moved to `dropped_or_past` as MISSED.* | [Discovery Gradhack](https://www.discovery.co.za/corporate/discovery-gradhack) · [Gradhack FAQ 2026 (PDF)](https://www.discoverygreen.co.za/assets/microsites/gradhack/gradhack-faqs.pdf) · [Discovery on LinkedIn](https://www.linkedin.com/posts/discovery-limited_gradhack-2026-activity-7459931387517698048-gZTw) |
+| ADTC 2026 still reported as **25 August** by press/aggregators as of 10 Aug, one describing it as a *"first-stage deadline"* for *"initial proposals"* — possible multi-stage structure, unconfirmed | [TechAfrica News](https://techafricanews.com/2026/07/30/africa-deep-tech-foundation-launches-2026-laptop-llm-challenge/) · [Opportunities for Youth](https://opportunitiesforyouth.org/2026/07/27/africa-deep-tech-challenge-2026-win-up-to-8000-by-building-offline-ai-that-runs-on-everyday-laptops-across-africa/) · [africadeeptech.org](https://africadeeptech.org/challenge-2026/) |
 
 ---
 
@@ -58,7 +60,8 @@ Researched **10 August 2026**. Anything marked *unconfirmed* has no 2026 primary
 | Conflict | What we're going with |
 |---|---|
 | **ADTC deadline**: press said 25 Aug; Devpost says 24 Aug 23:45 PDT | Devpost. It's the submission platform. |
-| **ADTC prize pool**: press said "$20,000+"; Devpost lists $16,500 cash | Devpost's itemised $16,500. Press likely counted GPU credits. |
+| **ADTC prize pool**: press said "$20,000+"; Devpost lists $16,500 cash | Devpost's itemised $16,500. **Confirmed 10 Aug 2026 by arithmetic:** 8000+4000+3000+1500 = $16,500 cash; 10×$250 + 20×$50 = $3,500 GPU credits; total exactly $20,000. Both figures are correct and describe different things. Closed. |
+| **ADTC deadline**: press/aggregators still say 25 Aug as of 10 Aug 2026, one calling it a *"first-stage"* deadline for *"initial proposals"* | Still Devpost's 24 Aug. **But check the ADTC page for a stage 2 before the 24th** — the board models this as submit-once. Open. |
 | **BCG deadline**: banner image says "Apply by September 7"; body text says "Application deadline is September 13" | **7 September.** Apply well before either. |
 | **IBM TechXchange dates**: one IBM page says "October 26-29, 2025", another says 2026 | 26–29 October **2026**. |
 | **Zindi domain**: `zindi.africa` redirects to `zindi.world` | Use `zindi.world`. |
