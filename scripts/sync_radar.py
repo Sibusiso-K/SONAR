@@ -102,6 +102,21 @@ HUMANS = {"Sibusiso K", "Lethabo"}
 URL = os.environ.get("RADAR_SUPABASE_URL", "").rstrip("/")
 KEY = os.environ.get("RADAR_SUPABASE_SERVICE_KEY", "")
 
+# Which Postgres schema to write into. Empty = default (public), which is what
+# sonar-radar's own project uses.
+#
+# Set this to "app" to target the `app` schema in Lethabo's SONAR project -
+# see supabase/migrations/0004_app_schema_for_website.sql. That exists because
+# every blocker in this project traced to one thing: the pipeline database and
+# the website's database live in different people's accounts, so nothing the
+# pipeline verified could reach the site without a credential only Sbu could
+# supply. Pointing the site at a schema in the project Lethabo already owns
+# removes that dependency entirely.
+#
+# PostgREST selects a schema per-request via Accept-Profile (reads) and
+# Content-Profile (writes), so this needs no separate client.
+SCHEMA = os.environ.get("RADAR_SUPABASE_SCHEMA", "").strip()
+
 
 # --------------------------------------------------------------------------- #
 # PostgREST client (same shape as scripts/sonar_db.py, different project)
@@ -138,6 +153,11 @@ def rest(method, path, body=None, params=None, prefer=None, fatal=True):
     req.add_header("apikey", KEY)
     req.add_header("Authorization", f"Bearer {KEY}")
     req.add_header("Content-Type", "application/json")
+    if SCHEMA:
+        # Accept-Profile applies to reads, Content-Profile to writes. Sending
+        # both is harmless and avoids branching on the verb.
+        req.add_header("Accept-Profile", SCHEMA)
+        req.add_header("Content-Profile", SCHEMA)
     if prefer:
         req.add_header("Prefer", prefer)
 

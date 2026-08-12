@@ -200,6 +200,102 @@ knows", with a human review gate that costs 30 seconds instead of an hour.
 
 ---
 
+---
+
+# Round 2 — killing the "it's all static" feeling
+
+The complaint that prompted these: *the page still shows static info.* Fair —
+and worth separating into two causes, because they need different fixes.
+
+**Cause A: the data wasn't arriving.** Addressed — see the `app` schema in
+`docs/HANDOVER_SBU.md`. Two env vars and the board is live again.
+
+**Cause B: even with fresh data, the page doesn't feel alive.** Everything on
+it is a value rendered once. Nothing moves, nothing reacts, nothing tells you
+it just changed. These fix that.
+
+### Make it visibly live
+
+33. **Realtime subscriptions.** Supabase ships Postgres realtime and the
+    client is already installed. Subscribe to `app.opportunities` and
+    `app.updates`; when the pipeline writes, the page updates *without a
+    refresh*, with a brief highlight on the row that changed. This single
+    change is the difference between "a website" and "an instrument". ~2h.
+
+34. **Ticking countdowns.** `days_remaining` is computed once at render. Under
+    7 days it should count **hours and minutes, live**, and go red inside 24h.
+    The ADTC cutoff being 08:45 SAST rather than 23:45 PDT is exactly the kind
+    of thing a static "13d" hides. ~1h.
+
+35. **"Changed since you last looked."** Store a last-seen timestamp locally;
+    badge anything whose `updated_at` is newer. Turns the board into something
+    you *check* rather than re-read.
+
+36. **Live pipeline status strip.** A thin bar: last sweep time, pages
+    fetched, candidates found, span-check pass rate, next scheduled run. All
+    of it already exists in `pipeline_runs` and `v_hallucination_rate` — and
+    it makes the autonomy something you can *watch* instead of trust.
+
+37. **Optimistic watchlist stars.** Star toggles should respond instantly and
+    reconcile after, not wait on a round trip.
+
+### Make it react to you
+
+38. **Command palette (⌘K).** Jump to any opportunity, filter by kind,
+    trigger a re-verify, ask the assistant. `cmdk` is already a dependency.
+
+39. **Inline editing with an audit write.** Fix a typo or a date directly on
+    the card; it appends to `app.updates` with your name on it. The audit
+    trail stops being a thing the pipeline writes *at* you.
+
+40. **Saved views.** "Tier 1 only", "closing this month", "direct hiring
+    routes", "matches our stack". One click each, shareable by URL.
+
+41. **Keyboard-first triage.** `j`/`k` to move, `w` to watch, `x` to dismiss,
+    `?` for help. Two people triaging 16+ opportunities weekly should never
+    need the mouse.
+
+### Make the globe an instrument
+
+42. **Auto-rotate to the next deadline** on load, then stop on interaction.
+    The globe currently opens on an arbitrary angle.
+43. **Pulse rings on urgent markers**, tempo scaled to urgency — a heartbeat
+    that gets faster as a deadline closes.
+44. **Day/night terminator overlay.** Genuinely useful for online events with
+    a foreign submission cutoff: you can *see* that ADTC's 23:45 PDT is your
+    breakfast.
+45. **Marker clustering + zoom-to-fit** on the SA cluster, which is where the
+    travel-cost decisions actually are.
+
+### Make the numbers earn their place
+
+46. **Sparkline per opportunity** — how its confidence and score have moved
+    since discovery. `observations` already has the timestamps.
+47. **"Why this score?" popover.** Break the composite into its four weighted
+    parts with the formula visible. A score you can't interrogate is a vibe.
+48. **Board-level burndown** — committed hours vs. hours remaining before the
+    next deadline, against observed velocity. Answers "are we over-committed?"
+    which is the question a two-person team gets wrong most often.
+49. **Cost-per-commit ticker.** `v_source_yield` computes it; nothing shows
+    it. Watching a paid source fail to earn its keep is what keeps the bill
+    honest once Bright Data is on.
+
+### Small things with outsized effect
+
+50. **Empty states that teach.** "No forecasts yet — every event has 1 prior
+    edition, forecasting needs 2. Here's which years to find." The board
+    should explain its own silences rather than showing a blank chart.
+51. **Stale-data banner.** If the newest `updates` row is older than the
+    expected sweep interval, say so at the top. The failure that wasted days
+    was invisible staleness — never let that hide again.
+52. **Diff view on the Updates page.** Show what actually changed field by
+    field, not just prose.
+53. **Print/PDF board.** For a Monday review away from a screen.
+54. **PWA + push.** Installable, with deadline notifications. The manifest
+    already existed on the old static site.
+
+---
+
 ## What's blocking the most value right now
 
 Not code. Two research tasks and one credential:

@@ -116,6 +116,26 @@ jobs:
           fi
           python3 scripts/sync_radar.py push
 
+      # Same board, second destination: the `app` schema in Lethabo's SONAR
+      # project (supabase/migrations/0004_app_schema_for_website.sql).
+      #
+      # This exists because the step above depends on RADAR_SUPABASE_* secrets
+      # only Sbu can supply, and until he does, nothing the pipeline verifies
+      # reaches any website. This one reuses SUPABASE_URL/SUPABASE_SERVICE_KEY
+      # - already set and verified - so the data has a live home either way.
+      # RADAR_SUPABASE_SCHEMA=app switches sync_radar.py's PostgREST profile.
+      - name: Sync the board to the app schema (Lethabo's project)
+        env:
+          RADAR_SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          RADAR_SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+          RADAR_SUPABASE_SCHEMA: app
+        run: |
+          if [ -z "$RADAR_SUPABASE_URL" ] || [ -z "$RADAR_SUPABASE_SERVICE_KEY" ]; then
+            echo "::error::SUPABASE_URL/SUPABASE_SERVICE_KEY missing — app schema not updated."
+            exit 0
+          fi
+          python3 scripts/sync_radar.py push
+
       - name: Commit only if the data actually moved
         run: |
           git config user.name  "sonar-bot"
