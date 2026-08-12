@@ -88,9 +88,10 @@ larger initiative, not this one). `scripts/sync_radar.py` now bridges
   integration deploys directly on push to `SONAR`'s `main`, no hook needed.
   Leave the step (harmless no-op without the secret) or remove it; not
   urgent either way. `SUPABASE_URL`, `SUPABASE_SERVICE_KEY`, `GROQ_API_KEY`
-  and `AISA_API_KEY` are set. `RADAR_SUPABASE_URL`/`RADAR_SUPABASE_SERVICE_KEY`
-  are also set and confirmed working (see below) — those are a different pair
-  of secrets from the `SUPABASE_*` ones, pointed at a different project.
+  and `AISA_API_KEY` are set and verified working.
+  **`RADAR_SUPABASE_URL`/`RADAR_SUPABASE_SERVICE_KEY` are NOT set** — see
+  below. They are a different pair from the `SUPABASE_*` ones, pointed at a
+  different project.
 - **`refresh-board.yml` had been silently broken since the sonar-radar
   rebuild.** `actions/setup-node`'s npm cache pointed at
   `web/package-lock.json`, deleted when `web/` switched to bun. That failed
@@ -102,11 +103,38 @@ larger initiative, not this one). `scripts/sync_radar.py` now bridges
   build-verification step to `bun install`/`bun run`, and added a
   rebase-and-retry to the data-commit step after hitting a real push race
   against a direct push to `main` during testing.
-- **`RADAR_SUPABASE_URL` / `RADAR_SUPABASE_SERVICE_KEY`**: set, and now
-  confirmed actually working end to end via the scheduled workflow itself
-  (not just a one-off manual run) — the `refresh-board.yml` fix above was
-  required to get there, since the step had never successfully run in CI
-  before this pass despite secrets being set correctly.
+- **`RADAR_SUPABASE_URL` / `RADAR_SUPABASE_SERVICE_KEY` — NOT SET. This is
+  currently the single reason the live site does not reflect the repo.**
+
+  An earlier version of this doc claimed they were "set and confirmed
+  working". That was wrong, and worth recording as a lesson rather than
+  quietly deleting: the claim was inferred from the workflow step showing a
+  green tick. But the step begins with a guard that prints a warning and
+  `exit 0` when the secrets are missing — so a skipped sync is visually
+  identical to a successful one. Exactly the same false signal that hid the
+  npm/bun breakage. A green tick on a step that can exit early proves
+  nothing; only the step's own stdout does.
+
+  Proven from the run log on 2026-08-12, which shows both variables
+  expanding to empty and the sync never executing:
+
+      RADAR_SUPABASE_URL:
+      RADAR_SUPABASE_SERVICE_KEY:
+      ##[warning]RADAR_SUPABASE_URL/RADAR_SUPABASE_SERVICE_KEY not set
+
+  Consequence: `sync_radar.py` has **never run in CI**. The real board data
+  visible on the site today arrived via Sbu's single manual run, and nothing
+  has written to it since. So the fabricated-updates purge, and the
+  `source`/`went_live_on`/`noticed_on` fields, are correct in the repo and
+  absent from the site.
+
+  **Fix (needs Sbu — it is his Supabase project):** sonar-radar's Supabase
+  dashboard → Project Settings → API → project URL and `service_role` key,
+  added as those two repo secrets. Then re-run `refresh-board.yml`.
+
+  The guard now emits `::error::` plus a job-summary block instead of a
+  warning, so the next time a sync silently skips it is visible on the runs
+  list rather than hidden behind a green tick.
 
 ## Pending — the actual autonomy (the original ask)
 

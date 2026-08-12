@@ -94,7 +94,24 @@ jobs:
           RADAR_SUPABASE_SERVICE_KEY: ${{ secrets.RADAR_SUPABASE_SERVICE_KEY }}
         run: |
           if [ -z "$RADAR_SUPABASE_URL" ] || [ -z "$RADAR_SUPABASE_SERVICE_KEY" ]; then
-            echo "::warning::RADAR_SUPABASE_URL/RADAR_SUPABASE_SERVICE_KEY not set — the live site will keep showing whatever it last had, not this data."
+            # This was a ::warning:: and it hid a real outage for a full day:
+            # the step exits 0, renders as a green tick, and the live site
+            # silently keeps serving stale data. A skipped sync is not a
+            # success, so say so where it cannot be missed - ::error:: shows
+            # on the runs list, and the job summary shows on the run page.
+            echo "::error::sonar-radar sync SKIPPED — RADAR_SUPABASE_URL/RADAR_SUPABASE_SERVICE_KEY are not set. The live site is serving stale data and will keep doing so until they are."
+            {
+              echo "### ⚠️ Live site NOT updated"
+              echo
+              echo "\`sync_radar.py\` did not run: **RADAR_SUPABASE_URL / RADAR_SUPABASE_SERVICE_KEY are empty.**"
+              echo
+              echo "Everything else in this run succeeded, but nothing reached"
+              echo "sonar-radar's Supabase project, so \`sonar-two-brown.vercel.app\`"
+              echo "still shows whatever it last had."
+              echo
+              echo "Fix: sonar-radar's Supabase dashboard → Project Settings → API →"
+              echo "\`service_role\` key + project URL, added as repo secrets."
+            } >> "$GITHUB_STEP_SUMMARY"
             exit 0
           fi
           python3 scripts/sync_radar.py push
