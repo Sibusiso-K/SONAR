@@ -1,0 +1,73 @@
+name: Apply Supabase migrations
+
+# Applying DDL has been the one thing blocked on a flaky MCP connector:
+# PostgREST (what scripts/sonar_db.py speaks) can read and write rows but
+# cannot CREATE TABLE, so every schema change has needed either an
+# interactive Supabase connection or someone pasting SQL into the
+# dashboard. GitHub Actions already reaches Supabase reliably for
+# everything else, so migrations should run here too.
+#
+# Manual dispatch only - schema changes should be a decision, not a thing
+# that happens on a timer.
+#
+# REQUIRED SECRET: SUPABASE_DB_URL
+#   Supabase dashboard -> Project Settings -> Database -> Connection string
+#   -> URI (the postgresql://... one, session pooler is fine). This is NOT
+#   the same as SUPABASE_URL (REST endpoint) or SUPABASE_SERVICE_KEY (JWT)
+#   - psql needs a real Postgres connection string.
+
+on:
+  workflow_dispatch:
+    inputs:
+      file:
+        description: "Migration filename in supabase/migrations/ (e.g. 0003_team_evidence.sql)"
+        required: true
+      dry_run:
+        description: "Print the SQL and stop, without applying it"
+        required: false
+        default: "false"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: supabase-migrate
+  cancel-in-progress: false
+
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Resolve the migration file
+        id: resolve
+        run: |
+          FILE="supabase/migrations/${{ github.event.inputs.file }}"
+          if [ ! -f "$FILE" ]; then
+            echo "::error::$FILE not found. Available:"
+            ls -1 supabase/migrations/ >&2
+            exit 1
+          fi
+          echo "path=$FILE" >> "$GITHUB_OUTPUT"
+          echo "Applying $FILE ($(wc -l < "$FILE") lines)"
+
+      - name: Show the SQL
+        run: cat "${{ steps.resolve.outputs.path }}"
+
+      - name: Apply
+        if: ${{ github.event.inputs.dry_run != 'true' }}
+        env:
+          DB_URL: ${{ secrets.SUPABASE_DB_URL }}
+        run: |
+          if [ -z "$DB_URL" ]; then
+            echo "::error::SUPABASE_DB_URL is not set. Add it under Settings -> Secrets and variables -> Actions (Supabase dashboard -> Project Settings -> Database -> Connection string -> URI)."
+            exit 1
+          fi
+          # ON_ERROR_STOP so a failed statement fails the job instead of
+          # leaving the schema half-applied and the run green.
+          psql "$DB_URL" \
+            --set ON_ERROR_STOP=1 \
+            --single-transaction \
+            -f "${{ steps.resolve.outputs.path }}"
+          echo "applied ${{ github.event.inputs.file }}"

@@ -79,6 +79,7 @@ jobs:
             echo "::notice::Supabase not configured — skipping sync and forecast."
             exit 0
           fi
+          python3 scripts/sonar_db.py seed-editions
           python3 scripts/sonar_db.py push
           python3 scripts/sonar_db.py forecast
           python3 scripts/sonar_db.py health || true

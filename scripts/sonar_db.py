@@ -46,6 +46,7 @@ for _stream in (sys.stdout, sys.stderr):
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OPPS = os.path.join(ROOT, "data", "opportunities.json")
 PREDICTIONS_OUT = os.path.join(ROOT, "data", "predictions.json")
+EDITIONS = os.path.join(ROOT, "data", "editions.json")
 
 URL = os.environ.get("SUPABASE_URL", "").rstrip("/")
 KEY = os.environ.get("SUPABASE_SERVICE_KEY") or os.environ.get("SUPABASE_ANON_KEY", "")
@@ -449,8 +450,55 @@ def cmd_health(_args):
 
 # --------------------------------------------------------------------------- #
 
+def cmd_seed_editions(_args):
+    """data/editions.json -> the editions table. Idempotent on (slug, year).
+
+    This is the table the forecaster reads. It is deliberately fed from a
+    reviewable JSON file rather than scraped: a wrong prior date here does
+    not fail loudly, it produces a confident watch window months from now
+    that nobody can trace back.
+    """
+    with open(EDITIONS, encoding="utf-8") as fh:
+        doc = json.load(fh)
+
+    rows = []
+    for e in doc.get("editions", []):
+        rows.append({
+            "opportunity_slug": e["opportunity_slug"],
+            "year": e["year"],
+            "announced_on": e.get("announced_on"),
+            "opens_on": e.get("opens_on"),
+            "closes_on": e.get("closes_on"),
+            "event_start": e.get("event_start"),
+            "event_end": e.get("event_end"),
+            "we_entered": e.get("we_entered", False),
+            "our_placement": e.get("our_placement"),
+            "source_url": e.get("source_url"),
+        })
+
+    out = upsert("editions", rows, on_conflict="opportunity_slug,year")
+    print(f"seeded {len(out)} editions")
+
+    # The forecaster needs >=2 per slug. Say plainly which are still short,
+    # rather than letting `forecast` silently produce nothing.
+    by_slug = {}
+    for r in rows:
+        by_slug[r["opportunity_slug"]] = by_slug.get(r["opportunity_slug"], 0) + 1
+
+    ready = [s for s, n in by_slug.items() if n >= 2]
+    short = [s for s, n in by_slug.items() if n < 2]
+
+    print(f"  {len(ready)} slug(s) have the 2+ editions forecasting needs")
+    if short:
+        print(f"  {len(short)} still on a single edition — no forecast until a second is found:")
+        for s in sorted(short):
+            need = doc.get("needed", {}).get(s)
+            print(f"    {s}: {need or 'needs one more dated edition'}")
+
+
 COMMANDS = {
     "seed-orgs": cmd_seed_orgs,
+    "seed-editions": cmd_seed_editions,
     "push": cmd_push,
     "forecast": cmd_forecast,
     "pull": cmd_pull,

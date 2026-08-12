@@ -1,0 +1,59 @@
+{
+  "note": "Verified prior editions of recurring opportunities. This is what scripts/sonar_db.py forecast reads to predict when an undated event will next run - circular-mean day-of-year over past editions. Load with `python3 scripts/sonar_db.py seed-editions`.",
+
+  "rule": "Every date here must trace to something already verified, not inferred. A fabricated prior date produces a confidently wrong watch window months from now, when nobody remembers where it came from - the worst failure this system can have, because it looks exactly like a real prediction.",
+
+  "forecasting_requirement": "forecast_from_editions() needs at least 2 dated editions per opportunity_slug (one data point is an anecdote, not a season). Right now NO event has two. Everything below is a first data point. The second one has to be researched - see `needed` at the bottom for exactly which years to look for.",
+
+  "editions": [
+    {
+      "opportunity_slug": "discovery-gradhack",
+      "year": 2026,
+      "event_start": "2026-08-07",
+      "event_end": "2026-08-07",
+      "we_entered": true,
+      "our_placement": "placed",
+      "source": "data/opportunities.json past entry; team competed and placed Top 6",
+      "note": "The event this whole project was built around missing. Now the anchor point for predicting the 2027 edition."
+    },
+    {
+      "opportunity_slug": "fnb-aoty",
+      "year": 2025,
+      "event_start": "2025-10-24",
+      "we_entered": false,
+      "our_placement": "none",
+      "source": "data/opportunities.json dates.prior_year_event",
+      "note": "Board's 2026 expectation is 'Late October 2026', consistent with this."
+    },
+    {
+      "opportunity_slug": "geekulcha",
+      "year": 2023,
+      "event_start": "2023-09-29",
+      "event_end": "2023-10-01",
+      "we_entered": false,
+      "our_placement": "none",
+      "source": "data/opportunities.json dates.prior_editions ('GKHack23: 29 Sept-1 Oct 2023')",
+      "note": "GKHack24 is also referenced but only as 'applications opened early Sept' - no precise date, so it is deliberately NOT encoded below. Pinning it to an invented day would give this event a fake second edition and switch on a forecast built on a guess."
+    },
+    {
+      "opportunity_slug": "huawei-ict",
+      "year": 2025,
+      "closes_on": "2025-12-20",
+      "event_start": "2026-02-01",
+      "we_entered": false,
+      "our_placement": "none",
+      "source": "data/opportunities.json dates.prior_cycle (Southern Africa deadline 20 Dec 2025; Regional Final SA Feb 2026)",
+      "note": "event_start is the SA Regional Final, given as 'Feb 2026' with no day - encoded as the 1st and flagged. The deadline (20 Dec) is exact and is the field that actually matters for a watch window."
+    }
+  ],
+
+  "needed": {
+    "note": "One more dated edition each turns these into live watch windows. This is pure research - no code required - and it is the single highest-value unblocked task in the project.",
+    "discovery-gradhack": "2025 and/or 2024 dates. Highest priority: this is the event the board was built around, and a 2027 window would fire around June.",
+    "fnb-aoty": "2024 event date. 2025 is 24 Oct; one more year establishes whether late-Oct is the pattern.",
+    "geekulcha": "GKHack24 or GKHack25 precise dates. GKHack23 was 29 Sept-1 Oct.",
+    "huawei-ict": "The 2024-25 cycle's Southern Africa deadline.",
+    "mintek-sci": "Any dated prior edition. dates.prior_year_pattern describes a full cycle ('Applications close 15 July; teams notified 15 Aug; build 1-30 Sept; submit 1 Oct') but names no year, so nothing here is encodable yet - the year would be a guess.",
+    "mtn-momo": "No prior-edition information exists on the board at all."
+  }
+}
