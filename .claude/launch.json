@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "sonar-web",
+      "runtimeExecutable": "cmd",
+      "runtimeArgs": ["/c", "cd web && bun run dev"],
+      "port": 8080
+    }
+  ]
+}

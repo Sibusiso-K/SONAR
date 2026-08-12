@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { AppShell } from "@/components/AppShell";
 import { Reveal, RevealWords } from "@/components/Reveal";
+import { Scatter3D } from "@/components/Scatter3D";
 import { WinRing } from "@/components/WinRing";
 import { useOpportunities, usePastOpportunities, useUpdates } from "@/lib/sonar-data";
 import {
@@ -259,11 +260,11 @@ function Stats() {
 
       {/* ---- scatter ---- */}
       <Section
-        kicker="Winnability vs prize"
-        title="Worth our weekend, or a lottery ticket."
-        blurb="X: winnability. Y: prize in USD, log-scaled. Bubble size: career leverage. The useful cluster is top-right; bottom-left is admin."
+        kicker="Winnability vs prize vs leverage"
+        title="Explore it from any angle."
+        blurb="A 3D scatter, not a fixed chart — swap what's on each axis, rotate it, zoom in on one cluster. Defaults: winnability, prize (log), career leverage."
       >
-        <Scatter items={live} />
+        <Scatter3D opportunities={live} />
       </Section>
 
       {/* ---- discovery lag ---- */}
@@ -500,83 +501,6 @@ function Timeline({ items }: { items: Opportunity[] }) {
           );
         })}
       </div>
-    </div>
-  );
-}
-
-function Scatter({ items }: { items: Opportunity[] }) {
-  const pts = items.filter((o) => (o.scores?.winnability ?? 0) > 0);
-  const W = 900;
-  const H = 460;
-  const pad = 56;
-  const maxPrize = Math.max(1000, ...pts.map((o) => toUsd(o.prize?.pool, o.prize?.currency)));
-
-  const x = (o: Opportunity) => pad + ((o.scores?.winnability ?? 0) / 100) * (W - pad * 2);
-  const y = (o: Opportunity) => {
-    const v = Math.max(100, toUsd(o.prize?.pool, o.prize?.currency));
-    const t = Math.log10(v) / Math.log10(maxPrize);
-    return H - pad - t * (H - pad * 2);
-  };
-
-  return (
-    <div className="overflow-x-auto">
-      <svg viewBox={`0 0 ${W} ${H}`} className="min-w-[44rem] w-full">
-        <line x1={pad} y1={H - pad} x2={W - pad} y2={H - pad} stroke="var(--rule)" />
-        <line x1={pad} y1={pad} x2={pad} y2={H - pad} stroke="var(--rule)" />
-        <line
-          x1={pad + (W - pad * 2) * 0.55}
-          y1={pad}
-          x2={pad + (W - pad * 2) * 0.55}
-          y2={H - pad}
-          stroke="var(--rule)"
-          strokeDasharray="4 6"
-        />
-        {pts.map((o) => {
-          const r = 8 + ((o.scores?.career_leverage ?? 40) / 100) * 22;
-          return (
-            <g key={o.id}>
-              <circle
-                cx={x(o)}
-                cy={y(o)}
-                r={r}
-                fill="var(--accent)"
-                fillOpacity={0.16}
-                stroke="var(--accent)"
-                strokeWidth={1.5}
-              />
-              <text
-                x={x(o)}
-                y={y(o) - r - 6}
-                textAnchor="middle"
-                className="font-mono"
-                fontSize="10"
-                fill="var(--muted-foreground)"
-              >
-                {o.name.length > 24 ? `${o.name.slice(0, 23)}…` : o.name}
-              </text>
-            </g>
-          );
-        })}
-        <text
-          x={W - pad}
-          y={H - pad + 26}
-          textAnchor="end"
-          fontSize="11"
-          fill="var(--muted-foreground)"
-          className="font-mono"
-        >
-          WINNABILITY →
-        </text>
-        <text
-          x={pad - 14}
-          y={pad - 18}
-          fontSize="11"
-          fill="var(--muted-foreground)"
-          className="font-mono"
-        >
-          ↑ PRIZE (USD, LOG)
-        </text>
-      </svg>
     </div>
   );
 }

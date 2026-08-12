@@ -3,6 +3,7 @@ import type { ComponentType } from "react";
 import type { Opportunity } from "@/lib/sonar-types";
 import { EVENT_LOCATIONS } from "@/lib/eventLocations";
 import { daysUntil, toUsd } from "@/lib/analytics";
+import { useContainerWidth } from "@/lib/useContainerWidth";
 
 // three.js parses point colors at the WebGL level, not through the CSS
 // cascade — it can't resolve `var(--accent)`, only concrete color values.
@@ -44,22 +45,6 @@ function useGlobeLib() {
     };
   }, []);
   return Globe;
-}
-
-function useContainerWidth<T extends HTMLElement>() {
-  const ref = useRef<T | null>(null);
-  const [width, setWidth] = useState(0);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const ro = new ResizeObserver((entries) => {
-      const entry = entries[0];
-      if (entry) setWidth(entry.contentRect.width);
-    });
-    ro.observe(el);
-    return () => ro.disconnect();
-  }, []);
-  return [ref, width] as const;
 }
 
 /** A tear-drop map pin (not a globe.gl built-in — built as a real DOM/SVG
