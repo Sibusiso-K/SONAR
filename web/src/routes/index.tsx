@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { AppShell } from "@/components/AppShell";
+import { BoardRadar } from "@/components/BoardRadar";
 import { OpportunityRow } from "@/components/OpportunityRow";
 import { Reveal, RevealWords } from "@/components/Reveal";
 import { useOpportunities, useWatchlist } from "@/lib/sonar-data";
@@ -76,15 +77,22 @@ function Board() {
             year: "numeric",
           })}
         </p>
-        <h1 className="display-xl mt-5 max-w-[16ch]">
-          <RevealWords text="Everything open, and how long we have." />
-        </h1>
-        <Reveal delay={200}>
-          <p className="mt-8 max-w-xl text-base leading-relaxed text-muted-foreground">
-            {live.length} live entries. {closing} close inside three weeks. Nothing here is
-            guesswork dressed as fact — where a date is only reported, the row says so.
-          </p>
-        </Reveal>
+        <div className="mt-8 flex flex-col-reverse items-center gap-12 lg:flex-row lg:items-center lg:justify-between">
+          <div className="max-w-md">
+            <h1 className="display-lg max-w-[13ch]">
+              <RevealWords text="Everything open, and how close it's getting." />
+            </h1>
+            <Reveal delay={200}>
+              <p className="mt-6 text-base leading-relaxed text-muted-foreground">
+                {live.length} live entries. {closing} close inside three weeks. Nothing here is
+                guesswork dressed as fact — where a date is only reported, the row says so.
+              </p>
+            </Reveal>
+          </div>
+          <Reveal delay={100}>
+            <BoardRadar opportunities={live} />
+          </Reveal>
+        </div>
       </section>
 
       {clashes.length > 0 && (

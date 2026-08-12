@@ -41,7 +41,10 @@ export function OpportunityRow({
   const mine = identity ? watchers.some((w) => w.watched_by === identity) : false;
 
   return (
-    <article className="group relative grid grid-cols-[3px_1fr] gap-x-5 border-b border-border py-7 md:grid-cols-[3px_1fr_auto] md:gap-x-8">
+    <article
+      id={`opp-${o.id}`}
+      className="group relative grid scroll-mt-24 grid-cols-[3px_1fr] gap-x-5 border-b border-border py-7 md:grid-cols-[3px_1fr_auto] md:gap-x-8"
+    >
       <div
         className="row-span-2 w-[3px] md:row-span-1"
         style={{ backgroundColor: severityToken[sev] }}
