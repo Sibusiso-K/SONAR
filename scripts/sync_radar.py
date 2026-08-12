@@ -112,11 +112,22 @@ def _require_creds():
         sys.exit(
             "RADAR_SUPABASE_URL and RADAR_SUPABASE_SERVICE_KEY must be set.\n"
             "  sonar-radar's Supabase dashboard -> Project Settings -> API\n"
-            "  Store the service key in GitHub Secrets, never in the repo."
+            "  Store the key in GitHub Secrets, never in the repo.\n"
+            "\n"
+            "  The service_role key is what you want: it syncs everything,\n"
+            "  including purging Lovable's fabricated `updates` rows.\n"
+            "  The publishable/anon key also works for the board itself\n"
+            "  (opportunities and past_opportunities grant anon full CRUD -\n"
+            "  see web/supabase/migrations/20260812_lock_down_anon_writes.sql,\n"
+            "  which is there to take that away). With anon, everything syncs\n"
+            "  except the purge, which is skipped rather than fatal."
         )
 
 
-def rest(method, path, body=None, params=None, prefer=None):
+def rest(method, path, body=None, params=None, prefer=None, fatal=True):
+    """fatal=False raises PermissionError on 401/403 instead of exiting, so a
+    caller can carry on when one operation is denied by RLS but the rest of
+    the sync is still worth doing."""
     _require_creds()
     url = f"{URL}/rest/v1/{path}"
     if params:
@@ -136,6 +147,8 @@ def rest(method, path, body=None, params=None, prefer=None):
             return json.loads(raw) if raw.strip() else []
     except urllib.error.HTTPError as e:
         detail = e.read().decode()[:600]
+        if not fatal and e.code in (401, 403):
+            raise PermissionError(f"{method} {path} -> {e.code}: {detail[:200]}")
         sys.exit(f"Supabase {method} {path} -> {e.code}\n{detail}")
 
 
@@ -286,9 +299,24 @@ def build_rows():
 
 def purge_placeholder_updates():
     """Delete Lovable's fabricated seed rows from `updates`. See
-    PLACEHOLDER_UPDATE_IDS for why matching on these ids is safe."""
+    PLACEHOLDER_UPDATE_IDS for why matching on these ids is safe.
+
+    Non-fatal by design. `updates` grants anon SELECT+INSERT but not DELETE,
+    so running this with the publishable key fails while every other part of
+    the sync succeeds. Aborting there would mean an anon-key run delivers
+    nothing at all - worse than delivering the board and leaving the
+    fabricated rows for a service_role run to clear.
+    """
     id_list = ",".join(f'"{i}"' for i in PLACEHOLDER_UPDATE_IDS)
-    rest("DELETE", "updates", params={"opportunity_id": f"in.({id_list})"})
+    try:
+        rest("DELETE", "updates", params={"opportunity_id": f"in.({id_list})"},
+             fatal=False)
+        return True
+    except PermissionError as e:
+        print(f"  purge skipped: {e}")
+        print("  (needs the service_role key - anon has no DELETE on updates. "
+              "Board data below still syncs.)")
+        return False
 
 
 def cmd_check(_args):
@@ -318,9 +346,13 @@ def cmd_push(_args):
     print(f"synced {len(past_rows)} past entries")
 
     # Order matters: purge the fabrications first, then write the real trail.
-    purge_placeholder_updates()
+    purged = purge_placeholder_updates()
     upsert("updates", update_rows, on_conflict="id")
-    print(f"purged placeholder updates, synced {len(update_rows)} real audit entries")
+    print(
+        f"{'purged placeholder updates, ' if purged else ''}"
+        f"synced {len(update_rows)} real audit entries"
+        f"{'' if purged else ' (fabricated seed rows still present)'}"
+    )
 
     # One sync row per day, not per run: uuid5 on the date makes a re-run
     # overwrite the day's row instead of burying the real entries under a
