@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as RadarRouteImport } from './routes/radar'
 import { Route as StatsRouteImport } from './routes/stats'
 import { Route as UpdatesRouteImport } from './routes/updates'
+import { Route as OIdRouteImport } from './routes/o/$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -34,18 +35,25 @@ const UpdatesRoute = UpdatesRouteImport.update({
   path: '/updates',
   getParentRoute: () => rootRouteImport,
 } as any)
+const OIdRoute = OIdRouteImport.update({
+  id: '/o/$id',
+  path: '/o/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/radar': typeof RadarRoute
   '/stats': typeof StatsRoute
   '/updates': typeof UpdatesRoute
+  '/o/$id': typeof OIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/radar': typeof RadarRoute
   '/stats': typeof StatsRoute
   '/updates': typeof UpdatesRoute
+  '/o/$id': typeof OIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -53,13 +61,14 @@ export interface FileRoutesById {
   '/radar': typeof RadarRoute
   '/stats': typeof StatsRoute
   '/updates': typeof UpdatesRoute
+  '/o/$id': typeof OIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/radar' | '/stats' | '/updates'
+  fullPaths: '/' | '/radar' | '/stats' | '/updates' | '/o/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/radar' | '/stats' | '/updates'
-  id: '__root__' | '/' | '/radar' | '/stats' | '/updates'
+  to: '/' | '/radar' | '/stats' | '/updates' | '/o/$id'
+  id: '__root__' | '/' | '/radar' | '/stats' | '/updates' | '/o/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -67,6 +76,7 @@ export interface RootRouteChildren {
   RadarRoute: typeof RadarRoute
   StatsRoute: typeof StatsRoute
   UpdatesRoute: typeof UpdatesRoute
+  OIdRoute: typeof OIdRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -99,6 +109,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof UpdatesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/o/$id': {
+      id: '/o/$id'
+      path: '/o/$id'
+      fullPath: '/o/$id'
+      preLoaderRoute: typeof OIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -107,6 +124,7 @@ const rootRouteChildren: RootRouteChildren = {
   RadarRoute: RadarRoute,
   StatsRoute: StatsRoute,
   UpdatesRoute: UpdatesRoute,
+  OIdRoute: OIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

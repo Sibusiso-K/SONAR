@@ -1,4 +1,5 @@
 import { Star } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import { OrgLogo } from "@/components/OrgLogo";
 import { WinRing } from "@/components/WinRing";
 import {
@@ -39,6 +40,10 @@ export function OpportunityRow({
   const d = daysUntil(o.next_date);
   const wp = winProbability(o);
   const mine = identity ? watchers.some((w) => w.watched_by === identity) : false;
+  // A "confirmed" date verified 40 days ago deserves less trust than one
+  // verified yesterday — flag it rather than let it sit silently stale.
+  const noticedDaysAgo = o.noticed_on ? -(daysUntil(o.noticed_on) ?? 0) : null;
+  const stale = o.confidence === "confirmed" && noticedDaysAgo !== null && noticedDaysAgo > 30;
 
   return (
     <article
@@ -67,11 +72,23 @@ export function OpportunityRow({
           >
             {CONFIDENCE_COPY[o.confidence] ?? o.confidence}
           </span>
+          {stale && (
+            <span
+              className="font-mono text-[10px] uppercase tracking-widest"
+              style={{ color: "var(--warning)" }}
+            >
+              verified {noticedDaysAgo}d ago — re-check
+            </span>
+          )}
         </div>
 
         <div className="mt-2 flex items-center gap-2.5">
           <OrgLogo organiser={o.organiser} />
-          <h3 className="text-2xl font-bold leading-none md:text-3xl">{o.name}</h3>
+          <h3 className="text-2xl font-bold leading-none md:text-3xl">
+            <Link to="/o/$id" params={{ id: o.id }} className="hover:underline">
+              {o.name}
+            </Link>
+          </h3>
         </div>
         <p className="mt-1.5 text-sm text-muted-foreground">
           {o.organiser} · {o.scope} · {o.career_track} career track

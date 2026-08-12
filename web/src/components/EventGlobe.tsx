@@ -1,8 +1,9 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { ComponentType } from "react";
+import { Link } from "@tanstack/react-router";
 import type { Opportunity } from "@/lib/sonar-types";
 import { EVENT_LOCATIONS } from "@/lib/eventLocations";
-import { daysUntil, toUsd } from "@/lib/analytics";
+import { clamp, daysUntil, toUsd } from "@/lib/analytics";
 import { useContainerWidth } from "@/lib/useContainerWidth";
 
 // three.js parses point colors at the WebGL level, not through the CSS
@@ -12,6 +13,19 @@ const TIER_HEX: Record<number, string> = { 1: "#3fbfc4", 2: "#c98a2c", 3: "#8a85
 function tierHex(tier: number | null | undefined) {
   return TIER_HEX[tier ?? 3] ?? TIER_HEX[3];
 }
+
+// Home base for the "how far, how soon" arcs — the two of you are based in
+// Johannesburg, so that's the fixed origin every arc reads from.
+const JHB = { lat: -26.2041, lng: 28.0473 };
+
+type GlobeArc = {
+  startLat: number;
+  startLng: number;
+  endLat: number;
+  endLng: number;
+  color: string;
+  days: number | null;
+};
 
 type GlobePoint = {
   id: string;
@@ -174,6 +188,21 @@ export function EventGlobe({ opportunities }: { opportunities: Opportunity[] }) 
       .filter((p): p is GlobePoint => p !== null);
   }, [opportunities]);
 
+  const arcs = useMemo<GlobeArc[]>(() => {
+    return points
+      // Skip the two Johannesburg-hosted events — an arc from JHB to JHB
+      // has no length and would just render as a stray dot.
+      .filter((p) => Math.abs(p.lat - JHB.lat) > 0.01 || Math.abs(p.lng - JHB.lng) > 0.01)
+      .map((p) => ({
+        startLat: JHB.lat,
+        startLng: JHB.lng,
+        endLat: p.lat,
+        endLng: p.lng,
+        color: p.color,
+        days: p.days,
+      }));
+  }, [points]);
+
   useEffect(() => {
     const el = containerRef.current;
     if (!el) return;
@@ -267,6 +296,23 @@ export function EventGlobe({ opportunities }: { opportunities: Opportunity[] }) 
               globeImageUrl="//unpkg.com/three-globe/example/img/earth-blue-marble.jpg"
               atmosphereColor="#7fd8dc"
               atmosphereAltitude={0.22}
+              arcsData={arcs}
+              arcStartLat={(d: object) => (d as GlobeArc).startLat}
+              arcStartLng={(d: object) => (d as GlobeArc).startLng}
+              arcEndLat={(d: object) => (d as GlobeArc).endLat}
+              arcEndLng={(d: object) => (d as GlobeArc).endLng}
+              arcColor={(d: object) => (d as GlobeArc).color}
+              arcStroke={0.4}
+              arcAltitude={0.22}
+              arcDashLength={0.4}
+              arcDashGap={2}
+              arcDashInitialGap={() => Math.random() * 3}
+              // Closer deadlines pulse the arc faster — same "urgency reads
+              // as motion" idea as the pin heights, just for distance.
+              arcDashAnimateTime={(d: object) => {
+                const days = (d as GlobeArc).days;
+                return days === null ? 3000 : clamp(days * 25, 500, 3500);
+              }}
               htmlElementsData={points}
               htmlLat={(d: object) => (d as GlobePoint).lat}
               htmlLng={(d: object) => (d as GlobePoint).lng}
@@ -296,6 +342,13 @@ export function EventGlobe({ opportunities }: { opportunities: Opportunity[] }) 
                     {selected.days >= 0 ? `${selected.days} days left` : "closed"}
                   </p>
                 )}
+                <Link
+                  to="/"
+                  hash={`opp-${selected.id}`}
+                  className="mt-2 inline-block font-mono text-[11px] uppercase tracking-widest text-white underline underline-offset-2"
+                >
+                  View on board →
+                </Link>
               </div>
               <button
                 type="button"

@@ -176,6 +176,7 @@ function Stats() {
 
       {/* ---- win probability ranking ---- */}
       <Section
+        id="win-probability"
         kicker="Ranked by win probability"
         title="Deadline order is not priority order."
         blurb="Built from declared winnability, overall score, tier and field-size signals already written in the notes. A ranking device, not a forecast — treat a four-point gap as noise."
@@ -205,6 +206,7 @@ function Stats() {
 
       {/* ---- expected value ---- */}
       <Section
+        id="expected-value"
         kicker="Expected value"
         title="Prize pool × odds, one currency."
         blurb="So a $700k long shot and a small near-certainty can be argued about honestly. Note what this model ignores: a graduate programme with no cash prize scores zero here and is still one of the most valuable things on the board."
@@ -236,6 +238,7 @@ function Stats() {
 
       {/* ---- 90 day timeline ---- */}
       <Section
+        id="collisions"
         kicker="Next 90 days"
         title="Where the weekends collide."
         blurb="Positioned by date, not listed by row. Overlapping cards are overlapping commitments."
@@ -243,23 +246,39 @@ function Stats() {
         <Timeline items={live} />
         {clashes.length > 0 && (
           <div className="mt-6 space-y-2">
-            {clashes.map((c) => (
-              <p
-                key={c.weekStart}
-                className="border-l-4 bg-paper p-4 text-sm"
-                style={{ borderLeftColor: "var(--critical)" }}
-              >
-                <strong>Week of {c.weekLabel}:</strong>{" "}
-                {c.items.map((i) => `${i.name} (${i.next_date})`).join(" and ")}. Pick one to lead
-                on, or accept that both get 60%.
-              </p>
-            ))}
+            {clashes.map((c) => {
+              const ranked = [...c.items].sort((a, b) => expectedValueUsd(b) - expectedValueUsd(a));
+              const [lead, ...rest] = ranked;
+              return (
+                <p
+                  key={c.weekStart}
+                  className="border-l-4 bg-paper p-4 text-sm"
+                  style={{ borderLeftColor: "var(--critical)" }}
+                >
+                  <strong>Week of {c.weekLabel}:</strong>{" "}
+                  {c.items.map((i) => `${i.name} (${i.next_date})`).join(" and ")}.{" "}
+                  {lead && rest.length > 0 && (
+                    <>
+                      Higher expected value:{" "}
+                      <strong>
+                        {lead.name} ({usd(expectedValueUsd(lead))}
+                        {" vs "}
+                        {rest.map((r) => usd(expectedValueUsd(r))).join(", ")})
+                      </strong>
+                      . Not a mandate — EV ignores career leverage and grad programmes score zero
+                      here — but if you're only leading on one, that's the one.
+                    </>
+                  )}
+                </p>
+              );
+            })}
           </div>
         )}
       </Section>
 
       {/* ---- scatter ---- */}
       <Section
+        id="scatter"
         kicker="Winnability vs prize vs leverage"
         title="Explore it from any angle."
         blurb="A 3D scatter, not a fixed chart — swap what's on each axis, rotate it, zoom in on one cluster. Defaults: winnability, prize (log), career leverage."
@@ -269,6 +288,7 @@ function Stats() {
 
       {/* ---- discovery lag ---- */}
       <Section
+        id="lag"
         kicker="Discovery lag by source"
         title="Which monitors are slow."
         blurb="Days between an opportunity going live and this board noticing it. Word of mouth is not a monitoring strategy — it is how we caught Entelect, by luck."
@@ -319,6 +339,7 @@ function Stats() {
 
       {/* ---- confidence ---- */}
       <Section
+        id="confidence"
         kicker="Confidence mix"
         title="How much of the board is actually trustworthy."
         blurb={
@@ -364,6 +385,7 @@ function Stats() {
 
       {/* ---- season so far ---- */}
       <Section
+        id="season"
         kicker="Season so far"
         title="Outcomes, unedited."
         blurb="Wins, placements, rejections and misses in the order they happened."
@@ -399,18 +421,20 @@ function Stats() {
 /* ---------------- sub-components ---------------- */
 
 function Section({
+  id,
   kicker,
   title,
   blurb,
   children,
 }: {
+  id?: string;
   kicker: string;
   title: string;
   blurb: string;
   children: React.ReactNode;
 }) {
   return (
-    <section className="mx-auto max-w-[88rem] px-5 pt-24 md:px-10">
+    <section id={id} className="mx-auto max-w-[88rem] scroll-mt-24 px-5 pt-24 md:px-10">
       <Reveal>
         <p className="label-caps">{kicker}</p>
         <h2 className="display-lg mt-3 max-w-[18ch]">{title}</h2>
