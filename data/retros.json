@@ -1,0 +1,42 @@
+{
+  "note": "One entry per competition actually entered. This is the file that makes win-prediction possible later, and nothing can generate it automatically - a commit log cannot tell you that three hours went to a broken auth flow, or that the idea was chosen in the last 48 hours. Write it within a day of the event, while it is still true. Until roughly 5-8 entries exist, the board deliberately shows no win-probability model (see docs/ROADMAP.md); one outcome cannot train anything, and a confident number from one data point is worse than no number.",
+
+  "schema": {
+    "opportunity_id": "matches data/opportunities.json, or null if the board never tracked it",
+    "repo": "owner/name, if there is one",
+    "entered_on": "YYYY-MM-DD we started building",
+    "event_on": "YYYY-MM-DD it ran or closed",
+    "hours_spent": "honest estimate, both people combined",
+    "team": ["who actually worked on it"],
+    "idea": "one line: what we built",
+    "idea_origin": "where the idea came from - prior build, the brief itself, a reused component",
+    "stack": ["technologies actually used"],
+    "outcome": "won | placed | finalist | entered | rejected | withdrew | missed",
+    "placement": "free text, e.g. 'Top 6'",
+    "what_worked": "the thing worth repeating",
+    "what_cost_us": "the thing that actually burned time or points",
+    "would_reuse": ["components/approaches worth carrying into the next one"],
+    "judge_feedback": "verbatim if we got any - never paraphrased into something flattering"
+  },
+
+  "retros": [
+    {
+      "opportunity_id": "discovery-gradhack-2026",
+      "repo": "LethaboMH14/Team-Sonar---Vuka-",
+      "entered_on": "2026-07-15",
+      "event_on": "2026-08-07",
+      "hours_spent": null,
+      "team": ["Sibusiso K", "Lethabo"],
+      "idea": "Vuka",
+      "idea_origin": null,
+      "stack": ["Python"],
+      "outcome": "placed",
+      "placement": "Top 6",
+      "what_worked": null,
+      "what_cost_us": null,
+      "would_reuse": [],
+      "judge_feedback": null,
+      "_note": "Skeleton only. Repo metadata (dates, language, Top 6 placement) is verified; every null is a real gap only the two of you can fill. Worth doing while it is still recent - this is currently the ONLY outcome the system has to learn from."
+    }
+  ]
+}

@@ -1,0 +1,132 @@
+{
+  "note": "What this team has demonstrably shipped, derived from the GitHub API - not self-reported, not estimated. Regenerate with scripts/build_team_profile.py. Every field here is an observed fact (a language GitHub detected, a timestamp it recorded); nothing is a skill rating anyone assigned themselves. Feeds capability matching on the board: 'can we actually build this' is answerable from evidence, unlike 'will we win', which needs outcomes we don't have yet.",
+  "generated": "2026-08-12",
+  "source": "GitHub API, users Sibusiso-K and LethaboMH14",
+  "members": ["Sibusiso K", "Lethabo"],
+
+  "languages": {
+    "note": "Count of repos where GitHub detected this as the primary language. A proxy for what the team reaches for, not a proficiency score.",
+    "Python": 9,
+    "TypeScript": 5,
+    "HTML": 5,
+    "JavaScript": 1,
+    "Dart": 1
+  },
+
+  "demonstrated_domains": {
+    "note": "Read off repo descriptions, quoting them. These are the themes this team has actually built in, which is the useful signal for matching a challenge brief.",
+    "multi_agent_ai": {
+      "strength": "primary",
+      "evidence": [
+        "apex-trading-organism: 'eight-agent AI trading organism where every decision is cryptographically signed'",
+        "Agent-Guardian: 'six-layer security stack for AI agents ... verified by a multi-LLM council and a ZK-ML proof'",
+        "unified-intent-amplifier-1: 'PhD-level multi-agent AI accessibility system'",
+        "immunis-acin: 'synthesises its own defences via adversarial AI battle, formally verifies them with Z3'",
+        "Stokup-Restok-Agent",
+        "Ai-middleman"
+      ],
+      "why_it_matters": "Six repos in agentic architecture is an unusual, specific specialty - not generic full-stack. It maps directly onto agent-themed briefs, which are exactly what IBM Dev Day (Bob agent mode, subagents, parallel tasks) and ADTC (on-device LLM apps) are asking for."
+    },
+    "ml_data": {
+      "strength": "primary",
+      "evidence": [
+        "RSNA-Knee-Abnormality-Detection (Kaggle, medical imaging)",
+        "Google-WAXAL-ASR-Challenge (speech recognition)",
+        "KHANYA (Mintek: computer vision for mineralogical characterisation)"
+      ]
+    },
+    "accessibility_social_impact": {
+      "strength": "recurring",
+      "evidence": [
+        "neurobridge: 'AI-powered adaptive learning for neurodiverse learners'",
+        "unified-intent-amplifier-1: accessibility for Parkinson's",
+        "Bizplus-sa: SA small-business income/expense tracking",
+        "stokup: 'App for informal shops to stock up'"
+      ],
+      "why_it_matters": "A consistent SA/social-impact framing across many builds. Aligns with UNESCO, GovTech, MTN MoMo and FNB briefs."
+    },
+    "web_frontend": { "strength": "supporting", "evidence": ["pickme", "Sbu-s-Portfolio-Website", "aether-canvas-ide", "BEACON", "SHTMS"] },
+    "mobile": { "strength": "thin", "evidence": ["payprop (Dart/Flutter, single repo)"] },
+    "blockchain_onchain": {
+      "strength": "supporting",
+      "evidence": [
+        "Agent-Guardian: 'Circle Nanopayments at $0.001 per vote - economically impossible on L1, inevitable on Arc'",
+        "apex-trading-organism: 'every risk check is enforced on-chain'"
+      ]
+    }
+  },
+
+  "competition_builds": {
+    "note": "Repos that map onto a real competition. This is the only place we have measured prep windows - repo created_at against the event date is observed, not recalled.",
+    "entries": [
+      {
+        "repo": "LethaboMH14/Team-Sonar---Vuka-",
+        "description": "Discovery Gradhack project",
+        "opportunity_id": "discovery-gradhack-2026",
+        "language": "Python",
+        "created_at": "2026-07-15",
+        "last_push": "2026-07-26",
+        "event_date": "2026-08-07",
+        "prep_window_days": 23,
+        "active_days": 11,
+        "outcome": "Top 6",
+        "note": "The one recorded outcome we have. See docs/ROADMAP.md - a single outcome cannot train a win-probability model."
+      },
+      {
+        "repo": "Sibusiso-K/KHANYA",
+        "description": "Mintek Project",
+        "opportunity_id": "mintek-sci-2026",
+        "language": "Python",
+        "created_at": "2026-08-04",
+        "last_push": "2026-08-10",
+        "prep_window_days": 6,
+        "outcome": "applied, awaiting response"
+      },
+      {
+        "repo": "Sibusiso-K/RSNA-Knee-Abnormality-Detection",
+        "description": "Kaggle Comp",
+        "opportunity_id": "rsna-knee-2026",
+        "language": "Python",
+        "created_at": "2026-08-08",
+        "outcome": "in progress"
+      },
+      {
+        "repo": "LethaboMH14/Google-WAXAL-ASR-Challenge",
+        "description": "Google WAXAL ASR Challenge",
+        "opportunity_id": null,
+        "language": "Python",
+        "created_at": "2026-07-30",
+        "last_push": "2026-08-04",
+        "outcome": "unknown",
+        "note": "NOT ON THE BOARD. A competition this team actually entered that SONAR never tracked - a real coverage gap, found by reading the repo list rather than by any monitoring."
+      },
+      {
+        "repo": "LethaboMH14/Agent-Guardian",
+        "description": "AgentGuardian - six-layer security stack for AI agents on Arc",
+        "opportunity_id": null,
+        "language": "TypeScript",
+        "created_at": "2026-04-25",
+        "last_push": "2026-04-26",
+        "active_days": 1,
+        "outcome": "unknown",
+        "note": "Arc/Circle bounty framing in the description reads like a hackathon submission; built in a single day. Not on the board either."
+      }
+    ]
+  },
+
+  "observed_velocity": {
+    "note": "From competition repos only. Small sample - state it, don't smooth over it.",
+    "sample_size": 5,
+    "median_prep_window_days": 15,
+    "shortest_prep_window_days": 1,
+    "longest_prep_window_days": 23,
+    "caution": "A 1-day Agent-Guardian build and a 23-day Gradhack build are the same team. Prep window reflects the deadline they were handed, not a capacity limit - do not read it as 'we need 15 days'."
+  },
+
+  "known_unknowns": [
+    "Only one recorded competition outcome (Gradhack Top 6). Everything about win-likelihood is unmodellable until there are more.",
+    "No retro data: what went wrong, hours actually spent, what we'd reuse. Nothing in a commit log recovers that. See data/retros.json.",
+    "Private repos (KHANYA, Team-Sonar---Vuka-, SHTMS, aether-canvas-ide, sonar) contribute metadata only - contents were not read.",
+    "Language counts are GitHub's primary-language detection, which undercounts polyglot repos."
+  ]
+}
