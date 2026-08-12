@@ -225,11 +225,52 @@ production:
   items, one source, one date) rather than fabricated variety - it starts
   differentiating for real once opportunities get discovered incrementally
   by `watch_sources.py` instead of in one research sprint.
-- **`confidenceTrend()`'s promotion window is still decorative** — needs an
-  update row with `change_kind: "confidence"`, but `sync_radar.py` only
-  ever writes `change_kind: "sync"`. Not fixed this pass; same shape of fix
-  as above, lower priority since nothing currently logs a confidence
-  promotion as a distinct event at all.
+- **`confidenceTrend()`'s promotion window now has real input** —
+  `sync_radar.py` mirrors `data/updates.json` into the `updates` table and
+  maps our `verified` kind to `change_kind: "confidence"`. One qualifying
+  row exists today (the ADTC prize-conflict resolution), so the chart has a
+  genuine data point rather than none; it gets more useful as verification
+  events accumulate.
+
+## The Updates page was serving fabricated history (fixed)
+
+Worth recording in full, because it is the exact failure this project
+exists to prevent, and it was live on the site for weeks.
+
+When Lovable generated the app it seeded ten rows into the `updates` table.
+`sync_radar.py` deliberately skipped that table, and its docstring asserted
+the leftovers were *"harmless — they just don't join to anything and stop
+rendering."* **That was wrong.** A screenshot of the live Updates page
+showed them rendering perfectly: the page reads `summary`/`detail` and
+never needs `opportunity_id` to resolve. So the audit trail — the page
+whose entire job is proving the board carries nothing unverified — was
+itself publishing invented history:
+
+- *"Takealot Engineering Hack has been unconfirmed for 92 days"*,
+  *"Sasol Solve prize pool marked conflicted (R50k vs R120k)"*,
+  *"ARC Prize winnability lowered to 12"* — **none of these have ever been
+  on this board.** Entirely invented events, with invented specifics.
+- *"BCG Platinion … deadline 2026-10-14 read directly from the official
+  brief PDF"* — the real deadline is **2026-09-07**, and no such PDF was
+  ever read. A fabricated date carrying a fabricated provenance claim.
+- *"Entelect … Team of 4 registered"* — it is a team of **2**.
+
+All attributed to "verification pipeline", indistinguishable from real
+entries. Meanwhile the genuine trail in `data/updates.json` (Gradhack
+Top-6 correction, Mintek application, Entelect registration, REEFPRINT
+abstract) was never synced to the site at all.
+
+Fixed in `sync_radar.py`: the seed rows are deleted (matched on their
+`opportunity_id` slugs, every one of which differs from our real ids, so
+the delete cannot touch real data or anything a person appends through the
+app), and `data/updates.json` is mirrored in with uuid5 ids so re-runs
+update rather than duplicate. Confirmed applied via a green
+`refresh-board.yml` run on 2026-08-12.
+
+**The lesson worth keeping:** a generated app's placeholder data is not
+inert. It renders, it looks authoritative, and it outlives the thing that
+created it. Anything Lovable seeds should be assumed live until explicitly
+purged — check `watchlist` too if it ever starts driving anything visible.
 - **A separate, unconnected prediction system**: `scripts/sonar_db.py`'s
   circular-mean date forecasting (predicts *when* a recurring event's next
   edition will likely open, from multi-year history — different from
