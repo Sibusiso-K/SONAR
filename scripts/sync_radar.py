@@ -172,6 +172,31 @@ def rest(method, path, body=None, params=None, prefer=None, fatal=True):
         sys.exit(f"Supabase {method} {path} -> {e.code}\n{detail}")
 
 
+def insert_ignoring_duplicates(table, rows, on_conflict):
+    """INSERT ... ON CONFLICT DO NOTHING.
+
+    Used for the audit trail. Two reasons, and the second is the real one:
+
+    1. Mechanically, PostgREST's merge-duplicates upsert issues ON CONFLICT DO
+       UPDATE, so Postgres evaluates UPDATE policies. `app.updates` has SELECT
+       and INSERT policies only - by design, since an audit trail nobody can
+       rewrite is the entire point - so the upsert was rejected with 42501
+       "violates row-level security policy (USING expression)".
+
+    2. Semantically, updating an existing audit entry is the wrong operation.
+       Each row's id is a uuid5 of its own content, so a matching id means the
+       identical entry is already recorded. Skipping it is correct; silently
+       rewriting history to match a re-run is not.
+    """
+    if not rows:
+        return []
+    return rest(
+        "POST", table, body=rows,
+        params={"on_conflict": on_conflict},
+        prefer="resolution=ignore-duplicates,return=minimal",
+    )
+
+
 def upsert(table, rows, on_conflict):
     if not rows:
         return []
@@ -367,18 +392,21 @@ def cmd_push(_args):
 
     # Order matters: purge the fabrications first, then write the real trail.
     purged = purge_placeholder_updates()
-    upsert("updates", update_rows, on_conflict="id")
+    insert_ignoring_duplicates("updates", update_rows, on_conflict="id")
     print(
         f"{'purged placeholder updates, ' if purged else ''}"
         f"synced {len(update_rows)} real audit entries"
         f"{'' if purged else ' (fabricated seed rows still present)'}"
     )
 
-    # One sync row per day, not per run: uuid5 on the date makes a re-run
-    # overwrite the day's row instead of burying the real entries under a
-    # daily "Board resynced" drumbeat.
+    # One sync row per day, not per run: uuid5 on the date means later runs on
+    # the same day collide with it and are ignored, instead of burying the real
+    # entries under a per-run "Board resynced" drumbeat. First run of the day
+    # wins, so the counts describe that run - close enough for a heartbeat, and
+    # the alternative (rewriting it) is exactly the history-editing this table
+    # exists to prevent.
     today = date.today().isoformat()
-    upsert(
+    insert_ignoring_duplicates(
         "updates",
         [{
             "id": str(uuid.uuid5(NS, f"sync|{today}")),
