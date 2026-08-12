@@ -11,12 +11,24 @@ board. This script closes that gap: it makes `opportunities` and
 exactly — insert/update what belongs, delete what doesn't (i.e. the
 placeholder seed rows).
 
-It deliberately does NOT touch `updates` or `watchlist` — those are
-live, app-owned tables (audit trail entries and stars the app itself
-writes when a person uses the site), not board content the JSON pipeline
-governs. The one exception: watchlist/updates rows left dangling because
-their opportunity_id no longer exists (e.g. the old placeholder ids) are
-harmless — they just don't join to anything and stop rendering.
+It does NOT touch `watchlist` — that is app-owned (stars a person clicks
+on the site), not board content this pipeline governs.
+
+It DOES now own two things in `updates`: it deletes Lovable's fabricated
+seed rows, and it mirrors data/updates.json (the real, human-written
+audit trail) into the table. Anything a person appends through the app
+itself is left alone.
+
+An earlier version of this file claimed dangling placeholder rows were
+"harmless — they just don't join to anything and stop rendering". That
+was wrong, and a screenshot of the live site disproved it: the Updates
+page reads summary/detail directly and renders them regardless of
+whether opportunity_id resolves. The result was invented events
+(Takealot Engineering Hack, Sasol Solve, ARC Prize) and invented
+specifics on real ones, all presented with the same authority as
+verified entries — the exact failure mode this project exists to
+prevent, sitting on the page that is supposed to prove it doesn't
+happen.
 
     export RADAR_SUPABASE_URL=https://xxxx.supabase.co
     export RADAR_SUPABASE_SERVICE_KEY=eyJ...   # service role. NEVER in the browser.
@@ -32,6 +44,7 @@ import sys
 import urllib.error
 import urllib.parse
 import urllib.request
+import uuid
 from datetime import date, datetime, timezone
 
 # Status/error text may use non-ASCII punctuation. On Windows, stdout defaults
@@ -43,6 +56,48 @@ for _stream in (sys.stdout, sys.stderr):
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OPPS = os.path.join(ROOT, "data", "opportunities.json")
+UPDATES = os.path.join(ROOT, "data", "updates.json")
+
+# Deterministic namespace so the same JSON entry always maps to the same row id,
+# making `push` idempotent instead of duplicating the audit trail on every run.
+NS = uuid.UUID("6ba7b811-9dad-11d1-80b4-00c04fd430c8")
+
+# Lovable seeded 10 fabricated rows into `updates` when it generated the app.
+# They are not harmless: the Updates page renders them verbatim, so the audit
+# trail carries invented events (Takealot Engineering Hack, Sasol Solve, ARC
+# Prize — none of which have ever been on this board) alongside invented
+# specifics on real ones ("deadline 2026-10-14 read directly from the official
+# brief PDF" when it is 2026-09-07; "team of 4" when it is 2).
+#
+# Identified by opportunity_id: every one of these slugs is a Lovable
+# invention that differs from our real ids (bcg-platinion-2026,
+# ibm-z-datathon-2026, mintek-sci-2026, entelect-university-cup-2027...), so
+# deleting on them cannot touch real data or anything a human later appends
+# through the app.
+PLACEHOLDER_UPDATE_IDS = [
+    "gradhack-2026",
+    "bcg-platinion",
+    "ibm-z-datathon",
+    "entelect-university-cup",
+    "mintek-innovation",
+    "takealot-hack",
+    "sasol-solve",
+    "discovery-gradhack",
+    "kaggle-arc-prize",
+]
+
+# data/updates.json kinds -> the radar app's change_kind vocabulary.
+# "verified" -> "confidence" matters beyond cosmetics: /stats' confidenceTrend()
+# measures its promotion window by counting change_kind == "confidence" rows.
+CHANGE_KIND = {
+    "added": "discovery",
+    "changed": "status",
+    "verified": "confidence",
+    "missed": "stale",
+    "system": "note",
+}
+
+HUMANS = {"Sibusiso K", "Lethabo"}
 
 URL = os.environ.get("RADAR_SUPABASE_URL", "").rstrip("/")
 KEY = os.environ.get("RADAR_SUPABASE_SERVICE_KEY", "")
@@ -187,6 +242,29 @@ def to_radar_past(p, used_ids):
     }
 
 
+def to_radar_update(u):
+    """data/updates.json entry -> a row in the radar app's `updates` table.
+
+    The id is a uuid5 of the entry's own content, so re-running `push` updates
+    the same row instead of appending a duplicate every time.
+    """
+    at = u.get("at") or ""
+    target = u.get("target")
+    title = u.get("title") or ""
+    by = u.get("by") or "verification pipeline"
+
+    return {
+        "id": str(uuid.uuid5(NS, f"{at}|{target}|{title}")),
+        "opportunity_id": target,
+        "actor": by,
+        "actor_kind": "human" if by in HUMANS else "automated",
+        "change_kind": CHANGE_KIND.get(u.get("kind"), "note"),
+        "summary": title,
+        "detail": u.get("body"),
+        "created_at": at,
+    }
+
+
 def build_rows():
     with open(OPPS, encoding="utf-8") as fh:
         board = json.load(fh)
@@ -196,24 +274,40 @@ def build_rows():
     used_ids = set()
     past_rows = [to_radar_past(p, used_ids) for p in board.get("past", [])]
 
-    return opp_rows, past_rows
+    with open(UPDATES, encoding="utf-8") as fh:
+        update_rows = [to_radar_update(u) for u in json.load(fh).get("updates", [])]
+
+    return opp_rows, past_rows, update_rows
 
 
 # --------------------------------------------------------------------------- #
 # commands
 # --------------------------------------------------------------------------- #
 
+def purge_placeholder_updates():
+    """Delete Lovable's fabricated seed rows from `updates`. See
+    PLACEHOLDER_UPDATE_IDS for why matching on these ids is safe."""
+    id_list = ",".join(f'"{i}"' for i in PLACEHOLDER_UPDATE_IDS)
+    rest("DELETE", "updates", params={"opportunity_id": f"in.({id_list})"})
+
+
 def cmd_check(_args):
-    opp_rows, past_rows = build_rows()
-    print(f"would sync {len(opp_rows)} opportunities, {len(past_rows)} past entries")
+    opp_rows, past_rows, update_rows = build_rows()
+    print(f"would sync {len(opp_rows)} opportunities, {len(past_rows)} past entries, "
+          f"{len(update_rows)} audit-trail entries")
+    print(f"would purge update rows for {len(PLACEHOLDER_UPDATE_IDS)} placeholder ids: "
+          f"{', '.join(PLACEHOLDER_UPDATE_IDS)}")
     for r in opp_rows[:5]:
         print(f"  {r['id']:<32} score {r['score']:>5} tier {r['tier']} {r['confidence']}")
     if len(opp_rows) > 5:
         print(f"  ... and {len(opp_rows) - 5} more")
+    print()
+    for r in update_rows[:5]:
+        print(f"  {r['created_at'][:10]}  {r['change_kind']:<11} {r['actor']:<20} {r['summary'][:52]}")
 
 
 def cmd_push(_args):
-    opp_rows, past_rows = build_rows()
+    opp_rows, past_rows, update_rows = build_rows()
 
     upsert("opportunities", opp_rows, on_conflict="id")
     delete_not_in("opportunities", [r["id"] for r in opp_rows])
@@ -223,17 +317,28 @@ def cmd_push(_args):
     delete_not_in("past_opportunities", [r["id"] for r in past_rows])
     print(f"synced {len(past_rows)} past entries")
 
-    rest(
-        "POST", "updates",
-        body=[{
+    # Order matters: purge the fabrications first, then write the real trail.
+    purge_placeholder_updates()
+    upsert("updates", update_rows, on_conflict="id")
+    print(f"purged placeholder updates, synced {len(update_rows)} real audit entries")
+
+    # One sync row per day, not per run: uuid5 on the date makes a re-run
+    # overwrite the day's row instead of burying the real entries under a
+    # daily "Board resynced" drumbeat.
+    today = date.today().isoformat()
+    upsert(
+        "updates",
+        [{
+            "id": str(uuid.uuid5(NS, f"sync|{today}")),
             "actor": "sync_radar.py",
             "actor_kind": "automated",
             "change_kind": "sync",
             "summary": "Board resynced from data/opportunities.json",
-            "detail": f"{len(opp_rows)} opportunities, {len(past_rows)} past entries. "
+            "detail": f"{len(opp_rows)} opportunities, {len(past_rows)} past entries, "
+                      f"{len(update_rows)} audit entries. "
                       f"Replaces anything not present in the repo's source of truth.",
         }],
-        prefer="return=minimal",
+        on_conflict="id",
     )
 
 
