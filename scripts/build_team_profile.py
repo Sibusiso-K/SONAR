@@ -45,7 +45,11 @@ TOKEN = os.environ.get("GITHUB_TOKEN", "")
 # say "KHANYA is the Mintek build" - the repo name doesn't say so, and
 # guessing the link would fabricate a connection.
 REPO_TO_OPPORTUNITY = {
+    # Two repos, one competition, different jobs. Vuka was the theme/idea/plan
+    # submitted to APPLY; BEACON was the practice build. Neither repo says so -
+    # a human did. That's the whole reason this map is hand-maintained.
     "LethaboMH14/Team-Sonar---Vuka-": "discovery-gradhack-2026",
+    "LethaboMH14/BEACON": "discovery-gradhack-2026",
     "Sibusiso-K/KHANYA": "mintek-sci-2026",
     "Sibusiso-K/RSNA-Knee-Abnormality-Detection": "rsna-knee-2026",
     # Entered, but never tracked by SONAR - left mapped to null deliberately

@@ -63,6 +63,7 @@
         "repo": "LethaboMH14/Team-Sonar---Vuka-",
         "description": "Discovery Gradhack project",
         "opportunity_id": "discovery-gradhack-2026",
+        "role": "application",
         "language": "Python",
         "created_at": "2026-07-15",
         "last_push": "2026-07-26",
@@ -70,7 +71,19 @@
         "prep_window_days": 23,
         "active_days": 11,
         "outcome": "Top 6",
-        "note": "The one recorded outcome we have. See docs/ROADMAP.md - a single outcome cannot train a win-probability model."
+        "note": "Vuka was the theme/idea/plan submitted to APPLY for Gradhack - the entry ticket, not the event build (corrected by Lethabo 2026-08-12; the repo description alone reads as if it were the build). Started 23 days before the event."
+      },
+      {
+        "repo": "LethaboMH14/BEACON",
+        "description": "The light that stays on",
+        "opportunity_id": "discovery-gradhack-2026",
+        "role": "practice",
+        "language": "HTML",
+        "created_at": "2026-07-24",
+        "last_push": "2026-07-27",
+        "active_days": 3,
+        "outcome": "Top 6",
+        "note": "Practice build for Gradhack, done after the Vuka application went in (per Lethabo). Nothing in the repo metadata says 'practice' - this link exists only because a human said so, which is exactly why REPO_TO_OPPORTUNITY is hand-maintained."
       },
       {
         "repo": "Sibusiso-K/KHANYA",

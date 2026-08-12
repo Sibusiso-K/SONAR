@@ -23,20 +23,22 @@
     {
       "opportunity_id": "discovery-gradhack-2026",
       "repo": "LethaboMH14/Team-Sonar---Vuka-",
+      "practice_repo": "LethaboMH14/BEACON",
       "entered_on": "2026-07-15",
       "event_on": "2026-08-07",
       "hours_spent": null,
       "team": ["Sibusiso K", "Lethabo"],
       "idea": "Vuka",
       "idea_origin": null,
-      "stack": ["Python"],
+      "stack": ["Python", "HTML"],
       "outcome": "placed",
       "placement": "Top 6",
       "what_worked": null,
       "what_cost_us": null,
       "would_reuse": [],
       "judge_feedback": null,
-      "_note": "Skeleton only. Repo metadata (dates, language, Top 6 placement) is verified; every null is a real gap only the two of you can fill. Worth doing while it is still recent - this is currently the ONLY outcome the system has to learn from."
+      "_note": "Skeleton only. Verified: Vuka (15 Jul) was the theme/idea/plan submitted to apply; BEACON (24-27 Jul) was the practice build; placed Top 6. Every null is a real gap only the two of you can fill.",
+      "_worth_capturing": "The apply-then-practise sequence is itself the most interesting thing here, and it is the one pattern with a known good outcome attached. Worth recording deliberately: how the Vuka idea was chosen, why BEACON was the practice target, and whether practising in HTML while submitting in Python helped or split focus. That is the reusable play, and no commit log contains it."
     }
   ]
 }
