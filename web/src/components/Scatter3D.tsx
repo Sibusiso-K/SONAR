@@ -595,9 +595,10 @@ function AxisSelect({
         value={value}
         onChange={(e) => onChange(e.target.value)}
         className="cursor-pointer border border-border bg-transparent px-2 py-1.5 font-mono text-[11px] text-foreground focus:border-foreground focus:outline-none"
+        style={{ colorScheme: "light" }}
       >
         {METRICS.map((m) => (
-          <option key={m.id} value={m.id}>
+          <option key={m.id} value={m.id} style={{ color: "#1a1a1a", backgroundColor: "#ffffff" }}>
             {m.label}
           </option>
         ))}
@@ -614,9 +615,10 @@ function ColorSelect({ value, onChange }: { value: string; onChange: (v: string)
         value={value}
         onChange={(e) => onChange(e.target.value)}
         className="cursor-pointer border border-border bg-transparent px-2 py-1.5 font-mono text-[11px] text-foreground focus:border-foreground focus:outline-none"
+        style={{ colorScheme: "light" }}
       >
         {COLOR_SCHEMES.map((c) => (
-          <option key={c.id} value={c.id}>
+          <option key={c.id} value={c.id} style={{ color: "#1a1a1a", backgroundColor: "#ffffff" }}>
             {c.label}
           </option>
         ))}
