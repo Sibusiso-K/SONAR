@@ -1,11 +1,12 @@
 import { useMemo, useRef, useState } from "react";
 import type { PointerEvent as ReactPointerEvent } from "react";
 import type { Opportunity } from "@/lib/sonar-types";
-import { clamp, daysUntil, severityOf, severityToken } from "@/lib/analytics";
+import { clamp, daysUntil, formatMoney, severityOf, severityToken } from "@/lib/analytics";
 
 const SIZE = 380;
 const MAX_DAYS = 120; // beyond this, plotted at the outer ring anyway
 const DEFAULT_TILT = { x: 55, z: 0 };
+const PANEL_HEIGHT = 110;
 
 type Blip = {
   o: Opportunity;
@@ -83,9 +84,19 @@ export function BoardRadar({ opportunities }: { opportunities: Opportunity[] }) 
         onDoubleClick={() => setTilt(DEFAULT_TILT)}
       >
         <div
-          className="absolute inset-0 cursor-grab overflow-hidden rounded-full active:cursor-grabbing"
+          className="absolute inset-0 cursor-grab rounded-full active:cursor-grabbing"
           style={{
             transform: `rotateX(${tilt.x}deg) rotateZ(${tilt.z}deg)`,
+            // clip-path (not overflow:hidden) is what actually keeps the
+            // crosshair/sweep from poking past the circular face — overflow
+            // + border-radius on a 3D-transformed element is a known
+            // Chromium/WebKit compositing bug: any repaint on a descendant
+            // (e.g. a blip's hover state) makes the whole disc flicker and
+            // briefly clip wrong. clip-path composites on its own layer and
+            // doesn't have that interaction.
+            clipPath: "circle(50% at 50% 50%)",
+            backfaceVisibility: "hidden",
+            willChange: "transform",
             background: "radial-gradient(circle at 50% 45%, #0f2019 0%, #05100c 68%, #020604 100%)",
             boxShadow: "0 0 0 1px rgba(63,191,164,0.28), 0 34px 60px -22px rgba(0,0,0,0.65)",
           }}
@@ -138,8 +149,8 @@ export function BoardRadar({ opportunities }: { opportunities: Opportunity[] }) 
                 onClick={() => jumpTo(b.o.id)}
                 onPointerEnter={() => setHovered(b)}
                 onPointerLeave={() => setHovered((v) => (v?.o.id === b.o.id ? null : v))}
-                className="absolute -translate-x-1/2 -translate-y-1/2 cursor-pointer p-1.5"
-                style={{ left: `${x}%`, top: `${y}%` }}
+                className="absolute -translate-x-1/2 -translate-y-1/2 cursor-pointer rounded-full p-1.5 outline-none focus-visible:ring-2 focus-visible:ring-white/80"
+                style={{ left: `${x}%`, top: `${y}%`, WebkitTapHighlightColor: "transparent" }}
                 aria-label={`${b.o.name}, ${b.days} days left`}
               >
                 <span
@@ -158,15 +169,32 @@ export function BoardRadar({ opportunities }: { opportunities: Opportunity[] }) 
         </div>
       </div>
 
-      <div className="mt-4 h-10 text-center">
+      <div className="mt-5 w-full max-w-xs" style={{ minHeight: PANEL_HEIGHT }}>
         {hovered ? (
-          <p className="font-mono text-xs text-foreground">
-            <span style={{ color: severityToken[severityOf(hovered.o)] }}>{hovered.days}d</span> ·{" "}
-            {hovered.o.name}
-          </p>
+          <div className="paper-panel p-4">
+            <div className="flex items-center justify-between gap-3">
+              <span className="label-caps" style={{ color: severityToken[severityOf(hovered.o)] }}>
+                Tier {hovered.o.tier} · {hovered.o.kind}
+              </span>
+              <span
+                className="font-mono text-xs whitespace-nowrap"
+                style={{ color: severityToken[severityOf(hovered.o)] }}
+              >
+                {hovered.days === 0 ? "today" : `${hovered.days}d left`}
+              </span>
+            </div>
+            <h4 className="mt-1 text-base font-bold leading-tight">{hovered.o.name}</h4>
+            <p className="mt-0.5 text-xs text-muted-foreground">
+              {hovered.o.organiser} · {hovered.o.scope}
+            </p>
+            <p className="mt-2 font-mono text-xs text-muted-foreground">
+              {formatMoney(hovered.o.prize?.pool, hovered.o.prize?.currency)} prize
+            </p>
+          </div>
         ) : (
-          <p className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
-            Distance = days to deadline. Drag to tilt, click a blip to jump to it.
+          <p className="flex h-full items-center justify-center text-center font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
+            Distance = days to deadline. Drag to tilt, hover a blip for details, click to jump to
+            it.
           </p>
         )}
       </div>
