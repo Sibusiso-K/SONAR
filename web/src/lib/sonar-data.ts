@@ -9,8 +9,7 @@ export function useOpportunities() {
       const { data, error } = await supabase
         .from("opportunities")
         .select("*")
-        .eq("archived", false)
-        .neq("kind", "grad_programme");
+        .eq("archived", false);
       if (error) throw error;
       return (data ?? []) as unknown as Opportunity[];
     },
