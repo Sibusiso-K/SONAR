@@ -9,6 +9,14 @@
   },
   "updates": [
     {
+      "at": "2026-08-14T16:45:00+02:00",
+      "kind": "verified",
+      "target": "mintek-sci-2026",
+      "title": "Mintek SCI Grad Hackathon 2026 — team SELECTED",
+      "body": "Official selection letter received, dated 14 Aug 2026, signed Boitumelo Lekalakala. Status moved from applied to selected, confidence to confirmed, lifecycle to committed. Confirmed: cash prizes R25k/R15k/R10k (1st/2nd/3rd), possible vacation-work offers for standout teams. Immediate action: one-page abstract due 30 Aug 2026, plus per-member ID number/T-shirt size/contact details/mentor info back to Mintek. Final hacking day is mandatory in-person at Mintek on 1 Oct 2026 (build from 08:00, code submission deadline 13:00, presentations from 14:00, 10 min/team). Must also register for and attend the Mintek SCI Conference on 2 Oct 2026, where the 5 finalist teams are announced and originality/AI-generation/plagiarism authentication begins for the next stage.",
+      "by": "Lethabo"
+    },
+    {
       "at": "2026-08-11T09:10:00+02:00",
       "kind": "changed",
       "target": "mintek-sci-2026",
