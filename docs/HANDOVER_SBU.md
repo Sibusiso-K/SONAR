@@ -1,3 +1,44 @@
+# Handover — the blockers, and the way around them
+
+> **UPDATE 2026-08-12, read this first.** Steps 1–3 below still stand and are
+> still the *cleanest* fix. But they've been blocked on Sbu for days, so
+> there is now a route that doesn't need him at all.
+>
+> **The root cause of every blocker here:** the pipeline database and the
+> website's database live in different people's accounts. The pipeline writes
+> to Lethabo's `SONAR` Supabase project; the site reads from sonar-radar's
+> project in Sbu's account. So nothing the pipeline verifies can reach the
+> site without a credential only Sbu can supply.
+>
+> **The fix:** an `app` schema now exists inside Lethabo's own project
+> (`supabase/migrations/0004_app_schema_for_website.sql`, applied 2026-08-12)
+> holding the same four tables the site expects, already populated with the
+> real past entries and the full 9-entry audit trail. `refresh-board.yml`
+> keeps it current using `SUPABASE_URL`/`SUPABASE_SERVICE_KEY` — secrets that
+> are **already set and verified working.**
+>
+> It is also built more safely than the schema it replaces: `anon` gets
+> SELECT only on board data, so the "any visitor can delete the board" hole
+> in step 2 cannot exist there by construction.
+>
+> **To switch the site over — two env vars, no Sbu:**
+>
+> | Variable | Value |
+> |---|---|
+> | `VITE_SUPABASE_URL` | `https://txmxygjqndenkcdpweym.supabase.co` |
+> | `VITE_SUPABASE_PUBLISHABLE_KEY` | that project's **anon/publishable** key (Supabase → SONAR → Project Settings → API) |
+> | `VITE_SUPABASE_SCHEMA` | `app` |
+>
+> Set them wherever the app's env lives — Lovable's project settings (Lethabo
+> now has access) or Vercel. The site then reads from a database Lethabo
+> controls, and every future pipeline run reaches it automatically.
+>
+> Nothing below is wasted if you do this: Sbu's steps 1–3 remain worth doing
+> to keep the existing deployment healthy and to close the anon-delete hole
+> on the old project. This just stops the board being frozen while waiting.
+
+---
+
 # Sbu — 3 things only you can do
 
 **Written 2026-08-12 for Sibusiso K. Lethabo cannot do any of these: all

@@ -113,6 +113,11 @@ def main():
             item["lifecycle"] = "triaged"
         elif st == "verify":
             item["lifecycle"] = "discovered"
+        elif st in ("selected", "registered"):
+            # The team's own action, not just the competition's status: a
+            # letter/confirmation page says we're actually in. That's what
+            # "committed" lifecycle means, same as an open tier-1 entry.
+            item["lifecycle"] = "committed"
         else:
             item["lifecycle"] = "scored"
 
