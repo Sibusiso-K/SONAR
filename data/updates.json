@@ -9,6 +9,14 @@
   },
   "updates": [
     {
+      "at": "2026-08-14T19:40:00+02:00",
+      "kind": "verified",
+      "target": null,
+      "title": "Link audit — all 44 board links fetched; 4 corrected",
+      "body": "Fetched every link in data/opportunities.json with a real User-Agent and followed redirects. 40 of 44 resolved cleanly. Corrections: (1) IBM Z Datathon linked an ENDED prior Devpost edition (Sept 24-25, 'This hackathon has ended') — removed, and the prize pool taken from that same stale page corrected from $30,000 to the organiser's stated $50,000+; dates 17-18 Oct 2026 independently confirmed correct. (2) Geekulcha hackathon.gklink.co no longer resolves in DNS — replaced with gklink.co. (3) FNB appoftheyear.co.za returns 500 on / and 404 on /hackathon — primary link moved to the live 22 On Sloane partner page, official URL retained. (4) Entelect www.entelect.co.za redirected to the apex domain — pointed straight at it. Huawei's e.huawei.com 403s to automated checks but is a bot block, not a dead page, and was deliberately left alone.",
+      "by": "Sibusiso K"
+    },
+    {
       "at": "2026-08-14T16:45:00+02:00",
       "kind": "verified",
       "target": "mintek-sci-2026",

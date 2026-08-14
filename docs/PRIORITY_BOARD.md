@@ -17,7 +17,7 @@ Generated 10 August 2026 · updated 14 August 2026 (Mintek selection letter). We
 | 7 | SITA GovTech 2026 Hackathon | 2 | 6.45 | Local | TBA | **17–19 Sep** | Open (eligibility risk) |
 | 8 | RSNA Knee Abnormality Detection (Kaggle) | 2 | 6.2 | Intl | **$77,000** | Entry **15 Oct** | Open |
 | 9 | MTN MoMo Mini App Hackathon | 2 | 6.2 | Continental | ~$10,000 SA | TBA | Monitor |
-| 10 | IBM Z Datathon 2026 | 3 | 6.0 | Intl | $30,000+ | Reg **1 Oct** · Event 17–18 Oct | Open |
+| 10 | IBM Z Datathon 2026 | 2 | 6.2 | Intl | **$50,000+** | Reg **1 Oct** · Event 17–18 Oct | Open |
 | 11 | UNESCO Youth Hackathon | 3 | 5.85 | Intl | Trip to Greece | Submit **16 Aug** | **Closing** |
 | 12 | Zindi Challenges | 3 | 5.7 | Continental | ~$5–10k each | Rolling | Weekly check |
 | 13 | Geekulcha Annual (#GKHack26) | 3 | 5.45 | Local | TBA | ~Sep–Oct | Monitor |

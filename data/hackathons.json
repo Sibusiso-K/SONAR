@@ -232,8 +232,8 @@
       "team_fit": "Good.",
       "what_to_build": "72-hour sprint against published problem statements: Jobs & Economic Resilience; Infrastructure & Essential Services; Inequality & Social Cohesion; Climate Resilience & Food Security; Public Safety & Gender-Based Violence.",
       "deliverables": ["Working app solution within 72 hours"],
-      "links": { "main": "https://appoftheyear.co.za/hackathon/", "partner": "https://www.22onsloane.co/fnb-aoty-hackathon/" },
-      "notes": "Problem statements for 2026 are ALREADY PUBLISHED on the site — you can pre-build against them before registration opens. Huge field (10k+) hurts odds, but FNB actively recruits from it and the December awards give a second bite. Monitor weekly from 1 Sept."
+      "links": { "main": "https://www.22onsloane.co/fnb-aoty-hackathon/", "official_site": "https://appoftheyear.co.za/hackathon/" },
+      "notes": "Problem statements for 2026 are ALREADY PUBLISHED on the site — you can pre-build against them before registration opens. Huge field (10k+) hurts odds, but FNB actively recruits from it and the December awards give a second bite. Monitor weekly from 1 Sept. LINK CORRECTION 14 Aug 2026: the official appoftheyear.co.za site is down — the domain resolves but returns HTTP 500 on / and 404 on /hackathon. Primary link temporarily points at the 22 On Sloane partner page, which is live and describes the 2026 hackathon; the official URL is kept under official_site and should be promoted back the moment it recovers. This is the same page that 404'd during watch_sources.py run #5, so it has now failed twice — treat it as unreliable, not flaky."
     },
     {
       "id": "mtn-momo-miniapp-2026",
@@ -293,16 +293,16 @@
       "location": "Virtual",
       "status": "open",
       "tier": 2,
-      "score": 6.0,
-      "scores": { "career_leverage": 6, "winnability": 6, "prize": 6, "urgency": 6 },
+      "score": 6.2,
+      "scores": { "career_leverage": 6, "winnability": 6, "prize": 7, "urgency": 6 },
       "dates": { "registration_deadline": "2026-10-01", "event_start": "2026-10-17", "event_end": "2026-10-18", "confidence": "reported" },
-      "prize": { "currency": "USD", "pool": 30000, "breakdown": { "note": "$30,000+ in prizes" } },
-      "eligibility": "College/university students. Free entry. Beginners explicitly welcome. 10,000+ students expected.",
+      "prize": { "currency": "USD", "pool": 50000, "breakdown": { "note": "$50,000+ in prizes (organiser page, 14 Aug 2026)" } },
+      "eligibility": "College/university students. Free entry. Beginners explicitly welcome. 16,000+ students registered across 45+ countries and 8 in-person locations.",
       "team_fit": "Good — individual registration first, then team lead completes team form.",
       "what_to_build": "Scalable data-driven applications using IBM Z technology.",
       "deliverables": ["Team submission on the Hack2Skill platform"],
-      "links": { "starhacks": "https://www.starhacks.org/ibm-z-datathon-2026", "hack2skill": "https://hack2skill.com/event/datathon-2026", "devpost": "https://ibm-zdatathon.devpost.com/" },
-      "notes": "Register early — registrations after the deadline go to a waitlist. Clashes with BCG Platinion (16–17 Oct) — Datathon is 17–18 Oct. Pick one; BCG wins on career leverage. Note: student eligibility — confirm your status qualifies."
+      "links": { "main": "https://www.starhacks.org/ibm-z-datathon-2026", "register": "https://hack2skill.com/event/datathon-2026" },
+      "notes": "Register early — registrations after the deadline go to a waitlist. Clashes with BCG Platinion (16–17 Oct) — Datathon is 17–18 Oct. Pick one; BCG wins on career leverage. Note: student eligibility — confirm your status qualifies. LINK/PRIZE CORRECTION 14 Aug 2026: the board previously linked ibm-zdatathon.devpost.com, which is a PRIOR edition that has ended (\"This hackathon has ended\", Sept 24–25, register by Sept 10) — removed. The organiser (Shooting Stars Foundation, starhacks.org) confirms this cycle as 17–18 Oct 2026 with $50,000+ in prizes, so the board's $30,000 figure — also taken from that ended page — was understated and is corrected. Registration goes through hack2skill, which is where the organiser's own REGISTER button points. Organiser also states 16,000+ students registered across 45+ countries and 8 in-person locations, not the 10,000+ previously noted."
     },
     {
       "id": "unesco-youth-2026",
@@ -375,8 +375,8 @@
       "team_fit": "Excellent — match-making process exists for individual applicants.",
       "what_to_build": "Social relevancy, public service, business and inclusive solutions — 'the next African Digital Narrative'.",
       "deliverables": ["Weekend build + pitch"],
-      "links": { "hackathon": "https://hackathon.gklink.co/", "events": "https://www.geekulcha.dev/events", "main": "https://geekulcha.com/" },
-      "notes": "Best local network-building event on the board — Geekulcha is deeply wired into SA govt/corporate tech and runs the Top 15 Young Geeks list. Their 2026 annual edition is not yet posted; the 2026 events page only shows SS26Hack (Kimberley, May) and the Top 15 announcement (June). Watch @Geekulcha on X and hackathon.gklink.co from late August."
+      "links": { "hackathon": "https://gklink.co/", "events": "https://www.geekulcha.dev/events", "main": "https://geekulcha.com/" },
+      "notes": "Best local network-building event on the board — Geekulcha is deeply wired into SA govt/corporate tech and runs the Top 15 Young Geeks list. Their 2026 annual edition is not yet posted; the 2026 events page only shows SS26Hack (Kimberley, May) and the Top 15 announcement (June). Watch @Geekulcha on X and gklink.co from late August. LINK CORRECTION 14 Aug 2026: hackathon.gklink.co no longer resolves (DNS failure, not a 404); replaced with gklink.co, which is live and carries hackathon/registration content."
     },
     {
       "id": "huawei-ict-2026-2027",
@@ -403,7 +403,7 @@
       "what_to_build": "Tracks typically: Network, Cloud, Computing, Innovation.",
       "deliverables": ["Per track — exam + practical rounds"],
       "links": { "ict_academy": "https://e.huawei.com/en/talent/ict-academy/#/ict-contest", "global_final": "https://www.huawei.com/minisite/ict-competition-2025-2026-global/en/index.html" },
-      "notes": "Long runway, structured multi-stage progression, and a genuine job pipeline into Huawei South Africa. Requires university enrolment — if neither of you is currently registered, this is a drop. Check with your institution's Huawei ICT Academy rep in September."
+      "notes": "Long runway, structured multi-stage progression, and a genuine job pipeline into Huawei South Africa. Requires university enrolment — if neither of you is currently registered, this is a drop. Check with your institution's Huawei ICT Academy rep in September. LINK NOTE 14 Aug 2026: e.huawei.com returns HTTP 403 to automated checks on every path (bot fingerprinting, same class of block as the Groq 403 in watch_sources.py run #3) — the DNS resolves and the page is believed fine in a real browser. Deliberately NOT treated as a dead link; verify by hand rather than replacing it."
     },
     {
       "id": "entelect-university-cup-2027",
@@ -425,7 +425,7 @@
       "team_fit": "Perfect team size — if you qualify as students.",
       "what_to_build": "Algorithmic optimisation problem, timeboxed single-day contest.",
       "deliverables": ["Solution to the optimisation problem"],
-      "links": { "main": "https://www.entelect.co.za/", "linkedin": "https://www.linkedin.com/company/entelect" },
+      "links": { "main": "https://entelect.co.za/", "linkedin": "https://www.linkedin.com/company/entelect" },
       "notes": "Team registered — Sibusiso + Lethabo, confirmed via the team registration page. The board had this wrongly marked as the 2026 cycle having passed; it's live and running 22 Aug 2026. Entelect is one of the strongest SA graduate employers in software — also look at the separate Entelect Challenge."
     },
     {
