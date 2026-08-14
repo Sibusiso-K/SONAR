@@ -9,6 +9,22 @@
   },
   "updates": [
     {
+      "at": "2026-08-14T19:40:00+02:00",
+      "kind": "verified",
+      "target": null,
+      "title": "Link audit — all 44 board links fetched; 4 corrected",
+      "body": "Fetched every link in data/opportunities.json with a real User-Agent and followed redirects. 40 of 44 resolved cleanly. Corrections: (1) IBM Z Datathon linked an ENDED prior Devpost edition (Sept 24-25, 'This hackathon has ended') — removed, and the prize pool taken from that same stale page corrected from $30,000 to the organiser's stated $50,000+; dates 17-18 Oct 2026 independently confirmed correct. (2) Geekulcha hackathon.gklink.co no longer resolves in DNS — replaced with gklink.co. (3) FNB appoftheyear.co.za returns 500 on / and 404 on /hackathon — primary link moved to the live 22 On Sloane partner page, official URL retained. (4) Entelect www.entelect.co.za redirected to the apex domain — pointed straight at it. Huawei's e.huawei.com 403s to automated checks but is a bot block, not a dead page, and was deliberately left alone.",
+      "by": "Sibusiso K"
+    },
+    {
+      "at": "2026-08-14T16:45:00+02:00",
+      "kind": "verified",
+      "target": "mintek-sci-2026",
+      "title": "Mintek SCI Grad Hackathon 2026 — team SELECTED",
+      "body": "Official selection letter received, dated 14 Aug 2026, signed Boitumelo Lekalakala. Status moved from applied to selected, confidence to confirmed, lifecycle to committed. Confirmed: cash prizes R25k/R15k/R10k (1st/2nd/3rd), possible vacation-work offers for standout teams. Immediate action: one-page abstract due 30 Aug 2026, plus per-member ID number/T-shirt size/contact details/mentor info back to Mintek. Final hacking day is mandatory in-person at Mintek on 1 Oct 2026 (build from 08:00, code submission deadline 13:00, presentations from 14:00, 10 min/team). Must also register for and attend the Mintek SCI Conference on 2 Oct 2026, where the 5 finalist teams are announced and originality/AI-generation/plagiarism authentication begins for the next stage.",
+      "by": "Lethabo"
+    },
+    {
       "at": "2026-08-11T09:10:00+02:00",
       "kind": "changed",
       "target": "mintek-sci-2026",

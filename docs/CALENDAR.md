@@ -14,16 +14,18 @@ Importable file: [`../calendar/sonar-2026.ics`](../calendar/sonar-2026.ics)
 |---|---|---|---|
 | Mon 10 | 08:00 | SONAR board review *(weekly, every Monday)* | review |
 | Mon 10 | 18:00–21:00 | ADTC kickoff — register, clone template + profiler, GPU credits, pick domain | prep |
-| Tue 11 | 18:00–20:00 | Admin block — BCG application, MoMo form, IBM Bob trial, phone Mintek, GovTech T&Cs | admin |
+| Tue 11 | 18:00–20:00 | Admin block — BCG application, MoMo form, IBM Bob trial, GovTech T&Cs | admin |
 | Thu 13 | 18:00–21:00 | UNESCO submission — one evening, then it's done | prep |
 | Sat 15 – Sun 16 | 09:00–17:00 | **ADTC build sprint 1** — model selection + quantisation | prep |
 | **Sun 16** | 23:59 | **DEADLINE — UNESCO Youth Hackathon** | deadline |
 | Thu 20 | 18:00–21:00 | ADTC feature freeze + full benchmark run | prep |
 | Sat 22 – Sun 23 | 09:00–17:00 | **ADTC build sprint 2** — report, benchmarks, 2-min video | prep |
 | **Mon 24** | all day | **SUBMIT — Africa Deep Tech Challenge ($16,500)** · hard cutoff 25 Aug 08:45 SAST | deadline |
+| Fri 14 | — | **Mintek SCI Grad Hackathon — team SELECTED** (letter, Boitumelo Lekalakala). Start building. | milestone |
 | Wed 26 | 18:00–20:00 | IBM Bob prep — trial working, workflow problem chosen | prep |
 | Thu 27 | 16:00–20:30 | **IBM Dev Day: Bob in Action** — enablement 16:00, tracks 17:00 | event |
 | Fri 28 – Sun 30 | all day | **IBM Dev Day Hackathon** — top 50 teams win TechXchange passes | event |
+| **Sun 30** | all day | **DEADLINE — Mintek one-page abstract** · also send per-member ID, T-shirt size, contacts, mentor | deadline |
 
 ---
 
@@ -45,7 +47,9 @@ Importable file: [`../calendar/sonar-2026.ics`](../calendar/sonar-2026.ics)
 
 | Date | Time | What | Type |
 |---|---|---|---|
+| **Thu 1** | 08:00–16:00 | **MINTEK FINAL HACKING DAY — in person, Mintek, 200 Malibongwe Drive, Randburg.** 08:00 report & build · **13:00 submission closes** · 14:00 presentations, 10 min/team | event |
 | Thu 1 | all day | **DEADLINE — IBM Z Datathon registration** (late = waitlist) | deadline |
+| **Fri 2** | all day | **Mintek SCI Conference — mandatory attendance, separate registration.** Five finalists announced; originality authentication follows | event |
 | Sat 3 – Sun 4 | 09:00–17:00 | RSNA Kaggle sprint — reuse ADTC efficiency work | prep |
 | Thu 15 | all day | **DEADLINE — RSNA Knee Detection entry / team merger** | deadline |
 | **Fri 16 – Sat 17** | all day | **BCG Platinion Hackathon — Johannesburg** ← the one that matters | event |
@@ -75,6 +79,8 @@ Importable file: [`../calendar/sonar-2026.ics`](../calendar/sonar-2026.ics)
 | **RSNA final submission (22 Oct) vs FNB window (~23–25 Oct)** | Sequential, not overlapping — but tight. Freeze the Kaggle submission on the 21st. |
 | **ADTC (24 Aug) vs IBM hackathon (28–30 Aug)** | Four clear days between. Do not let ADTC slip past the 24th or this collapses. |
 | **Shipaton (runs to 30 Sept) vs everything in September** | Shipaton is the September background task. Treat the weekend sprints as immovable. |
+| **Shipaton hard cutoff (1 Oct 08:45 SAST) vs Mintek final hacking day (1 Oct, report from 08:00 at Randburg)** | These are the same 45 minutes, in a car or at Mintek. **Submit Shipaton on 29 September at the latest** — do not let it ride to the real cutoff. Mintek is in-person and mandatory; Shipaton is not. |
+| **Mintek build (Sept) vs Shipaton build (Sept)** | Two overlapping builds — at the Standing Agreement 1 limit, not over it. Do not add a third. GovTech is the one to drop if it comes to that. |
 
 ---
 
@@ -82,7 +88,6 @@ Importable file: [`../calendar/sonar-2026.ics`](../calendar/sonar-2026.ics)
 
 These have no confirmed 2026 dates. They live in the Monday review, not the calendar:
 
-- **Mintek-SCi Grad Hackathon** — may already have closed (2025 cycle closed 15 July). Phone them.
 - **MTN MoMo Mini App** — you have the registration form; dates should arrive by email once submitted.
 - **Geekulcha #GKHack26** — expect an announcement late August / early September.
 - **Huawei ICT 2026–27** — registration usually opens September–November.

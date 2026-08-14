@@ -24,6 +24,7 @@ export const EVENT_LOCATIONS: Record<string, EventLocation> = {
   "unesco-youth-2026": { lat: 40.6401, lng: 22.9444, city: "Thessaloniki", country: "Greece", kind: "venue" },
   "entelect-university-cup-2027": { lat: -26.2041, lng: 28.0473, city: "Johannesburg", country: "South Africa", kind: "venue" },
   "geekulcha-2026": { lat: -25.7479, lng: 28.2293, city: "Pretoria", country: "South Africa", kind: "venue" },
+  "mintek-sci-2026": { lat: -26.0936, lng: 28.0064, city: "Randburg", country: "South Africa", kind: "venue" },
 
   "mtn-momo-miniapp-2026": { lat: -26.2041, lng: 28.0473, city: "Johannesburg", country: "South Africa", kind: "hq" },
   "zindi-rolling": { lat: -33.9249, lng: 18.4241, city: "Cape Town", country: "South Africa", kind: "hq" },

@@ -232,8 +232,8 @@
       "team_fit": "Good.",
       "what_to_build": "72-hour sprint against published problem statements: Jobs & Economic Resilience; Infrastructure & Essential Services; Inequality & Social Cohesion; Climate Resilience & Food Security; Public Safety & Gender-Based Violence.",
       "deliverables": ["Working app solution within 72 hours"],
-      "links": { "main": "https://appoftheyear.co.za/hackathon/", "partner": "https://www.22onsloane.co/fnb-aoty-hackathon/" },
-      "notes": "Problem statements for 2026 are ALREADY PUBLISHED on the site — you can pre-build against them before registration opens. Huge field (10k+) hurts odds, but FNB actively recruits from it and the December awards give a second bite. Monitor weekly from 1 Sept."
+      "links": { "main": "https://www.22onsloane.co/fnb-aoty-hackathon/", "official_site": "https://appoftheyear.co.za/hackathon/" },
+      "notes": "Problem statements for 2026 are ALREADY PUBLISHED on the site — you can pre-build against them before registration opens. Huge field (10k+) hurts odds, but FNB actively recruits from it and the December awards give a second bite. Monitor weekly from 1 Sept. LINK CORRECTION 14 Aug 2026: the official appoftheyear.co.za site is down — the domain resolves but returns HTTP 500 on / and 404 on /hackathon. Primary link temporarily points at the 22 On Sloane partner page, which is live and describes the 2026 hackathon; the official URL is kept under official_site and should be promoted back the moment it recovers. This is the same page that 404'd during watch_sources.py run #5, so it has now failed twice — treat it as unreliable, not flaky."
     },
     {
       "id": "mtn-momo-miniapp-2026",
@@ -267,19 +267,19 @@
       "organiser": "Mintek",
       "scope": "local",
       "format": "hybrid",
-      "location": "South Africa",
-      "status": "applied",
-      "tier": 2,
-      "score": 6.2,
-      "scores": { "career_leverage": 8, "winnability": 7, "prize": 5, "urgency": 2 },
-      "dates": { "prior_year_pattern": "Applications close 15 July; teams notified 15 Aug; build 1–30 Sept; submit 1 Oct", "confidence": "unconfirmed" },
-      "prize": { "currency": "ZAR", "pool": null },
+      "location": "Remote build; final hacking day + conference in person at Mintek, 200 Malibongwe Drive, Randburg",
+      "status": "selected",
+      "tier": 1,
+      "score": 8.2,
+      "scores": { "career_leverage": 9, "winnability": 7, "prize": 6, "urgency": 8 },
+      "dates": { "team_notified": "2026-08-14", "submission_deadline": "2026-08-30", "submission_deadline_label": "one-page abstract due", "final_submission": "2026-10-01", "final_hacking_day_hours": "08:00 report/build, 13:00 code submission deadline, 14:00 presentations (10 min/team)", "conference": "2026-10-02", "finalists_announced": "2026-10-02", "confidence": "confirmed", "source": "Mintek SCI Grad Hackathon selection letter, signed Boitumelo Lekalakala, dated 14 Aug 2026" },
+      "prize": { "currency": "ZAR", "pool": 50000, "breakdown": { "1st": 25000, "2nd": 15000, "3rd": 10000 }, "non_cash": "Outstanding teams may be considered for vacation work at Mintek" },
       "eligibility": "University students, unemployed graduates, and interns under 35. Team-based, mentored.",
       "team_fit": "Excellent — explicitly aimed at unemployed graduates. Directly on-target for your situation.",
       "what_to_build": "Submitted abstract: REEFPRINT (Category: Problem 3 — Computer Vision for Real-Time Mineralogical Characterisation, by Lethabo). Rather than building a mineral classifier that competes with lab instruments (SEM/XRD/QEMSCAN), distills those instruments' existing output as a 'teacher' into a cheap optical model that reproduces their maps in seconds instead of days. Targets five Bushveld-relevant phases — chromite, orthopyroxene, plagioclase, base-metal sulphide, talc/serpentine — deliberately including base-metal sulphide even at <1% by area since that's where PGM economic value sits; the abstract commits to reporting per-class recall on that sub-1% class ahead of any aggregate accuracy number. Converts texture/liberation into three metallurgical response variables (liberation, reagent demand, grindability) feeding a plant setpoint recommendation with calibrated uncertainty — abstains rather than guessing when confidence is low. Frames cost/impact in Rand and tCO2e using real SA gazetted rates (Eskom Megaflex, carbon tax). Positioned as a module for Mintek's existing StarCS/FloatStar/MillStar platform, not a competing product. Code has since been re-scoped to match the submitted phase set.",
-      "deliverables": ["Electronic solution submission at end of build month"],
-      "links": { "main": "https://mintek.co.za/", "news": "https://mintek.co.za/media/news/", "prior_faq": "https://mintek.co.za/site_content/content/documents/mintek90/mintek-grad-hackathon-faq.pdf" },
-      "notes": "Abstract submitted (REEFPRINT). Applied in time — awaiting Mintek's response. Dates below are the prior-year pattern, not yet confirmed for this cycle."
+      "deliverables": ["One-page abstract restating approach, methods/tech and expected outcomes — due 30 Aug 2026", "Per-member info to Mintek: ID number, T-shirt size, contact details, mentor name/contact (or a request for one)", "Completed solution submitted by 13:00 on the 1 Oct final hacking day", "10-minute presentation to the judging panel, 1 Oct", "Registration + attendance at the Mintek SCI Conference, 2 Oct — 5 finalist teams announced there, then originality/AI-generation/plagiarism authentication before the next stage"],
+      "links": { "main": "https://mintek.co.za/", "news": "https://mintek.co.za/media/news/", "prior_faq": "https://mintek.co.za/site_content/content/documents/mintek90/mintek-grad-hackathon-faq.pdf", "conference_registration": "https://mintek.co.za/mintek-sci/programme/mintek-sci-(science-convention-of-innovators).html" },
+      "notes": "SELECTED — confirmed by Mintek's letter dated 14 Aug 2026 (signed Boitumelo Lekalakala). Team is in the hackathon, not just applied. Immediate action: one-page abstract due 30 Aug, plus per-member ID/T-shirt/contact/mentor info back to Mintek. Final hacking day is mandatory in-person at Mintek, 1 Oct (build until 13:00, present at 14:00, 10 min/team). Must also register for and attend the Mintek SCI Conference on 2 Oct, where the 5 finalists are announced and originality checks begin. Cash prizes now confirmed: R25k/R15k/R10k for top 3, plus possible vacation-work offers for standout teams."
     },
     {
       "id": "ibm-z-datathon-2026",
@@ -293,16 +293,16 @@
       "location": "Virtual",
       "status": "open",
       "tier": 2,
-      "score": 6.0,
-      "scores": { "career_leverage": 6, "winnability": 6, "prize": 6, "urgency": 6 },
+      "score": 6.2,
+      "scores": { "career_leverage": 6, "winnability": 6, "prize": 7, "urgency": 6 },
       "dates": { "registration_deadline": "2026-10-01", "event_start": "2026-10-17", "event_end": "2026-10-18", "confidence": "reported" },
-      "prize": { "currency": "USD", "pool": 30000, "breakdown": { "note": "$30,000+ in prizes" } },
-      "eligibility": "College/university students. Free entry. Beginners explicitly welcome. 10,000+ students expected.",
+      "prize": { "currency": "USD", "pool": 50000, "breakdown": { "note": "$50,000+ in prizes (organiser page, 14 Aug 2026)" } },
+      "eligibility": "College/university students. Free entry. Beginners explicitly welcome. 16,000+ students registered across 45+ countries and 8 in-person locations.",
       "team_fit": "Good — individual registration first, then team lead completes team form.",
       "what_to_build": "Scalable data-driven applications using IBM Z technology.",
       "deliverables": ["Team submission on the Hack2Skill platform"],
-      "links": { "starhacks": "https://www.starhacks.org/ibm-z-datathon-2026", "hack2skill": "https://hack2skill.com/event/datathon-2026", "devpost": "https://ibm-zdatathon.devpost.com/" },
-      "notes": "Register early — registrations after the deadline go to a waitlist. Clashes with BCG Platinion (16–17 Oct) — Datathon is 17–18 Oct. Pick one; BCG wins on career leverage. Note: student eligibility — confirm your status qualifies."
+      "links": { "main": "https://www.starhacks.org/ibm-z-datathon-2026", "register": "https://hack2skill.com/event/datathon-2026" },
+      "notes": "Register early — registrations after the deadline go to a waitlist. Clashes with BCG Platinion (16–17 Oct) — Datathon is 17–18 Oct. Pick one; BCG wins on career leverage. Note: student eligibility — confirm your status qualifies. LINK/PRIZE CORRECTION 14 Aug 2026: the board previously linked ibm-zdatathon.devpost.com, which is a PRIOR edition that has ended (\"This hackathon has ended\", Sept 24–25, register by Sept 10) — removed. The organiser (Shooting Stars Foundation, starhacks.org) confirms this cycle as 17–18 Oct 2026 with $50,000+ in prizes, so the board's $30,000 figure — also taken from that ended page — was understated and is corrected. Registration goes through hack2skill, which is where the organiser's own REGISTER button points. Organiser also states 16,000+ students registered across 45+ countries and 8 in-person locations, not the 10,000+ previously noted."
     },
     {
       "id": "unesco-youth-2026",
@@ -375,8 +375,8 @@
       "team_fit": "Excellent — match-making process exists for individual applicants.",
       "what_to_build": "Social relevancy, public service, business and inclusive solutions — 'the next African Digital Narrative'.",
       "deliverables": ["Weekend build + pitch"],
-      "links": { "hackathon": "https://hackathon.gklink.co/", "events": "https://www.geekulcha.dev/events", "main": "https://geekulcha.com/" },
-      "notes": "Best local network-building event on the board — Geekulcha is deeply wired into SA govt/corporate tech and runs the Top 15 Young Geeks list. Their 2026 annual edition is not yet posted; the 2026 events page only shows SS26Hack (Kimberley, May) and the Top 15 announcement (June). Watch @Geekulcha on X and hackathon.gklink.co from late August."
+      "links": { "hackathon": "https://gklink.co/", "events": "https://www.geekulcha.dev/events", "main": "https://geekulcha.com/" },
+      "notes": "Best local network-building event on the board — Geekulcha is deeply wired into SA govt/corporate tech and runs the Top 15 Young Geeks list. Their 2026 annual edition is not yet posted; the 2026 events page only shows SS26Hack (Kimberley, May) and the Top 15 announcement (June). Watch @Geekulcha on X and gklink.co from late August. LINK CORRECTION 14 Aug 2026: hackathon.gklink.co no longer resolves (DNS failure, not a 404); replaced with gklink.co, which is live and carries hackathon/registration content."
     },
     {
       "id": "huawei-ict-2026-2027",
@@ -403,7 +403,7 @@
       "what_to_build": "Tracks typically: Network, Cloud, Computing, Innovation.",
       "deliverables": ["Per track — exam + practical rounds"],
       "links": { "ict_academy": "https://e.huawei.com/en/talent/ict-academy/#/ict-contest", "global_final": "https://www.huawei.com/minisite/ict-competition-2025-2026-global/en/index.html" },
-      "notes": "Long runway, structured multi-stage progression, and a genuine job pipeline into Huawei South Africa. Requires university enrolment — if neither of you is currently registered, this is a drop. Check with your institution's Huawei ICT Academy rep in September."
+      "notes": "Long runway, structured multi-stage progression, and a genuine job pipeline into Huawei South Africa. Requires university enrolment — if neither of you is currently registered, this is a drop. Check with your institution's Huawei ICT Academy rep in September. LINK NOTE 14 Aug 2026: e.huawei.com returns HTTP 403 to automated checks on every path (bot fingerprinting, same class of block as the Groq 403 in watch_sources.py run #3) — the DNS resolves and the page is believed fine in a real browser. Deliberately NOT treated as a dead link; verify by hand rather than replacing it."
     },
     {
       "id": "entelect-university-cup-2027",
@@ -425,7 +425,7 @@
       "team_fit": "Perfect team size — if you qualify as students.",
       "what_to_build": "Algorithmic optimisation problem, timeboxed single-day contest.",
       "deliverables": ["Solution to the optimisation problem"],
-      "links": { "main": "https://www.entelect.co.za/", "linkedin": "https://www.linkedin.com/company/entelect" },
+      "links": { "main": "https://entelect.co.za/", "linkedin": "https://www.linkedin.com/company/entelect" },
       "notes": "Team registered — Sibusiso + Lethabo, confirmed via the team registration page. The board had this wrongly marked as the 2026 cycle having passed; it's live and running 22 Aug 2026. Entelect is one of the strongest SA graduate employers in software — also look at the separate Entelect Challenge."
     },
     {

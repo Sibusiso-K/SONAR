@@ -27,17 +27,22 @@ Import `calendar/sonar-2026.ics` into your Google Calendar and you have the same
 
 ---
 
-## The situation as of 10 August 2026
+## The situation as of 14 August 2026
 
-Three things close inside 20 days. One of them is 6 days out.
+**We are in the Mintek SCI Grad Hackathon.** The selection letter landed 14 August — R50,000 across the top three, possible vacation work at Mintek, abstract due 30 August, and a mandatory in-person final day at Randburg on 1 October. It is now the highest-scored entry on the board (8.2), because it is the only one where we already hold a place.
+
+Beyond that, three things close inside 16 days. One of them is 2 days out.
 
 ```
-Aug 16  UNESCO Youth Hackathon          SUBMIT OR DROP — 6 days
-Aug 24  Africa Deep Tech Challenge      $16,500 — 14 days — PRIMARY
+Aug 16  UNESCO Youth Hackathon          SUBMIT OR DROP — 2 days
+Aug 24  Africa Deep Tech Challenge      $16,500 — 10 days — PRIMARY
 Aug 27  IBM Dev Day: Bob in Action      register before this date
 Aug 28  IBM hackathon starts (to 30 Aug)
+Aug 30  Mintek abstract due             WE ARE SELECTED — R50,000 pool
 Sep 07  BCG Platinion application       HIGHEST career value on the board
-Sep 30  RevenueCat Shipaton             $700k+ pool, ship a real app
+Sep 30  RevenueCat Shipaton             $700k+ pool — submit by Sep 29, see below
+Oct 01  Mintek FINAL HACKING DAY        in person, Randburg — submit by 13:00
+Oct 02  Mintek SCI Conference           mandatory — 5 finalists announced
 Oct 15  RSNA Knee (Kaggle) entry        $77,000
 Oct 16  BCG Platinion Hackathon, Johannesburg
 Nov 14  NASA Space Apps
@@ -149,4 +154,4 @@ Every date carries a `confidence` field:
 
 ---
 
-*Last full refresh: 10 August 2026. Next review: 17 August 2026.*
+*Last full refresh: 10 August 2026. Mintek selection applied 14 August 2026. Next review: 17 August 2026.*

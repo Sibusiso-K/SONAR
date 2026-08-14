@@ -16,9 +16,9 @@ Researched **10 August 2026**. Anything marked *unconfirmed* has no 2026 primary
 | BCG Platinion South Africa application link | [BCG Eightfold — SA event](https://bcg.eightfold.ai/events/candidate/landing?plannedEventId=33rM9beDD) |
 | IBM Dev Day: virtual event 27 Aug, hackathon 28–30 Aug; $2,000 grand prize; top 50 teams get TechXchange passes; enablement session 10:00 ET; build brief | [IBM Dev Day: Bob in Action](https://ibmdevday-bob.bemyapp.com/) |
 | UNESCO Youth Hackathon: submissions 6 July – 16 Aug 2026, 23:59 Paris; ages 18–30; theme; Thessaloniki 26–28 Nov | [UNESCO Youth Hackathon 2026](https://www.unesco.org/en/articles/unesco-youth-hackathon-2026) · [UNESCO MIL hub](https://www.unesco.org/en/media-information-literacy/youth-hackathon) |
-| FNB App of the Year 2026 problem statements (five themes) | [appoftheyear.co.za/hackathon](https://appoftheyear.co.za/hackathon/) |
+| FNB App of the Year 2026 problem statements (five themes) — ⚠️ **source page is down as of 14 Aug 2026** (domain resolves, HTTP 500 on `/`, 404 on `/hackathon`). Claim stands on the earlier read plus the live partner page; re-verify when the site returns. | [appoftheyear.co.za/hackathon](https://appoftheyear.co.za/hackathon/) *(dead)* · [22 On Sloane — live](https://www.22onsloane.co/fnb-aoty-hackathon/) |
 | Geekulcha 2026 events listing (SS26Hack Kimberley 22 May; Top 15 Young Geeks 1 June) | [geekulcha.dev/events](https://www.geekulcha.dev/events) |
-| Geekulcha annual hackathon format, free entry, donation-based admission, mentor match-making | [hackathon.gklink.co](https://hackathon.gklink.co/) |
+| Geekulcha annual hackathon format, free entry, donation-based admission, mentor match-making — *link updated 14 Aug 2026: the `hackathon.` subdomain no longer resolves in DNS* | [gklink.co](https://gklink.co/) *(was `hackathon.gklink.co`, now dead)* |
 | MICT SETA National Skills Challenge 2026: UWC 27–28 March, Rosebank finale 30–31 March, R200,000 pool | [hackathon.mict.org.za](https://hackathon.mict.org.za/) |
 
 ---
@@ -30,7 +30,7 @@ Researched **10 August 2026**. Anything marked *unconfirmed* has no 2026 primary
 | RSNA Knee: entry deadline 15 Oct 2026, competition runs to 22 Oct, $77,000 pool, efficiency awards, 5,000+ exams / 12 languages / 16 sites, winners announced Nov, recognised at RSNA 2026 Chicago 29 Nov–3 Dec | [RSNA news](https://www.rsna.org/news/2026/august/ai-challenge-knee-mri) · [RSNA challenge page](https://www.rsna.org/artificial-intelligence/ai-image-challenge/knee-mri-ai-challenge) · [Kaggle competition](https://www.kaggle.com/competitions/rsna-knee-abnormality-detection) · [AuntMinnie](https://www.auntminnie.com/imaging-informatics/artificial-intelligence/news/15831808/rsna-launches-2026-knee-abnormality-detection-ai-challenge) |
 | Shipaton 2026: runs 1 Aug – 30 Sept, submission window 31 July 08:00 PDT – 30 Sept 23:45 PDT, $700,000+ across nine categories | [Shipaton](https://www.shipaton.com/) · [Devpost rules](https://revenuecat-shipaton-2026.devpost.com/rules) · [RevenueCat announcement](https://www.revenuecat.com/blog/company/announcing-shipaton-2026) · [Prep guide](https://revenuecat.github.io/codelabs/shipaton-2026-prep.html) |
 | GovTech 2026 Hackathon: 17–19 Sept, Durban ICC + remote, EME/SMME eligibility, teams of 3–5 | [GovTech T&Cs PDF](https://www.govtech.gov.za/wp-content/uploads/2026/07/GovTech-2026-Hackathon-Terms-and-Condition.pdf) · [govtech.gov.za](https://www.govtech.gov.za/) · [SITA](https://www.sita.co.za/content/hackathon-0) |
-| IBM Z Datathon: register by 1 Oct, event 17–18 Oct, $30,000+ prizes, students, beginners welcome, 10,000+ expected | [StarHacks](https://www.starhacks.org/ibm-z-datathon-2026) · [Hack2Skill](https://hack2skill.com/event/datathon-2026) · [Devpost](https://ibm-zdatathon.devpost.com/) · [IBM Community](https://community.ibm.com/community/user/discussion/calling-ai-startups-help-inspire-10000-students-at-ibm-z-datathon-2026) |
+| IBM Z Datathon: register by 1 Oct, event **17–18 Oct 2026**, **$50,000+** prizes, students, beginners welcome, **16,000+ registered** across 45+ countries and 8 in-person locations — *prize and field size corrected 14 Aug 2026; see the conflicts table* | [StarHacks — organiser](https://www.starhacks.org/ibm-z-datathon-2026) · [Hack2Skill — registration](https://hack2skill.com/event/datathon-2026) · [IBM Community](https://community.ibm.com/community/user/discussion/calling-ai-startups-help-inspire-10000-students-at-ibm-z-datathon-2026) |
 | NASA Space Apps 2026: 14–15 November, registration opens late July | [spaceappschallenge.org](https://www.spaceappschallenge.org/) · [Host an event](https://www.spaceappschallenge.org/host-an-event/) |
 | ADTC prize pool "exceeding $20,000" and 25 Aug deadline in press coverage — **superseded by Devpost's $16,500 / 24 Aug** | [TechAfrica News](https://techafricanews.com/2026/07/30/africa-deep-tech-foundation-launches-2026-laptop-llm-challenge/) · [MSME Africa](https://msmeafricaonline.com/call-for-applications-africa-deep-tech-challenge-2026-the-laptop-llm-challenge-up-to-20000-in-prizes/) |
 | ITWeb Security Summit Hackathon 2026: 10th edition, 2–3 June, Sandton, registration closed 10 April, with Geekulcha | [ITWeb](https://www.itweb.co.za/event/itweb-security-summit-2026/hackathon/index.html) · [ITWeb article](https://www.itweb.co.za/article/itweb-marks-security-summit-hackathon-milestone/o1Jr5qxPwgXqKdWL) |
@@ -65,6 +65,29 @@ Researched **10 August 2026**. Anything marked *unconfirmed* has no 2026 primary
 | **BCG deadline**: banner image says "Apply by September 7"; body text says "Application deadline is September 13" | **7 September.** Apply well before either. |
 | **IBM TechXchange dates**: one IBM page says "October 26-29, 2025", another says 2026 | 26–29 October **2026**. |
 | **Zindi domain**: `zindi.africa` redirects to `zindi.world` | Use `zindi.world`. |
+| **IBM Z Datathon prize**: the board carried `$30,000+`, read off `ibm-zdatathon.devpost.com` | **$50,000+.** That Devpost page is a *prior edition that has ended* — it states "This hackathon has ended", Sept 24–25, register by Sept 10, none of which matches this cycle. The organiser's own page (starhacks.org, Shooting Stars Foundation) states "OCT 17-18 2026 \| $50K+ IN PRIZES". Organiser page outranks a submission platform for prize amounts, and outranks a *stale* one absolutely. The 17–18 Oct dates the board already had are independently confirmed correct. Devpost link removed 14 Aug 2026. |
+
+---
+
+## Link audit — 14 August 2026
+
+All 44 links in `data/opportunities.json` were fetched with a real browser
+User-Agent, following redirects, and checked on final URL rather than status
+alone. **40 of 44 resolved cleanly.** Results:
+
+| Link | Result | Action |
+|---|---|---|
+| `ibm-zdatathon.devpost.com` | 200, but the page says *"This hackathon has ended"* and describes a different cycle | **Removed.** A 200 is not liveness — see the conflicts table. |
+| `hackathon.gklink.co` | DNS does not resolve (`gaierror`), not a 404 | Replaced with `gklink.co`, which resolves and serves hackathon content |
+| `appoftheyear.co.za/hackathon/` | 404; the domain's root 500s | Primary link moved to the live 22 On Sloane partner page; official URL retained under `official_site`. Second failure for this page — it also 404'd in `watch_sources.py` run #5. |
+| `www.entelect.co.za` | 200 but redirects to the apex domain | Pointed straight at `entelect.co.za` |
+| `e.huawei.com/...` | 403 on every path | **Left alone deliberately.** Bot fingerprinting, same class of block as the Groq 403 in `watch_sources.py` run #3. DNS resolves. Verify by hand; do not replace. |
+
+The lesson worth keeping, and the reason this audit checked page *content*
+and not just status codes: **the most wrong link on the board returned
+`200 OK`.** A dead link announces itself; a stale one does not. `hack2skill`
+also returns 200 with an empty JS shell — status alone would have graded it
+identically to a fully rendered page.
 
 ---
 

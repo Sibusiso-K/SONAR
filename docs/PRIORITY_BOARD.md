@@ -1,6 +1,6 @@
 # SONAR Priority Board
 
-Generated 10 August 2026. Weights: career 35% · winnability 30% · prize 20% · urgency 15%.
+Generated 10 August 2026 · updated 14 August 2026 (Mintek selection letter). Weights: career 35% · winnability 30% · prize 20% · urgency 15%.
 
 ---
 
@@ -8,16 +8,16 @@ Generated 10 August 2026. Weights: career 35% · winnability 30% · prize 20% ·
 
 | # | Event | Tier | Score | Scope | Prize | Key date | Status |
 |---|---|---|---|---|---|---|---|
-| 1 | BCG Platinion Hackathon — Fighting World Hunger | 1 | **7.9** | Intl (JHB hub) | Travel paid + prizes | Apply **7 Sep** · Event 16–17 Oct | Open |
-| 2 | Africa Deep Tech Challenge — Laptop LLM | 1 | **7.65** | Continental | **$16,500** | Submit **24 Aug** | Open |
-| 3 | IBM Dev Day: Bob in Action | 1 | **7.35** | Intl | $2,000 + TechXchange trip | Event **27–30 Aug** | Open |
-| 4 | RevenueCat Shipaton 2026 | 2 | 6.8 | Intl | **$700,000+** | Submit **30 Sep** | Open |
-| 5 | FNB App of the Year Hackathon | 2 | 6.45 | Local | TBA | ~late Oct | Monitor |
-| 6 | SITA GovTech 2026 Hackathon | 2 | 6.45 | Local | TBA | **17–19 Sep** | Open (eligibility risk) |
-| 7 | RSNA Knee Abnormality Detection (Kaggle) | 2 | 6.2 | Intl | **$77,000** | Entry **15 Oct** | Open |
-| 8 | MTN MoMo Mini App Hackathon | 2 | 6.2 | Continental | ~$10,000 SA | TBA | Monitor |
-| 9 | Mintek-SCi Grad Hackathon | 2 | 6.2 | Local | TBA | **VERIFY** | Verify |
-| 10 | IBM Z Datathon 2026 | 3 | 6.0 | Intl | $30,000+ | Reg **1 Oct** · Event 17–18 Oct | Open |
+| 1 | Mintek-SCi Grad Hackathon | 1 | **8.2** | Local | **R50,000** + vacation work | Abstract **30 Aug** · Final 1 Oct | **SELECTED** |
+| 2 | BCG Platinion Hackathon — Fighting World Hunger | 1 | **7.9** | Intl (JHB hub) | Travel paid + prizes | Apply **7 Sep** · Event 16–17 Oct | Open |
+| 3 | Africa Deep Tech Challenge — Laptop LLM | 1 | **7.65** | Continental | **$16,500** | Submit **24 Aug** | Open |
+| 4 | IBM Dev Day: Bob in Action | 1 | **7.35** | Intl | $2,000 + TechXchange trip | Event **27–30 Aug** | Open |
+| 5 | RevenueCat Shipaton 2026 | 2 | 6.8 | Intl | **$700,000+** | Submit **30 Sep** | Open |
+| 6 | FNB App of the Year Hackathon | 2 | 6.45 | Local | TBA | ~late Oct | Monitor |
+| 7 | SITA GovTech 2026 Hackathon | 2 | 6.45 | Local | TBA | **17–19 Sep** | Open (eligibility risk) |
+| 8 | RSNA Knee Abnormality Detection (Kaggle) | 2 | 6.2 | Intl | **$77,000** | Entry **15 Oct** | Open |
+| 9 | MTN MoMo Mini App Hackathon | 2 | 6.2 | Continental | ~$10,000 SA | TBA | Monitor |
+| 10 | IBM Z Datathon 2026 | 2 | 6.2 | Intl | **$50,000+** | Reg **1 Oct** · Event 17–18 Oct | Open |
 | 11 | UNESCO Youth Hackathon | 3 | 5.85 | Intl | Trip to Greece | Submit **16 Aug** | **Closing** |
 | 12 | Zindi Challenges | 3 | 5.7 | Continental | ~$5–10k each | Rolling | Weekly check |
 | 13 | Geekulcha Annual (#GKHack26) | 3 | 5.45 | Local | TBA | ~Sep–Oct | Monitor |
@@ -29,7 +29,27 @@ Generated 10 August 2026. Weights: career 35% · winnability 30% · prize 20% ·
 
 ## Tier 1 — clear the calendar
 
-### 1. BCG Platinion Hackathon — score 7.9
+### 1. Mintek-SCi Grad Hackathon — score 8.2
+
+**We are in.** Mintek's selection letter, dated 14 August 2026 and signed Boitumelo Lekalakala, confirms the team has been selected to participate. This is no longer a "verify whether it closed" line item — it is the only entry on the board where we hold a confirmed place, which is why it outranks BCG. Everything else here is a chance to compete; this one is already a commitment.
+
+**The money, now confirmed:** R25,000 / R15,000 / R10,000 for the top three — a R50,000 pool where the field is other selected teams, not 10,000 open entrants. Separately, outstanding teams "may be considered for vacation work opportunities at Mintek," which is the same direct-employment pathway that makes BCG valuable, on a board entry we've already cleared the first gate on.
+
+**Three dates, all hard:**
+
+- **30 August** — one-page abstract: proposed approach, methods/technologies, expected outcomes/impact. This lands six days after ADTC submits, so it does not collide with the crunch.
+- **1 October** — final hacking day, **mandatory in person at Mintek, 200 Malibongwe Drive, Randburg**. Report from 08:00, **final submission hard-closes at 13:00**, presentations from 14:00, 10 minutes per team. The 13:00 cutoff is the real deadline, not end of day — plan the morning as buffer, not build time.
+- **2 October** — Mintek SCI Conference, attendance **required**, and separate [registration](https://mintek.co.za/mintek-sci/programme/mintek-sci-(science-convention-of-innovators).html) is required too. The five finalists are announced here and go through originality authentication.
+
+**Also owed to Mintek, per member:** ID number, T-shirt size, contact details, and a mentor's name and contact — or an explicit request for a Mintek mentor if we don't have one. That last option is worth taking: an internal mentor is free access to the people who will be judging.
+
+**The originality clause matters.** AI tools are explicitly permitted, but every submission goes through plagiarism, AI-generation, IP and originality checks, and the five finalists face authentication on top of that. REEFPRINT's distillation approach is genuinely ours; make sure the abstract and the repo history show that work, and acknowledge every external source, dataset and contribution.
+
+**"Start hacking!"** — the letter says begin developing immediately, not after the abstract. The abstract is a checkpoint, not a gate.
+
+---
+
+### 2. BCG Platinion Hackathon — score 7.9
 **Why it's number one.** Nothing else on this board puts you in a room in Johannesburg with BCG consultants for two days with your travel paid. BCG Platinion has publicly documented a participant converting from hackathon attendee into a Visiting Associate role. Career leverage 10/10, and winnability is unusually high at 8/10 because selection is by application (CV + motivation letter), not by beating 10,000 people on a leaderboard.
 
 **The catch you must not miss:** you apply **individually**. You and Lethabo submit separate applications. Teams are formed on-site to force networking. Do not try to apply as a pair.
@@ -40,7 +60,7 @@ Generated 10 August 2026. Weights: career 35% · winnability 30% · prize 20% ·
 
 ---
 
-### 2. Africa Deep Tech Challenge — score 7.65
+### 3. Africa Deep Tech Challenge — score 7.65
 **Why:** $16,500 cash, and the scoring formula is a gift to a small disciplined team.
 
 ```
@@ -57,7 +77,7 @@ Half the score is **not** model quality. Throughput is measured against a 15 tok
 
 ---
 
-### 3. IBM Dev Day: Bob in Action — score 7.35
+### 4. IBM Dev Day: Bob in Action — score 7.35
 **Why:** the best odds-to-reward ratio on the entire board. **The top 50 qualified submissions each get a TechXchange 2026 conference pass per team member.** Not the top 3 — the top 50. And the audience is IBM i and IBM Z enterprise developers, a small and conservative crowd. A modern developer-workflow angle stands out sharply here in a way it never would on Devpost.
 
 **Timing:** virtual enablement session 27 August, hackathon 28–30 August. That's the weekend right after ADTC closes — which works, because ADTC submits on the 24th/25th.
@@ -80,7 +100,7 @@ Half the score is **not** model quality. Throughput is measured against a 15 tok
 
 **MTN MoMo Mini App (6.2)** — you have the registration form. Fill it in this week. Separately, register on [momodeveloper.mtn.com](https://momodeveloper.mtn.com/) and get sandbox API keys now; API access approval is the long pole, not the build.
 
-**Mintek-SCi Grad Hackathon (6.2)** — **URGENT: verify whether 2026 has already closed.** The 2025 cycle closed applications 15 July, notified 15 August, built through September, submitted 1 October. If 2026 mirrors that, you've missed it. Worth a phone call because the eligibility — *university students, unemployed graduates and interns under 35* — is aimed squarely at your situation, which is rare. If it's closed, diarise July 2027 immediately.
+*Mintek-SCi has moved to Tier 1 — see entry #1. The 2025-cycle pattern this section used to worry about turned out to be almost exactly right (notified ~15 Aug, submit 1 Oct), and we were selected.*
 
 ---
 
@@ -105,19 +125,25 @@ Half the score is **not** model quality. Throughput is measured against a 15 tok
 Two people. Be honest about capacity.
 
 ### August — the crunch
-- **Mon 10–Wed 12:** ADTC setup. Register, clone template + profiler, apply for GPU credits, pick your domain. In parallel: apply to BCG Platinion, fill the MTN MoMo form, request the IBM Bob trial, phone Mintek.
+- **Mon 10–Wed 12:** ADTC setup. Register, clone template + profiler, apply for GPU credits, pick your domain. In parallel: apply to BCG Platinion, fill the MTN MoMo form, request the IBM Bob trial.
+- **Fri 14:** Mintek selection letter arrives — we're in. Start the REEFPRINT build now, per the letter.
 - **Thu 13:** UNESCO submission — one evening, then it's off the list either way.
 - **Wed 12 – Sun 23:** ADTC build. Sibusiso on model/quantisation, Lethabo on app + report + video. Freeze features Thursday 20th.
 - **Mon 24:** ADTC submit. Do not submit on the deadline hour.
 - **Thu 27:** IBM enablement session, 16:00 SAST.
 - **Fri 28 – Sun 30:** IBM Bob hackathon.
+- **Sat 30:** **Mintek one-page abstract due.** Also send Mintek the per-member details (ID, T-shirt size, contacts, mentor — or request one).
 
 ### September — consolidate
 - Week 1: BCG application in before the 7th. Decide GovTech in or out.
 - Weeks 2–4: Shipaton build. One app, shipped, deadline 30 Sept — and remember app-store review eats a week.
+- **Throughout: Mintek REEFPRINT build.** The letter says start immediately; September is the build month, and the 1 Oct final day is the last chance to touch it.
+- Register for the Mintek SCI Conference (2 Oct) — separate registration, do it early.
 - Monitor: FNB registration, Geekulcha, Huawei, Zindi.
 
 ### October — the payoff month
+- **Thu 1 Oct: Mintek final hacking day, in person at Randburg.** 08:00 report · **13:00 submission closes** · 14:00 presentations, 10 min.
+- **Fri 2 Oct: Mintek SCI Conference** — mandatory, and the five finalists are announced here.
 - 15–22 Oct: RSNA Kaggle, reusing ADTC efficiency work.
 - **16–17 Oct: BCG Platinion, Johannesburg.** This is the one that matters. Note it clashes with IBM Z Datathon (17–18 Oct) — BCG wins.
 - Late Oct: FNB App of the Year 72-hour sprint.
@@ -133,7 +159,9 @@ Two people. Be honest about capacity.
 | Risk | Mitigation |
 |---|---|
 | August has three deadlines in 20 days | ADTC is primary. UNESCO is one evening. IBM is the following weekend, not concurrent. Do not add a fourth. |
-| Mintek 2026 already closed | Phone them this week. Don't discover it in October. |
+| Mintek abstract (30 Aug) lands six days after ADTC submits | Sequential, not overlapping — but write it during the ADTC report week, not the weekend before. |
+| Mintek final day (1 Oct) is in person at Randburg, submission closes 13:00 | Not a full day of build time. Travel and setup come out of the morning; treat 13:00 as the deadline it is. |
+| Mintek SCI Conference (2 Oct) needs separate registration | Register when the per-member details go back to Mintek, not in late September. |
 | GovTech needs a registered EME + 3–5 people | Read the T&Cs before investing anything. Drop early if it doesn't fit. |
 | Shipaton app stuck in store review | Submit to the stores by mid-September, not 29 September. |
 | BCG banner date (7 Sep) vs body text (13 Sep) | Apply by 24 August and the conflict is irrelevant. |
