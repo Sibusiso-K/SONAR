@@ -88,7 +88,7 @@ Importable file: [`../calendar/sonar-2026.ics`](../calendar/sonar-2026.ics)
 
 These have no confirmed 2026 dates. They live in the Monday review, not the calendar:
 
-- **MTN MoMo Mini App** — you have the registration form; dates should arrive by email once submitted.
+- **MTN MoMo Mini App** — **submitted** (three ideas, three-person team). Dates should arrive by email; nothing goes on the calendar until one does.
 - **Geekulcha #GKHack26** — expect an announcement late August / early September.
 - **Huawei ICT 2026–27** — registration usually opens September–November.
 - **Zindi** — rolling; check every Monday sorted by "Closing soon."

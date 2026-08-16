@@ -16,7 +16,7 @@ Generated 10 August 2026 · updated 14 August 2026 (Mintek selection letter). We
 | 6 | FNB App of the Year Hackathon | 2 | 6.45 | Local | TBA | ~late Oct | Monitor |
 | 7 | SITA GovTech 2026 Hackathon | 2 | 6.45 | Local | TBA | **17–19 Sep** | Open (eligibility risk) |
 | 8 | RSNA Knee Abnormality Detection (Kaggle) | 2 | 6.2 | Intl | **$77,000** | Entry **15 Oct** | Open |
-| 9 | MTN MoMo Mini App Hackathon | 2 | 6.2 | Continental | ~$10,000 SA | TBA | Monitor |
+| 9 | MTN MoMo Mini App Hackathon | 2 | 6.2 | Continental | ~$10,000 SA | TBA | **Submitted** (3 ideas) |
 | 10 | IBM Z Datathon 2026 | 2 | 6.2 | Intl | **$50,000+** | Reg **1 Oct** · Event 17–18 Oct | Open |
 | 11 | UNESCO Youth Hackathon | 3 | 5.85 | Intl | Trip to Greece | Submit **16 Aug** | **Closing** |
 | 12 | Zindi Challenges | 3 | 5.7 | Continental | ~$5–10k each | Rolling | Weekly check |
@@ -98,7 +98,7 @@ Half the score is **not** model quality. Throughput is measured against a 15 tok
 
 **RSNA Knee / Kaggle (6.2)** — $77,000 and the hardest field here; global Kaggle grandmasters compete in RSNA challenges. **But** 2026 adds prizes for the *most efficient models* — the exact same skill you build for ADTC. Do ADTC first, then reuse the quantisation and profiling work here. Entry deadline 15 Oct, final submission 22 Oct. Treat as a stretch, not a primary.
 
-**MTN MoMo Mini App (6.2)** — you have the registration form. Fill it in this week. Separately, register on [momodeveloper.mtn.com](https://momodeveloper.mtn.com/) and get sandbox API keys now; API access approval is the long pole, not the build.
+**MTN MoMo Mini App (6.2)** — **submitted.** The team entered **three separate ideas under one team**, which is three shots on goal rather than one. Two things to confirm: that MTN's rules actually permit multiple submissions per team and judge them independently (rather than asking the team to pick one), and what the next milestone is — if the prior format holds, ideas are screened and the top 12 advance to prototyping, but no 2026 date has been read off an MTN source yet. Regardless of the outcome: register on [momodeveloper.mtn.com](https://momodeveloper.mtn.com/) and get sandbox API keys now. API approval is the long pole, not the build, and it doesn't start until someone asks.
 
 *Mintek-SCi has moved to Tier 1 — see entry #1. The 2025-cycle pattern this section used to worry about turned out to be almost exactly right (notified ~15 Aug, submit 1 Oct), and we were selected.*
 
