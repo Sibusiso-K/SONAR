@@ -239,7 +239,12 @@ def to_radar_past(p, used_ids):
     elif p.get("result"):
         outcome = "placed"
     else:
-        outcome = "entered"
+        # Neither missed nor placed just means the entry has no engagement
+        # signal at all — most of dropped_or_past is "this event existed,
+        # diarise for next year" monitoring notes we never actually entered.
+        # Defaulting that to "entered" was fabricating a participation
+        # record; the honest move is to not sync it as a past entry at all.
+        return None
 
     return {
         "id": pid,
@@ -285,7 +290,11 @@ def build_rows():
     opp_rows = [to_radar_opportunity(o) for o in board["opportunities"]]
 
     used_ids = set()
-    past_rows = [to_radar_past(p, used_ids) for p in board.get("past", [])]
+    past_rows = [
+        row
+        for p in board.get("past", [])
+        if (row := to_radar_past(p, used_ids)) is not None
+    ]
 
     with open(UPDATES, encoding="utf-8") as fh:
         update_rows = [to_radar_update(u) for u in json.load(fh).get("updates", [])]

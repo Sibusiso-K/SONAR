@@ -118,6 +118,11 @@ def main():
             # letter/confirmation page says we're actually in. That's what
             # "committed" lifecycle means, same as an open tier-1 entry.
             item["lifecycle"] = "committed"
+        elif st == "submitted":
+            # We sent an entry in and are waiting on a result — distinct
+            # from "committed" (in, not yet judged) and "scored" (still
+            # deciding whether to enter at all).
+            item["lifecycle"] = "submitted"
         else:
             item["lifecycle"] = "scored"
 

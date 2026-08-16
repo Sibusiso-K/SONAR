@@ -30,7 +30,7 @@
       "scope": "continental",
       "format": "online",
       "location": "Online",
-      "status": "open",
+      "status": "dropped",
       "tier": 1,
       "score": 7.65,
       "scores": { "career_leverage": 7, "winnability": 7, "prize": 8, "urgency": 10 },
@@ -52,7 +52,7 @@
         "profiler": "https://github.com/Africa-Deep-Tech-Foundation/adtc-profiler",
         "gpu_credits": "https://aghcloud.ai/p/3850810a-8f62-474c-b448-e204d026b189"
       },
-      "notes": "1540 participants registered. Efficiency + throughput are 50% of the score — a small, well-quantised model beats a big accurate one. Apply for the free GPU credits on day one. Some press listed 25 Aug; Devpost says 24 Aug 23:45 PDT — trust Devpost."
+      "notes": "NOT COMPETING — decided 16 Aug 2026. Kept on the board for reference only; team is not entering."
     },
     {
       "id": "bcg-platinion-2026",
@@ -314,7 +314,7 @@
       "scope": "international",
       "format": "online",
       "location": "Online, final in Thessaloniki, Greece",
-      "status": "closing",
+      "status": "submitted",
       "tier": 3,
       "score": 5.85,
       "scores": { "career_leverage": 5, "winnability": 6, "prize": 4, "urgency": 10 },
@@ -330,7 +330,7 @@
       "what_to_build": "Theme: 'Play Your Part: Youth Designing the Future of Media and Information Literacy'. This is a project/concept submission, not a code sprint.",
       "deliverables": ["Project submission per UNESCO brief"],
       "links": { "main": "https://www.unesco.org/en/articles/unesco-youth-hackathon-2026", "hackathon_hub": "https://www.unesco.org/en/media-information-literacy/youth-hackathon" },
-      "notes": "CLOSES IN 6 DAYS (23:59 Paris = 23:59 SAST on 16 Aug). No cash prize and it costs you one evening rather than a build weekend — cheap lottery ticket with an international UN credential attached. Submit or consciously drop it by Thursday."
+      "notes": "SUBMITTED 16 Aug 2026: HAYIBO, an interactive toolkit teaching South Africans — especially digitally illiterate and older audiences — to spot AI deepfakes and misinformation the way it actually spreads locally (WhatsApp voice notes, Facebook, radio call-in), via five spoken verification questions that need no reading or device. Taught through a weekly two-clip real-vs-AI guessing game run simultaneously on WhatsApp, Facebook (public leaderboard) and community radio (elders phone in and reason aloud). Every round is logged by language and platform and published openly — the first public dataset of AI-generated misinformation in isiZulu, Sepedi and other SA languages. Deliverables sent: proposal document, 9-slide pitch deck, 2:57 narrated video pitch. Confirmation email received; results expected mid-September 2026."
     },
     {
       "id": "zindi-rolling",

@@ -9,6 +9,30 @@
   },
   "updates": [
     {
+      "at": "2026-08-16T15:45:00+02:00",
+      "kind": "system",
+      "target": null,
+      "title": "Fixed a fabricated-outcome bug — 5 events wrongly shown as \"entered\"",
+      "body": "scripts/sync_radar.py's to_radar_past() defaulted any dropped_or_past entry with no missed flag and no result to outcome \"entered\". Five entries were just discovery notes (\"ran on X date, diarise for next year\") we never actually applied to — ITWeb Security Summit Hackathon, MICT SETA National Skills Challenge, Monkey and River Hackathon, GirlCode Pan-African Hackathon, Geekulcha SS26Hack Kimberley — and the site was showing all five as things the team entered. Fixed to skip syncing any dropped_or_past entry with no real engagement signal instead of guessing. Only genuine participation (Discovery Gradhack, Top 6) remains on the Season So Far list.",
+      "by": "Sibusiso K"
+    },
+    {
+      "at": "2026-08-16T15:15:00+02:00",
+      "kind": "changed",
+      "target": "adtc-2026",
+      "title": "Africa Deep Tech Challenge 2026 — decided not to compete",
+      "body": "Team decision: not entering the Laptop LLM Challenge. Status moved to dropped; archived off the live board.",
+      "by": "Sibusiso K"
+    },
+    {
+      "at": "2026-08-16T10:30:00+02:00",
+      "kind": "changed",
+      "target": "unesco-youth-2026",
+      "title": "UNESCO Youth Hackathon 2026 — submitted",
+      "body": "Submitted HAYIBO: an interactive toolkit teaching South Africans — especially digitally illiterate and older audiences — to spot AI deepfakes and misinformation the way it actually spreads locally (WhatsApp voice notes, Facebook, radio call-in), via five spoken verification questions that need no reading or device. Taught through a weekly two-clip real-vs-AI guessing game run simultaneously on WhatsApp, Facebook (public leaderboard) and community radio (elders phone in and reason aloud). Every round is logged by language and platform and published openly — the first public dataset of AI-generated misinformation in isiZulu, Sepedi and other SA languages. Deliverables sent: proposal document, 9-slide pitch deck, 2:57 narrated video pitch. Confirmation email received; results expected mid-September 2026. Status moved to submitted.",
+      "by": "Sibusiso K"
+    },
+    {
       "at": "2026-08-14T19:40:00+02:00",
       "kind": "verified",
       "target": null,
