@@ -1,0 +1,19 @@
+-- Adds the team's own participation state to opportunities, distinct from
+-- `confidence` (how trustworthy the date is). This has always existed in
+-- the Python pipeline's data model (data/hackathons.json -> status ->
+-- lifecycle in scripts/migrate_to_opportunities.py) but was never synced
+-- to this table, so the live site had no way to show it.
+--
+-- Values in practice (see scripts/migrate_to_opportunities.py):
+--   open / closing / monitor / monitor-weekly / verify  -- still deciding /
+--                                                           still to submit
+--   registered                                            -- signed up
+--   selected                                               -- approved
+--   submitted                                              -- entry sent, awaiting judging
+--   dropped                                                -- not competing
+--   closed / past                                          -- competition itself is over
+--
+-- No CHECK constraint: the Python side already owns and validates this
+-- vocabulary (schema/hackathon.schema.json), and a hard-coded enum here
+-- would just be a second place to update every time it grows.
+ALTER TABLE public.opportunities ADD COLUMN IF NOT EXISTS status text;

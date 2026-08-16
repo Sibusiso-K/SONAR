@@ -13,6 +13,7 @@ import {
 } from "@/lib/analytics";
 import type { Opportunity, WatchRow } from "@/lib/sonar-types";
 import { useIdentity } from "@/lib/identity";
+import { participationBadge } from "@/lib/participation";
 import { useToggleWatch } from "@/lib/sonar-data";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
@@ -44,6 +45,7 @@ export function OpportunityRow({
   // verified yesterday — flag it rather than let it sit silently stale.
   const noticedDaysAgo = o.noticed_on ? -(daysUntil(o.noticed_on) ?? 0) : null;
   const stale = o.confidence === "confirmed" && noticedDaysAgo !== null && noticedDaysAgo > 30;
+  const participation = participationBadge(o.status);
 
   return (
     <article
@@ -65,6 +67,12 @@ export function OpportunityRow({
           <span className="label-caps">{o.format}</span>
           <span className="border border-border px-1.5 py-px font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
             tier {o.tier}
+          </span>
+          <span
+            className="border px-1.5 py-px font-mono text-[10px] uppercase tracking-widest"
+            style={{ borderColor: participation.color, color: participation.color }}
+          >
+            {participation.label}
           </span>
           <span
             className="font-mono text-[10px] uppercase tracking-widest"

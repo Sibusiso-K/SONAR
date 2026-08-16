@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { AppShell } from "@/components/AppShell";
 import { OrgLogo } from "@/components/OrgLogo";
+import { participationBadge } from "@/lib/participation";
 import { useOpportunities, usePastOpportunities } from "@/lib/sonar-data";
 import {
   daysUntil,
@@ -66,6 +67,7 @@ function OpportunityDetail() {
   const sev = severityOf(o);
   const d = daysUntil(o.next_date);
   const wp = winProbability(o);
+  const participation = participationBadge(o.status);
   const scoreEntries = Object.entries(o.scores ?? {}).filter(
     (entry): entry is [string, number] => typeof entry[1] === "number",
   );
@@ -78,11 +80,17 @@ function OpportunityDetail() {
           ← Back to the board
         </Link>
 
-        <div className="mt-8 flex items-center gap-3">
+        <div className="mt-8 flex flex-wrap items-center gap-3">
           <OrgLogo organiser={o.organiser} size={32} />
           <p className="label-caps" style={{ color: severityToken[sev] }}>
             {o.kind} · {o.format} · tier {o.tier}
           </p>
+          <span
+            className="border px-1.5 py-px font-mono text-[10px] uppercase tracking-widest"
+            style={{ borderColor: participation.color, color: participation.color }}
+          >
+            {participation.label}
+          </span>
         </div>
         <h1 className="display-lg mt-3 max-w-[20ch]">{o.name}</h1>
         <p className="mt-3 text-base text-muted-foreground">

@@ -1,5 +1,22 @@
 export type Confidence = "confirmed" | "reported" | "unconfirmed" | "predicted" | "conflicted";
 
+// Mirrors scripts/migrate_to_opportunities.py's status vocabulary. Not
+// synced to Supabase before the 2026-08-16 status-column migration, so
+// older rows (or a DB the migration hasn't reached yet) come through as
+// null — always fall back to "still deciding" rather than assuming.
+export type ParticipationStatus =
+  | "open"
+  | "closing"
+  | "monitor"
+  | "monitor-weekly"
+  | "verify"
+  | "registered"
+  | "selected"
+  | "submitted"
+  | "dropped"
+  | "closed"
+  | "past";
+
 export type Scores = {
   career_leverage?: number;
   winnability?: number;
@@ -34,6 +51,7 @@ export type Opportunity = {
   links: Record<string, string>;
   notes: string | null;
   source: string | null;
+  status: ParticipationStatus | string | null;
   went_live_on: string | null;
   noticed_on: string | null;
   archived: boolean;

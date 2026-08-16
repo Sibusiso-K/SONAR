@@ -31,6 +31,7 @@ export type Database = {
           score: number;
           scores: Json;
           source: string | null;
+          status: string | null;
           tier: number;
           went_live_on: string | null;
           what_to_build: string | null;
@@ -57,6 +58,7 @@ export type Database = {
           score?: number;
           scores?: Json;
           source?: string | null;
+          status?: string | null;
           tier?: number;
           went_live_on?: string | null;
           what_to_build?: string | null;
@@ -83,6 +85,7 @@ export type Database = {
           score?: number;
           scores?: Json;
           source?: string | null;
+          status?: string | null;
           tier?: number;
           went_live_on?: string | null;
           what_to_build?: string | null;
