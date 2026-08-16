@@ -245,18 +245,18 @@
       "scope": "continental",
       "format": "online",
       "location": "Multi-country incl. South Africa",
-      "status": "monitor",
+      "status": "submitted",
       "tier": 2,
       "score": 6.2,
       "scores": { "career_leverage": 7, "winnability": 6, "prize": 6, "urgency": 5 },
       "dates": { "confidence": "unconfirmed", "note": "You already have the participant registration form link — fill it in and the dates should follow by email." },
       "prize": { "currency": "USD", "pool": 10000, "breakdown": { "first": 5000, "second": 3000, "third": 2000 }, "note": "Prior-year South Africa pool; 2026 amounts unconfirmed" },
       "eligibility": "African developers across 15 MTN markets incl. South Africa.",
-      "team_fit": "Good.",
+      "team_fit": "SUBMITTED as a team of THREE — the first three-person entry on this board, which is otherwise built around a two-person team (see docs/TEAM.md). Three separate ideas were submitted within the one team rather than a single joint entry, so this is three shots on goal, not one. Confirm against MTN's rules that multiple submissions per team are permitted and are judged independently rather than the team being asked to pick one.",
       "what_to_build": "Financial/transactional mini apps on the MoMo APIs.",
       "deliverables": ["Idea submission, then prototype if selected (top 12 advance in prior format)"],
       "links": { "developer_portal": "https://momodeveloper.mtn.com/", "mtn": "https://www.mtn.com/" },
-      "notes": "Prior format: 5 weeks to submit ideas, top 12 advance to prototyping. Register on momodeveloper.mtn.com and get sandbox API keys NOW — that's the long pole. Fintech + MTN is a strong SA employment signal."
+      "notes": "SUBMITTED — the team (three members) has entered three separate ideas under the one team. Reported first-hand by an operator on 2026-08-16; the submission date, the three idea titles, and the third member's details are not yet recorded here and should be filled in rather than guessed. Nothing is confirmed about what happens next: if the prior format holds (5 weeks for ideas, top 12 advance to prototyping) there is a selection step before any build, but no 2026 dates have been read off an MTN source, so confidence stays unconfirmed and next_date stays null until an email or page gives a real one. Still worth doing regardless: register on momodeveloper.mtn.com and get sandbox API keys — API approval is the long pole and it does not start until someone asks. Fintech + MTN is a strong SA employment signal."
     },
     {
       "id": "mintek-sci-2026",

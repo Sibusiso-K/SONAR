@@ -9,6 +9,14 @@
   },
   "updates": [
     {
+      "at": "2026-08-16T22:40:00+02:00",
+      "kind": "changed",
+      "target": "mtn-momo-miniapp-2026",
+      "title": "MTN MoMo Mini App Hackathon — submitted, three ideas, three-person team",
+      "body": "Reported first-hand by an operator. Status monitor → submitted, lifecycle triaged → submitted. The team entered THREE separate ideas under one team rather than a single joint entry — three shots on goal. Worth confirming against MTN's rules that multiple submissions per team are permitted and judged independently. Deliberately NOT recorded, because they were not supplied and this board does not guess: the submission date, the three idea titles, and the third member's identity. confidence stays unconfirmed and next_date stays null — no 2026 MTN date has been read off a source yet. KNOCK-ON: the team is now three people. docs/TEAM.md describes a two-person team throughout, and Standing Agreement 1 (max two overlapping builds) is sized for two. More concretely, govtech-2026's team_fit reads 'Needs a 3rd (and possibly 4th/5th) member AND a registered entity' — the team-size half of that blocker is now cleared on an entry scoring 6.45, higher than MTN's own 6.2, which was otherwise heading for a drop. The EME/SMME entity requirement is still unresolved and GovTech runs 17-19 Sept.",
+      "by": "Sibusiso K"
+    },
+    {
       "at": "2026-08-16T15:45:00+02:00",
       "kind": "system",
       "target": null,
