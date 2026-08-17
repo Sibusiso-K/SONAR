@@ -38,7 +38,8 @@ Importable file: [`../calendar/sonar-2026.ics`](../calendar/sonar-2026.ics)
 | Sat 12 – Sun 13 | 09:00–17:00 | Shipaton build sprint — monetisation + polish | prep |
 | Sun 13 | all day | BCG Platinion — stated deadline (backstop only) | deadline |
 | Wed 16 | all day | **Shipaton: submit app to App Store / Play Store** — review buffer | deadline |
-| Thu 17 – Sat 19 | all day | SITA GovTech 2026 Hackathon — Durban ICC or remote *(eligibility risk)* | event |
+| Thu 17 – Sat 19 | all day | **SITA GovTech 2026 Hackathon — Durban ICC, in person.** Submitted; entity registered | event |
+| Wed 23 | all day | GovTech winners announced (Awards Ceremony — separate from the hackathon) | reward |
 | **Wed 30** | all day | **DEADLINE — RevenueCat Shipaton ($700k+)** · hard cutoff 1 Oct 08:45 SAST | deadline |
 
 ---
@@ -80,7 +81,7 @@ Importable file: [`../calendar/sonar-2026.ics`](../calendar/sonar-2026.ics)
 | **ADTC (24 Aug) vs IBM hackathon (28–30 Aug)** | Four clear days between. Do not let ADTC slip past the 24th or this collapses. |
 | **Shipaton (runs to 30 Sept) vs everything in September** | Shipaton is the September background task. Treat the weekend sprints as immovable. |
 | **Shipaton hard cutoff (1 Oct 08:45 SAST) vs Mintek final hacking day (1 Oct, report from 08:00 at Randburg)** | These are the same 45 minutes, in a car or at Mintek. **Submit Shipaton on 29 September at the latest** — do not let it ride to the real cutoff. Mintek is in-person and mandatory; Shipaton is not. |
-| **Mintek build (Sept) vs Shipaton build (Sept)** | Two overlapping builds — at the Standing Agreement 1 limit, not over it. Do not add a third. GovTech is the one to drop if it comes to that. |
+| **Mintek build (Sept) vs Shipaton build (Sept) vs GovTech (17–19 Sept, in person)** | Three September commitments, all now submitted/entered — GovTech is no longer the free drop it was when eligibility was unresolved; an entity is registered and a team is fielded. If capacity genuinely runs out, this needs a real decision in a PR (Standing Agreement 8), not a quiet skip. |
 
 ---
 
