@@ -21,7 +21,7 @@
       "reported": "From a secondary source (news/aggregator); verify before relying on it",
       "unconfirmed": "Not yet announced for 2026; based on prior-year pattern"
     },
-    "generated": "2026-08-17T07:36:15Z",
+    "generated": "2026-08-17T08:04:07Z",
     "generator": "scripts/migrate_to_opportunities.py",
     "kinds": {
       "hackathon": "Build something in a fixed window",
@@ -297,7 +297,7 @@
       "scope": "local",
       "format": "hybrid",
       "location": "Durban ICC + remote from anywhere in SA",
-      "status": "open",
+      "status": "submitted",
       "tier": 2,
       "score": 6.45,
       "scores": {
@@ -327,14 +327,14 @@
         "terms": "https://www.govtech.gov.za/wp-content/uploads/2026/07/GovTech-2026-Hackathon-Terms-and-Condition.pdf",
         "sita": "https://www.sita.co.za/content/hackathon-0"
       },
-      "notes": "ACTION REQUIRED: read the T&Cs PDF this week to confirm the EME/SMME requirement and the team-size minimum. If you need an EME registration, that takes time: decide fast or drop it.",
+      "notes": "SUBMITTED 17 Aug 2026. Team opted for the in-person track at Durban ICC rather than remote.",
       "kind": "hackathon",
       "career_track": "adjacent",
       "next_date": "2026-09-17",
       "next_date_label": "event start",
       "days_remaining": 31,
       "confidence": "reported",
-      "lifecycle": "scored",
+      "lifecycle": "submitted",
       "tracks": [],
       "challenges": [],
       "stages": [],

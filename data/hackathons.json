@@ -163,7 +163,7 @@
       "scope": "local",
       "format": "hybrid",
       "location": "Durban ICC + remote from anywhere in SA",
-      "status": "open",
+      "status": "submitted",
       "tier": 2,
       "score": 6.45,
       "scores": { "career_leverage": 7, "winnability": 6, "prize": 5, "urgency": 8 },
@@ -178,7 +178,7 @@
         "terms": "https://www.govtech.gov.za/wp-content/uploads/2026/07/GovTech-2026-Hackathon-Terms-and-Condition.pdf",
         "sita": "https://www.sita.co.za/content/hackathon-0"
       },
-      "notes": "ACTION REQUIRED: read the T&Cs PDF this week to confirm the EME/SMME requirement and the team-size minimum. If you need an EME registration, that takes time: decide fast or drop it."
+      "notes": "SUBMITTED 17 Aug 2026. Team opted for the in-person track at Durban ICC rather than remote."
     },
     {
       "id": "rsna-knee-2026",

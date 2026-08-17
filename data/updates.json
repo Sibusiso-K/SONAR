@@ -9,6 +9,14 @@
   },
   "updates": [
     {
+      "at": "2026-08-17T09:30:00+02:00",
+      "kind": "changed",
+      "target": "govtech-2026",
+      "title": "SITA GovTech 2026 Hackathon: submitted, opted in-person",
+      "body": "Submission sent. Team chose the in-person track at Durban ICC over the remote option. Status moved to submitted.",
+      "by": "Sibusiso K"
+    },
+    {
       "at": "2026-08-16T22:40:00+02:00",
       "kind": "changed",
       "target": "mtn-momo-miniapp-2026",
