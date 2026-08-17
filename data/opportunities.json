@@ -21,7 +21,7 @@
       "reported": "From a secondary source (news/aggregator); verify before relying on it",
       "unconfirmed": "Not yet announced for 2026; based on prior-year pattern"
     },
-    "generated": "2026-08-16T17:07:16Z",
+    "generated": "2026-08-17T07:36:15Z",
     "generator": "scripts/migrate_to_opportunities.py",
     "kinds": {
       "hackathon": "Build something in a fixed window",
@@ -47,7 +47,7 @@
       "noticed_on": "2026-08-10",
       "went_live_on": null,
       "source": "manual research",
-      "name": "Africa Deep Tech Challenge 2026 — The Laptop LLM Challenge",
+      "name": "Africa Deep Tech Challenge 2026: The Laptop LLM Challenge",
       "organiser": "Africa Deep Tech Foundation (with Africa AI XPrize, MIT Kuo Sharper, Future Africa)",
       "scope": "continental",
       "format": "online",
@@ -80,7 +80,7 @@
         "non_cash": "6-month scale-up residency; direct pathway into the Africa AI XPrize"
       },
       "eligibility": "Legal age of majority; residents of 50 African countries incl. South Africa. Teams of 1–3.",
-      "team_fit": "Perfect — 2-person team is inside the 1–3 limit.",
+      "team_fit": "Perfect: 2-person team is inside the 1–3 limit.",
       "what_to_build": "End-to-end on-device LLM app running fully offline on the ADTC Standard Laptop (i5 10th–12th gen / Ryzen 5 3000–5000, 8GB DDR4, integrated graphics, Ubuntu 22.04). Pick ONE domain: Math & Scientific Reasoning, Healthcare, Agriculture, Creative Writing, Coding Assistants, Corporate/Enterprise, or Autonomous AI Agents.",
       "scoring_formula": "S = 0.50*Accuracy + 0.30*Throughput(TPS/15.0) + 0.20*Efficiency((7GB - PeakRAM)/7GB) - 10 if thermal throttle or >85C. OOM or sandbox crash = disqualification.",
       "deliverables": [
@@ -95,12 +95,12 @@
         "profiler": "https://github.com/Africa-Deep-Tech-Foundation/adtc-profiler",
         "gpu_credits": "https://aghcloud.ai/p/3850810a-8f62-474c-b448-e204d026b189"
       },
-      "notes": "NOT COMPETING — decided 16 Aug 2026. Kept on the board for reference only; team is not entering.",
+      "notes": "NOT COMPETING: decided 16 Aug 2026. Kept on the board for reference only; team is not entering.",
       "kind": "hackathon",
       "career_track": "adjacent",
       "next_date": "2026-08-24",
       "next_date_label": "submission deadline",
-      "days_remaining": 8,
+      "days_remaining": 7,
       "confidence": "confirmed",
       "lifecycle": "scored",
       "tracks": [],
@@ -114,7 +114,7 @@
       "noticed_on": "2026-08-10",
       "went_live_on": null,
       "source": "manual research",
-      "name": "BCG Platinion Hackathon 2026 — Fighting World Hunger",
+      "name": "BCG Platinion Hackathon 2026: Fighting World Hunger",
       "organiser": "BCG Platinion",
       "scope": "international",
       "format": "in-person",
@@ -141,7 +141,7 @@
         "non_cash": "Prizes for winners (unspecified); all travel + accommodation covered; direct exposure to BCG Platinion consultants and recruiters"
       },
       "eligibility": "IT architects, AI tech architects, technical consultants, app devs, data scientists, AI engineers, web devs with basic coding skills and an interest in IT consulting.",
-      "team_fit": "APPLY INDIVIDUALLY — you and Lethabo each submit your own application. Teams are formed on-site.",
+      "team_fit": "APPLY INDIVIDUALLY: you and Lethabo each submit your own application. Teams are formed on-site.",
       "what_to_build": "Two-day on-site build tackling food insecurity: food distribution logistics, water access, smallholder farmer support, nutrition tracking, malnutrition early detection.",
       "deliverables": [
         "CV / résumé",
@@ -153,12 +153,12 @@
         "apply_south_africa": "https://bcg.eightfold.ai/events/candidate/landing?plannedEventId=33rM9beDD",
         "contact": "hackathon@bcgplatinion.com"
       },
-      "notes": "HIGHEST career leverage on the whole board — BCG Platinion has publicly documented participants converting into Visiting Associate roles. Free, travel paid, Johannesburg hub. Landing-page banner says 'Apply by September 7' while body text says September 13 — treat 7 Sept as the real deadline. AI tools are explicitly allowed. Cannot attend only one of the two days.",
+      "notes": "HIGHEST career leverage on the whole board: BCG Platinion has publicly documented participants converting into Visiting Associate roles. Free, travel paid, Johannesburg hub. Landing-page banner says 'Apply by September 7' while body text says September 13: treat 7 Sept as the real deadline. AI tools are explicitly allowed. Cannot attend only one of the two days.",
       "kind": "recruiting_event",
       "career_track": "direct",
       "next_date": "2026-09-07",
       "next_date_label": "application deadline",
-      "days_remaining": 22,
+      "days_remaining": 21,
       "confidence": "confirmed",
       "lifecycle": "committed",
       "tracks": [],
@@ -173,7 +173,7 @@
       "went_live_on": null,
       "source": "manual research",
       "name": "IBM Dev Day: Bob in Action + Hackathon",
-      "organiser": "IBM (via BeMyApp) — TechXchange 2026 pre-conference",
+      "organiser": "IBM (via BeMyApp): TechXchange 2026 pre-conference",
       "scope": "international",
       "format": "online",
       "location": "Virtual",
@@ -202,8 +202,8 @@
         "non_cash": "Trip to IBM TechXchange 2026, Atlanta GA, 26–29 Oct 2026 for 1st place. Top 50 qualified submissions get 1 conference pass per team member (travel/lodging excluded)."
       },
       "eligibility": "Open. Free entry.",
-      "team_fit": "Good — team-based, small teams fine.",
-      "what_to_build": "Use IBM Bob 2.0 to improve a specific developer workflow (onboarding, debugging, code review, testing, maintenance, release/deploy). Working prototype on a real or sample project. Use Agent mode, parallel tasks, subagents, document understanding — must go beyond code assist.",
+      "team_fit": "Good: team-based, small teams fine.",
+      "what_to_build": "Use IBM Bob 2.0 to improve a specific developer workflow (onboarding, debugging, code review, testing, maintenance, release/deploy). Working prototype on a real or sample project. Use Agent mode, parallel tasks, subagents, document understanding: must go beyond code assist.",
       "deliverables": [
         "Working prototype",
         "Demonstration of measurable productivity/error/time impact"
@@ -214,12 +214,12 @@
         "bob_trial": "https://bob.ibm.com/trial",
         "ibm_developer": "https://developer.ibm.com/events/ibm-techxchange-2026-pre-conference-dev-day-hackathon/"
       },
-      "notes": "BEST ODDS ON THE BOARD: top 50 teams win conference passes, and the IBM i / IBM Z audience is small and enterprise-skewed — a modern dev-tooling angle stands out. Request the free Bob trial BEFORE 27 Aug. Note IBM's own page inconsistently lists TechXchange as Oct 26–29 2025 in one place and 2026 in another; 2026 is correct.",
+      "notes": "BEST ODDS ON THE BOARD: top 50 teams win conference passes, and the IBM i / IBM Z audience is small and enterprise-skewed: a modern dev-tooling angle stands out. Request the free Bob trial BEFORE 27 Aug. Note IBM's own page inconsistently lists TechXchange as Oct 26–29 2025 in one place and 2026 in another; 2026 is correct.",
       "kind": "hackathon",
       "career_track": "adjacent",
       "next_date": "2026-08-27",
       "next_date_label": "virtual event",
-      "days_remaining": 11,
+      "days_remaining": 10,
       "confidence": "confirmed",
       "lifecycle": "committed",
       "tracks": [],
@@ -261,7 +261,7 @@
         }
       },
       "eligibility": "Open globally.",
-      "team_fit": "Good — build one app, two people.",
+      "team_fit": "Good: build one app, two people.",
       "what_to_build": "Ship a brand-new iOS or Android app to a real app store with the RevenueCat SDK integrated. It must actually be live and monetising.",
       "deliverables": [
         "Live app on App Store / Play Store",
@@ -273,12 +273,12 @@
         "devpost": "https://revenuecat-shipaton-2026.devpost.com/",
         "prep_guide": "https://revenuecat.github.io/codelabs/shipaton-2026-prep.html"
       },
-      "notes": "Longest runway (7 weeks left) and by far the biggest pool, but the real cost is app-store review time — budget 2 weeks of slack for Apple/Google approval. Nine categories means many shots on goal. This is the one that also leaves you with a revenue-generating asset regardless of whether you place.",
+      "notes": "Longest runway (7 weeks left) and by far the biggest pool, but the real cost is app-store review time: budget 2 weeks of slack for Apple/Google approval. Nine categories means many shots on goal. This is the one that also leaves you with a revenue-generating asset regardless of whether you place.",
       "kind": "build_competition",
       "career_track": "none",
       "next_date": "2026-09-30",
       "next_date_label": "submission deadline",
-      "days_remaining": 45,
+      "days_remaining": 44,
       "confidence": "confirmed",
       "lifecycle": "scored",
       "tracks": [],
@@ -327,12 +327,12 @@
         "terms": "https://www.govtech.gov.za/wp-content/uploads/2026/07/GovTech-2026-Hackathon-Terms-and-Condition.pdf",
         "sita": "https://www.sita.co.za/content/hackathon-0"
       },
-      "notes": "ACTION REQUIRED: read the T&Cs PDF this week to confirm the EME/SMME requirement and the team-size minimum. If you need an EME registration, that takes time — decide fast or drop it.",
+      "notes": "ACTION REQUIRED: read the T&Cs PDF this week to confirm the EME/SMME requirement and the team-size minimum. If you need an EME registration, that takes time: decide fast or drop it.",
       "kind": "hackathon",
       "career_track": "adjacent",
       "next_date": "2026-09-17",
       "next_date_label": "event start",
-      "days_remaining": 32,
+      "days_remaining": 31,
       "confidence": "reported",
       "lifecycle": "scored",
       "tracks": [],
@@ -375,7 +375,7 @@
         }
       },
       "eligibility": "Open on Kaggle.",
-      "team_fit": "Fine — 2-person Kaggle team.",
+      "team_fit": "Fine: 2-person Kaggle team.",
       "what_to_build": "Detect 12 clinically important abnormalities on knee MRI. First RSNA challenge to use BOTH images and radiology report text. 5,000+ knee MRI exams with reports in 12 languages from 16 sites across 5 continents.",
       "deliverables": [
         "Kaggle notebook submission"
@@ -384,12 +384,12 @@
         "kaggle": "https://www.kaggle.com/competitions/rsna-knee-abnormality-detection",
         "rsna": "https://www.rsna.org/artificial-intelligence/ai-image-challenge/knee-mri-ai-challenge"
       },
-      "notes": "Hardest field on the board — global Kaggle grandmasters compete here. BUT the efficiency prize track is a genuine opening: it rewards small/fast models, which is exactly the muscle you build for ADTC. Treat as a stretch entry, not a primary. A Kaggle medal is a strong, verifiable CV signal.",
+      "notes": "Hardest field on the board: global Kaggle grandmasters compete here. BUT the efficiency prize track is a genuine opening: it rewards small/fast models, which is exactly the muscle you build for ADTC. Treat as a stretch entry, not a primary. A Kaggle medal is a strong, verifiable CV signal.",
       "kind": "ml_competition",
       "career_track": "none",
       "next_date": "2026-10-15",
       "next_date_label": "entry deadline",
-      "days_remaining": 60,
+      "days_remaining": 59,
       "confidence": "reported",
       "lifecycle": "scored",
       "tracks": [],
@@ -427,7 +427,7 @@
         "pool": null,
         "non_cash": "Winning teams qualify for the Best Hackathon Solution category at the FNB App of the Year Awards in December"
       },
-      "eligibility": "Open — 10,000+ participants in 2025.",
+      "eligibility": "Open: 10,000+ participants in 2025.",
       "team_fit": "Good.",
       "what_to_build": "72-hour sprint against published problem statements: Jobs & Economic Resilience; Infrastructure & Essential Services; Inequality & Social Cohesion; Climate Resilience & Food Security; Public Safety & Gender-Based Violence.",
       "deliverables": [
@@ -437,7 +437,7 @@
         "main": "https://www.22onsloane.co/fnb-aoty-hackathon/",
         "official_site": "https://appoftheyear.co.za/hackathon/"
       },
-      "notes": "Problem statements for 2026 are ALREADY PUBLISHED on the site — you can pre-build against them before registration opens. Huge field (10k+) hurts odds, but FNB actively recruits from it and the December awards give a second bite. Monitor weekly from 1 Sept. LINK CORRECTION 14 Aug 2026: the official appoftheyear.co.za site is down — the domain resolves but returns HTTP 500 on / and 404 on /hackathon. Primary link temporarily points at the 22 On Sloane partner page, which is live and describes the 2026 hackathon; the official URL is kept under official_site and should be promoted back the moment it recovers. This is the same page that 404'd during watch_sources.py run #5, so it has now failed twice — treat it as unreliable, not flaky.",
+      "notes": "Problem statements for 2026 are ALREADY PUBLISHED on the site: you can pre-build against them before registration opens. Huge field (10k+) hurts odds, but FNB actively recruits from it and the December awards give a second bite. Monitor weekly from 1 Sept. LINK CORRECTION 14 Aug 2026: the official appoftheyear.co.za site is down: the domain resolves but returns HTTP 500 on / and 404 on /hackathon. Primary link temporarily points at the 22 On Sloane partner page, which is live and describes the 2026 hackathon; the official URL is kept under official_site and should be promoted back the moment it recovers. This is the same page that 404'd during watch_sources.py run #5, so it has now failed twice: treat it as unreliable, not flaky.",
       "kind": "hackathon",
       "career_track": "adjacent",
       "next_date": null,
@@ -472,7 +472,7 @@
       },
       "dates": {
         "confidence": "unconfirmed",
-        "note": "You already have the participant registration form link — fill it in and the dates should follow by email."
+        "note": "You already have the participant registration form link: fill it in and the dates should follow by email."
       },
       "prize": {
         "currency": "USD",
@@ -485,7 +485,7 @@
         "note": "Prior-year South Africa pool; 2026 amounts unconfirmed"
       },
       "eligibility": "African developers across 15 MTN markets incl. South Africa.",
-      "team_fit": "SUBMITTED as a team of THREE — the first three-person entry on this board, which is otherwise built around a two-person team (see docs/TEAM.md). Three separate ideas were submitted within the one team rather than a single joint entry, so this is three shots on goal, not one. Confirm against MTN's rules that multiple submissions per team are permitted and are judged independently rather than the team being asked to pick one.",
+      "team_fit": "SUBMITTED as a team of THREE: the first three-person entry on this board, which is otherwise built around a two-person team (see docs/TEAM.md). Three separate ideas were submitted within the one team rather than a single joint entry, so this is three shots on goal, not one. Confirm against MTN's rules that multiple submissions per team are permitted and are judged independently rather than the team being asked to pick one.",
       "what_to_build": "Financial/transactional mini apps on the MoMo APIs.",
       "deliverables": [
         "Idea submission, then prototype if selected (top 12 advance in prior format)"
@@ -494,7 +494,7 @@
         "developer_portal": "https://momodeveloper.mtn.com/",
         "mtn": "https://www.mtn.com/"
       },
-      "notes": "SUBMITTED — the team (three members) has entered three separate ideas under the one team. Reported first-hand by an operator on 2026-08-16; the submission date, the three idea titles, and the third member's details are not yet recorded here and should be filled in rather than guessed. Nothing is confirmed about what happens next: if the prior format holds (5 weeks for ideas, top 12 advance to prototyping) there is a selection step before any build, but no 2026 dates have been read off an MTN source, so confidence stays unconfirmed and next_date stays null until an email or page gives a real one. Still worth doing regardless: register on momodeveloper.mtn.com and get sandbox API keys — API approval is the long pole and it does not start until someone asks. Fintech + MTN is a strong SA employment signal.",
+      "notes": "SUBMITTED: the team (three members) has entered three separate ideas under the one team. Reported first-hand by an operator on 2026-08-16; the submission date, the three idea titles, and the third member's details are not yet recorded here and should be filled in rather than guessed. Nothing is confirmed about what happens next: if the prior format holds (5 weeks for ideas, top 12 advance to prototyping) there is a selection step before any build, but no 2026 dates have been read off an MTN source, so confidence stays unconfirmed and next_date stays null until an email or page gives a real one. Still worth doing regardless: register on momodeveloper.mtn.com and get sandbox API keys: API approval is the long pole and it does not start until someone asks. Fintech + MTN is a strong SA employment signal.",
       "kind": "hackathon",
       "career_track": "none",
       "next_date": null,
@@ -549,14 +549,14 @@
         "non_cash": "Outstanding teams may be considered for vacation work at Mintek"
       },
       "eligibility": "University students, unemployed graduates, and interns under 35. Team-based, mentored.",
-      "team_fit": "Excellent — explicitly aimed at unemployed graduates. Directly on-target for your situation.",
-      "what_to_build": "Submitted abstract: REEFPRINT (Category: Problem 3 — Computer Vision for Real-Time Mineralogical Characterisation, by Lethabo). Rather than building a mineral classifier that competes with lab instruments (SEM/XRD/QEMSCAN), distills those instruments' existing output as a 'teacher' into a cheap optical model that reproduces their maps in seconds instead of days. Targets five Bushveld-relevant phases — chromite, orthopyroxene, plagioclase, base-metal sulphide, talc/serpentine — deliberately including base-metal sulphide even at <1% by area since that's where PGM economic value sits; the abstract commits to reporting per-class recall on that sub-1% class ahead of any aggregate accuracy number. Converts texture/liberation into three metallurgical response variables (liberation, reagent demand, grindability) feeding a plant setpoint recommendation with calibrated uncertainty — abstains rather than guessing when confidence is low. Frames cost/impact in Rand and tCO2e using real SA gazetted rates (Eskom Megaflex, carbon tax). Positioned as a module for Mintek's existing StarCS/FloatStar/MillStar platform, not a competing product. Code has since been re-scoped to match the submitted phase set.",
+      "team_fit": "Excellent: explicitly aimed at unemployed graduates. Directly on-target for your situation.",
+      "what_to_build": "Submitted abstract: REEFPRINT (Category: Problem 3: Computer Vision for Real-Time Mineralogical Characterisation, by Lethabo). Rather than building a mineral classifier that competes with lab instruments (SEM/XRD/QEMSCAN), distills those instruments' existing output as a 'teacher' into a cheap optical model that reproduces their maps in seconds instead of days. Targets five Bushveld-relevant phases: chromite, orthopyroxene, plagioclase, base-metal sulphide, talc/serpentine: deliberately including base-metal sulphide even at <1% by area since that's where PGM economic value sits; the abstract commits to reporting per-class recall on that sub-1% class ahead of any aggregate accuracy number. Converts texture/liberation into three metallurgical response variables (liberation, reagent demand, grindability) feeding a plant setpoint recommendation with calibrated uncertainty: abstains rather than guessing when confidence is low. Frames cost/impact in Rand and tCO2e using real SA gazetted rates (Eskom Megaflex, carbon tax). Positioned as a module for Mintek's existing StarCS/FloatStar/MillStar platform, not a competing product. Code has since been re-scoped to match the submitted phase set.",
       "deliverables": [
-        "One-page abstract restating approach, methods/tech and expected outcomes — due 30 Aug 2026",
+        "One-page abstract restating approach, methods/tech and expected outcomes: due 30 Aug 2026",
         "Per-member info to Mintek: ID number, T-shirt size, contact details, mentor name/contact (or a request for one)",
         "Completed solution submitted by 13:00 on the 1 Oct final hacking day",
         "10-minute presentation to the judging panel, 1 Oct",
-        "Registration + attendance at the Mintek SCI Conference, 2 Oct — 5 finalist teams announced there, then originality/AI-generation/plagiarism authentication before the next stage"
+        "Registration + attendance at the Mintek SCI Conference, 2 Oct: 5 finalist teams announced there, then originality/AI-generation/plagiarism authentication before the next stage"
       ],
       "links": {
         "main": "https://mintek.co.za/",
@@ -564,12 +564,12 @@
         "prior_faq": "https://mintek.co.za/site_content/content/documents/mintek90/mintek-grad-hackathon-faq.pdf",
         "conference_registration": "https://mintek.co.za/mintek-sci/programme/mintek-sci-(science-convention-of-innovators).html"
       },
-      "notes": "SELECTED — confirmed by Mintek's letter dated 14 Aug 2026 (signed Boitumelo Lekalakala). Team is in the hackathon, not just applied. Immediate action: one-page abstract due 30 Aug, plus per-member ID/T-shirt/contact/mentor info back to Mintek. Final hacking day is mandatory in-person at Mintek, 1 Oct (build until 13:00, present at 14:00, 10 min/team). Must also register for and attend the Mintek SCI Conference on 2 Oct, where the 5 finalists are announced and originality checks begin. Cash prizes now confirmed: R25k/R15k/R10k for top 3, plus possible vacation-work offers for standout teams.",
+      "notes": "SELECTED: confirmed by Mintek's letter dated 14 Aug 2026 (signed Boitumelo Lekalakala). Team is in the hackathon, not just applied. Immediate action: one-page abstract due 30 Aug, plus per-member ID/T-shirt/contact/mentor info back to Mintek. Final hacking day is mandatory in-person at Mintek, 1 Oct (build until 13:00, present at 14:00, 10 min/team). Must also register for and attend the Mintek SCI Conference on 2 Oct, where the 5 finalists are announced and originality checks begin. Cash prizes now confirmed: R25k/R15k/R10k for top 3, plus possible vacation-work offers for standout teams.",
       "kind": "grad_programme",
       "career_track": "direct",
       "next_date": "2026-08-30",
       "next_date_label": "submission deadline",
-      "days_remaining": 14,
+      "days_remaining": 13,
       "confidence": "confirmed",
       "lifecycle": "committed",
       "tracks": [],
@@ -611,7 +611,7 @@
         }
       },
       "eligibility": "College/university students. Free entry. Beginners explicitly welcome. 16,000+ students registered across 45+ countries and 8 in-person locations.",
-      "team_fit": "Good — individual registration first, then team lead completes team form.",
+      "team_fit": "Good: individual registration first, then team lead completes team form.",
       "what_to_build": "Scalable data-driven applications using IBM Z technology.",
       "deliverables": [
         "Team submission on the Hack2Skill platform"
@@ -620,12 +620,12 @@
         "main": "https://www.starhacks.org/ibm-z-datathon-2026",
         "register": "https://hack2skill.com/event/datathon-2026"
       },
-      "notes": "Register early — registrations after the deadline go to a waitlist. Clashes with BCG Platinion (16–17 Oct) — Datathon is 17–18 Oct. Pick one; BCG wins on career leverage. Note: student eligibility — confirm your status qualifies. LINK/PRIZE CORRECTION 14 Aug 2026: the board previously linked ibm-zdatathon.devpost.com, which is a PRIOR edition that has ended (\"This hackathon has ended\", Sept 24–25, register by Sept 10) — removed. The organiser (Shooting Stars Foundation, starhacks.org) confirms this cycle as 17–18 Oct 2026 with $50,000+ in prizes, so the board's $30,000 figure — also taken from that ended page — was understated and is corrected. Registration goes through hack2skill, which is where the organiser's own REGISTER button points. Organiser also states 16,000+ students registered across 45+ countries and 8 in-person locations, not the 10,000+ previously noted.",
+      "notes": "Register early: registrations after the deadline go to a waitlist. Clashes with BCG Platinion (16–17 Oct): Datathon is 17–18 Oct. Pick one; BCG wins on career leverage. Note: confirm your student eligibility status qualifies. LINK/PRIZE CORRECTION 14 Aug 2026: the board previously linked ibm-zdatathon.devpost.com, which is a PRIOR edition that has ended (\"This hackathon has ended\", Sept 24–25, register by Sept 10): removed. The organiser (Shooting Stars Foundation, starhacks.org) confirms this cycle as 17–18 Oct 2026 with $50,000+ in prizes, so the board's $30,000 figure: also taken from that ended page: was understated and is corrected. Registration goes through hack2skill, which is where the organiser's own REGISTER button points. Organiser also states 16,000+ students registered across 45+ countries and 8 in-person locations, not the 10,000+ previously noted.",
       "kind": "datathon",
       "career_track": "none",
       "next_date": "2026-10-01",
       "next_date_label": "registration deadline",
-      "days_remaining": 46,
+      "days_remaining": 45,
       "confidence": "reported",
       "lifecycle": "scored",
       "tracks": [],
@@ -674,12 +674,12 @@
         "main": "https://www.unesco.org/en/articles/unesco-youth-hackathon-2026",
         "hackathon_hub": "https://www.unesco.org/en/media-information-literacy/youth-hackathon"
       },
-      "notes": "SUBMITTED 16 Aug 2026: HAYIBO, an interactive toolkit teaching South Africans — especially digitally illiterate and older audiences — to spot AI deepfakes and misinformation the way it actually spreads locally (WhatsApp voice notes, Facebook, radio call-in), via five spoken verification questions that need no reading or device. Taught through a weekly two-clip real-vs-AI guessing game run simultaneously on WhatsApp, Facebook (public leaderboard) and community radio (elders phone in and reason aloud). Every round is logged by language and platform and published openly — the first public dataset of AI-generated misinformation in isiZulu, Sepedi and other SA languages. Deliverables sent: proposal document, 9-slide pitch deck, 2:57 narrated video pitch. Confirmation email received; results expected mid-September 2026.",
+      "notes": "SUBMITTED 16 Aug 2026: HAYIBO, an interactive toolkit teaching South Africans, especially digitally illiterate and older audiences, to spot AI deepfakes and misinformation the way it actually spreads locally (WhatsApp voice notes, Facebook, radio call-in), via five spoken verification questions that need no reading or device. Taught through a weekly two-clip real-vs-AI guessing game run simultaneously on WhatsApp, Facebook (public leaderboard) and community radio (elders phone in and reason aloud). Every round is logged by language and platform and published openly: the first public dataset of AI-generated misinformation in isiZulu, Sepedi and other SA languages. Deliverables sent: proposal document, 9-slide pitch deck, 2:57 narrated video pitch. Confirmation email received; results expected mid-September 2026.",
       "kind": "challenge",
       "career_track": "none",
-      "next_date": "2026-08-16",
-      "next_date_label": "submission deadline",
-      "days_remaining": 0,
+      "next_date": null,
+      "next_date_label": null,
+      "days_remaining": null,
       "confidence": "confirmed",
       "lifecycle": "submitted",
       "tracks": [],
@@ -709,7 +709,7 @@
       },
       "dates": {
         "confidence": "unconfirmed",
-        "note": "Rolling — new challenges open continuously. Site is JavaScript-rendered so it must be checked in a browser."
+        "note": "Rolling: new challenges open continuously. Site is JavaScript-rendered so it must be checked in a browser."
       },
       "prize": {
         "currency": "USD",
@@ -718,7 +718,7 @@
       },
       "eligibility": "Open; 100k+ members.",
       "team_fit": "Good.",
-      "what_to_build": "Varies — computer vision, NLP, finance, health. Known 2026 example: Multilingual Health Question Answering in Low-Resource African Languages (~$5,000).",
+      "what_to_build": "Varies: computer vision, NLP, finance, health. Known 2026 example: Multilingual Health Question Answering in Low-Resource African Languages (~$5,000).",
       "deliverables": [
         "Leaderboard submissions + solution write-up"
       ],
@@ -727,7 +727,7 @@
         "jobs": "https://zindi.world/jobs",
         "sort_closing": "https://zindi.world/competitions?sort=newest"
       },
-      "notes": "Zindi also runs a JOBS BOARD where partner companies recruit directly off leaderboard performance — that is the real career value here, more than the prize money. Sort by 'Closing soon' every Monday. Multilingual African-language NLP work doubles as ADTC material.",
+      "notes": "Zindi also runs a JOBS BOARD where partner companies recruit directly off leaderboard performance: that is the real career value here, more than the prize money. Sort by 'Closing soon' every Monday. Multilingual African-language NLP work doubles as ADTC material.",
       "kind": "ml_competition",
       "career_track": "none",
       "next_date": null,
@@ -770,8 +770,8 @@
         "pool": null
       },
       "eligibility": "Open. Free to register and attend. Prior editions asked for a donation of canned food, clothes, sanitary towels or books as admission.",
-      "team_fit": "Excellent — match-making process exists for individual applicants.",
-      "what_to_build": "Social relevancy, public service, business and inclusive solutions — 'the next African Digital Narrative'.",
+      "team_fit": "Excellent: match-making process exists for individual applicants.",
+      "what_to_build": "Social relevancy, public service, business and inclusive solutions: 'the next African Digital Narrative'.",
       "deliverables": [
         "Weekend build + pitch"
       ],
@@ -780,7 +780,7 @@
         "events": "https://www.geekulcha.dev/events",
         "main": "https://geekulcha.com/"
       },
-      "notes": "Best local network-building event on the board — Geekulcha is deeply wired into SA govt/corporate tech and runs the Top 15 Young Geeks list. Their 2026 annual edition is not yet posted; the 2026 events page only shows SS26Hack (Kimberley, May) and the Top 15 announcement (June). Watch @Geekulcha on X and gklink.co from late August. LINK CORRECTION 14 Aug 2026: hackathon.gklink.co no longer resolves (DNS failure, not a 404); replaced with gklink.co, which is live and carries hackathon/registration content.",
+      "notes": "Best local network-building event on the board: Geekulcha is deeply wired into SA govt/corporate tech and runs the Top 15 Young Geeks list. Their 2026 annual edition is not yet posted; the 2026 events page only shows SS26Hack (Kimberley, May) and the Top 15 announcement (June). Watch @Geekulcha on X and gklink.co from late August. LINK CORRECTION 14 Aug 2026: hackathon.gklink.co no longer resolves (DNS failure, not a 404); replaced with gklink.co, which is live and carries hackathon/registration content.",
       "kind": "hackathon",
       "career_track": "none",
       "next_date": null,
@@ -827,13 +827,13 @@
       "team_fit": "Team-based via institution.",
       "what_to_build": "Tracks typically: Network, Cloud, Computing, Innovation.",
       "deliverables": [
-        "Per track — exam + practical rounds"
+        "Per track: exam + practical rounds"
       ],
       "links": {
         "ict_academy": "https://e.huawei.com/en/talent/ict-academy/#/ict-contest",
         "global_final": "https://www.huawei.com/minisite/ict-competition-2025-2026-global/en/index.html"
       },
-      "notes": "Long runway, structured multi-stage progression, and a genuine job pipeline into Huawei South Africa. Requires university enrolment — if neither of you is currently registered, this is a drop. Check with your institution's Huawei ICT Academy rep in September. LINK NOTE 14 Aug 2026: e.huawei.com returns HTTP 403 to automated checks on every path (bot fingerprinting, same class of block as the Groq 403 in watch_sources.py run #3) — the DNS resolves and the page is believed fine in a real browser. Deliberately NOT treated as a dead link; verify by hand rather than replacing it.",
+      "notes": "Long runway, structured multi-stage progression, and a genuine job pipeline into Huawei South Africa. Requires university enrolment: if neither of you is currently registered, this is a drop. Check with your institution's Huawei ICT Academy rep in September. LINK NOTE 14 Aug 2026: e.huawei.com returns HTTP 403 to automated checks on every path (bot fingerprinting, same class of block as the Groq 403 in watch_sources.py run #3): the DNS resolves and the page is believed fine in a real browser. Deliberately NOT treated as a dead link; verify by hand rather than replacing it.",
       "kind": "competition",
       "career_track": "none",
       "next_date": null,
@@ -878,7 +878,7 @@
         "non_cash": "Prior prizes were Nintendo Switches; real value is the Entelect graduate-hiring pipeline"
       },
       "eligibility": "University students, teams of 2–3.",
-      "team_fit": "Perfect team size — if you qualify as students.",
+      "team_fit": "Perfect team size: if you qualify as students.",
       "what_to_build": "Algorithmic optimisation problem, timeboxed single-day contest.",
       "deliverables": [
         "Solution to the optimisation problem"
@@ -887,12 +887,12 @@
         "main": "https://entelect.co.za/",
         "linkedin": "https://www.linkedin.com/company/entelect"
       },
-      "notes": "Team registered — Sibusiso + Lethabo, confirmed via the team registration page. The board had this wrongly marked as the 2026 cycle having passed; it's live and running 22 Aug 2026. Entelect is one of the strongest SA graduate employers in software — also look at the separate Entelect Challenge.",
+      "notes": "Team registered: Sibusiso + Lethabo, confirmed via the team registration page. The board had this wrongly marked as the 2026 cycle having passed; it's live and running 22 Aug 2026. Entelect is one of the strongest SA graduate employers in software: also look at the separate Entelect Challenge.",
       "kind": "competition",
       "career_track": "none",
       "next_date": "2026-08-22",
       "next_date_label": "event start",
-      "days_remaining": 6,
+      "days_remaining": 5,
       "confidence": "confirmed",
       "lifecycle": "committed",
       "tracks": [],
@@ -941,12 +941,12 @@
         "main": "https://www.spaceappschallenge.org/",
         "host_event": "https://www.spaceappschallenge.org/host-an-event/"
       },
-      "notes": "Lowest priority — no cash and enormous field (tens of thousands of participants). Included because it's free, well-timed after the October crunch, and a Global Award is a distinctive CV line. Note the date moved from early October to 14–15 November for 2026.",
+      "notes": "Lowest priority: no cash and enormous field (tens of thousands of participants). Included because it's free, well-timed after the October crunch, and a Global Award is a distinctive CV line. Note the date moved from early October to 14–15 November for 2026.",
       "kind": "hackathon",
       "career_track": "none",
       "next_date": "2026-11-14",
       "next_date_label": "event start",
-      "days_remaining": 90,
+      "days_remaining": 89,
       "confidence": "reported",
       "lifecycle": "scored",
       "tracks": [],
@@ -959,8 +959,8 @@
   "past": [
     {
       "name": "ITWeb Security Summit Hackathon (#SS26HACK)",
-      "summary": "Registration closed 10 April 2026; event was 2–3 June 2026 at Sandton Convention Centre. Diarise for 2027 — registration opens ~Feb.",
-      "reason": "Registration closed 10 April 2026; event was 2–3 June 2026 at Sandton Convention Centre. Diarise for 2027 — registration opens ~Feb.",
+      "summary": "Registration closed 10 April 2026; event was 2–3 June 2026 at Sandton Convention Centre. Diarise for 2027: registration opens ~Feb.",
+      "reason": "Registration closed 10 April 2026; event was 2–3 June 2026 at Sandton Convention Centre. Diarise for 2027: registration opens ~Feb.",
       "link": "https://www.itweb.co.za/event/itweb-security-summit-2026/hackathon/index.html",
       "missed": false,
       "result": null
@@ -991,8 +991,8 @@
     },
     {
       "name": "GirlCode Pan-African Hackathon 2026",
-      "summary": "SA/Botswana leg 15–16 August 2026. Women-only — noted for awareness only.",
-      "reason": "SA/Botswana leg 15–16 August 2026. Women-only — noted for awareness only.",
+      "summary": "SA/Botswana leg 15–16 August 2026. Women-only: noted for awareness only.",
+      "reason": "SA/Botswana leg 15–16 August 2026. Women-only: noted for awareness only.",
       "link": "https://www.itweb.co.za/article/girlcode-opens-registration-for-2026-pan-african-hackathon/j5alrMQAwVRMpYQk",
       "missed": false,
       "result": null
@@ -1000,7 +1000,7 @@
     {
       "name": "Discovery Gradhack 2026",
       "summary": "Ran 7 August 2026 at Discovery Place, Sandton. Format: 50 IT students from SA universities, teams of 2–4, free entry, R12 500 cash per winning team member, plus a permanent-employment pathway at Discovery.",
-      "reason": "Ran 7 August 2026 at Discovery Place, Sandton. Format: 50 IT students from SA universities, teams of 2–4, free entry, R12 500 cash per winning team member, plus a permanent-employment pathway at Discovery. Team Sonar competed and placed Top 6. Correction logged 11 Aug 2026 — an earlier pass had this recorded as missed; discovery was late (the only signal beforehand was an empty team calendar) but the team still made the deadline and competed. See docs/AUTONOMY.md §0 for the discovery-timing gap that this surfaced — worth fixing even though the outcome was good.",
+      "reason": "Ran 7 August 2026 at Discovery Place, Sandton. Format: 50 IT students from SA universities, teams of 2–4, free entry, R12 500 cash per winning team member, plus a permanent-employment pathway at Discovery. Team Sonar competed and placed Top 6. Correction logged 11 Aug 2026: an earlier pass had this recorded as missed; discovery was late (the only signal beforehand was an empty team calendar) but the team still made the deadline and competed. See docs/AUTONOMY.md §0 for the discovery-timing gap that this surfaced: worth fixing even though the outcome was good.",
       "link": "https://www.discovery.co.za/corporate/discovery-gradhack",
       "missed": false,
       "result": "Top 6"
@@ -1016,7 +1016,7 @@
       "name": "Zindi competitions",
       "url": "https://zindi.world/competitions",
       "cadence": "weekly",
-      "note": "JS-rendered — open in a browser"
+      "note": "JS-rendered: open in a browser"
     },
     {
       "name": "Kaggle competitions",

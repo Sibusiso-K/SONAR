@@ -3,7 +3,7 @@
   "kinds": {
     "added": "New opportunity entered the board",
     "changed": "A tracked field changed on an existing entry",
-    "verified": "Confidence moved up — a claim got corroborated or confirmed",
+    "verified": "Confidence moved up: a claim got corroborated or confirmed",
     "missed": "A deadline passed without us acting",
     "system": "Pipeline or schema change"
   },
@@ -12,23 +12,23 @@
       "at": "2026-08-16T22:40:00+02:00",
       "kind": "changed",
       "target": "mtn-momo-miniapp-2026",
-      "title": "MTN MoMo Mini App Hackathon — submitted, three ideas, three-person team",
-      "body": "Reported first-hand by an operator. Status monitor → submitted, lifecycle triaged → submitted. The team entered THREE separate ideas under one team rather than a single joint entry — three shots on goal. Worth confirming against MTN's rules that multiple submissions per team are permitted and judged independently. Deliberately NOT recorded, because they were not supplied and this board does not guess: the submission date, the three idea titles, and the third member's identity. confidence stays unconfirmed and next_date stays null — no 2026 MTN date has been read off a source yet. KNOCK-ON: the team is now three people. docs/TEAM.md describes a two-person team throughout, and Standing Agreement 1 (max two overlapping builds) is sized for two. More concretely, govtech-2026's team_fit reads 'Needs a 3rd (and possibly 4th/5th) member AND a registered entity' — the team-size half of that blocker is now cleared on an entry scoring 6.45, higher than MTN's own 6.2, which was otherwise heading for a drop. The EME/SMME entity requirement is still unresolved and GovTech runs 17-19 Sept.",
+      "title": "MTN MoMo Mini App Hackathon: submitted, three ideas, three-person team",
+      "body": "Reported first-hand by an operator. Status monitor → submitted, lifecycle triaged → submitted. The team entered THREE separate ideas under one team rather than a single joint entry: three shots on goal. Worth confirming against MTN's rules that multiple submissions per team are permitted and judged independently. Deliberately NOT recorded, because they were not supplied and this board does not guess: the submission date, the three idea titles, and the third member's identity. confidence stays unconfirmed and next_date stays null: no 2026 MTN date has been read off a source yet. KNOCK-ON: the team is now three people. docs/TEAM.md describes a two-person team throughout, and Standing Agreement 1 (max two overlapping builds) is sized for two. More concretely, govtech-2026's team_fit reads 'Needs a 3rd (and possibly 4th/5th) member AND a registered entity': the team-size half of that blocker is now cleared on an entry scoring 6.45, higher than MTN's own 6.2, which was otherwise heading for a drop. The EME/SMME entity requirement is still unresolved and GovTech runs 17-19 Sept.",
       "by": "Sibusiso K"
     },
     {
       "at": "2026-08-16T15:45:00+02:00",
       "kind": "system",
       "target": null,
-      "title": "Fixed a fabricated-outcome bug — 5 events wrongly shown as \"entered\"",
-      "body": "scripts/sync_radar.py's to_radar_past() defaulted any dropped_or_past entry with no missed flag and no result to outcome \"entered\". Five entries were just discovery notes (\"ran on X date, diarise for next year\") we never actually applied to — ITWeb Security Summit Hackathon, MICT SETA National Skills Challenge, Monkey and River Hackathon, GirlCode Pan-African Hackathon, Geekulcha SS26Hack Kimberley — and the site was showing all five as things the team entered. Fixed to skip syncing any dropped_or_past entry with no real engagement signal instead of guessing. Only genuine participation (Discovery Gradhack, Top 6) remains on the Season So Far list.",
+      "title": "Fixed a fabricated-outcome bug: 5 events wrongly shown as \"entered\"",
+      "body": "scripts/sync_radar.py's to_radar_past() defaulted any dropped_or_past entry with no missed flag and no result to outcome \"entered\". Five entries were just discovery notes (\"ran on X date, diarise for next year\") we never actually applied to: ITWeb Security Summit Hackathon, MICT SETA National Skills Challenge, Monkey and River Hackathon, GirlCode Pan-African Hackathon, Geekulcha SS26Hack Kimberley: and the site was showing all five as things the team entered. Fixed to skip syncing any dropped_or_past entry with no real engagement signal instead of guessing. Only genuine participation (Discovery Gradhack, Top 6) remains on the Season So Far list.",
       "by": "Sibusiso K"
     },
     {
       "at": "2026-08-16T15:15:00+02:00",
       "kind": "changed",
       "target": "adtc-2026",
-      "title": "Africa Deep Tech Challenge 2026 — decided not to compete",
+      "title": "Africa Deep Tech Challenge 2026: decided not to compete",
       "body": "Team decision: not entering the Laptop LLM Challenge. Status moved to dropped; archived off the live board.",
       "by": "Sibusiso K"
     },
@@ -36,23 +36,23 @@
       "at": "2026-08-16T10:30:00+02:00",
       "kind": "changed",
       "target": "unesco-youth-2026",
-      "title": "UNESCO Youth Hackathon 2026 — submitted",
-      "body": "Submitted HAYIBO: an interactive toolkit teaching South Africans — especially digitally illiterate and older audiences — to spot AI deepfakes and misinformation the way it actually spreads locally (WhatsApp voice notes, Facebook, radio call-in), via five spoken verification questions that need no reading or device. Taught through a weekly two-clip real-vs-AI guessing game run simultaneously on WhatsApp, Facebook (public leaderboard) and community radio (elders phone in and reason aloud). Every round is logged by language and platform and published openly — the first public dataset of AI-generated misinformation in isiZulu, Sepedi and other SA languages. Deliverables sent: proposal document, 9-slide pitch deck, 2:57 narrated video pitch. Confirmation email received; results expected mid-September 2026. Status moved to submitted.",
+      "title": "UNESCO Youth Hackathon 2026: submitted",
+      "body": "Submitted HAYIBO: an interactive toolkit teaching South Africans, especially digitally illiterate and older audiences, to spot AI deepfakes and misinformation the way it actually spreads locally (WhatsApp voice notes, Facebook, radio call-in), via five spoken verification questions that need no reading or device. Taught through a weekly two-clip real-vs-AI guessing game run simultaneously on WhatsApp, Facebook (public leaderboard) and community radio (elders phone in and reason aloud). Every round is logged by language and platform and published openly: the first public dataset of AI-generated misinformation in isiZulu, Sepedi and other SA languages. Deliverables sent: proposal document, 9-slide pitch deck, 2:57 narrated video pitch. Confirmation email received; results expected mid-September 2026. Status moved to submitted.",
       "by": "Sibusiso K"
     },
     {
       "at": "2026-08-14T19:40:00+02:00",
       "kind": "verified",
       "target": null,
-      "title": "Link audit — all 44 board links fetched; 4 corrected",
-      "body": "Fetched every link in data/opportunities.json with a real User-Agent and followed redirects. 40 of 44 resolved cleanly. Corrections: (1) IBM Z Datathon linked an ENDED prior Devpost edition (Sept 24-25, 'This hackathon has ended') — removed, and the prize pool taken from that same stale page corrected from $30,000 to the organiser's stated $50,000+; dates 17-18 Oct 2026 independently confirmed correct. (2) Geekulcha hackathon.gklink.co no longer resolves in DNS — replaced with gklink.co. (3) FNB appoftheyear.co.za returns 500 on / and 404 on /hackathon — primary link moved to the live 22 On Sloane partner page, official URL retained. (4) Entelect www.entelect.co.za redirected to the apex domain — pointed straight at it. Huawei's e.huawei.com 403s to automated checks but is a bot block, not a dead page, and was deliberately left alone.",
+      "title": "Link audit: all 44 board links fetched; 4 corrected",
+      "body": "Fetched every link in data/opportunities.json with a real User-Agent and followed redirects. 40 of 44 resolved cleanly. Corrections: (1) IBM Z Datathon linked an ENDED prior Devpost edition (Sept 24-25, 'This hackathon has ended'): removed, and the prize pool taken from that same stale page corrected from $30,000 to the organiser's stated $50,000+; dates 17-18 Oct 2026 independently confirmed correct. (2) Geekulcha hackathon.gklink.co no longer resolves in DNS: replaced with gklink.co. (3) FNB appoftheyear.co.za returns 500 on / and 404 on /hackathon: primary link moved to the live 22 On Sloane partner page, official URL retained. (4) Entelect www.entelect.co.za redirected to the apex domain: pointed straight at it. Huawei's e.huawei.com 403s to automated checks but is a bot block, not a dead page, and was deliberately left alone.",
       "by": "Sibusiso K"
     },
     {
       "at": "2026-08-14T16:45:00+02:00",
       "kind": "verified",
       "target": "mintek-sci-2026",
-      "title": "Mintek SCI Grad Hackathon 2026 — team SELECTED",
+      "title": "Mintek SCI Grad Hackathon 2026: team SELECTED",
       "body": "Official selection letter received, dated 14 Aug 2026, signed Boitumelo Lekalakala. Status moved from applied to selected, confidence to confirmed, lifecycle to committed. Confirmed: cash prizes R25k/R15k/R10k (1st/2nd/3rd), possible vacation-work offers for standout teams. Immediate action: one-page abstract due 30 Aug 2026, plus per-member ID number/T-shirt size/contact details/mentor info back to Mintek. Final hacking day is mandatory in-person at Mintek on 1 Oct 2026 (build from 08:00, code submission deadline 13:00, presentations from 14:00, 10 min/team). Must also register for and attend the Mintek SCI Conference on 2 Oct 2026, where the 5 finalist teams are announced and originality/AI-generation/plagiarism authentication begins for the next stage.",
       "by": "Lethabo"
     },
@@ -60,15 +60,15 @@
       "at": "2026-08-11T09:10:00+02:00",
       "kind": "changed",
       "target": "mintek-sci-2026",
-      "title": "Mintek-SCi Grad Hackathon 2026 — REEFPRINT abstract recorded",
-      "body": "Added the submitted abstract to what_to_build: REEFPRINT (Problem 3 — Computer Vision for Real-Time Mineralogical Characterisation), by Lethabo. Distills SEM/XRD/QEMSCAN output into a fast optical model across five Bushveld phases, reports per-class recall on sub-1% base-metal sulphide ahead of aggregate accuracy, converts texture into liberation/reagent demand/grindability with calibrated abstention, costs in Rand/tCO2e, and is positioned as a StarCS/FloatStar/MillStar module.",
+      "title": "Mintek-SCi Grad Hackathon 2026: REEFPRINT abstract recorded",
+      "body": "Added the submitted abstract to what_to_build: REEFPRINT (Problem 3: Computer Vision for Real-Time Mineralogical Characterisation), by Lethabo. Distills SEM/XRD/QEMSCAN output into a fast optical model across five Bushveld phases, reports per-class recall on sub-1% base-metal sulphide ahead of aggregate accuracy, converts texture into liberation/reagent demand/grindability with calibrated abstention, costs in Rand/tCO2e, and is positioned as a StarCS/FloatStar/MillStar module.",
       "by": "Sibusiso K"
     },
     {
       "at": "2026-08-11T09:05:00+02:00",
       "kind": "changed",
       "target": "entelect-university-cup-2027",
-      "title": "Entelect University Cup — registered, dates confirmed",
+      "title": "Entelect University Cup: registered, dates confirmed",
       "body": "The board had this marked as passed for 2026. It's live: 22 Aug 2026, 10:00-15:00 SAST. Team (Sibusiso + Lethabo) registered, confirmed via the team registration page. Moved to committed, confidence to confirmed.",
       "by": "Sibusiso K"
     },
@@ -76,7 +76,7 @@
       "at": "2026-08-11T09:00:00+02:00",
       "kind": "changed",
       "target": "mintek-sci-2026",
-      "title": "Mintek-SCi Grad Hackathon 2026 — application submitted",
+      "title": "Mintek-SCi Grad Hackathon 2026: application submitted",
       "body": "Team applied in time. Status moved to applied, awaiting Mintek's response.",
       "by": "Sibusiso K"
     },
@@ -84,8 +84,8 @@
       "at": "2026-08-11T08:55:00+02:00",
       "kind": "changed",
       "target": "discovery-gradhack-2026",
-      "title": "Discovery Gradhack 2026 — correction: Team Sonar competed, placed Top 6",
-      "body": "The 2026-08-10 entry below recorded this as missed. That was wrong — the team made the deadline and competed, placing Top 6. Discovery of the event was still late (only signal beforehand was an empty team calendar), which is a real gap worth fixing, but the outcome was a result, not a miss. Corrected in data/opportunities.json.",
+      "title": "Discovery Gradhack 2026: correction: Team Sonar competed, placed Top 6",
+      "body": "The 2026-08-10 entry below recorded this as missed. That was wrong: the team made the deadline and competed, placing Top 6. Discovery of the event was still late (only signal beforehand was an empty team calendar), which is a real gap worth fixing, but the outcome was a result, not a miss. Corrected in data/opportunities.json.",
       "by": "Sibusiso K"
     },
     {
@@ -93,14 +93,14 @@
       "kind": "system",
       "target": null,
       "title": "Board widened from hackathons to opportunities",
-      "body": "Added a `kind` field so the board covers competitions, graduate programmes, recruiting events and accelerators — not just hackathons. Two entries were reclassified on migration: BCG Platinion is a `recruiting_event` (the event is the interview) and Mintek-SCi is a `grad_programme`. Also added `career_track` to mark the three entries that are direct hiring routes.",
+      "body": "Added a `kind` field so the board covers competitions, graduate programmes, recruiting events and accelerators: not just hackathons. Two entries were reclassified on migration: BCG Platinion is a `recruiting_event` (the event is the interview) and Mintek-SCi is a `grad_programme`. Also added `career_track` to mark the three entries that are direct hiring routes.",
       "by": "migrate_to_opportunities.py"
     },
     {
       "at": "2026-08-10T16:05:00+02:00",
       "kind": "missed",
       "target": "discovery-gradhack-2026",
-      "title": "Discovery Gradhack 2026 — missed by three days",
+      "title": "Discovery Gradhack 2026: missed by three days",
       "body": "Ran 7 August 2026 at Discovery Place, Sandton. 50 IT students from SA universities, teams of 2–4, free entry, R12 500 per winning team member, plus a permanent-employment pathway. It was the board's #1 open action item and the only signal was an empty team calendar. Moved to past. Predicted-window watch set for ~August 2027.",
       "by": "verification sweep"
     },
@@ -108,7 +108,7 @@
       "at": "2026-08-10T15:40:00+02:00",
       "kind": "verified",
       "target": "adtc-2026",
-      "title": "ADTC prize conflict closed — arithmetic confirms the earlier ruling",
+      "title": "ADTC prize conflict closed: arithmetic confirms the earlier ruling",
       "body": "Press reported \"$20,000+\" against Devpost's itemised $16,500. Confirmed by arithmetic that both are correct and describe different things: 8000+4000+3000+1500 = $16,500 cash, and 10×$250 + 20×$50 = $3,500 in GPU credits, totalling exactly $20,000. No action needed.",
       "by": "verification sweep"
     },
@@ -116,15 +116,15 @@
       "at": "2026-08-10T15:38:00+02:00",
       "kind": "changed",
       "target": "adtc-2026",
-      "title": "ADTC — possible second stage, unresolved",
-      "body": "Sources still report 25 August against the board's 24 August, and one describes it as a \"first-stage deadline\" for \"initial proposals\". The board models this as a single submit-once deadline. Keeping Devpost's earlier date — submitting early is free — but flagged for a manual check of the organiser page before the 24th.",
+      "title": "ADTC: possible second stage, unresolved",
+      "body": "Sources still report 25 August against the board's 24 August, and one describes it as a \"first-stage deadline\" for \"initial proposals\". The board models this as a single submit-once deadline. Keeping Devpost's earlier date, since submitting early is free, but flagged for a manual check of the organiser page before the 24th.",
       "by": "verification sweep"
     },
     {
       "at": "2026-08-10T09:00:00+02:00",
       "kind": "system",
       "target": null,
-      "title": "Initial board — 17 entries, calendar, playbook, CLI",
+      "title": "Initial board: 17 entries, calendar, playbook, CLI",
       "body": "First full research pass. Every date carries a source link and a confidence level; conflicts recorded with the reasoning behind each ruling.",
       "by": "Sibusiso K"
     }

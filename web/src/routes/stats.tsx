@@ -24,13 +24,13 @@ import type { Opportunity } from "@/lib/sonar-types";
 export const Route = createFileRoute("/stats")({
   head: () => ({
     meta: [
-      { title: "Stats — what we should actually enter | SONAR" },
+      { title: "Stats: what we should actually enter | SONAR" },
       {
         name: "description",
         content:
           "Win probability, expected value, deadline collisions and discovery lag. Charts that answer a decision instead of decorating a dashboard.",
       },
-      { property: "og:title", content: "Stats — what we should actually enter | SONAR" },
+      { property: "og:title", content: "Stats: what we should actually enter | SONAR" },
       {
         property: "og:description",
         content:
@@ -179,7 +179,7 @@ function Stats() {
         id="win-probability"
         kicker="Ranked by win probability"
         title="Deadline order is not priority order."
-        blurb="Built from declared winnability, overall score, tier and field-size signals already written in the notes. A ranking device, not a forecast — treat a four-point gap as noise."
+        blurb="Built from declared winnability, overall score, tier and field-size signals already written in the notes. A ranking device, not a forecast: treat a four-point gap as noise."
       >
         <div className="grid gap-px bg-rule sm:grid-cols-2 lg:grid-cols-3">
           {ranked.map((o, i) => (
@@ -265,8 +265,8 @@ function Stats() {
                         {" vs "}
                         {rest.map((r) => usd(expectedValueUsd(r))).join(", ")})
                       </strong>
-                      . Not a mandate — EV ignores career leverage and grad programmes score zero
-                      here — but if you're only leading on one, that's the one.
+                      . Not a mandate: EV ignores career leverage and grad programmes score zero
+                      here, but if you're only leading on one, that's the one.
                     </>
                   )}
                 </p>
@@ -281,7 +281,7 @@ function Stats() {
         id="scatter"
         kicker="Winnability vs prize vs leverage"
         title="Explore it from any angle."
-        blurb="A 3D scatter, not a fixed chart — swap what's on each axis, rotate it, zoom in on one cluster. Defaults: winnability, prize (log), career leverage."
+        blurb="A 3D scatter, not a fixed chart: swap what's on each axis, rotate it, zoom in on one cluster. Defaults: winnability, prize (log), career leverage."
       >
         <Scatter3D opportunities={live} />
       </Section>
@@ -291,7 +291,7 @@ function Stats() {
         id="lag"
         kicker="Discovery lag by source"
         title="Which monitors are slow."
-        blurb="Days between an opportunity going live and this board noticing it. Word of mouth is not a monitoring strategy — it is how we caught Entelect, by luck."
+        blurb="Days between an opportunity going live and this board noticing it. Word of mouth is not a monitoring strategy: it is how we caught Entelect, by luck."
       >
         <div className="grid gap-px bg-rule md:grid-cols-2">
           {lag.map((s, i) => (

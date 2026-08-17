@@ -11,13 +11,13 @@ import { AlertTriangle } from "lucide-react";
 export const Route = createFileRoute("/radar")({
   head: () => ({
     meta: [
-      { title: "Radar — unverified entries and the archive | SONAR" },
+      { title: "Radar: unverified entries and the archive | SONAR" },
       {
         name: "description",
         content:
           "Predicted and unverified opportunities that are not calendar-safe yet, plus an honest archive of what we entered, won and missed.",
       },
-      { property: "og:title", content: "Radar — unverified entries and the archive | SONAR" },
+      { property: "og:title", content: "Radar: unverified entries and the archive | SONAR" },
       {
         property: "og:description",
         content:

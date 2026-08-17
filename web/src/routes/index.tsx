@@ -11,13 +11,13 @@ import { cn } from "@/lib/utils";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "SONAR — Opportunity board for two" },
+      { title: "SONAR: opportunity board for two" },
       {
         name: "description",
         content:
           "Every live hackathon, competition and grad programme we're tracking, sorted by what closes first and what we can actually win.",
       },
-      { property: "og:title", content: "SONAR — Opportunity board for two" },
+      { property: "og:title", content: "SONAR: opportunity board for two" },
       {
         property: "og:description",
         content:
@@ -85,7 +85,7 @@ function Board() {
             <Reveal delay={200}>
               <p className="mt-6 text-base leading-relaxed text-muted-foreground">
                 {live.length} live entries. {closing} close inside three weeks. Nothing here is
-                guesswork dressed as fact — where a date is only reported, the row says so.
+                guesswork dressed as fact: where a date is only reported, the row says so.
               </p>
             </Reveal>
           </div>
@@ -106,7 +106,7 @@ function Board() {
             </p>
             {clashes.map((c) => (
               <p key={c.weekStart} className="mt-2 text-base">
-                Week of <strong>{c.weekLabel}</strong> — {c.items.map((i) => i.name).join(" and ")}{" "}
+                Week of <strong>{c.weekLabel}</strong>: {c.items.map((i) => i.name).join(" and ")}{" "}
                 land in the same week. Two committed entries, one weekend. Decide now rather than on
                 the Friday.
               </p>

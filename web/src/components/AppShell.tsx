@@ -71,9 +71,6 @@ export function AppShell({ children }: { children: ReactNode }) {
         <div className="mx-auto flex max-w-[88rem] flex-wrap items-center gap-x-8 gap-y-3 px-5 py-3 md:px-10">
           <Link to="/" className="flex items-baseline gap-2">
             <span className="font-display text-xl font-bold tracking-[-0.05em]">SONAR</span>
-            <span className="hidden font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground sm:inline">
-              two people, one board
-            </span>
           </Link>
 
           <nav className="flex items-center gap-5 md:gap-7">

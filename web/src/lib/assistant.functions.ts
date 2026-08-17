@@ -1,8 +1,18 @@
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { createClient } from "@supabase/supabase-js";
-import { winProbability, expectedValueUsd, collisions, daysUntil, toUsd } from "@/lib/analytics";
-import type { Opportunity, PastOpportunity } from "@/lib/sonar-types";
+import {
+  winProbability,
+  expectedValueUsd,
+  collisions,
+  confidenceTrend,
+  daysUntil,
+  discoveryLag,
+  seasonStats,
+  toUsd,
+} from "@/lib/analytics";
+import { participationBadge } from "@/lib/participation";
+import type { Opportunity, PastOpportunity, UpdateRow } from "@/lib/sonar-types";
 
 export const askSonar = createServerFn({ method: "POST" })
   .inputValidator((data: unknown) =>
@@ -24,11 +34,20 @@ export const askSonar = createServerFn({ method: "POST" })
     const apiKey = process.env["GROQ_API_KEY"];
     if (!apiKey) return { error: "The assistant is not configured yet." as const };
 
-    const db = createClient(
-      process.env["SUPABASE_URL"]!,
-      process.env["SUPABASE_PUBLISHABLE_KEY"]!,
-      { auth: { persistSession: false, autoRefreshToken: false } },
-    );
+    // Vercel only has the VITE_-prefixed vars set (they're also read
+    // client-side, see integrations/supabase/client.ts) — this project
+    // never had a plain SUPABASE_URL/SUPABASE_PUBLISHABLE_KEY configured
+    // there, so fall back to those rather than assuming a second copy exists.
+    const supabaseUrl = process.env["SUPABASE_URL"] || process.env["VITE_SUPABASE_URL"];
+    const supabaseKey =
+      process.env["SUPABASE_PUBLISHABLE_KEY"] || process.env["VITE_SUPABASE_PUBLISHABLE_KEY"];
+    if (!supabaseUrl || !supabaseKey) {
+      return { error: "The assistant is not configured yet." as const };
+    }
+
+    const db = createClient(supabaseUrl, supabaseKey, {
+      auth: { persistSession: false, autoRefreshToken: false },
+    });
 
     const [oppRes, pastRes, updRes] = await Promise.all([
       db.from("opportunities").select("*").eq("archived", false),
@@ -38,13 +57,14 @@ export const askSonar = createServerFn({ method: "POST" })
 
     const live = (oppRes.data ?? []) as unknown as Opportunity[];
     const past = (pastRes.data ?? []) as unknown as PastOpportunity[];
+    const updates = (updRes.data ?? []) as unknown as UpdateRow[];
 
     const board = live
       .map((o) => {
         const wp = winProbability(o);
         return [
           `- ${o.name} (${o.id}) — ${o.organiser}, ${o.kind}, ${o.format}, ${o.scope}, tier ${o.tier}`,
-          `  confidence=${o.confidence}; next_date=${o.next_date ?? "none"}${
+          `  confidence=${o.confidence}; participation=${participationBadge(o.status).label}; next_date=${o.next_date ?? "none"}${
             o.next_date ? ` (${daysUntil(o.next_date)} days away)` : ""
           }`,
           `  score=${o.score}; scores=${JSON.stringify(o.scores)}`,
@@ -77,12 +97,24 @@ export const askSonar = createServerFn({ method: "POST" })
       )
       .join("\n");
 
-    const recent = (updRes.data ?? [])
+    const recent = updates
+      .map((u) => `- ${u.created_at.slice(0, 10)} ${u.actor}: ${u.summary}`)
+      .join("\n");
+
+    // Everything /stats derives from the same three tables, computed here
+    // so the assistant can answer "what does stats say" without the user
+    // having to go look — the whole site, not just the board rows.
+    const season = seasonStats(live, past);
+    const lag = discoveryLag(live)
       .map(
-        (u: { created_at: string; actor: string; summary: string }) =>
-          `- ${u.created_at.slice(0, 10)} ${u.actor}: ${u.summary}`,
+        (s) =>
+          `- ${s.source}: avg ${s.avgLagDays}d, worst ${s.worstLagDays}d, ${s.tracked} tracked${
+            s.unnoticed > 0 ? `, ${s.unnoticed} never noticed` : ""
+          }`,
       )
       .join("\n");
+    const trend = confidenceTrend(live, updates);
+    const confidenceMix = trend.counts.map((c) => `${c.name}=${c.value}`).join(", ");
 
     const system = [
       "You are SONAR's in-board assistant. SONAR is a two-person opportunity tracker for hackathons, competitions, grad programmes and recruiting events.",
@@ -105,6 +137,13 @@ export const askSonar = createServerFn({ method: "POST" })
       "",
       "RECENT AUDIT TRAIL:",
       recent || "(empty)",
+      "",
+      "SEASON SUMMARY (same numbers as /stats):",
+      `tracked prize pool $${season.totalPoolUsd}; discovered=${season.discovered}, entered=${season.entered}, won=${season.won}, placed=${season.placed}, missed=${season.missed}; avg discovery lag ${season.avgLag}d`,
+      `confidence mix: ${confidenceMix || "none"}; ${trend.calendarSafe} of ${live.length} are calendar-safe (confirmed)`,
+      "",
+      "DISCOVERY LAG BY SOURCE:",
+      lag || "(no lag data yet)",
       "",
       `Today is ${new Date().toISOString().slice(0, 10)}.`,
     ].join("\n");

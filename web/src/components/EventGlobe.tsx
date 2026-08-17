@@ -331,7 +331,7 @@ export function EventGlobe({ opportunities }: { opportunities: Opportunity[] }) 
             <div className="flex items-start justify-between gap-3">
               <div>
                 <p className="font-mono text-[10px] uppercase tracking-widest" style={{ color: selected.color }}>
-                  Tier {selected.tier} · {selected.kind === "venue" ? "confirmed venue" : "online — HQ shown"}
+                  Tier {selected.tier} · {selected.kind === "venue" ? "confirmed venue" : "online, HQ shown"}
                 </p>
                 <h4 className="mt-1 text-base font-bold text-white">{selected.name}</h4>
                 <p className="mt-0.5 text-xs text-white/60">

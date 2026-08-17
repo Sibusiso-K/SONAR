@@ -85,7 +85,7 @@ export function OpportunityRow({
               className="font-mono text-[10px] uppercase tracking-widest"
               style={{ color: "var(--warning)" }}
             >
-              verified {noticedDaysAgo}d ago — re-check
+              verified {noticedDaysAgo}d ago, re-check
             </span>
           )}
         </div>

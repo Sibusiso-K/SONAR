@@ -7,13 +7,13 @@ import { Bot, User } from "lucide-react";
 export const Route = createFileRoute("/updates")({
   head: () => ({
     meta: [
-      { title: "Updates — the audit trail | SONAR" },
+      { title: "Updates: the audit trail | SONAR" },
       {
         name: "description",
         content:
           "Append-only log of every change to the board: who or what made it, when, and what it changed.",
       },
-      { property: "og:title", content: "Updates — the audit trail | SONAR" },
+      { property: "og:title", content: "Updates: the audit trail | SONAR" },
       {
         property: "og:description",
         content:
