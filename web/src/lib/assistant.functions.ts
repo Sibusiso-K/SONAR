@@ -155,14 +155,24 @@ export const askSonar = createServerFn({ method: "POST" })
         Authorization: `Bearer ${apiKey}`,
       },
       body: JSON.stringify({
-        model: "deepseek-r1-distill-llama-70b",
+        // deepseek-r1-distill-llama-70b was deprecated by Groq (2 Sept
+        // 2025); llama-3.3-70b-versatile is their own suggested
+        // replacement, not just "a model that still works".
+        model: "llama-3.3-70b-versatile",
         messages: [{ role: "system", content: system }, ...data.messages],
       }),
     });
 
     if (res.status === 429) return { error: "Rate limited. Give it a minute." as const };
     if (!res.ok) {
-      return { error: `The assistant call failed (${res.status}).` as const };
+      // Surface Groq's own error text rather than just the status code —
+      // a bare "(400)" was hiding "model decommissioned" behind a redeploy
+      // guessing game.
+      const detail = await res.text().catch(() => "");
+      return {
+        error:
+          `The assistant call failed (${res.status}). ${detail.slice(0, 300)}`.trim() as string,
+      };
     }
 
     const json = (await res.json()) as {
