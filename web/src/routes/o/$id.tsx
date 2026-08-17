@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { AppShell } from "@/components/AppShell";
+import { CountdownClock } from "@/components/CountdownClock";
 import { OrgLogo } from "@/components/OrgLogo";
 import { participationBadge } from "@/lib/participation";
 import { useOpportunities, usePastOpportunities } from "@/lib/sonar-data";
@@ -102,6 +103,10 @@ function OpportunityDetail() {
             label="days left"
             value={d === null ? "—" : d < 0 ? "closed" : String(d)}
             color={severityToken[sev]}
+            extra={
+              d !== null &&
+              d >= 0 && <CountdownClock date={o.next_date} color={severityToken[sev]} />
+            }
           />
           <Stat
             label="next date"
@@ -160,13 +165,24 @@ function OpportunityDetail() {
   );
 }
 
-function Stat({ label, value, color }: { label: string; value: string; color?: string }) {
+function Stat({
+  label,
+  value,
+  color,
+  extra,
+}: {
+  label: string;
+  value: string;
+  color?: string;
+  extra?: React.ReactNode;
+}) {
   return (
     <div className="bg-paper p-5">
       <div className="label-caps">{label}</div>
       <div className="numeral mt-1 text-xl" style={color ? { color } : undefined}>
         {value}
       </div>
+      {extra}
     </div>
   );
 }

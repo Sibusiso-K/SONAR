@@ -1,5 +1,6 @@
 import { Star } from "lucide-react";
 import { Link } from "@tanstack/react-router";
+import { CountdownClock } from "@/components/CountdownClock";
 import { OrgLogo } from "@/components/OrgLogo";
 import { WinRing } from "@/components/WinRing";
 import {
@@ -127,6 +128,7 @@ export function OpportunityRow({
           <div className="label-caps mt-1">
             {d === null ? "unscheduled" : d < 0 ? "closed" : d === 1 ? "day left" : "days left"}
           </div>
+          {d !== null && d >= 0 && <CountdownClock date={o.next_date} color={severityToken[sev]} />}
         </div>
 
         <div className="flex items-center gap-3">
