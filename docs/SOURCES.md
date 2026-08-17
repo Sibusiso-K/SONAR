@@ -20,6 +20,9 @@ Researched **10 August 2026**. Anything marked *unconfirmed* has no 2026 primary
 | Geekulcha 2026 events listing (SS26Hack Kimberley 22 May; Top 15 Young Geeks 1 June) | [geekulcha.dev/events](https://www.geekulcha.dev/events) |
 | Geekulcha annual hackathon format, free entry, donation-based admission, mentor match-making — *link updated 14 Aug 2026: the `hackathon.` subdomain no longer resolves in DNS* | [gklink.co](https://gklink.co/) *(was `hackathon.gklink.co`, now dead)* |
 | MICT SETA National Skills Challenge 2026: UWC 27–28 March, Rosebank finale 30–31 March, R200,000 pool | [hackathon.mict.org.za](https://hackathon.mict.org.za/) |
+| SME Toolkit SA Business Plan Competition 2026 (17th annual): launches 16 June, Phase 1 (workshop) closes 31 Aug, business plan due 30 Nov, 10 finalists to interviews; ages 18–35; R100,000 to the national winner (R50k cash + R50k mentorship voucher); workshops in Johannesburg, Pretoria, Soweto, Durban, Cape Town + conditional regions | [smetoolkit.co.za/business-plan-competition-2026](https://www.smetoolkit.co.za/business-plan-competition-2026) |
+| W3Node Conference & Hackathon 2026: 12–14 Nov, Cape Town, free entry, travel grants (airfare/accommodation/meals) for some winners; "Ideal for Students, Developers, and Founding Teams" — no hackathon cash prize figure disclosed | [w3node.io](https://w3node.io/) |
+| AI Infra Summit Hackathon 2026: on-site 15–16 Sept, Santa Clara CA, invitation-only, travel not covered; online track "open to apply," subject to lablab.ai approval, 2,000+ remote builders cited; every project built inside a partner-led Challenge Track; no prize figure given beyond "shared rewards pool" | [ai-infra-summit.com/ai-infra-hackathon](https://www.ai-infra-summit.com/ai-infra-hackathon) |
 
 ---
 
@@ -52,6 +55,40 @@ Researched **10 August 2026**. Anything marked *unconfirmed* has no 2026 primary
 | Entelect University Cup: prior edition 13 April 2024, teams of 2–3, optimisation problem | [Entelect LinkedIn](https://www.linkedin.com/posts/entelect_join-us-for-the-1st-university-cup-of-the-activity-7181586647635869696-iIZH) |
 | Zindi: rolling challenges, typical $5,000–$10,000 pools, jobs board, 100k+ members; 2026 Multilingual Health QA challenge ~$5,000 | [Zindi competitions](https://zindi.world/competitions) · [Zindi jobs](https://zindi.world/jobs) · [MSME Africa](https://msmeafricaonline.com/call-for-applications-multilingual-ai-for-health-in-african-languages-2026-build-ai-systems-for-african-languages-and-win-up-to-5000/) |
 | Geekulcha GKHack23: 29 Sept – 1 Oct 2023 | [Geekulcha story](https://geekulcha.com/gkhack23-where-the-geeks-give-a-helping-hand/) |
+
+---
+
+## Discovery sweep — 17 August 2026
+
+Local priority, international welcome, per the standing weekly-review rhythm
+(`docs/TEAM.md`). ~25 searches and direct fetches, Tier A/B style per
+`docs/AUTONOMY.md` §4 (SA/Africa press, Devpost, org watchlist) done by hand
+rather than the not-yet-built pipeline. **3 added, everything else checked
+and rejected with a reason** — nothing silently dropped.
+
+**Added:** SME Toolkit SA Business Plan Competition, W3Node Conference &
+Hackathon, AI Infra Summit Hackathon — see the primary-sources table above.
+
+**Checked, real, but already past their 2026 deadline or event date by 17
+August:**
+
+| Event | What happened |
+|---|---|
+| Nedbank Data Masters Challenge 2026 | Finale was 9 May 2026. Also targets senior data practitioners, not the team's situation — low priority even for a 2027 watch. |
+| Deep Learning Indaba 2026 | Main event, Lagos, ran 2–7 Aug 2026 — 10 days before this sweep. Squarely the team's specialty (AI/ML); worth a hard diary entry for 2027 so this isn't a repeat of the Gradhack near-miss. |
+| Deep Learning IndabaX South Africa 2026 | UKZN, 6–10 July 2026. Same lesson — an SA-hosted, annually-recurring AI event that wasn't on the radar. |
+| Hack-Nation Global AI Hackathon 2026 | Two 2026 cycles found (25–26 Apr, 18–19 Jul), both already closed by the time of this sweep. |
+| Microsoft AI Dev Days Hackathon | Registration Jan–Feb, hackathon Feb–Mar, winners announced 25 Mar 2026 — entirely in the past. |
+
+**Checked, real, but rejected on sourcing or fit — not added:**
+
+| Event | Why not |
+|---|---|
+| AfriHack 2026 | Real programme (Empiras Global, 3rd annual), but no primary source gives actual 2026 dates. Every lead traced to a secondary aggregator or to a differently-named past event ("AfriHack Connect," 2024/2025 editions). Would be adding a date without a source — against Ground Rule 2. |
+| CyberSecureTech Hackathon | CSIR/Eskom/University of Venda-backed, genuinely promising given the org fit. But the 2026 edition is described as "envisaged," not scheduled — no date exists yet to add. |
+| WeThinkCode x Base "Vibe Coding Hackathon" | An aggregator called this 2026; the event's own Luma page states **"Saturday, 06 September 2025"** in the text itself. Trusting the primary page over the secondary summary, per the same rule that governs every other conflict here — this already happened, over a year ago. |
+| IBM Bob 2.0 Hackathon (lablab.ai) | Two mutually exclusive date claims surfaced: one source says 30 Apr – 3 May 2026 (already past, and a recap/guide PDF exists confirming it happened), another says 25–27 Sept 2026. The lablab.ai page itself 403'd on a direct fetch, so neither claim could be verified against a primary quote. Not added rather than guessing which one is real. |
+| Hack the North 2026 | Real, 18–20 Sept, Canada. Student-only, application-based, and one source suggests applications had already closed by the time of this sweep. Heavy visa/travel friction for a South African team even if open. |
 
 ---
 

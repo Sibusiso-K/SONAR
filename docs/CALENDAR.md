@@ -26,6 +26,7 @@ Importable file: [`../calendar/sonar-2026.ics`](../calendar/sonar-2026.ics)
 | Thu 27 | 16:00–20:30 | **IBM Dev Day: Bob in Action** — enablement 16:00, tracks 17:00 | event |
 | Fri 28 – Sun 30 | all day | **IBM Dev Day Hackathon** — top 50 teams win TechXchange passes | event |
 | **Sun 30** | all day | **DEADLINE — Mintek one-page abstract** · also send per-member ID, T-shirt size, contacts, mentor | deadline |
+| **Mon 31** | all day | **DEADLINE — SME Toolkit SA Business Plan Competition, Phase 1** (workshop registration) — R100,000 to the national winner, business plan itself due 30 Nov | deadline |
 
 ---
 
@@ -38,6 +39,7 @@ Importable file: [`../calendar/sonar-2026.ics`](../calendar/sonar-2026.ics)
 | Sat 12 – Sun 13 | 09:00–17:00 | Shipaton build sprint — monetisation + polish | prep |
 | Sun 13 | all day | BCG Platinion — stated deadline (backstop only) | deadline |
 | Wed 16 | all day | **Shipaton: submit app to App Store / Play Store** — review buffer | deadline |
+| Tue 15 – Wed 16 | — | AI Infra Summit Hackathon, Santa Clara CA *(on-site invitation-only; online track separate, no on-site travel planned)* | event |
 | Thu 17 – Sat 19 | all day | **SITA GovTech 2026 Hackathon — Durban ICC, in person.** Submitted; entity registered | event |
 | Wed 23 | all day | GovTech winners announced (Awards Ceremony — separate from the hackathon) | reward |
 | **Wed 30** | all day | **DEADLINE — RevenueCat Shipaton ($700k+)** · hard cutoff 1 Oct 08:45 SAST | deadline |
@@ -65,6 +67,7 @@ Importable file: [`../calendar/sonar-2026.ics`](../calendar/sonar-2026.ics)
 
 | Date | What | Type |
 |---|---|---|
+| Thu 12 – Sat 14 Nov | W3Node Conference & Hackathon, Cape Town *(free entry; Web3-focused, not the team's stack)* | event |
 | Sat 14 – Sun 15 Nov | NASA International Space Apps Challenge | event |
 | Thu 26 – Sat 28 Nov | UNESCO Voices Festival, Thessaloniki *(only if we win)* | reward |
 | Sun 29 Nov – Thu 3 Dec | RSNA 2026 Annual Meeting, Chicago — winners recognised | reward |
@@ -82,6 +85,8 @@ Importable file: [`../calendar/sonar-2026.ics`](../calendar/sonar-2026.ics)
 | **Shipaton (runs to 30 Sept) vs everything in September** | Shipaton is the September background task. Treat the weekend sprints as immovable. |
 | **Shipaton hard cutoff (1 Oct 08:45 SAST) vs Mintek final hacking day (1 Oct, report from 08:00 at Randburg)** | These are the same 45 minutes, in a car or at Mintek. **Submit Shipaton on 29 September at the latest** — do not let it ride to the real cutoff. Mintek is in-person and mandatory; Shipaton is not. |
 | **Mintek build (Sept) vs Shipaton build (Sept) vs GovTech (17–19 Sept, in person)** | Three September commitments, all now submitted/entered — GovTech is no longer the free drop it was when eligibility was unresolved; an entity is registered and a team is fielded. If capacity genuinely runs out, this needs a real decision in a PR (Standing Agreement 8), not a quiet skip. |
+| **SME Toolkit Phase 1 (31 Aug) lands the same week as ADTC's report/video sprint and right after Mintek's abstract (30 Aug)** | Three deadlines in six days. SME Toolkit Phase 1 is just workshop registration, not the business plan itself — low effort to keep alive, real effort (the business plan) doesn't land until 30 Nov. Don't let it steal hours from ADTC or Mintek this week. |
+| **W3Node (12–14 Nov, Cape Town) vs NASA Space Apps (14–15 Nov)** | Both Tier 3, both new/opportunistic. W3Node ends the same day NASA starts — physically impossible to do both in person. Neither is a priority; pick one only if capacity allows, per Standing Agreement 1. |
 
 ---
 

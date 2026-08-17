@@ -154,4 +154,4 @@ Every date carries a `confidence` field:
 
 ---
 
-*Last full refresh: 10 August 2026. Mintek selection applied 14 August 2026. Next review: 17 August 2026.*
+*Last full refresh: 10 August 2026. Mintek selection applied 14 August 2026. Weekly discovery sweep 17 August 2026 — 3 new entries. Next review: 24 August 2026.*
