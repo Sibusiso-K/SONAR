@@ -9,6 +9,14 @@
   },
   "updates": [
     {
+      "at": "2026-08-17T09:15:00+02:00",
+      "kind": "verified",
+      "target": "govtech-2026",
+      "title": "SITA GovTech 2026 — EME entity registered, eligibility blocker cleared",
+      "body": "Reported first-hand: the EME/SMME entity registration required by T&Cs 2.1 is done. Combined with the team now being three (2.2), both halves of the blocker recorded on 10 Aug are cleared. Entity name and registration date are not supplied and are NOT recorded here — fill in when to hand rather than guessed. Also: read the full T&Cs PDF for the first time (govtech.gov.za/wp-content/uploads/2026/07/GovTech-2026-Hackathon-Terms-and-Condition.pdf) rather than relying on the earlier summary. Upgrades dates.confidence reported -> confirmed, since the 17-19 Sept dates are now read directly off the primary source (T&Cs 2.3), not a secondary one. New facts captured: winners announced 23 Sept at an Awards Ceremony, distinct from the event itself; only one team per company may register (1.2) — worth checking the registered entity hasn't fielded another team; prize money (if any is won) is taxable and paid 30 days after the event; SITA takes an irrevocable worldwide license over Hackathon Outputs, though pre-existing 'Background IP' stays ours if flagged before or at time of use — worth doing explicitly given REEFPRINT-style reuse across entries.",
+      "by": "Sibusiso K"
+    },
+    {
       "at": "2026-08-17T09:30:00+02:00",
       "kind": "changed",
       "target": "govtech-2026",

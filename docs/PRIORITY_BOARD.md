@@ -14,7 +14,7 @@ Generated 10 August 2026 · updated 14 August 2026 (Mintek selection letter). We
 | 4 | IBM Dev Day: Bob in Action | 1 | **7.35** | Intl | $2,000 + TechXchange trip | Event **27–30 Aug** | Open |
 | 5 | RevenueCat Shipaton 2026 | 2 | 6.8 | Intl | **$700,000+** | Submit **30 Sep** | Open |
 | 6 | FNB App of the Year Hackathon | 2 | 6.45 | Local | TBA | ~late Oct | Monitor |
-| 7 | SITA GovTech 2026 Hackathon | 2 | 6.45 | Local | TBA | **17–19 Sep** | Open (eligibility risk) |
+| 7 | SITA GovTech 2026 Hackathon | 2 | 6.45 | Local | TBA | **17–19 Sep** | **Submitted** (entity registered) |
 | 8 | RSNA Knee Abnormality Detection (Kaggle) | 2 | 6.2 | Intl | **$77,000** | Entry **15 Oct** | Open |
 | 9 | MTN MoMo Mini App Hackathon | 2 | 6.2 | Continental | ~$10,000 SA | TBA | **Submitted** (3 ideas) |
 | 10 | IBM Z Datathon 2026 | 2 | 6.2 | Intl | **$50,000+** | Reg **1 Oct** · Event 17–18 Oct | Open |
@@ -94,7 +94,7 @@ Half the score is **not** model quality. Throughput is measured against a 15 tok
 
 **FNB App of the Year (6.45)** — the **problem statements are already published** on the site even though registration isn't open. You can pre-build. Five themes: jobs & economic resilience, infrastructure & essential services, inequality & social cohesion, climate resilience & food security, public safety & GBV. 10,000+ competitors hurts the odds badly, but FNB recruits from it and there's a second bite via the December awards. Monitor weekly from 1 September.
 
-**SITA GovTech (6.45)** — 17–19 September, Durban ICC or remote. **Eligibility blocker:** open to SMMEs in the EME category registered in South Africa, teams of 3–5. You are two people. [Read the T&Cs PDF](https://www.govtech.gov.za/wp-content/uploads/2026/07/GovTech-2026-Hackathon-Terms-and-Condition.pdf) this week and decide — if it genuinely needs a registered entity and three more bodies, drop it rather than scrambling.
+**SITA GovTech (6.45)** — **submitted, in-person at Durban ICC, 17–19 September.** The eligibility blocker this section used to warn about is cleared: the team is now three (T&Cs 2.2 needs 3–5), and an EME/SMME entity is registered (2.1). Entity name and registration date aren't recorded on the board yet — worth filling in. Two things from the T&Cs worth knowing going in: only one team per company may register (1.2) — confirm the entity isn't fielding a second team anywhere — and winners are announced 23 September at a separate Awards Ceremony, not at the hackathon itself. Prize money, if any, is taxable and paid 30 days out; pilot-phase funding for a winning solution is at SITA's discretion and asks for three full days a week during delivery.
 
 **RSNA Knee / Kaggle (6.2)** — $77,000 and the hardest field here; global Kaggle grandmasters compete in RSNA challenges. **But** 2026 adds prizes for the *most efficient models* — the exact same skill you build for ADTC. Do ADTC first, then reuse the quantisation and profiling work here. Entry deadline 15 Oct, final submission 22 Oct. Treat as a stretch, not a primary.
 
@@ -135,9 +135,11 @@ Two people. Be honest about capacity.
 - **Sat 30:** **Mintek one-page abstract due.** Also send Mintek the per-member details (ID, T-shirt size, contacts, mentor — or request one).
 
 ### September — consolidate
-- Week 1: BCG application in before the 7th. Decide GovTech in or out.
+- Week 1: BCG application in before the 7th.
 - Weeks 2–4: Shipaton build. One app, shipped, deadline 30 Sept — and remember app-store review eats a week.
 - **Throughout: Mintek REEFPRINT build.** The letter says start immediately; September is the build month, and the 1 Oct final day is the last chance to touch it.
+- **17–19 Sept: GovTech Hackathon, Durban ICC, in person.** Submitted, entity cleared.
+- **23 Sept: GovTech winners announced**, separately from the event.
 - Register for the Mintek SCI Conference (2 Oct) — separate registration, do it early.
 - Monitor: FNB registration, Geekulcha, Huawei, Zindi.
 
@@ -162,7 +164,8 @@ Two people. Be honest about capacity.
 | Mintek abstract (30 Aug) lands six days after ADTC submits | Sequential, not overlapping — but write it during the ADTC report week, not the weekend before. |
 | Mintek final day (1 Oct) is in person at Randburg, submission closes 13:00 | Not a full day of build time. Travel and setup come out of the morning; treat 13:00 as the deadline it is. |
 | Mintek SCI Conference (2 Oct) needs separate registration | Register when the per-member details go back to Mintek, not in late September. |
-| GovTech needs a registered EME + 3–5 people | Read the T&Cs before investing anything. Drop early if it doesn't fit. |
+| GovTech is one team per company (T&Cs 1.2) | Confirm the registered entity isn't fielding a second team anywhere else before the event. |
+| GovTech (17–19 Sept) is in-person Durban, same month as the Shipaton sprints | Not overlapping on dates, but both are September builds now — watch total capacity across the month, not just the calendar. |
 | Shipaton app stuck in store review | Submit to the stores by mid-September, not 29 September. |
 | BCG banner date (7 Sep) vs body text (13 Sep) | Apply by 24 August and the conflict is irrelevant. |
 | Huawei / Entelect / IBM Z need student status | Confirm your enrolment status now; it changes which events are even reachable. |

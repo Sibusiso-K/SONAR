@@ -167,10 +167,10 @@
       "tier": 2,
       "score": 6.45,
       "scores": { "career_leverage": 7, "winnability": 6, "prize": 5, "urgency": 8 },
-      "dates": { "event_start": "2026-09-17", "event_end": "2026-09-19", "confidence": "reported" },
-      "prize": { "currency": "ZAR", "pool": null, "non_cash": "Route into government/SITA procurement visibility" },
-      "eligibility": "BLOCKER: open to SMMEs in the EME category registered in South Africa. Teams of 3–5 members.",
-      "team_fit": "Needs a 3rd (and possibly 4th/5th) member AND a registered entity. Check whether an individual/student route exists.",
+      "dates": { "event_start": "2026-09-17", "event_end": "2026-09-19", "winners_announced": "2026-09-23", "confidence": "confirmed" },
+      "prize": { "currency": "ZAR", "pool": null, "non_cash": "Route into government/SITA procurement visibility; possible pilot-phase funding for winning solution(s), subject to SITA's discretion" },
+      "eligibility": "Open to SMMEs in the EME category registered in the Republic of South Africa (T&Cs 2.1). Teams of 3–5 members (2.2). Not open to SITA permanent or FTC employees (2.5). Only one team per company may register (1.2).",
+      "team_fit": "CLEARED — team is now three, satisfying 2.2, and an EME entity is registered, satisfying 2.1. Entity name and registration date not yet recorded here; add when to hand. Confirm the entity hasn't already fielded a team elsewhere under 1.2 (one team per company).",
       "what_to_build": "Public-sector digital service problems (see official terms PDF).",
       "deliverables": ["Per official terms and conditions"],
       "links": {
@@ -178,7 +178,7 @@
         "terms": "https://www.govtech.gov.za/wp-content/uploads/2026/07/GovTech-2026-Hackathon-Terms-and-Condition.pdf",
         "sita": "https://www.sita.co.za/content/hackathon-0"
       },
-      "notes": "SUBMITTED 17 Aug 2026. Team opted for the in-person track at Durban ICC rather than remote."
+      "notes": "SUBMITTED 17 Aug 2026. Team opted for the in-person track at Durban ICC rather than remote. Entity registration for the EME/SMME eligibility requirement is done as of 17 Aug 2026 — the specific entity name and registration date are not recorded here yet. T&Cs read in full 17 Aug 2026: winners announced 23 Sept at an Awards Ceremony (not at the event itself); prize money paid 30 days after the event, and is taxable income, tax being the team's own responsibility; a winning solution's pilot funding is subject to SITA's discretion and requires 3 full days/week availability during the delivery process; SITA takes an irrevocable worldwide license over submitted Hackathon Outputs (pre-existing 'Background IP' stays yours if flagged before/at time of use)."
     },
     {
       "id": "rsna-knee-2026",
