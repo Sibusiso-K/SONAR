@@ -955,6 +955,169 @@
       "stages": [],
       "evidence": [],
       "history": []
+    },
+    {
+      "id": "w3node-hackathon-2026",
+      "noticed_on": "2026-08-17",
+      "went_live_on": null,
+      "source": "manual research",
+      "name": "W3Node Conference & Hackathon 2026",
+      "organiser": "W3Node",
+      "scope": "continental",
+      "format": "in-person",
+      "location": "Cape Town, South Africa",
+      "status": "open",
+      "tier": 3,
+      "score": 4.6,
+      "scores": {
+        "career_leverage": 5,
+        "winnability": 5,
+        "prize": 3,
+        "urgency": 5
+      },
+      "dates": {
+        "event_start": "2026-11-12",
+        "event_end": "2026-11-14",
+        "confidence": "confirmed"
+      },
+      "prize": {
+        "currency": "N/A",
+        "pool": null,
+        "non_cash": "Hackathon prizes (amount not disclosed); Travel Grant winners get airfare, accommodation and meals covered"
+      },
+      "eligibility": "\"Ideal for Students, Developers, and Founding Teams.\" Free to apply. No nationality restriction found.",
+      "team_fit": "Untested fit — the team's specialty is multi-agent AI/on-device ML, not Web3/blockchain, and W3Node markets itself as a Web3 developer conference (\"Africa's ultimate Web3 developer conference and hackathon\"). Worth a look for the VC/founder networking angle and the free travel grant, not for stack overlap.",
+      "what_to_build": "Not stated in what was fetched — check the live event page closer to the date for challenge tracks.",
+      "deliverables": [
+        "Hackathon submission (format not yet published)"
+      ],
+      "links": {
+        "main": "https://w3node.io/"
+      },
+      "notes": "Found in the 17 Aug 2026 weekly discovery sweep. Primary source (w3node.io) confirms Nov 12–14 2026, Cape Town — a secondary aggregator (coinpedia.org) claimed 22–24 Jan 2026, which the organiser's own page contradicts; going with the organiser per the board's own tie-break rule. No cash prize figure found for the hackathon track specifically; only travel grants are quantified (airfare/accommodation/meals). Re-verify closer to the date — Nov is far out and this is a first-time discovery, not yet corroborated by a second source.",
+      "kind": "hackathon",
+      "career_track": "adjacent",
+      "next_date": "2026-11-12",
+      "next_date_label": "event start",
+      "confidence": "confirmed",
+      "lifecycle": "scored",
+      "tracks": [],
+      "challenges": [],
+      "stages": [],
+      "evidence": [],
+      "history": []
+    },
+    {
+      "id": "sme-toolkit-business-plan-2026",
+      "noticed_on": "2026-08-17",
+      "went_live_on": null,
+      "source": "manual research",
+      "name": "17th Annual SME Toolkit SA Business Plan Competition 2026",
+      "organiser": "Business Partners Limited / SME Toolkit South Africa",
+      "scope": "local",
+      "format": "hybrid",
+      "location": "Phase 1 workshops in-person: Johannesburg, Pretoria, Soweto, Durban, Cape Town (+ conditional: Polokwane, Nelspruit, Bloemfontein, Kimberley, Port Elizabeth, East London); business plan submission and judging online",
+      "status": "open",
+      "tier": 3,
+      "score": 5.75,
+      "scores": {
+        "career_leverage": 6,
+        "winnability": 5,
+        "prize": 4,
+        "urgency": 9
+      },
+      "dates": {
+        "registration_deadline": "2026-08-31",
+        "registration_deadline_label": "Phase 1 workshop registration closes",
+        "final_submission": "2026-11-30",
+        "final_submission_label": "complete business plan due; 10 finalists advance to interviews",
+        "confidence": "confirmed"
+      },
+      "prize": {
+        "currency": "ZAR",
+        "pool": 100000,
+        "breakdown": {
+          "national_winner": "R50,000 cash + R50,000 mentorship voucher"
+        },
+        "non_cash": "1st and 2nd runner-up prizes also awarded, amounts not stated"
+      },
+      "eligibility": "\"Young and aspiring business owners between the ages of 18 and 35.\" No nationality restriction stated. Free to enter.",
+      "team_fit": "A different kind of entry from everything else on the board — this is a written business plan, not a build, and Phase 1 (workshop attendance) closes in 14 days. Genuinely fits the team's REEFPRINT/KHANYA/Stokup track record if framed as a business plan around one of them, but check for a real capacity clash: Mintek's abstract is also due 30 Aug, and ADTC submits 24 Aug.",
+      "what_to_build": "A complete business plan, developed through mandatory Phase-1 workshops covering marketing, cash flow and business-model design, then judged with 10 finalists advancing to interviews.",
+      "deliverables": [
+        "Phase 1: attend a workshop, by 31 Aug 2026",
+        "Phase 2: complete business plan, by 30 Nov 2026",
+        "Phase 3: finalist interviews, then awards ceremony"
+      ],
+      "links": {
+        "main": "https://www.smetoolkit.co.za/business-plan-competition-2026"
+      },
+      "notes": "Found in the 17 Aug 2026 weekly discovery sweep. Verified directly against the primary org page (smetoolkit.co.za), not an aggregator. Three real phases, not one deadline: Phase 1 workshop registration closes 31 Aug 2026 (14 days out) — miss this and the rest doesn't matter. Phase 2 is the actual business plan, due 30 Nov, with 10 finalists advancing to interviews before a national awards ceremony. R100,000 to the national winner (R50k cash + R50k mentorship voucher), unspecified runner-up prizes. This is the 17th annual running — a real, established, recurring SA programme, not a one-off. One secondary source (not the primary page) gave the awards ceremony as \"February 2026\", which cannot be right given entries close in August and judging runs to November — deliberately not recorded as a date field rather than repeating a source's own arithmetic error.",
+      "kind": "challenge",
+      "career_track": "adjacent",
+      "next_date": "2026-08-31",
+      "next_date_label": "registration deadline (Phase 1 workshop)",
+      "confidence": "confirmed",
+      "lifecycle": "scored",
+      "tracks": [],
+      "challenges": [],
+      "stages": [],
+      "evidence": [],
+      "history": []
+    },
+    {
+      "id": "ai-infra-summit-hackathon-2026",
+      "noticed_on": "2026-08-17",
+      "went_live_on": null,
+      "source": "manual research",
+      "name": "AI Infra Summit Hackathon 2026",
+      "organiser": "Kisaco Research + lablab.ai, co-located with AI Infra Summit",
+      "scope": "international",
+      "format": "hybrid",
+      "location": "On-site: Santa Clara Convention Center, CA, USA. Online build track open globally, 2,000+ remote builders per the organiser's own figure.",
+      "status": "open",
+      "tier": 3,
+      "score": 4.25,
+      "scores": {
+        "career_leverage": 4,
+        "winnability": 4,
+        "prize": 3,
+        "urgency": 7
+      },
+      "dates": {
+        "event_start": "2026-09-15",
+        "event_start_label": "on-site hackathon (invitation-only; online track separate)",
+        "event_end": "2026-09-16",
+        "online_build_note": "Secondary sources (Eventbrite, lablab.ai listing) state an online build window of 10–16 Sept 2026; the organiser's own page, fetched directly, gave only the 15–16 Sept on-site dates and did not state an online start date — treat 10 Sept as unconfirmed until read directly off ai-infra-summit.com or lablab.ai",
+        "confidence": "reported"
+      },
+      "prize": {
+        "currency": "N/A",
+        "pool": null,
+        "non_cash": "\"Shared rewards pool\" mentioned on the organiser page with no dollar figure given — do not assume a number"
+      },
+      "eligibility": "Online track: \"apply to join... all applications are subject to approval by LabLab.ai.\" On-site: \"by invitation only,\" and \"travel and accommodation expenses will not be covered\" even if invited.",
+      "team_fit": "Every project is built \"inside a partner-led Challenge Track — you pick a track, you get the technology behind it\" — so entering means committing to one sponsor's stack sight-unseen rather than the team's own tools. Realistic path is the online track only; on-site is invitation-only and self-funded travel to California, which is not a realistic ask for this team.",
+      "what_to_build": "Depends on the partner-led Challenge Track chosen; not yet published in what was fetched.",
+      "deliverables": [
+        "Application via LabLab.ai, subject to approval",
+        "Project inside a chosen partner Challenge Track"
+      ],
+      "links": {
+        "main": "https://www.ai-infra-summit.com/ai-infra-hackathon"
+      },
+      "notes": "Found in the 17 Aug 2026 weekly discovery sweep. Prize amount deliberately NOT recorded as a number — the organiser's own page only says \"shared rewards pool\" with no figure, and no other source gave one either. Scored conservatively (prize sub-score 3) for exactly that reason. On-site dates are confirmed directly off the organiser's page; the online build start date is not, and is flagged as such in dates.online_build_note rather than guessed.",
+      "kind": "hackathon",
+      "career_track": "adjacent",
+      "next_date": "2026-09-15",
+      "next_date_label": "event start (on-site; invitation-only)",
+      "confidence": "reported",
+      "lifecycle": "scored",
+      "tracks": [],
+      "challenges": [],
+      "stages": [],
+      "evidence": [],
+      "history": []
     }
   ],
   "past": [

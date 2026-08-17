@@ -10,7 +10,7 @@ Generated 10 August 2026 · updated 14 August 2026 (Mintek selection letter). We
 |---|---|---|---|---|---|---|---|
 | 1 | Mintek-SCi Grad Hackathon | 1 | **8.2** | Local | **R50,000** + vacation work | Abstract **30 Aug** · Final 1 Oct | **SELECTED** |
 | 2 | BCG Platinion Hackathon — Fighting World Hunger | 1 | **7.9** | Intl (JHB hub) | Travel paid + prizes | Apply **7 Sep** · Event 16–17 Oct | Open |
-| 3 | Africa Deep Tech Challenge — Laptop LLM | 1 | **7.65** | Continental | **$16,500** | Submit **24 Aug** | Open |
+| 3 | Africa Deep Tech Challenge — Laptop LLM | 1 | **7.65** | Continental | **$16,500** | Submit **24 Aug** | **Not competing** (decided 16 Aug) |
 | 4 | IBM Dev Day: Bob in Action | 1 | **7.35** | Intl | $2,000 + TechXchange trip | Event **27–30 Aug** | Open |
 | 5 | RevenueCat Shipaton 2026 | 2 | 6.8 | Intl | **$700,000+** | Submit **30 Sep** | Open |
 | 6 | FNB App of the Year Hackathon | 2 | 6.45 | Local | TBA | ~late Oct | Monitor |
@@ -19,11 +19,14 @@ Generated 10 August 2026 · updated 14 August 2026 (Mintek selection letter). We
 | 9 | MTN MoMo Mini App Hackathon | 2 | 6.2 | Continental | ~$10,000 SA | TBA | **Submitted** (3 ideas) |
 | 10 | IBM Z Datathon 2026 | 2 | 6.2 | Intl | **$50,000+** | Reg **1 Oct** · Event 17–18 Oct | Open |
 | 11 | UNESCO Youth Hackathon | 3 | 5.85 | Intl | Trip to Greece | Submit **16 Aug** | **Closing** |
-| 12 | Zindi Challenges | 3 | 5.7 | Continental | ~$5–10k each | Rolling | Weekly check |
-| 13 | Geekulcha Annual (#GKHack26) | 3 | 5.45 | Local | TBA | ~Sep–Oct | Monitor |
-| 14 | Huawei ICT Competition 26–27 | 3 | 5.4 | Intl | Cert + China trip | Reg ~Sep–Nov | Monitor (student-only) |
-| 15 | Entelect University Cup | 3 | 5.35 | Local | Small | ~Q1 2027 | Monitor |
-| 16 | NASA Space Apps Challenge | 3 | 4.3 | Intl | No cash | **14–15 Nov** | Open |
+| 12 | SME Toolkit SA Business Plan Competition | 3 | 5.75 | Local | **R100,000** | Phase 1 **31 Aug** | **New find** — 14 days out |
+| 13 | Zindi Challenges | 3 | 5.7 | Continental | ~$5–10k each | Rolling | Weekly check |
+| 14 | Geekulcha Annual (#GKHack26) | 3 | 5.45 | Local | TBA | ~Sep–Oct | Monitor |
+| 15 | Huawei ICT Competition 26–27 | 3 | 5.4 | Intl | Cert + China trip | Reg ~Sep–Nov | Monitor (student-only) |
+| 16 | Entelect University Cup | 3 | 5.35 | Local | Small | ~Q1 2027 | Monitor |
+| 17 | W3Node Conference & Hackathon | 3 | 4.6 | Continental | Non-cash | **12–14 Nov** | **New find** |
+| 18 | NASA Space Apps Challenge | 3 | 4.3 | Intl | No cash | **14–15 Nov** | Open |
+| 19 | AI Infra Summit Hackathon | 3 | 4.25 | Intl | Unstated | Event **15–16 Sep** | **New find** — online track only |
 
 ---
 
@@ -117,6 +120,18 @@ Half the score is **not** model quality. Throughput is measured against a 15 tok
 **Entelect University Cup (5.35)** — 2026 cycle looks to have passed (prior edition April). Entelect is one of the strongest SA graduate software employers, so set a January 2027 reminder and follow them on LinkedIn. Also look at the separate Entelect Challenge.
 
 **NASA Space Apps (4.3)** — 14–15 November (moved from its usual early-October slot). Free, no cash, tens of thousands of competitors. Included because it lands after the October crunch and a Global Award is a distinctive CV line.
+
+---
+
+### New finds — 17 August 2026 weekly sweep
+
+**SME Toolkit SA Business Plan Competition (5.75)** — a different shape of entry: a written business plan, not a build. The 17th annual running of an established SA programme, open to 18–35-year-olds, free to enter. **Phase 1 (workshop registration) closes 31 August — 14 days out.** R100,000 to the national winner (R50k cash + R50k mentorship voucher). REEFPRINT, KHANYA or Stokup could all anchor a plan. **Real capacity risk:** Mintek's abstract is also due 30 Aug and ADTC submits 24 Aug — check this doesn't quietly eat the same week before committing.
+
+**W3Node Conference & Hackathon (4.6)** — Cape Town, 12–14 November, free entry, travel grants for some winners. Markets itself as a Web3/blockchain developer conference, which doesn't overlap the team's stack — the case for entering is the founder/VC networking, not a natural build. Not corroborated by a second source yet; re-verify closer to the date.
+
+**AI Infra Summit Hackathon (4.25)** — Santa Clara, CA, on-site 15–16 September, invitation-only and self-funded if invited. The realistic path is the **online track** (2,000+ remote builders), open to apply via lablab.ai. Every project runs inside a sponsor's own Challenge Track, so entering means picking up an unfamiliar stack for the weekend. No prize figure disclosed anywhere — organiser page says "shared rewards pool" with no number, scored conservatively for exactly that reason.
+
+**Checked and rejected, for the record:** AfriHack 2026 (real programme, but no primary source gives actual 2026 dates — every lead traced back to secondary aggregators or a differently-named past event, "AfriHack Connect"); CyberSecureTech Hackathon (CSIR/Eskom-backed, genuinely promising, but the 2026 edition has no dates yet — "envisaged," not scheduled); WeThinkCode x Base hackathon (the event page itself says **2025**, not 2026 — an aggregator got the year wrong); Nedbank Data Masters Challenge, Deep Learning Indaba, IndabaX South Africa, Hack-Nation Global AI Hackathon, Microsoft AI Dev Days Hackathon, Hack the North — all real, all already past their 2026 deadline or event date by the time of this sweep. A second "IBM Bob 2.0" hackathon on lablab.ai turned up with two different, mutually exclusive date claims (April 2026, already past, vs. an unverifiable September 2026) — not added; needs a direct look at lablab.ai rather than trusting either secondary claim.
 
 ---
 

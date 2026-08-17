@@ -9,6 +9,14 @@
   },
   "updates": [
     {
+      "at": "2026-08-17T11:20:00+02:00",
+      "kind": "added",
+      "target": null,
+      "title": "Weekly discovery sweep — 3 new opportunities added, local-priority",
+      "body": "Manual Tier A/B-style sweep (docs/AUTONOMY.md §4), local priority per instruction, international welcome. ~25 searches and direct fetches. 3 added, all Tier 3: sme-toolkit-business-plan-2026 (score 5.75, Phase 1 closes 31 Aug — 14 days out), w3node-hackathon-2026 (score 4.6, Cape Town, 12-14 Nov), ai-infra-summit-hackathon-2026 (score 4.25, Santa Clara CA, online track only). Full source citations in docs/SOURCES.md's new 'Discovery sweep' section, including everything checked and rejected with a reason — 5 real events already past their 2026 date (Nedbank Data Masters, Deep Learning Indaba + IndabaX SA, 2x Hack-Nation cycles, Microsoft AI Dev Days) and 5 rejected on sourcing/fit (AfriHack — no primary-sourced date; CyberSecureTech — 2026 edition not yet scheduled; WeThinkCode x Base — the event's OWN page says 2025, an aggregator got the year wrong; IBM Bob 2.0 on lablab.ai — two mutually exclusive dates, page 403'd on direct fetch, neither confirmed; Hack the North — student-only and likely already closed). Two housekeeping fixes made in the same pass: the new entries' date keys were renamed to match scripts/sonar.py's recognised DEADLINE_KEYS list (registration_deadline/final_submission/event_start) after the CLI silently failed to rank them under custom key names — caught by re-running `sonar.py next`/`list` after adding, not by inspection. And PRIORITY_BOARD.md's ADTC row still said 'Open' despite data/opportunities.json already marking it dropped (NOT COMPETING, decided 16 Aug, by another session) — fixed the one cell while already editing that table.",
+      "by": "Sibusiso K"
+    },
+    {
       "at": "2026-08-17T09:15:00+02:00",
       "kind": "verified",
       "target": "govtech-2026",
