@@ -219,6 +219,10 @@ def to_radar_opportunity(o):
         "source": o.get("source") or "manual research",
         "went_live_on": o.get("went_live_on"),
         "noticed_on": o.get("noticed_on"),
+        # The team's own participation state (registered/selected/submitted/
+        # dropped/...), distinct from confidence. web/src/lib/participation.ts
+        # collapses anything not in its map to "still to submit".
+        "status": o.get("status"),
         "archived": o.get("status") in ("past", "dropped"),
     }
 
