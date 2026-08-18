@@ -18,15 +18,15 @@ Generated 10 August 2026 · updated 14 August 2026 (Mintek selection letter). We
 | 8 | RSNA Knee Abnormality Detection (Kaggle) | 2 | 6.2 | Intl | **$77,000** | Entry **15 Oct** | Open |
 | 9 | MTN MoMo Mini App Hackathon | 2 | 6.2 | Continental | ~$10,000 SA | TBA | **Submitted** (3 ideas) |
 | 10 | IBM Z Datathon 2026 | 2 | 6.2 | Intl | **$50,000+** | Reg **1 Oct** · Event 17–18 Oct | Open |
-| 11 | UNESCO Youth Hackathon | 3 | 5.85 | Intl | Trip to Greece | Submit **16 Aug** | **Closing** |
-| 12 | SME Toolkit SA Business Plan Competition | 3 | 5.75 | Local | **R100,000** | Phase 1 **31 Aug** | **New find** — 14 days out |
-| 13 | Zindi Challenges | 3 | 5.7 | Continental | ~$5–10k each | Rolling | Weekly check |
-| 14 | Geekulcha Annual (#GKHack26) | 3 | 5.45 | Local | TBA | ~Sep–Oct | Monitor |
-| 15 | Huawei ICT Competition 26–27 | 3 | 5.4 | Intl | Cert + China trip | Reg ~Sep–Nov | Monitor (student-only) |
-| 16 | Entelect University Cup | 3 | 5.35 | Local | Small | ~Q1 2027 | Monitor |
-| 17 | W3Node Conference & Hackathon | 3 | 4.6 | Continental | Non-cash | **12–14 Nov** | **New find** |
+| 11 | UNESCO Youth Hackathon | 3 | 5.85 | Intl | Trip to Greece | Submitted **16 Aug** | **Submitted** |
+| 12 | Zindi Challenges | 3 | 5.7 | Continental | ~$5–10k each | Rolling | Weekly check |
+| 13 | Geekulcha Annual (#GKHack26) | 3 | 5.45 | Local | TBA | ~Sep–Oct | Monitor |
+| 14 | Huawei ICT Competition 26–27 | 3 | 5.4 | Intl | Cert + China trip | Reg ~Sep–Nov | Monitor (student-only) |
+| 15 | Entelect University Cup | 3 | 5.35 | Local | Small | ~Q1 2027 | Monitor |
+| 16 | SME Toolkit SA Business Plan Competition | 3 | 5.0 | Local | **R100,000** | Plan due **30 Nov** | **Submitted** — 2 individual entries |
+| 17 | W3Node Conference & Hackathon | 3 | 4.6 | Continental | Non-cash | **12–14 Nov** | New find |
 | 18 | NASA Space Apps Challenge | 3 | 4.3 | Intl | No cash | **14–15 Nov** | Open |
-| 19 | AI Infra Summit Hackathon | 3 | 4.25 | Intl | Unstated | Event **15–16 Sep** | **New find** — online track only |
+| 19 | AI Infra Summit Hackathon | 3 | 4.25 | Intl | Unstated | Event **15–16 Sep** | New find — online track only |
 
 ---
 
@@ -125,7 +125,12 @@ Half the score is **not** model quality. Throughput is measured against a 15 tok
 
 ### New finds — 17 August 2026 weekly sweep
 
-**SME Toolkit SA Business Plan Competition (5.75)** — a different shape of entry: a written business plan, not a build. The 17th annual running of an established SA programme, open to 18–35-year-olds, free to enter. **Phase 1 (workshop registration) closes 31 August — 14 days out.** R100,000 to the national winner (R50k cash + R50k mentorship voucher). REEFPRINT, KHANYA or Stokup could all anchor a plan. **Real capacity risk:** Mintek's abstract is also due 30 Aug and ADTC submits 24 Aug — check this doesn't quietly eat the same week before committing.
+**SME Toolkit SA Business Plan Competition (5.0)** — **submitted 18 Aug, 13 days ahead of the 31 Aug Phase 1 close.** A different shape of entry from everything else on the board in two ways: it's a written business plan, not a build, and it's the only entry where the two of you compete as **separate individual entrants** rather than one shared submission — SME Toolkit's eligibility is per-person, not per-team.
+
+- **Sibusiso — Karoo Compute.** Shared GPU/AI compute infrastructure for South Africa: no modern data-centre GPU is rentable locally today (AWS Cape Town tops out at a 2020-era T4, GCP Johannesburg has none, and the CHPC's 30 V100s were compromised for cryptomining in June 2026). Buys data-centre GPUs, colocates Tier III in Johannesburg, rents in rand across five products from a subsidised student tier to dedicated cluster builds. 440+ days without load-shedding and Megaflex power pricing gives a real, structural cost edge over an offshore operator with identical hardware. R1.75m Year 1, revenue R865k → R29.3m by Year 5, EBITDA-positive Year 3.
+- **Lethabo — Indlela AI.** An AI engineering studio for agentic AI, data science and data engineering, aimed at the gap between "67% of large SA enterprises have adopted GenAI" and "only 14% have a formal strategy" — POPIA section 71 already requires human review and explainability on automated decisions, and almost nothing deployed meets it. Three engines: paid Proof-of-Value sprints from R185,000, licensed products built from a repeated-pattern register, and a corporate-funded training Academy. 100% black-owned EME, Level 1 B-BBEE by affidavit. R950k Year 1, revenue R3.08m → R65.1m by Year 5 at 22.6% EBITDA margin.
+
+Both already have a full multi-page business plan and a live five-year financial model, to be refined at the Phase 1 workshop. Score recalculated now that the imminent Phase 1 deadline is done and the next real gate — the business plan itself — is 30 Nov, 104 days out: urgency 9→4, composite 5.75→5.0, still Tier 3. The earlier ADTC/Mintek capacity-clash concern is moot: ADTC is no longer being contested, and Mintek's abstract is a separate, team-owned deliverable that doesn't compete with either individual's plan for the same hours.
 
 **W3Node Conference & Hackathon (4.6)** — Cape Town, 12–14 November, free entry, travel grants for some winners. Markets itself as a Web3/blockchain developer conference, which doesn't overlap the team's stack — the case for entering is the founder/VC networking, not a natural build. Not corroborated by a second source yet; re-verify closer to the date.
 

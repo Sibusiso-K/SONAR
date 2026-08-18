@@ -1017,20 +1017,20 @@
       "scope": "local",
       "format": "hybrid",
       "location": "Phase 1 workshops in-person: Johannesburg, Pretoria, Soweto, Durban, Cape Town (+ conditional: Polokwane, Nelspruit, Bloemfontein, Kimberley, Port Elizabeth, East London); business plan submission and judging online",
-      "status": "open",
+      "status": "submitted",
       "tier": 3,
-      "score": 5.75,
+      "score": 5.0,
       "scores": {
         "career_leverage": 6,
         "winnability": 5,
         "prize": 4,
-        "urgency": 9
+        "urgency": 4
       },
       "dates": {
-        "registration_deadline": "2026-08-31",
-        "registration_deadline_label": "Phase 1 workshop registration closes",
         "final_submission": "2026-11-30",
         "final_submission_label": "complete business plan due; 10 finalists advance to interviews",
+        "phase1_entered_on": "2026-08-18",
+        "phase1_close_date": "2026-08-31",
         "confidence": "confirmed"
       },
       "prize": {
@@ -1042,23 +1042,23 @@
         "non_cash": "1st and 2nd runner-up prizes also awarded, amounts not stated"
       },
       "eligibility": "\"Young and aspiring business owners between the ages of 18 and 35.\" No nationality restriction stated. Free to enter.",
-      "team_fit": "A different kind of entry from everything else on the board — this is a written business plan, not a build, and Phase 1 (workshop attendance) closes in 14 days. Genuinely fits the team's REEFPRINT/KHANYA/Stokup track record if framed as a business plan around one of them, but check for a real capacity clash: Mintek's abstract is also due 30 Aug, and ADTC submits 24 Aug.",
-      "what_to_build": "A complete business plan, developed through mandatory Phase-1 workshops covering marketing, cash flow and business-model design, then judged with 10 finalists advancing to interviews.",
+      "team_fit": "SUBMITTED 18 Aug 2026, 13 days ahead of the 31 Aug Phase 1 close — the same \"submit early\" discipline Standing Agreement 6 asks for on every other entry, applied here on its own initiative. This is the only entry on the board that is genuinely NOT a shared team submission: SME Toolkit's eligibility is individual, so Sibusiso and Lethabo each entered their own separate business (see what_to_build). Practically, that means Phase 1 workshops, Phase 2 finalist interviews and any award are tracked per person, not per team — one plan could advance without the other. ADTC's earlier capacity concern is moot now that ADTC itself is dropped (NOT COMPETING, decided 16 Aug); Mintek's abstract (also due 30 Aug) is a separate, team-owned deliverable and does not compete with either individual's SME Toolkit plan for the same hours.",
+      "what_to_build": "TWO separate individual business plans were submitted for Phase 1, one per team member — SME Toolkit's eligibility is individual (\"young and aspiring business owners\"), not team-based, so this is the one entry on the board where the two of you compete as separate entrants rather than one shared submission.\n\nPLAN 1 (Sibusiso) — Karoo Compute: shared GPU/AI compute infrastructure for South Africa. Problem: no modern data-centre GPU is rentable inside SA — AWS Cape Town tops out at the 2020-era T4, GCP Johannesburg lists none at all, and the CHPC's 30 V100s (2018) were compromised for cryptomining in June 2026, causing weeks of downtime; UNDP puts 95% of Africa's AI talent on GPU-less laptops. Business: buy data-centre GPUs, colocate Tier III in Johannesburg, rent hourly/monthly/yearly in rand across five products — Karoo Campus (R9.50/GPU-hr, subsidised idle capacity for students/academics), Karoo Build (R21.50/hr or R11,900/mo reserved, for startups/corporates), Karoo Studio (96GB high-memory, Year 2), Karoo Inference (token-priced endpoints), Karoo Deploy (dedicated cluster builds for institutions). Why now: 440+ consecutive days without load-shedding, Eskom courting buyers for ~6GW surplus; Megaflex power at ~R1.65/kWh (~10c) vs 15–20c across Europe is worth R6,600–R13,200 more margin per GPU per year than an identical offshore operator gets; 0% GPU import duty, VAT recoverable. HostAfrica's March 2026 Johannesburg GPU launch (40–95% premium over international rates) already proved local willingness to pay — Karoo prices 33–41% below that and still holds 63% gross margin at scale. Plan: R1.75m Year 1 (founders' equity + NYDA grant + dtic SPII + SEDFA loan), one 4-GPU node plus one institutional cluster build, prove utilisation above the 46% break-even before deploying real capital. Revenue R865k (Yr1) → R29.3m (Yr5); EBITDA-positive Yr3, profitable after tax Yr5; 12 employees; ~380,000 subsidised GPU-hours to SA students/researchers over five years. Full 48-page plan and live 5-year financial model (income statement, cash flow, balance sheet, monthly Yr1 cash flow, unit economics, 4 scenarios) already built, to be refined at the workshop.\n\nPLAN 2 (Lethabo) — Indlela AI: an AI engineering studio building agentic AI, data science and data engineering systems for SA companies (\"indlela\" = the path — pilot to production to governed system). Problem: 67% of large SA enterprises have adopted GenAI, but only 14% have a formal strategy and 13% a governance framework; 39% cite implementation cost as their biggest obstacle; four recurring causes — unfit data, no evaluation harness, no post-launch ownership, ungovernable systems. POPIA section 71 already bans solely-automated decisions with legal/substantial effect absent human review and explainability — binding on every automated credit/underwriting/fraud decision in SA today, met by almost nothing deployed. Opportunity: 35% of African companies already use agentic AI, 44% plan to soon; multi-agent orchestration is SA's fastest-growing AI segment at 29.3% CAGR; a May 2026 \"top 7 AI-agent development companies\" listicle named zero South African firms. Three engines: (1) Studio — fixed-scope, fixed-price 3-week Proof-of-Value sprint from R185,000 ending in a written go/no-go; ~45% convert to a production build then a managed-ops retainer, so client acquisition is itself a paid, profitable engagement; (2) Products — a pattern register hardened into licensed products after the third repeat build: Agent Foundry (governance/evaluation control plane with POPIA s71 review and explainability workflows) and Indlela Docs (SA-specific document processing — FICA packs, payslips, municipal accounts, medical claims); (3) Academy — ICT roles went from 10% to 22% of SA's hardest-to-fill positions in three years and 84% of large corporates can't source skilled talent, against 12.2% graduate unemployment (22.2% for other tertiary qualifications); 12-month cohorts funded by corporate Skills Development budgets, cash-positive per learner in Year 1, each graduate generating ~5.5x their training cost in first-year billing. Why us: 100% black-owned Exempted Micro Enterprise, Level 1 B-BBEE by affidavit — every rand a corporate spends is recognised at R1.35 on their own scorecard, so pricing at parity is materially cheaper to the buyer. Numbers: R950k Year 1 funding (mostly working capital for 50-day enterprise debtors), profitable and cash-generative from Year 1; revenue R3.08m → R65.1m by Year 5 at a 22.6% EBITDA margin; no external equity raised post-incorporation; all interest-bearing debt repaid by Year 5; 63 employees including academy learners. Full 49-page plan and live 5-year financial model already built, to be refined at the workshop.",
       "deliverables": [
-        "Phase 1: attend a workshop, by 31 Aug 2026",
-        "Phase 2: complete business plan, by 30 Nov 2026",
+        "Phase 1: entered 18 Aug 2026, two individual plans (DONE)",
+        "Phase 2: complete business plan per entrant, by 30 Nov 2026",
         "Phase 3: finalist interviews, then awards ceremony"
       ],
       "links": {
         "main": "https://www.smetoolkit.co.za/business-plan-competition-2026"
       },
-      "notes": "Found in the 17 Aug 2026 weekly discovery sweep. Verified directly against the primary org page (smetoolkit.co.za), not an aggregator. Three real phases, not one deadline: Phase 1 workshop registration closes 31 Aug 2026 (14 days out) — miss this and the rest doesn't matter. Phase 2 is the actual business plan, due 30 Nov, with 10 finalists advancing to interviews before a national awards ceremony. R100,000 to the national winner (R50k cash + R50k mentorship voucher), unspecified runner-up prizes. This is the 17th annual running — a real, established, recurring SA programme, not a one-off. One secondary source (not the primary page) gave the awards ceremony as \"February 2026\", which cannot be right given entries close in August and judging runs to November — deliberately not recorded as a date field rather than repeating a source's own arithmetic error.",
+      "notes": "SUBMITTED 18 Aug 2026 — two individual entries, not one team submission: Sibusiso with Karoo Compute (shared GPU/AI compute infrastructure), Lethabo with Indlela AI (agentic-AI engineering studio). Both already have a full multi-page business plan and a live five-year financial model; both will be refined at the Phase 1 workshop. Score recalculated: urgency sub-score drops 9→4 now that the imminent driver (the 31 Aug Phase 1 close) is done and the next real deadline is the 30 Nov business plan, 104 days out — calibrated against the board's own precedent (RSNA at 59 days scores urgency 7, NASA at 89 days scores urgency 5). Composite score 5.75→5.0, still Tier 3. Phase 1's calendar date (31 Aug) technically hasn't passed yet, so its old key name (registration_deadline) was deliberately renamed to phase1_close_date — a name scripts/sonar.py's DEADLINE_KEYS won't rank on — so the CLI and the site both surface the 30 Nov date as next, not a completed one. Same pattern mintek-sci-2026 already uses for team_notified alongside its live submission_deadline.",
       "kind": "challenge",
       "career_track": "adjacent",
-      "next_date": "2026-08-31",
-      "next_date_label": "registration deadline (Phase 1 workshop)",
+      "next_date": "2026-11-30",
+      "next_date_label": "complete business plan due; 10 finalists advance to interviews",
       "confidence": "confirmed",
-      "lifecycle": "scored",
+      "lifecycle": "submitted",
       "tracks": [],
       "challenges": [],
       "stages": [],

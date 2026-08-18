@@ -9,6 +9,14 @@
   },
   "updates": [
     {
+      "at": "2026-08-18T09:30:00+02:00",
+      "kind": "changed",
+      "target": "sme-toolkit-business-plan-2026",
+      "title": "SME Toolkit SA Business Plan Competition — Phase 1 submitted, 2 individual entries",
+      "body": "Reported first-hand: Phase 1 submitted 18 Aug 2026, 13 days ahead of the 31 Aug close. status open -> submitted, lifecycle scored -> submitted. TWO separate individual entries, not one team submission — SME Toolkit's eligibility is per-person: Sibusiso with Karoo Compute (shared GPU/AI compute infrastructure for South Africa), Lethabo with Indlela AI (agentic-AI engineering studio). Both plans' full content — problem, business model, numbers — recorded in what_to_build; both already have a full multi-page business plan and a live five-year financial model. Score recalculated, not left stale: urgency sub-score 9 -> 4 now that the imminent Phase 1 deadline is done and the next real gate is the 30 Nov business plan (104 days out), calibrated against the board's own precedent (RSNA at 59 days scores urgency 7, NASA at 89 days scores urgency 5). Composite score 5.75 -> 5.0, still Tier 3, argued in the PR per Standing Agreement 8, not changed silently. Housekeeping: the now-fulfilled registration_deadline was renamed to phase1_close_date (a key scripts/sonar.py's DEADLINE_KEYS won't rank on) and a new phase1_entered_on fact added — same pattern mintek-sci-2026 already uses for team_notified alongside a still-live submission_deadline. Confirmed via `sonar.py list`: next date now correctly reads 30 Nov / 104 days, not the completed 31 Aug one.",
+      "by": "Sibusiso K"
+    },
+    {
       "at": "2026-08-17T11:20:00+02:00",
       "kind": "added",
       "target": null,
