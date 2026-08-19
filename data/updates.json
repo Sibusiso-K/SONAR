@@ -9,6 +9,14 @@
   },
   "updates": [
     {
+      "at": "2026-08-18T15:00:00+02:00",
+      "kind": "changed",
+      "target": "entelect-university-cup-2027",
+      "title": "Entelect University Cup - email details + urgency-score fix (Tier 3 -> 2)",
+      "body": "Reported first-hand: Entelect Hackathon Team email received 18 Aug 2026. Theme \"Age of Enteland\", optimisation/strategy challenge, full brief withheld until briefing. New Discord https://discord.gg/hzwx8yj8T (old server retiring this week) - all announcements/livestream now there only. Event confirmed Sat 22 Aug, 10:00-15:00 (dates already matched what was on the board). Also fixed while reading this entry: urgency sub-score was 3 for an event 5 days out, against board precedent of 9-10 at that range (ADTC 7d->10, IBM Bob 10d->9). Corrected to 10, score 5.65->6.7, tier 3->2. Not a new fact, a stale scoring bug this email prompted a look at.",
+      "by": "Sibusiso K"
+    },
+    {
       "at": "2026-08-18T09:30:00+02:00",
       "kind": "changed",
       "target": "sme-toolkit-business-plan-2026",
