@@ -13,16 +13,16 @@ Generated 10 August 2026 · updated 14 August 2026 (Mintek selection letter). We
 | 3 | Africa Deep Tech Challenge — Laptop LLM | 1 | **7.65** | Continental | **$16,500** | Submit **24 Aug** | **Not competing** (decided 16 Aug) |
 | 4 | IBM Dev Day: Bob in Action | 1 | **7.35** | Intl | $2,000 + TechXchange trip | Event **27–30 Aug** | Open |
 | 5 | RevenueCat Shipaton 2026 | 2 | 6.8 | Intl | **$700,000+** | Submit **30 Sep** | Open |
-| 6 | FNB App of the Year Hackathon | 2 | 6.45 | Local | TBA | ~late Oct | Monitor |
-| 7 | SITA GovTech 2026 Hackathon | 2 | 6.45 | Local | TBA | **17–19 Sep** | **Submitted** (entity registered) |
-| 8 | RSNA Knee Abnormality Detection (Kaggle) | 2 | 6.2 | Intl | **$77,000** | Entry **15 Oct** | Open |
-| 9 | MTN MoMo Mini App Hackathon | 2 | 6.2 | Continental | ~$10,000 SA | TBA | **Submitted** (3 ideas) |
-| 10 | IBM Z Datathon 2026 | 2 | 6.2 | Intl | **$50,000+** | Reg **1 Oct** · Event 17–18 Oct | Open |
-| 11 | UNESCO Youth Hackathon | 3 | 5.85 | Intl | Trip to Greece | Submitted **16 Aug** | **Submitted** |
-| 12 | Zindi Challenges | 3 | 5.7 | Continental | ~$5–10k each | Rolling | Weekly check |
-| 13 | Geekulcha Annual (#GKHack26) | 3 | 5.45 | Local | TBA | ~Sep–Oct | Monitor |
-| 14 | Huawei ICT Competition 26–27 | 3 | 5.4 | Intl | Cert + China trip | Reg ~Sep–Nov | Monitor (student-only) |
-| 15 | Entelect University Cup | 3 | 5.35 | Local | Small | ~Q1 2027 | Monitor |
+| 6 | Entelect University Cup | 2 | 6.7 | Local | Small | **22 Aug, 10:00–15:00** | Registered — "Age of Enteland" |
+| 7 | FNB App of the Year Hackathon | 2 | 6.45 | Local | TBA | ~late Oct | Monitor |
+| 8 | SITA GovTech 2026 Hackathon | 2 | 6.45 | Local | TBA | **17–19 Sep** | **Submitted** (entity registered) |
+| 9 | RSNA Knee Abnormality Detection (Kaggle) | 2 | 6.2 | Intl | **$77,000** | Entry **15 Oct** | Open |
+| 10 | MTN MoMo Mini App Hackathon | 2 | 6.2 | Continental | ~$10,000 SA | TBA | **Submitted** (3 ideas) |
+| 11 | IBM Z Datathon 2026 | 2 | 6.2 | Intl | **$50,000+** | Reg **1 Oct** · Event 17–18 Oct | Open |
+| 12 | UNESCO Youth Hackathon | 3 | 5.85 | Intl | Trip to Greece | Submitted **16 Aug** | **Submitted** |
+| 13 | Geekulcha Annual (#GKHack26) | 3 | 5.75 | Local | TBA | Active now | **Submitted** — team SONAR, project V.U.K.A. |
+| 14 | Zindi Challenges | 3 | 5.7 | Continental | ~$5–10k each | Rolling | Weekly check |
+| 15 | Huawei ICT Competition 26–27 | 3 | 5.4 | Intl | Cert + China trip | Reg ~Sep–Nov | Monitor (student-only) |
 | 16 | SME Toolkit SA Business Plan Competition | 3 | 5.0 | Local | **R100,000** | Plan due **30 Nov** | **Submitted** — 2 individual entries |
 | 17 | W3Node Conference & Hackathon | 3 | 4.6 | Continental | Non-cash | **12–14 Nov** | New find |
 | 18 | NASA Space Apps Challenge | 3 | 4.3 | Intl | No cash | **14–15 Nov** | Open |
@@ -113,7 +113,7 @@ Half the score is **not** model quality. Throughput is measured against a 15 tok
 
 **Zindi (5.7)** — rolling. The site is JavaScript-rendered so it won't scrape; open it in a browser every Monday sorted by "Closing soon." The real value isn't the $5–10k prizes, it's the [Zindi jobs board](https://zindi.world/jobs) where partner companies recruit off leaderboard performance. Known 2026 challenge: Multilingual Health QA in Low-Resource African Languages (~$5,000) — which doubles as ADTC material.
 
-**Geekulcha #GKHack26 (5.45)** — best local network in SA tech; they run the Top 15 Young Geeks list and are wired into government and corporate. 2026 annual edition not yet posted. Watch [hackathon.gklink.co](https://hackathon.gklink.co/) and @Geekulcha from late August. Prior editions charged admission in canned food and books rather than money.
+**Geekulcha #GKHack26 (5.75)** — **submitted, confirmed 20 Aug 2026 first-hand via the team's Sonke dashboard.** Team of three (Lethabo, Sibusiso, plus Ipeleng Constance Modise added by facilitators an hour before the check) entered as "SONAR" on the platform, competing on project **V.U.K.A.** in the Blockchain for Impact Use challenge against **172 other teams**. Nine documents submitted — pitch deck, plain-words explainer, blockchain-fit rationale, tech stack, user journeys, business canvas, gap analysis, SLDC, system architecture. Lean Canvas and SSDLC both marked filled; 0 progress updates, 0 mentor feedback yet. No exact deadline visible, but 8 of 9 documents landed within hours of each other — read that as an active, near-imminent window, not a relaxed one.
 
 **Huawei ICT 2026–27 (5.4)** — genuine pipeline into Huawei South Africa plus an all-expenses Global Final in China. **Blocked on eligibility:** requires enrolment at an institution with a Huawei ICT Academy. If neither of you is registered, drop it. Registration typically opens September–November.
 

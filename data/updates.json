@@ -9,6 +9,14 @@
   },
   "updates": [
     {
+      "at": "2026-08-20T14:00:00+02:00",
+      "kind": "verified",
+      "target": "geekulcha-2026",
+      "title": "Geekulcha #GKHack26 - submitted, confirmed first-hand via team dashboard",
+      "body": "Logged into the teams own Sonke platform dashboard (sonke.gklink.co, authenticated, not a public source) 20 Aug 2026. Resolves the earlier \"2026 edition not yet posted\" uncertainty with direct proof: team \"SONAR\" (Lethabo Hoaeane/UNISA, Sibusiso Khumalo/Wits, Ipeleng Constance Modise/TUT - added by facilitators 1 hour before this check), project V.U.K.A., Blockchain for Impact Use challenge, competing against 172 other teams. 9 documents submitted (pitch deck, plain-words explainer, blockchain-fit rationale, tech stack, user journeys, business canvas, gap analysis, SLDC, system architecture), Lean Canvas + SSDLC both filled, 0 progress updates / 0 mentor feedback yet. status monitor -> submitted, lifecycle triaged -> submitted, dates.confidence unconfirmed -> confirmed. Scores adjusted with reasons, not silently: winnability 7->5 (172-team field is real data this entry never had, previously scored blind), urgency 3->9 (no exact deadline visible, but 8 of 9 documents landed within hours of each other - reads as an active, near-imminent window). Score 5.45->5.75, still tier 3.",
+      "by": "Sibusiso K"
+    },
+    {
       "at": "2026-08-18T15:00:00+02:00",
       "kind": "changed",
       "target": "entelect-university-cup-2027",
