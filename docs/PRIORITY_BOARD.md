@@ -13,7 +13,7 @@ Generated 10 August 2026 · updated 14 August 2026 (Mintek selection letter). We
 | 3 | Africa Deep Tech Challenge — Laptop LLM | 1 | **7.65** | Continental | **$16,500** | Submit **24 Aug** | **Not competing** (decided 16 Aug) |
 | 4 | IBM Dev Day: Bob in Action | 1 | **7.35** | Intl | $2,000 + TechXchange trip | Event **27–30 Aug** | Open |
 | 5 | RevenueCat Shipaton 2026 | 2 | 6.8 | Intl | **$700,000+** | Submit **30 Sep** | Open |
-| 6 | Entelect University Cup | 2 | 6.7 | Local | Small | **22 Aug, 10:00–15:00** | Registered — "Age of Enteland" |
+| 6 | Entelect Hackathons University Cup 2 | 2 | 6.7 | Local | Small | **Tomorrow, 22 Aug, 10:00–15:00** | Registered — "Age of Enteland" |
 | 7 | FNB App of the Year Hackathon | 2 | 6.45 | Local | TBA | ~late Oct | Monitor |
 | 8 | SITA GovTech 2026 Hackathon | 2 | 6.45 | Local | TBA | **17–19 Sep** | **Submitted** (entity registered) |
 | 9 | RSNA Knee Abnormality Detection (Kaggle) | 2 | 6.2 | Intl | **$77,000** | Entry **15 Oct** | Open |
@@ -95,6 +95,8 @@ Half the score is **not** model quality. Throughput is measured against a 15 tok
 
 **RevenueCat Shipaton (6.8)** — $700k+ across nine categories and a 7-week runway, but the hidden cost is app-store review. Budget two weeks of slack for Apple/Google approval. The real argument for entering: you end up owning a live, monetising app whether or not you place. Start now or don't start.
 
+**Entelect Hackathons University Cup 2 (6.7)** — **tomorrow, Saturday 22 August, 10:00–15:00.** Registered, team confirmed. Theme "Age of Enteland" — optimisation/strategy under constraints, full brief withheld until the live briefing. A practice hackathon is live now through to event start: individual, register separately, use it to test the submission/leaderboard flow before the real thing. Join Discord (primary event hub, all announcements there) and bookmark the Teams livestream before tomorrow morning — links in `data/opportunities.json`. Prior prizes were Nintendo Switches; the real value is the Entelect graduate-hiring pipeline, not the prize.
+
 **FNB App of the Year (6.45)** — the **problem statements are already published** on the site even though registration isn't open. You can pre-build. Five themes: jobs & economic resilience, infrastructure & essential services, inequality & social cohesion, climate resilience & food security, public safety & GBV. 10,000+ competitors hurts the odds badly, but FNB recruits from it and there's a second bite via the December awards. Monitor weekly from 1 September.
 
 **SITA GovTech (6.45)** — **submitted, in-person at Durban ICC, 17–19 September.** The eligibility blocker this section used to warn about is cleared: the team is now three (T&Cs 2.2 needs 3–5), and an EME/SMME entity is registered (2.1). Entity name and registration date aren't recorded on the board yet — worth filling in. Two things from the T&Cs worth knowing going in: only one team per company may register (1.2) — confirm the entity isn't fielding a second team anywhere — and winners are announced 23 September at a separate Awards Ceremony, not at the hackathon itself. Prize money, if any, is taxable and paid 30 days out; pilot-phase funding for a winning solution is at SITA's discretion and asks for three full days a week during delivery.
@@ -116,8 +118,6 @@ Half the score is **not** model quality. Throughput is measured against a 15 tok
 **Geekulcha #GKHack26 (5.75)** — **submitted, confirmed 20 Aug 2026 first-hand via the team's Sonke dashboard.** Team of three (Lethabo, Sibusiso, plus Ipeleng Constance Modise added by facilitators an hour before the check) entered as "SONAR" on the platform, competing on project **V.U.K.A.** in the Blockchain for Impact Use challenge against **172 other teams**. Nine documents submitted — pitch deck, plain-words explainer, blockchain-fit rationale, tech stack, user journeys, business canvas, gap analysis, SLDC, system architecture. Lean Canvas and SSDLC both marked filled; 0 progress updates, 0 mentor feedback yet. No exact deadline visible, but 8 of 9 documents landed within hours of each other — read that as an active, near-imminent window, not a relaxed one.
 
 **Huawei ICT 2026–27 (5.4)** — genuine pipeline into Huawei South Africa plus an all-expenses Global Final in China. **Blocked on eligibility:** requires enrolment at an institution with a Huawei ICT Academy. If neither of you is registered, drop it. Registration typically opens September–November.
-
-**Entelect University Cup (5.35)** — 2026 cycle looks to have passed (prior edition April). Entelect is one of the strongest SA graduate software employers, so set a January 2027 reminder and follow them on LinkedIn. Also look at the separate Entelect Challenge.
 
 **NASA Space Apps (4.3)** — 14–15 November (moved from its usual early-October slot). Free, no cash, tens of thousands of competitors. Included because it lands after the October crunch and a Global Award is a distinctive CV line.
 
