@@ -1,5 +1,54 @@
 # Sbu — 3 things only you can do
 
+> **UPDATE 2026-08-21 — Step 1 is not the blocker anymore. This is.**
+>
+> `RADAR_SUPABASE_URL` and `RADAR_SUPABASE_SERVICE_KEY` have been set since
+> 12 Aug. But **every `refresh-board.yml` run triggered by a push to `main`
+> since 17 Aug has failed** (`gh run list --workflow=refresh-board.yml`
+> shows it plainly — scheduled runs on the `claude/...` branch keep
+> succeeding, which is why this went unnoticed: a green tick elsewhere hid
+> a red one on the branch that actually matters).
+>
+> The actual failure, read from the step's own stdout, not inferred:
+>
+> ```
+> synced 19 opportunities
+> Supabase POST updates -> 401
+> {"code":"42501", ... "message":"new row violates row-level security
+> policy (USING expression) for table \"updates\""}
+> ```
+>
+> `opportunities` and `past_opportunities` write fine. `updates` doesn't.
+> Checked the migration that defines `updates`' RLS
+> (`web/supabase/migrations/20260811105003_*.sql`): it grants `anon` and
+> `authenticated` **SELECT + INSERT only** — there is no UPDATE policy for
+> anyone via RLS. `service_role` gets `GRANT ALL`, which normally bypasses
+> RLS checking entirely regardless of policies. The upsert
+> (`sync_radar.py`'s `on_conflict="id"`) resolves to an UPDATE on rows that
+> already exist, which is exactly the operation with no policy to allow it.
+>
+> **The RLS check firing at all, on a key that's supposed to be
+> `service_role`, is the tell.** `service_role` doesn't consult policies —
+> it skips RLS outright. The far more likely explanation, and the same
+> mistake `STATUS.md` already documents happening once before on the
+> *other* Supabase project's secret: **`RADAR_SUPABASE_SERVICE_KEY` is
+> holding the `anon`/`publishable` key, not the real `service_role` one.**
+> That also explains why `opportunities` still writes — anon's SELECT/
+> INSERT/UPDATE/DELETE grant from the original Lovable schema still
+> appears to be live, which means **Step 2 below (`anon can delete the
+> board`) is very likely still open too**, not just theoretically open.
+>
+> **Fix:** Supabase dashboard → **sonar-radar** project → Project Settings
+> → API → copy the **`service_role`** secret specifically (starts `eyJ...`,
+> decode it or trust the dashboard label — the point is it must say
+> `service_role`, not `anon` or `publishable`). Update the GitHub secret
+> with that value (Settings → Secrets and variables → Actions →
+> `RADAR_SUPABASE_SERVICE_KEY` → Update), then re-run **Refresh board** and
+> read the step's own log: you want `synced 19 opportunities`, `synced 1
+> past entries`, and `purged placeholder updates, synced N real audit
+> entries` with no `401` anywhere. Do Step 2 in the same sitting — if the
+> key was wrong, that hole was never actually closed.
+
 **Written 2026-08-12 for Sibusiso K. Lethabo cannot do any of these: all
 three need access to accounts you own.**
 
@@ -175,7 +224,7 @@ Lethabo's email.
 | `watch-sources.yml` (6-hourly scrape) | ✅ running — 27 observations, 1 correctly rejected (3.7% span-check failure rate) |
 | `editions` backfill | ✅ 4 verified prior editions loaded |
 | Forecasting | ⏸ correctly silent — needs 2+ editions per event, every one has 1 |
-| **sonar-radar sync** | ❌ **never run — step 1** |
+| **sonar-radar sync** | ❌ **secrets set since 12 Aug, but every push-triggered run fails — see the 21 Aug update at the top** |
 | **anon can delete the board** | ❌ **open — step 2** |
 
 ### The three fabricated entries, for reference
