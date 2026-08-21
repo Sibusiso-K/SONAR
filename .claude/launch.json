@@ -2,6 +2,12 @@
   "version": "0.0.1",
   "configurations": [
     {
+      "name": "portfolio",
+      "runtimeExecutable": "cmd",
+      "runtimeArgs": ["/c", "cd clinical-future-showcase && bun run dev --port 5199"],
+      "port": 5199
+    },
+    {
       "name": "sonar-web",
       "runtimeExecutable": "cmd",
       "runtimeArgs": ["/c", "cd web && bun run dev"],
@@ -21,6 +27,12 @@
         "cd KHANYA && .venv\\Scripts\\python.exe -m streamlit run dashboard\\app.py --server.port 8501 --server.headless true"
       ],
       "port": 8501
+    },
+    {
+      "name": "the-last-push",
+      "runtimeExecutable": "cmd",
+      "runtimeArgs": ["/c", "cd ..\\DaLastPush && npm run dev -- --port 5174"],
+      "port": 5174
     }
   ]
 }
