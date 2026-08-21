@@ -675,7 +675,7 @@
       "noticed_on": "2026-08-10",
       "went_live_on": null,
       "source": "manual research",
-      "name": "Entelect University Cup",
+      "name": "Entelect Hackathons University Cup 2",
       "organiser": "Entelect",
       "scope": "local",
       "format": "in-person",
@@ -701,16 +701,19 @@
         "non_cash": "Prior prizes were Nintendo Switches; real value is the Entelect graduate-hiring pipeline"
       },
       "eligibility": "University students, teams of 2–3.",
-      "team_fit": "Perfect team size: if you qualify as students. NEW as of 22 Aug email: join the new Discord (old server retiring this week) - https://discord.gg/hzwx8yj8T - all announcements/livestream links now go there only.",
+      "team_fit": "Perfect team size: if you qualify as students. Discord (primary event hub, old server retired): https://discord.gg/hzwx8yj8T — join before the briefing.",
       "what_to_build": "Algorithmic optimisation problem, timeboxed single-day contest (10:00-15:00). 2026 theme: \"Age of Enteland\" - strategic decision-making under constraints; full problem statement withheld until the event briefing.",
       "deliverables": [
         "Solution to the optimisation problem"
       ],
       "links": {
         "main": "https://entelect.co.za/",
+        "event_website": "https://challenge.entelect.co.za/home",
+        "discord": "https://discord.gg/hzwx8yj8T",
+        "livestream": "https://teams.microsoft.com/l/meetup-join/19%3ameeting_NjdjYjI3YjktNGRkNi00ZDcyLTk3Y2ItMjViYjc4NWE1ZTc2%40thread.v2/0?context=%7b%22Tid%22%3a%22e3183c89-78ae-43e0-b8a3-3eb012e5d9ea%22%2c%22Oid%22%3a%222651bb6b-7644-4f66-bea0-acfed417f9bc%22%7d",
         "linkedin": "https://www.linkedin.com/company/entelect"
       },
-      "notes": "Team registered: Sibusiso + Lethabo, confirmed via the team registration page. Entelect is one of the strongest SA graduate employers in software: also look at the separate Entelect Challenge. UPDATE 18 Aug 2026 email: theme is \"Age of Enteland\" - optimisation/strategy under constraints, full brief withheld until the event briefing. Prep: optimisation concepts, comfort with structured data, pick a language now, have a basic app scaffold ready that reads input files, writes output files, and runs fast repeatedly. New Discord (old one retiring this week): https://discord.gg/hzwx8yj8T. Livestream link to follow later in the week."
+      "notes": "Team registered: Sibusiso + Lethabo, confirmed via the team registration page. Entelect is one of the strongest SA graduate employers in software: also look at the separate Entelect Challenge. UPDATE 18 Aug 2026 email: theme is \"Age of Enteland\" - optimisation/strategy under constraints, full brief withheld until the event briefing. Prep: optimisation concepts, comfort with structured data, pick a language now, have a basic app scaffold ready that reads input files, writes output files, and runs fast repeatedly. UPDATE 21 Aug 2026 email (day before): official name is University Cup 2. Practice hackathon is live now through to event start — individual, register separately, use it to test the platform/submission/leaderboard flow before tomorrow. Kick-off livestream 10:00 on Microsoft Teams (link in links.livestream). All announcements/support during the event happen on Discord only. Last checks before the day: dev environment ready, comfortable reading/writing JSON, common optimisation approaches, sleep. Full brief only revealed at the live briefing tomorrow morning."
     },
     {
       "id": "nasa-space-apps-2026",

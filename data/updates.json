@@ -9,6 +9,14 @@
   },
   "updates": [
     {
+      "at": "2026-08-21T16:00:00+02:00",
+      "kind": "changed",
+      "target": "entelect-university-cup-2027",
+      "title": "Entelect University Cup 2 - event website, livestream, practice hackathon",
+      "body": "Second email from Entelect, 21 Aug (day before): official name is \"University Cup 2\". Added event_website (challenge.entelect.co.za/home), discord (already known, now in links not just notes), and livestream (Teams, kick-off 10:00) to links. Practice hackathon live now through event start - individual, separate registration, recommended before tomorrow. Also fixed two stale references found while updating: PRIORITY_BOARD.mds Tier-3 writeup still said \"2026 cycle looks to have passed, set a January 2027 reminder\" - leftover from before this was corrected to a live Tier-2 entry, replaced with a real writeup in the Tier-2 section. CALENDAR.md still listed it under \"no confirmed 2026 dates\" and had no row for tomorrow at all - added, and struck the now-moot ADTC build sprint 2 row in the same slot (ADTC dropped 16 Aug).",
+      "by": "Sibusiso K"
+    },
+    {
       "at": "2026-08-20T14:00:00+02:00",
       "kind": "verified",
       "target": "geekulcha-2026",

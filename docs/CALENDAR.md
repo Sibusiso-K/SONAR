@@ -19,7 +19,8 @@ Importable file: [`../calendar/sonar-2026.ics`](../calendar/sonar-2026.ics)
 | Sat 15 – Sun 16 | 09:00–17:00 | **ADTC build sprint 1** — model selection + quantisation | prep |
 | **Sun 16** | 23:59 | **DEADLINE — UNESCO Youth Hackathon** | deadline |
 | Thu 20 | 18:00–21:00 | ADTC feature freeze + full benchmark run | prep |
-| Sat 22 – Sun 23 | 09:00–17:00 | **ADTC build sprint 2** — report, benchmarks, 2-min video | prep |
+| Sat 22 – Sun 23 | 09:00–17:00 | ~~ADTC build sprint 2~~ — moot, ADTC dropped 16 Aug | prep |
+| **Sat 22** | 10:00–15:00 | **Entelect Hackathons University Cup 2** — "Age of Enteland", registered. Join Discord + livestream before 10:00. | event |
 | **Mon 24** | all day | **SUBMIT — Africa Deep Tech Challenge ($16,500)** · hard cutoff 25 Aug 08:45 SAST | deadline |
 | Fri 14 | — | **Mintek SCI Grad Hackathon — team SELECTED** (letter, Boitumelo Lekalakala). Start building. | milestone |
 | Wed 26 | 18:00–20:00 | IBM Bob prep — trial working, workflow problem chosen | prep |
@@ -100,7 +101,6 @@ These have no confirmed 2026 dates. They live in the Monday review, not the cale
 - **Geekulcha #GKHack26** — already submitted (confirmed 20 Aug via the team dashboard); no exact deadline date known yet, so not on the calendar proper.
 - **Huawei ICT 2026–27** — registration usually opens September–November.
 - **Zindi** — rolling; check every Monday sorted by "Closing soon."
-- **Entelect University Cup** — next cycle likely Q1–Q2 2027.
 
 ## 2027 — diarise now
 
