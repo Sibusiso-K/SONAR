@@ -752,43 +752,52 @@
       "scope": "local",
       "format": "hybrid",
       "location": "South Africa (online + in-person)",
-      "status": "monitor",
+      "status": "submitted",
       "tier": 3,
-      "score": 5.45,
+      "score": 5.75,
       "scores": {
         "career_leverage": 6,
-        "winnability": 7,
+        "winnability": 5,
         "prize": 4,
-        "urgency": 3
+        "urgency": 9
       },
       "dates": {
         "expected_window": "September–October 2026",
         "prior_editions": "GKHack23: 29 Sept–1 Oct 2023; GKHack24 applications opened early Sept",
-        "confidence": "unconfirmed"
+        "confidence": "confirmed",
+        "team_dashboard_checked_on": "2026-08-20"
       },
       "prize": {
         "currency": "ZAR",
         "pool": null
       },
       "eligibility": "Open. Free to register and attend. Prior editions asked for a donation of canned food, clothes, sanitary towels or books as admission.",
-      "team_fit": "Excellent: match-making process exists for individual applicants.",
-      "what_to_build": "Social relevancy, public service, business and inclusive solutions: 'the next African Digital Narrative'.",
+      "team_fit": "Team of THREE on Geekulcha's own platform (team name there: \"SONAR\", same as this project, coincidentally) - Lethabo Hoaeane (UNISA, created the team), Sibusiso Khumalo (Wits, Backend Developer), and Ipeleng Constance Modise (TUT), added by the facilitators just 1 hour before this check. Competing against 172 other teams on the V.U.K.A. project, Blockchain for Impact Use challenge.",
+      "what_to_build": "Challenge track: Blockchain for Impact Use. Team project: V.U.K.A. Nine documents submitted (all by Lethabo, within the last ~8 hours of this check): Pitch Deck, Plain Words Explanation, Blockchain Fit rationale, Tech Stack, User Journey (four journeys), Business Canvas (nine blocks with numbers), Gap Analysis (10 pages), SLDC (19-page software dev lifecycle), and full system architecture. Lean Business Canvas and Security (SSDLC) sections both marked filled on the team dashboard.",
       "deliverables": [
-        "Weekend build + pitch"
+        "Pitch Deck (PDF)",
+        "Plain Words Explanation",
+        "Blockchain Fit rationale",
+        "Tech Stack",
+        "User Journey",
+        "Business Canvas",
+        "Gap Analysis (PDF)",
+        "SLDC (PDF)",
+        "System Architecture (PDF)"
       ],
       "links": {
         "hackathon": "https://gklink.co/",
         "events": "https://www.geekulcha.dev/events",
         "main": "https://geekulcha.com/"
       },
-      "notes": "Best local network-building event on the board: Geekulcha is deeply wired into SA govt/corporate tech and runs the Top 15 Young Geeks list. Their 2026 annual edition is not yet posted; the 2026 events page only shows SS26Hack (Kimberley, May) and the Top 15 announcement (June). Watch @Geekulcha on X and gklink.co from late August. LINK CORRECTION 14 Aug 2026: hackathon.gklink.co no longer resolves (DNS failure, not a 404); replaced with gklink.co, which is live and carries hackathon/registration content.",
+      "notes": "SUBMITTED - confirmed first-hand 20 Aug 2026 via the team's own Sonke platform dashboard (sonke.gklink.co), logged in directly: 9 documents submitted, Lean Canvas + SSDLC both filled, 0 progress updates / 0 mentor feedback yet. This resolves the earlier \"2026 edition not yet posted\" uncertainty with direct proof rather than a public source - #GKHack26 is real, live, and the team is well into it, not just registered. Urgency raised: no exact deadline date was visible on the dashboard, but 8 of 9 documents landed within the last several hours of each other, which reads as an active, near-imminent submission window rather than a relaxed one - score it accordingly and revisit the moment a real deadline date surfaces. Winnability lowered: 172 competing teams is real field-size data this entry never had before (it was scored blind at 7 on 10 Aug); a field that size is no longer \"small, strong fit\".",
       "kind": "hackathon",
       "career_track": "none",
       "next_date": null,
       "next_date_label": null,
       "days_remaining": null,
-      "confidence": "unconfirmed",
-      "lifecycle": "triaged",
+      "confidence": "confirmed",
+      "lifecycle": "submitted",
       "tracks": [],
       "challenges": [],
       "stages": [],
