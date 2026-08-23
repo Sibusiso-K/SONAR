@@ -102,6 +102,13 @@ HUMANS = {"Sibusiso K", "Lethabo"}
 URL = os.environ.get("RADAR_SUPABASE_URL", "").rstrip("/")
 KEY = os.environ.get("RADAR_SUPABASE_SERVICE_KEY", "")
 
+# Empty by default (targets whatever schema is exposed as PostgREST's
+# default, i.e. sonar-radar's `public`). Set to "app" to target the `app`
+# schema in Lethabo's own SONAR project instead — same script, same table
+# names, different project via RADAR_SUPABASE_URL/KEY, different schema via
+# this. See supabase/migrations/0004_app_schema_for_website.sql.
+SCHEMA = os.environ.get("RADAR_SUPABASE_SCHEMA", "").strip()
+
 
 # --------------------------------------------------------------------------- #
 # PostgREST client (same shape as scripts/sonar_db.py, different project)
@@ -140,6 +147,12 @@ def rest(method, path, body=None, params=None, prefer=None, fatal=True):
     req.add_header("Content-Type", "application/json")
     if prefer:
         req.add_header("Prefer", prefer)
+    if SCHEMA:
+        # PostgREST's multi-schema routing: Accept-Profile picks the schema
+        # for GET, Content-Profile for everything that writes. Sending both
+        # is harmless either way and avoids branching on `method` here.
+        req.add_header("Accept-Profile", SCHEMA)
+        req.add_header("Content-Profile", SCHEMA)
 
     try:
         with urllib.request.urlopen(req, timeout=60) as resp:
