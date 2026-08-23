@@ -162,6 +162,45 @@ def upsert(table, rows, on_conflict):
     )
 
 
+def append_only(table, rows, on_conflict="id"):
+    """Insert rows, leaving any that already exist untouched.
+
+    `updates` is an append-only audit trail by design: the schema migration
+    grants anon SELECT + INSERT and gives it a SELECT policy and an INSERT
+    policy, deliberately with no UPDATE policy (verified against pg_policies:
+    the table has exactly INSERT and SELECT for anon/authenticated).
+
+    upsert() sends `Prefer: resolution=merge-duplicates`, which PostgREST
+    turns into INSERT ... ON CONFLICT DO UPDATE. Postgres then evaluates the
+    UPDATE path's RLS, finds no policy for it, and rejects the entire batch:
+
+        new row violates row-level security policy (USING expression)
+
+    The word USING there is the giveaway - a plain INSERT is only ever
+    checked against WITH CHECK, so a USING failure means something asked for
+    an UPDATE. That is why the board tables sync fine (they have FOR ALL
+    policies and full CRUD grants) while this one has been failing every run.
+
+    `resolution=ignore-duplicates` is ON CONFLICT DO NOTHING, which performs
+    no update and so needs nothing beyond the INSERT policy. It also happens
+    to be the correct semantics: entries already on the trail are history and
+    should not be rewritten by a resync.
+
+    The other way to silence this would have been to grant anon UPDATE on the
+    trail. That would be the wrong fix - an audit trail the public key can
+    rewrite is worth less than one with a gap in it, and this project exists
+    to stop exactly that class of problem.
+    """
+    if not rows:
+        return 0
+    written = rest(
+        "POST", table, body=rows,
+        params={"on_conflict": on_conflict},
+        prefer="resolution=ignore-duplicates,return=representation",
+    )
+    return len(written or [])
+
+
 def delete_not_in(table, ids):
     """Remove every row whose id isn't in `ids`. Empty `ids` deletes nothing
     (a truncated source list is far more likely to be a bug than intent)."""
@@ -360,18 +399,21 @@ def cmd_push(_args):
 
     # Order matters: purge the fabrications first, then write the real trail.
     purged = purge_placeholder_updates()
-    upsert("updates", update_rows, on_conflict="id")
+    added = append_only("updates", update_rows)
     print(
         f"{'purged placeholder updates, ' if purged else ''}"
-        f"synced {len(update_rows)} real audit entries"
+        f"synced {len(update_rows)} real audit entries ({added} new, "
+        f"{len(update_rows) - added} already on the trail)"
         f"{'' if purged else ' (fabricated seed rows still present)'}"
     )
 
-    # One sync row per day, not per run: uuid5 on the date makes a re-run
-    # overwrite the day's row instead of burying the real entries under a
-    # daily "Board resynced" drumbeat.
+    # One sync row per day, not per run: uuid5 on the date means the first
+    # sync of the day writes the row and later ones are no-ops, instead of
+    # burying the real entries under a daily "Board resynced" drumbeat. The
+    # counts below are therefore the first sync of the day's, which is the
+    # right trade for an append-only trail - see append_only().
     today = date.today().isoformat()
-    upsert(
+    append_only(
         "updates",
         [{
             "id": str(uuid.uuid5(NS, f"sync|{today}")),
