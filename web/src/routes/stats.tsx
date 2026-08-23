@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { AppShell } from "@/components/AppShell";
+import { CompetitionBaseline } from "@/components/CompetitionBaseline";
 import { Reveal, RevealWords } from "@/components/Reveal";
 import { Scatter3D } from "@/components/Scatter3D";
 import { WinRing } from "@/components/WinRing";
@@ -173,6 +174,16 @@ function Stats() {
           />
         </div>
       </section>
+
+      {/* ---- measured baseline ---- */}
+      <Section
+        id="baseline"
+        kicker="Our measured baseline"
+        title="The one result we can check the model against."
+        blurb="Everything else on this page is a prediction. This is the actual outcome it should be judged by."
+      >
+        <CompetitionBaseline />
+      </Section>
 
       {/* ---- win probability ranking ---- */}
       <Section
