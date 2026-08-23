@@ -87,6 +87,25 @@ def main():
     today = date.today()
     out_items = []
 
+    # `score` is derived: it is the weighted sum of `scores` using
+    # meta.scoring_weights, and every entry matched that formula when this
+    # check was written. It is stored rather than computed at read time, so
+    # editing a sub-score by hand and forgetting the total silently corrupts
+    # the board's ranking - which is exactly what had happened to
+    # mintek-sci-2026 (stored 8.2 against a true 7.65) and went unnoticed
+    # because nothing ever recomputed it. Warn loudly rather than auto-fix:
+    # a human should decide whether the sub-scores or the total was wrong.
+    weights = (src.get("meta") or {}).get("scoring_weights") or {}
+    if weights:
+        for h in src["hackathons"]:
+            got = h.get("score")
+            want = round(sum((h.get("scores") or {}).get(k, 0) * v for k, v in weights.items()), 2)
+            if isinstance(got, (int, float)) and abs(got - want) > 0.001:
+                print(
+                    f"  WARNING  {h['id']}: score {got} does not match the weighted "
+                    f"sub-scores ({want}). One of the two is stale."
+                )
+
     for h in src["hackathons"]:
         item = dict(h)  # carry every v1 field through untouched
         oid = h["id"]
@@ -123,6 +142,11 @@ def main():
             # from "committed" (in, not yet judged) and "scored" (still
             # deciding whether to enter at all).
             item["lifecycle"] = "submitted"
+        elif st in ("past", "closed"):
+            # The competition itself is over and we took part. "judged" is
+            # the honest state until a retro is written; retro_done is a
+            # separate, later claim we should not make on its behalf.
+            item["lifecycle"] = "judged"
         else:
             item["lifecycle"] = "scored"
 
@@ -154,6 +178,11 @@ def main():
             "link": p.get("link"),
             "missed": missed,
             "result": p.get("result"),
+            # Optional and often absent on the older entries, which is why
+            # every consumer has to tolerate None here rather than assume.
+            "organiser": p.get("organiser"),
+            "kind": p.get("kind"),
+            "happened_on": p.get("happened_on"),
         })
 
     out = {

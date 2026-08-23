@@ -9,6 +9,30 @@
   },
   "updates": [
     {
+      "at": "2026-08-23T11:50:00+02:00",
+      "kind": "changed",
+      "target": "mintek-sci-2026",
+      "title": "Winnability reevaluated across the board; one change, one bug found",
+      "body": "Standing practice: recheck every entry's chances rather than letting a scored guess sit untouched. Changed exactly one. Mintek winnability 7 to 8, because the team has since cleared a competitive selection gate confirmed by letter, so the odds of a top-3 finish are genuinely better than when the row was scored as a mere applicant. Everything else was reviewed and held: two recorded outcomes is far too thin to start moving numbers on, and the Entelect result mostly confirms the existing calibration rather than contradicting it. Separately this pass uncovered a real bug: score is the weighted sum of the sub-scores for all 19 entries, but Mintek stored 8.2 against a true 7.65, so its rank on the board had been overstated since the selection update. Corrected to 7.95 and migrate_to_opportunities.py now warns whenever a stored score and its sub-scores disagree.",
+      "by": "Sibusiso K"
+    },
+    {
+      "at": "2026-08-23T11:40:00+02:00",
+      "kind": "changed",
+      "target": "entelect-university-cup-2027",
+      "title": "Entelect University Cup 2: competed, ~10th at leaderboard freeze",
+      "body": "Result recorded from the team's own engineering log (Entelect-Optimisation-Challenge/HANDOVER.md), which is now the authoritative record. Shipped and portal-verified 121,860,709 across four levels (15,358,600 / 21,090,840 / 36,984,815 / 48,426,454). Leaderboard froze with the team around 10th at 120,444,763 against a #1 of 125,270,208: 3.85% behind at freeze, final shipped total 97.28% of the leader. Placing is deliberately recorded as unconfirmed: Entelect closed the leaderboard after the event and retains no score history, so this is the last observed standing, not a certified rank. Status moved to past, lifecycle to judged, and the entry moved into the archive.",
+      "by": "Sibusiso K"
+    },
+    {
+      "at": "2026-08-23T11:35:00+02:00",
+      "kind": "system",
+      "target": null,
+      "title": "Playbook: sourced research on how these competitions actually get won",
+      "body": "Added a Playbook to the landing page. Every claim carries a named source and a link, and the entries are split by phase (before / during / after) and by competition type, because leaderboard-scored contests and judged pitch events reward different behaviour and blending them produces advice that is wrong for both. Includes the team's own measured evidence from the Entelect Cup alongside external research, marked as such.",
+      "by": "Sibusiso K"
+    },
+    {
       "at": "2026-08-21T16:00:00+02:00",
       "kind": "changed",
       "target": "entelect-university-cup-2027",

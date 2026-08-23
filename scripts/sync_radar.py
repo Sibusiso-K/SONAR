@@ -255,7 +255,7 @@ def to_radar_past(p, used_ids):
         "name": p["name"],
         "organiser": p.get("organiser") or "Unknown",
         "kind": p.get("kind") or "hackathon",
-        "happened_on": None,
+        "happened_on": p.get("happened_on"),
         "outcome": outcome,
         "placement": p.get("result"),
         "note": p.get("summary") or reason,

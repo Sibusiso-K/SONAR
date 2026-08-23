@@ -406,10 +406,10 @@
       "location": "Remote build; final hacking day + conference in person at Mintek, 200 Malibongwe Drive, Randburg",
       "status": "selected",
       "tier": 1,
-      "score": 8.2,
+      "score": 7.95,
       "scores": {
         "career_leverage": 9,
-        "winnability": 7,
+        "winnability": 8,
         "prize": 6,
         "urgency": 8
       },
@@ -675,12 +675,12 @@
       "noticed_on": "2026-08-10",
       "went_live_on": null,
       "source": "manual research",
-      "name": "Entelect Hackathons University Cup 2",
+      "name": "Entelect Hackathons University Cup 2 (Age of Enteland)",
       "organiser": "Entelect",
       "scope": "local",
       "format": "in-person",
-      "location": "South Africa",
-      "status": "registered",
+      "location": "Virtual",
+      "status": "past",
       "tier": 2,
       "score": 6.7,
       "scores": {
@@ -713,7 +713,7 @@
         "livestream": "https://teams.microsoft.com/l/meetup-join/19%3ameeting_NjdjYjI3YjktNGRkNi00ZDcyLTk3Y2ItMjViYjc4NWE1ZTc2%40thread.v2/0?context=%7b%22Tid%22%3a%22e3183c89-78ae-43e0-b8a3-3eb012e5d9ea%22%2c%22Oid%22%3a%222651bb6b-7644-4f66-bea0-acfed417f9bc%22%7d",
         "linkedin": "https://www.linkedin.com/company/entelect"
       },
-      "notes": "Team registered: Sibusiso + Lethabo, confirmed via the team registration page. Entelect is one of the strongest SA graduate employers in software: also look at the separate Entelect Challenge. UPDATE 18 Aug 2026 email: theme is \"Age of Enteland\" - optimisation/strategy under constraints, full brief withheld until the event briefing. Prep: optimisation concepts, comfort with structured data, pick a language now, have a basic app scaffold ready that reads input files, writes output files, and runs fast repeatedly. UPDATE 21 Aug 2026 email (day before): official name is University Cup 2. Practice hackathon is live now through to event start — individual, register separately, use it to test the platform/submission/leaderboard flow before tomorrow. Kick-off livestream 10:00 on Microsoft Teams (link in links.livestream). All announcements/support during the event happen on Discord only. Last checks before the day: dev environment ready, comfortable reading/writing JSON, common optimisation approaches, sleep. Full brief only revealed at the live briefing tomorrow morning."
+      "notes": "COMPETED 22 Aug 2026, 10:00-15:00. Problem \"Age of Enteland\": one agent walks a weighted graph of towns spending a tick budget on travel/gather/buy/sell/craft/build/upkeep to maximise Enteloot and infrastructure. Shipped and portal-verified across four levels: L1 15,358,600 + L2 21,090,840 + L3 36,984,815 + L4 48,426,454 = 121,860,709. The leaderboard froze with the team around 10th at 120,444,763 against a #1 of 125,270,208, i.e. 3.85% behind the leader at freeze; the final shipped total is 97.28% of that #1. FINAL PLACING IS NOT CONFIRMED: the portal closed the leaderboard after the event and keeps no score history, so ~10th at freeze is the last observed standing, not a certified result. Certificate of participation issued 22 Aug 2026. Full engineering record, including every rejected hypothesis, is in the Entelect-Optimisation-Challenge repo (HANDOVER.md)."
     },
     {
       "id": "nasa-space-apps-2026",
@@ -889,6 +889,15 @@
     }
   ],
   "dropped_or_past": [
+    {
+      "name": "Entelect University Cup 2 (Age of Enteland)",
+      "organiser": "Entelect",
+      "kind": "competition",
+      "happened_on": "2026-08-22",
+      "result": "≈10th",
+      "reason": "Competed 22 Aug 2026, 10:00-15:00, as Team Sonar (Sibusiso + Lethabo). Five-hour optimisation problem, four levels, JSON in / JSON out on a live leaderboard. Shipped and portal-verified 121,860,709 total (L1 15,358,600 + L2 21,090,840 + L3 36,984,815 + L4 48,426,454). The leaderboard froze with the team around 10th at 120,444,763 against a #1 of 125,270,208: 3.85% behind the leader at freeze, and the final shipped total is 97.28% of that #1. Placing is NOT certified: Entelect closed the leaderboard after the event and retains no score history, so ~10th at freeze is the last observed standing rather than a confirmed final rank. Certificate of participation issued.",
+      "link": "https://challenge.entelect.co.za/hackathons/university/overview"
+    },
     {
       "name": "ITWeb Security Summit Hackathon (#SS26HACK)",
       "reason": "Registration closed 10 April 2026; event was 2–3 June 2026 at Sandton Convention Centre. Diarise for 2027: registration opens ~Feb.",

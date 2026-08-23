@@ -12,6 +12,7 @@ import {
   toUsd,
 } from "@/lib/analytics";
 import { participationBadge } from "@/lib/participation";
+import { BENCHMARK, PLAYBOOK, gapToLeaderPct } from "@/lib/playbook";
 import type { Opportunity, PastOpportunity, UpdateRow } from "@/lib/sonar-types";
 
 export const askSonar = createServerFn({ method: "POST" })
@@ -144,6 +145,20 @@ export const askSonar = createServerFn({ method: "POST" })
       "",
       "DISCOVERY LAG BY SOURCE:",
       lag || "(no lag data yet)",
+      "",
+      "PLAYBOOK (the /playbook section on the board page: researched, source-traced rules for",
+      "how these competitions get won. arena=scored means leaderboard contests, arena=judged",
+      "means pitched/judged events, and the two reward different behaviour. evidence=ours means",
+      "this team measured it; evidence=external means somebody else published it):",
+      PLAYBOOK.map(
+        (p) =>
+          `- [${p.phase}/${p.arena}/${p.evidence}] ${p.claim} ${p.detail} (source: ${p.source})`,
+      ).join("\n"),
+      "",
+      "OUR MEASURED COMPETITION BASELINE:",
+      `${BENCHMARK.event} (${BENCHMARK.date}): scored ${BENCHMARK.ourScore}, leader ${BENCHMARK.leaderScore}, ` +
+        `${gapToLeaderPct()}% behind at leaderboard freeze, standing ${BENCHMARK.standing} ` +
+        `(NOT confirmed - the portal closed its leaderboard and keeps no history, so never state this as a final rank).`,
       "",
       `Today is ${new Date().toISOString().slice(0, 10)}.`,
     ].join("\n");

@@ -3,6 +3,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { AppShell } from "@/components/AppShell";
 import { BoardRadar } from "@/components/BoardRadar";
 import { OpportunityRow } from "@/components/OpportunityRow";
+import { Playbook } from "@/components/Playbook";
 import { Reveal, RevealWords } from "@/components/Reveal";
 import { useOpportunities, useWatchlist } from "@/lib/sonar-data";
 import { collisions, daysUntil, winProbability } from "@/lib/analytics";
@@ -170,6 +171,8 @@ function Board() {
           ))}
         </div>
       </section>
+
+      <Playbook />
     </AppShell>
   );
 }
