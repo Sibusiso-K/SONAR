@@ -27,6 +27,16 @@
       "note": "The event this whole project was built around missing. Now the anchor point for predicting the 2027 edition."
     },
     {
+      "opportunity_slug": "discovery-gradhack",
+      "year": 2025,
+      "event_start": "2025-08-01",
+      "event_end": "2025-08-03",
+      "we_entered": false,
+      "our_placement": "none",
+      "source": "WebSearch corroborated across Hackon's event listing (hackon.co.za/events/discovery-gradhack-hackathon), a Discovery Limited LinkedIn post, and Stellenbosch University's 2025-winner news article - consistent '1-3 Aug 2025', 'applications due 2 May 2025', '50 IT students' across independent sources.",
+      "note": "confidence: reported, not confirmed - this session's WebFetch is network-blocked (EGRESS_BLOCKED), so this is WebSearch snippet corroboration, not a direct read of discovery.co.za itself. Someone with browser access should verify against the primary page when convenient. Second dated edition for this slug (with 2026) - forecasting is now live for discovery-gradhack."
+    },
+    {
       "opportunity_slug": "fnb-aoty",
       "year": 2025,
       "event_start": "2025-10-24",
@@ -34,6 +44,16 @@
       "our_placement": "none",
       "source": "data/opportunities.json dates.prior_year_event",
       "note": "Board's 2026 expectation is 'Late October 2026', consistent with this."
+    },
+    {
+      "opportunity_slug": "fnb-aoty",
+      "year": 2024,
+      "event_start": "2024-10-25",
+      "event_end": "2024-10-27",
+      "we_entered": false,
+      "our_placement": "none",
+      "source": "WebSearch corroborated across Novus Press Bulletin, IT-Online (two articles), Hypertext, and Engineering & Mining Africa - consistent '72-hour hackathon 25-27 Oct 2024', '1,130 entries', '153 competing teams'.",
+      "note": "confidence: reported (WebFetch network-blocked in this environment, so not a direct primary-source read - see the discovery-gradhack 2025 entry above for the same caveat). Second dated edition for this slug (with 2025) - forecasting is now live for fnb-aoty. Both years land in the same late-October window, which is a real, corroborated pattern, not a coincidence of two data points."
     },
     {
       "opportunity_slug": "geekulcha",
@@ -46,6 +66,16 @@
       "note": "GKHack24 is also referenced but only as 'applications opened early Sept' - no precise date, so it is deliberately NOT encoded below. Pinning it to an invented day would give this event a fake second edition and switch on a forecast built on a guess."
     },
     {
+      "opportunity_slug": "geekulcha",
+      "year": 2025,
+      "event_start": "2025-09-26",
+      "event_end": "2025-09-28",
+      "we_entered": false,
+      "our_placement": "none",
+      "source": "WebSearch corroborated across iAfrikan's event coverage, Geekulcha's own X/Twitter posts (#GKHack25), and a LinkedIn recap - consistent '26-28 Sept 2025, Centurion + Kisumu + virtual', '115 teams', 'R130,000 prize pool', 'powered by Telkom'.",
+      "note": "confidence: reported (same WebFetch caveat as above). GKHack24 still has no precise date and stays deliberately unencoded. With 2023 and 2025 both landing in the last week of September, two years apart, that's a real pattern (not adjacent years, but the same week both times) - forecasting is now live for geekulcha. #GKHack26 is separately confirmed as the entry the team actually submitted to (see data/updates.json, 2026-08-20)."
+    },
+    {
       "opportunity_slug": "huawei-ict",
       "year": 2025,
       "closes_on": "2025-12-20",
@@ -54,16 +84,22 @@
       "our_placement": "none",
       "source": "data/opportunities.json dates.prior_cycle (Southern Africa deadline 20 Dec 2025; Regional Final SA Feb 2026)",
       "note": "event_start is the SA Regional Final, given as 'Feb 2026' with no day - encoded as the 1st and flagged. The deadline (20 Dec) is exact and is the field that actually matters for a watch window."
+    },
+    {
+      "opportunity_slug": "huawei-ict",
+      "year": 2024,
+      "closes_on": "2024-10-31",
+      "we_entered": false,
+      "our_placement": "none",
+      "source": "WebSearch corroborated across Citi Newsroom, University of Zululand's official competition page, and a MICT SETA LinkedIn post - consistent 'registration deadline 31 Oct 2024' for the 2024-2025 Southern Africa cycle.",
+      "note": "confidence: reported (same WebFetch caveat as above). No regional-final event_start found for this cycle, only the registration deadline - deliberately not guessed. scripts/sonar_db.py's forecast_from_editions() was fixed alongside this to fall back to closes_on per-row rather than per-slug, so this deadline-only edition now combines with the 2025 row above into a real 2-point forecast instead of being silently dropped."
     }
   ],
 
   "needed": {
-    "note": "One more dated edition each turns these into live watch windows. This is pure research - no code required - and it is the single highest-value unblocked task in the project.",
-    "discovery-gradhack": "2025 and/or 2024 dates. Highest priority: this is the event the board was built around, and a 2027 window would fire around June.",
-    "fnb-aoty": "2024 event date. 2025 is 24 Oct; one more year establishes whether late-Oct is the pattern.",
-    "geekulcha": "GKHack24 or GKHack25 precise dates. GKHack23 was 29 Sept-1 Oct.",
-    "huawei-ict": "The 2024-25 cycle's Southern Africa deadline.",
-    "mintek-sci": "2026 is now encoded (final hacking day 1 Oct, confirmed by the selection letter). Still need one dated PRIOR edition (2024 or 2025 cycle) to reach the 2+ editions forecasting requires.",
+    "note": "One more dated edition each turns these into live watch windows. This is pure research - no code required. Four slugs (discovery-gradhack, fnb-aoty, geekulcha, huawei-ict) now have 2+ dated editions and forecasting is live for them - see the WebSearch-corroborated entries above, all marked confidence: reported pending a primary-source re-check by someone with unblocked browser access. mintek-sci and mtn-momo are what's left.",
+    "geekulcha": "GKHack24's precise date, if it ever surfaces - not required now that 2023+2025 unlock forecasting, but would tighten the estimate.",
+    "mintek-sci": "2026 is now encoded (final hacking day 1 Oct, confirmed by the selection letter). Still need one dated PRIOR edition (2024 or 2025 cycle) to reach the 2+ editions forecasting requires. Not found by the 2026-08-23 WebSearch pass - worth a dedicated look.",
     "mtn-momo": "No prior-edition information exists on the board at all."
   }
 }
