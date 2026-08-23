@@ -1,6 +1,6 @@
 import { useEffect, useState, type ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
-import { Moon, Sun, MessageSquareText } from "lucide-react";
+import { Menu, Moon, Sun, MessageSquareText, X } from "lucide-react";
 import { CREW, useIdentity } from "@/lib/identity";
 import { Assistant } from "@/components/Assistant";
 import { cn } from "@/lib/utils";
@@ -64,29 +64,24 @@ function IdentityPicker() {
 
 export function AppShell({ children }: { children: ReactNode }) {
   const [assistantOpen, setAssistantOpen] = useState(false);
+  const [navOpen, setNavOpen] = useState(false);
 
   return (
     <div className="min-h-dvh bg-background">
       <header className="sticky top-0 z-30 border-b border-rule bg-background/85 backdrop-blur-md">
-        <div className="mx-auto flex max-w-[88rem] flex-wrap items-center gap-x-8 gap-y-3 px-5 py-3 md:px-10">
-          <Link to="/" className="flex items-baseline gap-2">
+        <div className="relative mx-auto flex max-w-[88rem] items-center gap-x-4 px-5 py-3 md:px-10">
+          <button
+            onClick={() => setNavOpen((v) => !v)}
+            aria-label="Toggle navigation"
+            aria-expanded={navOpen}
+            className="flex size-8 items-center justify-center border border-border text-muted-foreground transition-colors hover:border-foreground hover:text-foreground"
+          >
+            {navOpen ? <X className="size-3.5" /> : <Menu className="size-3.5" />}
+          </button>
+
+          <Link to="/" className="absolute left-1/2 flex -translate-x-1/2 items-baseline gap-2">
             <span className="font-display text-xl font-bold tracking-[-0.05em]">SONAR</span>
           </Link>
-
-          <nav className="flex items-center gap-5 md:gap-7">
-            {NAV.map((item) => (
-              <Link
-                key={item.to}
-                to={item.to}
-                activeOptions={{ exact: item.to === "/" }}
-                activeProps={{ className: "text-foreground border-foreground" }}
-                inactiveProps={{ className: "text-muted-foreground border-transparent" }}
-                className="border-b-2 pb-0.5 font-mono text-[11px] uppercase tracking-[0.16em] transition-colors hover:text-foreground"
-              >
-                {item.label}
-              </Link>
-            ))}
-          </nav>
 
           <div className="ml-auto flex items-center gap-2">
             <IdentityPicker />
@@ -99,6 +94,33 @@ export function AppShell({ children }: { children: ReactNode }) {
             </button>
           </div>
         </div>
+
+        {/* ---- nav panel: opens/closes rather than always occupying the
+            header, which is what frees the header to center the logo.
+            Mounted/unmounted rather than height-animated: a real height
+            (or max-height, or grid-template-rows) transition needs the
+            browser to resolve an intrinsic content size mid-animation,
+            which is exactly the kind of thing that silently breaks under
+            odd rendering conditions. Fade + slide on mount is simpler and
+            matches the animate-in idiom the shadcn primitives already use
+            elsewhere in this app (dialog, popover, sheet, etc). ---- */}
+        {navOpen && (
+          <nav className="animate-in fade-in slide-in-from-top-2 mx-auto flex max-w-[88rem] flex-wrap items-center gap-x-7 gap-y-3 border-t border-rule px-5 py-4 duration-200 md:px-10">
+            {NAV.map((item) => (
+              <Link
+                key={item.to}
+                to={item.to}
+                activeOptions={{ exact: item.to === "/" }}
+                activeProps={{ className: "text-foreground border-foreground" }}
+                inactiveProps={{ className: "text-muted-foreground border-transparent" }}
+                onClick={() => setNavOpen(false)}
+                className="border-b-2 pb-0.5 font-mono text-[11px] uppercase tracking-[0.16em] transition-colors hover:text-foreground"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+        )}
       </header>
 
       <main>{children}</main>

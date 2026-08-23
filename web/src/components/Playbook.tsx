@@ -58,56 +58,65 @@ export function Playbook() {
         </div>
       </Reveal>
 
-      {/* ---- phases ---- */}
-      <div className="mt-10 grid gap-px bg-rule lg:grid-cols-3">
+      {/* ---- phases ----
+          One full-width band per phase rather than three matched-height
+          columns: "before" and "after" are a handful of entries each while
+          "during" runs to over a dozen, and forcing all three into equal-
+          height columns left two of them stranded above a wall of empty
+          space. A band lets each phase's own grid wrap to however many rows
+          it actually needs. */}
+      <div className="mt-14 space-y-14">
         {PHASES.map((phase) => {
           const entries = visible.filter((e) => e.phase === phase);
+          if (entries.length === 0) return null;
           return (
-            <div key={phase} className="bg-paper p-6">
-              <div className="flex items-baseline justify-between">
+            <div key={phase}>
+              <div className="flex items-baseline gap-3 border-b border-rule pb-3">
                 <h3 className="font-display text-2xl font-bold">{PHASE_LABEL[phase]}</h3>
-                <span className="label-caps">{entries.length}</span>
+                <span className="label-caps text-muted-foreground">{entries.length}</span>
               </div>
 
-              <div className="mt-5 space-y-7">
-                {entries.map((e) => (
-                  <article key={e.id}>
-                    <div className="flex flex-wrap items-center gap-2">
-                      <span
-                        className="border px-1.5 py-px font-mono text-[10px] uppercase tracking-widest"
-                        style={
-                          e.evidence === "ours"
-                            ? { borderColor: "var(--accent)", color: "var(--accent)" }
-                            : { borderColor: "var(--border)", color: "var(--muted-foreground)" }
-                        }
+              <div className="mt-6 grid gap-px bg-rule sm:grid-cols-2 lg:grid-cols-3">
+                {entries.map((e, i) => (
+                  <Reveal key={e.id} delay={Math.min(i, 8) * 40}>
+                    <article className="h-full bg-paper p-5">
+                      <div className="flex flex-wrap items-center gap-2">
+                        <span
+                          className="border px-1.5 py-px font-mono text-[10px] uppercase tracking-widest"
+                          style={
+                            e.evidence === "ours"
+                              ? { borderColor: "var(--accent)", color: "var(--accent)" }
+                              : { borderColor: "var(--border)", color: "var(--muted-foreground)" }
+                          }
+                        >
+                          {e.evidence === "ours" ? "ours" : "external"}
+                        </span>
+                        <span className="label-caps">{ARENA_LABEL[e.arena]}</span>
+                      </div>
+
+                      <h4 className="mt-3 text-base font-bold leading-snug">{e.claim}</h4>
+                      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                        {e.detail}
+                      </p>
+                      <a
+                        href={e.sourceUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="mt-3 inline-block font-mono text-[11px] text-muted-foreground underline underline-offset-4 hover:text-foreground"
                       >
-                        {e.evidence === "ours" ? "ours" : "external"}
-                      </span>
-                      <span className="label-caps">{ARENA_LABEL[e.arena]}</span>
-                    </div>
-
-                    <h4 className="mt-2 text-base font-bold leading-snug">{e.claim}</h4>
-                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{e.detail}</p>
-                    <a
-                      href={e.sourceUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="mt-2 inline-block font-mono text-[11px] text-muted-foreground underline underline-offset-4 hover:text-foreground"
-                    >
-                      {e.source}
-                    </a>
-                  </article>
+                        {e.source}
+                      </a>
+                    </article>
+                  </Reveal>
                 ))}
-
-                {entries.length === 0 && (
-                  <p className="text-sm text-muted-foreground">
-                    Nothing recorded for this phase under that filter.
-                  </p>
-                )}
               </div>
             </div>
           );
         })}
+
+        {visible.length === 0 && (
+          <p className="text-sm text-muted-foreground">Nothing recorded under that filter.</p>
+        )}
       </div>
     </section>
   );
