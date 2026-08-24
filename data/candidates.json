@@ -1,6 +1,6 @@
 {
   "note": "Span-verified observations not yet linked to a tracked opportunity (candidate_url is set, opportunity_id is null). Written by `scripts/sonar_db.py promote`. Nothing here is on the board - status starts 'new' and a human sets it to 'promoted' (after writing the real data/hackathons.json entry) or 'dismissed' (not a real/distinct opportunity, with a reason in `note`).",
-  "generated": "2026-08-24T13:15:08Z",
+  "generated": "2026-08-24T19:01:30Z",
   "candidates": {
     "https://www.shipaton.com/": {
       "status": "new",
