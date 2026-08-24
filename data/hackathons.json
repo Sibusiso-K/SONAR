@@ -370,7 +370,8 @@
       },
       "dates": {
         "confidence": "unconfirmed",
-        "note": "You already have the participant registration form link: fill it in and the dates should follow by email."
+        "note": "You already have the participant registration form link: fill it in and the dates should follow by email.",
+        "possible_related_programme": "A separate MTN Group programme, the 3rd MoMo Open API Hackathon, is reported by secondary sources (allbusiness.africa, applyscholars.com) to run its idea phase 21 Oct to 8 Dec 2026 and to be open only to Ghana, Uganda, Cote d'Ivoire, Cameroon and Zambia. Recorded because it MIGHT be the same programme under a different name, in which case this entry's location claim and our eligibility are both wrong. Not treated as fact: the team submitted first-hand on 16 Aug, which no secondary source can override, and 'MoMo Mini App' and 'MoMo Open API' have never been confirmed to be the same contest. Resolve by reading the confirmation email, not by searching again."
       },
       "prize": {
         "currency": "USD",
@@ -588,7 +589,7 @@
       "organiser": "Geekulcha",
       "scope": "local",
       "format": "hybrid",
-      "location": "South Africa (online + in-person)",
+      "location": "Centurion, South Africa (in-person) with a virtual option",
       "status": "submitted",
       "tier": 3,
       "score": 5.75,
@@ -599,9 +600,14 @@
         "urgency": 9
       },
       "dates": {
-        "expected_window": "September–October 2026",
-        "prior_editions": "GKHack23: 29 Sept–1 Oct 2023; GKHack24 applications opened early Sept",
+        "submission_deadline": "2026-08-25T23:59:00+02:00",
+        "submission_deadline_label": "concept pack due (slides, TRL, architecture, user journey, market entry)",
+        "event_start": "2026-09-25",
+        "event_end": "2026-09-27",
+        "build_up_webinars": "2026-09-08 to 2026-09-17",
+        "prior_editions": "GKHack23: 29 Sept to 1 Oct 2023; GKHack24 applications opened early Sept",
         "confidence": "confirmed",
+        "source": "sonke.gklink.co/event/gkhack26, the organiser's own registration platform, read 24 Aug 2026",
         "team_dashboard_checked_on": "2026-08-20"
       },
       "prize": {

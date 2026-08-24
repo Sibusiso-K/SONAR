@@ -9,6 +9,30 @@
   },
   "updates": [
     {
+      "at": "2026-08-24T19:45:00+02:00",
+      "kind": "verified",
+      "target": "geekulcha-2026",
+      "title": "Monday sweep: Geekulcha's real dates found, and the deadline is tomorrow",
+      "body": "The entry had been carrying an 'expected_window' of September to October and no deadline at all, on the reasoning that the team dashboard showed no date. The organiser's own registration platform states them plainly: concept pack due 25 Aug 2026 23:59, hackathon 25 to 27 September in Centurion with a virtual option, build-up webinars 8 to 17 September. That puts the deadline one day out, not one month, which retrospectively explains the 20 Aug dashboard reading where 8 of 9 documents landed within hours of each other. The urgency sub-score of 9 was already right for the wrong reason. Lesson worth keeping: the dashboard shows what we submitted, the event page shows what is required, and only the second one carries dates. Checking the team dashboard is not the same as checking the source.",
+      "by": "Sibusiso K"
+    },
+    {
+      "at": "2026-08-24T19:40:00+02:00",
+      "kind": "changed",
+      "target": "mtn-momo-miniapp-2026",
+      "title": "Possible eligibility problem recorded against MoMo, deliberately not acted on",
+      "body": "Secondary sources describe an MTN Group '3rd MoMo Open API Hackathon' with an idea phase of 21 Oct to 8 Dec 2026, open only to Ghana, Uganda, Cote d'Ivoire, Cameroon and Zambia. If that is this contest under another name then the entry's 'Multi-country incl. South Africa' location is wrong and the team is not eligible at all. It has not been treated as fact and nothing was downgraded: the team submitted first-hand on 16 Aug, which no search result outranks, and 'MoMo Mini App' has never been shown to be the same programme as 'MoMo Open API'. Filed under dates.possible_related_programme so the question is visible rather than lost, and resolvable the only way it can be, by reading the confirmation email.",
+      "by": "Sibusiso K"
+    },
+    {
+      "at": "2026-08-24T19:35:00+02:00",
+      "kind": "system",
+      "target": null,
+      "title": "Calendar reconciled against the board: seven events missing, two stale",
+      "body": "The Google Calendar had drifted from docs/CALENDAR.md and the board. Added: Geekulcha's 25 Aug deadline and 25 to 27 Sept event, the Mintek final hacking day on 1 Oct and the mandatory SCI Conference on 2 Oct, the SME Toolkit final business plan on 30 Nov, the GovTech awards on 23 Sept, and W3Node in November. The two Mintek entries and the SME Toolkit deadline were the serious omissions: all three are hard commitments, and one is an in-person day with a 13:00 code cutoff. Corrected two stale entries: the ADTC submission alarm was still set to fire today for a competition dropped on 16 Aug, now relabelled and freed rather than deleted so the decision stays on the record, and GovTech still read 'VERIFY ELIGIBILITY' when eligibility was resolved and the in-person track chosen a week ago.",
+      "by": "Sibusiso K"
+    },
+    {
       "at": "2026-08-23T11:50:00+02:00",
       "kind": "changed",
       "target": "mintek-sci-2026",

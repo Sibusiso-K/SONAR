@@ -21,7 +21,8 @@ Importable file: [`../calendar/sonar-2026.ics`](../calendar/sonar-2026.ics)
 | Thu 20 | 18:00–21:00 | ADTC feature freeze + full benchmark run | prep |
 | Sat 22 – Sun 23 | 09:00–17:00 | ~~ADTC build sprint 2~~ — moot, ADTC dropped 16 Aug | prep |
 | **Sat 22** | 10:00–15:00 | **Entelect Hackathons University Cup 2** — "Age of Enteland", registered. Join Discord + livestream before 10:00. | event |
-| **Mon 24** | all day | **SUBMIT — Africa Deep Tech Challenge ($16,500)** · hard cutoff 25 Aug 08:45 SAST | deadline |
+| ~~Mon 24~~ | — | ~~SUBMIT: Africa Deep Tech Challenge~~ — **dropped 16 Aug, not competing.** Nothing due | — |
+| **Tue 25** | 23:59 | **DEADLINE — Geekulcha #GKHack26 concept pack** · slides, TRL, architecture, user journey, market entry | deadline |
 | Fri 14 | — | **Mintek SCI Grad Hackathon — team SELECTED** (letter, Boitumelo Lekalakala). Start building. | milestone |
 | Wed 26 | 18:00–20:00 | IBM Bob prep — trial working, workflow problem chosen | prep |
 | Thu 27 | 16:00–20:30 | **IBM Dev Day: Bob in Action** — enablement 16:00, tracks 17:00 | event |
@@ -44,6 +45,8 @@ Importable file: [`../calendar/sonar-2026.ics`](../calendar/sonar-2026.ics)
 | Tue 15 – Wed 16 | — | AI Infra Summit Hackathon, Santa Clara CA *(on-site invitation-only; online track separate, no on-site travel planned)* | event |
 | Thu 17 – Sat 19 | all day | **SITA GovTech 2026 Hackathon — Durban ICC, in person.** Submitted; entity registered | event |
 | Wed 23 | all day | GovTech winners announced (Awards Ceremony — separate from the hackathon) | reward |
+| Tue 8 – Thu 17 | — | Geekulcha #GKHack26 build-up webinars | prep |
+| **Fri 25 – Sun 27** | all day | **Geekulcha Annual Hackathon #GKHack26 — Centurion, or virtual.** Track: Blockchain for Impact, project V.U.K.A. | event |
 | **Wed 30** | all day | **DEADLINE — RevenueCat Shipaton ($700k+)** · hard cutoff 1 Oct 08:45 SAST | deadline |
 
 ---
@@ -97,8 +100,7 @@ Importable file: [`../calendar/sonar-2026.ics`](../calendar/sonar-2026.ics)
 
 These have no confirmed 2026 dates. They live in the Monday review, not the calendar:
 
-- **MTN MoMo Mini App** — **submitted** (three ideas, three-person team). Dates should arrive by email; nothing goes on the calendar until one does.
-- **Geekulcha #GKHack26** — already submitted (confirmed 20 Aug via the team dashboard); no exact deadline date known yet, so not on the calendar proper.
+- **MTN MoMo Mini App** — **submitted** (three ideas, three-person team). Dates should arrive by email; nothing goes on the calendar until one does. **Open question, 24 Aug:** secondary sources describe an MTN Group "3rd MoMo Open API Hackathon" running its idea phase 21 Oct – 8 Dec 2026 and open only to Ghana, Uganda, Côte d'Ivoire, Cameroon and Zambia. If that is the same contest under a different name, we are not eligible and the entry's location field is wrong. It has never been confirmed to be the same contest, and a first-hand submission outranks a search result, so nothing has been changed on the strength of it. **Resolve by reading the confirmation email.**
 - **Huawei ICT 2026–27** — registration usually opens September–November.
 - **Zindi** — rolling; check every Monday sorted by "Closing soon."
 
