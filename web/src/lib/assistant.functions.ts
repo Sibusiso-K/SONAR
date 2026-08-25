@@ -12,8 +12,30 @@ import {
   toUsd,
 } from "@/lib/analytics";
 import { participationBadge } from "@/lib/participation";
+import { chat } from "@/lib/assistant.providers";
 import { BENCHMARK, PLAYBOOK, gapToLeaderPct } from "@/lib/playbook";
 import type { Opportunity, PastOpportunity, UpdateRow } from "@/lib/sonar-types";
+
+/**
+ * Caps a field at n characters. Exists because the full board data,
+ * uncapped, builds a system prompt of roughly 12,400 tokens against Groq's
+ * 8,000 TPM ceiling on this account's tier — measured against the live
+ * board, not estimated. A first pass at trimming (140/160/100/200-char
+ * caps) still measured 8,155 real prompt tokens a few hours later, because
+ * the board keeps growing: it is not a one-time fix, it is a budget that
+ * shrinks every time an entry or an update is added. These caps (~half of
+ * the first pass) measured 6,029 real prompt tokens against the live board
+ * on 25 Aug 2026 — confirmed against Groq's own usage figures, not
+ * estimated — leaving roughly 2,000 tokens of headroom for the board to
+ * keep growing before this needs revisiting again. Truncating loses
+ * detail, not accuracy: the assistant's hard rule against inventing facts
+ * already covers a field it cannot see in full the same way it covers a
+ * field that is empty.
+ */
+function truncate(s: string | null | undefined, n: number) {
+  if (!s) return "none";
+  return s.length > n ? `${s.slice(0, n)}…` : s;
+}
 
 export const askSonar = createServerFn({ method: "POST" })
   .inputValidator((data: unknown) =>
@@ -32,8 +54,10 @@ export const askSonar = createServerFn({ method: "POST" })
       .parse(data),
   )
   .handler(async ({ data }) => {
-    const apiKey = process.env["GROQ_API_KEY"];
-    if (!apiKey) return { error: "The assistant is not configured yet." as const };
+    // No GROQ_API_KEY check here any more: a missing key is no longer fatal,
+    // because a running local Ollama can answer on its own. Which backends
+    // are actually available is decided in assistant.providers, and if none
+    // are it reports which ones it tried and why each failed.
 
     // Vercel only has the VITE_-prefixed vars set (they're also read
     // client-side, see integrations/supabase/client.ts) — this project
@@ -53,7 +77,11 @@ export const askSonar = createServerFn({ method: "POST" })
     const [oppRes, pastRes, updRes] = await Promise.all([
       db.from("opportunities").select("*").eq("archived", false),
       db.from("past_opportunities").select("*"),
-      db.from("updates").select("*").order("created_at", { ascending: false }).limit(25),
+      // 10, not 25: the prompt only ever used u.summary (the short title),
+      // never u.detail, so this section was never the dominant cost — the
+      // board section below is. Trimmed anyway since 25 titles buys little
+      // over 10 and every token here is one the board section needs more.
+      db.from("updates").select("*").order("created_at", { ascending: false }).limit(10),
     ]);
 
     const live = (oppRes.data ?? []) as unknown as Opportunity[];
@@ -77,10 +105,10 @@ export const askSonar = createServerFn({ method: "POST" })
           `  career_track=${o.career_track}; source=${o.source ?? "unknown"}; went_live=${
             o.went_live_on ?? "unknown"
           }; noticed=${o.noticed_on ?? "never"}`,
-          `  eligibility: ${o.eligibility ?? "not recorded"}`,
-          `  what_to_build: ${o.what_to_build ?? "not recorded"}`,
-          `  deliverables: ${o.deliverables ?? "not recorded"}`,
-          `  notes: ${o.notes ?? "none"}`,
+          `  eligibility: ${truncate(o.eligibility, 90)}`,
+          `  what_to_build: ${truncate(o.what_to_build, 100)}`,
+          `  deliverables: ${truncate(o.deliverables, 60)}`,
+          `  notes: ${truncate(o.notes, 120)}`,
         ].join("\n");
       })
       .join("\n");
@@ -152,7 +180,7 @@ export const askSonar = createServerFn({ method: "POST" })
       "this team measured it; evidence=external means somebody else published it):",
       PLAYBOOK.map(
         (p) =>
-          `- [${p.phase}/${p.arena}/${p.evidence}] ${p.claim} ${p.detail} (source: ${p.source})`,
+          `- [${p.phase}/${p.arena}/${p.evidence}] ${p.claim} ${truncate(p.detail, 90)} (source: ${p.source})`,
       ).join("\n"),
       "",
       "OUR MEASURED COMPETITION BASELINE:",
@@ -163,37 +191,58 @@ export const askSonar = createServerFn({ method: "POST" })
       `Today is ${new Date().toISOString().slice(0, 10)}.`,
     ].join("\n");
 
-    const res = await fetch("https://api.groq.com/openai/v1/chat/completions", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${apiKey}`,
-      },
-      body: JSON.stringify({
-        // deepseek-r1-distill-llama-70b was deprecated by Groq (2 Sept
-        // 2025); llama-3.3-70b-versatile is their own suggested
-        // replacement, not just "a model that still works".
-        model: "llama-3.3-70b-versatile",
-        messages: [{ role: "system", content: system }, ...data.messages],
-      }),
+    // Ollama gets a deliberately smaller prompt, not the same one truncated
+    // by the server. Measured on 25 Aug 2026: the full prompt above (~7,450
+    // tokens) forced a choice between two bad options on this CPU-only box.
+    // Ollama's default 2048-token context window silently drops whatever
+    // does not fit, so sending the full prompt at default settings answered
+    // in 8 seconds but the model was reasoning over roughly a quarter of
+    // the real data and returned an ungrounded, made-up date. Explicitly
+    // widening the context to 8192 so nothing is silently dropped fixed
+    // the correctness problem but the same request then took over 200
+    // seconds. Neither is acceptable for a page waiting on the answer, and
+    // silently truncating is worse than either: it produces a confident,
+    // wrong reply instead of a slow or absent one, which is exactly what
+    // this assistant's own hard rules exist to prevent. So instead of one
+    // prompt force-fit to two very different backends, this is a second,
+    // honestly smaller one: nearest deadlines only, no eligibility, notes,
+    // playbook or audit trail, small enough for Ollama's default context
+    // to hold in full. It knows less, on purpose, and says so.
+    const nearestLive = [...live]
+      .filter((o) => o.next_date)
+      .sort((a, b) => (daysUntil(a.next_date) ?? 9999) - (daysUntil(b.next_date) ?? 9999))
+      .slice(0, 10)
+      .map(
+        (o) =>
+          `- ${o.name}: next_date=${o.next_date} (${daysUntil(o.next_date)} days away), ` +
+          `confidence=${o.confidence}, participation=${participationBadge(o.status).label}, ` +
+          `prize=${o.prize?.pool ?? 0} ${o.prize?.currency ?? "n/a"}, score=${o.score}`,
+      )
+      .join("\n");
+
+    const ollamaSystem = [
+      "You are SONAR's in-board assistant, running in a reduced-data fallback mode.",
+      "Voice: dry, precise, a little wry. Never cheerful startup filler. Short paragraphs, no emoji, no exclamation marks.",
+      "",
+      "HARD RULES:",
+      "1. Never invent a date, prize, result, deadline or eligibility rule. If it is not in the data below, say plainly that this reduced view does not have it.",
+      "2. You are only given the 10 nearest live deadlines, with no eligibility, notes, deliverables or playbook detail. If asked for any of that, say this fallback mode does not carry it and suggest trying again shortly.",
+      "3. When a row is 'unconfirmed', 'predicted' or 'conflicted', say so before you reason from it.",
+      "",
+      "NEAREST LIVE DEADLINES:",
+      nearestLive || "(none with a recorded date)",
+      "",
+      `Today is ${new Date().toISOString().slice(0, 10)}.`,
+    ].join("\n");
+
+    // Provider selection, retries and <think>-stripping all live in
+    // assistant.providers. Groq gets the full prompt and answers when it
+    // can; the local Ollama box gets the reduced one and covers the
+    // offline/rate-limited case. Errors from every backend tried are
+    // surfaced together rather than collapsed to a status code, which is
+    // what previously hid "model decommissioned" behind a redeploy
+    // guessing game.
+    return await chat([{ role: "system", content: system }, ...data.messages], {
+      ollamaMessages: [{ role: "system", content: ollamaSystem }, ...data.messages],
     });
-
-    if (res.status === 429) return { error: "Rate limited. Give it a minute." as const };
-    if (!res.ok) {
-      // Surface Groq's own error text rather than just the status code —
-      // a bare "(400)" was hiding "model decommissioned" behind a redeploy
-      // guessing game.
-      const detail = await res.text().catch(() => "");
-      return {
-        error:
-          `The assistant call failed (${res.status}). ${detail.slice(0, 300)}`.trim() as string,
-      };
-    }
-
-    const json = (await res.json()) as {
-      choices?: { message?: { content?: string } }[];
-    };
-    const reply = json.choices?.[0]?.message?.content?.trim();
-    if (!reply) return { error: "The model returned nothing usable." as const };
-    return { reply };
   });
