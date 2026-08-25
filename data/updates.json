@@ -9,6 +9,14 @@
   },
   "updates": [
     {
+      "at": "2026-08-25T13:55:00+02:00",
+      "kind": "changed",
+      "target": "nedbank-novation-2026",
+      "title": "Retracted: Nedbank N*ovation is a closed 2025 event, not a 2026 prospect",
+      "body": "Added this morning as a live monitor entry scored 6.1, Tier 2, with a monthly calendar check and a claim that applications would likely open around September. All of that is now removed. The page is an abandoned 2025 artefact: title 'N*ovation Hackathon 2025', applications closed 31 October 2025, event ran 8 to 9 November 2025, copyright 2025, and no mention of 2026 anywhere on it. Two distinct errors, both mine. First, the original read of the page was truncated at 1800 characters and never reached the line 'Dates: 8 - 9 November 2025', so the entry recorded only that applications had closed and left it ambiguous whether the event itself had already happened. Reading part of a page and reporting it as though the whole page was read is the failure, not the truncation itself. Second, and worse, an annual cycle was projected from a single observed edition. One data point is not a pattern, and inventing a September announcement window from it is precisely the guessing this board exists to refuse: the same class of error as the fabricated 'entered' outcomes fixed on 16 Aug. Moved to dropped_or_past with the real dates, the recurring calendar check deleted, and the monitoring_sources note rewritten to say plainly that recurrence is unknown. Nedbank stays as a page to watch, so a genuine announcement would still be caught, but nothing is scheduled and nothing is assumed. Caught by Sibusiso, who pointed out it was closed.",
+      "by": "Sibusiso K"
+    },
+    {
       "at": "2026-08-25T13:40:00+02:00",
       "kind": "added",
       "target": "zindi-road-barbados-2026",

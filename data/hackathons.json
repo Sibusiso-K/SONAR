@@ -976,54 +976,17 @@
         "competition": "https://zindi.world/competitions/bias-bounty-mapping-equity-challenge"
       },
       "notes": "Found in the 25 Aug 2026 sweep, three days before it opens on 28 Aug. Data is entirely US-based despite Zindi's African focus, so nothing here transfers to the local portfolio story. The 1 Nov close is the one genuinely comfortable deadline on the board: it clears the whole October crunch. Treat as the fallback if the R.O.A.D. timing proves impossible, not as a second simultaneous entry."
-    },
-    {
-      "id": "nedbank-novation-2026",
-      "noticed_on": "2026-08-25",
-      "went_live_on": null,
-      "source": "25 Aug 2026 discovery sweep, apply.hackathon.nedbank.co.za",
-      "name": "Nedbank N*ovation Hackathon",
-      "organiser": "Nedbank",
-      "scope": "local",
-      "format": "in-person",
-      "location": "South Africa",
-      "status": "monitor",
-      "tier": 2,
-      "score": 6.1,
-      "scores": {
-        "career_leverage": 8,
-        "winnability": 6,
-        "prize": 6,
-        "urgency": 2
-      },
-      "dates": {
-        "prior_year_applications_close": "2025-10-31",
-        "confidence": "unconfirmed",
-        "source": "apply.hackathon.nedbank.co.za, read 25 Aug 2026. The live page still advertises the 2025 edition."
-      },
-      "prize": {
-        "currency": "ZAR",
-        "pool": 300000,
-        "breakdown": {
-          "1st": 150000,
-          "2nd": 100000,
-          "3rd": 50000,
-          "note": "Paid as AVO vouchers, not cash. Prize sub-score discounted to 6 for that reason: R300k in vouchers is not R300k."
-        }
-      },
-      "eligibility": "Stated for the 2025 edition as senior and experienced technologists who have built, led and delivered. Capped at 50 participants. The seniority framing is a real risk for a recent-graduate team and is the reason winnability is 6 rather than 8.",
-      "team_fit": "Unresolved. The 50-participant cap is the most favourable field size anywhere on this board, and the named skills (Python, full-stack, cloud, architecture) match. Whether Nedbank reads two 2026 graduates as 'senior' is the open question, and it should be asked directly rather than assumed either way.",
-      "what_to_build": "Two-day in-person innovation sprint on live digital banking and fintech problems.",
-      "deliverables": [
-        "Application, then a two-day on-site build"
-      ],
-      "links": {
-        "apply": "https://apply.hackathon.nedbank.co.za/"
-      },
-      "notes": "Found in the 25 Aug 2026 sweep. NOT a live 2026 opportunity: the site still shows 'N*ovation Hackathon 2025' with applications closed 31 October 2025, so no 2026 date exists to record and none has been invented. Added as a monitor entry because it is exactly the Tier-B organisation watch that AUTONOMY.md argues for: a 50-seat cap and a direct line to Nedbank tech leadership is the highest career leverage per hour of any local event found so far, and missing the announcement window is how a 50-seat event gets lost. If the prior-year pattern holds, applications open around September and close around 31 October. Check monthly from 1 September."
     }
   ],
   "dropped_or_past": [
+    {
+      "name": "Nedbank N*ovation Hackathon 2025",
+      "organiser": "Nedbank",
+      "kind": "hackathon",
+      "happened_on": "2025-11-08",
+      "reason": "Over before the board existed. Applications closed 31 October 2025 and the hackathon ran 8 to 9 November 2025, capped at 50 participants, with R300,000 in AVO vouchers split R150k/R100k/R50k across the top three. Recorded as past rather than as a monitor because there is no evidence of a 2026 edition: apply.hackathon.nedbank.co.za is an abandoned 2025 page, carrying a 2025 title, 2025 dates and a 2025 copyright, with no mention of 2026 anywhere on it. CORRECTION, 25 Aug 2026: this was first logged the same day as a live monitor entry scored 6.1, on the reasoning that an annual pattern would put the next intake around October 2026. That was wrong twice over. The first read of the page was truncated and missed the 'Dates: 8 - 9 November 2025' line, so the entry recorded only that applications had closed and left it ambiguous whether the event itself had happened. And one observed edition is not a pattern: projecting an annual cycle from a single data point is the guessing this board is meant to refuse. Nedbank stays in monitoring_sources so a real announcement would still be caught, but nothing is scheduled and nothing is assumed.",
+      "link": "https://apply.hackathon.nedbank.co.za/"
+    },
     {
       "name": "Entelect University Cup 2 (Age of Enteland)",
       "organiser": "Entelect",
@@ -1113,7 +1076,7 @@
       "name": "Nedbank N*ovation Hackathon",
       "url": "https://apply.hackathon.nedbank.co.za/",
       "cadence": "monthly",
-      "note": "Added 25 Aug 2026. Tier-B organisation watch: 50-seat cap and R300k in prizes means the announcement window is the whole game. Live page still advertises the 2025 edition, which closed 31 Oct 2025."
+      "note": "Added 25 Aug 2026 as a source only. Exactly ONE edition is known to have existed: applications closed 31 Oct 2025, event ran 8-9 Nov 2025, 50 seats, R300k in AVO vouchers. The page has not been touched since. Whether it recurs is genuinely unknown, so this is a page to watch, not a cycle to plan around. If a 2026 or 2027 edition is ever announced here, THEN it earns a board entry with real dates."
     },
     {
       "name": "ITWeb events",
