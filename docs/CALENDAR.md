@@ -45,6 +45,7 @@ Importable file: [`../calendar/sonar-2026.ics`](../calendar/sonar-2026.ics)
 | Tue 15 – Wed 16 | — | AI Infra Summit Hackathon, Santa Clara CA *(on-site invitation-only; online track separate, no on-site travel planned)* | event |
 | Thu 17 – Sat 19 | all day | **SITA GovTech 2026 Hackathon — Durban ICC, in person.** Submitted; entity registered | event |
 | Wed 23 | all day | GovTech winners announced (Awards Ceremony — separate from the hackathon) | reward |
+| Sun 13 | 23:59 | Zindi "A Step Ahead of Drought" (ITU) closes, €2 000 — **recorded, not entered**: 430 already active and it collides with the Shipaton sprint | deadline |
 | Tue 8 – Thu 17 | — | Geekulcha #GKHack26 build-up webinars | prep |
 | **Fri 25 – Sun 27** | all day | **Geekulcha Annual Hackathon #GKHack26 — Centurion, or virtual.** Track: Blockchain for Impact, project V.U.K.A. | event |
 | **Wed 30** | all day | **DEADLINE — RevenueCat Shipaton ($700k+)** · hard cutoff 1 Oct 08:45 SAST | deadline |
@@ -59,6 +60,7 @@ Importable file: [`../calendar/sonar-2026.ics`](../calendar/sonar-2026.ics)
 | Thu 1 | all day | **DEADLINE — IBM Z Datathon registration** (late = waitlist) | deadline |
 | **Fri 2** | all day | **Mintek SCI Conference — mandatory attendance, separate registration.** Five finalists announced; originality authentication follows | event |
 | Sat 3 – Sun 4 | 09:00–17:00 | RSNA Kaggle sprint — reuse ADTC efficiency work | prep |
+| **Mon 5** | 23:59 | **DEADLINE — Zindi R.O.A.D. Barbados Handwriting ($25 000).** Freeze by 29 Sept: this close sits inside the Mintek/Shipaton crunch | deadline |
 | Thu 15 | all day | **DEADLINE — RSNA Knee Detection entry / team merger** | deadline |
 | **Fri 16 – Sat 17** | all day | **BCG Platinion Hackathon — Johannesburg** ← the one that matters | event |
 | Sat 17 – Sun 18 | all day | IBM Z Datathon *(clashes with BCG — backup only)* | event |
@@ -72,6 +74,8 @@ Importable file: [`../calendar/sonar-2026.ics`](../calendar/sonar-2026.ics)
 
 | Date | What | Type |
 |---|---|---|
+| **Fri 28 Aug** | Zindi Bias Bounty Mapping Equity **opens** ($10 000) — enter on day one or not at all | deadline |
+| **Sun 1 Nov** | **DEADLINE — Zindi Bias Bounty Mapping Equity ($10 000).** The only comfortable deadline on the board: clears the whole October crunch | deadline |
 | Thu 12 – Sat 14 Nov | W3Node Conference & Hackathon, Cape Town *(free entry; Web3-focused, not the team's stack)* | event |
 | Sat 14 – Sun 15 Nov | NASA International Space Apps Challenge | event |
 | **Mon 30 Nov** | **DEADLINE — SME Toolkit SA Business Plan Competition, final submission.** Two individual plans due: Karoo Compute (Sibusiso), Indlela AI (Lethabo). 10 finalists advance to interviews. | deadline |
@@ -102,7 +106,10 @@ These have no confirmed 2026 dates. They live in the Monday review, not the cale
 
 - **MTN MoMo Mini App** — **submitted** (three ideas, three-person team). Dates should arrive by email; nothing goes on the calendar until one does. **Open question, 24 Aug:** secondary sources describe an MTN Group "3rd MoMo Open API Hackathon" running its idea phase 21 Oct – 8 Dec 2026 and open only to Ghana, Uganda, Côte d'Ivoire, Cameroon and Zambia. If that is the same contest under a different name, we are not eligible and the entry's location field is wrong. It has never been confirmed to be the same contest, and a first-hand submission outranks a search result, so nothing has been changed on the strength of it. **Resolve by reading the confirmation email.**
 - **Huawei ICT 2026–27** — registration usually opens September–November.
-- **Zindi** — rolling; check every Monday sorted by "Closing soon."
+- **Zindi** — rolling; check every Monday sorted by "Closing soon." **The individual open competitions now get their own dated rows** (R.O.A.D. Barbados, Bias Bounty). Keeping Zindi as one undated row is what hid a $25 000 competition for seven weeks.
+- **Nedbank N*ovation Hackathon** — R300 000 in AVO vouchers, **capped at 50 participants**, direct line to Nedbank tech leadership. 2026 edition not announced; the 2025 one closed 31 Oct 2025. Checked monthly from 1 Sept. Open question: the brief asks for "senior and experienced technologists" — ask whether 2026 graduates qualify.
+- **DIRISA Student Datathon (CSIR)** — South African, student/graduate, Altron and ALX Africa sponsor it. Site still says "SDC 2025 / more information to be confirmed". Monthly check.
+- **HackOn** — SA community hackathon series, "watch this space for new events coming soon". Weekly check.
 
 ## 2027 — diarise now
 

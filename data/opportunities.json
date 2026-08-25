@@ -21,7 +21,7 @@
       "reported": "From a secondary source (news/aggregator); verify before relying on it",
       "unconfirmed": "Not yet announced for 2026; based on prior-year pattern"
     },
-    "generated": "2026-08-24T17:43:34Z",
+    "generated": "2026-08-25T11:29:38Z",
     "generator": "scripts/migrate_to_opportunities.py",
     "kinds": {
       "hackathon": "Build something in a fixed window",
@@ -98,9 +98,9 @@
       "notes": "NOT COMPETING: decided 16 Aug 2026. Kept on the board for reference only; team is not entering.",
       "kind": "hackathon",
       "career_track": "adjacent",
-      "next_date": "2026-08-24",
-      "next_date_label": "submission deadline",
-      "days_remaining": 0,
+      "next_date": null,
+      "next_date_label": null,
+      "days_remaining": null,
       "confidence": "confirmed",
       "lifecycle": "scored",
       "tracks": [],
@@ -158,7 +158,7 @@
       "career_track": "direct",
       "next_date": "2026-09-07",
       "next_date_label": "application deadline",
-      "days_remaining": 14,
+      "days_remaining": 13,
       "confidence": "confirmed",
       "lifecycle": "committed",
       "tracks": [],
@@ -219,7 +219,7 @@
       "career_track": "adjacent",
       "next_date": "2026-08-27",
       "next_date_label": "virtual event",
-      "days_remaining": 3,
+      "days_remaining": 2,
       "confidence": "confirmed",
       "lifecycle": "committed",
       "tracks": [],
@@ -278,7 +278,7 @@
       "career_track": "none",
       "next_date": "2026-09-30",
       "next_date_label": "submission deadline",
-      "days_remaining": 37,
+      "days_remaining": 36,
       "confidence": "confirmed",
       "lifecycle": "scored",
       "tracks": [],
@@ -333,7 +333,7 @@
       "career_track": "adjacent",
       "next_date": "2026-09-17",
       "next_date_label": "event start",
-      "days_remaining": 24,
+      "days_remaining": 23,
       "confidence": "confirmed",
       "lifecycle": "submitted",
       "tracks": [],
@@ -390,7 +390,7 @@
       "career_track": "none",
       "next_date": "2026-10-15",
       "next_date_label": "entry deadline",
-      "days_remaining": 52,
+      "days_remaining": 51,
       "confidence": "reported",
       "lifecycle": "scored",
       "tracks": [],
@@ -571,7 +571,7 @@
       "career_track": "direct",
       "next_date": "2026-08-30",
       "next_date_label": "submission deadline",
-      "days_remaining": 6,
+      "days_remaining": 5,
       "confidence": "confirmed",
       "lifecycle": "committed",
       "tracks": [],
@@ -627,7 +627,7 @@
       "career_track": "none",
       "next_date": "2026-10-01",
       "next_date_label": "registration deadline",
-      "days_remaining": 38,
+      "days_remaining": 37,
       "confidence": "reported",
       "lifecycle": "scored",
       "tracks": [],
@@ -711,7 +711,9 @@
       },
       "dates": {
         "confidence": "unconfirmed",
-        "note": "Rolling: new challenges open continuously. Site is JavaScript-rendered so it must be checked in a browser."
+        "note": "Rolling: new challenges open continuously. Site is JavaScript-rendered so it must be checked in a browser.",
+        "checked_on": "2026-08-25",
+        "open_challenges_at_last_check": "5 open. Two were promoted to their own dated board entries (zindi-road-barbados-2026, zindi-bias-bounty-2026). Recorded but NOT entered: 'A Step Ahead of Drought: Forecasting Global Water Storage' by ITU, EUR 2000, closes 13 Sep 2026, 430 already active, and it collides with the 12-13 Sep Shipaton monetisation sprint; 'Climate Risk and Health Prediction', USD 1000, beginner-friendly; 'August Study Jam: AI4D Tanzania Tourism Classification', points only, no cash, closes ~31 Aug."
       },
       "prize": {
         "currency": "USD",
@@ -729,7 +731,7 @@
         "jobs": "https://zindi.world/jobs",
         "sort_closing": "https://zindi.world/competitions?sort=newest"
       },
-      "notes": "Zindi also runs a JOBS BOARD where partner companies recruit directly off leaderboard performance: that is the real career value here, more than the prize money. Sort by 'Closing soon' every Monday. Multilingual African-language NLP work doubles as ADTC material.",
+      "notes": "Zindi also runs a JOBS BOARD where partner companies recruit directly off leaderboard performance: that is the real career value here, more than the prize money. Sort by 'Closing soon' every Monday. LESSON FROM THE 25 AUG 2026 SWEEP: keeping Zindi as one undated 'rolling' row was a mistake that cost the board seven weeks of visibility. A $25,000 competition opened on 3 July and never appeared anywhere on the board, because a rolling monitor row has no next_date, so it never surfaces in any deadline view and reads as 'nothing new'. Rolling sources still need their individual open competitions promoted to dated rows the moment they are seen. This row is now a pointer to the source, not a substitute for the entries.",
       "kind": "ml_competition",
       "career_track": "none",
       "next_date": null,
@@ -801,7 +803,7 @@
       "career_track": "none",
       "next_date": "2026-08-25",
       "next_date_label": "submission deadline",
-      "days_remaining": 1,
+      "days_remaining": 0,
       "confidence": "confirmed",
       "lifecycle": "submitted",
       "tracks": [],
@@ -965,7 +967,7 @@
       "career_track": "none",
       "next_date": "2026-11-14",
       "next_date_label": "event start",
-      "days_remaining": 82,
+      "days_remaining": 81,
       "confidence": "reported",
       "lifecycle": "scored",
       "tracks": [],
@@ -1017,7 +1019,7 @@
       "career_track": "none",
       "next_date": "2026-11-12",
       "next_date_label": "event start",
-      "days_remaining": 80,
+      "days_remaining": 79,
       "confidence": "confirmed",
       "lifecycle": "scored",
       "tracks": [],
@@ -1076,7 +1078,7 @@
       "career_track": "none",
       "next_date": "2026-11-30",
       "next_date_label": "final submission",
-      "days_remaining": 98,
+      "days_remaining": 97,
       "confidence": "confirmed",
       "lifecycle": "submitted",
       "tracks": [],
@@ -1131,9 +1133,172 @@
       "career_track": "none",
       "next_date": "2026-09-15",
       "next_date_label": "event start",
-      "days_remaining": 22,
+      "days_remaining": 21,
       "confidence": "reported",
       "lifecycle": "scored",
+      "tracks": [],
+      "challenges": [],
+      "stages": [],
+      "evidence": [],
+      "history": []
+    },
+    {
+      "id": "zindi-road-barbados-2026",
+      "noticed_on": "2026-08-25",
+      "went_live_on": "2026-07-03",
+      "source": "25 Aug 2026 discovery sweep, read off zindi.world in a browser",
+      "name": "R.O.A.D. Barbados Historic Handwriting Challenge (Zindi)",
+      "organiser": "Zindi, for the Reclaiming Our Atlantic Destiny programme, powered by GovTech Barbados",
+      "scope": "international",
+      "format": "online",
+      "location": "Zindi",
+      "status": "open",
+      "tier": 2,
+      "score": 5.6,
+      "scores": {
+        "career_leverage": 5,
+        "winnability": 4,
+        "prize": 8,
+        "urgency": 7
+      },
+      "dates": {
+        "start": "2026-07-03",
+        "submission_deadline": "2026-10-05",
+        "results_revealed": "2026-10-05",
+        "confidence": "confirmed",
+        "source": "Competition page on zindi.world, read 25 Aug 2026: Start 03 Jul 26, Close 05 Oct 26, Reveal 05 Oct 26"
+      },
+      "prize": {
+        "currency": "USD",
+        "pool": 25000
+      },
+      "eligibility": "Open on Zindi.",
+      "team_fit": "The best skills match on the board. Handwriting recognition on degraded scans is the same problem shape as REEFPRINT's mineral segmentation and the RSNA knee work: vision on noisy, low-contrast source images. The team already owns a quantisation and profiling harness from the Entelect work that transfers directly.",
+      "what_to_build": "An OCR/HTR model that transcribes historic handwritten Barbadian archival records — deeds, wills, estate inventories, census records — from scanned images into machine-readable text. Faded ink, degraded pages and unfamiliar hands are the stated difficulty.",
+      "deliverables": [
+        "Zindi submission against the held-out test set"
+      ],
+      "links": {
+        "competition": "https://zindi.world/competitions/road-barbados-historic-handwriting-challenge"
+      },
+      "notes": "Found in the 25 Aug 2026 sweep. This was invisible to the board for seven weeks because Zindi was carried as a single dateless 'rolling' placeholder rather than as the individual dated competitions it actually runs: it went live 3 July. Field at time of discovery: 1397 joined, 374 active, which is a real field but not the Kaggle-grandmaster wall that RSNA is, hence winnability 4 against RSNA's 3. TIMING WARNING: the 5 Oct close sits four days after the mandatory Mintek final hacking day (1 Oct) and the Mintek SCI Conference (2 Oct), and five days after Shipaton (30 Sept). The last week of this competition falls inside the worst crunch on the calendar. Either start early and freeze before 29 Sept, or do not start.",
+      "kind": "ml_competition",
+      "career_track": "adjacent",
+      "next_date": "2026-10-05",
+      "next_date_label": "submission deadline",
+      "days_remaining": 41,
+      "confidence": "confirmed",
+      "lifecycle": "scored",
+      "tracks": [],
+      "challenges": [],
+      "stages": [],
+      "evidence": [],
+      "history": []
+    },
+    {
+      "id": "zindi-bias-bounty-2026",
+      "noticed_on": "2026-08-25",
+      "went_live_on": null,
+      "source": "25 Aug 2026 discovery sweep, read off zindi.world in a browser",
+      "name": "Bias Bounty Mapping Equity Challenge (Zindi)",
+      "organiser": "Zindi",
+      "scope": "international",
+      "format": "online",
+      "location": "Zindi",
+      "status": "open",
+      "tier": 3,
+      "score": 5.2,
+      "scores": {
+        "career_leverage": 5,
+        "winnability": 5,
+        "prize": 6,
+        "urgency": 5
+      },
+      "dates": {
+        "start": "2026-08-28",
+        "submission_deadline": "2026-11-01",
+        "results_revealed": "2026-11-01",
+        "confidence": "confirmed",
+        "source": "Competition page on zindi.world, read 25 Aug 2026: Start 28 Aug 26, Close 01 Nov 26, Reveal 01 Nov 26"
+      },
+      "prize": {
+        "currency": "USD",
+        "pool": 10000
+      },
+      "eligibility": "Open on Zindi.",
+      "team_fit": "Weakest stack match of the three Zindi entries: this is GIS and geospatial analysis, which neither of you has shipped. Offsetting that, it is a measurement and analysis problem rather than a modelling arms race, the field has not started yet (530 joined, 0 active), and entering on day one is the single biggest lever on a Zindi leaderboard.",
+      "what_to_build": "Measure coverage gaps in Overture Maps across US Census tracts against Census TIGER/Line Roads, Microsoft Building Footprints and HIFLD critical facility data, then test those gaps against the CDC Social Vulnerability Index, the US Climate Vulnerability Index and tribal land boundaries. The hypothesis to be tested is that the communities most exposed to climate risk are also the least well mapped.",
+      "deliverables": [
+        "Zindi submission"
+      ],
+      "links": {
+        "competition": "https://zindi.world/competitions/bias-bounty-mapping-equity-challenge"
+      },
+      "notes": "Found in the 25 Aug 2026 sweep, three days before it opens on 28 Aug. Data is entirely US-based despite Zindi's African focus, so nothing here transfers to the local portfolio story. The 1 Nov close is the one genuinely comfortable deadline on the board: it clears the whole October crunch. Treat as the fallback if the R.O.A.D. timing proves impossible, not as a second simultaneous entry.",
+      "kind": "ml_competition",
+      "career_track": "adjacent",
+      "next_date": "2026-11-01",
+      "next_date_label": "submission deadline",
+      "days_remaining": 68,
+      "confidence": "confirmed",
+      "lifecycle": "scored",
+      "tracks": [],
+      "challenges": [],
+      "stages": [],
+      "evidence": [],
+      "history": []
+    },
+    {
+      "id": "nedbank-novation-2026",
+      "noticed_on": "2026-08-25",
+      "went_live_on": null,
+      "source": "25 Aug 2026 discovery sweep, apply.hackathon.nedbank.co.za",
+      "name": "Nedbank N*ovation Hackathon",
+      "organiser": "Nedbank",
+      "scope": "local",
+      "format": "in-person",
+      "location": "South Africa",
+      "status": "monitor",
+      "tier": 2,
+      "score": 6.1,
+      "scores": {
+        "career_leverage": 8,
+        "winnability": 6,
+        "prize": 6,
+        "urgency": 2
+      },
+      "dates": {
+        "prior_year_applications_close": "2025-10-31",
+        "confidence": "unconfirmed",
+        "source": "apply.hackathon.nedbank.co.za, read 25 Aug 2026. The live page still advertises the 2025 edition."
+      },
+      "prize": {
+        "currency": "ZAR",
+        "pool": 300000,
+        "breakdown": {
+          "1st": 150000,
+          "2nd": 100000,
+          "3rd": 50000,
+          "note": "Paid as AVO vouchers, not cash. Prize sub-score discounted to 6 for that reason: R300k in vouchers is not R300k."
+        }
+      },
+      "eligibility": "Stated for the 2025 edition as senior and experienced technologists who have built, led and delivered. Capped at 50 participants. The seniority framing is a real risk for a recent-graduate team and is the reason winnability is 6 rather than 8.",
+      "team_fit": "Unresolved. The 50-participant cap is the most favourable field size anywhere on this board, and the named skills (Python, full-stack, cloud, architecture) match. Whether Nedbank reads two 2026 graduates as 'senior' is the open question, and it should be asked directly rather than assumed either way.",
+      "what_to_build": "Two-day in-person innovation sprint on live digital banking and fintech problems.",
+      "deliverables": [
+        "Application, then a two-day on-site build"
+      ],
+      "links": {
+        "apply": "https://apply.hackathon.nedbank.co.za/"
+      },
+      "notes": "Found in the 25 Aug 2026 sweep. NOT a live 2026 opportunity: the site still shows 'N*ovation Hackathon 2025' with applications closed 31 October 2025, so no 2026 date exists to record and none has been invented. Added as a monitor entry because it is exactly the Tier-B organisation watch that AUTONOMY.md argues for: a 50-seat cap and a direct line to Nedbank tech leadership is the highest career leverage per hour of any local event found so far, and missing the announcement window is how a 50-seat event gets lost. If the prior-year pattern holds, applications open around September and close around 31 October. Check monthly from 1 September.",
+      "kind": "hackathon",
+      "career_track": "direct",
+      "next_date": null,
+      "next_date_label": null,
+      "days_remaining": null,
+      "confidence": "unconfirmed",
+      "lifecycle": "triaged",
       "tracks": [],
       "challenges": [],
       "stages": [],
@@ -1251,6 +1416,24 @@
       "name": "AllHackathons South Africa",
       "url": "https://za.allhackathons.com/",
       "cadence": "weekly"
+    },
+    {
+      "name": "HackOn South Africa",
+      "url": "https://hackon.co.za/category/upcoming-events/",
+      "cadence": "weekly",
+      "note": "Added 25 Aug 2026. Self-describes as the home of South African hackathons and runs a community series. Nothing scheduled at time of adding: the page said 'watch this space for new events coming soon', which is exactly why it belongs on a watchlist rather than in a search."
+    },
+    {
+      "name": "DIRISA Student Datathon Challenge (CSIR)",
+      "url": "https://sdc.dirisa.ac.za/programme/",
+      "cadence": "monthly",
+      "note": "Added 25 Aug 2026. South African, CSIR-backed, aimed at students and graduates, sponsors include Altron and ALX Africa. No 2026 dates: the programme page still reads 'SDC 2025' and 'more information to be confirmed', so the site is stale rather than the event being cancelled. Monthly, not weekly, until it shows signs of life."
+    },
+    {
+      "name": "Nedbank N*ovation Hackathon",
+      "url": "https://apply.hackathon.nedbank.co.za/",
+      "cadence": "monthly",
+      "note": "Added 25 Aug 2026. Tier-B organisation watch: 50-seat cap and R300k in prizes means the announcement window is the whole game. Live page still advertises the 2025 edition, which closed 31 Oct 2025."
     },
     {
       "name": "ITWeb events",

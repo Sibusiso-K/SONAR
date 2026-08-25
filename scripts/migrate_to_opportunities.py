@@ -39,6 +39,9 @@ KIND = {
     "huawei-ict-2026-2027": "competition",
     "entelect-university-cup-2027": "competition",
     "nasa-space-apps-2026": "hackathon",
+    "zindi-road-barbados-2026": "ml_competition",
+    "zindi-bias-bounty-2026": "ml_competition",
+    "nedbank-novation-2026": "hackathon",
 }
 
 # Career value beyond the prize. This is what "things around hackathons and
@@ -51,6 +54,9 @@ CAREER_TRACK = {
     "fnb-aoty-2026": "adjacent",
     "govtech-2026": "adjacent",
     "adtc-2026": "adjacent",             # residency + XPrize pathway
+    "nedbank-novation-2026": "direct",   # capped at 50, straight to Nedbank tech leadership
+    "zindi-road-barbados-2026": "adjacent",   # Zindi's jobs board recruits off leaderboard rank
+    "zindi-bias-bounty-2026": "adjacent",
 }
 
 DEADLINE_KEYS = (

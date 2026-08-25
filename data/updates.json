@@ -9,6 +9,30 @@
   },
   "updates": [
     {
+      "at": "2026-08-25T13:40:00+02:00",
+      "kind": "added",
+      "target": "zindi-road-barbados-2026",
+      "title": "Discovery sweep: three new entries, and the reason nothing new was showing up",
+      "body": "The complaint that prompted this sweep was 'no new opportunities', and the cause turned out to be structural rather than a dry market. Zindi was carried as a single row called 'Zindi Challenges (rolling)' with status monitor-weekly and no dates at all. A row with no next_date never appears in any deadline view, so five live Zindi competitions were invisible, including R.O.A.D. Barbados Historic Handwriting at $25,000 which opened on 3 July and had been running for seven weeks. Promoted the two worth entering to real dated rows: R.O.A.D. Barbados ($25,000, closes 5 Oct, OCR on degraded historic scans, the best skills match on the board) and Bias Bounty Mapping Equity ($10,000, opens 28 Aug, closes 1 Nov, geospatial). The other three are recorded inside the rolling row rather than promoted: the ITU drought challenge is EUR 2,000 with 430 already active and collides with the Shipaton sprint, and the remaining two are $1,000 and points-only. Rule going forward: a rolling source is a pointer to where competitions live, never a substitute for the competitions themselves.",
+      "by": "Sibusiso K"
+    },
+    {
+      "at": "2026-08-25T13:35:00+02:00",
+      "kind": "added",
+      "target": "nedbank-novation-2026",
+      "title": "Nedbank N*ovation added as a monitor: 50 seats is the best field size found anywhere",
+      "body": "Found at apply.hackathon.nedbank.co.za, which still advertises the 2025 edition with applications closed 31 Oct 2025. No 2026 dates exist, so none were recorded and none were invented. Added anyway because the shape is unusually good: capped at 50 participants, R300,000 in prizes across the top three, and direct exposure to Nedbank tech leadership, which is the highest career leverage per hour of anything local found so far. Two honest discounts applied rather than glossed: prizes are AVO vouchers not cash, so the prize sub-score is 6 not 8, and the 2025 brief asks for 'senior and experienced technologists', which for a two-graduate team is a real eligibility risk, so winnability is 6 not 8. That question should be asked of Nedbank directly rather than assumed in either direction. Diarised as a monthly check from 1 Sept: a 50-seat event is lost by missing the announcement, not by losing the contest.",
+      "by": "Sibusiso K"
+    },
+    {
+      "at": "2026-08-25T13:30:00+02:00",
+      "kind": "system",
+      "target": null,
+      "title": "Four candidates checked and rejected, with reasons, plus three new monitoring sources",
+      "body": "Recorded so the same ground is not re-walked next week. USAII Global AI Hackathon 2026: dead, not open. The search result read as live but the Devpost page shows registration expired 6 June and the event ran 14 to 22 June. Cyber AI Hackathon 2026 (theamse.org): real dates, 31 Oct to 1 Nov at the University of Derby, but in-person UK, only $1,600, and the organiser contact is a gmail address with a phone number embedded in it, which is a credibility smell on a body calling itself the American Society for Engineers. Rejected. Nedbank Data Masters Challenge 2026: confirmed past, registration closed end April. DIRISA Student Datathon (CSIR): genuinely well-targeted at SA students and graduates, but the programme page still reads 'SDC 2025' and 'more information to be confirmed', so there is nothing to enter. Added to sources on a monthly cadence instead. Also added HackOn (SA community series, nothing scheduled) and Nedbank. Worth noting for calibration: dev.events lists ZERO in-person hackathons anywhere in Africa from September 2026 onward, so the thin local pipeline is real and not a monitoring failure.",
+      "by": "Sibusiso K"
+    },
+    {
       "at": "2026-08-24T19:45:00+02:00",
       "kind": "verified",
       "target": "geekulcha-2026",
