@@ -9,6 +9,14 @@
   },
   "updates": [
     {
+      "at": "2026-08-25T14:53:00+02:00",
+      "kind": "verified",
+      "target": "geekulcha-2026",
+      "title": "Geekulcha's exact event times confirmed from the team workspace",
+      "body": "event_start/event_end previously recorded as date-only (25 Sep / 27 Sep, from the organiser's public registration page). The team workspace header on the Sonke dashboard states exact times: starts Fri 25 Sep 2026 15:00, ends Sun 27 Sep 2026 16:00. Calendar event updated from all-day to timed to match.",
+      "by": "Sibusiso K"
+    },
+    {
       "at": "2026-08-25T13:55:00+02:00",
       "kind": "changed",
       "target": "nedbank-novation-2026",

@@ -47,7 +47,7 @@ Importable file: [`../calendar/sonar-2026.ics`](../calendar/sonar-2026.ics)
 | Wed 23 | all day | GovTech winners announced (Awards Ceremony — separate from the hackathon) | reward |
 | Sun 13 | 23:59 | Zindi "A Step Ahead of Drought" (ITU) closes, €2 000 — **recorded, not entered**: 430 already active and it collides with the Shipaton sprint | deadline |
 | Tue 8 – Thu 17 | — | Geekulcha #GKHack26 build-up webinars | prep |
-| **Fri 25 – Sun 27** | all day | **Geekulcha Annual Hackathon #GKHack26 — Centurion, or virtual.** Track: Blockchain for Impact, project V.U.K.A. | event |
+| **Fri 25** | 15:00 – Sun 27, 16:00 | **Geekulcha Annual Hackathon #GKHack26 — Centurion, or virtual.** Track: Blockchain for Impact, project V.U.K.A. | event |
 | **Wed 30** | all day | **DEADLINE — RevenueCat Shipaton ($700k+)** · hard cutoff 1 Oct 08:45 SAST | deadline |
 
 ---
