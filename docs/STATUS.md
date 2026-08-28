@@ -202,23 +202,33 @@ a known characteristic to design around later (e.g. only trust a "nothing
 found" result after N consecutive empty sweeps, not one).
 
 Total across all runs so far: **26 candidates, 25 verified, 1 correctly
-rejected**, into `observations` in the `SONAR` Supabase project. The other
-~48 organisations in `WATCHLIST` still have no URL, on purpose. Add one at a
-time: `update organisations set events_url = '...' where slug = 'x';` (or
-`careers_url`/`news_url`), preferring a link already
-verified in `data/opportunities.json` over a fresh guess wherever one exists.
+rejected**, into `observations` in the `SONAR` Supabase project. **Update
+2026-08-23:** 5 more organisations now have a URL — `mtn`, `bcg-platinion`,
+`entelect`, `sita`, `mintek` — all reused from links already human-verified
+in `data/hackathons.json`, same reasoning as the original 4. 9 of 52 now
+seeded, 43 still deliberately blank. Add more the same way: a durable org
+page (news feed, developer portal, standing event site), not a single dated
+microsite — one of those already 404'd once (`fnb`, still unfixed).
 
-It also only writes to `observations` — raw, unreviewed evidence. Nothing
-lifts a verified observation back into `data/opportunities.json`
-automatically yet; a human still has to notice it and write the JSON entry.
-That promotion step is the next piece worth building.
+**Update 2026-08-23: the promotion step is built.** `scripts/sonar_db.py
+promote` (wired into `watch-sources.yml`, runs every sweep) reads
+`observations` where `span_verified` is true and `candidate_url` is set
+(i.e. not yet linked to a tracked opportunity), and writes them into
+`data/candidates.json` — a git-tracked ledger, not a silent DB table. Each
+candidate starts `status: "new"`; a human reviewing the file either writes
+the real `data/hackathons.json` entry and sets it to `"promoted"`, or sets
+it to `"dismissed"` with a reason. Re-runs refresh the evidence (newest 5
+quotes per URL) without reverting a status a human already set — verified
+with a mocked-observations test before this was wired into CI, since this
+session had no live Supabase credentials to test the real table against.
+Deliberately NOT an auto-write to the board: this closes the "notice it"
+half of the gap, not the "decide it's real and write the JSON" half.
 
 Still not built:
 - Bright Data / SERP fan-out for tier-C discovery
 - LinkedIn/Instagram/Facebook/TikTok scraping (tier-D, last resort)
 - AIsa.one wiring (X/Twitter/Perplexity lookups, its vision model for
   image-only sources) — designed for, not yet called from any script
-- The observations → `data/opportunities.json` promotion step (above)
 - Google Calendar sync (`docs/CALENDAR.md` documents the design; no
   calendar has actually been written to)
 - Notifications (no Slack/email/push wiring exists)
@@ -307,6 +317,29 @@ purged — check `watchlist` too if it ever starts driving anything visible.
   Nothing in sonar-radar reads either. `radar.tsx`'s "predicted" bucket is
   driven by a static `confidence` field a human sets in the JSON, not by
   this forecast at all.
+
+  **Update 2026-08-23: it now has data to forecast from.** Every slug was
+  stuck at one dated edition (an anecdote, not a season — `forecast_from_
+  editions()` refuses to predict from fewer than two). WebSearch (this
+  session's WebFetch is network-blocked, so no direct primary-source read)
+  found and cross-corroborated a second edition for four: discovery-gradhack
+  (2025, 1–3 Aug), fnb-aoty (2024, 25–27 Oct), geekulcha (2025, 26–28 Sept),
+  huawei-ict (2024, deadline 31 Oct — see below). All four recorded in
+  `data/editions.json` at `confidence: reported`, not `confirmed`, with the
+  network-block caveat spelled out in each entry — worth a primary-source
+  re-check by whoever next has unblocked browser access. Also fixed a real
+  bug found while wiring this up: `forecast_from_editions()`'s date
+  collector picked `event_start` for an entire slug the moment *any* row
+  had one, silently dropping a `closes_on`-only row from a different year
+  for the same slug — which is exactly huawei-ict's situation (2024 has only
+  a deadline, 2025 has both). Now falls back per-row instead of per-slug.
+  Verified by running `forecast_from_editions()` directly against
+  `data/editions.json` (no live Supabase needed, it's pure computation) and
+  writing the result to `data/predictions.json` by hand — 4 slugs now
+  produce a real watch window, confidence 0.15–0.48, all correctly capped
+  well under 0.8. The next CI run of `seed-editions` + `forecast` will
+  recompute and push the same numbers for real; this file isn't stale
+  relative to that, it's the same function run once ahead of the pipeline.
 
 Fixing the two decorative charts needs a real decision, not just code: where
 does "when did this go live" and "when did we first notice it" actually come

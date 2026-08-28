@@ -20,7 +20,7 @@ on:
         required: false
 
 permissions:
-  contents: read
+  contents: write
 
 concurrency:
   group: watch-sources
@@ -64,4 +64,33 @@ jobs:
             python3 scripts/watch_sources.py --limit "${{ github.event.inputs.limit }}"
           else
             python3 scripts/watch_sources.py
+          fi
+
+      # observations accumulates in Supabase either way, but nothing ever
+      # surfaced it for a human to act on - see docs/STATUS.md, "That
+      # promotion step is the next piece worth building". This writes what's
+      # span-verified and not yet tracked into a reviewable, git-tracked
+      # ledger. It does NOT write to data/hackathons.json - a human still
+      # decides what's a real, distinct opportunity.
+      - name: Surface new candidates for review
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+        run: |
+          if [ -z "$SUPABASE_URL" ] || [ -z "$SUPABASE_SERVICE_KEY" ]; then
+            echo "::warning::Supabase not configured — skipping candidate promotion."
+            exit 0
+          fi
+          python3 scripts/sonar_db.py promote
+
+      - name: Commit candidates.json only if it changed
+        run: |
+          git config user.name  "sonar-bot"
+          git config user.email "actions@github.com"
+          if git diff --quiet -- data/candidates.json; then
+            echo "no candidate changes"
+          else
+            git add data/candidates.json
+            git commit -m "data: candidate sweep $(date -u +%Y-%m-%dT%H:%MZ)"
+            git push || { git pull --rebase origin main && git push; }
           fi

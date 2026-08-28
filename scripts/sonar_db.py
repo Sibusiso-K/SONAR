@@ -47,6 +47,8 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OPPS = os.path.join(ROOT, "data", "opportunities.json")
 PREDICTIONS_OUT = os.path.join(ROOT, "data", "predictions.json")
 EDITIONS = os.path.join(ROOT, "data", "editions.json")
+CANDIDATES = os.path.join(ROOT, "data", "candidates.json")
+HACKATHONS = os.path.join(ROOT, "data", "hackathons.json")
 
 URL = os.environ.get("SUPABASE_URL", "").rstrip("/")
 KEY = os.environ.get("SUPABASE_SERVICE_KEY") or os.environ.get("SUPABASE_ANON_KEY", "")
@@ -117,9 +119,13 @@ def upsert(table, rows, on_conflict):
 WATCHLIST = [
     # slug, name, sector, url
     # URL sources: reused from the human-verified `links` already committed
-    # in data/opportunities.json (zindi-rolling, geekulcha-2026, fnb-aoty-2026)
-    # rather than freshly guessed - same anti-hallucination reasoning as the
-    # rest of this file, just applied to which URLs we trust enough to seed.
+    # in data/hackathons.json (zindi, fnb, geekulcha, revenuecat, mtn,
+    # bcg-platinion, entelect, sita, mintek) rather than freshly guessed -
+    # same anti-hallucination reasoning as the rest of this file, just
+    # applied to which URLs we trust enough to seed. Preferred a durable
+    # org page (news feed, developer portal, standing event site) over a
+    # single dated microsite where both existed on the same entry - a
+    # single-event page is the kind of link that already 404'd once (fnb).
     ("zindi", "Zindi", "platform", "https://zindi.world/competitions"),
     ("discovery",        "Discovery",                    "insurer"),
     ("fnb",              "FNB",                          "bank",     "https://appoftheyear.co.za/hackathon/"),
@@ -131,17 +137,17 @@ WATCHLIST = [
     ("old-mutual",       "Old Mutual",                   "insurer"),
     ("sanlam",           "Sanlam",                       "insurer"),
     ("momentum",         "Momentum",                     "insurer"),
-    ("mtn",              "MTN",                          "telco"),
+    ("mtn",              "MTN",                          "telco",    "https://momodeveloper.mtn.com/"),
     ("vodacom",          "Vodacom",                      "telco"),
     ("telkom",           "Telkom",                       "telco"),
     ("rain",             "Rain",                         "telco"),
-    ("bcg-platinion",    "BCG Platinion",                "consultancy"),
+    ("bcg-platinion",    "BCG Platinion",                "consultancy", "https://www.bcgplatinion.com/hackathon"),
     ("mckinsey",         "McKinsey & Company",           "consultancy"),
     ("deloitte",         "Deloitte",                     "consultancy"),
     ("ey",               "EY",                           "consultancy"),
     ("pwc",              "PwC",                          "consultancy"),
     ("accenture",        "Accenture",                    "consultancy"),
-    ("entelect",         "Entelect",                     "software_house"),
+    ("entelect",         "Entelect",                     "software_house", "https://challenge.entelect.co.za/home"),
     ("bbd",              "BBD",                          "software_house"),
     ("dvt",              "DVT",                          "software_house"),
     ("synthesis",        "Synthesis",                    "software_house"),
@@ -156,9 +162,9 @@ WATCHLIST = [
     ("cput",             "Cape Peninsula University of Technology", "university"),
     ("uwc",              "University of the Western Cape", "university"),
     ("sol-plaatje",      "Sol Plaatje University",       "university"),
-    ("sita",             "SITA",                         "state"),
+    ("sita",             "SITA",                         "state",    "https://www.govtech.gov.za/"),
     ("csir",             "CSIR",                         "research"),
-    ("mintek",           "Mintek",                       "research"),
+    ("mintek",           "Mintek",                       "research", "https://mintek.co.za/media/news/"),
     ("sansa",            "SANSA",                        "research"),
     ("mict-seta",        "MICT SETA",                    "state"),
     ("innovation-hub",   "The Innovation Hub",           "state"),
@@ -329,7 +335,25 @@ def forecast_from_editions(editions):
                         pass
             return out
 
-        events = collect("event_start") or collect("closes_on")
+        def collect_event_dates():
+            # Per-row fallback, not per-slug: some editions only ever have a
+            # deadline on record (closes_on), others have the actual event
+            # date. `collect("event_start") or collect("closes_on")` picked
+            # one field for the whole slug, which silently dropped a real
+            # edition's closes_on the moment any other row for that slug had
+            # an event_start - undercounting editions that are genuinely
+            # there, just recorded with different precision.
+            out = []
+            for r in rows:
+                v = r.get("event_start") or r.get("closes_on")
+                if v:
+                    try:
+                        out.append(date.fromisoformat(v[:10]))
+                    except ValueError:
+                        pass
+            return out
+
+        events = collect_event_dates()
         announces = collect("announced_on")
         if not events:
             continue
@@ -496,6 +520,127 @@ def cmd_seed_editions(_args):
             print(f"    {s}: {need or 'needs one more dated edition'}")
 
 
+def cmd_promote_candidates(_args):
+    """observations -> data/candidates.json.
+
+    watch_sources.py writes span-verified evidence into `observations`, but
+    nothing has ever lifted it back out - it sits in Supabase until a human
+    happens to query the table by hand (see docs/STATUS.md, "That promotion
+    step is the next piece worth building").
+
+    This is deliberately NOT an auto-write to data/hackathons.json. Promotion
+    here means the "notice it" half of the gap, not the "write the board
+    entry" half: a human still reads the quoted evidence and decides whether
+    it is a real, distinct opportunity. Writing straight to the board would
+    reintroduce exactly the failure this project exists to prevent - an
+    unreviewed claim rendering with the same authority as a verified one.
+
+    Idempotent and stateful across runs via a git-tracked ledger
+    (data/candidates.json): a URL already triaged (status changed by a human
+    to "promoted" or "dismissed") keeps that status and just gets its
+    evidence refreshed, so the same candidate doesn't get flagged "new"
+    every 6 hours forever.
+
+    watch_sources.py sets `candidate_url` on every observation it writes and
+    never sets `opportunity_id` - it has no entity-resolution step at all.
+    So "candidate_url is set" does not mean "genuinely new": the very first
+    live runs flagged shipaton.com and geekulcha.dev/events as "new"
+    candidates despite RevenueCat's Shipaton and Geekulcha both already
+    being tracked board entries - the watchlist URL and the opportunity's
+    own `links` just happen to be the same page. Filtered below against
+    every URL already present in data/hackathons.json's `links`, for both
+    live and past entries, so only observations from a page that isn't
+    already backing a board entry get treated as a real candidate.
+    """
+    obs = rest("GET", "observations", params={
+        "select": "candidate_url,field,value,quoted_span,source_url,source_trust,observed_at,model",
+        "candidate_url": "not.is.null",
+        "span_verified": "eq.true",
+        "order": "observed_at.desc",
+        "limit": "2000",
+    })
+
+    with open(HACKATHONS, encoding="utf-8") as fh:
+        board = json.load(fh)
+    tracked = set()
+    for h in board.get("hackathons", []) + board.get("dropped_or_past", []):
+        for u in (h.get("links") or {}).values():
+            if isinstance(u, str) and u.startswith("http"):
+                tracked.add(u.rstrip("/"))
+    before = len(obs)
+    obs = [o for o in obs if o["candidate_url"].rstrip("/") not in tracked]
+    skipped = before - len(obs)
+
+    if os.path.exists(CANDIDATES):
+        with open(CANDIDATES, encoding="utf-8") as fh:
+            doc = json.load(fh)
+    else:
+        doc = {
+            "note": (
+                "Span-verified observations not yet linked to a tracked "
+                "opportunity (candidate_url is set, opportunity_id is null). "
+                "Written by `scripts/sonar_db.py promote`. Nothing here is on "
+                "the board - status starts 'new' and a human sets it to "
+                "'promoted' (after writing the real data/hackathons.json "
+                "entry) or 'dismissed' (not a real/distinct opportunity, with "
+                "a reason in `note`)."
+            ),
+            "candidates": {},
+        }
+
+    ledger = doc.setdefault("candidates", {})
+    by_url = {}
+    for o in obs:
+        by_url.setdefault(o["candidate_url"], []).append(o)
+
+    # Purge any URL the ledger already recorded before this filter existed -
+    # the early live runs (26-28 Aug) flagged shipaton.com and
+    # geekulcha.dev/events this way, and a purely additive fix would leave
+    # them sitting there as permanently-stale "new" entries nobody asked for.
+    purged = [u for u in list(ledger) if u.rstrip("/") in tracked]
+    for u in purged:
+        del ledger[u]
+
+    new_count = 0
+    for url, rows in by_url.items():
+        rows.sort(key=lambda r: r["observed_at"], reverse=True)
+        entry = ledger.get(url)
+        if entry is None:
+            entry = {"status": "new", "first_seen": rows[-1]["observed_at"], "note": None}
+            ledger[url] = entry
+            new_count += 1
+        entry["last_seen"] = rows[0]["observed_at"]
+        entry["observation_count"] = len(rows)
+        # Capped: this is a triage view for a human to scan, not a full
+        # observation dump - the newest 5 quotes are enough to judge by.
+        entry["evidence"] = [
+            {
+                "field": r["field"],
+                "value": r["value"],
+                "quoted_span": r["quoted_span"],
+                "source_url": r["source_url"],
+                "source_trust": r["source_trust"],
+                "observed_at": r["observed_at"],
+            }
+            for r in rows[:5]
+        ]
+
+    doc["generated"] = datetime.now(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z")
+    with open(CANDIDATES, "w", encoding="utf-8") as fh:
+        json.dump(doc, fh, indent=2, ensure_ascii=False)
+        fh.write("\n")
+
+    pending = sorted(u for u, e in ledger.items() if e["status"] == "new")
+    print(f"{skipped} observation(s) skipped (page already backs a tracked board entry)")
+    if purged:
+        print(f"{len(purged)} already-tracked URL(s) purged from the ledger: {', '.join(purged)}")
+    print(f"{len(by_url)} candidate URL(s) with verified evidence this run, {new_count} newly seen")
+    print(f"{len(pending)} awaiting review in {CANDIDATES}")
+    for u in pending[:10]:
+        n = ledger[u]["observation_count"]
+        print(f"  NEW  {u}  ({n} observation{'s' if n != 1 else ''})")
+
+
 COMMANDS = {
     "seed-orgs": cmd_seed_orgs,
     "seed-editions": cmd_seed_editions,
@@ -504,6 +649,7 @@ COMMANDS = {
     "pull": cmd_pull,
     "yield": cmd_yield,
     "health": cmd_health,
+    "promote": cmd_promote_candidates,
 }
 
 if __name__ == "__main__":

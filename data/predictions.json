@@ -1,5 +1,55 @@
 {
-  "note": "Written by scripts/sonar_db.py forecast. Predictions are never facts — they render on Radar as watch windows only, and are superseded automatically the moment a real source confirms a date. Empty until `editions` is backfilled with at least two years per recurring opportunity.",
-  "generated": null,
-  "predictions": []
+  "note": "Written by scripts/sonar_db.py forecast. Predictions are never facts \u2014 they render on Radar as watch windows only, and are superseded automatically the moment a real source confirms a date. Empty until `editions` is backfilled with at least two years per recurring opportunity.",
+  "generation_note": "Computed locally on 2026-08-23 by calling forecast_from_editions() directly against data/editions.json - this session had no live Supabase credentials to run the real `sonar_db.py forecast` (which also POSTs to the `predictions` table). The next CI run of seed-editions + forecast will recompute and push these same numbers for real (upsert is idempotent on opportunity_slug/year), so this file is not stale relative to that - it's the same function, same input, just run ahead of the pipeline rather than by it.",
+  "generated": "2026-08-23T15:16:08Z",
+  "predictions": [
+    {
+      "opportunity_slug": "discovery-gradhack",
+      "predicted_announce_start": "2027-06-02",
+      "predicted_announce_end": "2027-06-30",
+      "predicted_event_start": "2027-07-28",
+      "predicted_event_end": "2027-08-11",
+      "method": "seasonal_mean",
+      "basis": "2 editions (2025, 2026); spread \u00b13d; assumed 6-week lead (no announcement dates recorded)",
+      "n_editions": 2,
+      "stddev_days": 3.0,
+      "confidence": 0.44
+    },
+    {
+      "opportunity_slug": "fnb-aoty",
+      "predicted_announce_start": "2026-08-23",
+      "predicted_announce_end": "2026-09-20",
+      "predicted_event_start": "2026-10-18",
+      "predicted_event_end": "2026-11-01",
+      "method": "seasonal_mean",
+      "basis": "2 editions (2024, 2025); spread \u00b11d; assumed 6-week lead (no announcement dates recorded)",
+      "n_editions": 2,
+      "stddev_days": 1.0,
+      "confidence": 0.48
+    },
+    {
+      "opportunity_slug": "geekulcha",
+      "predicted_announce_start": "2026-07-27",
+      "predicted_announce_end": "2026-08-24",
+      "predicted_event_start": "2026-09-21",
+      "predicted_event_end": "2026-10-05",
+      "method": "seasonal_mean",
+      "basis": "2 editions (2023, 2025); spread \u00b12d; assumed 6-week lead (no announcement dates recorded)",
+      "n_editions": 2,
+      "stddev_days": 1.5,
+      "confidence": 0.47
+    },
+    {
+      "opportunity_slug": "huawei-ict",
+      "predicted_announce_start": "2026-09-03",
+      "predicted_announce_end": "2026-10-01",
+      "predicted_event_start": "2026-10-29",
+      "predicted_event_end": "2027-02-04",
+      "method": "seasonal_mean",
+      "basis": "2 editions (2024, 2025); spread \u00b149d; assumed 6-week lead (no announcement dates recorded)",
+      "n_editions": 2,
+      "stddev_days": 48.96,
+      "confidence": 0.15
+    }
+  ]
 }

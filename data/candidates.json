@@ -1,0 +1,23 @@
+{
+  "note": "Span-verified observations not yet linked to a tracked opportunity (candidate_url is set, opportunity_id is null). Written by `scripts/sonar_db.py promote`. Nothing here is on the board - status starts 'new' and a human sets it to 'promoted' (after writing the real data/hackathons.json entry) or 'dismissed' (not a real/distinct opportunity, with a reason in `note`).",
+  "generated": "2026-08-28T15:00:00Z",
+  "candidates": {
+    "https://zindi.africa/competitions": {
+      "status": "dismissed",
+      "first_seen": "2026-08-11T20:03:47.821774+00:00",
+      "note": "Legacy Zindi domain - zindi.africa redirects to/duplicates zindi.world, which is already the tracked WATCHLIST URL and backs zindi-rolling/zindi-road-barbados-2026/zindi-bias-bounty-2026. Not a distinct opportunity.",
+      "last_seen": "2026-08-11T20:03:47.821774+00:00",
+      "observation_count": 1,
+      "evidence": [
+        {
+          "field": "prize",
+          "value": "first",
+          "quoted_span": "Top prize first",
+          "source_url": "https://zindi.africa/competitions",
+          "source_trust": 5,
+          "observed_at": "2026-08-11T20:03:47.821774+00:00"
+        }
+      ]
+    }
+  }
+}

@@ -9,6 +9,22 @@
   },
   "updates": [
     {
+      "at": "2026-08-28T15:10:00+02:00",
+      "kind": "added",
+      "target": "entelect-hackit-2026",
+      "title": "New find: Entelect Hack<IT> Community Cup, 12 Sept 2026, R70,000",
+      "body": "A second, distinct Entelect hackathon from University Cup 2 - different name, different date, same organiser. Found via Entelect's own verified LinkedIn post (screenshot supplied by Sibusiso): '12 September 2026, R70,000 prize pool, registrations opening soon, save the date.' Added at status monitor, tier 2, score 6.2 - eligibility not yet published, and the 'Community Cup' naming (vs. 'University Cup') is the one thing worth watching: if it's open beyond students, the competitive field is different from the one the team just ran in. Nothing to do yet except watch for the registration announcement.",
+      "by": "Lethabo"
+    },
+    {
+      "at": "2026-08-28T15:00:00+02:00",
+      "kind": "verified",
+      "target": "mtn-momo-miniapp-2026",
+      "title": "MTN MoMo Mini App Hackathon: team SELECTED, in-person, 2-3 Sept - eligibility question resolved",
+      "body": "Official confirmation email received 28 Aug 2026 from MTN's MoMo Hackathon Team, forwarded by Sibusiso. Status moved submitted to selected, confidence to confirmed. Real event: 24-hour in-person build, Tue 2 Sept 09:30 to Wed 3 Sept 12:00, The Forum, The Campus, Bryanston, Sandton - attendance must be in person, on-site overnight, no remote work permitted. This also resolves the 24 Aug eligibility concern in full: a confirmed South African in-person venue cannot be the separate Ghana/Uganda/Cote d'Ivoire/Cameroon/Zambia-only 'MoMo Open API' programme, so the two are confirmed as distinct MTN contests and the team's eligibility stands. Recorded the team's submitted application content (AMAZWI, by Lethabo, Track 2 Entertainment and Lifestyle - a language-preservation earn-by-speaking game built on MoMo Identify/Consent/Pay/Notify/Interact) into what_to_build, sourced to the team's own submission document rather than the confirmation email, which does not name which of the three submitted ideas is advancing. Immediate action: submit the attendance-confirmation form (not yet done as of 28 Aug) and pack for an overnight stay.",
+      "by": "Lethabo"
+    },
+    {
       "at": "2026-08-25T14:53:00+02:00",
       "kind": "verified",
       "target": "geekulcha-2026",
