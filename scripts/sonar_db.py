@@ -48,6 +48,7 @@ OPPS = os.path.join(ROOT, "data", "opportunities.json")
 PREDICTIONS_OUT = os.path.join(ROOT, "data", "predictions.json")
 EDITIONS = os.path.join(ROOT, "data", "editions.json")
 CANDIDATES = os.path.join(ROOT, "data", "candidates.json")
+HACKATHONS = os.path.join(ROOT, "data", "hackathons.json")
 
 URL = os.environ.get("SUPABASE_URL", "").rstrip("/")
 KEY = os.environ.get("SUPABASE_SERVICE_KEY") or os.environ.get("SUPABASE_ANON_KEY", "")
@@ -539,6 +540,17 @@ def cmd_promote_candidates(_args):
     to "promoted" or "dismissed") keeps that status and just gets its
     evidence refreshed, so the same candidate doesn't get flagged "new"
     every 6 hours forever.
+
+    watch_sources.py sets `candidate_url` on every observation it writes and
+    never sets `opportunity_id` - it has no entity-resolution step at all.
+    So "candidate_url is set" does not mean "genuinely new": the very first
+    live runs flagged shipaton.com and geekulcha.dev/events as "new"
+    candidates despite RevenueCat's Shipaton and Geekulcha both already
+    being tracked board entries - the watchlist URL and the opportunity's
+    own `links` just happen to be the same page. Filtered below against
+    every URL already present in data/hackathons.json's `links`, for both
+    live and past entries, so only observations from a page that isn't
+    already backing a board entry get treated as a real candidate.
     """
     obs = rest("GET", "observations", params={
         "select": "candidate_url,field,value,quoted_span,source_url,source_trust,observed_at,model",
@@ -547,6 +559,17 @@ def cmd_promote_candidates(_args):
         "order": "observed_at.desc",
         "limit": "2000",
     })
+
+    with open(HACKATHONS, encoding="utf-8") as fh:
+        board = json.load(fh)
+    tracked = set()
+    for h in board.get("hackathons", []) + board.get("dropped_or_past", []):
+        for u in (h.get("links") or {}).values():
+            if isinstance(u, str) and u.startswith("http"):
+                tracked.add(u.rstrip("/"))
+    before = len(obs)
+    obs = [o for o in obs if o["candidate_url"].rstrip("/") not in tracked]
+    skipped = before - len(obs)
 
     if os.path.exists(CANDIDATES):
         with open(CANDIDATES, encoding="utf-8") as fh:
@@ -569,6 +592,14 @@ def cmd_promote_candidates(_args):
     by_url = {}
     for o in obs:
         by_url.setdefault(o["candidate_url"], []).append(o)
+
+    # Purge any URL the ledger already recorded before this filter existed -
+    # the early live runs (26-28 Aug) flagged shipaton.com and
+    # geekulcha.dev/events this way, and a purely additive fix would leave
+    # them sitting there as permanently-stale "new" entries nobody asked for.
+    purged = [u for u in list(ledger) if u.rstrip("/") in tracked]
+    for u in purged:
+        del ledger[u]
 
     new_count = 0
     for url, rows in by_url.items():
@@ -600,6 +631,9 @@ def cmd_promote_candidates(_args):
         fh.write("\n")
 
     pending = sorted(u for u, e in ledger.items() if e["status"] == "new")
+    print(f"{skipped} observation(s) skipped (page already backs a tracked board entry)")
+    if purged:
+        print(f"{len(purged)} already-tracked URL(s) purged from the ledger: {', '.join(purged)}")
     print(f"{len(by_url)} candidate URL(s) with verified evidence this run, {new_count} newly seen")
     print(f"{len(pending)} awaiting review in {CANDIDATES}")
     for u in pending[:10]:
