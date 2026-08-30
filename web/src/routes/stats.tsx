@@ -12,12 +12,12 @@ import {
   confidenceTrend,
   daysUntil,
   discoveryLag,
-  expectedValueUsd,
+  expectedValueZar,
   fieldSize,
   seasonStats,
   severityToken,
-  toUsd,
-  usd,
+  toZar,
+  zar,
   winProbability,
 } from "@/lib/analytics";
 import type { Opportunity } from "@/lib/sonar-types";
@@ -110,14 +110,14 @@ function Stats() {
     [live],
   );
   const byEv = useMemo(
-    () => [...live].sort((a, b) => expectedValueUsd(b) - expectedValueUsd(a)).slice(0, 8),
+    () => [...live].sort((a, b) => expectedValueZar(b) - expectedValueZar(a)).slice(0, 8),
     [live],
   );
   const season = seasonStats(all, past);
   const clashes = collisions(live);
   const lag = discoveryLag(all);
   const trend = confidenceTrend(all, updates);
-  const maxEv = Math.max(1, ...byEv.map(expectedValueUsd));
+  const maxEv = Math.max(1, ...byEv.map(expectedValueZar));
 
   return (
     <AppShell>
@@ -139,7 +139,7 @@ function Stats() {
         <div className="grid gap-px bg-rule md:grid-cols-2">
           <StoryStat
             kicker="Tracked prize pool, live entries"
-            value={<Counter to={season.totalPoolUsd} prefix="$" />}
+            value={<Counter to={season.totalPoolZar} prefix="R" />}
             line="Most of it sits in one competition we will almost certainly not win. That is the whole reason expected value exists."
           />
           <StoryStat
@@ -205,7 +205,7 @@ function Stats() {
                       : "field size unrecorded"}
                   </p>
                   <p className="mt-2 font-mono text-xs text-muted-foreground">
-                    EV {usd(expectedValueUsd(o))} ·{" "}
+                    EV {zar(expectedValueZar(o))} ·{" "}
                     {o.next_date ? `${daysUntil(o.next_date)}d` : "no date"}
                   </p>
                 </div>
@@ -220,7 +220,7 @@ function Stats() {
         id="expected-value"
         kicker="Expected value"
         title="Prize pool × odds, one currency."
-        blurb="So a $700k long shot and a small near-certainty can be argued about honestly. Note what this model ignores: a graduate programme with no cash prize scores zero here and is still one of the most valuable things on the board."
+        blurb="So a R12.7m long shot and a small near-certainty can be argued about honestly. Note what this model ignores: a graduate programme with no cash prize scores zero here and is still one of the most valuable things on the board."
       >
         <div className="space-y-3">
           {byEv.map((o, i) => (
@@ -230,17 +230,17 @@ function Stats() {
                   <div className="flex items-baseline justify-between gap-4">
                     <span className="truncate text-sm font-medium">{o.name}</span>
                     <span className="font-mono text-xs text-muted-foreground">
-                      {usd(toUsd(o.prize?.pool, o.prize?.currency))} pool · {winProbability(o)}%
+                      {zar(toZar(o.prize?.pool, o.prize?.currency))} pool · {winProbability(o)}%
                     </span>
                   </div>
                   <div className="mt-2 h-2 w-full bg-secondary">
                     <div
                       className="h-2 bg-accent transition-[width] duration-1000"
-                      style={{ width: `${(expectedValueUsd(o) / maxEv) * 100}%` }}
+                      style={{ width: `${(expectedValueZar(o) / maxEv) * 100}%` }}
                     />
                   </div>
                 </div>
-                <span className="numeral w-24 text-right text-2xl">{usd(expectedValueUsd(o))}</span>
+                <span className="numeral w-24 text-right text-2xl">{zar(expectedValueZar(o))}</span>
               </div>
             </Reveal>
           ))}
@@ -258,7 +258,7 @@ function Stats() {
         {clashes.length > 0 && (
           <div className="mt-6 space-y-2">
             {clashes.map((c) => {
-              const ranked = [...c.items].sort((a, b) => expectedValueUsd(b) - expectedValueUsd(a));
+              const ranked = [...c.items].sort((a, b) => expectedValueZar(b) - expectedValueZar(a));
               const [lead, ...rest] = ranked;
               return (
                 <p
@@ -272,9 +272,9 @@ function Stats() {
                     <>
                       Higher expected value:{" "}
                       <strong>
-                        {lead.name} ({usd(expectedValueUsd(lead))}
+                        {lead.name} ({zar(expectedValueZar(lead))}
                         {" vs "}
-                        {rest.map((r) => usd(expectedValueUsd(r))).join(", ")})
+                        {rest.map((r) => zar(expectedValueZar(r))).join(", ")})
                       </strong>
                       . Not a mandate: EV ignores career leverage and grad programmes score zero
                       here, but if you're only leading on one, that's the one.

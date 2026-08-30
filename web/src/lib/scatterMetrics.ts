@@ -1,5 +1,5 @@
 import type { Opportunity } from "./sonar-types";
-import { daysUntil, expectedValueUsd, fieldSize, toUsd, usd, winProbability } from "./analytics";
+import { daysUntil, expectedValueZar, fieldSize, toZar, zar, winProbability } from "./analytics";
 
 /** One selectable axis (or size) for the 3D scatter on /stats. `get` returns
  * null when an opportunity has no value for it — those points are excluded
@@ -52,26 +52,26 @@ export const METRICS: Metric[] = [
     format: (v) => `${Math.round(v)}`,
   },
   {
-    id: "prize_usd",
-    label: "Prize pool (USD)",
+    id: "prize_zar",
+    label: "Prize pool (ZAR)",
     axisLabel: "PRIZE, LOG",
     log: true,
     get: (o) => {
-      const v = toUsd(o.prize?.pool, o.prize?.currency);
+      const v = toZar(o.prize?.pool, o.prize?.currency);
       return v > 0 ? v : null;
     },
-    format: (v) => usd(v),
+    format: (v) => zar(v),
   },
   {
     id: "expected_value",
-    label: "Expected value (USD)",
+    label: "Expected value (ZAR)",
     axisLabel: "EXPECTED VALUE, LOG",
     log: true,
     get: (o) => {
-      const v = expectedValueUsd(o);
+      const v = expectedValueZar(o);
       return v > 0 ? v : null;
     },
-    format: (v) => usd(v),
+    format: (v) => zar(v),
   },
   {
     id: "days_until",

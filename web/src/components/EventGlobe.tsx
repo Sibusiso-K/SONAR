@@ -3,7 +3,7 @@ import type { ComponentType } from "react";
 import { Link } from "@tanstack/react-router";
 import type { Opportunity } from "@/lib/sonar-types";
 import { EVENT_LOCATIONS } from "@/lib/eventLocations";
-import { clamp, daysUntil, toUsd } from "@/lib/analytics";
+import { clamp, daysUntil, toZar } from "@/lib/analytics";
 import { useContainerWidth } from "@/lib/useContainerWidth";
 
 // three.js parses point colors at the WebGL level, not through the CSS
@@ -104,7 +104,11 @@ function SpaceBackdrop() {
 
   useEffect(() => {
     const layer = (n: number, size: number) =>
-      Array.from({ length: n }, () => `${Math.round(Math.random() * 1000)}px ${Math.round(Math.random() * 480)}px 0 ${size === 1 ? "" : size + "px "}rgba(255,255,255,${(0.5 + Math.random() * 0.5).toFixed(2)})`).join(",\n");
+      Array.from(
+        { length: n },
+        () =>
+          `${Math.round(Math.random() * 1000)}px ${Math.round(Math.random() * 480)}px 0 ${size === 1 ? "" : size + "px "}rgba(255,255,255,${(0.5 + Math.random() * 0.5).toFixed(2)})`,
+      ).join(",\n");
     setStars({ small: layer(140, 1), big: layer(50, 0) });
   }, []);
 
@@ -130,13 +134,23 @@ function SpaceBackdrop() {
           right: 48,
           width: 46,
           height: 46,
-          background: "radial-gradient(circle at 35% 32%, #f6f4ee 0%, #e2ddd0 45%, #b9b2a4 75%, #8f8879 100%)",
+          background:
+            "radial-gradient(circle at 35% 32%, #f6f4ee 0%, #e2ddd0 45%, #b9b2a4 75%, #8f8879 100%)",
           boxShadow: "0 0 24px 4px rgba(246,244,238,0.35)",
         }}
       >
-        <div className="absolute rounded-full bg-black/10" style={{ top: 10, left: 14, width: 8, height: 8 }} />
-        <div className="absolute rounded-full bg-black/10" style={{ top: 22, left: 26, width: 5, height: 5 }} />
-        <div className="absolute rounded-full bg-black/10" style={{ top: 28, left: 12, width: 4, height: 4 }} />
+        <div
+          className="absolute rounded-full bg-black/10"
+          style={{ top: 10, left: 14, width: 8, height: 8 }}
+        />
+        <div
+          className="absolute rounded-full bg-black/10"
+          style={{ top: 22, left: 26, width: 5, height: 5 }}
+        />
+        <div
+          className="absolute rounded-full bg-black/10"
+          style={{ top: 28, left: 12, width: 4, height: 4 }}
+        />
       </div>
 
       {[0, 6, 12].map((delay, i) => (
@@ -147,7 +161,8 @@ function SpaceBackdrop() {
             top: `${10 + i * 25}%`,
             left: -100,
             animationDelay: `${delay}s`,
-            background: "linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.9) 100%)",
+            background:
+              "linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.9) 100%)",
             transform: "rotate(-20deg)",
           }}
         />
@@ -159,7 +174,10 @@ function SpaceBackdrop() {
 export function EventGlobe({ opportunities }: { opportunities: Opportunity[] }) {
   const Globe = useGlobeLib();
   const [containerRef, width] = useContainerWidth<HTMLDivElement>();
-  const globeRef = useRef<{ pointOfView: (v: object, ms?: number) => void; controls: () => { autoRotate: boolean; autoRotateSpeed: number } } | null>(null);
+  const globeRef = useRef<{
+    pointOfView: (v: object, ms?: number) => void;
+    controls: () => { autoRotate: boolean; autoRotateSpeed: number };
+  } | null>(null);
   const [selected, setSelected] = useState<GlobePoint | null>(null);
 
   const points = useMemo<GlobePoint[]>(() => {
@@ -167,9 +185,9 @@ export function EventGlobe({ opportunities }: { opportunities: Opportunity[] }) 
       .map((o) => {
         const loc = EVENT_LOCATIONS[o.id];
         if (!loc) return null;
-        const prizeUsd = toUsd(o.prize?.pool, o.prize?.currency);
+        const prizeZar = toZar(o.prize?.pool, o.prize?.currency);
         // "Heat" reads as pin size: bigger prize pool, bigger pin.
-        const heat = Math.max(0, Math.min(1, Math.log10(prizeUsd + 10) / 6));
+        const heat = Math.max(0, Math.min(1, Math.log10(prizeZar + 10) / 6));
         return {
           id: o.id,
           name: o.name,
@@ -189,18 +207,20 @@ export function EventGlobe({ opportunities }: { opportunities: Opportunity[] }) 
   }, [opportunities]);
 
   const arcs = useMemo<GlobeArc[]>(() => {
-    return points
-      // Skip the two Johannesburg-hosted events — an arc from JHB to JHB
-      // has no length and would just render as a stray dot.
-      .filter((p) => Math.abs(p.lat - JHB.lat) > 0.01 || Math.abs(p.lng - JHB.lng) > 0.01)
-      .map((p) => ({
-        startLat: JHB.lat,
-        startLng: JHB.lng,
-        endLat: p.lat,
-        endLng: p.lng,
-        color: p.color,
-        days: p.days,
-      }));
+    return (
+      points
+        // Skip the two Johannesburg-hosted events — an arc from JHB to JHB
+        // has no length and would just render as a stray dot.
+        .filter((p) => Math.abs(p.lat - JHB.lat) > 0.01 || Math.abs(p.lng - JHB.lng) > 0.01)
+        .map((p) => ({
+          startLat: JHB.lat,
+          startLng: JHB.lng,
+          endLat: p.lat,
+          endLng: p.lng,
+          color: p.color,
+          days: p.days,
+        }))
+    );
   }, [points]);
 
   useEffect(() => {
@@ -321,7 +341,10 @@ export function EventGlobe({ opportunities }: { opportunities: Opportunity[] }) 
             />
           </div>
         ) : (
-          <div className="relative flex h-full items-center justify-center font-mono text-xs text-white/50" style={{ zIndex: 1 }}>
+          <div
+            className="relative flex h-full items-center justify-center font-mono text-xs text-white/50"
+            style={{ zIndex: 1 }}
+          >
             Loading globe…
           </div>
         )}
@@ -330,8 +353,12 @@ export function EventGlobe({ opportunities }: { opportunities: Opportunity[] }) 
           <div className="absolute bottom-4 left-4 right-4 z-10 max-w-sm rounded-md border border-white/15 bg-black/80 p-4 backdrop-blur-sm md:right-auto">
             <div className="flex items-start justify-between gap-3">
               <div>
-                <p className="font-mono text-[10px] uppercase tracking-widest" style={{ color: selected.color }}>
-                  Tier {selected.tier} · {selected.kind === "venue" ? "confirmed venue" : "online, HQ shown"}
+                <p
+                  className="font-mono text-[10px] uppercase tracking-widest"
+                  style={{ color: selected.color }}
+                >
+                  Tier {selected.tier} ·{" "}
+                  {selected.kind === "venue" ? "confirmed venue" : "online, HQ shown"}
                 </p>
                 <h4 className="mt-1 text-base font-bold text-white">{selected.name}</h4>
                 <p className="mt-0.5 text-xs text-white/60">

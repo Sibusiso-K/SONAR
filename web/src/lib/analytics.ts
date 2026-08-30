@@ -1,16 +1,26 @@
 import type { Opportunity, PastOpportunity, UpdateRow } from "./sonar-types";
 
-/** Rough conversion, deliberately hardcoded and visible rather than pretending precision. */
-export const FX_TO_USD: Record<string, number> = {
-  USD: 1,
-  ZAR: 1 / 18.2,
-  EUR: 1.08,
-  GBP: 1.27,
+/**
+ * Rough conversion, deliberately hardcoded and visible rather than pretending
+ * precision. Rates approximate ~Aug 2026 (ZAR per unit of currency). The team
+ * is South African, so ZAR is the app's native comparison currency — this
+ * replaced an earlier USD-based table.
+ */
+export const FX_TO_ZAR: Record<string, number> = {
+  ZAR: 1,
+  USD: 18.2,
+  EUR: 19.66,
+  GBP: 23.11,
 };
 
-export function toUsd(pool?: number, currency?: string) {
+export function toZar(pool?: number, currency?: string) {
   if (!pool) return 0;
-  const rate = FX_TO_USD[(currency ?? "USD").toUpperCase()] ?? 1;
+  // Unspecified/unrecognised currency defaults to ZAR (rate 1, no
+  // conversion) rather than guessing USD: every entry currently on the
+  // board does specify a currency, so this only ever fires for a future
+  // entry that omits one, and assuming the team's own home currency is
+  // the smaller, safer error than assuming an 18x USD multiplier.
+  const rate = FX_TO_ZAR[(currency ?? "ZAR").toUpperCase()] ?? 1;
   return Math.round(pool * rate);
 }
 
@@ -87,8 +97,8 @@ export function winProbability(o: Opportunity): number {
   return Math.round(clamp(base * tierWeight * fieldFactor * conf, 1, 99));
 }
 
-export function expectedValueUsd(o: Opportunity): number {
-  return Math.round((toUsd(o.prize?.pool, o.prize?.currency) * winProbability(o)) / 100);
+export function expectedValueZar(o: Opportunity): number {
+  return Math.round((toZar(o.prize?.pool, o.prize?.currency) * winProbability(o)) / 100);
 }
 
 export function clamp(n: number, min: number, max: number) {
@@ -207,12 +217,12 @@ export function confidenceTrend(list: Opportunity[], updates: UpdateRow[]): Conf
 /* ---------------- Season headline stats ---------------- */
 
 export function seasonStats(live: Opportunity[], past: PastOpportunity[]) {
-  const totalPool = live.reduce((sum, o) => sum + toUsd(o.prize?.pool, o.prize?.currency), 0);
+  const totalPool = live.reduce((sum, o) => sum + toZar(o.prize?.pool, o.prize?.currency), 0);
   const lags = live
     .filter((o) => o.went_live_on && o.noticed_on)
     .map((o) => daysUntil(o.noticed_on, new Date(`${o.went_live_on}T00:00:00`)) ?? 0);
   return {
-    totalPoolUsd: totalPool,
+    totalPoolZar: totalPool,
     discovered: live.length + past.length,
     entered: past.filter((p) => ["entered", "placed", "won", "rejected"].includes(p.outcome))
       .length,
@@ -225,12 +235,20 @@ export function seasonStats(live: Opportunity[], past: PastOpportunity[]) {
 
 export function formatMoney(pool?: number, currency?: string) {
   if (!pool) return "—";
-  const cur = (currency ?? "USD").toUpperCase();
-  const symbol = cur === "ZAR" ? "R" : cur === "EUR" ? "€" : cur === "GBP" ? "£" : "$";
+  // Shows the prize as the organiser actually denominated it — never
+  // converted — so an unspecified currency defaults to ZAR/"R" rather
+  // than "$", matching toZar()'s reasoning above.
+  const cur = (currency ?? "ZAR").toUpperCase();
+  const symbol =
+    cur === "ZAR" ? "R" : cur === "EUR" ? "€" : cur === "GBP" ? "£" : cur === "USD" ? "$" : cur;
   return `${symbol}${pool.toLocaleString("en-ZA")}`;
 }
 
-export function usd(n: number) {
-  if (n >= 1000) return `$${Math.round(n / 100) / 10}k`;
-  return `$${n}`;
+export function zar(n: number) {
+  // ZAR figures commonly run into the millions (a $700k USD pool is
+  // ~R12.7m) where the old two-tier $/k formatter this replaced would
+  // print an unreadably long number, hence the added "m" tier.
+  if (n >= 1_000_000) return `R${Math.round(n / 100_000) / 10}m`;
+  if (n >= 1000) return `R${Math.round(n / 100) / 10}k`;
+  return `R${n}`;
 }

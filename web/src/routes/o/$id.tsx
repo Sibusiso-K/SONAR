@@ -6,11 +6,11 @@ import { participationBadge } from "@/lib/participation";
 import { useOpportunities, usePastOpportunities } from "@/lib/sonar-data";
 import {
   daysUntil,
-  expectedValueUsd,
+  expectedValueZar,
   formatMoney,
   severityOf,
   severityToken,
-  usd,
+  zar,
   winProbability,
 } from "@/lib/analytics";
 
@@ -114,7 +114,7 @@ function OpportunityDetail() {
           />
           <Stat label="confidence" value={o.confidence} />
           <Stat label="prize" value={formatMoney(o.prize?.pool, o.prize?.currency)} />
-          <Stat label="expected value" value={usd(expectedValueUsd(o))} />
+          <Stat label="expected value" value={zar(expectedValueZar(o))} />
           <Stat label="win probability" value={`${wp}%`} />
         </div>
 

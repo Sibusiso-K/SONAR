@@ -3,13 +3,13 @@ import { z } from "zod";
 import { createClient } from "@supabase/supabase-js";
 import {
   winProbability,
-  expectedValueUsd,
+  expectedValueZar,
   collisions,
   confidenceTrend,
   daysUntil,
   discoveryLag,
   seasonStats,
-  toUsd,
+  toZar,
 } from "@/lib/analytics";
 import { participationBadge } from "@/lib/participation";
 import { chat } from "@/lib/assistant.providers";
@@ -97,11 +97,11 @@ export const askSonar = createServerFn({ method: "POST" })
             o.next_date ? ` (${daysUntil(o.next_date)} days away)` : ""
           }`,
           `  score=${o.score}; scores=${JSON.stringify(o.scores)}`,
-          `  prize=${o.prize?.pool ?? 0} ${o.prize?.currency ?? "n/a"} (~$${toUsd(
+          `  prize=${o.prize?.pool ?? 0} ${o.prize?.currency ?? "n/a"} (~R${toZar(
             o.prize?.pool,
             o.prize?.currency,
           )}); breakdown=${o.prize?.breakdown ?? "unknown"}`,
-          `  win_probability=${wp}/100; expected_value=$${expectedValueUsd(o)}`,
+          `  win_probability=${wp}/100; expected_value=R${expectedValueZar(o)}`,
           `  career_track=${o.career_track}; source=${o.source ?? "unknown"}; went_live=${
             o.went_live_on ?? "unknown"
           }; noticed=${o.noticed_on ?? "never"}`,
@@ -168,7 +168,7 @@ export const askSonar = createServerFn({ method: "POST" })
       recent || "(empty)",
       "",
       "SEASON SUMMARY (same numbers as /stats):",
-      `tracked prize pool $${season.totalPoolUsd}; discovered=${season.discovered}, entered=${season.entered}, won=${season.won}, placed=${season.placed}, missed=${season.missed}; avg discovery lag ${season.avgLag}d`,
+      `tracked prize pool R${season.totalPoolZar}; discovered=${season.discovered}, entered=${season.entered}, won=${season.won}, placed=${season.placed}, missed=${season.missed}; avg discovery lag ${season.avgLag}d`,
       `confidence mix: ${confidenceMix || "none"}; ${trend.calendarSafe} of ${live.length} are calendar-safe (confirmed)`,
       "",
       "DISCOVERY LAG BY SOURCE:",

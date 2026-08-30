@@ -104,7 +104,7 @@ function fracOf(v: number, metric: Metric, domain: Domain | null) {
 export function Scatter3D({ opportunities }: { opportunities: Opportunity[] }) {
   const [containerRef, width] = useContainerWidth<HTMLDivElement>();
   const [xId, setXId] = useState("winnability");
-  const [yId, setYId] = useState("prize_usd");
+  const [yId, setYId] = useState("prize_zar");
   const [zId, setZId] = useState("career_leverage");
   const [sizeId, setSizeId] = useState("expected_value");
   const [colorId, setColorId] = useState("tier");

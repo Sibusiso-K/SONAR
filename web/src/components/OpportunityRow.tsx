@@ -5,11 +5,11 @@ import { OrgLogo } from "@/components/OrgLogo";
 import { WinRing } from "@/components/WinRing";
 import {
   daysUntil,
-  expectedValueUsd,
+  expectedValueZar,
   formatMoney,
   severityOf,
   severityToken,
-  usd,
+  zar,
   winProbability,
 } from "@/lib/analytics";
 import type { Opportunity, WatchRow } from "@/lib/sonar-types";
@@ -109,7 +109,7 @@ export function OpportunityRow({
 
         <div className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-2">
           <Stat label="prize" value={formatMoney(o.prize?.pool, o.prize?.currency)} />
-          <Stat label="expected value" value={usd(expectedValueUsd(o))} />
+          <Stat label="expected value" value={zar(expectedValueZar(o))} />
           <Stat
             label="next date"
             value={o.next_date ?? o.dates?.["expected_window"] ?? "no window"}
