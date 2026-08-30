@@ -513,17 +513,18 @@
       "location": "Online, final in Thessaloniki, Greece",
       "status": "submitted",
       "tier": 3,
-      "score": 5.85,
+      "score": 5.1,
       "scores": {
         "career_leverage": 5,
         "winnability": 6,
         "prize": 4,
-        "urgency": 10
+        "urgency": 5
       },
       "dates": {
         "submission_window": "2026-07-06 to 2026-08-16",
         "submission_deadline": "2026-08-16T23:59:00+02:00",
         "final_event": "2026-11-26 to 2026-11-28, Voices European Festival of Journalism and Media Freedom, Thessaloniki, Greece",
+        "results_expected_label": "mid-September 2026 (approximate, per UNESCO's confirmation email — no specific date given, not converted to an ISO date to avoid inventing precision that isn't there)",
         "confidence": "confirmed"
       },
       "prize": {
@@ -541,7 +542,7 @@
         "main": "https://www.unesco.org/en/articles/unesco-youth-hackathon-2026",
         "hackathon_hub": "https://www.unesco.org/en/media-information-literacy/youth-hackathon"
       },
-      "notes": "SUBMITTED 16 Aug 2026: HAYIBO, an interactive toolkit teaching South Africans, especially digitally illiterate and older audiences, to spot AI deepfakes and misinformation the way it actually spreads locally (WhatsApp voice notes, Facebook, radio call-in), via five spoken verification questions that need no reading or device. Taught through a weekly two-clip real-vs-AI guessing game run simultaneously on WhatsApp, Facebook (public leaderboard) and community radio (elders phone in and reason aloud). Every round is logged by language and platform and published openly: the first public dataset of AI-generated misinformation in isiZulu, Sepedi and other SA languages. Deliverables sent: proposal document, 9-slide pitch deck, 2:57 narrated video pitch. Confirmation email received; results expected mid-September 2026."
+      "notes": "SUBMITTED 16 Aug 2026: HAYIBO, an interactive toolkit teaching South Africans, especially digitally illiterate and older audiences, to spot AI deepfakes and misinformation the way it actually spreads locally (WhatsApp voice notes, Facebook, radio call-in), via five spoken verification questions that need no reading or device. Taught through a weekly two-clip real-vs-AI guessing game run simultaneously on WhatsApp, Facebook (public leaderboard) and community radio (elders phone in and reason aloud). Every round is logged by language and platform and published openly: the first public dataset of AI-generated misinformation in isiZulu, Sepedi and other SA languages. Deliverables sent: proposal document, 9-slide pitch deck, 2:57 narrated video pitch. Confirmation email received; results expected mid-September 2026. URGENCY CORRECTED 30 Aug 2026: was stuck at 10 since the 16 Aug submission, but the submission deadline that justified it passed two weeks ago and nothing is due from the team before results (mid-Sept, passive) or, if selected, travel to the Nov 26-28 final. Same pattern as SME Toolkit's 9-to-4 correction: urgency measures what WE need to do next, not how soon something happens to us. Set to 5, calibrated against the board's own NASA precedent (89 days to event to urgency 5) since the Nov final is 88 days out and is the next date requiring any action (attendance, only if selected)."
     },
     {
       "id": "zindi-rolling",

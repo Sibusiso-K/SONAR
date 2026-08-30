@@ -37,6 +37,8 @@ Importable file: [`../calendar/sonar-2026.ics`](../calendar/sonar-2026.ics)
 
 | Date | Time | What | Type |
 |---|---|---|---|
+| **Sat 29 Aug** | — | **DO NOW — submit MTN MoMo attendance-confirmation form.** Not yet done as of 28 Aug; MTN needs it for catering/access | prep |
+| **Wed 2 – Thu 3** | 09:30 – 12:00 | **MTN MoMo 24-Hour Mini App Hackathon — SELECTED, in person, overnight.** The Forum, The Campus, Bryanston. Idea advancing: AMAZWI (Lethabo), Track 2. No remote work permitted | event |
 | Sat 5 – Sun 6 | 09:00–17:00 | Shipaton build sprint — core app + RevenueCat SDK | prep |
 | **Mon 7** | all day | **DEADLINE — BCG Platinion application** *(treat as the real one)* | deadline |
 | Sat 12 – Sun 13 | 09:00–17:00 | Shipaton build sprint — monetisation + polish | prep |
@@ -47,6 +49,7 @@ Importable file: [`../calendar/sonar-2026.ics`](../calendar/sonar-2026.ics)
 | Wed 23 | all day | GovTech winners announced (Awards Ceremony — separate from the hackathon) | reward |
 | Sun 13 | 23:59 | Zindi "A Step Ahead of Drought" (ITU) closes, €2 000 — **recorded, not entered**: 430 already active and it collides with the Shipaton sprint | deadline |
 | Tue 8 – Thu 17 | — | Geekulcha #GKHack26 build-up webinars | prep |
+| **Sat 12** | — | **Entelect Hack\<IT\> Community Cup — save the date only, R70,000.** Registration not yet open as of 28 Aug; eligibility (student-only vs open) unpublished | event? |
 | **Fri 25** | 15:00 – Sun 27, 16:00 | **Geekulcha Annual Hackathon #GKHack26 — Centurion, or virtual.** Track: Blockchain for Impact, project V.U.K.A. | event |
 | **Wed 30** | all day | **DEADLINE — RevenueCat Shipaton ($700k+)** · hard cutoff 1 Oct 08:45 SAST | deadline |
 
@@ -104,7 +107,8 @@ Importable file: [`../calendar/sonar-2026.ics`](../calendar/sonar-2026.ics)
 
 These have no confirmed 2026 dates. They live in the Monday review, not the calendar:
 
-- **MTN MoMo Mini App** — **submitted** (three ideas, three-person team). Dates should arrive by email; nothing goes on the calendar until one does. **Open question, 24 Aug:** secondary sources describe an MTN Group "3rd MoMo Open API Hackathon" running its idea phase 21 Oct – 8 Dec 2026 and open only to Ghana, Uganda, Côte d'Ivoire, Cameroon and Zambia. If that is the same contest under a different name, we are not eligible and the entry's location field is wrong. It has never been confirmed to be the same contest, and a first-hand submission outranks a search result, so nothing has been changed on the strength of it. **Resolve by reading the confirmation email.**
+- **MTN MoMo Mini App** — **RESOLVED, on the calendar now.** Selected, in person, 2–3 Sept, Bryanston. Confirmation email received 28 Aug 2026 also settled the 24 Aug eligibility question in full: the confirmed South African in-person venue cannot be the same programme as the separate Ghana/Uganda/Côte d'Ivoire/Cameroon/Zambia-only "3rd MoMo Open API Hackathon" (idea phase 21 Oct–8 Dec), so the two are confirmed as distinct MTN contests.
+- **Entelect Hack\<IT\> Community Cup** — save-the-date only (12 Sept, R70,000). A second, distinct Entelect event from University Cup 2. Registration not yet open as of 28 Aug; eligibility ("Community Cup" vs "University Cup" — student-only or open?) unpublished. Weekly check from 1 Sept.
 - **Huawei ICT 2026–27** — registration usually opens September–November.
 - **Zindi** — rolling; check every Monday sorted by "Closing soon." **The individual open competitions now get their own dated rows** (R.O.A.D. Barbados, Bias Bounty). Keeping Zindi as one undated row is what hid a $25 000 competition for seven weeks.
 - **Nedbank N*ovation Hackathon** — **closed, and not expected.** The only known edition ran **8–9 November 2025** with applications closed 31 Oct 2025. The apply page has not been touched since: 2025 title, 2025 dates, 2025 copyright, no mention of 2026. Filed under past. Kept as a source to watch, but **nothing is scheduled and no annual cycle is assumed** — one edition is not a pattern.

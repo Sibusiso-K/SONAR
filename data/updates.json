@@ -9,6 +9,22 @@
   },
   "updates": [
     {
+      "at": "2026-08-30T09:20:00+02:00",
+      "kind": "changed",
+      "target": "unesco-youth-2026",
+      "title": "Winnability reevaluation pass: one stale score corrected",
+      "body": "Standing practice, run whenever the board changes: recheck urgency scores against actual days-to-deadline rather than trusting a number set when it was last touched. UNESCO's urgency had been stuck at 10 since the 16 Aug submission; that deadline passed two weeks ago and the score never moved. Nothing is due from the team before results (expected mid-Sept, passive, not on the team) or, if selected, travel to the Nov 26-28 Thessaloniki final. Corrected to 5, following the exact precedent set by SME Toolkit's own 9-to-4 correction on 18 Aug: urgency measures what the team needs to do next, not how soon an external event happens. Calibrated against the board's own NASA precedent (89 days to event, urgency 5) since the Nov final is 88 days out and is the next action-requiring date. Score 5.85 to 5.10. Also promoted the 'results expected mid-September' detail, previously buried in prose, into dates.results_expected_label so it is visible without reading the full note. Everything else on the board was checked and held: ibm-devday-bob-2026's hackathon genuinely runs through today (30 Aug) so its urgency is correct as-is, and geekulcha-2026's high urgency despite being already submitted is correct too - its next date is the live build event itself, not a passive wait, which is a different case from UNESCO's.",
+      "by": "Sibusiso K"
+    },
+    {
+      "at": "2026-08-30T09:10:00+02:00",
+      "kind": "system",
+      "target": null,
+      "title": "Calendar reconciled: MTN's real dates landed, Entelect Hack<IT> added",
+      "body": "MTN MoMo and the new Entelect Hack<IT> Community Cup entry both arrived via git pull (Lethabo's updates, board already correct) but neither had reached the Google Calendar yet. Added: the MTN 24-hour hackathon itself (2-3 Sept, Bryanston, in person and overnight), a same-day reminder to submit the still-outstanding attendance-confirmation form, a save-the-date for Entelect Hack<IT> (12 Sept, R70,000, registration not yet open), and a registration-check task for 1 Sept. Also retired three of five items from the recurring 'Verify: Mintek, MTN MoMo, Geekulcha...' task, since all three are now confirmed - it now only chases Huawei, FNB and the new Entelect entry. Mintek and Geekulcha's calendar entries needed no changes: both were already correctly updated in an earlier session.",
+      "by": "Sibusiso K"
+    },
+    {
       "at": "2026-08-28T15:10:00+02:00",
       "kind": "added",
       "target": "entelect-hackit-2026",
