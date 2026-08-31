@@ -612,9 +612,11 @@
         "event_start": "2026-09-25T15:00:00+02:00",
         "event_end": "2026-09-27T16:00:00+02:00",
         "build_up_webinars": "2026-09-08 to 2026-09-17",
+        "team_selection_notified_by": "2026-09-04T21:00:00+02:00",
+        "team_selection_label": "team selection (virtual or physical track) completed by this time, notified by email",
         "prior_editions": "GKHack23: 29 Sept to 1 Oct 2023; GKHack24 applications opened early Sept",
         "confidence": "confirmed",
-        "source": "sonke.gklink.co/event/gkhack26, the organiser's own registration platform, read 24 Aug 2026. Exact start/end times (Fri 25 Sep 15:00 to Sun 27 Sep 16:00) confirmed 25 Aug 2026 from the team workspace header on the Sonke dashboard.",
+        "source": "sonke.gklink.co/event/gkhack26, the organiser's own registration platform, read 24 Aug 2026. Exact start/end times (Fri 25 Sep 15:00 to Sun 27 Sep 16:00) confirmed 25 Aug 2026 from the team workspace header on the Sonke dashboard. Selection-by-04-Sept-21:00 notice and sponsor list read from the platform's own announcement banner, screenshot supplied by Sibusiso 31 Aug 2026.",
         "team_dashboard_checked_on": "2026-08-25"
       },
       "prize": {
@@ -640,7 +642,7 @@
         "events": "https://www.geekulcha.dev/events",
         "main": "https://geekulcha.com/"
       },
-      "notes": "SUBMITTED - confirmed first-hand 20 Aug 2026 via the team's own Sonke platform dashboard (sonke.gklink.co), logged in directly: 9 documents submitted, Lean Canvas + SSDLC both filled, 0 progress updates / 0 mentor feedback yet. This resolves the earlier \"2026 edition not yet posted\" uncertainty with direct proof rather than a public source - #GKHack26 is real, live, and the team is well into it, not just registered. Urgency raised: no exact deadline date was visible on the dashboard, but 8 of 9 documents landed within the last several hours of each other, which reads as an active, near-imminent submission window rather than a relaxed one - score it accordingly and revisit the moment a real deadline date surfaces. Winnability lowered: 172 competing teams is real field-size data this entry never had before (it was scored blind at 7 on 10 Aug); a field that size is no longer \"small, strong fit\"."
+      "notes": "SUBMITTED - confirmed first-hand 20 Aug 2026 via the team's own Sonke platform dashboard (sonke.gklink.co), logged in directly: 9 documents submitted, Lean Canvas + SSDLC both filled, 0 progress updates / 0 mentor feedback yet. This resolves the earlier \"2026 edition not yet posted\" uncertainty with direct proof rather than a public source - #GKHack26 is real, live, and the team is well into it, not just registered. Urgency raised: no exact deadline date was visible on the dashboard, but 8 of 9 documents landed within the last several hours of each other, which reads as an active, near-imminent submission window rather than a relaxed one - score it accordingly and revisit the moment a real deadline date surfaces. Winnability lowered: 172 competing teams is real field-size data this entry never had before (it was scored blind at 7 on 10 Aug); a field that size is no longer \"small, strong fit\". UPDATE 31 Aug 2026: platform banner confirms team selection (virtual vs physical track) completed by Fri 4 Sept 21:00, notified by email - nothing for the team to submit, just wait for the email. Event powered by Telkom, hosted with the Centre for Public Service Innovation (CPSI); sponsors/partners now include UNISA, CompTIA, Red Bull, and Reboot Republic (Lolwe AI & Robotics Studio, Kenya) - a bigger-name backer list than a typical student hackathon, worth noting for the winnability/exposure calculus."
     },
     {
       "id": "huawei-ict-2026-2027",

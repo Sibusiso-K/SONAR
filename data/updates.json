@@ -9,6 +9,14 @@
   },
   "updates": [
     {
+      "at": "2026-08-31T13:05:00+02:00",
+      "kind": "changed",
+      "target": "geekulcha-2026",
+      "title": "Geekulcha: team-selection notification date confirmed (4 Sept 21:00)",
+      "body": "Organiser platform banner (screenshot supplied by Sibusiso) states team selection for virtual or physical track will be completed by 21:00 on Fri 4 Sept 2026, notified by email. Nothing for the team to do before then. Also picked up updated sponsor/partner list: powered by Telkom, hosted with CPSI, now backed by UNISA, CompTIA, Red Bull and Reboot Republic (Kenya). Calendar reminder added for 4 Sept 21:15.",
+      "by": "Sibusiso K"
+    },
+    {
       "at": "2026-08-31T12:05:00+02:00",
       "kind": "changed",
       "target": "ibm-devday-bob-2026",
