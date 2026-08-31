@@ -26,7 +26,7 @@ Importable file: [`../calendar/sonar-2026.ics`](../calendar/sonar-2026.ics)
 | Fri 14 | — | **Mintek SCI Grad Hackathon — team SELECTED** (letter, Boitumelo Lekalakala). Start building. | milestone |
 | Wed 26 | 18:00–20:00 | IBM Bob prep — trial working, workflow problem chosen | prep |
 | Thu 27 | 16:00–20:30 | **IBM Dev Day: Bob in Action** — enablement 16:00, tracks 17:00 | event |
-| Fri 28 – Sun 30 | all day | **IBM Dev Day Hackathon** — top 50 teams win TechXchange passes | event |
+| Fri 28 – Sun 30 | all day | **IBM Dev Day Hackathon** — COMPETED as Team Sonar, built BobSwarm. **Submission outcome UNCONFIRMED** — form completed but Submit press not confirmed, deadline (30 Aug 16:00) already passed | event |
 | **Tue 18** | — | **SME Toolkit SA Business Plan Competition — Phase 1 submitted**, 13 days early: Sibusiso (Karoo Compute) and Lethabo (Indlela AI), two individual entries | milestone |
 | **Sun 30** | all day | **DEADLINE — Mintek one-page abstract** · also send per-member ID, T-shirt size, contacts, mentor | deadline |
 | Mon 31 | — | SME Toolkit Phase 1 close — *already submitted 18 Aug, nothing due here* | — |
@@ -77,8 +77,7 @@ Importable file: [`../calendar/sonar-2026.ics`](../calendar/sonar-2026.ics)
 
 | Date | What | Type |
 |---|---|---|
-| **Fri 28 Aug** | Zindi Bias Bounty Mapping Equity **opens** ($10 000) — enter on day one or not at all | deadline |
-| **Sun 1 Nov** | **DEADLINE — Zindi Bias Bounty Mapping Equity ($10 000).** The only comfortable deadline on the board: clears the whole October crunch | deadline |
+| ~~Fri 28 Aug – Sun 1 Nov~~ | ~~Zindi Bias Bounty Mapping Equity~~ — **pulled before events fired.** Competition page 404s as of 31 Aug; not in Zindi's open-challenges list. Not confirmed cancelled, just no longer live | — |
 | Thu 12 – Sat 14 Nov | W3Node Conference & Hackathon, Cape Town *(free entry; Web3-focused, not the team's stack)* | event |
 | Sat 14 – Sun 15 Nov | NASA International Space Apps Challenge | event |
 | **Mon 30 Nov** | **DEADLINE — SME Toolkit SA Business Plan Competition, final submission.** Two individual plans due: Karoo Compute (Sibusiso), Indlela AI (Lethabo). 10 finalists advance to interviews. | deadline |

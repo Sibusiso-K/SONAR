@@ -134,7 +134,7 @@
       "scope": "international",
       "format": "online",
       "location": "Virtual",
-      "status": "open",
+      "status": "past",
       "tier": 1,
       "score": 7.35,
       "scores": {
@@ -171,7 +171,7 @@
         "bob_trial": "https://bob.ibm.com/trial",
         "ibm_developer": "https://developer.ibm.com/events/ibm-techxchange-2026-pre-conference-dev-day-hackathon/"
       },
-      "notes": "BEST ODDS ON THE BOARD: top 50 teams win conference passes, and the IBM i / IBM Z audience is small and enterprise-skewed: a modern dev-tooling angle stands out. Request the free Bob trial BEFORE 27 Aug. Note IBM's own page inconsistently lists TechXchange as Oct 26–29 2025 in one place and 2026 in another; 2026 is correct."
+      "notes": "COMPETED as Team Sonar, built BobSwarm: a Bob 2.0 multi-agent orchestrator (Debugger/Documenter/Refactorer/Onboarding/Data-Lineage subagents via spawn_subagent) with a React dashboard, MCP server, and a benchmark run of 41 literal-evidence findings across 5 agent roles in ~94s, fully parallel. Team of five: Sibusiso (orchestrator/lead), Lethabo, Arisha, Mmopiemang, Farheen. Repo: github.com/Sibusiso-K/Sonar-BobSwarm-. Demo video recorded (youtu.be/c8LodAVNJ5s, unlisted). SUBMISSION OUTCOME UNCONFIRMED, 31 Aug 2026: per the team's own docs/FINAL_SUBMISSION_REPORT.md (committed 30 Aug 13:38 SAST), the competition form was completed and left on its final review page for Sibusiso to submit personally, and the report explicitly states the automation operator did not press the final Submit button. Deadline was 2026-08-30 16:00 SAST, already passed as of this note. Not recorded as entered or missed because neither is confirmed - this needs Sibusiso to confirm directly whether Submit was actually pressed."
     },
     {
       "id": "shipaton-2026",
@@ -990,7 +990,7 @@
       "scope": "international",
       "format": "online",
       "location": "Zindi",
-      "status": "open",
+      "status": "monitor",
       "tier": 3,
       "score": 5.2,
       "scores": {
@@ -1000,11 +1000,10 @@
         "urgency": 5
       },
       "dates": {
-        "start": "2026-08-28",
-        "submission_deadline": "2026-11-01",
-        "results_revealed": "2026-11-01",
-        "confidence": "confirmed",
-        "source": "Competition page on zindi.world, read 25 Aug 2026: Start 28 Aug 26, Close 01 Nov 26, Reveal 01 Nov 26"
+        "originally_stated_start": "2026-08-28",
+        "originally_stated_deadline": "2026-11-01",
+        "confidence": "unconfirmed",
+        "source": "Competition page on zindi.world, read 25 Aug 2026: Start 28 Aug 26, Close 01 Nov 26, Reveal 01 Nov 26. RECHECKED 31 Aug 2026 (Monday sweep): the competition page now 404s and it no longer appears in Zindi's open-challenges list (4 open, was 5). Not recorded as confirmed cancelled - could be a platform-side issue rather than a real withdrawal - but the dates above are no longer treated as live. Renamed off DEADLINE_KEYS so this stops surfacing as an active deadline until re-verified."
       },
       "prize": {
         "currency": "USD",
@@ -1023,6 +1022,14 @@
     }
   ],
   "dropped_or_past": [
+    {
+      "name": "IBM Dev Day: Bob in Action + Hackathon",
+      "organiser": "IBM (via BeMyApp)",
+      "kind": "hackathon",
+      "happened_on": "2026-08-30",
+      "reason": "COMPETED as Team Sonar (Sibusiso, Lethabo, Arisha, Mmopiemang, Farheen), 28-30 Aug 2026. Built BobSwarm: a Bob 2.0 multi-agent orchestrator dispatching five specialist subagents (Debugger, Documenter, Refactorer, Onboarding, Data-Lineage) via spawn_subagent, with a React dashboard and MCP server. Benchmark run: 41 literal-evidence findings across all 5 roles in ~94 seconds, fully parallel. Demo video recorded (youtu.be/c8LodAVNJ5s, unlisted). SUBMISSION OUTCOME UNCONFIRMED: per the team's own docs/FINAL_SUBMISSION_REPORT.md (repo commit 30 Aug 13:38 SAST), the form was completed and left on its final review page for Sibusiso to submit personally, and the report states the automation operator did not press the final Submit button. Deadline 2026-08-30 16:00 SAST has already passed. No result field set because none is confirmed either way - resolve by asking Sibusiso whether Submit was pressed.",
+      "link": "https://github.com/Sibusiso-K/Sonar-BobSwarm-"
+    },
     {
       "name": "Nedbank N*ovation Hackathon 2025",
       "organiser": "Nedbank",

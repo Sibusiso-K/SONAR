@@ -9,6 +9,22 @@
   },
   "updates": [
     {
+      "at": "2026-08-31T12:05:00+02:00",
+      "kind": "changed",
+      "target": "ibm-devday-bob-2026",
+      "title": "IBM Bob hackathon: competed, but submission outcome unconfirmed",
+      "body": "Team Sonar (Sibusiso, Lethabo, Arisha, Mmopiemang, Farheen) built BobSwarm, a Bob 2.0 multi-agent orchestrator, 28-30 Aug 2026 (github.com/Sibusiso-K/Sonar-BobSwarm-). Verified benchmark: 41 literal-evidence findings across 5 agent roles in ~94s, fully parallel. Demo video recorded (youtu.be/c8LodAVNJ5s, unlisted). Moved to past (event window is over regardless of outcome) with a dropped_or_past record. NOT marked entered: the team's own docs/FINAL_SUBMISSION_REPORT.md (committed 30 Aug 13:38 SAST) states the form was completed and left on its final review page for Sibusiso to submit personally, and that the automation operator did not press the final Submit button. Deadline was 30 Aug 16:00 SAST, already passed as of this entry with no confirmation either way on record. No result recorded - inventing 'entered' here would repeat the exact class of error fixed on 16 Aug (fabricated 'entered' outcomes) and the exact class fixed on 25 Aug (Nedbank, guessing dressed as a fact). Flagged as urgent on the calendar for Sibusiso to confirm directly.",
+      "by": "Sibusiso K"
+    },
+    {
+      "at": "2026-08-31T11:55:00+02:00",
+      "kind": "changed",
+      "target": "zindi-bias-bounty-2026",
+      "title": "Monday sweep: Bias Bounty pulled before it ever opened",
+      "body": "Expected to open 28 Aug per the 25 Aug discovery sweep. Rechecked 31 Aug: the competition page 404s and it no longer appears in Zindi's open-challenges list (4 open now, was 5 on 25 Aug). Status moved to monitor, dates renamed off the DEADLINE_KEYS the migrate script reads so it stops surfacing as a live deadline, and confidence set to unconfirmed rather than asserting it as cancelled - a 404 could be a platform-side issue, not necessarily a withdrawal. Both calendar events (the 28 Aug open, the 1 Nov close) deleted rather than left to mislead. Everything else checked this sweep held: Entelect Hack<IT> registration still not open (one candidate URL found, competitioncorner.net/events/20859, could not be confirmed as the same event), FNB still has no real hackathon date (only an unrelated App Academy course date turned up).",
+      "by": "Sibusiso K"
+    },
+    {
       "at": "2026-08-30T09:20:00+02:00",
       "kind": "changed",
       "target": "unesco-youth-2026",
