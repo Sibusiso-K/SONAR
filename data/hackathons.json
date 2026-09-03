@@ -359,7 +359,7 @@
       "scope": "local",
       "format": "in-person",
       "location": "The Forum, The Campus, Sloane Street, Bryanston, Sandton, South Africa",
-      "status": "selected",
+      "status": "past",
       "tier": 1,
       "score": 7.15,
       "scores": {
@@ -397,7 +397,7 @@
         "developer_portal": "https://momodeveloper.mtn.com/",
         "mtn": "https://www.mtn.com/"
       },
-      "notes": "SELECTED, confirmed by MTN's own confirmation email dated 28 Aug 2026 (forwarded from noreply_momodeveloper). This is a real, in-person, 24-hour overnight build - 2 Sept 09:30 to 3 Sept 12:00, The Forum, The Campus, Bryanston, Sandton. Resolves the 24 Aug eligibility question in full: confirmed South African in-person venue rules out this being the Ghana/Uganda/Cote d'Ivoire/Cameroon/Zambia-only 'MoMo Open API' programme. Immediate action: submit the attendance-confirmation form (catering/access headcount) - not yet done as of 28 Aug. Pack for an overnight stay; no remote work permitted once on-site. Still true from before: register on momodeveloper.mtn.com for sandbox API keys if not already done, fintech + MTN is a strong SA employment signal, and the team is confirmed at three people for this entry specifically (see docs/TEAM.md for what that means for other standing agreements)."
+      "notes": "COMPETED as Team Sonar, 2-3 Sept 2026, The Forum, Bryanston. RESULT, 3 Sept: did not place. Reported first-hand by Sibusiso; no further detail (ranking, judges feedback, which idea presented) recorded yet - add when available. Prior context kept for the record: SELECTED, confirmed by MTN's own confirmation email dated 28 Aug 2026, which also resolved the 24 Aug eligibility question (confirmed South African in-person venue rules out this being the separate Ghana/Uganda/Cote d'Ivoire/Cameroon/Zambia-only 'MoMo Open API' programme). Team confirmed at three people for this entry (see docs/TEAM.md)."
     },
     {
       "id": "mintek-sci-2026",
@@ -992,7 +992,7 @@
       "scope": "international",
       "format": "online",
       "location": "Zindi",
-      "status": "monitor",
+      "status": "open",
       "tier": 3,
       "score": 5.2,
       "scores": {
@@ -1002,10 +1002,11 @@
         "urgency": 5
       },
       "dates": {
-        "originally_stated_start": "2026-08-28",
-        "originally_stated_deadline": "2026-11-01",
-        "confidence": "unconfirmed",
-        "source": "Competition page on zindi.world, read 25 Aug 2026: Start 28 Aug 26, Close 01 Nov 26, Reveal 01 Nov 26. RECHECKED 31 Aug 2026 (Monday sweep): the competition page now 404s and it no longer appears in Zindi's open-challenges list (4 open, was 5). Not recorded as confirmed cancelled - could be a platform-side issue rather than a real withdrawal - but the dates above are no longer treated as live. Renamed off DEADLINE_KEYS so this stops surfacing as an active deadline until re-verified."
+        "start": "2026-08-28",
+        "submission_deadline": "2026-11-01",
+        "results_revealed": "2026-11-01",
+        "confidence": "confirmed",
+        "source": "Competition page on zindi.world, read 25 Aug 2026. RECHECKED 31 Aug: page 404d, dropped from open list, moved to monitor. RECHECKED 3 Sept (weekly sweep): live again, 626 participants, ~2 months left, matching the original 1 Nov close - the 404 was transient (platform-side), not a real withdrawal. Restored to open with the original dates."
       },
       "prize": {
         "currency": "USD",
@@ -1021,9 +1022,60 @@
         "competition": "https://zindi.world/competitions/bias-bounty-mapping-equity-challenge"
       },
       "notes": "Found in the 25 Aug 2026 sweep, three days before it opens on 28 Aug. Data is entirely US-based despite Zindi's African focus, so nothing here transfers to the local portfolio story. The 1 Nov close is the one genuinely comfortable deadline on the board: it clears the whole October crunch. Treat as the fallback if the R.O.A.D. timing proves impossible, not as a second simultaneous entry."
+    },
+    {
+      "id": "wbg-small-ai-development-2026",
+      "noticed_on": "2026-09-03",
+      "went_live_on": null,
+      "source": "LinkedIn post (Youth in Tech / AI), link supplied by Sibusiso 3 Sept 2026",
+      "name": "Small AI for Development Hackathon Challenge",
+      "organiser": "World Bank Group, via Hack-Nation",
+      "scope": "international",
+      "format": "hybrid",
+      "location": "Hack-Nation platform; finalists present in Seoul",
+      "status": "monitor",
+      "tier": 3,
+      "score": 4.7,
+      "scores": {
+        "career_leverage": 6,
+        "winnability": 3,
+        "prize": 4,
+        "urgency": 6
+      },
+      "dates": {
+        "event": "2026-10-03 to 2026-10-04",
+        "confidence": "reported",
+        "source": "LinkedIn announcement, read 3 Sept 2026. No application deadline stated in the post itself - only the event dates. Need the actual form (link below) to find a real deadline before scoring urgency higher."
+      },
+      "prize": {
+        "currency": null,
+        "pool": null,
+        "non_cash": "Three winning teams get travel to Seoul to present at the Global AI and Digital Summit, Oct 2026. No cash figure stated."
+      },
+      "eligibility": "Ages 18-35, from 150+ countries. UNCONFIRMED whether either team member qualifies - check before investing time.",
+      "team_fit": "Unresolved on the age question above. Challenge areas are Agriculture, Health or Tourism, solutions must work with limited connectivity and familiar tech (SMS, voice) - a real skills match for low-resource-context work, distinct from the team's usual fintech/AI-infra angle.",
+      "what_to_build": "Pick one of Agriculture, Health or Tourism. Build a solution that works with limited connectivity, local data/context, and familiar technologies like SMS and voice.",
+      "deliverables": [
+        "Application via the Hack-Nation platform (referral code WBGSmallAIGADS)"
+      ],
+      "links": {
+        "learn_more": "https://lnkd.in/gCpfi3kB",
+        "apply": "https://lnkd.in/gyftT4Vu",
+        "platform": "https://hack-nation.ai/"
+      },
+      "notes": "Found 3 Sept 2026. Huge global field (150+ countries) on an age-gated eligibility the team hasn't confirmed either way, hence winnability 3 and a status of monitor rather than open. Resolve the age-eligibility question and find the real application deadline before deciding whether to enter; both links above go through lnkd.in redirects and were not followed further than the LinkedIn post itself."
     }
   ],
   "dropped_or_past": [
+    {
+      "name": "MTN MoMo Mini App Hackathon 2026",
+      "organiser": "MTN Group / MoMo",
+      "kind": "hackathon",
+      "happened_on": "2026-09-03",
+      "result": "Did not place",
+      "reason": "COMPETED as Team Sonar (three-person entry), 24-hour in-person overnight build, 2-3 Sept 2026, The Forum, Bryanston. Selected from a strong field of applicants, submitted AMAZWI (a language-preservation MoMo mini app, by Lethabo). Reported first-hand by Sibusiso 3 Sept: did not place. No further detail on ranking, judges feedback, or which idea was actually presented is recorded yet.",
+      "link": "https://momodeveloper.mtn.com/"
+    },
     {
       "name": "IBM Dev Day: Bob in Action + Hackathon",
       "organiser": "IBM (via BeMyApp)",

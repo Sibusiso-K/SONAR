@@ -38,7 +38,7 @@ Importable file: [`../calendar/sonar-2026.ics`](../calendar/sonar-2026.ics)
 | Date | Time | What | Type |
 |---|---|---|---|
 | **Sat 29 Aug** | — | **DO NOW — submit MTN MoMo attendance-confirmation form.** Not yet done as of 28 Aug; MTN needs it for catering/access | prep |
-| **Wed 2 – Thu 3** | 09:30 – 12:00 | **MTN MoMo 24-Hour Mini App Hackathon — SELECTED, in person, overnight.** The Forum, The Campus, Bryanston. Idea advancing: AMAZWI (Lethabo), Track 2. No remote work permitted | event |
+| Wed 2 – Thu 3 | 09:30 – 12:00 | **MTN MoMo 24-Hour Mini App Hackathon — COMPETED, did not place.** The Forum, Bryanston. Idea: AMAZWI (Lethabo), Track 2 | event |
 | Sat 5 – Sun 6 | 09:00–17:00 | Shipaton build sprint — core app + RevenueCat SDK | prep |
 | **Mon 7** | all day | **DEADLINE — BCG Platinion application** *(treat as the real one)* | deadline |
 | Sat 12 – Sun 13 | 09:00–17:00 | Shipaton build sprint — monetisation + polish | prep |
@@ -77,7 +77,7 @@ Importable file: [`../calendar/sonar-2026.ics`](../calendar/sonar-2026.ics)
 
 | Date | What | Type |
 |---|---|---|
-| ~~Fri 28 Aug – Sun 1 Nov~~ | ~~Zindi Bias Bounty Mapping Equity~~ — **pulled before events fired.** Competition page 404s as of 31 Aug; not in Zindi's open-challenges list. Not confirmed cancelled, just no longer live | — |
+| **Sun 1 Nov** | **DEADLINE — Zindi Bias Bounty Mapping Equity ($10,000).** Briefly 404'd 31 Aug (platform-side), confirmed live again 3 Sept with 626 participants | deadline |
 | Thu 12 – Sat 14 Nov | W3Node Conference & Hackathon, Cape Town *(free entry; Web3-focused, not the team's stack)* | event |
 | Sat 14 – Sun 15 Nov | NASA International Space Apps Challenge | event |
 | **Mon 30 Nov** | **DEADLINE — SME Toolkit SA Business Plan Competition, final submission.** Two individual plans due: Karoo Compute (Sibusiso), Indlela AI (Lethabo). 10 finalists advance to interviews. | deadline |

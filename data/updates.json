@@ -9,6 +9,30 @@
   },
   "updates": [
     {
+      "at": "2026-09-03T15:45:00+02:00",
+      "kind": "changed",
+      "target": "mtn-momo-miniapp-2026",
+      "title": "MTN MoMo: competed, did not place",
+      "body": "Reported first-hand by Sibusiso 3 Sept 2026, the day the 24-hour hackathon ended. Moved to past with a dropped_or_past record. No ranking, feedback, or which idea was actually presented is recorded yet - add when available.",
+      "by": "Sibusiso K"
+    },
+    {
+      "at": "2026-09-03T15:40:00+02:00",
+      "kind": "verified",
+      "target": "zindi-bias-bounty-2026",
+      "title": "Weekly sweep: Bias Bounty's 404 was transient, restored to open",
+      "body": "Flagged 31 Aug when the page 404'd and it dropped from Zindi's open list. Rechecked this sweep: live again, 626 participants, ~2 months left, matching the original 1 Nov close exactly. Platform-side blip, not a withdrawal. Status back to open, dates restored, calendar deadline re-added.",
+      "by": "Sibusiso K"
+    },
+    {
+      "at": "2026-09-03T15:35:00+02:00",
+      "kind": "added",
+      "target": "wbg-small-ai-development-2026",
+      "title": "New find: World Bank Small AI for Development Hackathon",
+      "body": "Via Hack-Nation, event 3-4 Oct 2026, three winning teams get travel to Seoul (no cash prize). Added at monitor rather than open: ages 18-35 eligibility is unconfirmed for the team, the field is 150+ countries wide, and no real application deadline was found - only event dates. Also checked and rejected this sweep: 'System X Hackathon 1.0' (systemhackathon.netlify.app) is a paid-entry (Rs 2,000/team) student hackathon at what reads as a Pakistani university, dates still TBA - no fit, not added.",
+      "by": "Sibusiso K"
+    },
+    {
       "at": "2026-08-31T13:05:00+02:00",
       "kind": "changed",
       "target": "geekulcha-2026",
