@@ -9,6 +9,7 @@ Researched **10 August 2026**. Anything marked *unconfirmed* has no 2026 primary
 
 | Claim | Source |
 |---|---|
+| Entelect Hack<IT> Community Cup: registration open, 12 Sep 2026 10:00-15:00 SAST, R70,000 pool, allowed tech (AI, C, C++, C#, Go, Java, Python, Rust), objective "highest leaderboard score"; rules and leaderboard both empty/locked as of this read — read live in-browser 8 Sep 2026 | [Entelect Hackathons — overview](https://challenge.entelect.co.za/hackathons/community/overview?hackathonId=7beee775-3ebe-4405-9b3e-b9663fdd43f5) · [rules](https://challenge.entelect.co.za/hackathons/community/rules?hackathonId=7beee775-3ebe-4405-9b3e-b9663fdd43f5) · [hackathons list](https://challenge.entelect.co.za/hackathons) |
 | ADTC deadline 24 Aug 2026 23:45 PDT; $16,500 pool; 1–3 person teams; SA eligible; ADTC Standard Laptop spec; scoring formula; 1,540 participants | [Africa Deep Tech Challenge 2026 — Devpost](https://adtc-2026.devpost.com/) |
 | ADTC submission template | [GitHub — adtc-2026-submission-template](https://github.com/Africa-Deep-Tech-Foundation/adtc-2026-submission-template) |
 | ADTC local profiler | [GitHub — adtc-profiler](https://github.com/Africa-Deep-Tech-Foundation/adtc-profiler) |

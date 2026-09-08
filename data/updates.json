@@ -351,6 +351,14 @@
       "title": "Initial board: 17 entries, calendar, playbook, CLI",
       "body": "First full research pass. Every date carries a source link and a confidence level; conflicts recorded with the reasoning behind each ruling.",
       "by": "Sibusiso K"
+    },
+    {
+      "at": "2026-09-08T18:00:00+02:00",
+      "kind": "changed",
+      "target": "entelect-hackit-2026",
+      "title": "Hack<IT>: registration open, winnability re-run (6.2 to 6.95)",
+      "body": "Checked live on the portal 8 Sep 2026 (4 days out): registration is now OPEN (was 'opening soon' on 28 Aug). Times/timezone/prize pool confirmed unchanged (R70,000, 12 Sep 10:00-15:00 SAST). Allowed tech newly confirmed: AI, C, C++, C#, Go, Java, Python, Rust. Rules and leaderboard tabs are still empty/locked - team size and scoring formula remain unpublished this close in. Re-scored: winnability 5 to 6 (the University Cup 2 solver kit and a Practice Hackathon dress-rehearsal plan are now real, tested assets - src/kit/ 107 checks green - held below 7 because eligibility breadth and the scoring formula are still unknown). Urgency 7 to 10 per the board's own <14-day rule. Score 6.2 to 6.95, stays tier 2. Status moved monitor to open. Also flagged a scheduling collision: 'shipaton-sprint-2' already occupied 12 Sep in data/calendar_events.json and now overlaps this hackathon's fixed 10:00-15:00 window - noted on both calendar entries, not resolved. Full prep plan (corrects an earlier draft that fabricated the repo's contents and wrote a 4-week schedule for a 4-day-out event): https://github.com/Sibusiso-K/optimisation-challenge/blob/main/hackit/PLAN.md",
+      "by": "Claude"
     }
   ]
 }

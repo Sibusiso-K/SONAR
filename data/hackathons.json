@@ -740,34 +740,38 @@
       "scope": "local",
       "format": "in-person",
       "location": "South Africa (venue not yet announced)",
-      "status": "monitor",
+      "status": "open",
       "tier": 2,
-      "score": 6.2,
+      "score": 6.95,
       "scores": {
         "career_leverage": 7,
-        "winnability": 5,
+        "winnability": 6,
         "prize": 6,
-        "urgency": 7
+        "urgency": 10
       },
       "dates": {
-        "event_start": "2026-09-12",
+        "event_start": "2026-09-12T10:00:00+02:00",
+        "submission_deadline_sast": "2026-09-12T15:00:00+02:00",
         "confidence": "confirmed",
-        "source": "Entelect's own LinkedIn post (verified account), screenshot supplied by Sibusiso 28 Aug 2026: 'Say hello to the Entelect Hackathons Hack<IT> Community Cup! 12 September 2026, R70,000 prize pool. Registrations open soon, save the date.'"
+        "source": "challenge.entelect.co.za event page, read live in-browser 8 Sep 2026: 'REGISTRATION OPEN... Starts 12 Sep 2026, 10:00... Deadline 12 Sep 2026, 15:00... Location Africa/Johannesburg.'"
       },
       "prize": {
         "currency": "ZAR",
         "pool": 70000
       },
-      "eligibility": "Not yet published - 'Community Cup' naming (vs. University Cup's student-only framing) suggests a broader field than students alone, not yet confirmed either way.",
-      "team_fit": "Unknown until eligibility is published. Team has a direct, recent relationship with this organiser (University Cup 2, ~10th place, 22 Aug) which is a real in with the same hiring pipeline, independent of whether this specific event is open to the team.",
-      "what_to_build": "Not yet published - registrations have not opened.",
+      "eligibility": "Still unpublished as of 8 Sep 2026 (4 days out). The Rules tab on the portal reads 'The rules for this event are currently unavailable. Please check back later.' Team size, resubmission policy and the exact scoring formula are all unknown.",
+      "team_fit": "Entering solo (decided 8 Sep 2026, recorded in optimisation-challenge/hackit/PLAN.md). Direct, recent relationship with this organiser (University Cup 2, ~10th place, 22 Aug) carries over, and the entire solver toolkit from that event (src/kit/: exact TSP DP, branch-and-bound, ILS, multistart, knapsack DP, Hungarian, beam search - 107 self-tests green) transfers directly, since the portal confirms the same 'optimisation problem, highest score wins' shape. A live Practice Hackathon lets the upload/score loop be rehearsed before Saturday. Ceiling on fit is the still-unpublished eligibility: 'Community Cup' framing (vs. 'University Cup') may draw a field beyond students.",
+      "what_to_build": "Confirmed via the portal 8 Sep 2026: 'get the highest score on the leaderboard by the time the hackathon closes.' Allowed tech: AI, C, C++, C#, Go, Java, Python, Rust. No further problem detail published - rules and leaderboard tabs are both empty/locked until the day.",
       "deliverables": [],
       "links": {
         "main": "https://entelect.co.za/",
         "event_website": "https://challenge.entelect.co.za/home",
+        "overview": "https://challenge.entelect.co.za/hackathons/community/overview?hackathonId=7beee775-3ebe-4405-9b3e-b9663fdd43f5",
+        "rules": "https://challenge.entelect.co.za/hackathons/community/rules?hackathonId=7beee775-3ebe-4405-9b3e-b9663fdd43f5",
+        "leaderboard": "https://challenge.entelect.co.za/hackathons/community/leaderboard?hackathonId=7beee775-3ebe-4405-9b3e-b9663fdd43f5",
         "linkedin": "https://www.linkedin.com/company/entelect"
       },
-      "notes": "NEW FIND, 28 Aug 2026: a second, distinct Entelect hackathon from University Cup 2 - different name ('Hack<IT> Community Cup' vs 'University Cup'), different date (12 Sept vs the 22 Aug event already completed), same organiser. 'Community Cup' framing (as opposed to 'University Cup') is the one thing worth watching closely: if it's open beyond students, the field and the winnability math both change from University Cup 2's. R70,000 is a real, credible prize pool - larger than University Cup 2's non-cash Nintendo Switches. Registrations not yet open; nothing to do yet except watch entelect.co.za and the LinkedIn page for the registration announcement."
+      "notes": "UPDATED 8 Sep 2026 (4 days out): registration is now OPEN (was 'registrations open soon' on 28 Aug) - confirmed live on the portal by browser. Times, timezone and the R70,000 pool match what was recorded on the 28 Aug find; nothing there needed correcting. Rules tab is still empty and the leaderboard is locked until 12 Sep 10:00, so team size, submission shape and the scoring formula remain unknown 4 days out - genuinely unusual this close in, and the single biggest remaining risk. Winnability moved 5 to 6: the team now has a real, tested asset base to bring (the University Cup 2 solver kit, 107 checks green) and a concrete rehearsal plan using the live Practice Hackathon, which is more than was true on 28 Aug; held below 7 because eligibility breadth and the scoring formula are still both unconfirmed. Urgency moved 7 to 10 per the board's own <14-day rule (4 days out). Score moved 6.2 to 6.95 - stays tier 2, just under the tier-1 cut. SCHEDULING COLLISION: data/calendar_events.json already carries 'shipaton-sprint-2' (RevenueCat Shipaton build sprint) on 12-13 Sept, which overlaps this hackathon's exact 10:00-15:00 window on the 12th - flagged there, not resolved here. Full corrected prep plan lives in the optimisation-challenge repo: https://github.com/Sibusiso-K/optimisation-challenge/blob/main/hackit/PLAN.md - it also corrects a separately-drafted plan that had fabricated the repo's contents and written a four-week schedule for a four-day-out event."
     },
     {
       "id": "nasa-space-apps-2026",
