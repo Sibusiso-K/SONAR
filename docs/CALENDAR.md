@@ -50,7 +50,7 @@ Importable file: [`../calendar/sonar-2026.ics`](../calendar/sonar-2026.ics)
 | Sun 13 | 23:59 | Zindi "A Step Ahead of Drought" (ITU) closes, €2 000 — **recorded, not entered**: 430 already active and it collides with the Shipaton sprint | deadline |
 | Tue 8 – Thu 17 | — | Geekulcha #GKHack26 build-up webinars | prep |
 | **Sat 12** | — | **Entelect Hack\<IT\> Community Cup — save the date only, R70,000.** Registration not yet open as of 28 Aug; eligibility (student-only vs open) unpublished | event? |
-| **Fri 25** | 15:00 – Sun 27, 16:00 | **Geekulcha Annual Hackathon #GKHack26 — Centurion, or virtual.** Track: Blockchain for Impact, project V.U.K.A. | event |
+| **Fri 25** | 16:00 – Sun 27, 15:00 | **Geekulcha Annual Hackathon #GKHack26 — SELECTED, physical, BCX HQs Centurion** (out of 394 teams). Track: Blockchain for Impact, project V.U.K.A. Prep: consumer-facing framing, WBS, TRL 4 | event |
 | **Wed 30** | all day | **DEADLINE — RevenueCat Shipaton ($700k+)** · hard cutoff 1 Oct 08:45 SAST | deadline |
 
 ---
@@ -79,7 +79,7 @@ Importable file: [`../calendar/sonar-2026.ics`](../calendar/sonar-2026.ics)
 |---|---|---|
 | **Sun 1 Nov** | **DEADLINE — Zindi Bias Bounty Mapping Equity ($10,000).** Briefly 404'd 31 Aug (platform-side), confirmed live again 3 Sept with 626 participants | deadline |
 | Thu 12 – Sat 14 Nov | W3Node Conference & Hackathon, Cape Town *(free entry; Web3-focused, not the team's stack)* | event |
-| Sat 14 – Sun 15 Nov | NASA International Space Apps Challenge | event |
+| Sat 14 – Sun 15 Nov | NASA International Space Apps Challenge — **registered, Pretoria** | event |
 | **Mon 30 Nov** | **DEADLINE — SME Toolkit SA Business Plan Competition, final submission.** Two individual plans due: Karoo Compute (Sibusiso), Indlela AI (Lethabo). 10 finalists advance to interviews. | deadline |
 | Thu 26 – Sat 28 Nov | UNESCO Voices Festival, Thessaloniki *(only if we win)* | reward |
 | Sun 29 Nov – Thu 3 Dec | RSNA 2026 Annual Meeting, Chicago — winners recognised | reward |

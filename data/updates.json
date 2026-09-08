@@ -9,6 +9,22 @@
   },
   "updates": [
     {
+      "at": "2026-09-08T21:05:00+02:00",
+      "kind": "verified",
+      "target": "geekulcha-2026",
+      "title": "Geekulcha: SELECTED for physical track, times corrected, out of 394 teams",
+      "body": "Official Sonke selection email received 8 Sept 2026, screenshot supplied by Sibusiso. Status submitted -> selected, format hybrid -> in-person, venue confirmed as BCX HQs, Centurion (was generic). Corrects event_start/event_end: the 25 Aug dashboard-header read said 15:00 Fri to 16:00 Sun; the official email says 16:00 Fri to 15:00 Sun - a genuine correction, not a restatement. Field size updated from 172 to 394 teams (the earlier number was from a 20 Aug check; the field roughly doubled since). Added real prep asks from the email: make V.U.K.A. read consumer-facing rather than AI-reliant, produce a work breakdown structure, build to TRL 4. Calendar event and docs/CALENDAR.md updated to match.",
+      "by": "Sibusiso K"
+    },
+    {
+      "at": "2026-09-08T21:00:00+02:00",
+      "kind": "verified",
+      "target": "nasa-space-apps-2026",
+      "title": "NASA Space Apps: local event confirmed, Pretoria",
+      "body": "NASA's own confirmation email, screenshot supplied by Sibusiso. Status open -> registered, location updated from the generic 'Global, with local SA host events' to Pretoria specifically, confidence reported -> confirmed. Calendar event and docs/CALENDAR.md updated to match.",
+      "by": "Sibusiso K"
+    },
+    {
       "at": "2026-09-08T12:20:00+02:00",
       "kind": "verified",
       "target": "bcg-platinion-2026",

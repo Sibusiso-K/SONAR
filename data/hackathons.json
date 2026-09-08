@@ -595,9 +595,9 @@
       "name": "Geekulcha Annual Hackathon (#GKHack26)",
       "organiser": "Geekulcha",
       "scope": "local",
-      "format": "hybrid",
-      "location": "Centurion, South Africa (in-person) with a virtual option",
-      "status": "submitted",
+      "format": "in-person",
+      "location": "BCX HQs, Centurion, South Africa",
+      "status": "selected",
       "tier": 3,
       "score": 5.75,
       "scores": {
@@ -609,14 +609,11 @@
       "dates": {
         "submission_deadline": "2026-08-25T23:59:00+02:00",
         "submission_deadline_label": "concept pack due (slides, TRL, architecture, user journey, market entry)",
-        "event_start": "2026-09-25T15:00:00+02:00",
-        "event_end": "2026-09-27T16:00:00+02:00",
+        "event_start": "2026-09-25T16:00:00+02:00",
+        "event_end": "2026-09-27T15:00:00+02:00",
         "build_up_webinars": "2026-09-08 to 2026-09-17",
-        "team_selection_notified_by": "2026-09-04T21:00:00+02:00",
-        "team_selection_label": "team selection (virtual or physical track) completed by this time, notified by email",
-        "prior_editions": "GKHack23: 29 Sept to 1 Oct 2023; GKHack24 applications opened early Sept",
         "confidence": "confirmed",
-        "source": "sonke.gklink.co/event/gkhack26, the organiser's own registration platform, read 24 Aug 2026. Exact start/end times (Fri 25 Sep 15:00 to Sun 27 Sep 16:00) confirmed 25 Aug 2026 from the team workspace header on the Sonke dashboard. Selection-by-04-Sept-21:00 notice and sponsor list read from the platform's own announcement banner, screenshot supplied by Sibusiso 31 Aug 2026.",
+        "source": "sonke.gklink.co/event/gkhack26, read 24 Aug 2026. SELECTION EMAIL received 8 Sept 2026 from Sonke ('Dear Sibusiso Khumalo... your team, SONAR has been selected (out of 394 teams)... Physical'): corrects event_start/event_end (was 15:00 Fri to 16:00 Sun per the team-dashboard header read on 25 Aug; the official selection email says 16:00 Fri to 15:00 Sun) and confirms physical attendance at BCX HQs, Centurion. Team was previously told selection would land by 4 Sept 21:00; this email is the actual notification, a few days later than promised.",
         "team_dashboard_checked_on": "2026-08-25"
       },
       "prize": {
@@ -624,7 +621,7 @@
         "pool": null
       },
       "eligibility": "Open. Free to register and attend. Prior editions asked for a donation of canned food, clothes, sanitary towels or books as admission.",
-      "team_fit": "Team of THREE on Geekulcha's own platform (team name there: \"SONAR\", same as this project, coincidentally) - Lethabo Hoaeane (UNISA, created the team), Sibusiso Khumalo (Wits, Backend Developer), and Ipeleng Constance Modise (TUT), added by the facilitators just 1 hour before this check. Competing against 172 other teams on the V.U.K.A. project, Blockchain for Impact Use challenge.",
+      "team_fit": "Team of THREE on Geekulcha's own platform (team name there: \"SONAR\", same as this project, coincidentally) - Lethabo Hoaeane (UNISA, created the team), Sibusiso Khumalo (Wits, Backend Developer), and Ipeleng Constance Modise (TUT). SELECTED for the physical track out of 394 teams total (updated 8 Sept 2026 from the earlier 172-team read on 20 Aug - the field roughly doubled since then), on the V.U.K.A. project, Blockchain for Impact Use challenge.",
       "what_to_build": "Challenge track: Blockchain for Impact Use. Team project: V.U.K.A. Nine documents submitted (all by Lethabo, within the last ~8 hours of this check): Pitch Deck, Plain Words Explanation, Blockchain Fit rationale, Tech Stack, User Journey (four journeys), Business Canvas (nine blocks with numbers), Gap Analysis (10 pages), SLDC (19-page software dev lifecycle), and full system architecture. Lean Business Canvas and Security (SSDLC) sections both marked filled on the team dashboard.",
       "deliverables": [
         "Pitch Deck (PDF)",
@@ -635,14 +632,15 @@
         "Business Canvas",
         "Gap Analysis (PDF)",
         "SLDC (PDF)",
-        "System Architecture (PDF)"
+        "System Architecture (PDF)",
+        "Pre-event prep per the selection email: make the solution read as consumer-facing (less AI-reliance framing), build a work breakdown structure, build to Technology Readiness Level 4"
       ],
       "links": {
         "hackathon": "https://gklink.co/",
         "events": "https://www.geekulcha.dev/events",
         "main": "https://geekulcha.com/"
       },
-      "notes": "SUBMITTED - confirmed first-hand 20 Aug 2026 via the team's own Sonke platform dashboard (sonke.gklink.co), logged in directly: 9 documents submitted, Lean Canvas + SSDLC both filled, 0 progress updates / 0 mentor feedback yet. This resolves the earlier \"2026 edition not yet posted\" uncertainty with direct proof rather than a public source - #GKHack26 is real, live, and the team is well into it, not just registered. Urgency raised: no exact deadline date was visible on the dashboard, but 8 of 9 documents landed within the last several hours of each other, which reads as an active, near-imminent submission window rather than a relaxed one - score it accordingly and revisit the moment a real deadline date surfaces. Winnability lowered: 172 competing teams is real field-size data this entry never had before (it was scored blind at 7 on 10 Aug); a field that size is no longer \"small, strong fit\". UPDATE 31 Aug 2026: platform banner confirms team selection (virtual vs physical track) completed by Fri 4 Sept 21:00, notified by email - nothing for the team to submit, just wait for the email. Event powered by Telkom, hosted with the Centre for Public Service Innovation (CPSI); sponsors/partners now include UNISA, CompTIA, Red Bull, and Reboot Republic (Lolwe AI & Robotics Studio, Kenya) - a bigger-name backer list than a typical student hackathon, worth noting for the winnability/exposure calculus."
+      "notes": "SUBMITTED - confirmed first-hand 20 Aug 2026 via the team's own Sonke platform dashboard (sonke.gklink.co), logged in directly: 9 documents submitted, Lean Canvas + SSDLC both filled, 0 progress updates / 0 mentor feedback yet. This resolves the earlier \"2026 edition not yet posted\" uncertainty with direct proof rather than a public source - #GKHack26 is real, live, and the team is well into it, not just registered. Urgency raised: no exact deadline date was visible on the dashboard, but 8 of 9 documents landed within the last several hours of each other, which reads as an active, near-imminent submission window rather than a relaxed one - score it accordingly and revisit the moment a real deadline date surfaces. Winnability lowered: 172 competing teams is real field-size data this entry never had before (it was scored blind at 7 on 10 Aug); a field that size is no longer \"small, strong fit\". UPDATE 31 Aug 2026: platform banner confirms team selection (virtual vs physical track) completed by Fri 4 Sept 21:00, notified by email - nothing for the team to submit, just wait for the email. Event powered by Telkom, hosted with the Centre for Public Service Innovation (CPSI); sponsors/partners now include UNISA, CompTIA, Red Bull, and Reboot Republic (Lolwe AI & Robotics Studio, Kenya) - a bigger-name backer list than a typical student hackathon, worth noting for the winnability/exposure calculus. SELECTED 8 Sept 2026: official Sonke email, physical track, out of 394 teams total. Corrects the event start/end times (see dates) and confirms venue as BCX HQs, Centurion - a real address, not just \"Centurion\". Sponsor list on this email largely matches the 31 Aug banner but adds BoxFusion and RS specifically as co-hosts/supporters alongside Telkom/CPSI/CompTIA/Red Bull; not treated as a contradiction, just a fuller list from a more official source. Prep asks before the event: make V.U.K.A. read as consumer-facing rather than AI-reliant, produce a work breakdown structure, and build to TRL 4."
     },
     {
       "id": "huawei-ict-2026-2027",
@@ -782,8 +780,8 @@
       "organiser": "NASA + international space agency partners",
       "scope": "international",
       "format": "hybrid",
-      "location": "Global, with local SA host events",
-      "status": "open",
+      "location": "Pretoria, South Africa (2026 local event, chosen and confirmed)",
+      "status": "registered",
       "tier": 3,
       "score": 4.3,
       "scores": {
@@ -796,7 +794,7 @@
         "event_start": "2026-11-14",
         "event_end": "2026-11-15",
         "registration_opens": "Late July 2026",
-        "confidence": "reported"
+        "confidence": "confirmed"
       },
       "prize": {
         "currency": "N/A",
@@ -804,7 +802,7 @@
         "non_cash": "Global Award categories, NASA recognition, occasional launch-viewing invitations. No cash."
       },
       "eligibility": "Open to everyone, free.",
-      "team_fit": "Good.",
+      "team_fit": "Good. Local event choice confirmed 8 Sept 2026: Pretoria.",
       "what_to_build": "Solve published challenges using NASA and partner open data. Two-day global sprint.",
       "deliverables": [
         "Project page + demo submitted through the Space Apps platform"
@@ -813,7 +811,7 @@
         "main": "https://www.spaceappschallenge.org/",
         "host_event": "https://www.spaceappschallenge.org/host-an-event/"
       },
-      "notes": "Lowest priority: no cash and enormous field (tens of thousands of participants). Included because it's free, well-timed after the October crunch, and a Global Award is a distinctive CV line. Note the date moved from early October to 14–15 November for 2026."
+      "notes": "Lowest priority: no cash and enormous field (tens of thousands of participants). Included because it's free, well-timed after the October crunch, and a Global Award is a distinctive CV line. Note the date moved from early October to 14–15 November for 2026. REGISTERED 8 Sept 2026: NASA's own confirmation email names Pretoria as the chosen local event. Status open to registered - the team has committed to a specific venue, not just watching the global programme generically."
     },
     {
       "id": "w3node-hackathon-2026",
