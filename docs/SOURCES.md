@@ -86,7 +86,7 @@ August:**
 
 | Event | Why not |
 |---|---|
-| AfriHack 2026 | Real programme (Empiras Global, 3rd annual), but no primary source gives actual 2026 dates. Every lead traced to a secondary aggregator or to a differently-named past event ("AfriHack Connect," 2024/2025 editions). Would be adding a date without a source — against Ground Rule 2. |
+| AfriHack 2026 | UPDATED 8 Sept 2026: real dates now confirmed (Johannesburg 4-6 Sept at CAPACITI Hub, already past; Cape Town 18-20 Sept at UVU Africa), sourced to ednews.africa. Still not added — the actual disqualifier is eligibility, not sourcing: it's a nomination-based youth-development pathway (university/TVET nominees, digital-skills-programme and NEET participants via the DS4JI II network), not an open entry route, and no prize is stated anywhere. |
 | CyberSecureTech Hackathon | CSIR/Eskom/University of Venda-backed, genuinely promising given the org fit. But the 2026 edition is described as "envisaged," not scheduled — no date exists yet to add. |
 | WeThinkCode x Base "Vibe Coding Hackathon" | An aggregator called this 2026; the event's own Luma page states **"Saturday, 06 September 2025"** in the text itself. Trusting the primary page over the secondary summary, per the same rule that governs every other conflict here — this already happened, over a year ago. |
 | IBM Bob 2.0 Hackathon (lablab.ai) | Two mutually exclusive date claims surfaced: one source says 30 Apr – 3 May 2026 (already past, and a recap/guide PDF exists confirming it happened), another says 25–27 Sept 2026. The lablab.ai page itself 403'd on a direct fetch, so neither claim could be verified against a primary quote. Not added rather than guessing which one is real. |

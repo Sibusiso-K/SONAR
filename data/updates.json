@@ -9,6 +9,14 @@
   },
   "updates": [
     {
+      "at": "2026-09-08T12:00:00+02:00",
+      "kind": "system",
+      "target": null,
+      "title": "Weekly discovery sweep: quiet week, one sourcing correction, one urgent flag",
+      "body": "No new board entries this sweep - Zindi's 3 new listings are points-only study jams (not tracked, per standing rule), Huawei and FNB still have no confirmed 2026 dates, and the wider search turned up nothing else enterable. AfriHack 2026's dates are now confirmed (Johannesburg 4-6 Sept, already past; Cape Town 18-20 Sept) but it turns out to be a nomination-based youth-development pathway, not an open entry route - SOURCES.md corrected from 'no dates' to the real reason it's not a fit. Standing urgency recheck against actual days-to-deadline surfaced one real flag: bcg-platinion-2026's primary application deadline (7 Sept, the date this board treats as real) passed yesterday. The body-text backstop (13 Sept) is still 5 days out, so this isn't necessarily missed, but needs Sibusiso to confirm whether the application went in - not assumed either way. No data changed on that entry pending that answer. Also noted: this repo's original claude/hackathon-finder-autonomous-r8kyjg branch is still alive as a separate scheduled bot heartbeat (candidate sweeps every few hours, 1-line diffs, nothing merged to main) - not a stray branch, left alone.",
+      "by": "Sibusiso K"
+    },
+    {
       "at": "2026-09-03T15:45:00+02:00",
       "kind": "changed",
       "target": "mtn-momo-miniapp-2026",
