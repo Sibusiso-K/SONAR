@@ -9,6 +9,14 @@
   },
   "updates": [
     {
+      "at": "2026-09-09T19:45:00+02:00",
+      "kind": "verified",
+      "target": "govtech-2026",
+      "title": "GovTech: SELECTED, entity name confirmed, dates corrected 17-20 Sept",
+      "body": "SITA's own selection email, addressed to PILOT CORE (PTY) LTD, forwarded by Sibusiso 9 Sept 2026. Status submitted -> selected, format hybrid -> in-person. Corrects event_end: was 19 Sept from the earlier T&Cs reading, official selection email says 20 Sept. Fills in the entity name gap flagged since 17 Aug. Roster per the email: Sibusiso Khumalo, Lethabo Masilo Phukile, Ipeleng Constance Modise - flagged rather than assumed that 'Lethabo Masilo Phukile' here and 'Lethabo Hoaeane' on Geekulcha's platform may be the same person under different recorded surnames; not merged without confirmation. Urgent action: SITA requires a reply confirming attendance by 11 Sept - two days out as of this entry, not yet done. Urgency 8 -> 9, score 6.45 -> 6.6. Calendar updated: existing event's exclusive end-date was quietly only covering 17-19 (all-day events end exclusive), now correctly spans 17-20; added a same-day reminder for the reply deadline.",
+      "by": "Sibusiso K"
+    },
+    {
       "at": "2026-09-08T21:05:00+02:00",
       "kind": "verified",
       "target": "geekulcha-2026",
