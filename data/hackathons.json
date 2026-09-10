@@ -183,7 +183,7 @@
       "scope": "international",
       "format": "online",
       "location": "Online",
-      "status": "open",
+      "status": "dropped",
       "tier": 2,
       "score": 6.8,
       "scores": {
@@ -218,7 +218,7 @@
         "devpost": "https://revenuecat-shipaton-2026.devpost.com/",
         "prep_guide": "https://revenuecat.github.io/codelabs/shipaton-2026-prep.html"
       },
-      "notes": "Longest runway (7 weeks left) and by far the biggest pool, but the real cost is app-store review time: budget 2 weeks of slack for Apple/Google approval. Nine categories means many shots on goal. This is the one that also leaves you with a revenue-generating asset regardless of whether you place."
+      "notes": "NOT COMPETING. The team decided on 10 Sept 2026 not to do it, freeing the 12-13 Sept sprint window that directly collided with Entelect Hack<IT> and clearing capacity ahead of the GovTech/Geekulcha/Mintek run. Prior context kept for the record: longest runway of anything ever on the board (7 weeks left when added) and by far the biggest pool ($700,000+ across nine categories), but the real cost was always app-store review time - budget 2 weeks of slack for Apple/Google approval that the team no longer has to find."
     },
     {
       "id": "govtech-2026",

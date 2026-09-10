@@ -39,20 +39,16 @@ Importable file: [`../calendar/sonar-2026.ics`](../calendar/sonar-2026.ics)
 |---|---|---|---|
 | **Sat 29 Aug** | — | **DO NOW — submit MTN MoMo attendance-confirmation form.** Not yet done as of 28 Aug; MTN needs it for catering/access | prep |
 | Wed 2 – Thu 3 | 09:30 – 12:00 | **MTN MoMo 24-Hour Mini App Hackathon — COMPETED, did not place.** The Forum, Bryanston. Idea: AMAZWI (Lethabo), Track 2 | event |
-| Sat 5 – Sun 6 | 09:00–17:00 | Shipaton build sprint — core app + RevenueCat SDK | prep |
-| **Mon 7** | all day | **DEADLINE — BCG Platinion application** *(treat as the real one)* | deadline |
-| Sat 12 – Sun 13 | 09:00–17:00 | Shipaton build sprint — monetisation + polish | prep |
+| **Mon 7** | all day | **DEADLINE — BCG Platinion application** *(treat as the real one)* — submitted on time | deadline |
 | Sun 13 | all day | BCG Platinion — stated deadline (backstop only) | deadline |
-| Wed 16 | all day | **Shipaton: submit app to App Store / Play Store** — review buffer | deadline |
 | Tue 15 – Wed 16 | — | AI Infra Summit Hackathon, Santa Clara CA *(on-site invitation-only; online track separate, no on-site travel planned)* | event |
 | **Wed 9** | — | **DO NOW — reply to SITA confirming GovTech attendance**, due 11 Sept | deadline |
+| **Sat 12** | 10:00–15:00 | **Entelect Hack\<IT\> Community Cup — registration open, R70,000, entering solo.** Venue TBA. Rules/leaderboard still locked as of 8 Sept | event |
 | Thu 17 – Sun 20 | all day | **SITA GovTech 2026 Hackathon — SELECTED, Durban ICC, in person.** PILOT CORE (PTY) LTD | event |
 | Wed 23 | all day | GovTech winners announced (Awards Ceremony — separate from the hackathon) | reward |
-| Sun 13 | 23:59 | Zindi "A Step Ahead of Drought" (ITU) closes, €2 000 — **recorded, not entered**: 430 already active and it collides with the Shipaton sprint | deadline |
+| Sun 13 | 23:59 | Zindi "A Step Ahead of Drought" (ITU) closes, €2 000 — **recorded, not entered**: 430 already active | deadline |
 | Tue 8 – Thu 17 | — | Geekulcha #GKHack26 build-up webinars | prep |
-| **Sat 12** | — | **Entelect Hack\<IT\> Community Cup — save the date only, R70,000.** Registration not yet open as of 28 Aug; eligibility (student-only vs open) unpublished | event? |
 | **Fri 25** | 16:00 – Sun 27, 15:00 | **Geekulcha Annual Hackathon #GKHack26 — SELECTED, physical, BCX HQs Centurion** (out of 394 teams). Track: Blockchain for Impact, project V.U.K.A. Prep: consumer-facing framing, WBS, TRL 4 | event |
-| **Wed 30** | all day | **DEADLINE — RevenueCat Shipaton ($700k+)** · hard cutoff 1 Oct 08:45 SAST | deadline |
 
 ---
 
@@ -64,7 +60,7 @@ Importable file: [`../calendar/sonar-2026.ics`](../calendar/sonar-2026.ics)
 | Thu 1 | all day | **DEADLINE — IBM Z Datathon registration** (late = waitlist) | deadline |
 | **Fri 2** | all day | **Mintek SCI Conference — mandatory attendance, separate registration.** Five finalists announced; originality authentication follows | event |
 | Sat 3 – Sun 4 | 09:00–17:00 | RSNA Kaggle sprint — reuse ADTC efficiency work | prep |
-| **Mon 5** | 23:59 | **DEADLINE — Zindi R.O.A.D. Barbados Handwriting ($25 000).** Freeze by 29 Sept: this close sits inside the Mintek/Shipaton crunch | deadline |
+| **Mon 5** | 23:59 | **DEADLINE — Zindi R.O.A.D. Barbados Handwriting ($25 000).** Freeze by 29 Sept: this close sits 4 days after the fourth back-to-back hackathon weekend (Mintek) | deadline |
 | Thu 15 | all day | **DEADLINE — RSNA Knee Detection entry / team merger** | deadline |
 | **Fri 16 – Sat 17** | all day | **BCG Platinion Hackathon — Johannesburg** ← the one that matters | event |
 | Sat 17 – Sun 18 | all day | IBM Z Datathon *(clashes with BCG — backup only)* | event |
@@ -95,9 +91,8 @@ Importable file: [`../calendar/sonar-2026.ics`](../calendar/sonar-2026.ics)
 | **BCG Platinion (16–17 Oct) vs IBM Z Datathon (17–18 Oct)** | BCG. Career leverage 10 vs 6, and BCG is on-site in Johannesburg with travel paid. Register for the Datathon anyway as a fallback in case the BCG application doesn't land. |
 | **RSNA final submission (22 Oct) vs FNB window (~23–25 Oct)** | Sequential, not overlapping — but tight. Freeze the Kaggle submission on the 21st. |
 | **ADTC (24 Aug) vs IBM hackathon (28–30 Aug)** | Four clear days between. Do not let ADTC slip past the 24th or this collapses. |
-| **Shipaton (runs to 30 Sept) vs everything in September** | Shipaton is the September background task. Treat the weekend sprints as immovable. |
-| **Shipaton hard cutoff (1 Oct 08:45 SAST) vs Mintek final hacking day (1 Oct, report from 08:00 at Randburg)** | These are the same 45 minutes, in a car or at Mintek. **Submit Shipaton on 29 September at the latest** — do not let it ride to the real cutoff. Mintek is in-person and mandatory; Shipaton is not. |
-| **Mintek build (Sept) vs Shipaton build (Sept) vs GovTech (17–19 Sept, in person)** | Three September commitments, all now submitted/entered — GovTech is no longer the free drop it was when eligibility was unresolved; an entity is registered and a team is fielded. If capacity genuinely runs out, this needs a real decision in a PR (Standing Agreement 8), not a quiet skip. |
+| **Entelect Hack\<IT\> (12 Sept) vs everything after it** | DROPPED 10 Sept: RevenueCat Shipaton, which had a build sprint booked directly across Entelect's 10:00–15:00 window on the 12th, is no longer being entered. Team decided not to run four hackathon weekends plus a fifth background competition in parallel. |
+| **Four hackathons, four weekends running: Entelect (12 Sept) → GovTech (17–20 Sept) → Geekulcha (25–27 Sept) → Mintek (1–2 Oct)** | The actual capacity risk on the board now. See `/war-room` on the live site for the event-by-event prep plan. Sleep and recovery between events matters more than any single day's execution. |
 | **SME Toolkit's final business plan (30 Nov) vs the rest of the board** | No overlap today — nothing else is scheduled around 30 Nov. Revisit once the RSNA/FNB October crunch has a firmer shape; two individual plans (not a team deliverable) are lower-risk to slot in late if needed. |
 | **W3Node (12–14 Nov, Cape Town) vs NASA Space Apps (14–15 Nov)** | Both Tier 3, both new/opportunistic. W3Node ends the same day NASA starts — physically impossible to do both in person. Neither is a priority; pick one only if capacity allows, per Standing Agreement 1. |
 
