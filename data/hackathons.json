@@ -228,8 +228,8 @@
       "name": "SITA GovTech 2026 Hackathon",
       "organiser": "SITA / GovTech",
       "scope": "local",
-      "format": "in-person",
-      "location": "Durban ICC (in person, as indicated on the application)",
+      "format": "online",
+      "location": "Remote (changed 11 Sept 2026 from in-person Durban ICC)",
       "status": "selected",
       "tier": 2,
       "score": 6.6,
@@ -253,7 +253,7 @@
         "non_cash": "Route into government/SITA procurement visibility; possible pilot-phase funding for winning solution(s), subject to SITA's discretion"
       },
       "eligibility": "Open to SMMEs in the EME category registered in the Republic of South Africa (T&Cs 2.1). Teams of 3–5 members (2.2). Not open to SITA permanent or FTC employees (2.5). Only one team per company may register (1.2).",
-      "team_fit": "SELECTED. Entity: PILOT CORE (PTY) LTD, satisfying 2.1/2.2 as a 3-person team. Roster per SITA's selection email: Sibusiso Khumalo, Lethabo Masilo Phukile, Ipeleng Constance Modise. NOTE: Ipeleng Constance Modise is also on the Geekulcha roster; 'Lethabo Masilo Phukile' here vs 'Lethabo Hoaeane' on Geekulcha's platform - same first name, different surname recorded on each platform. Not merged/assumed identical without confirmation; flagging the discrepancy rather than guessing.",
+      "team_fit": "SELECTED, PARTICIPATING REMOTELY. Entity: PILOT CORE (PTY) LTD, satisfying 2.1/2.2 as a 3-person team. Roster per SITA's selection email: Sibusiso Khumalo, Lethabo Masilo Phukile, Ipeleng Constance Modise. NOTE: Ipeleng Constance Modise is also on the Geekulcha roster; 'Lethabo Masilo Phukile' here vs 'Lethabo Hoaeane' on Geekulcha's platform - same first name, different surname recorded on each platform. Not merged/assumed identical without confirmation; flagging the discrepancy rather than guessing.",
       "what_to_build": "Public-sector digital service problems (see official terms PDF).",
       "deliverables": [
         "Per official terms and conditions",
@@ -264,7 +264,7 @@
         "terms": "https://www.govtech.gov.za/wp-content/uploads/2026/07/GovTech-2026-Hackathon-Terms-and-Condition.pdf",
         "sita": "https://www.sita.co.za/content/hackathon-0"
       },
-      "notes": "SELECTED 9 Sept 2026: SITA's own selection email, addressed to PILOT CORE (PTY) LTD, confirms the application succeeded. Event corrected to 17-20 Sept (was 17-19, from the earlier T&Cs reading). Attendance must be confirmed by replying no later than 11 Sept 2026 - two days out as of this entry, not yet done. If selected top 3, one representative attends the Awards Ceremony separately; all travel/accommodation/incidentals are the team's own cost, meals provided on-site during the hackathon itself. Prior context: T&Cs read in full 17 Aug 2026 - winners announced 23 Sept at a separate Awards Ceremony; prize money paid 30 days after the event and is taxable, tax being the team's own responsibility; a winning solution's pilot funding is subject to SITA's discretion and requires 3 full days/week availability during delivery; SITA takes an irrevocable worldwide licence over submitted Hackathon Outputs (pre-existing 'Background IP' stays yours if flagged before/at time of use)."
+      "notes": "REMOTE PARTICIPATION 11 Sept 2026: reported by Sibusiso that the team's GovTech attendance will be online rather than in-person at Durban ICC. Source of the change (SITA's own decision, or a track chosen when replying) not recorded here - add when known. This is also the 11 Sept RSVP deadline day itself; no separate confirmation that the reply was sent is on record, only that participation is now known to be remote. SELECTED 9 Sept 2026: SITA's own selection email, addressed to PILOT CORE (PTY) LTD, confirms the application succeeded. Event corrected to 17-20 Sept (was 17-19, from the earlier T&Cs reading). If selected top 3, one representative attends the Awards Ceremony separately; all travel/accommodation/incidentals are the team's own cost. Prior context: T&Cs read in full 17 Aug 2026 - winners announced 23 Sept at a separate Awards Ceremony; prize money paid 30 days after the event and is taxable, tax being the team's own responsibility; a winning solution's pilot funding is subject to SITA's discretion and requires 3 full days/week availability during delivery; SITA takes an irrevocable worldwide licence over submitted Hackathon Outputs (pre-existing 'Background IP' stays yours if flagged before/at time of use)."
     },
     {
       "id": "rsna-knee-2026",

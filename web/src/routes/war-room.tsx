@@ -47,7 +47,7 @@ const TIMELINE: TimelineEntry[] = [
   {
     day: "Thu 17 – Sun 20 Sep",
     name: "GovTech 2026",
-    venue: "Durban ICC · in person",
+    venue: "Remote / online",
     arena: "judged",
     who: "PILOT CORE",
   },
@@ -105,9 +105,9 @@ const DOSSIERS: Dossier[] = [
   {
     n: 2,
     name: "SITA GovTech 2026",
-    tagline: "Durban ICC · selected",
+    tagline: "Remote · selected",
     meta: "Entity: PILOT CORE (PTY) LTD · Team: Sibusiso, Lethabo, Ipeleng",
-    when: "THU 17 – SUN 20 SEP · IN PERSON",
+    when: "THU 17 – SUN 20 SEP · REMOTE (was in-person Durban ICC, changed 11 Sept)",
     what: "A public-sector problem you won't see until day one",
     arena: "judged",
     wins: {
@@ -116,7 +116,7 @@ const DOSSIERS: Dossier[] = [
     },
     assets: [
       "Three-person, EME-registered entity already cleared on eligibility",
-      "A full weekend on-site — no remote-team split-attention risk",
+      "Now remote — no travel/accommodation cost, but the team must actively guard against split attention across three locations",
       "Fresh off Entelect five days earlier: the “valid submission fast, iterate after” reflex transfers even though the game itself doesn't",
     ],
     risk: "Reply confirming attendance is due 11 Sept. IP terms are also worth a five-minute re-read: SITA takes an irrevocable worldwide licence over Hackathon Outputs, and pre-existing background IP only stays yours if it's flagged before or at time of use.",

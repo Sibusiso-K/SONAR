@@ -44,7 +44,7 @@ Importable file: [`../calendar/sonar-2026.ics`](../calendar/sonar-2026.ics)
 | Tue 15 – Wed 16 | — | AI Infra Summit Hackathon, Santa Clara CA *(on-site invitation-only; online track separate, no on-site travel planned)* | event |
 | **Wed 9** | — | **DO NOW — reply to SITA confirming GovTech attendance**, due 11 Sept | deadline |
 | **Sat 12** | 10:00–15:00 | **Entelect Hack\<IT\> Community Cup — registration open, R70,000, entering solo.** Venue TBA. Rules/leaderboard still locked as of 8 Sept | event |
-| Thu 17 – Sun 20 | all day | **SITA GovTech 2026 Hackathon — SELECTED, Durban ICC, in person.** PILOT CORE (PTY) LTD | event |
+| Thu 17 – Sun 20 | all day | **SITA GovTech 2026 Hackathon — SELECTED, remote/online** (was in-person Durban ICC, changed 11 Sept). PILOT CORE (PTY) LTD | event |
 | Wed 23 | all day | GovTech winners announced (Awards Ceremony — separate from the hackathon) | reward |
 | Sun 13 | 23:59 | Zindi "A Step Ahead of Drought" (ITU) closes, €2 000 — **recorded, not entered**: 430 already active | deadline |
 | Tue 8 – Thu 17 | — | Geekulcha #GKHack26 build-up webinars | prep |

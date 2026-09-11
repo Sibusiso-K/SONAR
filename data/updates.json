@@ -9,6 +9,14 @@
   },
   "updates": [
     {
+      "at": "2026-09-11T10:00:00+02:00",
+      "kind": "changed",
+      "target": "govtech-2026",
+      "title": "GovTech: switching to remote/online, not in-person Durban ICC",
+      "body": "Reported by Sibusiso 11 Sept 2026 (the same day the SITA RSVP reply is due) that the team's GovTech attendance will be online rather than in-person at Durban ICC. Source of the change - SITA's own decision, or a track chosen when replying - not recorded here; add when known. No separate confirmation that the RSVP reply itself was sent is on record, only that participation is now known to be remote - not assuming one implies the other. Format in-person -> online; location -> Remote (changed 11 Sept from in-person Durban ICC). Propagated to the three GovTech-related Google Calendar events (main event, Awards Ceremony, and an unrelated 'ELP Submission 3' event whose stale in-person conflict note was also corrected), docs/CALENDAR.md, and the /war-room page's timeline and GovTech dossier.",
+      "by": "Sibusiso K"
+    },
+    {
       "at": "2026-09-10T09:30:00+02:00",
       "kind": "changed",
       "target": "shipaton-2026",
