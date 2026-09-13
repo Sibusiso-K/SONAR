@@ -13,6 +13,8 @@ const NAV = [
   { to: "/updates", label: "Updates" },
 ] as const;
 
+const SIDEBAR_WIDTH = "w-56";
+
 function ThemeToggle() {
   const [dark, setDark] = useState(false);
 
@@ -41,7 +43,7 @@ function ThemeToggle() {
 
 function IdentityPicker() {
   const { identity, setIdentity, hydrated } = useIdentity();
-  if (!hydrated) return <div className="h-8 w-40" />;
+  if (!hydrated) return <div className="h-8 w-full" />;
 
   return (
     <div className="flex items-center border border-border">
@@ -50,7 +52,7 @@ function IdentityPicker() {
           key={who}
           onClick={() => setIdentity(identity === who ? null : who)}
           className={cn(
-            "px-2.5 py-1.5 font-mono text-[11px] uppercase tracking-widest transition-colors",
+            "flex-1 px-2.5 py-1.5 font-mono text-[11px] uppercase tracking-widest transition-colors",
             identity === who
               ? "bg-primary text-primary-foreground"
               : "text-muted-foreground hover:text-foreground",
@@ -63,77 +65,118 @@ function IdentityPicker() {
   );
 }
 
+function SidebarNav({ onNavigate }: { onNavigate?: () => void }) {
+  return (
+    <nav className="flex flex-col gap-1">
+      {NAV.map((item) => (
+        <Link
+          key={item.to}
+          to={item.to}
+          activeOptions={{ exact: item.to === "/" }}
+          activeProps={{ className: "text-foreground border-l-foreground bg-foreground/5" }}
+          inactiveProps={{ className: "text-muted-foreground border-l-transparent" }}
+          onClick={onNavigate}
+          className="border-l-2 px-4 py-2.5 font-mono text-[11px] uppercase tracking-[0.16em] transition-colors hover:text-foreground"
+        >
+          {item.label}
+        </Link>
+      ))}
+    </nav>
+  );
+}
+
 export function AppShell({ children }: { children: ReactNode }) {
   const [assistantOpen, setAssistantOpen] = useState(false);
   const [navOpen, setNavOpen] = useState(false);
 
   return (
     <div className="min-h-dvh bg-background">
-      <header className="sticky top-0 z-30 border-b border-rule bg-background/85 backdrop-blur-md">
-        <div className="relative mx-auto flex max-w-[88rem] items-center gap-x-4 px-5 py-3 md:px-10">
-          <button
-            onClick={() => setNavOpen((v) => !v)}
-            aria-label="Toggle navigation"
-            aria-expanded={navOpen}
-            className="flex size-8 items-center justify-center border border-border text-muted-foreground transition-colors hover:border-foreground hover:text-foreground"
-          >
-            {navOpen ? <X className="size-3.5" /> : <Menu className="size-3.5" />}
-          </button>
-
-          <Link to="/" className="absolute left-1/2 flex -translate-x-1/2 items-baseline gap-2">
+      {/* ---- sidebar: persistent on desktop, an off-canvas panel sliding
+          in from the left on mobile rather than a top-dropping panel, so
+          the section list always reads as a vertical column, not a row
+          that wraps. ---- */}
+      <aside
+        className={cn(
+          "fixed inset-y-0 left-0 z-40 flex flex-col border-r border-rule bg-background transition-transform duration-200 md:translate-x-0",
+          SIDEBAR_WIDTH,
+          navOpen ? "translate-x-0" : "-translate-x-full",
+        )}
+      >
+        <div className="flex items-center justify-between border-b border-rule px-5 py-4">
+          <Link to="/" onClick={() => setNavOpen(false)}>
             <span className="font-display text-xl font-bold tracking-[-0.05em]">SONAR</span>
           </Link>
+          <button
+            onClick={() => setNavOpen(false)}
+            aria-label="Close navigation"
+            className="flex size-8 items-center justify-center border border-border text-muted-foreground transition-colors hover:border-foreground hover:text-foreground md:hidden"
+          >
+            <X className="size-3.5" />
+          </button>
+        </div>
 
-          <div className="ml-auto flex items-center gap-2">
-            <IdentityPicker />
+        <div className="flex-1 overflow-y-auto py-4">
+          <SidebarNav onNavigate={() => setNavOpen(false)} />
+        </div>
+
+        <div className="flex flex-col gap-2.5 border-t border-rule p-4">
+          <IdentityPicker />
+          <div className="flex items-center gap-2">
             <ThemeToggle />
             <button
               onClick={() => setAssistantOpen(true)}
-              className="flex items-center gap-1.5 bg-primary px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.16em] text-primary-foreground transition-opacity hover:opacity-85"
+              className="flex flex-1 items-center justify-center gap-1.5 bg-primary px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.16em] text-primary-foreground transition-opacity hover:opacity-85"
             >
               <MessageSquareText className="size-3.5" /> Ask
             </button>
           </div>
         </div>
+      </aside>
 
-        {/* ---- nav panel: opens/closes rather than always occupying the
-            header, which is what frees the header to center the logo.
-            Mounted/unmounted rather than height-animated: a real height
-            (or max-height, or grid-template-rows) transition needs the
-            browser to resolve an intrinsic content size mid-animation,
-            which is exactly the kind of thing that silently breaks under
-            odd rendering conditions. Fade + slide on mount is simpler and
-            matches the animate-in idiom the shadcn primitives already use
-            elsewhere in this app (dialog, popover, sheet, etc). ---- */}
-        {navOpen && (
-          <nav className="animate-in fade-in slide-in-from-top-2 mx-auto flex max-w-[88rem] flex-wrap items-center gap-x-7 gap-y-3 border-t border-rule px-5 py-4 duration-200 md:px-10">
-            {NAV.map((item) => (
-              <Link
-                key={item.to}
-                to={item.to}
-                activeOptions={{ exact: item.to === "/" }}
-                activeProps={{ className: "text-foreground border-foreground" }}
-                inactiveProps={{ className: "text-muted-foreground border-transparent" }}
-                onClick={() => setNavOpen(false)}
-                className="border-b-2 pb-0.5 font-mono text-[11px] uppercase tracking-[0.16em] transition-colors hover:text-foreground"
-              >
-                {item.label}
-              </Link>
-            ))}
-          </nav>
-        )}
-      </header>
+      {/* backdrop, mobile only, while the drawer is open */}
+      {navOpen && (
+        <button
+          aria-label="Close navigation"
+          onClick={() => setNavOpen(false)}
+          className="fixed inset-0 z-30 bg-background/60 backdrop-blur-sm md:hidden"
+        />
+      )}
 
-      <main>{children}</main>
+      <div className="md:pl-56">
+        <header className="sticky top-0 z-20 flex items-center gap-x-4 border-b border-rule bg-background/85 px-5 py-3 backdrop-blur-md md:hidden">
+          <button
+            onClick={() => setNavOpen(true)}
+            aria-label="Open navigation"
+            aria-expanded={navOpen}
+            className="flex size-8 items-center justify-center border border-border text-muted-foreground transition-colors hover:border-foreground hover:text-foreground"
+          >
+            <Menu className="size-3.5" />
+          </button>
+          <span className="font-display text-xl font-bold tracking-[-0.05em]">SONAR</span>
+          <div className="ml-auto flex items-center gap-2">
+            <IdentityPicker />
+            <ThemeToggle />
+            <button
+              onClick={() => setAssistantOpen(true)}
+              aria-label="Ask"
+              className="flex size-8 items-center justify-center bg-primary text-primary-foreground transition-opacity hover:opacity-85"
+            >
+              <MessageSquareText className="size-3.5" />
+            </button>
+          </div>
+        </header>
 
-      <footer className="mt-24 border-t border-rule">
-        <div className="mx-auto max-w-[88rem] px-5 py-10 md:px-10">
-          <p className="max-w-xl text-sm text-muted-foreground">
-            Every date on this board traces to a source. Where it doesn't, it says so. The archive
-            keeps the misses in, including the ones we later found out weren't misses.
-          </p>
-        </div>
-      </footer>
+        <main>{children}</main>
+
+        <footer className="mt-24 border-t border-rule">
+          <div className="mx-auto max-w-[88rem] px-5 py-10 md:px-10">
+            <p className="max-w-xl text-sm text-muted-foreground">
+              Every date on this board traces to a source. Where it doesn't, it says so. The archive
+              keeps the misses in, including the ones we later found out weren't misses.
+            </p>
+          </div>
+        </footer>
+      </div>
 
       <Assistant open={assistantOpen} onClose={() => setAssistantOpen(false)} />
     </div>
