@@ -73,10 +73,10 @@ function SidebarNav({ onNavigate }: { onNavigate?: () => void }) {
           key={item.to}
           to={item.to}
           activeOptions={{ exact: item.to === "/" }}
-          activeProps={{ className: "text-foreground border-l-foreground bg-foreground/5" }}
-          inactiveProps={{ className: "text-muted-foreground border-l-transparent" }}
+          activeProps={{ className: "text-foreground border-r-foreground bg-foreground/5" }}
+          inactiveProps={{ className: "text-muted-foreground border-r-transparent" }}
           onClick={onNavigate}
-          className="border-l-2 px-4 py-2.5 font-mono text-[11px] uppercase tracking-[0.16em] transition-colors hover:text-foreground"
+          className="border-r-2 px-4 py-2.5 font-mono text-[11px] uppercase tracking-[0.16em] transition-colors hover:text-foreground"
         >
           {item.label}
         </Link>
@@ -97,9 +97,9 @@ export function AppShell({ children }: { children: ReactNode }) {
           that wraps. ---- */}
       <aside
         className={cn(
-          "fixed inset-y-0 left-0 z-40 flex flex-col border-r border-rule bg-background transition-transform duration-200 md:translate-x-0",
+          "fixed inset-y-0 right-0 z-40 flex flex-col border-l border-rule bg-background transition-transform duration-200 md:translate-x-0",
           SIDEBAR_WIDTH,
-          navOpen ? "translate-x-0" : "-translate-x-full",
+          navOpen ? "translate-x-0" : "translate-x-full",
         )}
       >
         <div className="flex items-center justify-between border-b border-rule px-5 py-4">
@@ -142,19 +142,10 @@ export function AppShell({ children }: { children: ReactNode }) {
         />
       )}
 
-      <div className="md:pl-56">
+      <div className="md:pr-56">
         <header className="sticky top-0 z-20 flex items-center gap-x-4 border-b border-rule bg-background/85 px-5 py-3 backdrop-blur-md md:hidden">
-          <button
-            onClick={() => setNavOpen(true)}
-            aria-label="Open navigation"
-            aria-expanded={navOpen}
-            className="flex size-8 items-center justify-center border border-border text-muted-foreground transition-colors hover:border-foreground hover:text-foreground"
-          >
-            <Menu className="size-3.5" />
-          </button>
           <span className="font-display text-xl font-bold tracking-[-0.05em]">SONAR</span>
           <div className="ml-auto flex items-center gap-2">
-            <IdentityPicker />
             <ThemeToggle />
             <button
               onClick={() => setAssistantOpen(true)}
@@ -162,6 +153,14 @@ export function AppShell({ children }: { children: ReactNode }) {
               className="flex size-8 items-center justify-center bg-primary text-primary-foreground transition-opacity hover:opacity-85"
             >
               <MessageSquareText className="size-3.5" />
+            </button>
+            <button
+              onClick={() => setNavOpen(true)}
+              aria-label="Open navigation"
+              aria-expanded={navOpen}
+              className="flex size-8 items-center justify-center border border-border text-muted-foreground transition-colors hover:border-foreground hover:text-foreground"
+            >
+              <Menu className="size-3.5" />
             </button>
           </div>
         </header>
