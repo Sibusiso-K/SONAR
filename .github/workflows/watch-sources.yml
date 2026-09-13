@@ -30,7 +30,14 @@ jobs:
   sweep:
     runs-on: ubuntu-latest
     steps:
+      # Pinned explicitly: a schedule/workflow_dispatch run with no ref checks
+      # out the repo's default branch, whatever that happens to be set to -
+      # not necessarily main. That silently diverged this workflow's commits
+      # onto a stale autonomous-agent branch for several runs in a row before
+      # the default branch was corrected back to main on 13 Sept 2026.
       - uses: actions/checkout@v4
+        with:
+          ref: main
 
       - uses: actions/setup-python@v5
         with:
