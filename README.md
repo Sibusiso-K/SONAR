@@ -14,6 +14,9 @@ You just pulled the repo. Everything you need is here — no context transfer re
 | You want to know | Open this |
 |---|---|
 | What we're doing this week | [`docs/PRIORITY_BOARD.md`](docs/PRIORITY_BOARD.md) |
+| September/October event preparation and readiness gates | [`docs/WAR_ROOM_PREPARATION.md`](docs/WAR_ROOM_PREPARATION.md) |
+| Repository review, findings and validation (14 September) | [`docs/REVIEW_2026-09-14.md`](docs/REVIEW_2026-09-14.md) |
+| Proposed War Room and SONAR improvements | [`docs/IMPROVEMENT_PLAN.md`](docs/IMPROVEMENT_PLAN.md) |
 | Every hackathon, full detail, machine-readable | [`data/hackathons.json`](data/hackathons.json) |
 | Every date in one place | [`docs/CALENDAR.md`](docs/CALENDAR.md) + [`calendar/sonar-2026.ics`](calendar/sonar-2026.ics) |
 | How we actually run a hackathon | [`docs/PLAYBOOK.md`](docs/PLAYBOOK.md) |
