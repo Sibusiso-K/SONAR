@@ -36,8 +36,9 @@
     },
 
     "status": {
-      "enum": ["open", "closing", "monitor", "monitor-weekly", "verify", "closed", "past", "dropped"],
-      "description": "Externally observable state of the competition itself."
+      "enum": ["open", "closing", "monitor", "monitor-weekly", "verify", "closed",
+               "registered", "selected", "submitted", "past", "dropped"],
+      "description": "Externally observable state of the competition itself. registered/selected/submitted added 2026-09-14 (docs/REVIEW_2026-09-14.md, finding 9) - they were already in live use across the board but absent from this enum, so no record with them could ever have validated against this schema."
     },
     "lifecycle": {
       "enum": ["discovered", "triaged", "verified", "scored", "committed",

@@ -120,7 +120,15 @@ jobs:
               echo "Fix: sonar-radar's Supabase dashboard → Project Settings → API →"
               echo "\`service_role\` key + project URL, added as repo secrets."
             } >> "$GITHUB_STEP_SUMMARY"
-            exit 0
+            # exit 0 here previously hid a full day of outage behind a green
+            # run - a skipped required sync is a failed run, not a
+            # successful one that happened to skip a step
+            # (docs/REVIEW_2026-09-14.md, finding 8). The deploy job below
+            # still runs regardless (needs: regenerate, if: always()), so
+            # this doesn't block the Vercel rebuild trigger - it only stops
+            # this specific run from reporting green when the site's actual
+            # data source was never touched.
+            exit 1
           fi
           python3 scripts/sync_radar.py push
 
@@ -139,7 +147,11 @@ jobs:
           RADAR_SUPABASE_SCHEMA: app
         run: |
           if [ -z "$RADAR_SUPABASE_URL" ] || [ -z "$RADAR_SUPABASE_SERVICE_KEY" ]; then
-            echo "::error::SUPABASE_URL/SUPABASE_SERVICE_KEY missing — app schema not updated."
+            # Genuinely non-critical (see the comment above this step) so
+            # this one step is allowed to stay soft - but ::warning:: shows
+            # up in the run's annotations either way, rather than being a
+            # silent skip nobody would notice.
+            echo "::warning::SUPABASE_URL/SUPABASE_SERVICE_KEY missing — app schema (Lethabo's secondary mirror, not the live site) not updated this run."
             exit 0
           fi
           python3 scripts/sync_radar.py push

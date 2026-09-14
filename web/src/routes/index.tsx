@@ -4,6 +4,7 @@ import { AppShell } from "@/components/AppShell";
 import { BoardRadar } from "@/components/BoardRadar";
 import { OpportunityRow } from "@/components/OpportunityRow";
 import { Playbook } from "@/components/Playbook";
+import { QueryError } from "@/components/QueryError";
 import { Reveal, RevealWords } from "@/components/Reveal";
 import { useOpportunities, useWatchlist } from "@/lib/sonar-data";
 import { collisions, daysUntil, winProbability } from "@/lib/analytics";
@@ -32,7 +33,7 @@ export const Route = createFileRoute("/")({
 type SortKey = "deadline" | "probability";
 
 function Board() {
-  const { data: opportunities = [], isLoading } = useOpportunities();
+  const { data: opportunities = [], isLoading, isError, error, refetch } = useOpportunities();
   const { data: watchlist = [] } = useWatchlist();
   const [sort, setSort] = useState<SortKey>("deadline");
   const [watchedOnly, setWatchedOnly] = useState(false);
@@ -151,28 +152,38 @@ function Board() {
           </button>
         </div>
 
-        {isLoading && <p className="py-16 text-sm text-muted-foreground">Loading the board…</p>}
+        {isError && (
+          <div className="py-8">
+            <QueryError error={error} onRetry={() => refetch()} />
+          </div>
+        )}
 
-        {!isLoading && rows.length === 0 && (
+        {!isError && isLoading && (
+          <p className="py-16 text-sm text-muted-foreground">Loading the board…</p>
+        )}
+
+        {!isError && !isLoading && rows.length === 0 && (
           <p className="py-16 text-sm text-muted-foreground">
             Nothing here. Either we've cleared the board or nobody starred anything.
           </p>
         )}
 
-        <div>
-          {rows.map((o, i) => (
-            <Reveal key={o.id} delay={Math.min(i, 6) * 40}>
-              <OpportunityRow
-                o={o}
-                index={i}
-                watchers={watchlist.filter((w) => w.opportunity_id === o.id)}
-              />
-            </Reveal>
-          ))}
-        </div>
+        {!isError && (
+          <div>
+            {rows.map((o, i) => (
+              <Reveal key={o.id} delay={Math.min(i, 6) * 40}>
+                <OpportunityRow
+                  o={o}
+                  index={i}
+                  watchers={watchlist.filter((w) => w.opportunity_id === o.id)}
+                />
+              </Reveal>
+            ))}
+          </div>
+        )}
       </section>
 
-      <Playbook />
+      {!isError && <Playbook />}
     </AppShell>
   );
 }

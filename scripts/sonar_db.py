@@ -29,12 +29,25 @@ Nothing reaches the published board without passing through a diff.
 
 import json
 import os
+import re
 import statistics
 import sys
 import urllib.error
 import urllib.parse
 import urllib.request
 from datetime import date, datetime, timedelta, timezone
+
+
+def _normalize_name(name):
+    """Loose event-identity key: lowercase, collapse whitespace/punctuation.
+
+    Not a fuzzy matcher - this only catches exact-modulo-formatting matches
+    (e.g. "GKHack26" vs "GKHack 26"). A genuinely new edition of a tracked
+    event (different year, different name) is deliberately NOT caught here;
+    that is the "new candidate" case this whole promote step exists to
+    surface for human review, not something to suppress automatically.
+    """
+    return re.sub(r"[^a-z0-9]+", " ", (name or "").lower()).strip()
 
 # Status/error text uses non-ASCII punctuation (—, →, ↔). On Windows, stdout
 # defaults to the console codepage (cp1252), which can't encode "→" and
@@ -547,13 +560,24 @@ def cmd_promote_candidates(_args):
     live runs flagged shipaton.com and geekulcha.dev/events as "new"
     candidates despite RevenueCat's Shipaton and Geekulcha both already
     being tracked board entries - the watchlist URL and the opportunity's
-    own `links` just happen to be the same page. Filtered below against
-    every URL already present in data/hackathons.json's `links`, for both
-    live and past entries, so only observations from a page that isn't
-    already backing a board entry get treated as a real candidate.
+    own `links` just happen to be the same page.
+
+    Originally filtered by candidate_url alone: any observation from a page
+    that already backs a tracked board entry was dropped outright. That is
+    wrong whenever a source page hosts more than one event - Geekulcha's own
+    events page, for instance, is exactly where next year's Geekulcha
+    edition would first be announced, and candidate_url-only filtering can
+    never surface it, because that URL is permanently in `tracked` the
+    moment the current edition is on the board. Filtering now keys on
+    event identity (the `event_name` the model attaches to each fact, per
+    scripts/watch_sources.py's prompt) cross-referenced against tracked
+    opportunity names, not on the page URL. An observation with no
+    event_name (older rows, or a field the model didn't attribute to a
+    named event) falls back to the old URL-only check rather than being
+    treated as unconditionally new.
     """
     obs = rest("GET", "observations", params={
-        "select": "candidate_url,field,value,quoted_span,source_url,source_trust,observed_at,model",
+        "select": "candidate_url,event_name,field,value,quoted_span,source_url,source_trust,observed_at,model",
         "candidate_url": "not.is.null",
         "span_verified": "eq.true",
         "order": "observed_at.desc",
@@ -562,13 +586,24 @@ def cmd_promote_candidates(_args):
 
     with open(HACKATHONS, encoding="utf-8") as fh:
         board = json.load(fh)
-    tracked = set()
+    tracked_urls = set()
+    tracked_names = set()
     for h in board.get("hackathons", []) + board.get("dropped_or_past", []):
         for u in (h.get("links") or {}).values():
             if isinstance(u, str) and u.startswith("http"):
-                tracked.add(u.rstrip("/"))
+                tracked_urls.add(u.rstrip("/"))
+        name = h.get("name")
+        if name:
+            tracked_names.add(_normalize_name(name))
+
+    def _already_tracked(o):
+        name = o.get("event_name")
+        if name:
+            return _normalize_name(name) in tracked_names
+        return o["candidate_url"].rstrip("/") in tracked_urls
+
     before = len(obs)
-    obs = [o for o in obs if o["candidate_url"].rstrip("/") not in tracked]
+    obs = [o for o in obs if not _already_tracked(o)]
     skipped = before - len(obs)
 
     if os.path.exists(CANDIDATES):
@@ -589,26 +624,43 @@ def cmd_promote_candidates(_args):
         }
 
     ledger = doc.setdefault("candidates", {})
-    by_url = {}
-    for o in obs:
-        by_url.setdefault(o["candidate_url"], []).append(o)
 
-    # Purge any URL the ledger already recorded before this filter existed -
-    # the early live runs (26-28 Aug) flagged shipaton.com and
-    # geekulcha.dev/events this way, and a purely additive fix would leave
-    # them sitting there as permanently-stale "new" entries nobody asked for.
-    purged = [u for u in list(ledger) if u.rstrip("/") in tracked]
-    for u in purged:
-        del ledger[u]
+    def _key(o):
+        # Identity key, not just the page URL - two distinct events
+        # mentioned on the same source page (e.g. two Geekulcha editions on
+        # Geekulcha's own events page) must not collapse into one ledger
+        # entry. Falls back to the URL when the model didn't attach a name.
+        name = o.get("event_name")
+        return f"event:{_normalize_name(name)}" if name else f"url:{o['candidate_url']}"
+
+    by_key = {}
+    for o in obs:
+        by_key.setdefault(_key(o), []).append(o)
+
+    # Purge any ledger entry that now resolves to an already-tracked event
+    # or URL - the early live runs (26-28 Aug) flagged shipaton.com and
+    # geekulcha.dev/events this way before this filter existed, and a purely
+    # additive fix would leave them sitting there as permanently-stale "new"
+    # entries nobody asked for.
+    def _entry_tracked(key, entry):
+        if key.startswith("event:"):
+            return key[len("event:"):] in tracked_names
+        return entry.get("candidate_url", key[len("url:"):]).rstrip("/") in tracked_urls
+
+    purged = [k for k, e in ledger.items() if _entry_tracked(k, e)]
+    for k in purged:
+        del ledger[k]
 
     new_count = 0
-    for url, rows in by_url.items():
+    for key, rows in by_key.items():
         rows.sort(key=lambda r: r["observed_at"], reverse=True)
-        entry = ledger.get(url)
+        entry = ledger.get(key)
         if entry is None:
             entry = {"status": "new", "first_seen": rows[-1]["observed_at"], "note": None}
-            ledger[url] = entry
+            ledger[key] = entry
             new_count += 1
+        entry["event_name"] = rows[0].get("event_name")
+        entry["candidate_url"] = rows[0]["candidate_url"]
         entry["last_seen"] = rows[0]["observed_at"]
         entry["observation_count"] = len(rows)
         # Capped: this is a triage view for a human to scan, not a full
@@ -630,15 +682,17 @@ def cmd_promote_candidates(_args):
         json.dump(doc, fh, indent=2, ensure_ascii=False)
         fh.write("\n")
 
-    pending = sorted(u for u, e in ledger.items() if e["status"] == "new")
-    print(f"{skipped} observation(s) skipped (page already backs a tracked board entry)")
+    pending = sorted(k for k, e in ledger.items() if e["status"] == "new")
+    print(f"{skipped} observation(s) skipped (event or page already tracked)")
     if purged:
-        print(f"{len(purged)} already-tracked URL(s) purged from the ledger: {', '.join(purged)}")
-    print(f"{len(by_url)} candidate URL(s) with verified evidence this run, {new_count} newly seen")
+        print(f"{len(purged)} already-tracked entr{'y' if len(purged) == 1 else 'ies'} purged from the ledger: {', '.join(purged)}")
+    print(f"{len(by_key)} candidate event(s)/URL(s) with verified evidence this run, {new_count} newly seen")
     print(f"{len(pending)} awaiting review in {CANDIDATES}")
-    for u in pending[:10]:
-        n = ledger[u]["observation_count"]
-        print(f"  NEW  {u}  ({n} observation{'s' if n != 1 else ''})")
+    for k in pending[:10]:
+        e = ledger[k]
+        n = e["observation_count"]
+        label = e.get("event_name") or e.get("candidate_url") or k
+        print(f"  NEW  {label}  ({n} observation{'s' if n != 1 else ''})")
 
 
 COMMANDS = {

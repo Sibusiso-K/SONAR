@@ -20,6 +20,16 @@ function isSameDay(a: Date, b: Date) {
   );
 }
 
+/** Local Y-M-D key, not `toISOString().slice(0, 10)` - that converts to UTC
+ * first, which in Africa/Johannesburg (UTC+2) shifts local midnight back
+ * into the previous day and mislabels every date-only event by one day. */
+function localDateKey(d: Date) {
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, "0");
+  const day = String(d.getDate()).padStart(2, "0");
+  return `${y}-${m}-${day}`;
+}
+
 /** Monday-first 6-week grid so every month renders at a fixed height. */
 function buildGrid(monthStart: Date) {
   const firstWeekday = (monthStart.getDay() + 6) % 7; // 0 = Monday
@@ -64,9 +74,7 @@ export function EventCalendar({ opportunities }: { opportunities: Opportunity[] 
           <button
             type="button"
             aria-label="Previous month"
-            onClick={() =>
-              setCursor((c) => new Date(c.getFullYear(), c.getMonth() - 1, 1))
-            }
+            onClick={() => setCursor((c) => new Date(c.getFullYear(), c.getMonth() - 1, 1))}
             className="flex size-8 items-center justify-center border border-border text-muted-foreground transition-colors hover:border-foreground hover:text-foreground"
           >
             <ChevronLeft className="size-4" />
@@ -81,9 +89,7 @@ export function EventCalendar({ opportunities }: { opportunities: Opportunity[] 
           <button
             type="button"
             aria-label="Next month"
-            onClick={() =>
-              setCursor((c) => new Date(c.getFullYear(), c.getMonth() + 1, 1))
-            }
+            onClick={() => setCursor((c) => new Date(c.getFullYear(), c.getMonth() + 1, 1))}
             className="flex size-8 items-center justify-center border border-border text-muted-foreground transition-colors hover:border-foreground hover:text-foreground"
           >
             <ChevronRight className="size-4" />
@@ -101,7 +107,7 @@ export function EventCalendar({ opportunities }: { opportunities: Opportunity[] 
 
       <div className="grid grid-cols-7">
         {days.map((d, i) => {
-          const key = d.toISOString().slice(0, 10);
+          const key = localDateKey(d);
           const events = byDay.get(key) ?? [];
           const inMonth = d.getMonth() === cursor.getMonth();
           const isToday = isSameDay(d, today);
@@ -119,7 +125,8 @@ export function EventCalendar({ opportunities }: { opportunities: Opportunity[] 
                 className={cn(
                   "numeral text-xs",
                   inMonth ? "text-foreground" : "text-muted-foreground/50",
-                  isToday && "flex size-5 items-center justify-center rounded-full bg-foreground text-background",
+                  isToday &&
+                    "flex size-5 items-center justify-center rounded-full bg-foreground text-background",
                 )}
               >
                 {d.getDate()}
@@ -150,7 +157,10 @@ export function EventCalendar({ opportunities }: { opportunities: Opportunity[] 
       <div className="flex flex-wrap items-center gap-x-5 gap-y-2 border-t border-border px-5 py-3">
         <span className="label-caps">Priority</span>
         {[1, 2, 3].map((t) => (
-          <span key={t} className="flex items-center gap-1.5 font-mono text-[11px] text-muted-foreground">
+          <span
+            key={t}
+            className="flex items-center gap-1.5 font-mono text-[11px] text-muted-foreground"
+          >
             <span
               className="size-2.5 rounded-full"
               style={{ backgroundColor: TIER_COLOR[t] }}

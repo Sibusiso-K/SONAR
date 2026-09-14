@@ -84,9 +84,26 @@ export const askSonar = createServerFn({ method: "POST" })
       db.from("updates").select("*").order("created_at", { ascending: false }).limit(10),
     ]);
 
+    // `data ?? []` on a failed query looks identical to a genuinely empty
+    // board - the model would then confidently answer "nothing is open
+    // right now" from a database error, not from reality
+    // (docs/REVIEW_2026-09-14.md, finding 6). The live board is the one
+    // read this whole feature is useless without, so stop rather than
+    // silently reason from nothing; past_opportunities and updates are
+    // supplementary context, so a failure there is noted in the prompt
+    // instead of failing the whole request.
+    if (oppRes.error) {
+      return {
+        error:
+          `Couldn't read the board (${oppRes.error.message}). Not answering from an empty result — try again once the read succeeds.` as const,
+      };
+    }
+
     const live = (oppRes.data ?? []) as unknown as Opportunity[];
     const past = (pastRes.data ?? []) as unknown as PastOpportunity[];
     const updates = (updRes.data ?? []) as unknown as UpdateRow[];
+    const pastUnavailable = Boolean(pastRes.error);
+    const updatesUnavailable = Boolean(updRes.error);
 
     const board = live
       .map((o) => {
@@ -117,18 +134,20 @@ export const askSonar = createServerFn({ method: "POST" })
       .map((c) => `- Week of ${c.weekLabel}: ${c.items.map((i) => i.name).join(" + ")}`)
       .join("\n");
 
-    const archive = past
-      .map(
-        (p) =>
-          `- ${p.name} (${p.happened_on ?? "date unknown"}): ${p.outcome}${
-            p.placement ? ` — ${p.placement}` : ""
-          }${p.corrected ? ` [CORRECTED: ${p.correction_note}]` : ""}`,
-      )
-      .join("\n");
+    const archive = pastUnavailable
+      ? "(read failed — treat as unavailable, not as a confirmed empty archive)"
+      : past
+          .map(
+            (p) =>
+              `- ${p.name} (${p.happened_on ?? "date unknown"}): ${p.outcome}${
+                p.placement ? ` — ${p.placement}` : ""
+              }${p.corrected ? ` [CORRECTED: ${p.correction_note}]` : ""}`,
+          )
+          .join("\n");
 
-    const recent = updates
-      .map((u) => `- ${u.created_at.slice(0, 10)} ${u.actor}: ${u.summary}`)
-      .join("\n");
+    const recent = updatesUnavailable
+      ? "(read failed — treat as unavailable, not as a confirmed empty log)"
+      : updates.map((u) => `- ${u.created_at.slice(0, 10)} ${u.actor}: ${u.summary}`).join("\n");
 
     // Everything /stats derives from the same three tables, computed here
     // so the assistant can answer "what does stats say" without the user

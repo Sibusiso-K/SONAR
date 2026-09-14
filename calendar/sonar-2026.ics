@@ -19,7 +19,7 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:sonar-weekly-review@sonar.hackathons
-DTSTAMP:20260908T065224Z
+DTSTAMP:20260914T115221Z
 DTSTART;TZID=Africa/Johannesburg:20260810T080000
 DTEND;TZID=Africa/Johannesburg:20260810T083000
 RRULE:FREQ=WEEKLY;BYDAY=MO;UNTIL=20261228T060000Z
@@ -38,7 +38,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:adtc-kickoff@sonar.hackathons
-DTSTAMP:20260908T065224Z
+DTSTAMP:20260914T115221Z
 DTSTART;TZID=Africa/Johannesburg:20260810T180000
 DTEND;TZID=Africa/Johannesburg:20260810T210000
 SUMMARY:ADTC kickoff — register\, clone\, GPU credits\, pick domain
@@ -59,7 +59,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:sonar-admin-block@sonar.hackathons
-DTSTAMP:20260908T065224Z
+DTSTAMP:20260914T115221Z
 DTSTART;TZID=Africa/Johannesburg:20260811T180000
 DTEND;TZID=Africa/Johannesburg:20260811T200000
 SUMMARY:SONAR admin — BCG\, MoMo\, IBM Bob\, Mintek\, GovTech
@@ -82,7 +82,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:entelect-hackit-register@sonar.hackathons
-DTSTAMP:20260908T065224Z
+DTSTAMP:20260914T115221Z
 DTSTART;TZID=Africa/Johannesburg:20260908T180000
 DTEND;TZID=Africa/Johannesburg:20260908T183000
 SUMMARY:Register: Entelect Hack<IT> Community Cup + Practice Hackathon
@@ -101,17 +101,15 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:entelect-hackit-event@sonar.hackathons
-DTSTAMP:20260908T065224Z
+DTSTAMP:20260914T115221Z
 DTSTART;TZID=Africa/Johannesburg:20260912T100000
 DTEND;TZID=Africa/Johannesburg:20260912T150000
 SUMMARY:Entelect Hack<IT> Community Cup (R70\,000)
-DESCRIPTION:Confirmed live on the portal 8 Sep 2026. Africa/Johannesburg. 
- Objective: highest leaderboard score by close. Allowed tech: AI\, C\, C++
- \, C#\, Go\, Java\, Python\, Rust. Rules and leaderboard tabs still locke
- d as of 8 Sep — team size and scoring formula unknown until the day. En
- tering solo. Full plan: https://github.com/Sibusiso-K/optimisation-challe
- nge/blob/main/hackit/PLAN.md SCHEDULES OVER shipaton-sprint-2 (self-sched
- uled\, movable) — see that entry.
+DESCRIPTION:Ran 12 Sep 2026\, Africa/Johannesburg. Objective: highest lead
+ erboard score by close. Allowed tech: AI\, C\, C++\, C#\, Go\, Java\, Pyt
+ hon\, Rust. Entered solo. Result not yet recorded on the board. Full plan
+ : https://github.com/Sibusiso-K/optimisation-challenge/blob/main/hackit/P
+ LAN.md
 CATEGORIES:EVENT
 TRANSP:OPAQUE
 BEGIN:VALARM
@@ -132,7 +130,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:unesco-work@sonar.hackathons
-DTSTAMP:20260908T065224Z
+DTSTAMP:20260914T115221Z
 DTSTART;TZID=Africa/Johannesburg:20260813T180000
 DTEND;TZID=Africa/Johannesburg:20260813T210000
 SUMMARY:UNESCO Youth Hackathon submission — one evening\, then done
@@ -151,7 +149,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:unesco-deadline@sonar.hackathons
-DTSTAMP:20260908T065224Z
+DTSTAMP:20260914T115221Z
 DTSTART;VALUE=DATE:20260816
 DTEND;VALUE=DATE:20260817
 SUMMARY:DEADLINE: UNESCO Youth Hackathon 2026
@@ -172,7 +170,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:adtc-sprint-1@sonar.hackathons
-DTSTAMP:20260908T065224Z
+DTSTAMP:20260914T115221Z
 DTSTART;TZID=Africa/Johannesburg:20260815T090000
 DTEND;TZID=Africa/Johannesburg:20260816T170000
 SUMMARY:ADTC build sprint 1 — model selection + quantisation
@@ -191,7 +189,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:adtc-freeze@sonar.hackathons
-DTSTAMP:20260908T065224Z
+DTSTAMP:20260914T115221Z
 DTSTART;TZID=Africa/Johannesburg:20260820T180000
 DTEND;TZID=Africa/Johannesburg:20260820T210000
 SUMMARY:ADTC feature freeze + full benchmark run
@@ -209,7 +207,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:adtc-sprint-2@sonar.hackathons
-DTSTAMP:20260908T065224Z
+DTSTAMP:20260914T115221Z
 DTSTART;TZID=Africa/Johannesburg:20260822T090000
 DTEND;TZID=Africa/Johannesburg:20260823T170000
 SUMMARY:ADTC build sprint 2 — report\, benchmarks\, 2-min video
@@ -227,7 +225,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:adtc-submit@sonar.hackathons
-DTSTAMP:20260908T065224Z
+DTSTAMP:20260914T115221Z
 DTSTART;VALUE=DATE:20260824
 DTEND;VALUE=DATE:20260825
 SUMMARY:SUBMIT: Africa Deep Tech Challenge ($16\,500)
@@ -249,7 +247,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:ibm-bob-prep@sonar.hackathons
-DTSTAMP:20260908T065224Z
+DTSTAMP:20260914T115221Z
 DTSTART;TZID=Africa/Johannesburg:20260826T180000
 DTEND;TZID=Africa/Johannesburg:20260826T200000
 SUMMARY:IBM Bob prep — trial working\, workflow problem chosen
@@ -268,7 +266,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:ibm-devday@sonar.hackathons
-DTSTAMP:20260908T065224Z
+DTSTAMP:20260914T115221Z
 DTSTART;TZID=Africa/Johannesburg:20260827T160000
 DTEND;TZID=Africa/Johannesburg:20260827T203000
 SUMMARY:IBM Dev Day: Bob in Action — enablement + tracks
@@ -290,7 +288,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:ibm-hackathon@sonar.hackathons
-DTSTAMP:20260908T065224Z
+DTSTAMP:20260914T115221Z
 DTSTART;VALUE=DATE:20260828
 DTEND;VALUE=DATE:20260831
 SUMMARY:IBM Dev Day Hackathon (Bob 2.0) — top 50 teams win TechXchange p
@@ -310,7 +308,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:bcg-apply-real@sonar.hackathons
-DTSTAMP:20260908T065224Z
+DTSTAMP:20260914T115221Z
 DTSTART;VALUE=DATE:20260907
 DTEND;VALUE=DATE:20260908
 SUMMARY:DEADLINE: BCG Platinion Hackathon application (treat as real)
@@ -333,7 +331,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:bcg-apply-stated@sonar.hackathons
-DTSTAMP:20260908T065224Z
+DTSTAMP:20260914T115221Z
 DTSTART;VALUE=DATE:20260913
 DTEND;VALUE=DATE:20260914
 SUMMARY:BCG Platinion — stated application deadline (backstop)
@@ -349,112 +347,103 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:govtech@sonar.hackathons
-DTSTAMP:20260908T065224Z
+DTSTAMP:20260914T115221Z
 DTSTART;VALUE=DATE:20260917
-DTEND;VALUE=DATE:20260920
-SUMMARY:SITA GovTech 2026 Hackathon — Durban ICC or remote
-DESCRIPTION:17-19 Sept. ELIGIBILITY RISK: open to SMMEs in EME category re
- gistered in SA\; teams of 3-5. Confirm before committing.\nT&Cs: https://
- www.govtech.gov.za/wp-content/uploads/2026/07/GovTech-2026-Hackathon-Term
- s-and-Condition.pdf
+DTEND;VALUE=DATE:20260921
+SUMMARY:SITA GovTech 2026 Hackathon — SELECTED\, remote
+DESCRIPTION:17-20 Sept\, remote/online (changed 11 Sept from in-person Dur
+ ban ICC). Entity: PILOT CORE (PTY) LTD. Attendance RSVP was due 11 Sept 
+ — confirm it was sent. Public terms PDF still lists 17-19 Sept and allo
+ ws online attendance\; treat 17-20 as the team's later\, recorded instruc
+ tion pending written reconciliation. Output terms are an assignment (clau
+ se 4.2.1)\, not just a licence — read 4.2.1-4.2.5 before reusing any ex
+ isting component.\nT&Cs: https://www.govtech.gov.za/wp-content/uploads/20
+ 26/07/GovTech-2026-Hackathon-Terms-and-Condition.pdf
 CATEGORIES:EVENT
 TRANSP:OPAQUE
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:SITA GovTech 2026 Hackathon — Durban ICC or remote
+DESCRIPTION:SITA GovTech 2026 Hackathon — SELECTED\, remote
 TRIGGER:-PT10080M
 END:VALARM
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:SITA GovTech 2026 Hackathon — Durban ICC or remote
+DESCRIPTION:SITA GovTech 2026 Hackathon — SELECTED\, remote
 TRIGGER:-PT1440M
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:shipaton-sprint-1@sonar.hackathons
-DTSTAMP:20260908T065224Z
-DTSTART;TZID=Africa/Johannesburg:20260905T090000
-DTEND;TZID=Africa/Johannesburg:20260906T170000
-SUMMARY:Shipaton build sprint — core app + RevenueCat SDK
-DESCRIPTION:Ship a NEW iOS or Android app to a real store with the Revenue
- Cat SDK integrated. Nine prize categories\, $700\,000+ pool.\nPrep guide:
-  https://revenuecat.github.io/codelabs/shipaton-2026-prep.html
-CATEGORIES:PREP
+UID:geekulcha-event@sonar.hackathons
+DTSTAMP:20260914T115221Z
+DTSTART;TZID=Africa/Johannesburg:20260925T160000
+DTEND;TZID=Africa/Johannesburg:20260927T150000
+SUMMARY:Geekulcha Annual Hackathon #GKHack26 — SELECTED\, physical
+DESCRIPTION:BCX HQs\, Centurion. Selected out of 394 teams. Recorded track
+ : V.U.K.A.\, Blockchain for Impact — confirm against the current "Build
+  for Use" 2026 brief before build weekend\, since the public subtheme lis
+ t differs from the recorded track. Selection email named three gaps to cl
+ ose first: consumer-facing framing\, a WBS\, TRL 4.\nBrief: https://sonke
+ .gklink.co/event/gkhack26
+CATEGORIES:EVENT
 TRANSP:OPAQUE
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:Shipaton build sprint — core app + RevenueCat SDK
-TRIGGER:-PT1440M
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:shipaton-sprint-2@sonar.hackathons
-DTSTAMP:20260908T065224Z
-DTSTART;TZID=Africa/Johannesburg:20260912T090000
-DTEND;TZID=Africa/Johannesburg:20260913T170000
-SUMMARY:Shipaton build sprint — monetisation + polish
-DESCRIPTION:COLLISION: Entelect Hack<IT> now confirmed 10:00-15:00 this sa
- me day (12 Sept) — fixed\, not movable. Shift this sprint block or spli
- t it around the hackathon window.
-CATEGORIES:PREP
-TRANSP:OPAQUE
-BEGIN:VALARM
-ACTION:DISPLAY
-DESCRIPTION:Shipaton build sprint — monetisation + polish
-TRIGGER:-PT1440M
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:shipaton-store-submit@sonar.hackathons
-DTSTAMP:20260908T065224Z
-DTSTART;VALUE=DATE:20260916
-DTEND;VALUE=DATE:20260917
-SUMMARY:Shipaton: submit app to App Store / Play Store (review buffer)
-DESCRIPTION:CRITICAL BUFFER. Store review can take a week or more and reje
- ctions happen. Submitting on 29 September is how teams lose this competit
- ion.
-CATEGORIES:DEADLINE
-TRANSP:TRANSPARENT
-BEGIN:VALARM
-ACTION:DISPLAY
-DESCRIPTION:Shipaton: submit app to App Store / Play Store (review buffer)
-TRIGGER:-PT2880M
-END:VALARM
-BEGIN:VALARM
-ACTION:DISPLAY
-DESCRIPTION:Shipaton: submit app to App Store / Play Store (review buffer)
-TRIGGER:-PT1440M
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:shipaton-deadline@sonar.hackathons
-DTSTAMP:20260908T065224Z
-DTSTART;VALUE=DATE:20260930
-DTEND;VALUE=DATE:20261001
-SUMMARY:DEADLINE: RevenueCat Shipaton 2026 ($700k+)
-DESCRIPTION:30 Sept 23:45 PDT = 1 Oct 08:45 SAST. App must be LIVE on a st
- ore.\nhttps://revenuecat-shipaton-2026.devpost.com/
-CATEGORIES:DEADLINE
-TRANSP:TRANSPARENT
-BEGIN:VALARM
-ACTION:DISPLAY
-DESCRIPTION:DEADLINE: RevenueCat Shipaton 2026 ($700k+)
+DESCRIPTION:Geekulcha Annual Hackathon #GKHack26 — SELECTED\, physical
 TRIGGER:-PT10080M
 END:VALARM
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:DEADLINE: RevenueCat Shipaton 2026 ($700k+)
+DESCRIPTION:Geekulcha Annual Hackathon #GKHack26 — SELECTED\, physical
+TRIGGER:-PT1440M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mintek-event@sonar.hackathons
+DTSTAMP:20260914T115221Z
+DTSTART;TZID=Africa/Johannesburg:20261001T080000
+DTEND;TZID=Africa/Johannesburg:20261001T141000
+SUMMARY:Mintek-SCi Grad Hackathon — build day
+DESCRIPTION:200 Malibongwe Drive\, Randburg. Report/build from 08:00\, sub
+ mission closes 13:00\, present 14:00 for 10 minutes. Project: REEFPRINT. 
+ R50\,000 pool (R25k/R15k/R10k). Followed by the mandatory SCI Conference 
+ on 2 Oct.
+CATEGORIES:EVENT
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Mintek-SCi Grad Hackathon — build day
+TRIGGER:-PT10080M
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Mintek-SCi Grad Hackathon — build day
 TRIGGER:-PT1440M
 END:VALARM
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:DEADLINE: RevenueCat Shipaton 2026 ($700k+)
-TRIGGER:-PT240M
+DESCRIPTION:Mintek-SCi Grad Hackathon — build day
+TRIGGER:-PT60M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mintek-conference@sonar.hackathons
+DTSTAMP:20260914T115221Z
+DTSTART;VALUE=DATE:20261002
+DTEND;VALUE=DATE:20261003
+SUMMARY:Mintek SCI Conference — mandatory attendance
+DESCRIPTION:Separate registration from the hackathon itself. Five finalist
+ s announced\; originality authentication follows.
+CATEGORIES:EVENT
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Mintek SCI Conference — mandatory attendance
+TRIGGER:-PT1440M
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:ibmz-reg@sonar.hackathons
-DTSTAMP:20260908T065224Z
+DTSTAMP:20260914T115221Z
 DTSTART;VALUE=DATE:20261001
 DTEND;VALUE=DATE:20261002
 SUMMARY:DEADLINE: IBM Z Datathon 2026 registration
@@ -476,7 +465,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:rsna-sprint@sonar.hackathons
-DTSTAMP:20260908T065224Z
+DTSTAMP:20260914T115221Z
 DTSTART;TZID=Africa/Johannesburg:20261003T090000
 DTEND;TZID=Africa/Johannesburg:20261004T170000
 SUMMARY:RSNA Kaggle sprint — reuse ADTC efficiency work
@@ -495,7 +484,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:rsna-entry@sonar.hackathons
-DTSTAMP:20260908T065224Z
+DTSTAMP:20260914T115221Z
 DTSTART;VALUE=DATE:20261015
 DTEND;VALUE=DATE:20261016
 SUMMARY:DEADLINE: RSNA Knee Detection — entry / team merger
@@ -516,7 +505,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:bcg-event@sonar.hackathons
-DTSTAMP:20260908T065224Z
+DTSTAMP:20260914T115221Z
 DTSTART;VALUE=DATE:20261016
 DTEND;VALUE=DATE:20261018
 SUMMARY:BCG Platinion Hackathon — Johannesburg (HIGHEST PRIORITY)
@@ -541,7 +530,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:ibmz-event@sonar.hackathons
-DTSTAMP:20260908T065224Z
+DTSTAMP:20260914T115221Z
 DTSTART;VALUE=DATE:20261017
 DTEND;VALUE=DATE:20261019
 SUMMARY:IBM Z Datathon 2026 (clashes with BCG — only if BCG falls throug
@@ -559,7 +548,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:rsna-final@sonar.hackathons
-DTSTAMP:20260908T065224Z
+DTSTAMP:20260914T115221Z
 DTSTART;VALUE=DATE:20261022
 DTEND;VALUE=DATE:20261023
 SUMMARY:DEADLINE: RSNA Knee Detection — final submission
@@ -578,7 +567,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:fnb-window@sonar.hackathons
-DTSTAMP:20260908T065224Z
+DTSTAMP:20260914T115221Z
 DTSTART;VALUE=DATE:20261023
 DTEND;VALUE=DATE:20261026
 SUMMARY:FNB App of the Year Hackathon — expected window (VERIFY DATE)
@@ -598,7 +587,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:techxchange@sonar.hackathons
-DTSTAMP:20260908T065224Z
+DTSTAMP:20260914T115221Z
 DTSTART;VALUE=DATE:20261026
 DTEND;VALUE=DATE:20261030
 SUMMARY:IBM TechXchange 2026\, Atlanta (only if we place top 50)
@@ -609,7 +598,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:nasa-spaceapps@sonar.hackathons
-DTSTAMP:20260908T065224Z
+DTSTAMP:20260914T115221Z
 DTSTART;VALUE=DATE:20261114
 DTEND;VALUE=DATE:20261116
 SUMMARY:NASA International Space Apps Challenge 2026
@@ -630,7 +619,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:unesco-festival@sonar.hackathons
-DTSTAMP:20260908T065224Z
+DTSTAMP:20260914T115221Z
 DTSTART;VALUE=DATE:20261126
 DTEND;VALUE=DATE:20261129
 SUMMARY:UNESCO Voices Festival\, Thessaloniki (only if we win)
@@ -642,7 +631,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:rsna-annual@sonar.hackathons
-DTSTAMP:20260908T065224Z
+DTSTAMP:20260914T115221Z
 DTSTART;VALUE=DATE:20261129
 DTEND;VALUE=DATE:20261204
 SUMMARY:RSNA 2026 Annual Meeting\, Chicago (winners recognised)
@@ -653,7 +642,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:sonar-2027-planning@sonar.hackathons
-DTSTAMP:20260908T065224Z
+DTSTAMP:20260914T115221Z
 DTSTART;TZID=Africa/Johannesburg:20261214T090000
 DTEND;TZID=Africa/Johannesburg:20261214T120000
 SUMMARY:SONAR: full-year retro + build the 2027 board

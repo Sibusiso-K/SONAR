@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { AppShell } from "@/components/AppShell";
 import { CompetitionBaseline } from "@/components/CompetitionBaseline";
+import { QueryError } from "@/components/QueryError";
 import { Reveal, RevealWords } from "@/components/Reveal";
 import { Scatter3D } from "@/components/Scatter3D";
 import { WinRing } from "@/components/WinRing";
@@ -100,9 +101,13 @@ function Counter({
 /* ---------------- page ---------------- */
 
 function Stats() {
-  const { data: all = [] } = useOpportunities();
-  const { data: past = [] } = usePastOpportunities();
-  const { data: updates = [] } = useUpdates();
+  const opportunitiesQuery = useOpportunities();
+  const pastQuery = usePastOpportunities();
+  const updatesQuery = useUpdates();
+  const { data: all = [] } = opportunitiesQuery;
+  const { data: past = [] } = pastQuery;
+  const { data: updates = [] } = updatesQuery;
+  const queryError = opportunitiesQuery.error ?? pastQuery.error ?? updatesQuery.error;
 
   const live = useMemo(() => all.filter((o) => o.confidence !== "predicted"), [all]);
   const ranked = useMemo(
@@ -133,6 +138,19 @@ function Stats() {
           </p>
         </Reveal>
       </section>
+
+      {queryError && (
+        <section className="mx-auto max-w-[88rem] px-5 pb-12 md:px-10">
+          <QueryError
+            error={queryError}
+            onRetry={() => {
+              opportunitiesQuery.refetch();
+              pastQuery.refetch();
+              updatesQuery.refetch();
+            }}
+          />
+        </section>
+      )}
 
       {/* ---- narrative counters ---- */}
       <section className="mx-auto max-w-[88rem] px-5 md:px-10">

@@ -311,6 +311,8 @@ def sweep(limit=None, dry_run=False):
     total_candidates = 0
     total_verified = 0
     total_rejected = 0
+    total_fetched = 0
+    total_fetch_failed = 0
     cost_usd = 0.0
     run_started = datetime.now(timezone.utc)
 
@@ -320,8 +322,10 @@ def sweep(limit=None, dry_run=False):
             print(f"[{org['slug']}] {url}")
             try:
                 status, raw = fetch(url)
+                total_fetched += 1
             except (urllib.error.URLError, TimeoutError, OSError) as e:
                 print(f"  fetch failed: {e}")
+                total_fetch_failed += 1
                 continue
 
             page_text, hidden_text = extract_page(raw)
@@ -348,6 +352,7 @@ def sweep(limit=None, dry_run=False):
                     print(f"  REJECTED (span not found verbatim): {c!r}")
                 observations.append({
                     "candidate_url": url,
+                    "event_name": c.get("name") or None,
                     "field": c.get("field", "unknown"),
                     "value": c.get("value"),
                     "quoted_span": span or "(none)",
@@ -365,8 +370,12 @@ def sweep(limit=None, dry_run=False):
                   f"{sum(1 for o in observations if o['span_verified'])} verified")
 
     run_ended = datetime.now(timezone.utc)
-    print(f"\n{total_candidates} candidates, {total_verified} verified, "
+    print(f"\n{total_fetched} fetched, {total_fetch_failed} fetch(es) failed, "
+          f"{total_candidates} candidates, {total_verified} verified, "
           f"{total_rejected} rejected across {len(orgs)} organisation(s).")
+    if total_fetch_failed:
+        print(f"::warning::{total_fetch_failed} source page(s) failed to fetch this run "
+              f"— their observations were skipped, not confirmed empty.")
 
     if dry_run:
         print("(dry run — nothing written to source_runs/pipeline_runs either)")
@@ -388,15 +397,24 @@ def sweep(limit=None, dry_run=False):
             "cost_usd": cost_usd,
         }], prefer="return=minimal")
 
+    # ok was previously hardcoded True regardless of fetch outcome, so a run
+    # where every single fetch failed (network block, every org's page down)
+    # still recorded a green pipeline_runs row (docs/REVIEW_2026-09-14.md,
+    # finding 8) - indistinguishable in the data from a real sweep that
+    # legitimately found nothing.
     sonar_db.rest("POST", "pipeline_runs", body=[{
         "workflow": "sweep",
         "started_at": run_started.isoformat(),
         "ended_at": run_ended.isoformat(),
-        "ok": True,
+        "ok": total_fetch_failed == 0,
         "candidates": total_candidates,
         "extracted": total_verified,
         "conflicts": 0,
         "cost_usd": cost_usd,
+        "error": (
+            f"{total_fetch_failed}/{total_fetched + total_fetch_failed} source fetch(es) failed"
+            if total_fetch_failed else None
+        ),
     }], prefer="return=minimal")
 
 

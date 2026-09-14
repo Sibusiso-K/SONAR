@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { AppShell } from "@/components/AppShell";
+import { QueryError } from "@/components/QueryError";
 import { Reveal, RevealWords } from "@/components/Reveal";
 import { useUpdates } from "@/lib/sonar-data";
 import { Bot, User } from "lucide-react";
@@ -37,7 +38,7 @@ const KIND_COLOR: Record<string, string> = {
 };
 
 function Updates() {
-  const { data: updates = [], isLoading } = useUpdates();
+  const { data: updates = [], isLoading, isError, error, refetch } = useUpdates();
 
   return (
     <AppShell>
@@ -55,53 +56,59 @@ function Updates() {
       </section>
 
       <section className="mx-auto max-w-[62rem] px-5 md:px-10">
-        {isLoading && <p className="text-sm text-muted-foreground">Loading…</p>}
+        {isError && (
+          <div className="mb-8">
+            <QueryError error={error} onRetry={() => refetch()} />
+          </div>
+        )}
+        {!isError && isLoading && <p className="text-sm text-muted-foreground">Loading…</p>}
         <ol className="border-l border-rule">
-          {updates.map((u, i) => (
-            <Reveal
-              key={u.id}
-              as="li"
-              delay={Math.min(i, 8) * 35}
-              className="relative block pb-9 pl-7"
-            >
-              <span
-                className="absolute -left-[4.5px] top-1.5 size-[9px] rounded-full"
-                style={{ backgroundColor: KIND_COLOR[u.change_kind] ?? "var(--unknown)" }}
-                aria-hidden
-              />
-              <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-                <time className="font-mono text-[11px] tabular-nums text-muted-foreground">
-                  {new Date(u.created_at).toLocaleString("en-ZA", {
-                    day: "2-digit",
-                    month: "short",
-                    year: "numeric",
-                    hour: "2-digit",
-                    minute: "2-digit",
-                  })}
-                </time>
+          {!isError &&
+            updates.map((u, i) => (
+              <Reveal
+                key={u.id}
+                as="li"
+                delay={Math.min(i, 8) * 35}
+                className="relative block pb-9 pl-7"
+              >
                 <span
-                  className="font-mono text-[10px] uppercase tracking-widest"
-                  style={{ color: KIND_COLOR[u.change_kind] ?? "var(--unknown)" }}
-                >
-                  {u.change_kind}
-                </span>
-                <span className="flex items-center gap-1.5 font-mono text-[11px] text-muted-foreground">
-                  {u.actor_kind === "human" ? (
-                    <User className="size-3" />
-                  ) : (
-                    <Bot className="size-3" />
-                  )}
-                  {u.actor}
-                </span>
-              </div>
-              <p className="mt-1.5 text-lg font-bold leading-snug">{u.summary}</p>
-              {u.detail && (
-                <p className="mt-1.5 max-w-2xl text-sm leading-relaxed text-muted-foreground">
-                  {u.detail}
-                </p>
-              )}
-            </Reveal>
-          ))}
+                  className="absolute -left-[4.5px] top-1.5 size-[9px] rounded-full"
+                  style={{ backgroundColor: KIND_COLOR[u.change_kind] ?? "var(--unknown)" }}
+                  aria-hidden
+                />
+                <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+                  <time className="font-mono text-[11px] tabular-nums text-muted-foreground">
+                    {new Date(u.created_at).toLocaleString("en-ZA", {
+                      day: "2-digit",
+                      month: "short",
+                      year: "numeric",
+                      hour: "2-digit",
+                      minute: "2-digit",
+                    })}
+                  </time>
+                  <span
+                    className="font-mono text-[10px] uppercase tracking-widest"
+                    style={{ color: KIND_COLOR[u.change_kind] ?? "var(--unknown)" }}
+                  >
+                    {u.change_kind}
+                  </span>
+                  <span className="flex items-center gap-1.5 font-mono text-[11px] text-muted-foreground">
+                    {u.actor_kind === "human" ? (
+                      <User className="size-3" />
+                    ) : (
+                      <Bot className="size-3" />
+                    )}
+                    {u.actor}
+                  </span>
+                </div>
+                <p className="mt-1.5 text-lg font-bold leading-snug">{u.summary}</p>
+                {u.detail && (
+                  <p className="mt-1.5 max-w-2xl text-sm leading-relaxed text-muted-foreground">
+                    {u.detail}
+                  </p>
+                )}
+              </Reveal>
+            ))}
         </ol>
       </section>
     </AppShell>

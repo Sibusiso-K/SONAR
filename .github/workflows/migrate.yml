@@ -10,17 +10,36 @@ name: Apply Supabase migrations
 # Manual dispatch only - schema changes should be a decision, not a thing
 # that happens on a timer.
 #
-# REQUIRED SECRET: SUPABASE_DB_URL
-#   Supabase dashboard -> Project Settings -> Database -> Connection string
-#   -> URI (the postgresql://... one, session pooler is fine). This is NOT
-#   the same as SUPABASE_URL (REST endpoint) or SUPABASE_SERVICE_KEY (JWT)
-#   - psql needs a real Postgres connection string.
+# Two separate migration directories, two separate projects - this workflow
+# previously only ever resolved supabase/migrations/ (the SONAR discovery
+# pipeline's own project), so every fix under web/supabase/migrations/ (the
+# sonar-radar/live-site project) had no path that could apply it here and
+# needed a manual paste into the Supabase SQL editor instead. `project`
+# below picks which directory and which DB_URL secret to use.
+#
+# REQUIRED SECRETS:
+#   SUPABASE_DB_URL       - the SONAR discovery pipeline's project (root
+#                            supabase/migrations/)
+#   RADAR_SUPABASE_DB_URL - sonar-radar's project, the one the live site
+#                            reads (web/supabase/migrations/)
+#   Both: Supabase dashboard -> Project Settings -> Database -> Connection
+#   string -> URI (the postgresql://... one, session pooler is fine). This
+#   is NOT the same as SUPABASE_URL (REST endpoint) or SUPABASE_SERVICE_KEY
+#   (JWT) - psql needs a real Postgres connection string.
 
 on:
   workflow_dispatch:
     inputs:
+      project:
+        description: "Which project's migrations directory"
+        required: true
+        type: choice
+        options:
+          - root
+          - web
+        default: root
       file:
-        description: "Migration filename in supabase/migrations/ (e.g. 0003_team_evidence.sql)"
+        description: "Migration filename (e.g. 0003_team_evidence.sql) - no path, just the filename"
         required: true
       dry_run:
         description: "Print the SQL and stop, without applying it"
@@ -42,26 +61,47 @@ jobs:
 
       - name: Resolve the migration file
         id: resolve
+        # The filename comes from workflow_dispatch input, i.e. from
+        # whoever has write access to trigger this workflow - not from an
+        # untrusted PR or issue body, so this isn't the classic pwn-request
+        # script-injection case. Even so, the input is passed through env
+        # rather than interpolated directly into the ${{ }} shell string,
+        # so a filename containing shell metacharacters can't be executed -
+        # cheap to do right, no reason not to.
+        env:
+          PROJECT: ${{ inputs.project }}
+          FILE_INPUT: ${{ inputs.file }}
         run: |
-          FILE="supabase/migrations/${{ github.event.inputs.file }}"
+          case "$PROJECT" in
+            root) DIR="supabase/migrations" ;;
+            web)  DIR="web/supabase/migrations" ;;
+            *) echo "::error::unknown project '$PROJECT'"; exit 1 ;;
+          esac
+          FILE="$DIR/$FILE_INPUT"
           if [ ! -f "$FILE" ]; then
-            echo "::error::$FILE not found. Available:"
-            ls -1 supabase/migrations/ >&2
+            echo "::error::$FILE not found. Available in $DIR:"
+            ls -1 "$DIR" >&2
             exit 1
           fi
           echo "path=$FILE" >> "$GITHUB_OUTPUT"
-          echo "Applying $FILE ($(wc -l < "$FILE") lines)"
+          echo "project=$PROJECT" >> "$GITHUB_OUTPUT"
+          echo "Applying $FILE ($(wc -l < "$FILE") lines) to the $PROJECT project"
 
       - name: Show the SQL
         run: cat "${{ steps.resolve.outputs.path }}"
 
       - name: Apply
-        if: ${{ github.event.inputs.dry_run != 'true' }}
+        if: ${{ inputs.dry_run != 'true' }}
         env:
-          DB_URL: ${{ secrets.SUPABASE_DB_URL }}
+          DB_URL: ${{ steps.resolve.outputs.project == 'web' && secrets.RADAR_SUPABASE_DB_URL || secrets.SUPABASE_DB_URL }}
+          PROJECT: ${{ steps.resolve.outputs.project }}
         run: |
           if [ -z "$DB_URL" ]; then
-            echo "::error::SUPABASE_DB_URL is not set. Add it under Settings -> Secrets and variables -> Actions (Supabase dashboard -> Project Settings -> Database -> Connection string -> URI)."
+            if [ "$PROJECT" = "web" ]; then
+              echo "::error::RADAR_SUPABASE_DB_URL is not set. Add it under Settings -> Secrets and variables -> Actions (sonar-radar's Supabase dashboard -> Project Settings -> Database -> Connection string -> URI)."
+            else
+              echo "::error::SUPABASE_DB_URL is not set. Add it under Settings -> Secrets and variables -> Actions (Supabase dashboard -> Project Settings -> Database -> Connection string -> URI)."
+            fi
             exit 1
           fi
           # ON_ERROR_STOP so a failed statement fails the job instead of
@@ -70,4 +110,4 @@ jobs:
             --set ON_ERROR_STOP=1 \
             --single-transaction \
             -f "${{ steps.resolve.outputs.path }}"
-          echo "applied ${{ github.event.inputs.file }}"
+          echo "applied ${{ steps.resolve.outputs.path }}"

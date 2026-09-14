@@ -121,15 +121,23 @@ function startOfWeek(d: Date) {
   return copy;
 }
 
+/** Local Y-M-D key, not `toISOString().slice(0, 10)` - that converts to UTC
+ * first, which in Africa/Johannesburg (UTC+2) shifts local midnight back
+ * into the previous day, mislabelling the week's Monday as Sunday. */
+function localDateKey(d: Date) {
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, "0");
+  const day = String(d.getDate()).padStart(2, "0");
+  return `${y}-${m}-${day}`;
+}
+
 export function collisions(list: Opportunity[]): Collision[] {
   const committed = list.filter(
     (o) => o.next_date && (o.confidence === "confirmed" || o.confidence === "reported"),
   );
   const buckets = new Map<string, Opportunity[]>();
   for (const o of committed) {
-    const key = startOfWeek(new Date(`${o.next_date}T00:00:00`))
-      .toISOString()
-      .slice(0, 10);
+    const key = localDateKey(startOfWeek(new Date(`${o.next_date}T00:00:00`)));
     buckets.set(key, [...(buckets.get(key) ?? []), o]);
   }
   return [...buckets.entries()]

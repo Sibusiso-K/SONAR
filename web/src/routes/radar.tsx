@@ -3,6 +3,7 @@ import { AppShell } from "@/components/AppShell";
 import { EventCalendar } from "@/components/EventCalendar";
 import { EventGlobe } from "@/components/EventGlobe";
 import { OrgLogo } from "@/components/OrgLogo";
+import { QueryError } from "@/components/QueryError";
 import { Reveal, RevealWords } from "@/components/Reveal";
 import { useOpportunities, usePastOpportunities } from "@/lib/sonar-data";
 import { formatMoney } from "@/lib/analytics";
@@ -37,8 +38,11 @@ const OUTCOME_COLOR: Record<string, string> = {
 };
 
 function Radar() {
-  const { data: all = [] } = useOpportunities();
-  const { data: past = [] } = usePastOpportunities();
+  const opportunitiesQuery = useOpportunities();
+  const pastQuery = usePastOpportunities();
+  const { data: all = [] } = opportunitiesQuery;
+  const { data: past = [] } = pastQuery;
+  const queryError = opportunitiesQuery.error ?? pastQuery.error;
 
   const unverified = all.filter((o) =>
     ["predicted", "unconfirmed", "conflicted"].includes(o.confidence),
@@ -58,6 +62,18 @@ function Radar() {
           </p>
         </Reveal>
       </section>
+
+      {queryError && (
+        <section className="mx-auto max-w-[88rem] px-5 pb-12 md:px-10">
+          <QueryError
+            error={queryError}
+            onRetry={() => {
+              opportunitiesQuery.refetch();
+              pastQuery.refetch();
+            }}
+          />
+        </section>
+      )}
 
       <section className="mx-auto max-w-[88rem] px-5 pb-12 md:px-10">
         <Reveal>

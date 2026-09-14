@@ -1,7 +1,7 @@
 {
   "meta": {
     "timezone": "Africa/Johannesburg",
-    "generated": "2026-08-10",
+    "generated": "2026-09-14",
     "note": "Source for calendar/sonar-2026.ics. Regenerate with: python3 scripts/sonar.py ics",
     "kinds": {
       "deadline": "Hard cutoff. Missing it ends the entry.",
@@ -21,7 +21,7 @@
 
     { "id": "entelect-hackit-register", "kind": "admin", "summary": "Register: Entelect Hack<IT> Community Cup + Practice Hackathon", "start": "2026-09-08T18:00", "end": "2026-09-08T18:30", "reminders": [0], "description": "Registration for both is open now, sign-in required, and both close when the event starts (12 Sep 10:00). Register for Hack<IT> and the Practice Hackathon on the same account so the Wed 9 Sep dress rehearsal (see optimisation-challenge/hackit/PLAN.md) has an account to run against. https://challenge.entelect.co.za/hackathons" },
 
-    { "id": "entelect-hackit-event", "kind": "event", "summary": "Entelect Hack<IT> Community Cup (R70,000)", "start": "2026-09-12T10:00", "end": "2026-09-12T15:00", "reminders": [10080, 1440, 60], "description": "Confirmed live on the portal 8 Sep 2026. Africa/Johannesburg. Objective: highest leaderboard score by close. Allowed tech: AI, C, C++, C#, Go, Java, Python, Rust. Rules and leaderboard tabs still locked as of 8 Sep — team size and scoring formula unknown until the day. Entering solo. Full plan: https://github.com/Sibusiso-K/optimisation-challenge/blob/main/hackit/PLAN.md SCHEDULES OVER shipaton-sprint-2 (self-scheduled, movable) — see that entry." },
+    { "id": "entelect-hackit-event", "kind": "event", "summary": "Entelect Hack<IT> Community Cup (R70,000)", "start": "2026-09-12T10:00", "end": "2026-09-12T15:00", "reminders": [10080, 1440, 60], "description": "Ran 12 Sep 2026, Africa/Johannesburg. Objective: highest leaderboard score by close. Allowed tech: AI, C, C++, C#, Go, Java, Python, Rust. Entered solo. Result not yet recorded on the board. Full plan: https://github.com/Sibusiso-K/optimisation-challenge/blob/main/hackit/PLAN.md" },
 
     { "id": "unesco-work", "kind": "prep", "summary": "UNESCO Youth Hackathon submission — one evening, then done", "start": "2026-08-13T18:00", "end": "2026-08-13T21:00", "reminders": [120], "description": "Theme: 'Play Your Part: Youth Designing the Future of Media and Information Literacy'. Concept/project submission, not code. Brief: https://www.unesco.org/en/articles/unesco-youth-hackathon-2026\nDeadline is 16 Aug 23:59 Paris = 23:59 SAST. Submit tonight, don't leave it to Sunday." },
 
@@ -45,15 +45,13 @@
 
     { "id": "bcg-apply-stated", "kind": "deadline", "summary": "BCG Platinion — stated application deadline (backstop)", "start": "2026-09-13", "all_day": true, "reminders": [1440], "description": "Body-text deadline. If you somehow missed 7 Sept, this is the last chance. https://www.bcgplatinion.com/hackathon" },
 
-    { "id": "govtech", "kind": "event", "summary": "SITA GovTech 2026 Hackathon — Durban ICC or remote", "start": "2026-09-17", "end": "2026-09-20", "all_day": true, "reminders": [10080, 1440], "description": "17-19 Sept. ELIGIBILITY RISK: open to SMMEs in EME category registered in SA; teams of 3-5. Confirm before committing.\nT&Cs: https://www.govtech.gov.za/wp-content/uploads/2026/07/GovTech-2026-Hackathon-Terms-and-Condition.pdf" },
+    { "id": "govtech", "kind": "event", "summary": "SITA GovTech 2026 Hackathon — SELECTED, remote", "start": "2026-09-17", "end": "2026-09-21", "all_day": true, "reminders": [10080, 1440], "description": "17-20 Sept, remote/online (changed 11 Sept from in-person Durban ICC). Entity: PILOT CORE (PTY) LTD. Attendance RSVP was due 11 Sept — confirm it was sent. Public terms PDF still lists 17-19 Sept and allows online attendance; treat 17-20 as the team's later, recorded instruction pending written reconciliation. Output terms are an assignment (clause 4.2.1), not just a licence — read 4.2.1-4.2.5 before reusing any existing component.\nT&Cs: https://www.govtech.gov.za/wp-content/uploads/2026/07/GovTech-2026-Hackathon-Terms-and-Condition.pdf" },
 
-    { "id": "shipaton-sprint-1", "kind": "prep", "summary": "Shipaton build sprint — core app + RevenueCat SDK", "start": "2026-09-05T09:00", "end": "2026-09-06T17:00", "reminders": [1440], "description": "Ship a NEW iOS or Android app to a real store with the RevenueCat SDK integrated. Nine prize categories, $700,000+ pool.\nPrep guide: https://revenuecat.github.io/codelabs/shipaton-2026-prep.html" },
+    { "id": "geekulcha-event", "kind": "event", "summary": "Geekulcha Annual Hackathon #GKHack26 — SELECTED, physical", "start": "2026-09-25T16:00", "end": "2026-09-27T15:00", "reminders": [10080, 1440], "description": "BCX HQs, Centurion. Selected out of 394 teams. Recorded track: V.U.K.A., Blockchain for Impact — confirm against the current \"Build for Use\" 2026 brief before build weekend, since the public subtheme list differs from the recorded track. Selection email named three gaps to close first: consumer-facing framing, a WBS, TRL 4.\nBrief: https://sonke.gklink.co/event/gkhack26" },
 
-    { "id": "shipaton-sprint-2", "kind": "prep", "summary": "Shipaton build sprint — monetisation + polish", "start": "2026-09-12T09:00", "end": "2026-09-13T17:00", "reminders": [1440], "description": "COLLISION: Entelect Hack<IT> now confirmed 10:00-15:00 this same day (12 Sept) — fixed, not movable. Shift this sprint block or split it around the hackathon window." },
+    { "id": "mintek-event", "kind": "event", "summary": "Mintek-SCi Grad Hackathon — build day", "start": "2026-10-01T08:00", "end": "2026-10-01T14:10", "reminders": [10080, 1440, 60], "description": "200 Malibongwe Drive, Randburg. Report/build from 08:00, submission closes 13:00, present 14:00 for 10 minutes. Project: REEFPRINT. R50,000 pool (R25k/R15k/R10k). Followed by the mandatory SCI Conference on 2 Oct." },
 
-    { "id": "shipaton-store-submit", "kind": "deadline", "summary": "Shipaton: submit app to App Store / Play Store (review buffer)", "start": "2026-09-16", "all_day": true, "reminders": [2880, 1440], "description": "CRITICAL BUFFER. Store review can take a week or more and rejections happen. Submitting on 29 September is how teams lose this competition." },
-
-    { "id": "shipaton-deadline", "kind": "deadline", "summary": "DEADLINE: RevenueCat Shipaton 2026 ($700k+)", "start": "2026-09-30", "all_day": true, "reminders": [10080, 1440, 240], "description": "30 Sept 23:45 PDT = 1 Oct 08:45 SAST. App must be LIVE on a store.\nhttps://revenuecat-shipaton-2026.devpost.com/" },
+    { "id": "mintek-conference", "kind": "event", "summary": "Mintek SCI Conference — mandatory attendance", "start": "2026-10-02", "all_day": true, "reminders": [1440], "description": "Separate registration from the hackathon itself. Five finalists announced; originality authentication follows." },
 
     { "id": "ibmz-reg", "kind": "deadline", "summary": "DEADLINE: IBM Z Datathon 2026 registration", "start": "2026-10-01", "all_day": true, "reminders": [4320, 1440], "description": "Register by 1 Oct midnight or you go on the waitlist. Individual registration first, then team lead completes the team form.\nhttps://www.starhacks.org/ibm-z-datathon-2026" },
 

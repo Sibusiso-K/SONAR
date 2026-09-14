@@ -14,6 +14,7 @@ scripts/sonar.py keeps working against hackathons.json until it's retired.
 
 import json
 import os
+import sys
 from datetime import date, datetime, timezone
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -58,10 +59,18 @@ CAREER_TRACK = {
 }
 
 DEADLINE_KEYS = (
+    "confirm_attendance_by",
     "submission_deadline", "application_deadline", "entry_deadline",
     "registration_deadline", "final_submission", "event_start",
     "hackathon_start", "virtual_event",
 )
+# confirm_attendance_by first: an RSVP deadline is routinely the soonest
+# real cutoff on a selected entry, earlier than the event itself, and was
+# previously excluded from this whole list - a future RSVP due before
+# kickoff would be silently overridden by the later event_start date
+# (docs/REVIEW_2026-09-14.md, finding 7). Order here only matters as a
+# tie-breaker when two keys land on the exact same day; next_date() below
+# always picks the earliest date regardless of key order.
 
 
 def parse_day(value):
@@ -100,6 +109,7 @@ def main():
     # because nothing ever recomputed it. Warn loudly rather than auto-fix:
     # a human should decide whether the sub-scores or the total was wrong.
     weights = (src.get("meta") or {}).get("scoring_weights") or {}
+    drifted = []
     if weights:
         for h in src["hackathons"]:
             got = h.get("score")
@@ -109,6 +119,19 @@ def main():
                     f"  WARNING  {h['id']}: score {got} does not match the weighted "
                     f"sub-scores ({want}). One of the two is stale."
                 )
+                drifted.append(h["id"])
+
+    # CI runs this script as its own validation gate (refresh-board.yml,
+    # "Rebuild opportunities.json from the source of truth"). Warning without
+    # failing meant a drifted score could sit on the live board indefinitely
+    # once nobody happened to read this step's log
+    # (docs/REVIEW_2026-09-14.md, finding 9: "fail on inconsistent scores").
+    # A human still decides which of score/scores is right - this only
+    # stops the mismatch from silently shipping unfixed.
+    if drifted:
+        print(f"\n{len(drifted)} entr{'y' if len(drifted) == 1 else 'ies'} with a stale "
+              f"stored score: {', '.join(drifted)}")
+        sys.exit(1)
 
     for h in src["hackathons"]:
         item = dict(h)  # carry every v1 field through untouched
