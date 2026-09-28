@@ -26,7 +26,7 @@ Importable file: [`../calendar/sonar-2026.ics`](../calendar/sonar-2026.ics)
 | Fri 14 | — | **Mintek SCI Grad Hackathon — team SELECTED** (letter, Boitumelo Lekalakala). Start building. | milestone |
 | Wed 26 | 18:00–20:00 | IBM Bob prep — trial working, workflow problem chosen | prep |
 | Thu 27 | 16:00–20:30 | **IBM Dev Day: Bob in Action** — enablement 16:00, tracks 17:00 | event |
-| Fri 28 – Sun 30 | all day | **IBM Dev Day Hackathon** — COMPETED as Team Sonar, built BobSwarm. **Submission outcome UNCONFIRMED** — form completed but Submit press not confirmed, deadline (30 Aug 16:00) already passed | event |
+| Fri 28 – Sun 30 | all day | **IBM Dev Day Hackathon** — COMPETED as Team Sonar, built BobSwarm. **RESULT: 3rd place** (confirmed 28 Sept, official email) | event |
 | **Tue 18** | — | **SME Toolkit SA Business Plan Competition — Phase 1 submitted**, 13 days early: Sibusiso (Karoo Compute) and Lethabo (Indlela AI), two individual entries | milestone |
 | **Sun 30** | all day | **DEADLINE — Mintek one-page abstract** · also send per-member ID, T-shirt size, contacts, mentor | deadline |
 | Mon 31 | — | SME Toolkit Phase 1 close — *already submitted 18 Aug, nothing due here* | — |
@@ -43,12 +43,12 @@ Importable file: [`../calendar/sonar-2026.ics`](../calendar/sonar-2026.ics)
 | Sun 13 | all day | BCG Platinion — stated deadline (backstop only) | deadline |
 | Tue 15 – Wed 16 | — | AI Infra Summit Hackathon, Santa Clara CA *(on-site invitation-only; online track separate, no on-site travel planned)* | event |
 | **Wed 9** | — | **DO NOW — reply to SITA confirming GovTech attendance**, due 11 Sept | deadline |
-| **Sat 12** | 10:00–15:00 | **Entelect Hack\<IT\> Community Cup — registration open, R70,000, entering solo.** Venue TBA. Rules/leaderboard still locked as of 8 Sept | event |
-| Thu 17 – Sun 20 | all day | **SITA GovTech 2026 Hackathon — SELECTED, remote/online** (was in-person Durban ICC, changed 11 Sept). PILOT CORE (PTY) LTD | event |
+| Sat 12 | 10:00–15:00 | **Entelect Hack\<IT\> Community Cup — entered solo, R70,000.** **RESULT: did not place** (reported 28 Sept) | event |
+| Thu 17 – Sun 20 | all day | **SITA GovTech 2026 Hackathon — remote/online, PILOT CORE (PTY) LTD.** **RESULT: did not place** (reported 28 Sept) | event |
 | Wed 23 | all day | GovTech winners announced (Awards Ceremony — separate from the hackathon) | reward |
 | Sun 13 | 23:59 | Zindi "A Step Ahead of Drought" (ITU) closes, €2 000 — **recorded, not entered**: 430 already active | deadline |
 | Tue 8 – Thu 17 | — | Geekulcha #GKHack26 build-up webinars | prep |
-| **Fri 25** | 16:00 – Sun 27, 15:00 | **Geekulcha Annual Hackathon #GKHack26 — SELECTED, physical, BCX Centurion, 1266 South Road** (arrive 14:00, ID needed; up to 148 teams, 394 applied). Track: Blockchain for Impact Use (20 teams), project V.U.K.A. Judging: Innovation 15, Technical 15, Business and Presentation 15, Usability 10, Security and Ethics 10, quantum bonus 5. Prep: consumer-facing framing, WBS, TRL 4 | event |
+| Fri 25 | 16:00 – Sun 27, 15:00 | **Geekulcha Annual Hackathon #GKHack26 — physical, BCX Centurion, project V.U.K.A.** **RESULT: did not place** — not selected into the top 12 (reported 28 Sept) | event |
 | Fri 25 | 19:00–20:00 | Geekulcha: problem statement with mentors (max 2 paragraphs, real data) | prep |
 | Sat 26 | 11:00–12:00 | Geekulcha DevLabs — every team represented | event |
 | **Sat 26** | 12:30 | **DEADLINE — Geekulcha updated SSDLC** | deadline |

@@ -9,6 +9,38 @@
   },
   "updates": [
     {
+      "at": "2026-09-28T10:00:00+02:00",
+      "kind": "verified",
+      "target": "ibm-devday-bob-2026",
+      "title": "IBM Dev Day (Bob): RESULT CONFIRMED - 3rd place",
+      "body": "Official organiser email, screenshot supplied by Sibusiso 28 Sept: \"you are a third-place winner of IBM TechXchange 2026 Pre-conference Dev Day Hackathon!\" Resolves the outcome that had sat unconfirmed since 31 Aug (whether the final Submit button was actually pressed) - it clearly was. Recorded as a real placement, our first confirmed hackathon podium finish this cycle.",
+      "by": "Sibusiso K"
+    },
+    {
+      "at": "2026-09-28T09:45:00+02:00",
+      "kind": "changed",
+      "target": "geekulcha-2026",
+      "title": "Geekulcha #GKHack26: did not place",
+      "body": "Reported by Sibusiso 28 Sept: not selected into the top 12 finale. Status selected -> past. Checked LethaboMH14/V.U.KA--Geekulcha: real, active development ran right through the event (commits into 27 Sept 12:17, submission day), so this was a genuine, worked entry that simply didn't place, not an abandoned one.",
+      "by": "Sibusiso K"
+    },
+    {
+      "at": "2026-09-28T09:30:00+02:00",
+      "kind": "changed",
+      "target": "govtech-2026",
+      "title": "GovTech 2026: did not place",
+      "body": "Reported by Sibusiso 28 Sept: did not place. Status selected -> past. LethaboMH14/GoveTech_SITA's last commits (19 Sept) were pre-submission cleanup, before the 17-20 Sept event window itself.",
+      "by": "Sibusiso K"
+    },
+    {
+      "at": "2026-09-28T09:15:00+02:00",
+      "kind": "changed",
+      "target": "entelect-hackit-2026",
+      "title": "Entelect Hack<IT>: did not place",
+      "body": "Reported by Sibusiso 28 Sept: did not place. Status open -> past. No commits in Sibusiso-K/optimisation-challenge after 8 Sept, so no post-event build record exists beyond the pre-event plan.",
+      "by": "Sibusiso K"
+    },
+    {
       "at": "2026-09-20T12:00:00+02:00",
       "kind": "verified",
       "target": "geekulcha-2026",

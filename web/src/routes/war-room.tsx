@@ -6,17 +6,17 @@ import { cn } from "@/lib/utils";
 export const Route = createFileRoute("/war-room")({
   head: () => ({
     meta: [
-      { title: "War Room: three weekends, one team | SONAR" },
+      { title: "War Room: one event left | SONAR" },
       {
         name: "description",
         content:
-          "GovTech, Geekulcha and Mintek, back to back over three weekends: what each judged panel actually rewards, what we're bringing in, and what still needs closing before each one.",
+          "Entelect, GovTech and Geekulcha are done - none placed. Mintek is the last of the four back-to-back weekends: what it actually rewards, what's still open, and the results so far.",
       },
-      { property: "og:title", content: "War Room: three weekends, one team | SONAR" },
+      { property: "og:title", content: "War Room: one event left | SONAR" },
       {
         property: "og:description",
         content:
-          "All three are judged pitches, not leaderboards. The event-by-event prep plan for winning them.",
+          "Three of four hackathon weekends are over. One remains. The prep plan for it, and an honest scoreboard for the rest.",
       },
     ],
   }),
@@ -31,32 +31,42 @@ export const Route = createFileRoute("/war-room")({
  * states what is actually known and links to primary sources rather than
  * summarising them, per the same review's findings 4 and 10. */
 
-type TimelineEntry = {
-  day: string;
+type ResultRow = {
   name: string;
-  venue: string;
-  who: string;
-  flag?: string;
+  when: string;
+  result: string;
+  tone: "win" | "loss";
+  note: string;
 };
 
-const TIMELINE: TimelineEntry[] = [
+const RESULTS: ResultRow[] = [
   {
-    day: "Thu 17 – Sun 20 Sep",
-    name: "GovTech 2026",
-    venue: "Remote / online",
-    who: "PILOT CORE",
+    name: "IBM Dev Day: Bob in Action",
+    when: "28–30 Aug",
+    result: "3rd place",
+    tone: "win",
+    note: "Confirmed by official email 28 Sept. BobSwarm, a Bob 2.0 multi-agent orchestrator.",
   },
   {
-    day: "Fri 25 – Sun 27 Sep",
+    name: "Entelect Hack<IT> Community Cup",
+    when: "12 Sep",
+    result: "Did not place",
+    tone: "loss",
+    note: "Entered solo, leaderboard-scored.",
+  },
+  {
+    name: "SITA GovTech 2026",
+    when: "17–20 Sep",
+    result: "Did not place",
+    tone: "loss",
+    note: "PILOT CORE, remote participation.",
+  },
+  {
     name: "Geekulcha #GKHack26",
-    venue: "BCX HQs, Centurion",
-    who: "Team SONAR",
-  },
-  {
-    day: "Thu 1 – Fri 2 Oct",
-    name: "Mintek-SCi",
-    venue: "Randburg · build to 13:00",
-    who: "REEFPRINT",
+    when: "25–27 Sep",
+    result: "Did not place",
+    tone: "loss",
+    note: "V.U.K.A., not selected into the top 12.",
   },
 ];
 
@@ -76,44 +86,6 @@ type Dossier = {
 const DOSSIERS: Dossier[] = [
   {
     n: 1,
-    name: "SITA GovTech 2026",
-    tagline: "Remote · selected",
-    meta: "Entity: PILOT CORE (PTY) LTD · Team: Sibusiso, Lethabo, Ipeleng",
-    when: "THU 17 – SUN 20 SEP · REMOTE (was in-person Durban ICC, changed 11 Sept)",
-    what: "A public-sector problem you won't see until day one",
-    wins: {
-      text: "SITA's own terms say the judging criteria arrive on day one, not before — so this isn't a build-the-right-thing-in-advance event. What's public: winning solutions have to show clear engagement with a real, current South African socio-economic problem, not a generic tech demo retrofitted to a government theme. This board has not independently confirmed the criteria release timing beyond what the terms state.",
-      source: "SITA GovTech public judging notes; official terms read 17 Aug",
-    },
-    assets: [
-      "Three-person, EME-registered entity already cleared on eligibility",
-      "Now remote — no travel/accommodation cost, but the team must actively guard against split attention across three locations",
-      "The shortest prep runway of the three events, not the longest: 8 days between selection (9 Sept) and kickoff (17 Sept), versus 3+ weeks for Geekulcha and Mintek — the reason to lock the day-one workflow down first, not last",
-    ],
-    risk: "RSVP: the reply confirming attendance was due 11 Sept. That deadline has passed with no confirmation on record that a reply was sent — evidence missing, not proof it wasn't sent. Output ownership: the terms go beyond a licence — clause 4.2.1 assigns rights in Hackathon Outputs to SITA, with Background IP and incorporation-licence provisions in clauses 4.2.2–4.2.3; read all three before deciding what existing code to bring. Schedule: the public terms PDF still lists 17–19 September and allows online attendance; the team's later selection email extends it to 17–20 September. Treat 17–20 as the recorded instruction and get the discrepancy reconciled in writing rather than assuming either source is stale.",
-    move: "Confirm today whether the RSVP reply actually went out, and send it now if not — a missed RSVP after selection is the one failure mode no amount of prep fixes. Get the 17–19 vs 17–20 date discrepancy answered in writing. Read clauses 4.2.1–4.2.5 and list any pre-existing component the team might reuse before the event starts, so it can be flagged as required. Agree the remote-logistics plan (one shared call running the whole weekend, one person owning the demo narrative) before the 17th. On day one, don't start coding until someone has written the one-sentence version of the problem and named the specific person it helps.",
-  },
-  {
-    n: 2,
-    name: "Geekulcha #GKHack26",
-    tagline: "BCX HQs Centurion · selected, physical",
-    meta: "Docs: 9 of 9 submitted · Sponsors: Telkom · CPSI · Red Bull",
-    when: "FRI 25, 16:00 – SUN 27, 15:00",
-    what: "V.U.K.A. — Blockchain for Impact Use, one of 8 tracks (20 teams), up to 148 teams",
-    wins: {
-      text: "Scored out of 65 plus a 5-point bonus: Innovation and Creativity 15, Technical Implementation 15, Business and Presentation 15, Usability and Design 10, Security and Ethics 10, and up to 5 for use of quantum tech. The organiser frames the weekend as Build for Use: identified users, a validated problem, security, sustainability and measurable impact. The gate to the top 12 is a 3-minute sales pitch where the panel decides to pay half, pay full or not buy at all, so a fundable story matters as much as the build. No submission by 09:00 Sunday means no pitch, no finale and no prizes.",
-      source:
-        "Sonke team dashboard, read 20 Sept (judging criteria and guidelines); official event page",
-    },
-    assets: [
-      "Every required document already filed: pitch deck, gap analysis, SLDC, full system architecture",
-      "A direct steer from the organiser's own selection email, which is rare and worth following literally",
-    ],
-    risk: "The selection email names three specific gaps: V.U.K.A. currently reads as more AI-driven than consumer-facing, has no work breakdown structure yet, and needs to reach Technology Readiness Level 4 before the 25th. None of those three are done as of this page — submitted documents establish that a plan exists, not that the prototype or its TRL4 evidence do.",
-    move: "Hold the cutoffs: Fri 19:00 problem statement (max 2 paragraphs, cite real data); Sat 11:00 DevLabs (split members across sessions); Sat 12:30 updated SSDLC; Sat 14:00 War Room (12 min); Sat 21:30 Lean Business Canvas with real figures; Sun 09:00 final submission (slides over 10 plus a demo video under 90 seconds; name one or two people to own it); Sun 10:00 3-minute pitch: 20 seconds of evidence, the solution, what it costs and what you need, why it stands out, a 50-second demo. Rewrite the one-line pitch so a non-technical judge hears “what this does for someone,” not “what model it runs.” Produce the WBS. Push the prototype to TRL 4 and keep the evidence (test procedure, environment, results) that shows it, not just the claim. All of this is homework, not hackathon-weekend work.",
-  },
-  {
-    n: 3,
     name: "Mintek-SCi Grad Hackathon",
     tagline: "Randburg · R50,000 pool",
     meta: "Prize: R25k / R15k / R10k · Next: SCI Conference, 2 Oct",
@@ -128,8 +100,8 @@ const DOSSIERS: Dossier[] = [
       "Costs already in Rand and tCO2e against gazetted Eskom/carbon-tax rates — exactly the register H2Optimise won on, though current tariff/rate figures still need verifying before presenting them as numbers",
       "Positioned as a StarCS/FloatStar/MillStar module, not a rip-and-replace pitch to an industry that hates those — as a proposed interface, since no integration with those systems has been demonstrated",
     ],
-    risk: "This is the third weekend in three weeks and the only one with a hard same-day code freeze at 13:00 followed by presenting at 14:00 — zero recovery time if the team is running on fumes by 1 October. An MOTT IP assessment follows before any result is final. Per-class recall (chromite, orthopyroxene, plagioclase, base-metal sulphide, talc/serpentine) and the abstention/calibration behaviour are commitments in the project abstract, not results demonstrated in this checkout — collect that evidence from the actual REEFPRINT project before the presentation, not during it.",
-    move: "Protect this slot specifically: this is the highest-scoring entry on the whole board (7.95) and the one most explicitly aimed at your actual situation. Bank sleep before it, not after Geekulcha. Pull real per-class recall, sample support and a documented abstention example from the project before dress rehearsal. Rehearse the 10-minute presentation once, out loud, before the day arrives — confirm whether the ten minutes includes questions.",
+    risk: "This is the fourth weekend running, and none of the previous three placed — real fatigue risk on top of the usual same-day pressure: 13:00 code freeze, 14:00 presenting, zero recovery time. An MOTT IP assessment follows before any result is final. Per-class recall (chromite, orthopyroxene, plagioclase, base-metal sulphide, talc/serpentine) and the abstention/calibration behaviour are commitments in the project abstract, not results demonstrated in this checkout — collect that evidence from the actual REEFPRINT project before the presentation, not during it.",
+    move: "Protect this slot specifically: this is the highest-scoring entry on the whole board (7.95), the one most explicitly aimed at your actual situation, and the last of four weekends. Bank sleep before it. Pull real per-class recall, sample support and a documented abstention example from the project before dress rehearsal. Rehearse the 10-minute presentation once, out loud, before the day arrives — confirm whether the ten minutes includes questions.",
   },
 ];
 
@@ -137,7 +109,7 @@ const RULES: { evidence: "ours" | "external"; title: string; body: string }[] = 
   {
     evidence: "ours",
     title: "The decisions that matter happen before kickoff",
-    body: "Every prep task below is due before its weekend starts, not during it. Read this page as the to-do list for the week, not the weekend.",
+    body: "Every prep task below is due before the weekend starts, not during it.",
   },
   {
     evidence: "external",
@@ -147,12 +119,12 @@ const RULES: { evidence: "ours" | "external"; title: string; body: string }[] = 
   {
     evidence: "external",
     title: "Judged rooms are decided in 30 seconds",
-    body: "For GovTech, Geekulcha and Mintek: judges see dozens of demos and form an opinion almost immediately. Open with the problem, named around one specific person — not with the tech stack.",
+    body: "Judges see dozens of demos and form an opinion almost immediately. Open with the problem, named around one specific person — not with the tech stack.",
   },
   {
     evidence: "ours",
-    title: "Judges remember the story, not the stack",
-    body: "This board's own working assumption, not a guaranteed law: a technically weaker team with a sharper, rehearsed pitch regularly beats a stronger build with no narrative in a panel-scored room. Rehearse the pitch out loud at least once before each event — not just the demo.",
+    title: "Three losses in a row is a pattern worth naming, not just absorbing",
+    body: "Entelect, GovTech and Geekulcha all produced real, working builds and none placed. Before Mintek, spend ten minutes asking what the panels actually rewarded that these three didn't lead with, rather than repeating the same pitch shape a fourth time.",
   },
 ];
 
@@ -164,42 +136,6 @@ type ActionItem = {
 };
 
 const NEEDS_ATTENTION: ActionItem[] = [
-  {
-    severity: "critical",
-    title: "Confirm the SITA attendance reply actually went out",
-    note: "Deadline was 11 Sep — already overdue, and not confirmed sent. Evidence missing is not proof it wasn't sent",
-    due: "Overdue since 11 Sep",
-  },
-  {
-    severity: "critical",
-    title: "Reconcile the GovTech roster's Lethabo surname",
-    note: '"Lethabo Masilo Phukile" (GovTech record) vs "Lethabo Hoaeane" (Geekulcha platform) — resolve which is correct, don\'t merge without confirmation',
-    due: "Before 17 Sep",
-  },
-  {
-    severity: "warning",
-    title: "Read GovTech's IP clauses and list reusable components",
-    note: "Clause 4.2.1 assigns Hackathon Output rights to SITA; 4.2.2–4.2.3 cover Background IP and incorporation licensing",
-    due: "Before 17 Sep",
-  },
-  {
-    severity: "warning",
-    title: "Lock the GovTech remote-logistics plan",
-    note: "One shared call for the whole weekend, one person owning the demo narrative",
-    due: "Before 17 Sep",
-  },
-  {
-    severity: "warning",
-    title: "Push V.U.K.A. to TRL 4 + write the WBS",
-    note: "Named in Geekulcha's selection email. The platform lists 7 members on team SONAR (board records 3), so confirm who is attending",
-    due: "Before 25 Sep",
-  },
-  {
-    severity: "critical",
-    title: "Geekulcha: name the submission owners and build the slides + demo video",
-    note: "Slides over 10 and a demo video under 90 seconds, final submission Sun 27 Sep 09:00 SAST. No submission means no pitch, finale or prizes",
-    due: "Sun 27 Sep 09:00",
-  },
   {
     severity: "warning",
     title: "Pull real per-class recall and an abstention example for REEFPRINT",
@@ -222,36 +158,61 @@ function WarRoom() {
       <section className="mx-auto max-w-[88rem] px-5 pb-12 pt-16 md:px-10 md:pt-24">
         <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2">
           <p className="label-caps">War room</p>
-          <p className="label-caps tabular-nums">17 Sep – 2 Oct 2026</p>
+          <p className="label-caps tabular-nums">1 Oct 2026</p>
         </div>
-        <h1 className="display-xl mt-5 max-w-[20ch]">
-          <RevealWords text="Three hackathons. Two and a half weeks. Every event has its own roster." />
+        <h1 className="display-xl mt-5 max-w-[16ch]">
+          <RevealWords text="Three down, one left. Mintek is the last weekend." />
         </h1>
         <Reveal delay={200}>
           <p className="mt-8 max-w-2xl text-base leading-relaxed text-muted-foreground">
-            GovTech, Geekulcha and Mintek land back to back, starting Thursday 17 September (SAST).{" "}
+            Entelect, GovTech and Geekulcha are done — none placed, though IBM's Dev Day hackathon
+            from late August came back a confirmed 3rd place.{" "}
             <strong className="font-semibold text-foreground">
-              All three are judged pitches, not leaderboards.
+              Mintek on 1 October is the last of the four back-to-back weekends.
             </strong>{" "}
-            A human panel scores narrative, feasibility and how well you present — this board treats
-            a sharper, rehearsed pitch as more decisive than raw technical strength in that kind of
-            room. What each event actually rewards, what we're bringing into it, and what still
-            needs closing before each one starts. Read the individual event dossiers below for the
-            primary sources behind each claim — this page summarises them, it isn't a substitute for
-            reading the official terms.
+            It's also the highest-scoring entry on the whole board. What it actually rewards, what's
+            still open, and an honest scoreboard for the four that are already decided.
           </p>
         </Reveal>
       </section>
 
-      {/* ---- needs attention ---- */}
+      {/* ---- results so far ---- */}
       <section className="mx-auto max-w-[88rem] px-5 md:px-10">
         <div className="flex flex-wrap items-baseline justify-between gap-4">
-          <h2 className="font-display text-2xl font-bold">Needs attention first</h2>
+          <h2 className="font-display text-2xl font-bold">Results so far</h2>
+          <span className="label-caps">4 decided</span>
+        </div>
+        <div className="mt-6 grid grid-cols-1 gap-px border border-rule bg-rule sm:grid-cols-2 lg:grid-cols-4">
+          {RESULTS.map((r) => (
+            <div key={r.name} className="bg-paper p-5">
+              <p className="font-mono text-xs font-semibold tabular-nums text-accent">
+                {r.when.toUpperCase()}
+              </p>
+              <p className="mt-1.5 font-display text-base font-bold leading-tight">{r.name}</p>
+              <span
+                className={cn(
+                  "mt-3 inline-block border px-2 py-1 font-mono text-[10px] uppercase tracking-wider",
+                  r.tone === "win"
+                    ? "border-stable text-stable"
+                    : "border-border text-muted-foreground",
+                )}
+              >
+                {r.result}
+              </span>
+              <p className="mt-2.5 text-[13px] text-muted-foreground">{r.note}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ---- needs attention ---- */}
+      <section className="mx-auto max-w-[88rem] px-5 pt-16 md:px-10">
+        <div className="flex flex-wrap items-baseline justify-between gap-4">
+          <h2 className="font-display text-2xl font-bold">Needs attention before Mintek</h2>
           <span className="label-caps">{NEEDS_ATTENTION.length} open items</span>
         </div>
         <p className="mt-2 max-w-2xl text-sm text-muted-foreground">
-          Internal preparation targets, not organiser-issued deadlines. Nothing here is marked done
-          from a plan alone — each needs its own evidence before it's closed. All times SAST
+          Internal preparation targets, not organiser-issued deadlines. All times SAST
           (Africa/Johannesburg) unless noted.
         </p>
         <div className="mt-6 divide-y divide-rule border border-border">
@@ -284,52 +245,11 @@ function WarRoom() {
         </div>
       </section>
 
-      {/* ---- timeline ---- */}
-      <section className="mx-auto max-w-[88rem] px-5 pt-16 md:px-10">
-        <div className="overflow-x-auto">
-          <div className="grid min-w-[36rem] grid-cols-3 gap-px bg-rule border border-rule">
-            {TIMELINE.map((t) => (
-              <div key={t.name} className="bg-paper p-5">
-                <p className="font-mono text-xs font-semibold tabular-nums text-accent">
-                  {t.day.toUpperCase()}
-                </p>
-                <p className="mt-1.5 font-display text-base font-bold leading-tight">{t.name}</p>
-                <p className="mt-1 text-[13px] text-muted-foreground">{t.venue}</p>
-                <span className="mt-3 inline-block border border-border px-2 py-1 font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
-                  Judged · {t.who}
-                </span>
-                {t.flag && (
-                  <p className="mt-2.5 flex items-center gap-1.5 font-mono text-[11px] text-critical">
-                    <span aria-hidden>▲</span> {t.flag}
-                  </p>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="paper-panel mt-8 border-l-[3px] border-l-accent p-6 md:p-7">
-          <p className="label-caps text-accent">The one thing to internalise before 17 September</p>
-          <p className="mt-2.5 max-w-3xl text-[15px] leading-relaxed">
-            <strong className="font-semibold">GovTech, Geekulcha and Mintek</strong> are all the
-            same game: a human panel scores narrative, feasibility and how well you present. Walking
-            into any of these three with a heads-down-building, no-rehearsed-demo mindset is the
-            most avoidable way to lose ground in all of them.
-          </p>
-          <p className="mt-2 max-w-3xl text-sm text-muted-foreground">
-            Source: this board's own Playbook, cross-checked against public judging notes for each
-            organiser below.
-          </p>
-        </div>
-      </section>
-
-      {/* ---- dossiers ---- */}
+      {/* ---- dossier ---- */}
       {DOSSIERS.map((d) => (
         <section key={d.n} className="mx-auto max-w-[88rem] scroll-mt-24 px-5 pt-16 md:px-10">
           <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-            <h2 className="font-display text-2xl font-bold">
-              {d.n} · {d.name}
-            </h2>
+            <h2 className="font-display text-2xl font-bold">{d.name}</h2>
             <span className="label-caps tabular-nums">{d.tagline}</span>
           </div>
 
@@ -374,43 +294,10 @@ function WarRoom() {
         </section>
       ))}
 
-      {/* ---- sources ---- */}
-      <section className="mx-auto max-w-[88rem] px-5 pt-16 md:px-10">
-        <h2 className="font-display text-2xl font-bold">Primary sources</h2>
-        <ul className="mt-4 space-y-2 text-sm">
-          <li>
-            <a
-              href="https://www.govtech.gov.za/wp-content/uploads/2026/07/GovTech-2026-Hackathon-Terms-and-Condition.pdf"
-              target="_blank"
-              rel="noreferrer"
-              className="text-accent underline underline-offset-2 hover:opacity-80"
-            >
-              GovTech 2026 official terms and conditions (PDF)
-            </a>{" "}
-            <span className="text-muted-foreground">
-              — checked 14 Sept; still lists 17–19 September and online attendance as an option
-            </span>
-          </li>
-          <li>
-            <a
-              href="https://sonke.gklink.co/event/gkhack26"
-              target="_blank"
-              rel="noreferrer"
-              className="text-accent underline underline-offset-2 hover:opacity-80"
-            >
-              Geekulcha #GKHack26 official event page
-            </a>{" "}
-            <span className="text-muted-foreground">
-              — schedule and judging criteria read from the team dashboard, 20 Sept
-            </span>
-          </li>
-        </ul>
-      </section>
-
       {/* ---- mindset ---- */}
       <section className="mx-auto max-w-[88rem] px-5 pt-16 md:px-10">
         <div className="flex flex-wrap items-baseline justify-between gap-4">
-          <h2 className="font-display text-2xl font-bold">Running all three without breaking</h2>
+          <h2 className="font-display text-2xl font-bold">Before the last weekend</h2>
           <span className="label-caps">From SONAR's own Playbook</span>
         </div>
         <div className="mt-6 grid grid-cols-1 gap-px border border-rule bg-rule sm:grid-cols-2">
