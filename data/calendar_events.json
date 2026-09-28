@@ -47,7 +47,21 @@
 
     { "id": "govtech", "kind": "event", "summary": "SITA GovTech 2026 Hackathon — SELECTED, remote", "start": "2026-09-17", "end": "2026-09-21", "all_day": true, "reminders": [10080, 1440], "description": "17-20 Sept, remote/online (changed 11 Sept from in-person Durban ICC). Entity: PILOT CORE (PTY) LTD. Attendance RSVP was due 11 Sept — confirm it was sent. Public terms PDF still lists 17-19 Sept and allows online attendance; treat 17-20 as the team's later, recorded instruction pending written reconciliation. Output terms are an assignment (clause 4.2.1), not just a licence — read 4.2.1-4.2.5 before reusing any existing component.\nT&Cs: https://www.govtech.gov.za/wp-content/uploads/2026/07/GovTech-2026-Hackathon-Terms-and-Condition.pdf" },
 
-    { "id": "geekulcha-event", "kind": "event", "summary": "Geekulcha Annual Hackathon #GKHack26 — SELECTED, physical", "start": "2026-09-25T16:00", "end": "2026-09-27T15:00", "reminders": [10080, 1440], "description": "BCX HQs, Centurion. Selected out of 394 teams. Recorded track: V.U.K.A., Blockchain for Impact — confirm against the current \"Build for Use\" 2026 brief before build weekend, since the public subtheme list differs from the recorded track. Selection email named three gaps to close first: consumer-facing framing, a WBS, TRL 4.\nBrief: https://sonke.gklink.co/event/gkhack26" },
+    { "id": "geekulcha-event", "kind": "event", "summary": "Geekulcha Annual Hackathon #GKHack26 - SELECTED, physical", "start": "2026-09-25T16:00", "end": "2026-09-27T15:00", "reminders": [10080, 1440], "description": "BCX HQs, Centurion. Arrive 14:00-15:30 with ID, kickoff 16:00. Track: Blockchain for Impact Use (20 teams), project V.U.K.A. Field up to 148 teams. Judging: Innovation 15, Technical 15, Business and Presentation 15, Usability 10, Security and Ethics 10, quantum bonus 5. Brief: https://sonke.gklink.co/event/gkhack26" },
+
+    { "id": "geekulcha-problem-statement", "kind": "prep", "summary": "Geekulcha: problem statement with mentors (max 2 paragraphs, real data)", "start": "2026-09-25T19:00", "end": "2026-09-25T20:00", "reminders": [60], "description": "Cite a credible data source or lived experience." },
+
+    { "id": "geekulcha-devlabs", "kind": "event", "summary": "Geekulcha: DevLabs workshops - every team represented", "start": "2026-09-26T11:00", "end": "2026-09-26T12:00", "reminders": [60], "description": "Split members across parallel sessions." },
+
+    { "id": "geekulcha-ssdlc", "kind": "deadline", "summary": "DEADLINE: Geekulcha updated SSDLC (security)", "start": "2026-09-26T12:30", "end": "2026-09-26T12:35", "reminders": [60, 15], "description": "Submit on Sonke, 12:29-12:30 window." },
+
+    { "id": "geekulcha-warroom", "kind": "event", "summary": "Geekulcha War Room - 12 min with panel", "start": "2026-09-26T14:00", "end": "2026-09-26T17:00", "reminders": [60], "description": "Room allocation comes by email." },
+
+    { "id": "geekulcha-lbc", "kind": "deadline", "summary": "DEADLINE: Geekulcha Lean Business Canvas (with figures)", "start": "2026-09-26T21:30", "end": "2026-09-26T21:35", "reminders": [120, 30], "description": "Fill in on Sonke with real numbers (price, funding needed)." },
+
+    { "id": "geekulcha-submission", "kind": "deadline", "summary": "DEADLINE: Geekulcha FINAL SUBMISSION 09:00 SAST", "start": "2026-09-27T08:30", "end": "2026-09-27T09:00", "reminders": [720, 120, 30], "description": "Slides (>10: problem, solution, user journey, architecture, competitors, data privacy) + demo video under 90 s. No submission = no pitch, finale or prizes." },
+
+    { "id": "geekulcha-pitch", "kind": "event", "summary": "Geekulcha 3-minute sales pitch, then top-12 finale 13:15", "start": "2026-09-27T10:00", "end": "2026-09-27T12:30", "reminders": [60], "description": "Panel decides pay half / pay full / not buying, which sets the top 12. Finale 13:15-15:30: 5 min demo + 3 min Q&A." },
 
     { "id": "mintek-event", "kind": "event", "summary": "Mintek-SCi Grad Hackathon — build day", "start": "2026-10-01T08:00", "end": "2026-10-01T14:10", "reminders": [10080, 1440, 60], "description": "200 Malibongwe Drive, Randburg. Report/build from 08:00, submission closes 13:00, present 14:00 for 10 minutes. Project: REEFPRINT. R50,000 pool (R25k/R15k/R10k). Followed by the mandatory SCI Conference on 2 Oct." },
 

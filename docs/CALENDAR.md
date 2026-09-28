@@ -48,7 +48,14 @@ Importable file: [`../calendar/sonar-2026.ics`](../calendar/sonar-2026.ics)
 | Wed 23 | all day | GovTech winners announced (Awards Ceremony — separate from the hackathon) | reward |
 | Sun 13 | 23:59 | Zindi "A Step Ahead of Drought" (ITU) closes, €2 000 — **recorded, not entered**: 430 already active | deadline |
 | Tue 8 – Thu 17 | — | Geekulcha #GKHack26 build-up webinars | prep |
-| **Fri 25** | 16:00 – Sun 27, 15:00 | **Geekulcha Annual Hackathon #GKHack26 — SELECTED, physical, BCX HQs Centurion** (out of 394 teams). Track: Blockchain for Impact, project V.U.K.A. Prep: consumer-facing framing, WBS, TRL 4 | event |
+| **Fri 25** | 16:00 – Sun 27, 15:00 | **Geekulcha Annual Hackathon #GKHack26 — SELECTED, physical, BCX Centurion, 1266 South Road** (arrive 14:00, ID needed; up to 148 teams, 394 applied). Track: Blockchain for Impact Use (20 teams), project V.U.K.A. Judging: Innovation 15, Technical 15, Business and Presentation 15, Usability 10, Security and Ethics 10, quantum bonus 5. Prep: consumer-facing framing, WBS, TRL 4 | event |
+| Fri 25 | 19:00–20:00 | Geekulcha: problem statement with mentors (max 2 paragraphs, real data) | prep |
+| Sat 26 | 11:00–12:00 | Geekulcha DevLabs — every team represented | event |
+| **Sat 26** | 12:30 | **DEADLINE — Geekulcha updated SSDLC** | deadline |
+| Sat 26 | 14:00–17:00 | Geekulcha War Room — 12 min with panel (room by email) | event |
+| **Sat 26** | 21:30 | **DEADLINE — Geekulcha Lean Business Canvas** (with real figures) | deadline |
+| **Sun 27** | 09:00 | **DEADLINE — Geekulcha FINAL SUBMISSION** (slides >10 + demo video <90 s; no submission = no pitch/finale/prizes) | deadline |
+| Sun 27 | 10:00–12:30 | Geekulcha 3-minute sales pitch (sets the top 12); finale 13:15–15:30 | event |
 
 ---
 

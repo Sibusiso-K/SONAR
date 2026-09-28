@@ -9,6 +9,14 @@
   },
   "updates": [
     {
+      "at": "2026-09-20T12:00:00+02:00",
+      "kind": "verified",
+      "target": "geekulcha-2026",
+      "title": "Geekulcha: platform read - schedule, judging criteria, field size",
+      "body": "Read first-hand from Sibusiso's logged-in Sonke session on 20 Sept 2026 (read-only). Judging criteria: Innovation and Creativity 15, Technical Implementation 15, Business and Presentation 15, Usability and Design 10, Security and Ethics 10, plus a 5-point quantum-tech bonus. Final submission is Sun 27 Sep 09:00 SAST (no submission means no pitch, finale or prizes); 3-minute sales pitch decides the top 12. Field is up to 148 teams (394 applied); Blockchain for Impact Use track has 20 teams. Platform lists 7 members on team SONAR versus 3 recorded here - flagged, not reconciled. Header time (15:00-16:00) still disagrees with the selection email and guidelines (16:00 kickoff); email/guidelines trusted.",
+      "by": "Sibusiso K"
+    },
+    {
       "at": "2026-09-11T10:00:00+02:00",
       "kind": "changed",
       "target": "govtech-2026",

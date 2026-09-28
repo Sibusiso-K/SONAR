@@ -99,17 +99,18 @@ const DOSSIERS: Dossier[] = [
     tagline: "BCX HQs Centurion · selected, physical",
     meta: "Docs: 9 of 9 submitted · Sponsors: Telkom · CPSI · Red Bull",
     when: "FRI 25, 16:00 – SUN 27, 15:00",
-    what: "V.U.K.A. — Blockchain for Impact (recorded track; confirm against the current brief)",
+    what: "V.U.K.A. — Blockchain for Impact Use, one of 8 tracks (20 teams), up to 148 teams",
     wins: {
-      text: "The current organiser brief for 2026 is Build for Use: usability, an identified user and validated problem, security, sustainability and measurable impact — not the 2025 theme this page previously reasoned from. Its public subtheme list differs from the Blockchain for Impact track recorded here; confirm which track V.U.K.A. is actually entered under rather than assuming the recorded one still applies. The selection email's separate request — consumer-facing framing, a WBS, TRL 4 — stands regardless of which subtheme is confirmed.",
-      source: "Official Geekulcha 2026 event page, checked 14 Sept",
+      text: "Scored out of 65 plus a 5-point bonus: Innovation and Creativity 15, Technical Implementation 15, Business and Presentation 15, Usability and Design 10, Security and Ethics 10, and up to 5 for use of quantum tech. The organiser frames the weekend as Build for Use: identified users, a validated problem, security, sustainability and measurable impact. The gate to the top 12 is a 3-minute sales pitch where the panel decides to pay half, pay full or not buy at all, so a fundable story matters as much as the build. No submission by 09:00 Sunday means no pitch, no finale and no prizes.",
+      source:
+        "Sonke team dashboard, read 20 Sept (judging criteria and guidelines); official event page",
     },
     assets: [
       "Every required document already filed: pitch deck, gap analysis, SLDC, full system architecture",
       "A direct steer from the organiser's own selection email, which is rare and worth following literally",
     ],
     risk: "The selection email names three specific gaps: V.U.K.A. currently reads as more AI-driven than consumer-facing, has no work breakdown structure yet, and needs to reach Technology Readiness Level 4 before the 25th. None of those three are done as of this page — submitted documents establish that a plan exists, not that the prototype or its TRL4 evidence do.",
-    move: "Confirm the current track against the Build for Use brief before finalising the pitch. Rewrite the one-line pitch so a non-technical judge hears “what this does for someone,” not “what model it runs.” Produce the WBS. Push the prototype to TRL 4 and keep the evidence (test procedure, environment, results) that shows it, not just the claim. All of this is homework, not hackathon-weekend work.",
+    move: "Hold the cutoffs: Fri 19:00 problem statement (max 2 paragraphs, cite real data); Sat 11:00 DevLabs (split members across sessions); Sat 12:30 updated SSDLC; Sat 14:00 War Room (12 min); Sat 21:30 Lean Business Canvas with real figures; Sun 09:00 final submission (slides over 10 plus a demo video under 90 seconds; name one or two people to own it); Sun 10:00 3-minute pitch: 20 seconds of evidence, the solution, what it costs and what you need, why it stands out, a 50-second demo. Rewrite the one-line pitch so a non-technical judge hears “what this does for someone,” not “what model it runs.” Produce the WBS. Push the prototype to TRL 4 and keep the evidence (test procedure, environment, results) that shows it, not just the claim. All of this is homework, not hackathon-weekend work.",
   },
   {
     n: 3,
@@ -190,8 +191,14 @@ const NEEDS_ATTENTION: ActionItem[] = [
   {
     severity: "warning",
     title: "Push V.U.K.A. to TRL 4 + write the WBS",
-    note: 'Named directly in Geekulcha\'s own selection email; confirm the current "Build for Use" track first',
+    note: "Named in Geekulcha's selection email. The platform lists 7 members on team SONAR (board records 3), so confirm who is attending",
     due: "Before 25 Sep",
+  },
+  {
+    severity: "critical",
+    title: "Geekulcha: name the submission owners and build the slides + demo video",
+    note: "Slides over 10 and a demo video under 90 seconds, final submission Sun 27 Sep 09:00 SAST. No submission means no pitch, finale or prizes",
+    due: "Sun 27 Sep 09:00",
   },
   {
     severity: "warning",
@@ -394,7 +401,7 @@ function WarRoom() {
               Geekulcha #GKHack26 official event page
             </a>{" "}
             <span className="text-muted-foreground">
-              — checked 14 Sept; current theme is "Build for Use"
+              — schedule and judging criteria read from the team dashboard, 20 Sept
             </span>
           </li>
         </ul>
