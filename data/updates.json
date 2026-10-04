@@ -9,6 +9,54 @@
   },
   "updates": [
     {
+      "at": "2026-10-04T16:30:00+02:00",
+      "kind": "system",
+      "target": null,
+      "title": "Discovery sweep: 4 added, Nedbank YouthX closes Friday; the automated sweep was dead for 3 weeks",
+      "body": "Manual sweep across every monitoring source plus the two Sibusiso asked for (FNB and Nedbank YouthX). Added: nedbank-youthx-awards-2026 (6.7, closes 9 Oct), kaggle-gemma4-agent-paper-2026 (6.3, 12 Nov), paypal-ai-hackathon-2026 (5.6, 12 Nov), qloo-agentic-hackathon-2026 (5.35, 30 Oct). Archived as passed without an entry: AI Infra Summit (15-16 Sept) and WBG Small AI (3-4 Oct); MiWay HACKATHON26 (Jun-Jul) logged as over before the board noticed it and diarised for 2027. Everything checked and rejected, with reasons, is in docs/SOURCES.md. Separately: the automated Watch sources workflow had failed on all 74 runs since 14 Sept - a column the 14 Sept review fix started reading (observations.event_name) was never migrated, and Groq retired the extraction model (llama-3.1-8b-instant). Both fixed and re-verified (9 pages fetched, 6 span-verified candidates); migration 0007 still needs applying by hand for event-level deduplication. Zindi now renders only its site shell to signed-out visitors, so its two tracked competitions could not be rechecked.",
+      "by": "Sibusiso K"
+    },
+    {
+      "at": "2026-10-04T16:25:00+02:00",
+      "kind": "added",
+      "target": "nedbank-youthx-awards-2026",
+      "title": "Added: Nedbank YouthX Awards 2026 - R675k across ten places, closes Fri 9 Oct",
+      "body": "Requested by Sibusiso. Read from Nedbank's own 2026 T&Cs: entries 14 Aug - 9 Oct (closing time not stated), individuals aged 18-26 with an SA ID and a qualifying Nedbank account in good standing, collaborators credited but the prize paid to the entrant. R250k / R120k / R60k for the top 3 (plus One Young World Summit tickets), R35k each for 4th-10th. Four judging rounds; the top 10 pitch at 135 Rivonia and the winners are named on 21 Nov at Constitution Hill. Live since 14 Aug, so the board missed it for seven weeks. Two eligibility facts only the team can confirm: age, and a qualifying account each.",
+      "by": "Sibusiso K"
+    },
+    {
+      "at": "2026-10-04T16:20:00+02:00",
+      "kind": "changed",
+      "target": "fnb-aoty-2026",
+      "title": "FNB App of the Year: 2026 problem statements published, still no dates",
+      "body": "Requested by Sibusiso. The official site is back (it was returning 500/404 in August) and is the main link again. It lists six 2026 problem statements, replacing the 2025 set this entry was carrying. Geekulcha links 'FNB HACKATHON 2026' to the same page. No 2026 dates or registration window are published anywhere checked; late October is still inferred from 24 Oct 2025. Urgency 4 -> 5, score 6.45 -> 6.6: pre-building against the statements can start now.",
+      "by": "Sibusiso K"
+    },
+    {
+      "at": "2026-10-04T16:15:00+02:00",
+      "kind": "changed",
+      "target": "rsna-knee-2026",
+      "title": "RSNA Knee: entered (repo evidence); field now 5,112 teams",
+      "body": "Sibusiso-K/RSNA-Knee-Abnormality-Detection shows training on the competition data through 23 Sept (a 0.893 ensemble), and Kaggle only releases the data to entrants: status open -> registered. Field up from 640 teams at day 3 to 5,112: winnability 3 -> 2. Urgency 7 -> 8 (entry/merger 15 Oct, final 22 Oct, final week collides with BCG). Score 6.2 -> 6.05.",
+      "by": "Sibusiso K"
+    },
+    {
+      "at": "2026-10-04T16:10:00+02:00",
+      "kind": "changed",
+      "target": "unesco-youth-2026",
+      "title": "UNESCO Youth Hackathon: did not place",
+      "body": "Reported by Sibusiso 4 Oct 2026 (results were expected mid-September). Status submitted -> past, with a past-results record; the November final in Thessaloniki no longer applies and its calendar placeholder is retitled.",
+      "by": "Sibusiso K"
+    },
+    {
+      "at": "2026-10-04T16:05:00+02:00",
+      "kind": "verified",
+      "target": "mintek-sci-2026",
+      "title": "Mintek: TOP 5 FINALIST - through to the round where winners are named",
+      "body": "Reported by Sibusiso 4 Oct 2026: the team is one of the five finalists named at the 2 Oct SCI Conference. Per the KHANYA repo's record of the rules, finalists now go through originality/AI-generation authentication and MOTT's IP assessment before the winners are announced; no winners date is published or recorded yet. Winnability 8 -> 9 (three cash prizes across five finalists), score 7.95 -> 8.25. The project is KHANYA (github.com/Sibusiso-K/KHANYA); the board had only the abstract's REEFPRINT name.",
+      "by": "Sibusiso K"
+    },
+    {
       "at": "2026-09-28T10:00:00+02:00",
       "kind": "verified",
       "target": "ibm-devday-bob-2026",

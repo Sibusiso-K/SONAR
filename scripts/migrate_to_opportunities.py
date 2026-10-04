@@ -42,6 +42,9 @@ KIND = {
     "nasa-space-apps-2026": "hackathon",
     "zindi-road-barbados-2026": "ml_competition",
     "zindi-bias-bounty-2026": "ml_competition",
+    "sme-toolkit-business-plan-2026": "competition",
+    "nedbank-youthx-awards-2026": "competition",
+    "kaggle-gemma4-agent-paper-2026": "ml_competition",
 }
 
 # Career value beyond the prize. This is what "things around hackathons and
@@ -56,6 +59,8 @@ CAREER_TRACK = {
     "adtc-2026": "adjacent",             # residency + XPrize pathway
     "zindi-road-barbados-2026": "adjacent",   # Zindi's jobs board recruits off leaderboard rank
     "zindi-bias-bounty-2026": "adjacent",
+    "nedbank-youthx-awards-2026": "adjacent",      # enterprise mentorship + One Young World
+    "kaggle-gemma4-agent-paper-2026": "adjacent",  # NeurIPS expo, citable research
 }
 
 DEADLINE_KEYS = (
