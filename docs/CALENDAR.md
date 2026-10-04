@@ -41,7 +41,7 @@ Importable file: [`../calendar/sonar-2026.ics`](../calendar/sonar-2026.ics)
 | Wed 2 – Thu 3 | 09:30 – 12:00 | **MTN MoMo 24-Hour Mini App Hackathon — COMPETED, did not place.** The Forum, Bryanston. Idea: AMAZWI (Lethabo), Track 2 | event |
 | **Mon 7** | all day | **DEADLINE — BCG Platinion application** *(treat as the real one)* — submitted on time | deadline |
 | Sun 13 | all day | BCG Platinion — stated deadline (backstop only) | deadline |
-| Tue 15 – Wed 16 | — | AI Infra Summit Hackathon, Santa Clara CA *(on-site invitation-only; online track separate, no on-site travel planned)* | event |
+| Tue 15 – Wed 16 | — | AI Infra Summit Hackathon, Santa Clara CA *(on-site invitation-only)* — **not entered**, archived 4 Oct | event |
 | **Wed 9** | — | **DO NOW — reply to SITA confirming GovTech attendance**, due 11 Sept | deadline |
 | Sat 12 | 10:00–15:00 | **Entelect Hack\<IT\> Community Cup — entered solo, R70,000.** **RESULT: did not place** (reported 28 Sept) | event |
 | Thu 17 – Sun 20 | all day | **SITA GovTech 2026 Hackathon — remote/online, PILOT CORE (PTY) LTD.** **RESULT: did not place** (reported 28 Sept) | event |
@@ -63,17 +63,20 @@ Importable file: [`../calendar/sonar-2026.ics`](../calendar/sonar-2026.ics)
 
 | Date | Time | What | Type |
 |---|---|---|---|
-| **Thu 1** | 08:00–16:00 | **MINTEK FINAL HACKING DAY — in person, Mintek, 200 Malibongwe Drive, Randburg.** 08:00 report & build · **13:00 submission closes** · 14:00 presentations, 10 min/team | event |
-| Thu 1 | all day | **DEADLINE — IBM Z Datathon registration** (late = waitlist) | deadline |
-| **Fri 2** | all day | **Mintek SCI Conference — mandatory attendance, separate registration.** Five finalists announced; originality authentication follows | event |
+| Thu 1 | 08:00–16:00 | **MINTEK FINAL HACKING DAY — Mintek, Randburg. RESULT: TOP 5 FINALIST** (KHANYA). Next round: originality authentication, then MOTT's IP assessment, then winners — date not yet published | event |
+| Thu 1 | all day | IBM Z Datathon registration closed — **no registration on record: verify** (late = waitlist) | deadline |
+| Fri 2 | all day | Mintek SCI Conference — **team named in the Top 5.** Originality authentication follows | event |
 | Sat 3 – Sun 4 | 09:00–17:00 | RSNA Kaggle sprint — reuse ADTC efficiency work | prep |
-| **Mon 5** | 23:59 | **DEADLINE — Zindi R.O.A.D. Barbados Handwriting ($25 000).** Freeze by 29 Sept: this close sits 4 days after the fourth back-to-back hackathon weekend (Mintek) | deadline |
-| Thu 15 | all day | **DEADLINE — RSNA Knee Detection entry / team merger** | deadline |
+| Mon 5 | 23:59 | Zindi R.O.A.D. Barbados Handwriting ($25 000) closes — **no entry on record** | deadline |
+| Tue 6 | 18:00–20:30 | **YouthX: confirm eligibility (age 18–26, qualifying Nedbank account) + write the 350-word entry** | prep |
+| **Fri 9** | all day | **DEADLINE — Nedbank YouthX Awards.** R675k cash across ten places (R250k / R120k / R60k, R35k for 4th–10th). Individual entries, 18–26, SA ID, qualifying Nedbank account. **No closing time stated — submit by midday** | deadline |
+| Thu 15 | all day | **DEADLINE — RSNA Knee Detection entry / team merger** *(team entered — repo evidence; field 5,112 teams)* | deadline |
 | **Fri 16 – Sat 17** | all day | **BCG Platinion Hackathon — Johannesburg** ← the one that matters | event |
 | Sat 17 – Sun 18 | all day | IBM Z Datathon *(clashes with BCG — backup only)* | event |
 | Thu 22 | all day | **DEADLINE — RSNA Knee Detection final submission** | deadline |
-| Fri 23 – Sun 25 | all day | FNB App of the Year Hackathon — **expected window, VERIFY** | event |
-| Mon 26 – Thu 29 | all day | IBM TechXchange 2026, Atlanta *(only if we place top 50)* | reward |
+| Fri 23 – Sun 25 | all day | **FNB App of the Year Hackathon — TARGET.** Dates still unpublished; this window is placed from 2025 (24 Oct). The six 2026 problem statements are out — pre-build | event |
+| Mon 26 – Thu 29 | all day | IBM TechXchange 2026, Atlanta — **3rd place at IBM Dev Day is inside the top 50**, which the prize terms say earns a conference pass per team member (travel and lodging not covered). Check the winner email for passes, then decide | reward |
+| **Sat 31** | 05:45 | **DEADLINE — Qloo Agentic Hackathon ($25,000).** Submit on Fri 30 | deadline |
 
 ---
 
@@ -82,10 +85,13 @@ Importable file: [`../calendar/sonar-2026.ics`](../calendar/sonar-2026.ics)
 | Date | What | Type |
 |---|---|---|
 | **Sun 1 Nov** | **DEADLINE — Zindi Bias Bounty Mapping Equity ($10,000).** Briefly 404'd 31 Aug (platform-side), confirmed live again 3 Sept with 626 participants | deadline |
+| **Thu 12 Nov, 22:00** | **DEADLINE — PayPal AI Hackathon ($67,500)** | deadline |
+| **Fri 13 Nov, 01:59** | **DEADLINE — Gemma 4 Developer Agent Paper Track ($35,000).** Submit on Thu 12 | deadline |
 | Thu 12 – Sat 14 Nov | W3Node Conference & Hackathon, Cape Town *(free entry; Web3-focused, not the team's stack)* | event |
 | Sat 14 – Sun 15 Nov | NASA International Space Apps Challenge — **registered, Pretoria** | event |
 | **Mon 30 Nov** | **DEADLINE — SME Toolkit SA Business Plan Competition, final submission.** Two individual plans due: Karoo Compute (Sibusiso), Indlela AI (Lethabo). 10 finalists advance to interviews. | deadline |
-| Thu 26 – Sat 28 Nov | UNESCO Voices Festival, Thessaloniki *(only if we win)* | reward |
+| Sat 21 Nov | Nedbank YouthX Awards, Constitution Hill *(only if top 10)* | reward |
+| ~~Thu 26 – Sat 28 Nov~~ | ~~UNESCO Voices Festival, Thessaloniki~~ — UNESCO Youth Hackathon did not place, so this no longer applies | — |
 | Sun 29 Nov – Thu 3 Dec | RSNA 2026 Annual Meeting, Chicago — winners recognised | reward |
 | Mon 14 Dec, 09:00–12:00 | **Full-year retro + build the 2027 board** | review |
 
@@ -101,6 +107,7 @@ Importable file: [`../calendar/sonar-2026.ics`](../calendar/sonar-2026.ics)
 | **Entelect Hack\<IT\> (12 Sept) vs everything after it** | DROPPED 10 Sept: RevenueCat Shipaton, which had a build sprint booked directly across Entelect's 10:00–15:00 window on the 12th, is no longer being entered. Team decided not to run four hackathon weekends plus a fifth background competition in parallel. |
 | **Four hackathons, four weekends running: Entelect (12 Sept) → GovTech (17–20 Sept) → Geekulcha (25–27 Sept) → Mintek (1–2 Oct)** | The actual capacity risk on the board now. See `/war-room` on the live site for the event-by-event prep plan. Sleep and recovery between events matters more than any single day's execution. |
 | **SME Toolkit's final business plan (30 Nov) vs the rest of the board** | No overlap today — nothing else is scheduled around 30 Nov. Revisit once the RSNA/FNB October crunch has a firmer shape; two individual plans (not a team deliverable) are lower-risk to slot in late if needed. |
+| **12–13 Nov: PayPal AI (22:00) + Gemma 4 paper track (01:59), then W3Node (12–14) and NASA (14–15)** | Two deadlines on the same day straight into a registered hackathon. Pick at most one of the 12 Nov deliverables: the Gemma paper suits the team's evidence-first writing and BobSwarm work, PayPal suits shipped payment flows (MoyaMoya, MoMo). NASA is registered — protect it. |
 | **W3Node (12–14 Nov, Cape Town) vs NASA Space Apps (14–15 Nov)** | Both Tier 3, both new/opportunistic. W3Node ends the same day NASA starts — physically impossible to do both in person. Neither is a priority; pick one only if capacity allows, per Standing Agreement 1. |
 
 ---
@@ -111,19 +118,22 @@ These have no confirmed 2026 dates. They live in the Monday review, not the cale
 
 - **MTN MoMo Mini App** — **RESOLVED, on the calendar now.** Selected, in person, 2–3 Sept, Bryanston. Confirmation email received 28 Aug 2026 also settled the 24 Aug eligibility question in full: the confirmed South African in-person venue cannot be the same programme as the separate Ghana/Uganda/Côte d'Ivoire/Cameroon/Zambia-only "3rd MoMo Open API Hackathon" (idea phase 21 Oct–8 Dec), so the two are confirmed as distinct MTN contests.
 - **Entelect Hack\<IT\> Community Cup** — save-the-date only (12 Sept, R70,000). A second, distinct Entelect event from University Cup 2. Registration not yet open as of 28 Aug; eligibility ("Community Cup" vs "University Cup" — student-only or open?) unpublished. Weekly check from 1 Sept.
-- **Huawei ICT 2026–27** — registration usually opens September–November.
-- **Zindi** — rolling; check every Monday sorted by "Closing soon." **The individual open competitions now get their own dated rows** (R.O.A.D. Barbados, Bias Bounty). Keeping Zindi as one undated row is what hid a $25 000 competition for seven weeks.
-- **Nedbank N*ovation Hackathon** — **closed, and not expected.** The only known edition ran **8–9 November 2025** with applications closed 31 Oct 2025. The apply page has not been touched since: 2025 title, 2025 dates, 2025 copyright, no mention of 2026. Filed under past. Kept as a source to watch, but **nothing is scheduled and no annual cycle is assumed** — one edition is not a pattern.
-- **DIRISA Student Datathon (CSIR)** — South African, student/graduate, Altron and ALX Africa sponsor it. Site still says "SDC 2025 / more information to be confirmed". Monthly check.
-- **HackOn** — SA community hackathon series, "watch this space for new events coming soon". Weekly check.
+- **Mintek next round** — Top 5 confirmed; the winners date isn't published. Originality authentication and MOTT's IP assessment come first. Add the date the moment Mintek sends it.
+- **Huawei ICT 2026–27** — the cycle is live in SA (UNISA ran a registration roadshow on 25 Aug 2026), but the 2026–27 registration deadline wasn't found; last cycle's Southern Africa deadline was 20 Dec 2025. Check the Huawei Talent portal.
+- **Zindi** — rolling; check every Monday sorted by "Closing soon." **The individual open competitions now get their own dated rows** (R.O.A.D. Barbados, Bias Bounty). Keeping Zindi as one undated row is what hid a $25 000 competition for seven weeks. **As of 4 Oct, Zindi renders only its site shell to signed-out visitors** — the weekly check now needs a logged-in browser.
+- **Nedbank N*ovation Hackathon** — **closed, and not expected.** The only known edition ran **8–9 November 2025** with applications closed 31 Oct 2025. The apply page has not been touched since: 2025 title, 2025 dates, 2025 copyright, no mention of 2026. Filed under past. Kept as a source to watch, but **nothing is scheduled and no annual cycle is assumed** — one edition is not a pattern. (Nedbank's youth programme, **YouthX**, is a separate competition and is on the calendar for Fri 9 Oct.)
+- **DIRISA Student Datathon (CSIR)** — South African, student/graduate, Altron and ALX Africa sponsor it. Site still says "SDC 2025 / more information to be confirmed"; an "SDC 2026" section now exists in its navigation, still without dates. Monthly check.
+- **HackOn** — SA community hackathon series. Still stale on 4 Oct: the newest listing is from January 2025. Weekly check.
 
 ## 2027 — diarise now
 
 | Approx. window | Event |
 |---|---|
 | Feb (registration) → June (event) | ITWeb Security Summit Hackathon (#SS27HACK) — with Geekulcha, Sandton |
+| March (entries, by puzzle) → late June (event) | MiWay HACKATHON — Centurion; final-year/Honours/new grads in actuarial or data science. 2026 edition missed |
 | March | MICT SETA National Skills Challenge — R200,000 pool |
 | April | Entelect University Cup |
 | July | Monkey and River Hackathon, Centurion — R50,000+ |
 | July (applications) → Oct (submit) | Mintek-SCi Grad Hackathon |
 | Sept | Huawei ICT Competition 2027–28 |
+| Aug (entries) → Oct (close) → Nov (awards) | Nedbank YouthX Awards — individual, ages 18–26, qualifying Nedbank account |

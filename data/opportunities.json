@@ -21,7 +21,7 @@
       "reported": "From a secondary source (news/aggregator); verify before relying on it",
       "unconfirmed": "Not yet announced for 2026; based on prior-year pattern"
     },
-    "generated": "2026-10-04T14:11:46Z",
+    "generated": "2026-10-04T14:15:38Z",
     "generator": "scripts/migrate_to_opportunities.py",
     "kinds": {
       "hackathon": "Build something in a fixed window",
@@ -215,7 +215,7 @@
         "bob_trial": "https://bob.ibm.com/trial",
         "ibm_developer": "https://developer.ibm.com/events/ibm-techxchange-2026-pre-conference-dev-day-hackathon/"
       },
-      "notes": "COMPETED as Team Sonar, built BobSwarm: a Bob 2.0 multi-agent orchestrator (Debugger/Documenter/Refactorer/Onboarding/Data-Lineage subagents via spawn_subagent) with a React dashboard, MCP server, and a benchmark run of 41 literal-evidence findings across 5 agent roles in ~94s, fully parallel. Team of five: Sibusiso (orchestrator/lead), Lethabo, Arisha, Mmopiemang, Farheen. Repo: github.com/Sibusiso-K/Sonar-BobSwarm-. Demo video recorded (youtu.be/c8LodAVNJ5s, unlisted). RESULT CONFIRMED 28 Sept 2026: official email from the organiser (\"We are excited to announce that you are a third-place winner of IBM TechXchange 2026 Pre-conference Dev Day Hackathon!\") - the earlier \"did the automation operator press Submit\" doubt is resolved: it clearly went through. Third place, not first, so no travel/TechXchange pass implied by this result alone (that was tied to 1st, and to being one of the top 50 qualified submissions more broadly per the original prize terms - not re-verified here).",
+      "notes": "COMPETED as Team Sonar, built BobSwarm: a Bob 2.0 multi-agent orchestrator (Debugger/Documenter/Refactorer/Onboarding/Data-Lineage subagents via spawn_subagent) with a React dashboard, MCP server, and a benchmark run of 41 literal-evidence findings across 5 agent roles in ~94s, fully parallel. Team of five: Sibusiso (orchestrator/lead), Lethabo, Arisha, Mmopiemang, Farheen. Repo: github.com/Sibusiso-K/Sonar-BobSwarm-. Demo video recorded (youtu.be/c8LodAVNJ5s, unlisted). RESULT CONFIRMED 28 Sept 2026: official email from the organiser (\"We are excited to announce that you are a third-place winner of IBM TechXchange 2026 Pre-conference Dev Day Hackathon!\") - the earlier \"did the automation operator press Submit\" doubt is resolved: it clearly went through. Third place, not first, so no travel/TechXchange pass implied by this result alone (that was tied to 1st, and to being one of the top 50 qualified submissions more broadly per the original prize terms - not re-verified here). CORRECTION 4 Oct 2026: the 28 Sept note above understated this. Third place is inside the top 50 qualified submissions, which the prize terms recorded on this entry say earns one IBM TechXchange 2026 conference pass per team member (Atlanta, 26-29 Oct); only travel and lodging (the 1st-place trip) are not covered. Check the winner email for pass details - the conference is three weeks out, so a go/no-go decision (and any visa question) is due now.",
       "kind": "hackathon",
       "career_track": "adjacent",
       "next_date": null,
@@ -1459,9 +1459,8 @@
       },
       "dates": {
         "start": "2026-09-22",
-        "submission_deadline": "2026-11-12",
-        "submission_deadline_utc": "2026-11-12T23:59:00+00:00",
-        "submission_deadline_label": "Writeup due 23:59 UTC (01:59 SAST on 13 Nov)",
+        "submission_deadline": "2026-11-13T01:59:00+02:00",
+        "submission_deadline_label": "Fri 13 Nov 01:59 SAST (organiser states 12 Nov 23:59 UTC)",
         "confidence": "confirmed",
         "source": "Kaggle competition overview and rules, read 4 Oct 2026"
       },
@@ -1479,7 +1478,7 @@
       "team_fit": "The closest research match on the board to work the team has already been judged on: BobSwarm (IBM Dev Day, 3rd place) is an evidence-grounded multi-agent developer tool, and the track's topics include new tasks/benchmarks and code comprehension. Main gap: the track centres on post-training open models (Gemma 4) into SWE agents on consumer hardware, which the team hasn't done - a paper needs new experiments, not a write-up of BobSwarm alone. Unpublished work only; the main leaderboard competition is optional.",
       "what_to_build": "A Kaggle Writeup of at most 3,000 words reporting original, unpublished research on agentic software engineering: title, abstract, introduction, methods and experiments, related work; optional public notebook or arXiv-ready PDF. Scored equally on novelty, quality (generality), relevance, verifiability and clarity. Suggested topics: PEFT/RL for SWE agents, code-graph comprehension, new tasks and benchmarks, graph reasoning.",
       "deliverables": [
-        "Kaggle Writeup (max 3,000 words) by 12 Nov 2026 23:59 UTC",
+        "Kaggle Writeup (max 3,000 words) by Fri 13 Nov 01:59 SAST",
         "Optional: public notebook or arXiv-ready PDF"
       ],
       "links": {
@@ -1489,9 +1488,9 @@
       "notes": "Found in the 4 Oct 2026 sweep: 118 teams on the paper track so far (3,291 entrants across the competition), against $65,000 / 1,674 teams on the main leaderboard track - the paper track is the smaller field. Same deadline as the PayPal AI Hackathon and two days before NASA Space Apps, so pick at most one of the 12 Nov deliverables. Scored: career leverage 8 (Google DeepMind judges, NeurIPS expo, a citable research write-up), winnability 4, prize 7, urgency 6.",
       "kind": "ml_competition",
       "career_track": "adjacent",
-      "next_date": "2026-11-12",
+      "next_date": "2026-11-13",
       "next_date_label": "submission deadline",
-      "days_remaining": 39,
+      "days_remaining": 40,
       "confidence": "confirmed",
       "lifecycle": "scored",
       "tracks": [],
@@ -1521,8 +1520,8 @@
       },
       "dates": {
         "start": "2026-10-01",
-        "submission_deadline": "2026-11-12T12:00:00-08:00",
-        "submission_deadline_label": "12:00 PT (22:00 SAST)",
+        "submission_deadline": "2026-11-12T22:00:00+02:00",
+        "submission_deadline_label": "Thu 12 Nov 22:00 SAST (organiser states 12:00 PT)",
         "confidence": "confirmed",
         "source": "Devpost official rules, read 4 Oct 2026"
       },
@@ -1541,7 +1540,7 @@
       "team_fit": "Payments is home ground: MoyaMoya (mobile payments with instant receipts) and the MTN MoMo mini-app build mean the team has shipped payment flows before. Eight cash places plus sponsor prizes widen the realistic target beyond the top 3.",
       "what_to_build": "An app that integrates the PayPal developer platform (free sandbox) with an AI tool of your choice. Submit a working demo, a public GitHub repo with an open-source licence, a video under 3 minutes and a text description. Judged equally on technological implementation, design, potential impact, innovation and presentation.",
       "deliverables": [
-        "Working demo + public repo (OSS licence) + video under 3 min + description, by 12 Nov 2026 12:00 PT"
+        "Working demo + public repo (OSS licence) + video under 3 min + description, by Thu 12 Nov 22:00 SAST"
       ],
       "links": {
         "main": "https://paypalaihackathon.devpost.com/",
@@ -1582,8 +1581,8 @@
       },
       "dates": {
         "start": "2026-09-30",
-        "submission_deadline": "2026-10-30T23:45:00-04:00",
-        "submission_deadline_label": "23:45 ET (05:45 SAST on 31 Oct)",
+        "submission_deadline": "2026-10-31T05:45:00+02:00",
+        "submission_deadline_label": "Sat 31 Oct 05:45 SAST (organiser states 30 Oct 23:45 ET)",
         "confidence": "confirmed",
         "source": "Devpost official rules, read 4 Oct 2026"
       },
@@ -1600,7 +1599,7 @@
       "team_fit": "Agent builds are the team's strongest recent track record: BobSwarm (3rd at IBM), Stokup's LangGraph agent and Ai-middleman. Qloo is a taste and recommendation API, which suits consumer-facing products.",
       "what_to_build": "A working app that integrates the Qloo API, as an agentic tool, inside an agent framework, or added to an existing agent. Submit a demo link, a public repo and a text description. Judged equally on technological implementation, design, potential impact and quality of the idea.",
       "deliverables": [
-        "Demo link + public repo + description, by 30 Oct 2026 23:45 ET"
+        "Demo link + public repo + description, by Sat 31 Oct 05:45 SAST"
       ],
       "links": {
         "main": "https://qloo.devpost.com/",
@@ -1609,9 +1608,9 @@
       "notes": "Found in the 4 Oct 2026 sweep: 380 registrants on day 5 - the smallest field among the open Devpost hackathons with a five-figure pool. Lands in the same fortnight as BCG, RSNA and the expected FNB window. Scored: career leverage 4 (small sponsor), winnability 5, prize 7, urgency 7.",
       "kind": "hackathon",
       "career_track": "none",
-      "next_date": "2026-10-30",
+      "next_date": "2026-10-31",
       "next_date_label": "submission deadline",
-      "days_remaining": 26,
+      "days_remaining": 27,
       "confidence": "confirmed",
       "lifecycle": "scored",
       "tracks": [],

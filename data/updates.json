@@ -9,6 +9,14 @@
   },
   "updates": [
     {
+      "at": "2026-10-04T17:20:00+02:00",
+      "kind": "changed",
+      "target": "ibm-devday-bob-2026",
+      "title": "IBM Dev Day: correction - 3rd place qualifies for TechXchange passes",
+      "body": "The 28 Sept result note said no TechXchange pass was implied by 3rd place. Wrong: the prize terms on this entry give one conference pass per team member to the top 50 qualified submissions, and 3rd is inside that. Only travel and lodging (a 1st-place prize) aren't covered. TechXchange is 26-29 Oct in Atlanta - check the winner email and decide now.",
+      "by": "Sibusiso K"
+    },
+    {
       "at": "2026-10-04T17:10:00+02:00",
       "kind": "changed",
       "target": "fnb-aoty-2026",
