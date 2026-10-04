@@ -9,6 +9,14 @@
   },
   "updates": [
     {
+      "at": "2026-10-04T17:10:00+02:00",
+      "kind": "changed",
+      "target": "fnb-aoty-2026",
+      "title": "FNB App of the Year Hackathon: added as a target (monitor -> open)",
+      "body": "Sibusiso asked to add it. The 2026 edition is live on the official site, which publishes the brief: six problem statements, each with focus areas, now recorded in full for pre-building. Still no registration form, dates or window anywhere, so there's no deadline or countdown yet - it gets one the moment FNB publishes a date, rather than a guessed one now.",
+      "by": "Sibusiso K"
+    },
+    {
       "at": "2026-10-04T16:30:00+02:00",
       "kind": "system",
       "target": null,
