@@ -563,6 +563,32 @@ def cmd_seed_editions(_args):
             print(f"    {s}: {need or 'needs one more dated edition'}")
 
 
+def _migrate_legacy_ledger_keys(ledger):
+    """Rewrite pre-14-Sept bare-URL ledger keys as "url:<url>" in place.
+
+    Identity keys ("event:<name>" / "url:<url>") replaced bare URLs on 14 Sept
+    2026 without migrating the existing ledger, so the first working run after
+    that (4 Oct) re-flagged zindi.africa/competitions as "new" beside the
+    entry a human had already dismissed in August. A human triage decision
+    (status other than "new", plus its note) always survives the merge; the
+    newer evidence is kept.
+    """
+    for bare in [k for k in ledger if not k.startswith(("event:", "url:"))]:
+        legacy = ledger.pop(bare)
+        legacy.setdefault("candidate_url", bare)
+        key = f"url:{bare}"
+        current = ledger.get(key)
+        if current is None:
+            ledger[key] = legacy
+            continue
+        if legacy.get("status", "new") != "new":
+            current["status"] = legacy["status"]
+            current["note"] = legacy.get("note") or current.get("note")
+        firsts = [v for v in (legacy.get("first_seen"), current.get("first_seen")) if v]
+        if firsts:
+            current["first_seen"] = min(firsts)
+
+
 def cmd_promote_candidates(_args):
     """observations -> data/candidates.json.
 
@@ -666,6 +692,7 @@ def cmd_promote_candidates(_args):
         }
 
     ledger = doc.setdefault("candidates", {})
+    _migrate_legacy_ledger_keys(ledger)
 
     def _key(o):
         # Identity key, not just the page URL - two distinct events
