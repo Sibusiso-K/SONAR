@@ -80,6 +80,17 @@ def _require_creds():
         )
 
 
+class RestError(SystemExit):
+    """PostgREST HTTP failure. Subclasses SystemExit so every existing caller
+    keeps its fail-fast behaviour unchanged; a caller that can recover from a
+    specific failure catches this and inspects `status` / `detail`."""
+
+    def __init__(self, message, status, detail):
+        super().__init__(message)
+        self.status = status
+        self.detail = detail
+
+
 def rest(method, path, body=None, params=None, prefer=None):
     _require_creds()
     url = f"{URL}/rest/v1/{path}"
@@ -100,7 +111,26 @@ def rest(method, path, body=None, params=None, prefer=None):
             return json.loads(raw) if raw.strip() else []
     except urllib.error.HTTPError as e:
         detail = e.read().decode()[:600]
-        sys.exit(f"Supabase {method} {path} → {e.code}\n{detail}")
+        raise RestError(f"Supabase {method} {path} → {e.code}\n{detail}", e.code, detail)
+
+
+def has_column(table, column):
+    """True if `table.column` exists in the live schema.
+
+    Lets code that reads or writes a column added by a migration degrade
+    instead of crashing when that migration hasn't been applied yet. This repo
+    has no DB-URL secret for .github/workflows/migrate.yml, so migrations get
+    applied by hand and can lag the code: 0007 (observations.event_name) sat
+    unapplied from 14 Sept 2026, and every sweep run crashed on it for three
+    weeks because promote selected the column unconditionally.
+    """
+    try:
+        rest("GET", table, params={"select": column, "limit": "0"})
+        return True
+    except RestError as e:
+        if e.status == 400 and '"42703"' in e.detail:  # undefined_column
+            return False
+        raise
 
 
 def upsert(table, rows, on_conflict):
@@ -576,8 +606,20 @@ def cmd_promote_candidates(_args):
     named event) falls back to the old URL-only check rather than being
     treated as unconditionally new.
     """
+    with_event_name = has_column("observations", "event_name")
+    if not with_event_name:
+        print(
+            "::warning::observations.event_name does not exist yet "
+            "(supabase/migrations/0007_observations_event_name.sql not applied) - "
+            "deduplicating by page URL only, which hides new events announced on "
+            "pages that already back a tracked board entry."
+        )
     obs = rest("GET", "observations", params={
-        "select": "candidate_url,event_name,field,value,quoted_span,source_url,source_trust,observed_at,model",
+        "select": (
+            "candidate_url,"
+            + ("event_name," if with_event_name else "")
+            + "field,value,quoted_span,source_url,source_trust,observed_at,model"
+        ),
         "candidate_url": "not.is.null",
         "span_verified": "eq.true",
         "order": "observed_at.desc",

@@ -15,7 +15,7 @@ and cannot break on a transitive dependency upgrade.
     export SUPABASE_URL=https://xxxx.supabase.co
     export SUPABASE_SERVICE_KEY=eyJ...
     export GROQ_API_KEY=gsk_...
-    export GROQ_MODEL=llama-3.1-8b-instant       # optional, this is the default
+    export GROQ_MODEL=openai/gpt-oss-120b         # optional, this is the default
 
     python3 scripts/watch_sources.py              # sweep every org with a URL
     python3 scripts/watch_sources.py --limit 3     # just the first 3 (testing)
@@ -50,7 +50,17 @@ import sonar_db  # noqa: E402  (reuse its PostgREST client, not reimplement it)
 
 GROQ_URL = "https://api.groq.com/openai/v1/chat/completions"
 GROQ_KEY = os.environ.get("GROQ_API_KEY", "")
-GROQ_MODEL = os.environ.get("GROQ_MODEL", "llama-3.1-8b-instant")
+# llama-3.1-8b-instant was the default until Groq retired it: from at least
+# 1 Oct 2026 every extraction call returned 404 model_not_found, and because
+# call_groq() treated that as "no candidates" the sweep reported a quiet,
+# empty week instead of a dead model. gpt-oss-20b was checked against this
+# key's live /v1/models list on 4 Oct 2026 - re-check that list rather than
+# guessing when this next breaks. 120b vs 20b on three live pages (4 Oct):
+# neither dominated - 20b missed the FNB hackathon page's one mention that
+# 120b caught, while on Geekulcha's events page 20b also pulled a date 120b
+# didn't. 120b kept because web/src/lib/assistant.providers.ts already
+# settled on it; override with GROQ_MODEL rather than editing this line.
+GROQ_MODEL = os.environ.get("GROQ_MODEL", "openai/gpt-oss-120b")
 
 MAX_PAGE_CHARS = 12_000  # keeps prompt tokens (and cost) bounded per fetch
 SOURCE_SLUG = "org-watchlist-sweep"
@@ -233,7 +243,10 @@ def fetch(url: str) -> tuple[int, str]:
         return resp.status, body
 
 
-def call_groq(url: str, page_text: str) -> tuple[list, dict]:
+def call_groq(url: str, page_text: str) -> tuple[list, dict, bool]:
+    """Returns (candidates, usage, ok). ok=False means extraction failed - an
+    API error or unparseable output - which is NOT the same as a page that
+    genuinely mentions nothing in scope (ok=True, empty list)."""
     if not GROQ_KEY:
         sys.exit("GROQ_API_KEY must be set.")
     payload = {
@@ -255,6 +268,12 @@ def call_groq(url: str, page_text: str) -> tuple[list, dict]:
         "temperature": 0,
         "response_format": {"type": "json_object"},
     }
+    if GROQ_MODEL.startswith("openai/gpt-oss"):
+        # Reasoning model. At the default effort its reasoning can consume the
+        # completion so JSON mode sees an empty generation and Groq returns
+        # 400 json_validate_failed - reproduced live on 4 Oct 2026. Extraction
+        # is copying, not deliberating, so low effort is the right setting.
+        payload["reasoning_effort"] = "low"
     req = urllib.request.Request(
         GROQ_URL,
         data=json.dumps(payload).encode(),
@@ -275,16 +294,20 @@ def call_groq(url: str, page_text: str) -> tuple[list, dict]:
     except urllib.error.HTTPError as e:
         detail = e.read().decode()[:600]
         print(f"  groq error {e.code}: {detail}", file=sys.stderr)
-        return [], {}
+        return [], {}, False
+    except (urllib.error.URLError, TimeoutError, OSError) as e:
+        print(f"  groq request failed: {e}", file=sys.stderr)
+        return [], {}, False
 
     usage = body.get("usage", {})
-    content = body["choices"][0]["message"]["content"]
+    content = body["choices"][0]["message"].get("content") or ""
     try:
         parsed = json.loads(content)
     except json.JSONDecodeError:
         print(f"  model did not return valid JSON: {content[:200]!r}", file=sys.stderr)
-        return [], usage
-    return parsed.get("candidates", []), usage
+        return [], usage, False
+    candidates = parsed.get("candidates", []) if isinstance(parsed, dict) else []
+    return [c for c in candidates if isinstance(c, dict)], usage, True
 
 
 def sweep(limit=None, dry_run=False):
@@ -313,8 +336,14 @@ def sweep(limit=None, dry_run=False):
     total_rejected = 0
     total_fetched = 0
     total_fetch_failed = 0
+    total_extract_failed = 0
     cost_usd = 0.0
     run_started = datetime.now(timezone.utc)
+
+    # Written only once the column exists - posting an unknown column is a hard
+    # PostgREST error, and the migration that adds it can lag this code (see
+    # sonar_db.has_column).
+    store_event_name = sonar_db.has_column("observations", "event_name")
 
     for org in orgs:
         urls = filter(None, [org.get("careers_url"), org.get("news_url"), org.get("events_url")])
@@ -338,7 +367,9 @@ def sweep(limit=None, dry_run=False):
                     "content": page_text, "byte_size": len(page_text),
                 }], on_conflict="sha")
 
-            candidates, usage = call_groq(url, page_text)
+            candidates, usage, extracted_ok = call_groq(url, page_text)
+            if not extracted_ok:
+                total_extract_failed += 1
             total_candidates += len(candidates)
 
             observations = []
@@ -350,9 +381,8 @@ def sweep(limit=None, dry_run=False):
                 else:
                     total_rejected += 1
                     print(f"  REJECTED (span not found verbatim): {c!r}")
-                observations.append({
+                row = {
                     "candidate_url": url,
-                    "event_name": c.get("name") or None,
                     "field": c.get("field", "unknown"),
                     "value": c.get("value"),
                     "quoted_span": span or "(none)",
@@ -361,7 +391,10 @@ def sweep(limit=None, dry_run=False):
                     "source_trust": SOURCE_TRUST_ORG_OWN_PAGE,
                     "model": GROQ_MODEL,
                     "span_verified": verified,
-                })
+                }
+                if store_event_name:
+                    row["event_name"] = c.get("name") or None
+                observations.append(row)
 
             if observations and not dry_run:
                 sonar_db.rest("POST", "observations", body=observations, prefer="return=minimal")
@@ -371,14 +404,23 @@ def sweep(limit=None, dry_run=False):
 
     run_ended = datetime.now(timezone.utc)
     print(f"\n{total_fetched} fetched, {total_fetch_failed} fetch(es) failed, "
+          f"{total_extract_failed} extraction(s) failed, "
           f"{total_candidates} candidates, {total_verified} verified, "
           f"{total_rejected} rejected across {len(orgs)} organisation(s).")
     if total_fetch_failed:
         print(f"::warning::{total_fetch_failed} source page(s) failed to fetch this run "
               f"— their observations were skipped, not confirmed empty.")
+    if total_extract_failed:
+        print(f"::warning::{total_extract_failed} page(s) fetched but the model call failed "
+              f"— those pages were not read, not confirmed empty.")
+    # Every fetched page failing extraction means the model itself is down or
+    # gone, not that the week was quiet. Fail the run so it shows red.
+    all_extraction_failed = total_fetched > 0 and total_extract_failed == total_fetched
 
     if dry_run:
         print("(dry run — nothing written to source_runs/pipeline_runs either)")
+        if all_extraction_failed:
+            sys.exit(f"::error::every extraction call failed (model {GROQ_MODEL}) - see errors above")
         return
 
     sonar_db.upsert("sources", [{
@@ -402,20 +444,29 @@ def sweep(limit=None, dry_run=False):
     # still recorded a green pipeline_runs row (docs/REVIEW_2026-09-14.md,
     # finding 8) - indistinguishable in the data from a real sweep that
     # legitimately found nothing.
+    problems = []
+    if total_fetch_failed:
+        problems.append(
+            f"{total_fetch_failed}/{total_fetched + total_fetch_failed} source fetch(es) failed"
+        )
+    if total_extract_failed:
+        problems.append(
+            f"{total_extract_failed}/{total_fetched} extraction(s) failed (model {GROQ_MODEL})"
+        )
     sonar_db.rest("POST", "pipeline_runs", body=[{
         "workflow": "sweep",
         "started_at": run_started.isoformat(),
         "ended_at": run_ended.isoformat(),
-        "ok": total_fetch_failed == 0,
+        "ok": not problems,
         "candidates": total_candidates,
         "extracted": total_verified,
         "conflicts": 0,
         "cost_usd": cost_usd,
-        "error": (
-            f"{total_fetch_failed}/{total_fetched + total_fetch_failed} source fetch(es) failed"
-            if total_fetch_failed else None
-        ),
+        "error": "; ".join(problems) or None,
     }], prefer="return=minimal")
+
+    if all_extraction_failed:
+        sys.exit(f"::error::every extraction call failed (model {GROQ_MODEL}) - see errors above")
 
 
 if __name__ == "__main__":
