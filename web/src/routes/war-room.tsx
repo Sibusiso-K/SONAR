@@ -6,17 +6,17 @@ import { cn } from "@/lib/utils";
 export const Route = createFileRoute("/war-room")({
   head: () => ({
     meta: [
-      { title: "War Room: one event left | SONAR" },
+      { title: "War Room: Mintek Top 5 | SONAR" },
       {
         name: "description",
         content:
-          "Entelect, GovTech and Geekulcha are done - none placed. Mintek is the last of the four back-to-back weekends: what it actually rewards, what's still open, and the results so far.",
+          "Mintek named the team in its Top 5. What happens before winners are announced, what else is open this month, and the results so far.",
       },
-      { property: "og:title", content: "War Room: one event left | SONAR" },
+      { property: "og:title", content: "War Room: Mintek Top 5 | SONAR" },
       {
         property: "og:description",
         content:
-          "Three of four hackathon weekends are over. One remains. The prep plan for it, and an honest scoreboard for the rest.",
+          "Top 5 at Mintek, with the originality check and IP assessment still to come. An honest scoreboard for everything decided.",
       },
     ],
   }),
@@ -68,6 +68,20 @@ const RESULTS: ResultRow[] = [
     tone: "loss",
     note: "V.U.K.A., not selected into the top 12.",
   },
+  {
+    name: "UNESCO Youth Hackathon",
+    when: "Aug submission",
+    result: "Did not place",
+    tone: "loss",
+    note: "Concept submission; reported 4 Oct.",
+  },
+  {
+    name: "Mintek-SCi Grad Hackathon",
+    when: "1–2 Oct",
+    result: "Top 5 finalist",
+    tone: "win",
+    note: "KHANYA. Not decided: winners follow authentication and an IP assessment.",
+  },
 ];
 
 type Dossier = {
@@ -87,9 +101,9 @@ const DOSSIERS: Dossier[] = [
   {
     n: 1,
     name: "Mintek-SCi Grad Hackathon",
-    tagline: "Randburg · R50,000 pool",
-    meta: "Prize: R25k / R15k / R10k · Next: SCI Conference, 2 Oct",
-    when: "THU 1 OCT · build to 13:00, present 14:00",
+    tagline: "Top 5 finalist · winners TBA",
+    meta: "Prize: R25k / R15k / R10k across the top 3 · Project: KHANYA (REEFPRINT workbench)",
+    when: "DONE: 1 OCT build day, 2 OCT conference. NEXT: originality check, MOTT IP assessment, winners (no date published)",
     what: "REEFPRINT — mineralogical characterisation by optical proxy",
     wins: {
       text: "2025's winner, H2Optimise (UJ), paired real mining-engineering domain knowledge with a data-driven model on a genuine operational problem — mine-water reprocessing, framed in cost and sustainability terms an industry judge already cares about. Mintek's published criteria include innovation, feasibility, impact, technical execution and presentation clarity; this board has not verified their relative weighting, so treat all five as capable of deciding the result rather than assuming one dominates.",
@@ -100,8 +114,8 @@ const DOSSIERS: Dossier[] = [
       "Costs already in Rand and tCO2e against gazetted Eskom/carbon-tax rates — exactly the register H2Optimise won on, though current tariff/rate figures still need verifying before presenting them as numbers",
       "Positioned as a StarCS/FloatStar/MillStar module, not a rip-and-replace pitch to an industry that hates those — as a proposed interface, since no integration with those systems has been demonstrated",
     ],
-    risk: "This is the fourth weekend running, and none of the previous three placed — real fatigue risk on top of the usual same-day pressure: 13:00 code freeze, 14:00 presenting, zero recovery time. An MOTT IP assessment follows before any result is final. Per-class recall (chromite, orthopyroxene, plagioclase, base-metal sulphide, talc/serpentine) and the abstention/calibration behaviour are commitments in the project abstract, not results demonstrated in this checkout — collect that evidence from the actual REEFPRINT project before the presentation, not during it.",
-    move: "Protect this slot specifically: this is the highest-scoring entry on the whole board (7.95), the one most explicitly aimed at your actual situation, and the last of four weekends. Bank sleep before it. Pull real per-class recall, sample support and a documented abstention example from the project before dress rehearsal. Rehearse the 10-minute presentation once, out loud, before the day arrives — confirm whether the ten minutes includes questions.",
+    risk: "Finalists go through originality and AI-generation authentication, then Mintek's technology-transfer office (MOTT) runs an IP assessment on the top-ranked entries before winners are named. Two things in the repo's own record could trip that: commits carry a UNISA email while the documents say Wits, and commits are co-authored by an AI assistant while invention credits are awarded per person (KHANYA WORKBOARD item D6; HANDOVER on authorship). Separately, per-class recall and the abstention behaviour are commitments in the abstract; show the evidence, not the claim, if asked.",
+    move: "Reconcile the commit email and authorship position before authentication starts, and keep the repo exactly as submitted. Finish the technical report on Mintek's template (12-page cap) if it is still required; its due date is not recorded anywhere checked, so ask Mintek. Keep writing in your own words and cite sources. Add the winners date to the calendar the moment Mintek sends it.",
   },
 ];
 
@@ -109,7 +123,7 @@ const RULES: { evidence: "ours" | "external"; title: string; body: string }[] = 
   {
     evidence: "ours",
     title: "The decisions that matter happen before kickoff",
-    body: "Every prep task below is due before the weekend starts, not during it.",
+    body: "Every task below is due before its event, not during it.",
   },
   {
     evidence: "external",
@@ -123,8 +137,8 @@ const RULES: { evidence: "ours" | "external"; title: string; body: string }[] = 
   },
   {
     evidence: "ours",
-    title: "Three losses in a row is a pattern worth naming, not just absorbing",
-    body: "Entelect, GovTech and Geekulcha all produced real, working builds and none placed. Before Mintek, spend ten minutes asking what the panels actually rewarded that these three didn't lead with, rather than repeating the same pitch shape a fourth time.",
+    title: "A pattern worth naming: builds that work, pitches that don't place",
+    body: "Entelect, GovTech and Geekulcha all produced real, working builds and none placed; Mintek is the first to get through. Spend ten minutes on what was different about how it was framed, and reuse that shape for YouthX, FNB and BCG.",
   },
 ];
 
@@ -137,16 +151,34 @@ type ActionItem = {
 
 const NEEDS_ATTENTION: ActionItem[] = [
   {
-    severity: "warning",
-    title: "Pull real per-class recall and an abstention example for REEFPRINT",
-    note: "The abstract's rare-class and calibration claims are commitments, not yet demonstrated results",
-    due: "Before 1 Oct",
+    severity: "critical",
+    title: "Nedbank YouthX entry: confirm eligibility, then submit",
+    note: "R675k across ten places. Individual entries, age 18-26, qualifying Nedbank account; no closing time stated, so submit by midday",
+    due: "Fri 9 Oct",
   },
   {
     severity: "warning",
-    title: "Rehearse the Mintek presentation out loud",
-    note: "10 minutes, once, before the day — protect sleep before this slot specifically",
-    due: "Before 1 Oct",
+    title: "Mintek: reconcile commit email and authorship before authentication",
+    note: "UNISA email on commits vs Wits in the documents; AI co-authorship vs per-person invention credits",
+    due: "Before Mintek's check",
+  },
+  {
+    severity: "warning",
+    title: "IBM TechXchange: decide on the conference pass",
+    note: "3rd place is inside the top 50, which earns a pass per member; travel and lodging are not covered. Atlanta, 26-29 Oct",
+    due: "This week",
+  },
+  {
+    severity: "warning",
+    title: "RSNA Knee: confirm the team is entered and decide on a merger",
+    note: "Entry and merger deadline 15 Oct, final 22 Oct; field is 5,112 teams, so the efficiency track is the realistic angle",
+    due: "Thu 15 Oct",
+  },
+  {
+    severity: "warning",
+    title: "BCG Platinion: no selection notice on record",
+    note: "Event is 16-17 Oct, both days mandatory, and clashes with the IBM Z Datathon and the Legacy Project Symposium",
+    due: "Before 16 Oct",
   },
 ];
 
@@ -158,20 +190,21 @@ function WarRoom() {
       <section className="mx-auto max-w-[88rem] px-5 pb-12 pt-16 md:px-10 md:pt-24">
         <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2">
           <p className="label-caps">War room</p>
-          <p className="label-caps tabular-nums">1 Oct 2026</p>
+          <p className="label-caps tabular-nums">Updated 5 Oct 2026</p>
         </div>
         <h1 className="display-xl mt-5 max-w-[16ch]">
-          <RevealWords text="Three down, one left. Mintek is the last weekend." />
+          <RevealWords text="Top 5 at Mintek. Now the check that decides it." />
         </h1>
         <Reveal delay={200}>
           <p className="mt-8 max-w-2xl text-base leading-relaxed text-muted-foreground">
-            Entelect, GovTech and Geekulcha are done — none placed, though IBM's Dev Day hackathon
-            from late August came back a confirmed 3rd place.{" "}
+            Mintek named the team one of its five finalists. Entelect, GovTech, Geekulcha and UNESCO
+            did not place, and IBM's Dev Day hackathon came back a confirmed 3rd.{" "}
             <strong className="font-semibold text-foreground">
-              Mintek on 1 October is the last of the four back-to-back weekends.
+              Before winners are announced, finalists face an originality check and an IP
+              assessment.
             </strong>{" "}
-            It's also the highest-scoring entry on the whole board. What it actually rewards, what's
-            still open, and an honest scoreboard for the four that are already decided.
+            What that means for the team, what is still open this month, and an honest scoreboard
+            for everything decided so far.
           </p>
         </Reveal>
       </section>
@@ -180,9 +213,9 @@ function WarRoom() {
       <section className="mx-auto max-w-[88rem] px-5 md:px-10">
         <div className="flex flex-wrap items-baseline justify-between gap-4">
           <h2 className="font-display text-2xl font-bold">Results so far</h2>
-          <span className="label-caps">4 decided</span>
+          <span className="label-caps">{RESULTS.length} entries</span>
         </div>
-        <div className="mt-6 grid grid-cols-1 gap-px border border-rule bg-rule sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-6 grid grid-cols-1 gap-px border border-rule bg-rule sm:grid-cols-2 lg:grid-cols-3">
           {RESULTS.map((r) => (
             <div key={r.name} className="bg-paper p-5">
               <p className="font-mono text-xs font-semibold tabular-nums text-accent">
@@ -208,7 +241,7 @@ function WarRoom() {
       {/* ---- needs attention ---- */}
       <section className="mx-auto max-w-[88rem] px-5 pt-16 md:px-10">
         <div className="flex flex-wrap items-baseline justify-between gap-4">
-          <h2 className="font-display text-2xl font-bold">Needs attention before Mintek</h2>
+          <h2 className="font-display text-2xl font-bold">Needs attention this week</h2>
           <span className="label-caps">{NEEDS_ATTENTION.length} open items</span>
         </div>
         <p className="mt-2 max-w-2xl text-sm text-muted-foreground">
@@ -297,7 +330,7 @@ function WarRoom() {
       {/* ---- mindset ---- */}
       <section className="mx-auto max-w-[88rem] px-5 pt-16 md:px-10">
         <div className="flex flex-wrap items-baseline justify-between gap-4">
-          <h2 className="font-display text-2xl font-bold">Before the last weekend</h2>
+          <h2 className="font-display text-2xl font-bold">What to carry forward</h2>
           <span className="label-caps">From SONAR's own Playbook</span>
         </div>
         <div className="mt-6 grid grid-cols-1 gap-px border border-rule bg-rule sm:grid-cols-2">

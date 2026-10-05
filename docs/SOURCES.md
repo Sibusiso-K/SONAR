@@ -94,6 +94,61 @@ August:**
 
 ---
 
+## Discovery sweep — 4 October 2026
+
+Requested by Sibusiso, with FNB and Nedbank YouthX named explicitly. Every
+monitoring source was read; the two named sources were read first. Times in
+SAST. **4 added, 1 promoted to a target, the rest checked and left out with a
+reason.**
+
+**Added:** Nedbank YouthX Awards 2026, Google's Gemma 4 Developer Agent Paper
+Track (Kaggle), PayPal AI Hackathon, Qloo Agentic Hackathon.
+**Promoted:** FNB App of the Year Hackathon (monitor to open, full 2026 brief
+recorded, still no dates).
+
+**Primary sources read for the additions:**
+
+| Entry | Source | Read |
+|---|---|---|
+| Nedbank YouthX Awards 2026 | Nedbank's own 2026 T&Cs PDF (linked from youthxbynedbank.co.za, created 6 Aug 2026), plus the entry site, which advertises "over R700 000" while the T&Cs sum to R675,000 | 4 Oct |
+| Gemma 4 Paper Track | Kaggle overview and official rules | 4 Oct |
+| PayPal AI Hackathon | Devpost official rules | 4 Oct |
+| Qloo Agentic Hackathon | Devpost official rules | 4 Oct |
+| FNB 2026 problem statements | appoftheyear.co.za/hackathon, six modals read in a browser | 4 Oct |
+
+**Checked, real, not added — with the reason:**
+
+| Event | Why not |
+|---|---|
+| Nebius x NVIDIA Global AI Hackathon ($50k, closes Fri 30 Oct 19:00 SAST) | Rules read and South Africa is not excluded, but it needs a build on Nebius cloud with an NVIDIA open model, and 17,264 registrants make it the most crowded open hackathon on Devpost. A candidate if PayPal and Qloo both fall away. |
+| OpenCV AI Competition 2026 ($12k in the rules, closes Tue 27 Oct 08:45 SAST) | The rules page gives an age limit but names no eligible or excluded countries, so SA eligibility could not be confirmed. Not entered on an assumption. The Devpost headline figure ($20,250) is larger than the rules' own prize list. |
+| Meta VR Start ($1M), ForgeHacks Online ($977k), Amazon Developer Hackathon ($138k) | Not fit (AR/VR) or not assessed beyond the Devpost list. Amazon has 38,453 registrants. Rules were not read, so none is a considered rejection. |
+| Hack Apertus, ImpactHack, Hyperbloom October, AI Builder Cup, InfiniSynapse, Portaldot Hacker House, Binance Agentic AI Challenge | On dev.events' Africa list but not assessed. |
+| Kaggle: Gemma 4 main competition ($65k), Enveda CASMI ($50k), Kaggriculture ($50k) | Heavy-compute leaderboard competitions with large fields (Kaggriculture 10,246 teams, closing in ten days). The paper track is the smaller, better-fitting door into the Gemma contest. |
+| ARC Prize 2026 (ARC-AGI-2 $700k, ARC-AGI-3 $850k, paper track $450k) | Winnability was scored 12 in August and nothing has changed. Not re-added. |
+| ITWeb Security Summit Hackathon 2026 | Registration ran 10 Feb to 10 Apr 2026, already closed. Diarised for 2027. |
+| MiWay HACKATHON26 | Entries 5 Mar to 17 May, event 29 Jun to 3 Jul. Over before the board noticed it. Diarised for 2027. |
+| Ocean Hackathon 2026 (16 to 18 Oct) | Durban is not among its 12 host cities. |
+| Digital ID Hackathon, Southern Africa | Ended 9 Feb 2025. |
+| Discovery Gradhack 2027 | Only 2025 information is published. |
+
+**Sources that gave nothing new:**
+
+| Source | State on 4 Oct |
+|---|---|
+| za.allhackathons.com | Nothing dated after September 2025. |
+| hackon.co.za | Newest listing is January 2025. |
+| DIRISA Student Datathon | Programme page still says SDC 2025; an "SDC 2026" menu item exists with no dates. |
+| Nedbank N*ovation Hackathon | Page unchanged since the 2025 edition. YouthX is a different Nedbank programme and is now tracked. |
+| Geekulcha events | Lists "FNB HACKATHON 2026", which redirects to the official FNB page. |
+| Zindi (list and competition pages) | Shows only the site shell to signed-out visitors, so R.O.A.D. Barbados and Bias Bounty could not be rechecked. |
+
+**Huawei ICT 2026-27:** UNISA ran a registration roadshow on 25 Aug 2026, so
+the cycle is live in South Africa. The 2026-27 registration deadline was not
+found; the last cycle's Southern Africa deadline was 20 Dec 2025.
+
+---
+
 ## Known conflicts in the sources
 
 | Conflict | What we're going with |
