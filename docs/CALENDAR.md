@@ -67,15 +67,16 @@ Importable file: [`../calendar/sonar-2026.ics`](../calendar/sonar-2026.ics)
 | Thu 1 | all day | IBM Z Datathon registration closed — **no registration on record: verify** (late = waitlist) | deadline |
 | Fri 2 | all day | Mintek SCI Conference — **team named in the Top 5.** Originality authentication follows | event |
 | Sat 3 – Sun 4 | 09:00–17:00 | RSNA Kaggle sprint — reuse ADTC efficiency work | prep |
-| Mon 5 | 23:59 | Zindi R.O.A.D. Barbados Handwriting ($25 000) closes — **no entry on record** | deadline |
+| Mon 5 | 23:59 | Zindi R.O.A.D. Barbados Handwriting ($25 000) closed — **not entered** | deadline |
 | Tue 6 | 18:00–20:30 | **YouthX: confirm eligibility (age 18–26, qualifying Nedbank account) + write the 350-word entry** | prep |
-| **Fri 9** | all day | **DEADLINE — Nedbank YouthX Awards.** R675k cash across ten places (R250k / R120k / R60k, R35k for 4th–10th). Individual entries, 18–26, SA ID, qualifying Nedbank account. **No closing time stated — submit by midday** | deadline |
-| Thu 15 | all day | **DEADLINE — RSNA Knee Detection entry / team merger** *(team entered — repo evidence; field 5,112 teams)* | deadline |
+| **Fri 9** | all day | **CLOSED — Nedbank YouthX Awards** (entries closed 9 Oct; team entry status not recorded — confirm). R675k cash across ten places (R250k / R120k / R60k, R35k for 4th–10th). Individual entries, 18–26, SA ID, qualifying Nedbank account. **No closing time stated — submit by midday** | deadline |
+| Thu 15 | all day | **DEADLINE — RSNA Knee Detection entry / team merger** *(team entered — repo evidence; field 5,733 teams, 12 days to close on 22 Oct)* | deadline |
 | **Fri 16 – Sat 17** | all day | **BCG Platinion Hackathon — Johannesburg** ← the one that matters | event |
 | Sat 17 – Sun 18 | all day | IBM Z Datathon *(clashes with BCG — backup only)* | event |
 | Thu 22 | all day | **DEADLINE — RSNA Knee Detection final submission** | deadline |
 | Fri 23 – Sun 25 | all day | **FNB App of the Year Hackathon — TARGET.** Dates still unpublished; this window is placed from 2025 (24 Oct). The six 2026 problem statements are out — pre-build | event |
 | Mon 26 – Thu 29 | all day | IBM TechXchange 2026, Atlanta — **3rd place at IBM Dev Day is inside the top 50**, which the prize terms say earns a conference pass per team member (travel and lodging not covered). Check the winner email for passes, then decide | reward |
+| **Tue 27** | 15:00 | **DEADLINE — Life After Code: GitLab Duo Agent Platform ($45k).** Go/no-go by ~18 Oct | deadline |
 | **Sat 31** | 05:45 | **DEADLINE — Qloo Agentic Hackathon ($25,000).** Submit on Fri 30 | deadline |
 
 ---

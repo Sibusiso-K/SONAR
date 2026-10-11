@@ -152,9 +152,9 @@ type ActionItem = {
 const NEEDS_ATTENTION: ActionItem[] = [
   {
     severity: "critical",
-    title: "Nedbank YouthX entry: confirm eligibility, then submit",
-    note: "R675k across ten places. Individual entries, age 18-26, qualifying Nedbank account; no closing time stated, so submit by midday",
-    due: "Fri 9 Oct",
+    title: "Nedbank YouthX: entries closed 9 Oct - confirm whether we entered",
+    note: "Closed Fri 9 Oct. R675k across ten places; shortlist and winners dates still unpublished. Entry status is not recorded anywhere",
+    due: "Closed 9 Oct",
   },
   {
     severity: "warning",
@@ -171,7 +171,7 @@ const NEEDS_ATTENTION: ActionItem[] = [
   {
     severity: "warning",
     title: "RSNA Knee: confirm the team is entered and decide on a merger",
-    note: "Entry and merger deadline 15 Oct, final 22 Oct; field is 5,112 teams, so the efficiency track is the realistic angle",
+    note: "Entry and merger deadline 15 Oct, final 22 Oct; field is 5,733 teams, so the efficiency track is the realistic angle",
     due: "Thu 15 Oct",
   },
   {

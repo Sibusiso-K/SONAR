@@ -149,6 +149,56 @@ found; the last cycle's Southern Africa deadline was 20 Dec 2025.
 
 ---
 
+## Weekly sweep — 11 October 2026
+
+Weekly rhythm, run by hand. Times in SAST. **1 added (Life After Code), 1 closed
+(YouthX, entries closed 9 Oct), 1 moved to past (Zindi R.O.A.D., closed 5 Oct, no
+entry).** The automated Watch sources workflow ran cleanly all week and found no new
+candidates.
+
+**Added:** Life After Code: GitLab Duo Agent Platform (Devpost, $45k, closes Tue 27 Oct
+15:00 SAST). Eligibility read from the official rules on 11 Oct: South Africa is not on
+the excluded-country list.
+
+**Changed:** RSNA Knee: 12 days to close, 5,733 teams. Urgency 8 -> 9 for the 15 Oct
+entry/merger deadline.
+
+**Checked, nothing new:**
+
+| Source | State on 11 Oct |
+|---|---|
+| Mintek news | Latest item 6 Oct (SCi Symposium). No winners notice. |
+| Mintek SCi programme page | Could not be loaded from here (redirect loop). Winners date unknown. |
+| IBM Z Datathon (starhacks.org) | Confirms 17-18 Oct, 16,000+ registered, $50K+ prizes. No registration status stated. hack2skill.com page unreadable. |
+| BCG Platinion hackathon | Window "closed on September 14". Applications under review; no selection notice. |
+| FNB App of the Year | Official page: six problem statements, no 2026 dates. Geekulcha's link points to the same page. |
+| Nedbank N*ovation | Page unchanged since the 2025 edition. |
+| YouthX Awards | "Coming soon" for shortlist and winners. No closing notice after 9 Oct. |
+| Geekulcha events (upcoming) | Only FNB is listed. |
+| Entelect (challenge site) | No 2026-27 hackathon or cup announced. |
+| Discovery Gradhack | Only the 2025 edition is published; the 2025 application deadline has passed. |
+| dev.events Africa | 31 listings from October on, all online or non-SA. None added. |
+| za.allhackathons.com | No SA listings after September 2025. |
+| Devpost open list | 168 open. New since 4 Oct: Life After Code (added), Knight Hacks IX (in person, Orlando), Hacks for Humanity, PalmettoHacks, hacktTurin, HackNC, Hacklanta and others, all in-person in the US or Europe, so not entered. Amazon Build, Ship, Shape: 53,252 registrants, closes 23 Oct; not entered. |
+
+**Checked, real, not added (with reason):**
+
+| Event | Why not |
+|---|---|
+| IEEE ClimateChain Global Hackathon (Oct 25 start) | Prizes listed as "TBD". Submissions open 25 Oct with no visible close. Not enough to plan around. |
+| Amazon Build, Ship, Shape ($138k) | 53,252 registrants. Winnability well below the board's floor. |
+| Knight Hacks IX, Hacks for Humanity, PalmettoHacks, HackNC, Hacklanta, hackTurin | In-person, US or Europe, weekend of 9-11 Oct. Travel prohibitive. |
+
+**Could not read this week:**
+
+| Source | Why |
+|---|---|
+| Kaggle active-competitions list | The list stays empty in this browser and the internal API returns 404. Other Kaggle pages render. |
+| Zindi competitions and competition pages | Show only the site shell to signed-out visitors (as on 4 Oct). |
+| Devpost rules for IEEE ClimateChain and Life After Code | WebFetch got 403; read through the browser instead. |
+
+---
+
 ## Known conflicts in the sources
 
 | Conflict | What we're going with |

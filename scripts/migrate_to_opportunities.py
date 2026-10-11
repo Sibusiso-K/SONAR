@@ -45,6 +45,7 @@ KIND = {
     "sme-toolkit-business-plan-2026": "competition",
     "nedbank-youthx-awards-2026": "competition",
     "kaggle-gemma4-agent-paper-2026": "ml_competition",
+    "life-after-code-gitlab-2026": "hackathon",
 }
 
 # Career value beyond the prize. This is what "things around hackathons and
@@ -61,6 +62,7 @@ CAREER_TRACK = {
     "zindi-bias-bounty-2026": "adjacent",
     "nedbank-youthx-awards-2026": "adjacent",      # enterprise mentorship + One Young World
     "kaggle-gemma4-agent-paper-2026": "adjacent",  # NeurIPS expo, citable research
+    "life-after-code-gitlab-2026": "none",
 }
 
 DEADLINE_KEYS = (

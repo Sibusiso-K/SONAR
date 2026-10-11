@@ -9,6 +9,54 @@
   },
   "updates": [
     {
+      "at": "2026-10-11T12:00:00+02:00",
+      "kind": "system",
+      "target": null,
+      "title": "Weekly sweep 11 Oct: 1 added, 1 closed, 1 moved to past; Refresh board failing since 9 Oct",
+      "body": "Checked the Devpost, dev.events, allhackathons, Entelect, Discovery Gradhack, Geekulcha, FNB, Nedbank, IBM Z, BCG, Mintek, YouthX and RSNA sources. Added Life After Code (GitLab, $45k, closes 27 Oct). Zindi R.O.A.D. closed 5 Oct with no entry on record, so it moves to past. YouthX closed 9 Oct. The Watch sources workflow ran cleanly all week and found no new candidates. Refresh board has failed three times since 9 Oct on the app-schema sync step (missing status column on Lethabo's copy, same as 14 Sept). Kaggle's list and the Mintek programme page could not be read from here.",
+      "by": "Sibusiso K"
+    },
+    {
+      "at": "2026-10-11T11:55:00+02:00",
+      "kind": "changed",
+      "target": "nedbank-youthx-awards-2026",
+      "title": "YouthX: entries closed 9 Oct - entry status unrecorded",
+      "body": "Status open -> closed. The YouthX page still shows 'Coming soon' for shortlist and winners. No record of whether the team entered; needs confirming.",
+      "by": "Sibusiso K"
+    },
+    {
+      "at": "2026-10-11T11:50:00+02:00",
+      "kind": "changed",
+      "target": "zindi-road-barbados-2026",
+      "title": "Zindi R.O.A.D. Barbados: closed 5 Oct, not entered, moved to past",
+      "body": "No entry on record. Status open -> past, with a past-results record marked 'Not entered'.",
+      "by": "Sibusiso K"
+    },
+    {
+      "at": "2026-10-11T11:45:00+02:00",
+      "kind": "added",
+      "target": "life-after-code-gitlab-2026",
+      "title": "Added: Life After Code (GitLab Duo Agent Platform) - $45k, closes Tue 27 Oct",
+      "body": "Found on the Devpost open list. Registration 29 Sept - 27 Oct; submission 5-27 Oct, 15:00 SAST; winners around 16 Nov. Eligible from South Africa per the excluded-country list. Scored career 6, winnability 3, prize 8, urgency 8; score 5.8.",
+      "by": "Sibusiso K"
+    },
+    {
+      "at": "2026-10-11T11:40:00+02:00",
+      "kind": "changed",
+      "target": "rsna-knee-2026",
+      "title": "RSNA Knee: field now 5,733 teams; entry deadline four days out",
+      "body": "Kaggle overview: 12 days to close, 5,733 teams, 24,995 entrants. Urgency 8 -> 9 for the 15 Oct entry/merger deadline. Score 6.05 -> 6.2. Winnability unchanged.",
+      "by": "Sibusiso K"
+    },
+    {
+      "at": "2026-10-11T11:35:00+02:00",
+      "kind": "system",
+      "target": "mintek-sci-2026",
+      "title": "Mintek: still no winners notice (checked 11 Oct)",
+      "body": "Mintek's news page runs to 6 Oct (the SCi Symposium) with no winners item. The programme page could not be loaded, so the winners date remains unpublished. Nothing changed on the board.",
+      "by": "Sibusiso K"
+    },
+    {
       "at": "2026-10-04T17:20:00+02:00",
       "kind": "changed",
       "target": "ibm-devday-bob-2026",
