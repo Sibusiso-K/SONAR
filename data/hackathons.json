@@ -1322,6 +1322,51 @@
         "rules": "https://gitlab-transcend.devpost.com/rules"
       },
       "notes": "Found in the 11 Oct 2026 weekly sweep, open with 1,632 registrants. Winnability 3: a new platform for the team and a large, mostly-individual field, offset by nine cash prizes. Urgency 8: 16 days to the submission deadline, and it overlaps RSNA's final week and the IBM TechXchange decision. Needs a go/no-go by about 18 Oct to leave time to build."
+    },
+    {
+      "id": "wits-ehub-tech-ai-day-2026",
+      "noticed_on": "2026-10-12",
+      "went_live_on": null,
+      "source": "organiser email to Sibusiso (Wits E-Hub)",
+      "name": "Wits Entrepreneurship Week 2026: Tech & AI Day and Tech Demo Showcase",
+      "organiser": "Wits Entrepreneurship Hub (E-Hub), Wits University",
+      "scope": "local",
+      "format": "in-person",
+      "location": "Wits Entrepreneurship Hub (E-Hub), Shop 2, Matrix Building, Wits, Johannesburg",
+      "status": "open",
+      "tier": 2,
+      "score": 6.65,
+      "scores": {
+        "career_leverage": 7,
+        "winnability": 7,
+        "prize": 3,
+        "urgency": 10
+      },
+      "dates": {
+        "application_deadline": "unknown - the Apply link and deadline are below the part of the email we have; read it off the email",
+        "event_start": "2026-10-15T09:00:00+02:00",
+        "event_end": "2026-10-15T14:00:00+02:00",
+        "confidence": "confirmed"
+      },
+      "prize": {
+        "currency": "N/A",
+        "pool": null,
+        "non_cash": "No prize stated. Value is the room: venture capitalists, funders, ecosystem partners, industry professionals; visibility and expert feedback."
+      },
+      "eligibility": "Student entrepreneurs (ideation stage, MVP or growing startup). Tech, AI, software, fintech, edtech, mobility or innovation-driven. APPLICATION REQUIRED - link and deadline not yet on record.",
+      "team_fit": "Two-person team (Sibusiso + Lethabo) is fine for an exhibition table. Bring VUKA: VIGIL on two phones (member + guardian) plus a laptop with the VUKA Ledger.",
+      "what_to_build": "Nothing new: a showcase, not a build. Demo VUKA live: VIGIL check-in, guardian alert, and a record verified on the public ledger (docs/demo in the VUKA repo has a LIVE-VERIFIED record and a tampered copy that fails).",
+      "scoring_formula": "None: not a competition. No winners or judging criteria stated.",
+      "deliverables": [
+        "application (form not yet seen)",
+        "demo table: two phones + laptop",
+        "one-line pitch for funders"
+      ],
+      "links": {
+        "main": "organiser email to Sibusiso, 2026 (no public page found 12 Oct 2026)",
+        "contact_older_ehub_page": "StudentEntrepreneurship.DLU@wits.ac.za"
+      },
+      "notes": "ADDED 12 Oct 2026 from the Wits E-Hub invitation email. Thursday 15 Oct, 09:00-14:00, 3 days out. No public page found; the email is the source, so date, time and venue are confirmed but the APPLY LINK AND DEADLINE ARE MISSING from what we have: find them in the email today, because a 3-day-out showcase may already be closing. WINNABILITY 7 is scored as fit, not odds: there is nothing to win, but VUKA is an unusually strong exhibit for funders (live Azure backend, real Hedera anchoring, a ledger anyone can verify, a bank-funded R20/member/month model), and the field is Wits students only. Prize 3: non-cash, investor exposure. Career 7: VCs and funders in the room, not corporate recruiters. Clashes: same day as the RSNA Knee entry deadline (15 Oct); BCG Platinion is 16-17 Oct (application window closed). Before the day: confirm Azure is up and server.json on the vigil-demo release points to Azure, and prepare the 60-second ledger demo (real record LIVE-VERIFIED, tampered fails at entry #3)."
     }
   ],
   "dropped_or_past": [

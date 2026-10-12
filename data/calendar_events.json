@@ -89,6 +89,7 @@
 
     { "id": "rsna-annual", "kind": "reward", "summary": "RSNA 2026 Annual Meeting, Chicago (winners recognised)", "start": "2026-11-29", "end": "2026-12-04", "all_day": true, "reminders": [], "description": "Placeholder — winners recognised in the AI Theater at McCormick Place, 29 Nov - 3 Dec." },
 
+    { "id": "wits-ehub-tech-ai-day-2026", "kind": "event", "summary": "Wits E-Hub Tech & AI Day + Tech Demo Showcase (VUKA demo)", "start": "2026-10-15T09:00", "end": "2026-10-15T14:00", "reminders": [1440, 120], "description": "Wits Entrepreneurship Hub, Shop 2, Matrix Building. VCs, funders and industry in the room. Apply first (link and deadline in the organiser's email). Bring two phones with VIGIL 0.0.16 and a laptop with the VUKA Ledger; check Azure and server.json the evening before." },
     { "id": "sonar-2027-planning", "kind": "review", "summary": "SONAR: full-year retro + build the 2027 board", "start": "2026-12-14T09:00", "end": "2026-12-14T12:00", "reminders": [10080, 1440], "description": "Retro on every entry. Then diarise the 2027 cycle now:\n- ITWeb Security Summit Hackathon — registration ~Feb, event ~June\n- MICT SETA National Skills Challenge — ~March\n- Entelect University Cup — ~April\n- Monkey and River Hackathon — ~July\n- Mintek-SCi Grad Hackathon — applications ~15 July\n- Geekulcha Annual — ~Sept/Oct\n- Huawei ICT Competition — registration ~Sept" }
   ]
 }
