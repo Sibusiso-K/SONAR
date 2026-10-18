@@ -13,6 +13,13 @@
     }
   },
   "events": [
+    { "id": "meta-apply-deadline", "kind": "deadline", "summary": "DEADLINE: Meta Global AI Developer Hackathon application", "start": "2026-10-26T05:59", "end": "2026-10-26T06:29", "reminders": [2880, 1440], "description": "Closes 25 Oct 23:59 ET = 26 Oct 05:59 SAST, or earlier if 20,000 spots fill (rolling review). Apply well before. https://cerebralvalley.ai/e/meta-ai-developer-hackathon/apply" },
+
+    { "id": "meta-kickoff", "kind": "event", "summary": "Meta Hackathon kickoff livestream (build starts)", "start": "2026-10-26T18:00", "end": "2026-10-26T19:00", "reminders": [60], "description": "26 Oct 12:00 ET = 18:00 SAST. Acceptance emails 09:00 ET = 15:00 SAST. Workshops and Discord office hours 27 Oct to 4 Nov. https://cerebralvalley.ai/e/meta-ai-developer-hackathon" },
+
+    { "id": "meta-submit-deadline", "kind": "deadline", "summary": "SUBMIT: Meta Global AI Developer Hackathon ($1M pool)", "start": "2026-11-05T04:00", "end": "2026-11-05T04:30", "reminders": [2880, 1440, 720], "description": "Submissions due 4 Nov 21:00 ET (EST, clocks have changed) = 5 Nov 04:00 SAST. Submit on the 4th SAST evening, not in the small hours. Judging 4 to 8 Nov." },
+
+    { "id": "meta-finals", "kind": "event", "summary": "Meta Hackathon closing ceremony and live finals", "start": "2026-11-09", "all_day": true, "reminders": [1440], "description": "Live finals and winner announcements, time TBA." },
     { "id": "sonar-weekly-review", "kind": "review", "summary": "SONAR board review", "start": "2026-08-10T08:00", "end": "2026-08-10T08:30", "rrule": "FREQ=WEEKLY;BYDAY=MO;UNTIL=20261228T060000Z", "reminders": [10], "description": "Run: python3 scripts/sonar.py next. Check monitoring sources in data/hackathons.json (Devpost, Zindi, Kaggle, Geekulcha, dev.events, FNB, Mintek, MTN). Log anything new into hackathons.json and score it." },
 
     { "id": "adtc-kickoff", "kind": "prep", "summary": "ADTC kickoff — register, clone, GPU credits, pick domain", "start": "2026-08-10T18:00", "end": "2026-08-10T21:00", "reminders": [60], "description": "1. Register on Devpost: https://adtc-2026.devpost.com/\n2. Clone submission template: https://github.com/Africa-Deep-Tech-Foundation/adtc-2026-submission-template\n3. Clone profiler: https://github.com/Africa-Deep-Tech-Foundation/adtc-profiler\n4. Apply for GPU credits: https://aghcloud.ai/p/3850810a-8f62-474c-b448-e204d026b189\n5. Pick ONE domain (recommend Agriculture or Healthcare — Best African Use Case prize is $1,500)\n6. Run the profiler on your actual laptop to get a baseline." },
