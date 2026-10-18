@@ -121,7 +121,6 @@ recorded, still no dates).
 
 | Event | Why not |
 |---|---|
-| Nebius x NVIDIA Global AI Hackathon ($50k, closes Fri 30 Oct 19:00 SAST) | Rules read and South Africa is not excluded, but it needs a build on Nebius cloud with an NVIDIA open model, and 17,264 registrants make it the most crowded open hackathon on Devpost. A candidate if PayPal and Qloo both fall away. |
 | OpenCV AI Competition 2026 ($12k in the rules, closes Tue 27 Oct 08:45 SAST) | The rules page gives an age limit but names no eligible or excluded countries, so SA eligibility could not be confirmed. Not entered on an assumption. The Devpost headline figure ($20,250) is larger than the rules' own prize list. |
 | Meta VR Start ($1M), ForgeHacks Online ($977k), Amazon Developer Hackathon ($138k) | Not fit (AR/VR) or not assessed beyond the Devpost list. Amazon has 38,453 registrants. Rules were not read, so none is a considered rejection. |
 | Hack Apertus, ImpactHack, Hyperbloom October, AI Builder Cup, InfiniSynapse, Portaldot Hacker House, Binance Agentic AI Challenge | On dev.events' Africa list but not assessed. |
@@ -245,3 +244,11 @@ identically to a fully rendered page.
 - Event page (dates, tracks, criteria, eligibility), read 18 Oct 2026: https://cerebralvalley.ai/e/meta-ai-developer-hackathon
 - Meta Connect 2026 developer recap (Model API, Muse Code, hackathon): https://developers.meta.com/blog/meta-connect-recap/
 - Muse Wonder announcement (12 Oct 2026): https://about.fb.com/news/2026/10/introducing-muse-wonder-models/
+
+## Nebius x NVIDIA Global AI Hackathon
+
+- Devpost overview (tracks, prizes, judges, criteria), read 18 Oct 2026: https://nebiusglobalaihackathon.devpost.com/
+- Official rules (dates, eligibility, requirements), read 18 Oct 2026: https://nebiusglobalaihackathon.devpost.com/rules
+- Nemotron 3 announcement: https://nvidianews.nvidia.com/news/nvidia-debuts-nemotron-3-family-of-open-models
+- NemoClaw announcement: https://nvidianews.nvidia.com/news/nvidia-announces-nemoclaw
+- GTC Berlin dates (20 to 22 Oct): https://www.nvidia.com/gtc/

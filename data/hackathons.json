@@ -24,6 +24,61 @@
   },
   "hackathons": [
     {
+      "id": "nebius-nvidia-global-ai-hackathon-2026",
+      "noticed_on": "2026-10-04",
+      "went_live_on": "2026-08-26",
+      "source": "Devpost overview + official rules, read 18 Oct 2026",
+      "name": "Nebius x NVIDIA Global AI Hackathon",
+      "organiser": "Nebius (sponsor) with NVIDIA and Tavily; administered by Devpost",
+      "scope": "international",
+      "format": "online",
+      "location": "Online (worldwide), optional IRL Builders & Brews city events",
+      "status": "open",
+      "tier": 2,
+      "score": 6.4,
+      "scores": {
+        "career_leverage": 8,
+        "winnability": 3,
+        "prize": 6,
+        "urgency": 10
+      },
+      "dates": {
+        "submission_open": "2026-08-26T09:00:00-07:00",
+        "submission_deadline": "2026-10-30T10:00:00-07:00",
+        "submission_deadline_sast": "2026-10-30T19:00:00+02:00",
+        "judging": "2026-12-01 to 2026-12-15",
+        "winners_announced": "2027-01-11T12:00:00-08:00",
+        "confidence": "confirmed",
+        "note": "Deadline is PDT (US clocks change 1 Nov, after it). Winners date is 'on or around'."
+      },
+      "prize": {
+        "currency": "USD",
+        "pool": 50000,
+        "breakdown": "Grand $20,000; 2nd $10,000; 3rd $6,000; Best Use of Tavily $3,000; 20 x City Winner $500 (IRL event attendees only); 10 x Most Valuable Feedback $100.",
+        "non_cash": "NVIDIA Jetson Orin Nano for each of the 4 track winners; NVIDIA swag. The Nebius Builder Program gives Token Factory, Tavily and Nebius Academy credits."
+      },
+      "eligibility": "South Africa is not excluded. Excluded: Brazil, Quebec, Russia, Crimea, Cuba, Iran, North Korea and other OFAC-sanctioned regions; employers of judges and sponsors. Nebius Token Factory is reportedly unavailable in Pakistan (Devpost forum, Oct 2026), so confirm it works from SA before building.",
+      "team_fit": "Two of us fits. Idea from the team Discord (Hailey, 13 Oct): SecureAgent, security alert triage that checks whether a vulnerability is exploitable in your own deployment. Fits the Coding & Agentic Engineering track.",
+      "what_to_build": "Must make a runtime call to Nebius Token Factory, or run on Nebius AI Cloud (Serverless Jobs/Endpoints, DevPods), and use at least one NVIDIA open model. Tracks: Coding & Agentic Engineering; Best Apps & Agents (Nemotron 3 Ultra for reasoning, Nano/Super for fast calls); Personal AI (NemoClaw, OpenShell, Hermes Agent); Physical AI (Nemotron, GR00T, Cosmos, Sonic; video needs 1 min of hardware footage).",
+      "scoring_formula": "Four criteria: Technological Implementation (use of Token Factory/AI Cloud + Nemotron), Design (complete product), Potential Impact, Quality of Idea. Judges may judge from the video and text only. 23 judges: NVIDIA engineers and Jetson/robotics DevRel, Nebius product (Token Factory, Serverless) and DevRel, Tavily forward deployed engineers.",
+      "deliverables": [
+        "working demo URL (not required for Physical AI)",
+        "public repo with an OSI license visible in the About section",
+        "README with setup steps and how Nemotron, Token Factory and other Nebius services were used",
+        "public YouTube video under 3 minutes",
+        "track selection",
+        "feedback on Nebius and NVIDIA tools",
+        "update note if the project predates 26 Aug"
+      ],
+      "links": {
+        "main": "https://nebiusglobalaihackathon.devpost.com/",
+        "rules": "https://nebiusglobalaihackathon.devpost.com/rules",
+        "nemotron_3": "https://nvidianews.nvidia.com/news/nvidia-debuts-nemotron-3-family-of-open-models",
+        "nemoclaw": "https://nvidianews.nvidia.com/news/nvidia-announces-nemoclaw"
+      },
+      "notes": "PROMOTED 18 Oct 2026 from 'checked, not added' in docs/SOURCES.md. WINNABILITY 3: about 17k registrants, but the $3k Tavily prize and the $100 feedback prizes are much easier side doors. Career 8: NVIDIA and Nebius judges. Cheapest points: route between Nemotron sizes, use 2+ Nebius services, add Tavily, write real feedback. NVIDIA GTC Berlin keynote on 21 Oct may ship new models. Overlaps the Meta hackathon (build 26 Oct to 4 Nov); README rule 3 allows no more than two overlapping builds."
+    },
+    {
       "id": "meta-global-ai-dev-hackathon-2026",
       "noticed_on": "2026-10-18",
       "went_live_on": "2026-10-13",

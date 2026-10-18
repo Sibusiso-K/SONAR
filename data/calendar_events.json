@@ -13,6 +13,14 @@
     }
   },
   "events": [
+    { "id": "nebius-submit-deadline", "kind": "deadline", "summary": "SUBMIT: Nebius x NVIDIA Global AI Hackathon ($50k)", "start": "2026-10-30T19:00", "end": "2026-10-30T19:30", "reminders": [4320, 1440, 180], "description": "Closes 30 Oct 10:00 PT = 19:00 SAST. Needs a public repo with a license, README, YouTube video under 3 minutes, demo URL and feedback. https://nebiusglobalaihackathon.devpost.com/" },
+
+    { "id": "nvidia-gtc-berlin-keynote", "kind": "event", "summary": "NVIDIA GTC Berlin keynote: watch for new Nemotron and agent tools", "start": "2026-10-21", "all_day": true, "reminders": [1440], "description": "GTC Berlin runs 20 to 22 Oct. Anything new can still go into the Nebius build. https://www.nvidia.com/gtc/" },
+
+    { "id": "nebius-judging", "kind": "event", "summary": "Nebius x NVIDIA Hackathon judging (keep demo live)", "start": "2026-12-01", "all_day": true, "reminders": [1440], "description": "Judging runs 1 to 15 Dec. The demo and repo must stay accessible until it ends." },
+
+    { "id": "nebius-winners", "kind": "reward", "summary": "Nebius x NVIDIA Hackathon winners announced", "start": "2027-01-11T22:00", "end": "2027-01-11T22:30", "reminders": [60], "description": "On or around 11 Jan 12:00 PT = 22:00 SAST." },
+
     { "id": "meta-apply-deadline", "kind": "deadline", "summary": "DEADLINE: Meta Global AI Developer Hackathon application", "start": "2026-10-26T05:59", "end": "2026-10-26T06:29", "reminders": [2880, 1440], "description": "Closes 25 Oct 23:59 ET = 26 Oct 05:59 SAST, or earlier if 20,000 spots fill (rolling review). Apply well before. https://cerebralvalley.ai/e/meta-ai-developer-hackathon/apply" },
 
     { "id": "meta-kickoff", "kind": "event", "summary": "Meta Hackathon kickoff livestream (build starts)", "start": "2026-10-26T18:00", "end": "2026-10-26T19:00", "reminders": [60], "description": "26 Oct 12:00 ET = 18:00 SAST. Acceptance emails 09:00 ET = 15:00 SAST. Workshops and Discord office hours 27 Oct to 4 Nov. https://cerebralvalley.ai/e/meta-ai-developer-hackathon" },
