@@ -45,6 +45,7 @@ Researched **10 August 2026**. Anything marked *unconfirmed* has no 2026 primary
 | GirlCode Pan-African Hackathon 2026: SA/Botswana 15–16 Aug | [ITWeb](https://www.itweb.co.za/article/girlcode-opens-registration-for-2026-pan-african-hackathon/j5alrMQAwVRMpYQk) |
 | **Discovery Gradhack 2026: ran 7 August 2026 at Discovery Place, Sandton. 50 IT students from SA universities, teams of 2–4, free entry, R12 500 per winning team member, permanent-employment pathway** — *verified 10 Aug 2026, three days after the event. Entry moved to `dropped_or_past` as MISSED.* | [Discovery Gradhack](https://www.discovery.co.za/corporate/discovery-gradhack) · [Gradhack FAQ 2026 (PDF)](https://www.discoverygreen.co.za/assets/microsites/gradhack/gradhack-faqs.pdf) · [Discovery on LinkedIn](https://www.linkedin.com/posts/discovery-limited_gradhack-2026-activity-7459931387517698048-gZTw) |
 | ADTC 2026 still reported as **25 August** by press/aggregators as of 10 Aug, one describing it as a *"first-stage deadline"* for *"initial proposals"* — possible multi-stage structure, unconfirmed | [TechAfrica News](https://techafricanews.com/2026/07/30/africa-deep-tech-foundation-launches-2026-laptop-llm-challenge/) · [Opportunities for Youth](https://opportunitiesforyouth.org/2026/07/27/africa-deep-tech-challenge-2026-win-up-to-8000-by-building-offline-ai-that-runs-on-everyday-laptops-across-africa/) · [africadeeptech.org](https://africadeeptech.org/challenge-2026/) |
+| More Than a Hack 2027 (Barça Innovation Hub + Mobile World Capital Barcelona, with Metrica Sports): generative AI on sports data, six-month phased programme, top 20 to an Innovation Challenge, five finalists at Talent Arena 2027 — *press coverage of the second edition; the 2027 landing page itself was blocked, see the unread-sources section* | [FC Barcelona news (BIHub presentation)](https://www.fcbarcelona.es/es/noticias/4584971/el-bihub-y-mwcapital-unen-fuerzas-para-impulsar-el-talento-digital-con-la-presentacion-de-la-segunda-edicion-de-more-than-a-hack) · [Corresponsables](https://www.corresponsables.com/actualidad/mwcapital-talento-digital-desafio-innovacion-deporte/) |
 
 ---
 
@@ -239,3 +240,7 @@ identically to a fully rendered page.
 ## Sources that could not be read
 
 **Zindi competitions list** — the page is fully JavaScript-rendered and returns an empty shell to any non-browser fetch. There is no reliable programmatic snapshot of live challenges. Zindi must be checked manually in a browser each Monday, sorted by "Closing soon". This is why `zindi-rolling` carries no dates.
+
+**More Than a Hack 2027 landing page** (`landing.mobileworldcapital.com/more-than-a-hack-2027`) — the sandbox egress policy returned 403 on 18 Oct 2026. Not a page-content problem; the host is blocked from this environment. Read it in a browser before scoring. Entry `more-than-a-hack-2027` stays `verify` until then.
+
+**Meta AI Developer Hackathon** (`cerebralvalley.ai/e/meta-ai-developer-hackathon`) — same 403 on 18 Oct 2026. Web search found no coverage of this event. Entry `meta-ai-developer-hackathon-2026` stays `verify` and unscored until the event page is read in a browser.

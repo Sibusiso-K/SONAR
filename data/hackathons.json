@@ -1367,6 +1367,46 @@
         "contact_older_ehub_page": "StudentEntrepreneurship.DLU@wits.ac.za"
       },
       "notes": "ADDED 12 Oct 2026 from the Wits E-Hub invitation email. Thursday 15 Oct, 09:00-14:00, 3 days out. No public page found; the email is the source, so date, time and venue are confirmed but the APPLY LINK AND DEADLINE ARE MISSING from what we have: find them in the email today, because a 3-day-out showcase may already be closing. WINNABILITY 7 is scored as fit, not odds: there is nothing to win, but VUKA is an unusually strong exhibit for funders (live Azure backend, real Hedera anchoring, a ledger anyone can verify, a bank-funded R20/member/month model), and the field is Wits students only. Prize 3: non-cash, investor exposure. Career 7: VCs and funders in the room, not corporate recruiters. Clashes: same day as the RSNA Knee entry deadline (15 Oct); BCG Platinion is 16-17 Oct (application window closed). Before the day: confirm Azure is up and server.json on the vigil-demo release points to Azure, and prepare the 60-second ledger demo (real record LIVE-VERIFIED, tampered fails at entry #3)."
+    },
+    {
+      "id": "more-than-a-hack-2027",
+      "noticed_on": "2026-10-18",
+      "went_live_on": null,
+      "source": "manual research",
+      "name": "More Than a Hack 2027",
+      "organiser": "Barça Innovation Hub (BIHub) and Mobile World Capital Barcelona; Metrica Sports supporting",
+      "scope": "international",
+      "location": "Barcelona. Final at Talent Arena 2027 per press coverage; format not confirmed",
+      "status": "verify",
+      "dates": {
+        "confidence": "reported"
+      },
+      "eligibility": "Not stated in any source read. First edition drew participants from 96+ countries.",
+      "what_to_build": "Generative AI applied to sports data: turn large volumes of data into useful knowledge and new applications. Six-month programme in phases. Top 20 teams go to an Innovation Challenge; five reach the grand final at Talent Arena 2027.",
+      "deliverables": [],
+      "links": {
+        "main": "https://landing.mobileworldcapital.com/more-than-a-hack-2027"
+      },
+      "notes": "UNSCORED. The landing page could not be read: the sandbox egress policy returned 403 for this host on 18 Oct 2026. Everything above comes from press coverage of the second edition (Barça news, Spanish; English paraphrase). Mapping that edition to this '2027' page is an inference. No deadlines, prize pool, team size or eligibility confirmed. To finish: read the landing page in a browser, fill dates and eligibility, add prize and team rules, then score. Check the sports-data theme against our team profile before committing time to it."
+    },
+    {
+      "id": "meta-ai-developer-hackathon-2026",
+      "noticed_on": "2026-10-18",
+      "went_live_on": null,
+      "source": "manual research",
+      "name": "Meta AI Developer Hackathon",
+      "organiser": "Meta with Cerebral Valley (per the event URL; not confirmed)",
+      "scope": "international",
+      "status": "verify",
+      "dates": {
+        "confidence": "unconfirmed"
+      },
+      "what_to_build": "Not confirmed. The link was shared alongside Meta's Muse Spark API campaign, so the brief is probably built around that API. Verify.",
+      "deliverables": [],
+      "links": {
+        "main": "https://cerebralvalley.ai/e/meta-ai-developer-hackathon"
+      },
+      "notes": "UNSCORED, and nothing confirmed beyond the event URL. Stored without the paid-social tracking parameters (utm_*, fbclid). The sandbox egress policy returned 403 for cerebralvalley.ai on 18 Oct 2026, so the event page could not be read. Web search found no page for this event. The year 2026 is inferred from the campaign tag (MAPI_2026_Q3). Muse Spark 1.1 has been in public preview for US developers since July 2026 (press coverage), so check whether eligibility is limited by country or by API access before committing. To finish: read the event page in a browser, then fill dates, prize, eligibility, team size and the brief."
     }
   ],
   "dropped_or_past": [
