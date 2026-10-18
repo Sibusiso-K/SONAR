@@ -79,7 +79,11 @@
 
     { "id": "rsna-final", "kind": "deadline", "summary": "DEADLINE: RSNA Knee Detection — final submission", "start": "2026-10-22", "all_day": true, "reminders": [1440, 240] },
 
-    { "id": "fnb-window", "kind": "event", "summary": "FNB App of the Year Hackathon — expected window (VERIFY DATE)", "start": "2026-10-23", "end": "2026-10-26", "all_day": true, "reminders": [10080], "description": "UNCONFIRMED — based on 2025 (24 Oct), 72-hour format, 10,000+ participants. Problem statements are ALREADY published: jobs & economic resilience, infrastructure & essential services, inequality & social cohesion, climate resilience & food security, public safety & GBV. Pre-build against them.\nhttps://appoftheyear.co.za/hackathon/" },
+    { "id": "fnb-team-profile", "kind": "admin", "summary": "FNB AOTY: create/profile team on Sonke", "start": "2026-10-20", "end": "2026-10-21", "all_day": true, "reminders": [1440], "description": "Teams must be profiled on Sonke or they cannot be judged. https://sonke.gklink.co/app" },
+    { "id": "fnb-event", "kind": "event", "summary": "FNB App of the Year Hackathon 2026 (virtual)", "start": "2026-10-23T08:30", "end": "2026-10-25T17:00", "reminders": [1440, 60], "description": "CONFIRMED on Sonke 18 Oct 2026. Kickoff livestream Fri 10:00 at https://www.appoftheyear.co.za. Mentors only available this weekend.\nhttps://sonke.gklink.co/app" },
+    { "id": "fnb-pitch-video", "kind": "deadline", "summary": "FNB AOTY: 20-second pitch video due", "start": "2026-10-24", "end": "2026-10-25", "all_day": true, "reminders": [720], "description": "Saturday 24 Oct submission checklist item." },
+    { "id": "fnb-war-rooms", "kind": "event", "summary": "FNB AOTY: War Rooms", "start": "2026-10-24T14:00", "end": "2026-10-24T17:00", "reminders": [30], "description": "Up to 15 rooms, book via War Rooms on the Sonke dashboard." },
+    { "id": "fnb-submission", "kind": "deadline", "summary": "FNB AOTY: FINAL SUBMISSION 23:59", "start": "2026-10-26T22:00", "end": "2026-10-26T23:59", "reminders": [1440, 120], "description": "Upload on Sonke: PDF deck (max 10 slides, with demo login + video link), demo video (max 90s), SSDLC, Lean Business Canvas." },
 
     { "id": "techxchange", "kind": "reward", "summary": "IBM TechXchange 2026, Atlanta (only if we place top 50)", "start": "2026-10-26", "end": "2026-10-30", "all_day": true, "reminders": [], "description": "Placeholder. Top 50 IBM Dev Day teams get conference passes (travel/lodging not included); 1st place gets travel." },
 
