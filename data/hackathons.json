@@ -8,7 +8,7 @@
     ],
     "team_size": 2,
     "base_timezone": "Africa/Johannesburg",
-    "last_updated": "2026-10-11",
+    "last_updated": "2026-10-18",
     "next_review": "2026-08-17",
     "scoring_weights": {
       "career_leverage": 0.35,
@@ -23,6 +23,63 @@
     }
   },
   "hackathons": [
+    {
+      "id": "meta-global-ai-dev-hackathon-2026",
+      "noticed_on": "2026-10-18",
+      "went_live_on": "2026-10-13",
+      "source": "Cerebral Valley event page + Meta for Developers (Meta Connect 2026 recap)",
+      "name": "Meta Global AI Developer Hackathon",
+      "organiser": "Meta and Cerebral Valley",
+      "scope": "international",
+      "format": "online",
+      "location": "Online (worldwide)",
+      "status": "open",
+      "tier": 1,
+      "score": 7.1,
+      "scores": {
+        "career_leverage": 8,
+        "winnability": 4,
+        "prize": 8,
+        "urgency": 10
+      },
+      "dates": {
+        "applications_open": "2026-10-13T09:00:00-04:00",
+        "application_deadline": "2026-10-25T23:59:00-04:00",
+        "application_deadline_sast": "2026-10-26T05:59:00+02:00",
+        "acceptance_notifications": "2026-10-26T09:00:00-04:00",
+        "event_start": "2026-10-26T12:00:00-04:00",
+        "event_start_sast": "2026-10-26T18:00:00+02:00",
+        "submission_deadline": "2026-11-04T21:00:00-05:00",
+        "submission_deadline_sast": "2026-11-05T04:00:00+02:00",
+        "judging": "2026-11-04 to 2026-11-08",
+        "closing_ceremony": "2026-11-09 (live finals, time TBA)",
+        "confidence": "confirmed",
+        "note": "Applications close early if 20,000 spots fill, and are reviewed on a rolling basis, so apply now. Submission deadline is after the US clocks go back (1 Nov), so it is EST (-05:00). Dates may change at Meta's discretion."
+      },
+      "prize": {
+        "currency": "USD",
+        "pool": 1000000,
+        "breakdown": "Not published. Split across two tracks (indie, startup) with no per-track or per-place amounts yet.",
+        "non_cash": "$150 Meta Model API credits per selected participant; partner credits for select participants (Baseten $100, Modal $100, Fireworks $25)."
+      },
+      "eligibility": "Open worldwide, South Africa is not on the restricted list. Excluded: Belarus, China, Russia, Ukraine, Syria, Cuba, North Korea, Iran, Crimea/Donetsk/Luhansk; Meta and Cerebral Valley staff; government-affiliated individuals. Max 20,000 accepted. One application each (duplicates can be disqualified). Official Rules must be accepted by selected participants.",
+      "team_fit": "Indie track (individuals and students) or Startup track (teams and founders with a real product). One project enters one track only. Two of us can enter as separate indie applicants or as a team, but decide before applying.",
+      "what_to_build": "Pick one theme. Build for Your World: Meta's models on a problem you know firsthand. Push the Frontier: software, robotics, manufacturing, energy, materials. Tools: Muse Spark series (1.3 flagship), Muse Wonder (agent model with Active Memory and Active Focus), Muse Image, SAM 3.1 via the Meta Model API; Meta open-weights models (Muse Spark Open, Muse Glimmer); Muse Code coding agent.",
+      "scoring_formula": "Application selection (equal weight): (1) project idea clarity, feasibility and theme fit; (2) technical skill shown in a past AI project. Judging: Indie = creativity, technical ambition, does it work. Startup = technical execution, holds up in production. Judges not published.",
+      "deliverables": [
+        "application form (questions 13-16 are not used for selection)",
+        "working project submitted by 4 Nov 21:00 ET",
+        "Official Rules and event waiver accepted if selected"
+      ],
+      "links": {
+        "main": "https://cerebralvalley.ai/e/meta-ai-developer-hackathon",
+        "apply": "https://cerebralvalley.ai/e/meta-ai-developer-hackathon/apply",
+        "waiver": "https://cerebralvalley.ai/e/meta-ai-developer-hackathon/waiver",
+        "meta_connect_recap": "https://developers.meta.com/blog/meta-connect-recap/",
+        "muse_wonder": "https://about.fb.com/news/2026/10/introducing-muse-wonder-models/"
+      },
+      "notes": "ADDED 18 Oct 2026. Applications close 25 Oct 23:59 ET = 26 Oct 05:59 SAST, so treat Sat 24 Oct as the real deadline. WINNABILITY 4: up to 20,000 participants worldwide and a $1M pool with unknown splits; scored on odds, not fit. Career 8: Meta brand, plus the sponsors (Baseten, Modal, Fireworks) are inference infrastructure companies. Judges are not published anywhere (checked event page and search 18 Oct). The application form questions were not readable without signing in, so read them in the form itself. Reminder: no more than two overlapping builds (README rule 3). Check the clash with the Mintek and RevenueCat dates before committing. Direction from Meta: agents, memory, multimodal, open weights, glasses and MCP connectors. Strongest ideas use Muse Wonder's persistence, are reliable beyond a demo, and come from a domain we know firsthand (South Africa)."
+    },
     {
       "id": "adtc-2026",
       "noticed_on": "2026-08-10",

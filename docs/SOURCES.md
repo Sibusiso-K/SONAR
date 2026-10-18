@@ -239,3 +239,9 @@ identically to a fully rendered page.
 ## Sources that could not be read
 
 **Zindi competitions list** — the page is fully JavaScript-rendered and returns an empty shell to any non-browser fetch. There is no reliable programmatic snapshot of live challenges. Zindi must be checked manually in a browser each Monday, sorted by "Closing soon". This is why `zindi-rolling` carries no dates.
+
+## Meta Global AI Developer Hackathon
+
+- Event page (dates, tracks, criteria, eligibility), read 18 Oct 2026: https://cerebralvalley.ai/e/meta-ai-developer-hackathon
+- Meta Connect 2026 developer recap (Model API, Muse Code, hackathon): https://developers.meta.com/blog/meta-connect-recap/
+- Muse Wonder announcement (12 Oct 2026): https://about.fb.com/news/2026/10/introducing-muse-wonder-models/
