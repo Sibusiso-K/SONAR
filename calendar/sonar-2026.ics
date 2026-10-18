@@ -817,4 +817,120 @@ DESCRIPTION:SONAR: full-year retro + build the 2027 board
 TRIGGER:-PT1440M
 END:VALARM
 END:VEVENT
+BEGIN:VEVENT
+UID:mtn-tech-deadline@sonar.hackathons
+DTSTAMP:20261018T121720Z
+DTSTART;TZID=Africa/Johannesburg:20261020T210000
+DTEND;TZID=Africa/Johannesburg:20261020T235900
+SUMMARY:DEADLINE: MTN Hackathon team lead + use case form
+DESCRIPTION:Team-030-Kali: choose Team Lead\, agree the problem\, submit th
+ e use case form by 23:59 SAST.\nContact: mtngthackathon2026@mtn.com
+CATEGORIES:DEADLINE
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:DEADLINE: MTN Hackathon team lead + use case form
+TRIGGER:-PT1440M
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:DEADLINE: MTN Hackathon team lead + use case form
+TRIGGER:-PT180M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mtn-tech-top20@sonar.hackathons
+DTSTAMP:20261018T121720Z
+DTSTART;VALUE=DATE:20261023
+DTEND;VALUE=DATE:20261024
+SUMMARY:MTN Hackathon: Top 20 announced
+DESCRIPTION:Selected teams notified. Environments provisioned\; partner ena
+ blement and office hours begin for shortlisted teams.
+CATEGORIES:ADMIN
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:MTN Hackathon: Top 20 announced
+TRIGGER:-PT1440M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mtn-tech-showcase@sonar.hackathons
+DTSTAMP:20261018T121720Z
+DTSTART;VALUE=DATE:20261028
+DTEND;VALUE=DATE:20261029
+SUMMARY:MTN Hackathon: PoC/MVP showcase to senior managers
+DESCRIPTION:Top 20 show developing PoCs/MVPs to MTN Senior/General Managers
+  across Cloud\, Data & Analytics and AI\, Digital Infrastructure and FinTe
+ ch.
+CATEGORIES:EVENT
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:MTN Hackathon: PoC/MVP showcase to senior managers
+TRIGGER:-PT2880M
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:MTN Hackathon: PoC/MVP showcase to senior managers
+TRIGGER:-PT1440M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mtn-tech-top8@sonar.hackathons
+DTSTAMP:20261018T121720Z
+DTSTART;VALUE=DATE:20261030
+DTEND;VALUE=DATE:20261031
+SUMMARY:MTN Hackathon: Top 8 finalists announced
+DESCRIPTION:Top eight notified\; progress to the final build phase.
+CATEGORIES:ADMIN
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:MTN Hackathon: Top 8 finalists announced
+TRIGGER:-PT1440M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mtn-tech-build@sonar.hackathons
+DTSTAMP:20261018T121720Z
+DTSTART;VALUE=DATE:20261102
+DTEND;VALUE=DATE:20261104
+SUMMARY:MTN Hackathon: 48-hour build sprint
+DESCRIPTION:Hybrid build at the MTN Innovation Hub\, South Africa. Strategi
+ c partners available for enablement and support.
+CATEGORIES:EVENT
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:MTN Hackathon: 48-hour build sprint
+TRIGGER:-PT4320M
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:MTN Hackathon: 48-hour build sprint
+TRIGGER:-PT1440M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mtn-tech-pitch@sonar.hackathons
+DTSTAMP:20261018T121720Z
+DTSTART;VALUE=DATE:20261105
+DTEND;VALUE=DATE:20261106
+SUMMARY:MTN Hackathon: PITCH DAY to executive panel
+DESCRIPTION:Judges: Charles Molapisi\, Mitwa Ng'ambi\, Shoyinka Shodunke\, 
+ Enzo Scarcella\, Bukola Ajayi\, Pushkar Gokhale.
+CATEGORIES:EVENT
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:MTN Hackathon: PITCH DAY to executive panel
+TRIGGER:-PT4320M
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:MTN Hackathon: PITCH DAY to executive panel
+TRIGGER:-PT1440M
+END:VALARM
+END:VEVENT
 END:VCALENDAR
