@@ -1407,6 +1407,69 @@
         "main": "https://cerebralvalley.ai/e/meta-ai-developer-hackathon"
       },
       "notes": "UNSCORED, and nothing confirmed beyond the event URL. Stored without the paid-social tracking parameters (utm_*, fbclid). The sandbox egress policy returned 403 for cerebralvalley.ai on 18 Oct 2026, so the event page could not be read. Web search found no page for this event. The year 2026 is inferred from the campaign tag (MAPI_2026_Q3). Muse Spark 1.1 has been in public preview for US developers since July 2026 (press coverage), so check whether eligibility is limited by country or by API access before committing. To finish: read the event page in a browser, then fill dates, prize, eligibility, team size and the brief."
+    },
+    {
+      "id": "micro1-eval-hackathon-2026",
+      "noticed_on": "2026-10-19",
+      "went_live_on": null,
+      "source": "manual research",
+      "name": "micro1 Eval Hackathon",
+      "organiser": "micro1 (sponsor and organiser), hosted on HackerRank",
+      "scope": "international",
+      "format": "online",
+      "location": "Virtual (HackerRank event page)",
+      "status": "verify",
+      "tier": 3,
+      "score": 5.95,
+      "scores": {
+        "career_leverage": 6,
+        "winnability": 5,
+        "prize": 5,
+        "urgency": 9
+      },
+      "dates": {
+        "event_start": "2026-10-23T12:00:00-07:00",
+        "event_start_sast": "2026-10-23T21:00:00+02:00",
+        "submission_deadline": "2026-11-02T09:00:00-08:00",
+        "submission_deadline_sast": "2026-11-02T19:00:00+02:00",
+        "confidence": "reported"
+      },
+      "prize": {
+        "currency": "USD",
+        "pool": 10000,
+        "breakdown": [
+          {
+            "place": "1st",
+            "amount": 5000,
+            "track": null
+          },
+          {
+            "place": "2nd",
+            "amount": 3000,
+            "track": null
+          },
+          {
+            "place": "3rd",
+            "amount": 2000,
+            "track": null
+          }
+        ]
+      },
+      "eligibility": "Free, worldwide, individual. Must be 18+ with AT LEAST 2 YEARS OF PROFESSIONAL EXPERIENCE and able to code or use AI coding tools. Residents of some countries are excluded (Russia, Iran and Syria named; full list not read, so check South Africa is not on it). Must accept the micro1 Participant Agreement before submitting. Core team, administrators and judges are not prize-eligible.",
+      "team_fit": "Individual event, one entry per person: no teaming up. Sibusiso and Lethabo can each register and enter separately, but the 2-year professional-experience rule may block one or both. Settle that first.",
+      "what_to_build": "Not an agent build. Pick a task in your own field that needs expert judgment, probe a frontier AI model with tough realistic scenarios to find where it still fails, then build a repeatable eval in code with clear scoring. 5 to 10 tasks suggested.",
+      "scoring_formula": "No weighted formula found. Judges look for: a practical limitation rather than a trick; clear tasks with a defensible grading standard; a grader that avoids false passes and false fails; an explanation of why frontier models fail; originality and reproducibility; and results showing how frontier models perform on the eval.",
+      "deliverables": [
+        "Eval tasks with clear scoring criteria",
+        "Grader/test code that reproduces the result",
+        "Results showing frontier-model failures"
+      ],
+      "links": {
+        "main": "https://www.hackerrank.com/event/micro1-eval-hackathon",
+        "faq": "https://www.micro1.ai/hackathon/faq",
+        "rules": "https://www.micro1.ai/hackathon/agreement"
+      },
+      "notes": "Dates, prize split and judging come from search results quoting the organiser's FAQ, the HackerRank page and micro1's X posts. None of those pages could be opened from the sandbox (DNS failure on hackerrank.com and micro1.ai, 19 Oct 2026), so confidence is reported, not confirmed. DATE CONFLICT: the FAQ (via search) says the challenge opens Fri 23 Oct 2026 12:00 PT and submissions close Mon 2 Nov 2026 09:00 PT, but a micro1 X post says kickoff is 30 Oct and the HackerRank page is quoted as closing registration 30 Oct 07:00 GMT. The X post also says '9 days', and 23 Oct to 2 Nov is 10. Treat 2 Nov 09:00 PT (19:00 SAST) as the working deadline until the page is read. Stored without the LinkedIn tracking parameters (utm_*). Do not confuse it with micro1's earlier Frontier Engineering Challenge (28-31 Aug 2026, HackerEarth), which was a coding-agent event. The earlier event promised paid micro1 opportunities to the top 50; nothing found says this one does, so the career-leverage score of 6 is a guess. It fits the team's ML and multi-agent evidence, and a good eval is a strong portfolio piece. Needs a domain where expert judgment is real, so pick one before the 23rd."
     }
   ],
   "dropped_or_past": [
