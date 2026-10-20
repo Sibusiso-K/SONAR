@@ -244,6 +244,7 @@ identically to a fully rendered page.
 - Event page (dates, tracks, criteria, eligibility), read 18 Oct 2026: https://cerebralvalley.ai/e/meta-ai-developer-hackathon
 - Meta Connect 2026 developer recap (Model API, Muse Code, hackathon): https://developers.meta.com/blog/meta-connect-recap/
 - Muse Wonder announcement (12 Oct 2026): https://about.fb.com/news/2026/10/introducing-muse-wonder-models/
+- Approval emails to Sibusiso and Lethabo, 20 Oct 2026 (private, not a citable public URL; confirmed by Sibusiso 20 Oct 2026): both approved. The approval invite gives the kickoff as GMT-5 (19:00 SAST) where the event page says 12:00 ET (18:00 SAST); confirm on 26 Oct.
 
 ## Nebius x NVIDIA Global AI Hackathon
 

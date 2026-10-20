@@ -4,6 +4,8 @@ Generated 10 August 2026 · updated 14 August 2026 (Mintek selection letter). We
 
 ---
 
+> **Updated 20 Oct 2026 - Meta Global AI Developer Hackathon (score 7.1, Tier 1): both approved, status selected.** Sibusiso and Lethabo each got an approval email on 20 Oct and enter as a pair with **Parallax** (AI decision simulator, [repo](https://github.com/Sibusiso-K/Parallax)), Startup track, theme Build for Your World. Before 26 Oct: read the Official Rules (pair eligibility, submission format) and confirm both registrations show Startup. Kickoff 26 Oct at 18:00 or 19:00 SAST (event page vs approval invite, confirm on the day). Internal submit target **4 Nov 22:00 SAST**; official deadline 5 Nov 04:00 SAST. Brief: [`entries/meta-global-ai-dev-hackathon-2026/BRIEF.md`](../entries/meta-global-ai-dev-hackathon-2026/BRIEF.md). The table below has not been regenerated since August.
+
 ## The board
 
 | # | Event | Tier | Score | Scope | Prize | Key date | Status |
