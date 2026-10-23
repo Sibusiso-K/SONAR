@@ -432,22 +432,28 @@
       "name": "FNB App of the Year Hackathon 2026",
       "organiser": "FNB South Africa",
       "scope": "local",
-      "format": "hybrid",
+      "format": "online",
       "location": "South Africa",
-      "status": "open",
-      "tier": 2,
-      "score": 6.6,
+      "status": "closing",
+      "tier": 1,
+      "score": 7.35,
       "scores": {
         "career_leverage": 9,
         "winnability": 5,
         "prize": 6,
-        "urgency": 5
+        "urgency": 10
       },
       "dates": {
-        "expected_window": "Late October 2026",
+        "event_start": "2026-10-23T08:30:00+02:00",
+        "event_end": "2026-10-25T17:00:00+02:00",
+        "kickoff_livestream": "2026-10-23T10:00:00+02:00",
+        "pitch_video_due": "2026-10-24",
+        "war_rooms": "2026-10-24T14:00:00+02:00 to 17:00",
+        "final_submission": "2026-10-26T23:59:00+02:00",
+        "team_profile_deadline": "2026-10-20",
         "prior_year_event": "2025-10-24",
-        "confidence": "unconfirmed",
-        "checked_on": "2026-10-04"
+        "confidence": "confirmed",
+        "checked_on": "2026-10-18"
       },
       "prize": {
         "currency": "ZAR",
@@ -458,14 +464,29 @@
       "team_fit": "Good.",
       "what_to_build": "72-hour sprint against the six 2026 problem statements (official site, read 4 Oct 2026), each with the site's own focus areas: (1) Access to higher education - study pathways, funding comparison, applications, support through graduation; focus: applications, bursaries and NSFAS guidance, cost planning, student wellness, academic persistence, connectivity and accessible learning. (2) Youth employment and work readiness - turning skills into credible profiles, experience and income; focus: skills verification, entry-level matching, micro-internships, mentorship, informal experience, transport and data barriers. (3) Youth entrepreneurship and small-business growth - helping young founders and township or rural businesses start, trade, get paid, manage cash flow and reach formal markets; focus: business registration, digital payments, bookkeeping, procurement access, market links, funding readiness and fraud protection. (4) Financial inclusion and money confidence - simpler, safer money management for irregular incomes and the underserved; focus: budgeting, saving, responsible credit, low-data tools, multilingual support, scam awareness, accessible design. (5) Safer communities and gender-based violence response - trusted support, safe incident documentation, emergency help, prevention without added risk to survivors; focus: privacy-first reporting, verified services, discreet access, referral pathways, community education, responsible data governance. (6) Climate resilience and essential services - data and digital services for disruption readiness, lower household costs and access to water, energy, transport and food; focus: local alerts, service reporting, resource sharing, energy and water savings, food access, climate-smart small businesses.",
       "deliverables": [
-        "Working app solution within 72 hours"
+        "Hosted web app, PWA or native build file (no static/CMS sites; WhatsApp bots need data ownership + commercialisation evidence)",
+        "PDF deck, max 10 slides: features, screenshots, demo account login for judges, security, user journey, technical architecture, link to demo video",
+        "Demo video, max 90 seconds",
+        "20-second pitch video (due Sat 24 Oct)",
+        "SSDLC form and Lean Business Canvas (filled in on the Sonke team page)"
       ],
+      "scoring_formula": "7 criteria, each scored 0-10, equal weight: Product, Creativity, Usability, Sustainability (path to revenue), Impact, Presentation, Intelligence (predicts user behaviour from data). Read off the Sonke Criteria panel 18 Oct 2026.",
+      "challenge_uptake_on_sonke": {
+        "snapshot": "2026-10-18",
+        "teams_total": 499,
+        "youth_entrepreneurship_small_business": 150,
+        "youth_employment": 103,
+        "higher_education": 71,
+        "financial_inclusion": 69,
+        "safer_communities_gbv": 64,
+        "climate_resilience": 45
+      },
       "links": {
         "main": "https://appoftheyear.co.za/hackathon/",
         "partner_page": "https://www.22onsloane.co/fnb-aoty-hackathon/",
         "geekulcha_link": "https://gklink.co/fnbhackathon2026"
       },
-      "notes": "Problem statements for 2026 are ALREADY PUBLISHED on the site: you can pre-build against them before registration opens. Huge field (10k+) hurts odds, but FNB actively recruits from it and the December awards give a second bite. Monitor weekly from 1 Sept. LINK CORRECTION 14 Aug 2026: the official appoftheyear.co.za site is down: the domain resolves but returns HTTP 500 on / and 404 on /hackathon. Primary link temporarily points at the 22 On Sloane partner page, which is live and describes the 2026 hackathon; the official URL is kept under official_site and should be promoted back the moment it recovers. This is the same page that 404'd during watch_sources.py run #5, so it has now failed twice: treat it as unreliable, not flaky. SWEEP 4 Oct 2026 (requested by Sibusiso): the official site is back up and is the main link again. It lists the six 2026 problem statements above; the five previously recorded here were the 2025 set. Geekulcha's events page links 'FNB HACKATHON 2026' (gklink.co/fnbhackathon2026), which redirects to the official hackathon page. Still NO 2026 dates or registration window published on the official hackathon page, home page, FAQs, the 22 On Sloane page or Geekulcha's site - late October is still an inference from 24 Oct 2025, not a date. Urgency 4 -> 5: pre-building against the 2026 statements can start now. Fit: small-business growth and financial inclusion line up with work the team has shipped (Stokup, MoyaMoya). ADDED AS A TARGET 4 Oct 2026 at Sibusiso's request: status monitor -> open. The 2026 edition is publicly live on the official site (announced, brief and per-statement focus areas published, 'Enter Hackathon' call to action), but no registration form, dates or window are visible - so it still has no deadline, no countdown, and it stays on the Radar's not-calendar-safe list until FNB publishes a date. Statement 3 (small-business growth: payments, bookkeeping, cash flow) is the closest match to Stokup; statement 4 (financial inclusion) to MoyaMoya. WEEKLY SWEEP 11 Oct 2026: the official hackathon page still shows the six problem statements and no 2026 dates, registration window or venue. Geekulcha's listing still points to the same page. No change to urgency or score."
+      "notes": "Problem statements for 2026 are ALREADY PUBLISHED on the site: you can pre-build against them before registration opens. Huge field (10k+) hurts odds, but FNB actively recruits from it and the December awards give a second bite. Monitor weekly from 1 Sept. LINK CORRECTION 14 Aug 2026: the official appoftheyear.co.za site is down: the domain resolves but returns HTTP 500 on / and 404 on /hackathon. Primary link temporarily points at the 22 On Sloane partner page, which is live and describes the 2026 hackathon; the official URL is kept under official_site and should be promoted back the moment it recovers. This is the same page that 404'd during watch_sources.py run #5, so it has now failed twice: treat it as unreliable, not flaky. SWEEP 4 Oct 2026 (requested by Sibusiso): the official site is back up and is the main link again. It lists the six 2026 problem statements above; the five previously recorded here were the 2025 set. Geekulcha's events page links 'FNB HACKATHON 2026' (gklink.co/fnbhackathon2026), which redirects to the official hackathon page. Still NO 2026 dates or registration window published on the official hackathon page, home page, FAQs, the 22 On Sloane page or Geekulcha's site - late October is still an inference from 24 Oct 2025, not a date. Urgency 4 -> 5: pre-building against the 2026 statements can start now. Fit: small-business growth and financial inclusion line up with work the team has shipped (Stokup, MoyaMoya). ADDED AS A TARGET 4 Oct 2026 at Sibusiso's request: status monitor -> open. The 2026 edition is publicly live on the official site (announced, brief and per-statement focus areas published, 'Enter Hackathon' call to action), but no registration form, dates or window are visible - so it still has no deadline, no countdown, and it stays on the Radar's not-calendar-safe list until FNB publishes a date. Statement 3 (small-business growth: payments, bookkeeping, cash flow) is the closest match to Stokup; statement 4 (financial inclusion) to MoyaMoya. WEEKLY SWEEP 11 Oct 2026: the official hackathon page still shows the six problem statements and no 2026 dates, registration window or venue. Geekulcha's listing still points to the same page. No change to urgency or score. CONFIRMED 18 Oct 2026 off the Sonke workspace (sonke.gklink.co, private logged-in dashboard) after Sibusiso signed in: hackathon is VIRTUAL, 23 Oct 08:30 to 25 Oct 17:00; kickoff livestream Fri 23 Oct 10:00 on appoftheyear.co.za; 20s pitch video due Sat 24 Oct; war rooms Sat 24 Oct 14:00-17:00 (up to 15 rooms); FINAL SUBMISSION Mon 26 Oct 23:59 SAST; no live presentations, submissions are judged as uploaded; team must be profiled on Sonke by 20 Oct or it cannot be judged; solo entry allowed; IP stays with the team; existing apps allowed if at least one feature is built during the event and all sessions are attended; mentors (22) only 23-25 Oct. 499 teams registered, most crowded track is youth entrepreneurship (150), financial inclusion has 69, climate 45. The 7 judging criteria are in scoring_formula. Sonke Judges panel shows 0 judges; the appoftheyear.co.za judges page lists 24 (incl. Prof Moinak Maiti, FirstRand Foundation Chair in Financial Data Science, Wits; Dr Jabu Mtsweni, CSIR; Alen Ribic, SweepSouth/Xash co-founder; Arthur Goldstuck). SCORE CHANGE 18 Oct 2026: urgency 5 -> 10 (under 14 days to final submission, per the CONTRIBUTING rubric), score 6.6 -> 7.35, tier 2 -> 1. Dates are now calendar-safe."
     },
     {
       "id": "mtn-momo-miniapp-2026",

@@ -695,23 +695,78 @@ TRIGGER:-PT240M
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:fnb-window@sonar.hackathons
-DTSTAMP:20261012T072809Z
-DTSTART;VALUE=DATE:20261023
-DTEND;VALUE=DATE:20261026
-SUMMARY:FNB App of the Year Hackathon — expected window (VERIFY DATE)
-DESCRIPTION:UNCONFIRMED — based on 2025 (24 Oct)\, 72-hour format\, 10\,
- 000+ participants. Problem statements are ALREADY published: jobs & econo
- mic resilience\, infrastructure & essential services\, inequality & socia
- l cohesion\, climate resilience & food security\, public safety & GBV. Pr
- e-build against them.\nhttps://appoftheyear.co.za/hackathon/
+UID:fnb-team-profile@sonar.hackathons
+DTSTAMP:20261018T120000Z
+DTSTART;VALUE=DATE:20261020
+DTEND;VALUE=DATE:20261021
+SUMMARY:FNB AOTY: create/profile team on Sonke
+DESCRIPTION:Teams must be profiled on Sonke or they cannot be judged.\nhttps://sonke.gklink.co/app
+CATEGORIES:ADMIN
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:FNB AOTY: create/profile team on Sonke
+TRIGGER:-PT1440M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:fnb-event@sonar.hackathons
+DTSTAMP:20261018T120000Z
+DTSTART;TZID=Africa/Johannesburg:20261023T083000
+DTEND;TZID=Africa/Johannesburg:20261025T170000
+SUMMARY:FNB App of the Year Hackathon 2026 (virtual)
+DESCRIPTION:CONFIRMED on Sonke 18 Oct 2026. Kickoff livestream Fri 10:00 at https://www.appoftheyear.co.za. Mentors only this weekend.
 CATEGORIES:EVENT
 TRANSP:OPAQUE
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:FNB App of the Year Hackathon — expected window (VERIFY DATE
- )
-TRIGGER:-PT10080M
+DESCRIPTION:FNB App of the Year Hackathon 2026 (virtual)
+TRIGGER:-PT1440M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:fnb-pitch-video@sonar.hackathons
+DTSTAMP:20261018T120000Z
+DTSTART;VALUE=DATE:20261024
+DTEND;VALUE=DATE:20261025
+SUMMARY:FNB AOTY: 20-second pitch video due
+DESCRIPTION:Saturday 24 Oct submission checklist item.
+CATEGORIES:DEADLINE
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:FNB AOTY: 20-second pitch video due
+TRIGGER:-PT720M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:fnb-war-rooms@sonar.hackathons
+DTSTAMP:20261018T120000Z
+DTSTART;TZID=Africa/Johannesburg:20261024T140000
+DTEND;TZID=Africa/Johannesburg:20261024T170000
+SUMMARY:FNB AOTY: War Rooms
+DESCRIPTION:Up to 15 rooms, book via War Rooms on the Sonke dashboard.
+CATEGORIES:EVENT
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:FNB AOTY: War Rooms
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:fnb-submission@sonar.hackathons
+DTSTAMP:20261018T120000Z
+DTSTART;TZID=Africa/Johannesburg:20261026T220000
+DTEND;TZID=Africa/Johannesburg:20261026T235900
+SUMMARY:FNB AOTY: FINAL SUBMISSION 23:59
+DESCRIPTION:Upload on Sonke: PDF deck (max 10 slides, demo login + video link), demo video (max 90s), SSDLC, Lean Business Canvas.
+CATEGORIES:DEADLINE
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:FNB AOTY: FINAL SUBMISSION 23:59
+TRIGGER:-PT1440M
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT

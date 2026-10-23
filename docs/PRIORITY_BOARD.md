@@ -14,7 +14,7 @@ Generated 10 August 2026 · updated 14 August 2026 (Mintek selection letter). We
 | 4 | IBM Dev Day: Bob in Action | 1 | **7.35** | Intl | $2,000 + TechXchange trip | Event **27–30 Aug** | Open |
 | 5 | RevenueCat Shipaton 2026 | 2 | 6.8 | Intl | **$700,000+** | Submit **30 Sep** | Open |
 | 6 | Entelect Hackathons University Cup 2 | 2 | 6.7 | Local | Small | **Tomorrow, 22 Aug, 10:00–15:00** | Registered — "Age of Enteland" |
-| 7 | FNB App of the Year Hackathon | 2 | 6.45 | Local | TBA | ~late Oct | Monitor |
+| 7 | FNB App of the Year Hackathon | 1 | **7.35** | Local | Best Hackathon Solution slot (Dec awards) | Event **23–25 Oct** · Final **26 Oct 23:59** | **Open: profile team by 20 Oct** |
 | 8 | SITA GovTech 2026 Hackathon | 2 | 6.45 | Local | TBA | **17–19 Sep** | **Submitted** (entity registered) |
 | 9 | RSNA Knee Abnormality Detection (Kaggle) | 2 | 6.2 | Intl | **$77,000** | Entry **15 Oct** | Open |
 | 10 | MTN MoMo Mini App Hackathon | 2 | 6.2 | Continental | ~$10,000 SA | TBA | **Submitted** (3 ideas) |
@@ -99,7 +99,7 @@ Half the score is **not** model quality. Throughput is measured against a 15 tok
 
 **Entelect Hackathons University Cup 2 (6.7)** — **tomorrow, Saturday 22 August, 10:00–15:00.** Registered, team confirmed. Theme "Age of Enteland" — optimisation/strategy under constraints, full brief withheld until the live briefing. A practice hackathon is live now through to event start: individual, register separately, use it to test the submission/leaderboard flow before the real thing. Join Discord (primary event hub, all announcements there) and bookmark the Teams livestream before tomorrow morning — links in `data/opportunities.json`. Prior prizes were Nintendo Switches; the real value is the Entelect graduate-hiring pipeline, not the prize.
 
-**FNB App of the Year (6.45)** — the **problem statements are already published** on the site even though registration isn't open. You can pre-build. Five themes: jobs & economic resilience, infrastructure & essential services, inequality & social cohesion, climate resilience & food security, public safety & GBV. 10,000+ competitors hurts the odds badly, but FNB recruits from it and there's a second bite via the December awards. Monitor weekly from 1 September.
+**FNB App of the Year (7.35, Tier 1 as of 18 Oct)** — dates **confirmed** on Sonke: virtual, 23 Oct 08:30 to 25 Oct 17:00, pitch video Sat 24 Oct, final submission **Mon 26 Oct 23:59 SAST**. Team must be profiled on Sonke by **20 Oct** or it cannot be judged. Six problem statements; 499 teams, most crowded is youth entrepreneurship (150), financial inclusion has 69. Judged 0-10 on Product, Creativity, Usability, Sustainability, Impact, Presentation and Intelligence. Urgency 5 -> 10 moved it from Tier 2 to Tier 1. Details in `data/hackathons.json`.
 
 **SITA GovTech (6.45)** — **submitted, in-person at Durban ICC, 17–19 September.** The eligibility blocker this section used to warn about is cleared: the team is now three (T&Cs 2.2 needs 3–5), and an EME/SMME entity is registered (2.1). Entity name and registration date aren't recorded on the board yet — worth filling in. Two things from the T&Cs worth knowing going in: only one team per company may register (1.2) — confirm the entity isn't fielding a second team anywhere — and winners are announced 23 September at a separate Awards Ceremony, not at the hackathon itself. Prize money, if any, is taxable and paid 30 days out; pilot-phase funding for a winning solution is at SITA's discretion and asks for three full days a week during delivery.
 
