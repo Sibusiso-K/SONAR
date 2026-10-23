@@ -82,6 +82,18 @@
 
     { "id": "mintek-conference", "kind": "event", "summary": "Mintek SCI Conference — mandatory attendance", "start": "2026-10-02", "all_day": true, "reminders": [1440], "description": "Separate registration from the hackathon itself. Five finalists announced; originality authentication follows." },
 
+    { "id": "mtn-tech-deadline", "kind": "deadline", "summary": "DEADLINE: MTN Hackathon team lead + use case form", "start": "2026-10-20T21:00", "end": "2026-10-20T23:59", "reminders": [1440, 180], "description": "Team-030-Kali: choose Team Lead, agree the problem, submit the use case form by 23:59 SAST.\nContact: mtngthackathon2026@mtn.com" },
+
+    { "id": "mtn-tech-top20", "kind": "admin", "summary": "MTN Hackathon: Top 20 announced", "start": "2026-10-23", "all_day": true, "reminders": [1440], "description": "Selected teams notified. Environments provisioned; partner enablement and office hours begin for shortlisted teams." },
+
+    { "id": "mtn-tech-showcase", "kind": "event", "summary": "MTN Hackathon: PoC/MVP showcase to senior managers", "start": "2026-10-28", "all_day": true, "reminders": [2880, 1440], "description": "Top 20 show developing PoCs/MVPs to MTN Senior/General Managers across Cloud, Data & Analytics and AI, Digital Infrastructure and FinTech." },
+
+    { "id": "mtn-tech-top8", "kind": "admin", "summary": "MTN Hackathon: Top 8 finalists announced", "start": "2026-10-30", "all_day": true, "reminders": [1440], "description": "Top eight notified; progress to the final build phase." },
+
+    { "id": "mtn-tech-build", "kind": "event", "summary": "MTN Hackathon: 48-hour build sprint", "start": "2026-11-02", "end": "2026-11-04", "all_day": true, "reminders": [4320, 1440], "description": "Hybrid build at the MTN Innovation Hub, South Africa. Strategic partners available for enablement and support." },
+
+    { "id": "mtn-tech-pitch", "kind": "event", "summary": "MTN Hackathon: PITCH DAY to executive panel", "start": "2026-11-05", "all_day": true, "reminders": [4320, 1440], "description": "Judges: Charles Molapisi, Mitwa Ng'ambi, Shoyinka Shodunke, Enzo Scarcella, Bukola Ajayi, Pushkar Gokhale." },
+
     { "id": "ibmz-reg", "kind": "deadline", "summary": "DEADLINE: IBM Z Datathon 2026 registration", "start": "2026-10-01", "all_day": true, "reminders": [4320, 1440], "description": "Register by 1 Oct midnight or you go on the waitlist. Individual registration first, then team lead completes the team form.\nhttps://www.starhacks.org/ibm-z-datathon-2026" },
 
     { "id": "rsna-sprint", "kind": "prep", "summary": "RSNA Kaggle sprint — reuse ADTC efficiency work", "start": "2026-10-03T09:00", "end": "2026-10-04T17:00", "reminders": [1440], "description": "12 abnormalities on knee MRI. First RSNA challenge using both images AND radiology report text — 5,000+ exams, reports in 12 languages, 16 sites.\n2026 adds prizes for the MOST EFFICIENT MODELS — that's the ADTC skillset, use it.\nhttps://www.kaggle.com/competitions/rsna-knee-abnormality-detection" },

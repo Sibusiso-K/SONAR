@@ -1479,6 +1479,72 @@
         "contact_older_ehub_page": "StudentEntrepreneurship.DLU@wits.ac.za"
       },
       "notes": "ADDED 12 Oct 2026 from the Wits E-Hub invitation email. Thursday 15 Oct, 09:00-14:00, 3 days out. No public page found; the email is the source, so date, time and venue are confirmed but the APPLY LINK AND DEADLINE ARE MISSING from what we have: find them in the email today, because a 3-day-out showcase may already be closing. WINNABILITY 7 is scored as fit, not odds: there is nothing to win, but VUKA is an unusually strong exhibit for funders (live Azure backend, real Hedera anchoring, a ledger anyone can verify, a bank-funded R20/member/month model), and the field is Wits students only. Prize 3: non-cash, investor exposure. Career 7: VCs and funders in the room, not corporate recruiters. Clashes: same day as the RSNA Knee entry deadline (15 Oct); BCG Platinion is 16-17 Oct (application window closed). Before the day: confirm Azure is up and server.json on the vigil-demo release points to Azure, and prepare the 60-second ledger demo (real record LIVE-VERIFIED, tampered fails at entry #3)."
+    },
+    {
+      "id": "mtn-group-tech-hackathon-2026",
+      "noticed_on": "2026-10-18",
+      "went_live_on": null,
+      "source": "organiser confirmation email + LinkedIn post (MTN Group Technology Hackathon)",
+      "name": "MTN Group Technology Hackathon 2026",
+      "organiser": "MTN Group (Group Technology / CTIO office)",
+      "scope": "continental",
+      "format": "hybrid",
+      "location": "Virtual via Microsoft Teams (One MTN, three platforms | Hackathon); 48-hour hybrid build at the MTN Innovation Hub, South Africa",
+      "status": "registered",
+      "tier": 1,
+      "score": 7.05,
+      "scores": {
+        "career_leverage": 9,
+        "winnability": 6,
+        "prize": 3,
+        "urgency": 10
+      },
+      "dates": {
+        "entries_closed": "2026-10-12",
+        "team_lead_and_use_case_form": "2026-10-20T23:59:00+02:00",
+        "submission_deadline": "2026-10-20T23:59:00+02:00",
+        "submission_deadline_label": "Team Lead chosen + use case form submitted",
+        "top_20_announced": "2026-10-23",
+        "showcase_to_managers": "2026-10-28",
+        "top_8_announced": "2026-10-30",
+        "event_start": "2026-11-02",
+        "event_end": "2026-11-03",
+        "event_label": "48-hour hybrid build sprint, MTN Innovation Hub",
+        "pitch_day": "2026-11-05",
+        "confidence": "confirmed",
+        "source": "MTN Group Technology Hackathon 2026 participant email (Y'ello Hackathon Participants), read 18 Oct 2026"
+      },
+      "prize": {
+        "currency": "N/A",
+        "pool": null,
+        "non_cash": "No prize pool published. Value is the room: six MTN executives judge pitch day, plus strategic-partner enablement and office hours for shortlisted teams."
+      },
+      "eligibility": "MTN employees and external innovators. Registration closed 12 Oct 2026; we are registered and inside the environment as Team-030-Kali. Guest account via personal redemption link; must sign in with the invited email address.",
+      "team_fit": "Team-030-Kali. Sibusiso volunteered as Team Lead; teammates contacted in the Teams channel. Team size and members to be confirmed in the use case form.",
+      "what_to_build": "A PoC/MVP on one or more of MTN's three platforms (connectivity, fintech, digital infrastructure) with AI running through them. Published focus areas: AI and AI-RAN, fintech, digital infrastructure. No fixed problem statements: the team chooses the problem and submits it via the use case form. Judges' stated direction: expand connectivity, reach underserved communities, unlock Africa's potential.",
+      "scoring_formula": "Not published. Ask mtngthackathon2026@mtn.com for the rubric. Working assumption: impact on connectivity/inclusion, technical feasibility of a working PoC, fit with Ambition 2030, scalability across MTN's 19 markets.",
+      "deliverables": [
+        "Confirm participation via personal redemption link (Microsoft My Apps) and join Teams workspace",
+        "Team Lead chosen and use case form submitted by 20 Oct 23:59 SAST",
+        "Developing PoC/MVP showcase for 28 Oct (Top 20 only)",
+        "48-hour build 2-3 Nov (Top 8 only)",
+        "Executive pitch 5 Nov (finalists only)"
+      ],
+      "links": {
+        "main": "https://www.linkedin.com/posts/innovation-ai-fintech-share-7513948142380437505-qUNQ/",
+        "news": "https://techafricanews.com/2026/10/12/mtn-opens-2026-technology-hackathon-innovators-employees/",
+        "contact": "mtngthackathon2026@mtn.com",
+        "brief": "entries/mtn-group-tech-hackathon-2026/BRIEF.md"
+      },
+      "judges": [
+        "Charles Molapisi - MTN Group Chief Technology and Information Officer",
+        "Mitwa Ng'ambi - MTN Group Chief People and Culture Officer (from 1 Sept 2026; ex-CEO MTN Cote d'Ivoire)",
+        "Shoyinka Shodunke - MTN Executive, IT Core Design and Delivery (ex-CIO MTN Nigeria/South Africa)",
+        "Enzo Scarcella - MTN Group Consumer Executive",
+        "Bukola Ajayi - CIO, MTN Nigeria",
+        "Pushkar Gokhale - MTN South Africa (listed in the email as Chief Digital and Information Officer; press still shows Chief Wholesale Officer)"
+      ],
+      "notes": "ADDED 18 Oct 2026 from the participant email. Entries closed 12 Oct, so this is registered-and-in, not an open call. FIRST DEADLINE IS 20 OCT 23:59 SAST (2 days): choose Team Lead, agree the problem, submit the use case form. Gates: Top 20 on 23 Oct, Top 8 on 30 Oct, so the use case form and the 28 Oct showcase are what get us to the 48-hour build. Judges are technology and consumer executives, so lead with a working demo, an architecture that plugs into MTN assets (MoMo, APIs, tower GPUs/AI-RAN), and a named pilot market. Distinct from the earlier MTN MoMo Mini App Hackathon (past, 2-3 Sept) and the Ghana/Uganda/Cote d'Ivoire/Cameroon/Zambia MoMo Open API Hackathon. Winnability 6: Top 20 then Top 8 filter of an unknown field, no published rubric. Prize 3: none published. Career 9: MTN Group executives are the judges. Context: MTN Ambition 2030 (connectivity, fintech, digital infrastructure); MoMo 70.8m monthly active users; MTN backed AI-RAN startup ODC in a US$45m round and plans GPUs at tower sites for edge inference."
     }
   ],
   "dropped_or_past": [

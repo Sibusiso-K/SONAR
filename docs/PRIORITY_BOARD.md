@@ -4,6 +4,8 @@ Generated 10 August 2026 · updated 14 August 2026 (Mintek selection letter). We
 
 ---
 
+> **Added 18 Oct 2026 - MTN Group Technology Hackathon (score 7.05, Tier 1, registered as Team-030-Kali).** First deadline: **20 Oct 23:59 SAST** (Team Lead + use case form). Top 20 on 23 Oct, manager showcase 28 Oct, Top 8 on 30 Oct, 48-hour build 2-3 Nov, pitch day 5 Nov to six MTN executives. Brief: [`entries/mtn-group-tech-hackathon-2026/BRIEF.md`](../entries/mtn-group-tech-hackathon-2026/BRIEF.md). The table below has not been regenerated since August.
+
 ## The board
 
 | # | Event | Tier | Score | Scope | Prize | Key date | Status |
