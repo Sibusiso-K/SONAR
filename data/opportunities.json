@@ -21,7 +21,7 @@
       "reported": "From a secondary source (news/aggregator); verify before relying on it",
       "unconfirmed": "Not yet announced for 2026; based on prior-year pattern"
     },
-    "generated": "2026-11-09T10:40:31Z",
+    "generated": "2026-11-09T11:04:17Z",
     "generator": "scripts/migrate_to_opportunities.py",
     "kinds": {
       "hackathon": "Build something in a fixed window",
