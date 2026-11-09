@@ -101,7 +101,7 @@ export function Playbook() {
                       <a
                         href={e.sourceUrl}
                         target="_blank"
-                        rel="noreferrer"
+                        rel="noopener noreferrer"
                         className="mt-3 inline-block font-mono text-[11px] text-muted-foreground underline underline-offset-4 hover:text-foreground"
                       >
                         {e.source}

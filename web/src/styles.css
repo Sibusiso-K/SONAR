@@ -315,3 +315,289 @@
     opacity: 1;
   }
 }
+
+/* ---------- Opening splash ---------- */
+
+.splash {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  cursor: pointer;
+  /* Self-timed fallback: lifts away on its own even if JavaScript never
+     runs. React shortens this by switching to data-phase="leaving". */
+  animation: splash-exit 650ms cubic-bezier(0.76, 0, 0.24, 1) 1700ms forwards;
+}
+
+.splash[data-phase="leaving"] {
+  animation: splash-exit 650ms cubic-bezier(0.76, 0, 0.24, 1) 0ms forwards;
+}
+
+:root[data-splash-skipped="1"] .splash[data-phase="leaving"] {
+  animation-duration: 450ms;
+}
+
+/* Repeat visit or reduced motion: gone before first paint. */
+:root[data-splash="off"] .splash {
+  display: none;
+}
+
+.splash-center {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.1rem;
+  padding: 0 1.25rem;
+}
+
+.splash-word {
+  display: flex;
+  font-family: var(--font-display);
+  font-weight: 800;
+  line-height: 0.82;
+  font-size: clamp(4rem, 17vw, 11rem);
+}
+
+/* Each letter rises out of its own mask. The mask is padded past the glyph on
+   every side so curves and overshoot are not clipped, and the padding is
+   cancelled by an equal negative margin so the letters keep their tight
+   tracking (-0.05em) and the wordmark's width is unchanged. */
+.splash-mask {
+  display: inline-block;
+  overflow: hidden;
+  padding: 0.06em 0.07em 0.08em;
+  margin: -0.06em -0.095em -0.08em;
+}
+
+.splash-letter {
+  display: inline-block;
+  transform: translateY(108%);
+  animation: splash-letter 760ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.splash-bar {
+  width: min(16rem, 60vw);
+  height: 1px;
+  background-color: var(--color-rule);
+  overflow: hidden;
+}
+
+.splash-bar > span {
+  display: block;
+  height: 100%;
+  background-color: var(--color-foreground);
+  transform-origin: left center;
+  transform: scaleX(0);
+  animation: splash-progress 1500ms cubic-bezier(0.65, 0, 0.35, 1) 150ms forwards;
+}
+
+.splash-caption,
+.splash-status {
+  opacity: 0;
+  animation: splash-fade 600ms ease-out 250ms forwards;
+}
+
+.splash-status {
+  animation-delay: 500ms;
+}
+
+.splash-skip {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 0;
+  right: 0;
+  text-align: center;
+  opacity: 0;
+  animation: splash-fade 600ms ease-out 900ms forwards;
+}
+
+/* Sonar pings: thin rings that grow out from behind the wordmark. */
+.splash-rings {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.splash-rings > span {
+  position: absolute;
+  width: min(70vmin, 36rem);
+  aspect-ratio: 1;
+  border: 1px solid var(--color-foreground);
+  border-radius: 9999px;
+  opacity: 0;
+  transform: scale(0.15);
+  animation: splash-ping 1700ms cubic-bezier(0.2, 0.6, 0.3, 1) forwards;
+}
+
+.splash-rings > span:nth-child(2) {
+  animation-delay: 380ms;
+}
+
+.splash-rings > span:nth-child(3) {
+  animation-delay: 760ms;
+}
+
+@keyframes splash-letter {
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes splash-progress {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes splash-fade {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes splash-ping {
+  0% {
+    opacity: 0;
+    transform: scale(0.15);
+  }
+  15% {
+    opacity: 0.35;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.35);
+  }
+}
+
+@keyframes splash-exit {
+  to {
+    transform: translateY(-100%);
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
+/* ---------- Section transitions ---------- */
+
+/* The sidebar and mobile header stay put while the page moves: they are
+   captured as their own layers and swapped without a cross-fade. */
+.vt-site-nav {
+  view-transition-name: site-nav;
+}
+
+.vt-site-header {
+  view-transition-name: site-header;
+}
+
+::view-transition-old(site-nav),
+::view-transition-new(site-nav),
+::view-transition-old(site-header),
+::view-transition-new(site-header) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+@keyframes page-out-fade {
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes page-in-fade {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+}
+
+@keyframes page-out-left {
+  to {
+    opacity: 0;
+    transform: translateX(-36px);
+  }
+}
+
+@keyframes page-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(48px);
+  }
+}
+
+@keyframes page-out-right {
+  to {
+    opacity: 0;
+    transform: translateX(36px);
+  }
+}
+
+@keyframes page-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-48px);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 420ms;
+    animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+    animation-fill-mode: both;
+    mix-blend-mode: normal;
+  }
+
+  ::view-transition-old(root) {
+    animation-name: page-out-fade;
+    animation-duration: 260ms;
+  }
+
+  ::view-transition-new(root) {
+    animation-name: page-in-fade;
+  }
+
+  :root:active-view-transition-type(forward)::view-transition-old(root) {
+    animation-name: page-out-left;
+  }
+
+  :root:active-view-transition-type(forward)::view-transition-new(root) {
+    animation-name: page-in-right;
+  }
+
+  :root:active-view-transition-type(backward)::view-transition-old(root) {
+    animation-name: page-out-right;
+  }
+
+  :root:active-view-transition-type(backward)::view-transition-new(root) {
+    animation-name: page-in-left;
+  }
+
+  /* Browsers without the View Transitions API: the new page still enters
+     with a short rise instead of appearing abruptly. */
+  @supports not (view-transition-name: none) {
+    .page-enter {
+      animation: page-in-fade 500ms cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .splash {
+    display: none;
+  }
+
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}

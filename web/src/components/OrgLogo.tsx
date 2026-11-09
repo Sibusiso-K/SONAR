@@ -74,8 +74,15 @@ export function OrgLogo({ organiser, size = 28 }: { organiser: string; size?: nu
 
   return (
     <span
-      className={cn("flex shrink-0 items-center justify-center rounded-sm font-mono font-bold text-white")}
-      style={{ width: size, height: size, fontSize: size * 0.4, backgroundColor: BADGE_COLORS[hash(organiser) % BADGE_COLORS.length] }}
+      className={cn(
+        "flex shrink-0 items-center justify-center rounded-sm font-mono font-bold text-white",
+      )}
+      style={{
+        width: size,
+        height: size,
+        fontSize: size * 0.4,
+        backgroundColor: BADGE_COLORS[hash(organiser) % BADGE_COLORS.length],
+      }}
       aria-hidden
     >
       {initialsOf(organiser)}

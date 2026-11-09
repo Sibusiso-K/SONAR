@@ -67,11 +67,18 @@ export function RevealWords({ text, className }: { text: string; className?: str
   return (
     <span ref={ref} className={cn("inline", className)}>
       {text.split(" ").map((word, i) => (
-        <span key={`${word}-${i}`} className="inline-block overflow-hidden align-bottom">
+        // The line-height of display type is below 1, so a bare overflow-hidden
+        // box crops descenders (the y and g in "Everything ... getting"). Pad
+        // the mask vertically and cancel it with an equal negative margin so
+        // nothing is clipped and the layout does not move.
+        <span
+          key={`${word}-${i}`}
+          className="-mb-[0.16em] -mt-[0.08em] inline-block overflow-hidden pb-[0.16em] pt-[0.08em] align-bottom"
+        >
           <span
             className="inline-block will-change-transform"
             style={{
-              transform: shown ? "none" : "translateY(0.9em)",
+              transform: shown ? "none" : "translateY(1.2em)",
               opacity: shown ? 1 : 0,
               transition: `transform 0.75s cubic-bezier(0.16,1,0.3,1) ${i * 45}ms, opacity 0.5s ease ${i * 45}ms`,
             }}

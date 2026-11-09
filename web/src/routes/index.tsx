@@ -7,7 +7,8 @@ import { Playbook } from "@/components/Playbook";
 import { QueryError } from "@/components/QueryError";
 import { Reveal, RevealWords } from "@/components/Reveal";
 import { useOpportunities, useWatchlist } from "@/lib/sonar-data";
-import { collisions, daysUntil, winProbability } from "@/lib/analytics";
+import { BOARD_TZ, collisions, daysUntil, winProbability } from "@/lib/analytics";
+import { LOCALE } from "@/lib/format";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/")({
@@ -73,10 +74,11 @@ function Board() {
       <section className="mx-auto max-w-[88rem] px-5 pb-16 pt-16 md:px-10 md:pt-24">
         <p className="label-caps">
           The board ·{" "}
-          {new Date().toLocaleDateString("en-ZA", {
+          {new Date().toLocaleDateString(LOCALE, {
             day: "numeric",
             month: "long",
             year: "numeric",
+            timeZone: BOARD_TZ,
           })}
         </p>
         <div className="mt-8 flex flex-col-reverse items-center gap-12 lg:flex-row lg:items-center lg:justify-between">
@@ -85,9 +87,23 @@ function Board() {
               <RevealWords text="Everything open, and how close it's getting." />
             </h1>
             <Reveal delay={200}>
-              <p className="mt-6 text-base leading-relaxed text-muted-foreground">
-                {live.length} live entries. {closing} close inside three weeks. Nothing here is
-                guesswork dressed as fact: where a date is only reported, the row says so.
+              <p
+                className="mt-6 text-base leading-relaxed text-muted-foreground"
+                data-testid="board-summary"
+              >
+                {/* A failed or pending read must not read as an empty board: "0 live
+                    entries" is a claim about the data, so it is only made once the
+                    data has actually arrived. */}
+                {isError ? (
+                  "The board couldn't be read just now. That is not the same as an empty board."
+                ) : isLoading ? (
+                  "Reading the board…"
+                ) : (
+                  <>
+                    {live.length} live entries. {closing} close inside three weeks. Nothing here is
+                    guesswork dressed as fact: where a date is only reported, the row says so.
+                  </>
+                )}
               </p>
             </Reveal>
           </div>

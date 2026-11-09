@@ -1,11 +1,33 @@
-import { useEffect, useMemo, useRef, useState } from "react";
-import { createFileRoute } from "@tanstack/react-router";
+import { Suspense, lazy, useEffect, useMemo, useRef, useState } from "react";
+import { ClientOnly, createFileRoute } from "@tanstack/react-router";
 import { AppShell } from "@/components/AppShell";
 import { CompetitionBaseline } from "@/components/CompetitionBaseline";
 import { QueryError } from "@/components/QueryError";
 import { Reveal, RevealWords } from "@/components/Reveal";
-import { Scatter3D } from "@/components/Scatter3D";
 import { WinRing } from "@/components/WinRing";
+import { formatNumber } from "@/lib/format";
+
+// three.js (and the libraries bundled alongside it) touch `window` when they
+// are evaluated, so importing them during server rendering aborts the whole
+// page and silently drops it to client-only rendering. Load the scatter lazily
+// and render it only after mount. EventGlobe does the same for react-globe.gl.
+const Scatter3D = lazy(() =>
+  import("@/components/Scatter3D").then((m) => ({ default: m.Scatter3D })),
+);
+
+/** Holds the scatter's space (same height) until it has loaded, so the page
+ * does not jump when the 3D view appears. */
+function ScatterPlaceholder() {
+  return (
+    <div
+      className="flex items-center justify-center font-mono text-[11px] uppercase tracking-widest text-white/50"
+      style={{ height: 520, background: "#0d1016" }}
+      aria-busy="true"
+    >
+      Loading 3D view
+    </div>
+  );
+}
 import { useOpportunities, usePastOpportunities, useUpdates } from "@/lib/sonar-data";
 import {
   clamp,
@@ -89,10 +111,7 @@ function Counter({
   return (
     <span ref={ref} className="numeral tabular-nums">
       {prefix}
-      {value.toLocaleString("en-ZA", {
-        minimumFractionDigits: decimals,
-        maximumFractionDigits: decimals,
-      })}
+      {formatNumber(value, decimals)}
       {suffix}
     </span>
   );
@@ -219,7 +238,7 @@ function Stats() {
                   <h3 className="text-base font-bold leading-tight">{o.name}</h3>
                   <p className="mt-1 text-sm text-muted-foreground">
                     {fieldSize(o)
-                      ? `${fieldSize(o)!.toLocaleString("en-ZA")} in the field`
+                      ? `${formatNumber(fieldSize(o)!)} in the field`
                       : "field size unrecorded"}
                   </p>
                   <p className="mt-2 font-mono text-xs text-muted-foreground">
@@ -312,7 +331,11 @@ function Stats() {
         title="Explore it from any angle."
         blurb="A 3D scatter, not a fixed chart: swap what's on each axis, rotate it, zoom in on one cluster. Defaults: winnability, prize (log), career leverage."
       >
-        <Scatter3D opportunities={live} />
+        <ClientOnly fallback={<ScatterPlaceholder />}>
+          <Suspense fallback={<ScatterPlaceholder />}>
+            <Scatter3D opportunities={live} />
+          </Suspense>
+        </ClientOnly>
       </Section>
 
       {/* ---- discovery lag ---- */}

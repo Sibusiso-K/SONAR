@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
+import { kindLabel } from "@/lib/format";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import type { Opportunity } from "@/lib/sonar-types";
@@ -545,7 +546,7 @@ export function Scatter3D({ opportunities }: { opportunities: Opportunity[] }) {
           <div className="flex items-start justify-between gap-3">
             <div>
               <p className="label-caps" style={{ color: selected.color }}>
-                Tier {selected.o.tier} · {selected.o.kind}
+                Tier {selected.o.tier} · {kindLabel(selected.o.kind)}
               </p>
               <h4 className="mt-1 text-base font-bold">{selected.o.name}</h4>
               <p className="mt-0.5 text-xs text-muted-foreground">{selected.o.organiser}</p>

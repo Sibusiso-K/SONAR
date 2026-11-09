@@ -98,8 +98,12 @@ async function callOpenAIShape(
 
   if (res.status === 429) return { ok: false, error: "rate limited" };
   if (!res.ok) {
+    // The upstream body can carry account details (organisation IDs, exact
+    // quota figures). It goes to the server log; the visitor only gets the
+    // status, which is all they can act on.
     const detail = await res.text().catch(() => "");
-    return { ok: false, error: `HTTP ${res.status} ${detail.slice(0, 200)}`.trim() };
+    console.error(`[assistant] upstream HTTP ${res.status}:`, detail.slice(0, 500));
+    return { ok: false, error: `HTTP ${res.status}` };
   }
 
   const json = (await res.json().catch(() => null)) as RawChoice | null;
