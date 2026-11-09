@@ -88,3 +88,7 @@ The site's public database key can only read the board. Writes belong to CI. Res
 ## When something breaks
 
 [docs/RUNBOOK.md](docs/RUNBOOK.md): the board is stale, the nightly refresh is red, a deploy needs rolling back, a migration needs applying, a key needs rotating.
+
+## Copyright
+
+All rights reserved. No licence is granted; see [COPYRIGHT.md](COPYRIGHT.md).
