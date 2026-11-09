@@ -33,7 +33,7 @@
       "scope": "international",
       "format": "online",
       "location": "Online (worldwide), optional IRL Builders & Brews city events",
-      "status": "open",
+      "status": "past",
       "tier": 2,
       "score": 6.4,
       "scores": {
@@ -76,7 +76,7 @@
         "nemotron_3": "https://nvidianews.nvidia.com/news/nvidia-debuts-nemotron-3-family-of-open-models",
         "nemoclaw": "https://nvidianews.nvidia.com/news/nvidia-announces-nemoclaw"
       },
-      "notes": "PROMOTED 18 Oct 2026 from 'checked, not added' in docs/SOURCES.md. WINNABILITY 3: about 17k registrants, but the $3k Tavily prize and the $100 feedback prizes are much easier side doors. Career 8: NVIDIA and Nebius judges. Cheapest points: route between Nemotron sizes, use 2+ Nebius services, add Tavily, write real feedback. NVIDIA GTC Berlin keynote on 21 Oct may ship new models. Overlaps the Meta hackathon (build 26 Oct to 4 Nov); README rule 3 allows no more than two overlapping builds."
+      "notes": "PROMOTED 18 Oct 2026 from 'checked, not added' in docs/SOURCES.md. WINNABILITY 3: about 17k registrants, but the $3k Tavily prize and the $100 feedback prizes are much easier side doors. Career 8: NVIDIA and Nebius judges. Cheapest points: route between Nemotron sizes, use 2+ Nebius services, add Tavily, write real feedback. NVIDIA GTC Berlin keynote on 21 Oct may ship new models. Overlaps the Meta hackathon (build 26 Oct to 4 Nov); README rule 3 allows no more than two overlapping builds. STATUS 9 Nov 2026: marked past (submission deadline 30 Oct 2026 passed (judging 1-15 Dec, winners ~11 Jan 2027)). Outcome not recorded here."
     },
     {
       "id": "meta-global-ai-dev-hackathon-2026",
@@ -88,7 +88,7 @@
       "scope": "international",
       "format": "online",
       "location": "Online (worldwide)",
-      "status": "open",
+      "status": "past",
       "tier": 1,
       "score": 7.1,
       "scores": {
@@ -133,7 +133,7 @@
         "meta_connect_recap": "https://developers.meta.com/blog/meta-connect-recap/",
         "muse_wonder": "https://about.fb.com/news/2026/10/introducing-muse-wonder-models/"
       },
-      "notes": "ADDED 18 Oct 2026. Applications close 25 Oct 23:59 ET = 26 Oct 05:59 SAST, so treat Sat 24 Oct as the real deadline. WINNABILITY 4: up to 20,000 participants worldwide and a $1M pool with unknown splits; scored on odds, not fit. Career 8: Meta brand, plus the sponsors (Baseten, Modal, Fireworks) are inference infrastructure companies. Judges are not published anywhere (checked event page and search 18 Oct). The application form questions were not readable without signing in, so read them in the form itself. Reminder: no more than two overlapping builds (README rule 3). Check the clash with the Mintek and RevenueCat dates before committing. Direction from Meta: agents, memory, multimodal, open weights, glasses and MCP connectors. Strongest ideas use Muse Wonder's persistence, are reliable beyond a demo, and come from a domain we know firsthand (South Africa)."
+      "notes": "ADDED 18 Oct 2026. Applications close 25 Oct 23:59 ET = 26 Oct 05:59 SAST, so treat Sat 24 Oct as the real deadline. WINNABILITY 4: up to 20,000 participants worldwide and a $1M pool with unknown splits; scored on odds, not fit. Career 8: Meta brand, plus the sponsors (Baseten, Modal, Fireworks) are inference infrastructure companies. Judges are not published anywhere (checked event page and search 18 Oct). The application form questions were not readable without signing in, so read them in the form itself. Reminder: no more than two overlapping builds (README rule 3). Check the clash with the Mintek and RevenueCat dates before committing. Direction from Meta: agents, memory, multimodal, open weights, glasses and MCP connectors. Strongest ideas use Muse Wonder's persistence, are reliable beyond a demo, and come from a domain we know firsthand (South Africa). STATUS 9 Nov 2026: marked past (submission deadline 4 Nov 2026 passed). Outcome not recorded here."
     },
     {
       "id": "adtc-2026",
@@ -588,7 +588,7 @@
       "scope": "international",
       "format": "online",
       "location": "Virtual",
-      "status": "verify",
+      "status": "past",
       "tier": 2,
       "score": 6.2,
       "scores": {
@@ -620,7 +620,7 @@
         "main": "https://www.starhacks.org/ibm-z-datathon-2026",
         "register": "https://hack2skill.com/event/datathon-2026"
       },
-      "notes": "Register early: registrations after the deadline go to a waitlist. Clashes with BCG Platinion (16–17 Oct): Datathon is 17–18 Oct. Pick one; BCG wins on career leverage. Note: confirm your student eligibility status qualifies. LINK/PRIZE CORRECTION 14 Aug 2026: the board previously linked ibm-zdatathon.devpost.com, which is a PRIOR edition that has ended (\"This hackathon has ended\", Sept 24–25, register by Sept 10): removed. The organiser (Shooting Stars Foundation, starhacks.org) confirms this cycle as 17–18 Oct 2026 with $50,000+ in prizes, so the board's $30,000 figure: also taken from that ended page: was understated and is corrected. Registration goes through hack2skill, which is where the organiser's own REGISTER button points. Organiser also states 16,000+ students registered across 45+ countries and 8 in-person locations, not the 10,000+ previously noted. SWEEP 4 Oct 2026: the registration deadline (1 Oct) has passed with no registration on record here; per the organiser, late sign-ups go on a waitlist. Status open -> verify: if the team didn't register, this is waitlist-only, and it was always the fallback behind BCG (16-17 Oct), whose selection is also not on record yet. WEEKLY SWEEP 11 Oct 2026: starhacks.org confirms 17-18 Oct, 16,000+ students registered and $50K+ in prizes, but states no registration status. hack2skill.com's event page could not be read. Still verify."
+      "notes": "Register early: registrations after the deadline go to a waitlist. Clashes with BCG Platinion (16–17 Oct): Datathon is 17–18 Oct. Pick one; BCG wins on career leverage. Note: confirm your student eligibility status qualifies. LINK/PRIZE CORRECTION 14 Aug 2026: the board previously linked ibm-zdatathon.devpost.com, which is a PRIOR edition that has ended (\"This hackathon has ended\", Sept 24–25, register by Sept 10): removed. The organiser (Shooting Stars Foundation, starhacks.org) confirms this cycle as 17–18 Oct 2026 with $50,000+ in prizes, so the board's $30,000 figure: also taken from that ended page: was understated and is corrected. Registration goes through hack2skill, which is where the organiser's own REGISTER button points. Organiser also states 16,000+ students registered across 45+ countries and 8 in-person locations, not the 10,000+ previously noted. SWEEP 4 Oct 2026: the registration deadline (1 Oct) has passed with no registration on record here; per the organiser, late sign-ups go on a waitlist. Status open -> verify: if the team didn't register, this is waitlist-only, and it was always the fallback behind BCG (16-17 Oct), whose selection is also not on record yet. WEEKLY SWEEP 11 Oct 2026: starhacks.org confirms 17-18 Oct, 16,000+ students registered and $50K+ in prizes, but states no registration status. hack2skill.com's event page could not be read. Still verify. STATUS 9 Nov 2026: marked past (event ended 18 Oct 2026). Outcome not recorded here."
     },
     {
       "id": "unesco-youth-2026",
@@ -1116,7 +1116,7 @@
       "scope": "international",
       "format": "online",
       "location": "Zindi",
-      "status": "open",
+      "status": "past",
       "tier": 3,
       "score": 5.2,
       "scores": {
@@ -1145,7 +1145,7 @@
       "links": {
         "competition": "https://zindi.world/competitions/bias-bounty-mapping-equity-challenge"
       },
-      "notes": "Found in the 25 Aug 2026 sweep, three days before it opens on 28 Aug. Data is entirely US-based despite Zindi's African focus, so nothing here transfers to the local portfolio story. The 1 Nov close is the one genuinely comfortable deadline on the board: it clears the whole October crunch. Treat as the fallback if the R.O.A.D. timing proves impossible, not as a second simultaneous entry. SWEEP 4 Oct 2026: not rechecked - Zindi now renders only its site shell to signed-out visitors. Dates carried from the 3 Sept check."
+      "notes": "Found in the 25 Aug 2026 sweep, three days before it opens on 28 Aug. Data is entirely US-based despite Zindi's African focus, so nothing here transfers to the local portfolio story. The 1 Nov close is the one genuinely comfortable deadline on the board: it clears the whole October crunch. Treat as the fallback if the R.O.A.D. timing proves impossible, not as a second simultaneous entry. SWEEP 4 Oct 2026: not rechecked - Zindi now renders only its site shell to signed-out visitors. Dates carried from the 3 Sept check. STATUS 9 Nov 2026: marked past (submission deadline 1 Nov 2026 passed). Outcome not recorded here."
     },
     {
       "id": "wbg-small-ai-development-2026",
@@ -1351,7 +1351,7 @@
       "scope": "international",
       "format": "online",
       "location": "Devpost",
-      "status": "open",
+      "status": "past",
       "tier": 3,
       "score": 5.35,
       "scores": {
@@ -1386,7 +1386,7 @@
         "main": "https://qloo.devpost.com/",
         "rules": "https://qloo.devpost.com/rules"
       },
-      "notes": "Found in the 4 Oct 2026 sweep: 380 registrants on day 5 - the smallest field among the open Devpost hackathons with a five-figure pool. Lands in the same fortnight as BCG, RSNA and the expected FNB window. Scored: career leverage 4 (small sponsor), winnability 5, prize 7, urgency 7."
+      "notes": "Found in the 4 Oct 2026 sweep: 380 registrants on day 5 - the smallest field among the open Devpost hackathons with a five-figure pool. Lands in the same fortnight as BCG, RSNA and the expected FNB window. Scored: career leverage 4 (small sponsor), winnability 5, prize 7, urgency 7. STATUS 9 Nov 2026: marked past (submission deadline 31 Oct 2026 passed). Outcome not recorded here."
     },
     {
       "id": "life-after-code-gitlab-2026",
@@ -1398,7 +1398,7 @@
       "scope": "international",
       "format": "online",
       "location": "Devpost",
-      "status": "open",
+      "status": "past",
       "tier": 3,
       "score": 5.8,
       "scores": {
@@ -1433,7 +1433,7 @@
         "main": "https://gitlab-transcend.devpost.com/",
         "rules": "https://gitlab-transcend.devpost.com/rules"
       },
-      "notes": "Found in the 11 Oct 2026 weekly sweep, open with 1,632 registrants. Winnability 3: a new platform for the team and a large, mostly-individual field, offset by nine cash prizes. Urgency 8: 16 days to the submission deadline, and it overlaps RSNA's final week and the IBM TechXchange decision. Needs a go/no-go by about 18 Oct to leave time to build."
+      "notes": "Found in the 11 Oct 2026 weekly sweep, open with 1,632 registrants. Winnability 3: a new platform for the team and a large, mostly-individual field, offset by nine cash prizes. Urgency 8: 16 days to the submission deadline, and it overlaps RSNA's final week and the IBM TechXchange decision. Needs a go/no-go by about 18 Oct to leave time to build. STATUS 9 Nov 2026: marked past (submission deadline 27 Oct 2026 passed (judging to 14 Nov, winners ~16 Nov)). Outcome not recorded here."
     },
     {
       "id": "wits-ehub-tech-ai-day-2026",
@@ -1445,7 +1445,7 @@
       "scope": "local",
       "format": "in-person",
       "location": "Wits Entrepreneurship Hub (E-Hub), Shop 2, Matrix Building, Wits, Johannesburg",
-      "status": "open",
+      "status": "past",
       "tier": 2,
       "score": 6.65,
       "scores": {
@@ -1478,7 +1478,7 @@
         "main": "organiser email to Sibusiso, 2026 (no public page found 12 Oct 2026)",
         "contact_older_ehub_page": "StudentEntrepreneurship.DLU@wits.ac.za"
       },
-      "notes": "ADDED 12 Oct 2026 from the Wits E-Hub invitation email. Thursday 15 Oct, 09:00-14:00, 3 days out. No public page found; the email is the source, so date, time and venue are confirmed but the APPLY LINK AND DEADLINE ARE MISSING from what we have: find them in the email today, because a 3-day-out showcase may already be closing. WINNABILITY 7 is scored as fit, not odds: there is nothing to win, but VUKA is an unusually strong exhibit for funders (live Azure backend, real Hedera anchoring, a ledger anyone can verify, a bank-funded R20/member/month model), and the field is Wits students only. Prize 3: non-cash, investor exposure. Career 7: VCs and funders in the room, not corporate recruiters. Clashes: same day as the RSNA Knee entry deadline (15 Oct); BCG Platinion is 16-17 Oct (application window closed). Before the day: confirm Azure is up and server.json on the vigil-demo release points to Azure, and prepare the 60-second ledger demo (real record LIVE-VERIFIED, tampered fails at entry #3)."
+      "notes": "ADDED 12 Oct 2026 from the Wits E-Hub invitation email. Thursday 15 Oct, 09:00-14:00, 3 days out. No public page found; the email is the source, so date, time and venue are confirmed but the APPLY LINK AND DEADLINE ARE MISSING from what we have: find them in the email today, because a 3-day-out showcase may already be closing. WINNABILITY 7 is scored as fit, not odds: there is nothing to win, but VUKA is an unusually strong exhibit for funders (live Azure backend, real Hedera anchoring, a ledger anyone can verify, a bank-funded R20/member/month model), and the field is Wits students only. Prize 3: non-cash, investor exposure. Career 7: VCs and funders in the room, not corporate recruiters. Clashes: same day as the RSNA Knee entry deadline (15 Oct); BCG Platinion is 16-17 Oct (application window closed). Before the day: confirm Azure is up and server.json on the vigil-demo release points to Azure, and prepare the 60-second ledger demo (real record LIVE-VERIFIED, tampered fails at entry #3). STATUS 9 Nov 2026: marked past (event held 15 Oct 2026). Outcome not recorded here."
     },
     {
       "id": "more-than-a-hack-2027",
@@ -1752,6 +1752,220 @@
         "main": "https://www.extern.com/post/anthropic-fellows-program-guide"
       },
       "notes": "SECONDHAND ONLY: every detail comes from a third-party guide and search snippets; the official programme page was not read. Reported pay is $3,850 a week plus about $15,000 a month in compute: treat as unverified. Also found: Anthropic STEM and Conceptual Reasoning Fellowships (4 months from Jan 2027), aimed at scientists, philosophers and policy people, not developers, so not added. MATS Winter 2027 closed 31 Oct; next window expected March 2027 (matsprogram.org/apply)."
+    },
+    {
+      "id": "kiroween-2026",
+      "noticed_on": "2026-11-09",
+      "went_live_on": null,
+      "source": "user-supplied link, 9 Nov 2026",
+      "name": "Kiroween 2026 (Kiro Hackathon)",
+      "organiser": "Kiro / AWS, hosted on Devpost",
+      "scope": "international",
+      "format": "online",
+      "location": "Online (Devpost)",
+      "status": "open",
+      "tier": 3,
+      "score": 5.9,
+      "scores": {
+        "career_leverage": 5,
+        "winnability": 5,
+        "prize": 8,
+        "urgency": 7
+      },
+      "dates": {
+        "event_start": "2026-10-30",
+        "kiro_credits_deadline": "2026-12-01T12:00:00-08:00",
+        "submission_deadline": "2026-12-04T14:00:00-08:00",
+        "submission_deadline_sast": "2026-12-05T00:00:00+02:00",
+        "judging": "2026-12-16 to 2027-01-29",
+        "winners_announced": "2027-02-03",
+        "confidence": "reported",
+        "note": "One aggregator shows 5 Dec: that is the same cutoff converted to IST. Winners date is approximate."
+      },
+      "prize": {
+        "currency": "USD",
+        "pool": 100000,
+        "breakdown": [
+          {
+            "place": "1st",
+            "amount": 30000,
+            "track": null
+          }
+        ],
+        "non_cash": [
+          {
+            "type": "compute_credits",
+            "value_est": null,
+            "description": "One-time allotment of 4,000 Kiro credits per participant, requested by 1 Dec"
+          }
+        ]
+      },
+      "eligibility": "Legal age where you live. Teams of up to 3. Amazon and Devpost employees and affiliates excluded; winners must pass identity and eligibility checks. One source says the project must be public and open source: CHECK THE RULES before building anything proprietary.",
+      "team_fit": "Good: a team of 2 is inside the limit of 3, and it is an agent-building brief in the team's lane.",
+      "what_to_build": "A Halloween-themed project built with Kiro (AWS's agentic IDE). Exact brief and categories not read.",
+      "deliverables": [
+        "Devpost submission",
+        "Project repository (public/open source may be required)"
+      ],
+      "links": {
+        "main": "https://kiroween.devpost.com/"
+      },
+      "notes": "Dates and prize come from search results (aggregators plus a Kiro community page); the Devpost page and rules were not read. The 2025 edition ran to 5 Dec 2025, so do not mix up years. The event exists to promote Kiro, so expect the rules to require building with it. Request the 4,000 free Kiro credits before 1 Dec. Last day to submit is 4 Dec 14:00 PT, which is midnight SAST: aim to submit on the 3rd."
+    },
+    {
+      "id": "codegeist-2026",
+      "noticed_on": "2026-11-09",
+      "went_live_on": null,
+      "source": "user-supplied link, 9 Nov 2026",
+      "name": "Atlassian Codegeist 2026",
+      "organiser": "Atlassian, hosted on Devpost",
+      "scope": "international",
+      "format": "online",
+      "location": "Online (Devpost)",
+      "status": "verify",
+      "dates": {
+        "confidence": "unconfirmed",
+        "note": "2026 dates not found. Prior edition: submissions due 22 Dec 2025 10:00 PT, winners 21 Jan 2026."
+      },
+      "eligibility": "Not read.",
+      "what_to_build": "Apps for Atlassian products (Jira, Confluence) built on Forge, Atlassian's developer platform. 2026 brief not read.",
+      "deliverables": [],
+      "links": {
+        "main": "https://codegeist2026.devpost.com/"
+      },
+      "notes": "UNSCORED. Nothing about the 2026 edition turned up in search: only 2020-2025 pages. The 2025 edition's prize pool is reported inconsistently ($120,000 on one page, $170,000 and $300,000 on others, years unclear), so no figure is recorded. If the 2026 cycle follows 2025, the deadline falls in late December. To finish: read codegeist2026.devpost.com in a browser, then add dates, prizes, rules and a score."
+    },
+    {
+      "id": "aws-msp-ai-hackathon-2026",
+      "noticed_on": "2026-11-09",
+      "went_live_on": null,
+      "source": "user-supplied link, 9 Nov 2026",
+      "name": "AWS MSP AI Hackathon 2026",
+      "organiser": "AWS, hosted on Devpost",
+      "scope": "international",
+      "format": "online",
+      "location": "Online (Devpost)",
+      "status": "verify",
+      "tier": 3,
+      "score": 3.75,
+      "scores": {
+        "career_leverage": 3,
+        "winnability": 2,
+        "prize": 6,
+        "urgency": 6
+      },
+      "dates": {
+        "event_start": "2026-11-02",
+        "submission_deadline": "2026-12-11T12:00:00-08:00",
+        "submission_deadline_sast": "2026-12-11T22:00:00+02:00",
+        "confidence": "reported"
+      },
+      "prize": {
+        "currency": "USD",
+        "pool": 64000,
+        "breakdown": [
+          {
+            "place": "1st, per track",
+            "amount": 10000,
+            "track": "2 tracks"
+          },
+          {
+            "place": "2nd, per track",
+            "amount": 7000,
+            "track": "2 tracks"
+          },
+          {
+            "place": "3rd, per track",
+            "amount": 5000,
+            "track": "2 tracks"
+          },
+          {
+            "place": "10 special prizes",
+            "amount": 2000,
+            "track": null
+          }
+        ],
+        "non_cash": [
+          {
+            "type": "mentorship",
+            "description": "Inclusion in the MSP AI Use Case Library and priority consideration for AWS go-to-market support"
+          }
+        ]
+      },
+      "eligibility": "LIKELY A BLOCKER: this appears to be for AWS Partner Network companies and managed service providers (one source says an Indian company needs APN registration to enter). Amazon and Devpost employees excluded. Confirm whether an individual or a small team with no APN membership can enter before spending any time.",
+      "team_fit": "Probably poor unless we operate as, or with, an AWS partner.",
+      "what_to_build": "Two tracks: (1) AI that improves an MSP's own operations, (2) AI-powered services for an MSP's end customers. Projects can be new or significantly updated. Optional US$200 AWS promotional credits.",
+      "deliverables": [
+        "Devpost submission"
+      ],
+      "links": {
+        "main": "https://aws-agentic-msp.devpost.com/"
+      },
+      "notes": "Details come from two aggregators listing 'AWS MSP AI Hackathon 2026'; mapping that to your aws-agentic-msp link is an inference from the name. The Devpost page and rules were not read. Scores are low mainly because of the probable partner-only eligibility; if that is wrong, the $64,000 pool and a short build make it worth a second look."
+    },
+    {
+      "id": "melsoft-hackathon-2026",
+      "noticed_on": "2026-11-09",
+      "went_live_on": null,
+      "source": "user-supplied link, 9 Nov 2026",
+      "name": "Melsoft Hackathon 2026",
+      "organiser": "Melsoft",
+      "scope": "local",
+      "status": "registered",
+      "lifecycle": "committed",
+      "dates": {
+        "confidence": "unconfirmed",
+        "note": "Registered by Sibusiso (reported 9 Nov 2026). Dates, format and prize not found in any public source."
+      },
+      "eligibility": "Not found.",
+      "team_fit": "Registered; team details not recorded.",
+      "what_to_build": "Not found.",
+      "deliverables": [],
+      "links": {
+        "main": "https://hackathon-26.melsoft.org/"
+      },
+      "notes": "REGISTERED. Searching for the event found nothing, and the page could not be read from this environment. Scope 'local' is assumed from the organiser's South African profile, not confirmed. Add the event date, venue or format, prize and submission rules from the registration confirmation email, then score it and add its dates to the calendar."
+    },
+    {
+      "id": "imagine-cup-2027",
+      "noticed_on": "2026-11-09",
+      "went_live_on": null,
+      "source": "user-supplied link, 9 Nov 2026",
+      "name": "Microsoft Imagine Cup 2027",
+      "organiser": "Microsoft",
+      "scope": "international",
+      "format": "online",
+      "location": "Online",
+      "status": "open",
+      "tier": 3,
+      "score": 5.35,
+      "scores": {
+        "career_leverage": 6,
+        "winnability": 4,
+        "prize": 8,
+        "urgency": 3
+      },
+      "dates": {
+        "submission_deadline": "2027-02-28",
+        "confidence": "reported",
+        "note": "CONFLICT: a staging FAQ and most sources say 28 Feb 2027; two aggregators say registration and submission close 8 Jan 2027. Treat 8 Jan as the safe date until the official rules are read."
+      },
+      "prize": {
+        "currency": "USD",
+        "pool": null,
+        "breakdown": []
+      },
+      "eligibility": "CONFLICTING. The 2026 edition was for enrolled high-school or university students 18+. Some 2027 listings say it now also takes qualifying early-stage startups; another still says enrolled students. Entries need at least 10 qualifying Azure workloads, each with at least US$1 of spend, by the deadline. Check the official rules for our situation.",
+      "team_fit": "Fits a 2-person team with a product (Stokup, VUKA) if eligible. The Azure-usage requirement adds build work.",
+      "what_to_build": "A student or early-stage startup product built on Azure. 2027 brief not read.",
+      "deliverables": [
+        "Registration",
+        "Submission with Azure usage evidence"
+      ],
+      "links": {
+        "main": "https://imaginecup.microsoft.com/en-us"
+      },
+      "notes": "Prize figures are inconsistent across sources (a top award reported as $25,000 cash plus $250,000 in startup credits, another listing a $250,000 first prize and $1,000,000 cash-and-credit structure), so no pool is recorded. Nothing here was read from Microsoft's own site. Read the 2027 official rules before registering; eligibility is the deciding question."
     }
   ],
   "dropped_or_past": [

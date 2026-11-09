@@ -273,6 +273,43 @@ window opens between January and April 2027. See the new watchlist entries.
 
 ---
 
+## Supplied links and status clean-up — 9 November 2026
+
+Five links supplied by Sibusiso, added with tracking parameters stripped. None of
+the event pages could be read from this environment, so every detail is from search
+results quoting them, and confidence is `reported` or `unconfirmed`.
+
+| Entry | What the sources say | Source |
+|---|---|---|
+| Kiroween 2026 | Online, $100,000 pool ($30,000 first), submissions 30 Oct to 4 Dec 2026 14:00 PT, teams of up to 3, Kiro credits to 1 Dec. | [Kiro community](https://kiro.dev/community/) · [Kiroween 2025 post](https://kiro.dev/blog/kiroween-2025/) · [StartupGrants India](https://www.startupgrantsindia.com/aws-kiroween-hackathon-2026) |
+| Atlassian Codegeist 2026 | Nothing on 2026 found. 2025: due 22 Dec 2025, winners 21 Jan 2026. Entry left unscored. | [Codegeist 2025 kickoff](https://www.atlassian.com/blog/development/codegeist-2025-kickoff) · [Codegeist](https://marketplace.atlassian.com/codegeist) |
+| AWS MSP AI Hackathon 2026 | Closes 11 Dec 2026 12:00 PT, $64,000 across two tracks. Likely for AWS Partner Network companies: a probable eligibility blocker. Matching the supplied `aws-agentic-msp` link to this event is an inference. | [StartupGrants India](https://www.startupgrantsindia.com/aws-msp-ai-hackathon-2026) |
+| Melsoft Hackathon 2026 | Registered by Sibusiso. No public information found. | none |
+| Microsoft Imagine Cup 2027 | Deadline 28 Feb 2027 per most sources, 8 Jan 2027 per two. Student-only versus startups-welcome is unresolved. | [Internshala](https://internshala.com/competitions/2027-imagine-cup-competition/) · [Opportunities for Africans](https://www.opportunitiesforafricans.com/?p=103217) |
+
+**Marked `past` (7):** IBM Z Datathon, Zindi Bias Bounty, Qloo Agentic Hackathon, Life
+After Code (GitLab), Wits E-Hub Tech & AI Day, Nebius x NVIDIA Global AI Hackathon, Meta
+Global AI Developer Hackathon. Judging for the last three is still running; this
+records that entry is closed, not that results are in.
+
+**Left unchanged, outcome needed from the team:** RSNA Knee (registered; competition
+ended 22 Oct), BCG Platinion (submitted; event ended 17 Oct), Mintek-SCi (selected;
+finals 1 Oct and conference 2 Oct), and FNB App of the Year (never had real dates;
+`expected_window` was late October).
+
+**Why the live board was stale (workflow findings).** `Refresh board` has failed on every
+scheduled run since at least 10 Sep 2026. Two separate causes, both fixed in
+`.github/workflows/refresh-board.yml`: (1) since late Oct, `setup-bun` resolves the
+latest Bun (1.4.4), whose release download returns HTTP 504, so the job dies before any
+data moves. Pinned to 1.4.2, the version the last good runs used. (2) The non-critical
+app-schema mirror fails with PostgREST `PGRST204` (missing `status` column; migration
+`0005_app_opportunities_status.sql` unapplied), and because that step failed the job,
+the commit step never ran, so regenerated `data/opportunities.json` was never committed.
+That step is now `continue-on-error`. The root fix for (2) is applying migration 0005 to
+the app-schema project.
+
+---
+
 ## Known conflicts in the sources
 
 | Conflict | What we're going with |

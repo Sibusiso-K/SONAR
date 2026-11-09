@@ -115,6 +115,12 @@
 
     {"id": "sigma-africa-pitch-deadline", "kind": "deadline", "summary": "DEADLINE: SiGMA Africa Pitch 2027 application", "start": "2027-01-06", "all_day": true, "reminders": [20160, 4320, 1440], "description": "Applications close 6 Jan 2027 (shortlist 22 Jan, deck 3 Feb, live pitch 17 Feb, GrandWest, Cape Town). Seed to Series A, under EUR 3m raised. https://sigma.world/africa/pitch/"},
 
+    {"id": "kiroween-credits", "kind": "admin", "summary": "Kiroween: request free Kiro credits", "start": "2026-12-01T10:00", "end": "2026-12-01T10:15", "reminders": [1440], "description": "Credit requests close 1 Dec 12:00 PT = 22:00 SAST. 4,000 one-time credits per participant. https://kiroween.devpost.com/"},
+
+    {"id": "kiroween-deadline", "kind": "deadline", "summary": "DEADLINE: Kiroween 2026 submission", "start": "2026-12-04", "all_day": true, "reminders": [10080, 1440, 120], "description": "Closes 4 Dec 14:00 PT = midnight SAST (5 Dec 00:00). Submit on the 3rd. Check whether the repo must be public/open source. https://kiroween.devpost.com/"},
+
+    {"id": "imagine-cup-early-check", "kind": "admin", "summary": "Imagine Cup 2027: confirm the real deadline (8 Jan vs 28 Feb) and eligibility", "start": "2026-12-14T09:00", "end": "2026-12-14T09:30", "reminders": [1440], "description": "Sources conflict on the deadline and on whether startups can enter. Read the official rules at https://imaginecup.microsoft.com/en-us before 8 Jan."},
+
     { "id": "sonar-2027-planning", "kind": "review", "summary": "SONAR: full-year retro + build the 2027 board", "start": "2026-12-14T09:00", "end": "2026-12-14T12:00", "reminders": [10080, 1440], "description": "Retro on every entry. Then diarise the 2027 cycle now:\n- ITWeb Security Summit Hackathon — registration ~Feb, event ~June\n- MICT SETA National Skills Challenge — ~March\n- Entelect University Cup — ~April\n- Monkey and River Hackathon — ~July\n- Mintek-SCi Grad Hackathon — applications ~15 July\n- Geekulcha Annual — ~Sept/Oct\n- Huawei ICT Competition — registration ~Sept" }
   ]
 }

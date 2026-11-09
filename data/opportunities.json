@@ -8,7 +8,7 @@
     ],
     "team_size": 2,
     "base_timezone": "Africa/Johannesburg",
-    "last_updated": "2026-10-11",
+    "last_updated": "2026-10-18",
     "next_review": "2026-08-17",
     "scoring_weights": {
       "career_leverage": 0.35,
@@ -21,7 +21,7 @@
       "reported": "From a secondary source (news/aggregator); verify before relying on it",
       "unconfirmed": "Not yet announced for 2026; based on prior-year pattern"
     },
-    "generated": "2026-10-11T11:45:30Z",
+    "generated": "2026-11-09T09:50:44Z",
     "generator": "scripts/migrate_to_opportunities.py",
     "kinds": {
       "hackathon": "Build something in a fixed window",
@@ -42,6 +42,142 @@
     }
   },
   "opportunities": [
+    {
+      "id": "nebius-nvidia-global-ai-hackathon-2026",
+      "noticed_on": "2026-10-04",
+      "went_live_on": "2026-08-26",
+      "source": "Devpost overview + official rules, read 18 Oct 2026",
+      "name": "Nebius x NVIDIA Global AI Hackathon",
+      "organiser": "Nebius (sponsor) with NVIDIA and Tavily; administered by Devpost",
+      "scope": "international",
+      "format": "online",
+      "location": "Online (worldwide), optional IRL Builders & Brews city events",
+      "status": "past",
+      "tier": 2,
+      "score": 6.4,
+      "scores": {
+        "career_leverage": 8,
+        "winnability": 3,
+        "prize": 6,
+        "urgency": 10
+      },
+      "dates": {
+        "submission_open": "2026-08-26T09:00:00-07:00",
+        "submission_deadline": "2026-10-30T10:00:00-07:00",
+        "submission_deadline_sast": "2026-10-30T19:00:00+02:00",
+        "judging": "2026-12-01 to 2026-12-15",
+        "winners_announced": "2027-01-11T12:00:00-08:00",
+        "confidence": "confirmed",
+        "note": "Deadline is PDT (US clocks change 1 Nov, after it). Winners date is 'on or around'."
+      },
+      "prize": {
+        "currency": "USD",
+        "pool": 50000,
+        "breakdown": "Grand $20,000; 2nd $10,000; 3rd $6,000; Best Use of Tavily $3,000; 20 x City Winner $500 (IRL event attendees only); 10 x Most Valuable Feedback $100.",
+        "non_cash": "NVIDIA Jetson Orin Nano for each of the 4 track winners; NVIDIA swag. The Nebius Builder Program gives Token Factory, Tavily and Nebius Academy credits."
+      },
+      "eligibility": "South Africa is not excluded. Excluded: Brazil, Quebec, Russia, Crimea, Cuba, Iran, North Korea and other OFAC-sanctioned regions; employers of judges and sponsors. Nebius Token Factory is reportedly unavailable in Pakistan (Devpost forum, Oct 2026), so confirm it works from SA before building.",
+      "team_fit": "Two of us fits. Idea from the team Discord (Hailey, 13 Oct): SecureAgent, security alert triage that checks whether a vulnerability is exploitable in your own deployment. Fits the Coding & Agentic Engineering track.",
+      "what_to_build": "Must make a runtime call to Nebius Token Factory, or run on Nebius AI Cloud (Serverless Jobs/Endpoints, DevPods), and use at least one NVIDIA open model. Tracks: Coding & Agentic Engineering; Best Apps & Agents (Nemotron 3 Ultra for reasoning, Nano/Super for fast calls); Personal AI (NemoClaw, OpenShell, Hermes Agent); Physical AI (Nemotron, GR00T, Cosmos, Sonic; video needs 1 min of hardware footage).",
+      "scoring_formula": "Four criteria: Technological Implementation (use of Token Factory/AI Cloud + Nemotron), Design (complete product), Potential Impact, Quality of Idea. Judges may judge from the video and text only. 23 judges: NVIDIA engineers and Jetson/robotics DevRel, Nebius product (Token Factory, Serverless) and DevRel, Tavily forward deployed engineers.",
+      "deliverables": [
+        "working demo URL (not required for Physical AI)",
+        "public repo with an OSI license visible in the About section",
+        "README with setup steps and how Nemotron, Token Factory and other Nebius services were used",
+        "public YouTube video under 3 minutes",
+        "track selection",
+        "feedback on Nebius and NVIDIA tools",
+        "update note if the project predates 26 Aug"
+      ],
+      "links": {
+        "main": "https://nebiusglobalaihackathon.devpost.com/",
+        "rules": "https://nebiusglobalaihackathon.devpost.com/rules",
+        "nemotron_3": "https://nvidianews.nvidia.com/news/nvidia-debuts-nemotron-3-family-of-open-models",
+        "nemoclaw": "https://nvidianews.nvidia.com/news/nvidia-announces-nemoclaw"
+      },
+      "notes": "PROMOTED 18 Oct 2026 from 'checked, not added' in docs/SOURCES.md. WINNABILITY 3: about 17k registrants, but the $3k Tavily prize and the $100 feedback prizes are much easier side doors. Career 8: NVIDIA and Nebius judges. Cheapest points: route between Nemotron sizes, use 2+ Nebius services, add Tavily, write real feedback. NVIDIA GTC Berlin keynote on 21 Oct may ship new models. Overlaps the Meta hackathon (build 26 Oct to 4 Nov); README rule 3 allows no more than two overlapping builds. STATUS 9 Nov 2026: marked past (submission deadline 30 Oct 2026 passed (judging 1-15 Dec, winners ~11 Jan 2027)). Outcome not recorded here.",
+      "kind": "hackathon",
+      "career_track": "none",
+      "next_date": null,
+      "next_date_label": null,
+      "days_remaining": null,
+      "confidence": "confirmed",
+      "lifecycle": "judged",
+      "tracks": [],
+      "challenges": [],
+      "stages": [],
+      "evidence": [],
+      "history": []
+    },
+    {
+      "id": "meta-global-ai-dev-hackathon-2026",
+      "noticed_on": "2026-10-18",
+      "went_live_on": "2026-10-13",
+      "source": "Cerebral Valley event page + Meta for Developers (Meta Connect 2026 recap)",
+      "name": "Meta Global AI Developer Hackathon",
+      "organiser": "Meta and Cerebral Valley",
+      "scope": "international",
+      "format": "online",
+      "location": "Online (worldwide)",
+      "status": "past",
+      "tier": 1,
+      "score": 7.1,
+      "scores": {
+        "career_leverage": 8,
+        "winnability": 4,
+        "prize": 8,
+        "urgency": 10
+      },
+      "dates": {
+        "applications_open": "2026-10-13T09:00:00-04:00",
+        "application_deadline": "2026-10-25T23:59:00-04:00",
+        "application_deadline_sast": "2026-10-26T05:59:00+02:00",
+        "acceptance_notifications": "2026-10-26T09:00:00-04:00",
+        "event_start": "2026-10-26T12:00:00-04:00",
+        "event_start_sast": "2026-10-26T18:00:00+02:00",
+        "submission_deadline": "2026-11-04T21:00:00-05:00",
+        "submission_deadline_sast": "2026-11-05T04:00:00+02:00",
+        "judging": "2026-11-04 to 2026-11-08",
+        "closing_ceremony": "2026-11-09 (live finals, time TBA)",
+        "confidence": "confirmed",
+        "note": "Applications close early if 20,000 spots fill, and are reviewed on a rolling basis, so apply now. Submission deadline is after the US clocks go back (1 Nov), so it is EST (-05:00). Dates may change at Meta's discretion."
+      },
+      "prize": {
+        "currency": "USD",
+        "pool": 1000000,
+        "breakdown": "Not published. Split across two tracks (indie, startup) with no per-track or per-place amounts yet.",
+        "non_cash": "$150 Meta Model API credits per selected participant; partner credits for select participants (Baseten $100, Modal $100, Fireworks $25)."
+      },
+      "eligibility": "Open worldwide, South Africa is not on the restricted list. Excluded: Belarus, China, Russia, Ukraine, Syria, Cuba, North Korea, Iran, Crimea/Donetsk/Luhansk; Meta and Cerebral Valley staff; government-affiliated individuals. Max 20,000 accepted. One application each (duplicates can be disqualified). Official Rules must be accepted by selected participants.",
+      "team_fit": "Indie track (individuals and students) or Startup track (teams and founders with a real product). One project enters one track only. Two of us can enter as separate indie applicants or as a team, but decide before applying.",
+      "what_to_build": "Pick one theme. Build for Your World: Meta's models on a problem you know firsthand. Push the Frontier: software, robotics, manufacturing, energy, materials. Tools: Muse Spark series (1.3 flagship), Muse Wonder (agent model with Active Memory and Active Focus), Muse Image, SAM 3.1 via the Meta Model API; Meta open-weights models (Muse Spark Open, Muse Glimmer); Muse Code coding agent.",
+      "scoring_formula": "Application selection (equal weight): (1) project idea clarity, feasibility and theme fit; (2) technical skill shown in a past AI project. Judging: Indie = creativity, technical ambition, does it work. Startup = technical execution, holds up in production. Judges not published.",
+      "deliverables": [
+        "application form (questions 13-16 are not used for selection)",
+        "working project submitted by 4 Nov 21:00 ET",
+        "Official Rules and event waiver accepted if selected"
+      ],
+      "links": {
+        "main": "https://cerebralvalley.ai/e/meta-ai-developer-hackathon",
+        "apply": "https://cerebralvalley.ai/e/meta-ai-developer-hackathon/apply",
+        "waiver": "https://cerebralvalley.ai/e/meta-ai-developer-hackathon/waiver",
+        "meta_connect_recap": "https://developers.meta.com/blog/meta-connect-recap/",
+        "muse_wonder": "https://about.fb.com/news/2026/10/introducing-muse-wonder-models/"
+      },
+      "notes": "ADDED 18 Oct 2026. Applications close 25 Oct 23:59 ET = 26 Oct 05:59 SAST, so treat Sat 24 Oct as the real deadline. WINNABILITY 4: up to 20,000 participants worldwide and a $1M pool with unknown splits; scored on odds, not fit. Career 8: Meta brand, plus the sponsors (Baseten, Modal, Fireworks) are inference infrastructure companies. Judges are not published anywhere (checked event page and search 18 Oct). The application form questions were not readable without signing in, so read them in the form itself. Reminder: no more than two overlapping builds (README rule 3). Check the clash with the Mintek and RevenueCat dates before committing. Direction from Meta: agents, memory, multimodal, open weights, glasses and MCP connectors. Strongest ideas use Muse Wonder's persistence, are reliable beyond a demo, and come from a domain we know firsthand (South Africa). STATUS 9 Nov 2026: marked past (submission deadline 4 Nov 2026 passed). Outcome not recorded here.",
+      "kind": "hackathon",
+      "career_track": "none",
+      "next_date": null,
+      "next_date_label": null,
+      "days_remaining": null,
+      "confidence": "confirmed",
+      "lifecycle": "judged",
+      "tracks": [],
+      "challenges": [],
+      "stages": [],
+      "evidence": [],
+      "history": []
+    },
     {
       "id": "adtc-2026",
       "noticed_on": "2026-08-10",
@@ -156,9 +292,9 @@
       "notes": "SUBMITTED on time (confirmed by Sibusiso 8 Sept 2026, applications applied individually so this covers at minimum his own). Urgency dropped 8->5: nothing left for the team to do until selection notification, event is 16-17 Oct. HIGHEST career leverage on the whole board: BCG Platinion has publicly documented participants converting into Visiting Associate roles. Free, travel paid, Johannesburg hub. Landing-page banner said 'Apply by September 7' while body text said September 13; 7 Sept was treated as the real deadline and met. AI tools are explicitly allowed. Cannot attend only one of the two days. SWEEP 4 Oct 2026: still no selection notice on record (none in the calendar; the 20 Sept note there also said no reply). Event is 16-17 Oct, 12 days out. WEEKLY SWEEP 11 Oct 2026: BCG's page says the application window 'closed on September 14' and that they 'will now review all applications and provide feedback to each applicant'. No selection notice on record yet; event is 16-17 Oct.",
       "kind": "recruiting_event",
       "career_track": "direct",
-      "next_date": "2026-10-16",
-      "next_date_label": "event start",
-      "days_remaining": 5,
+      "next_date": null,
+      "next_date_label": null,
+      "days_remaining": null,
       "confidence": "confirmed",
       "lifecycle": "submitted",
       "tracks": [],
@@ -392,9 +528,9 @@
       "notes": "Hardest field on the board: global Kaggle grandmasters compete here. BUT the efficiency prize track is a genuine opening: it rewards small/fast models, which is exactly the muscle you build for ADTC. Treat as a stretch entry, not a primary. A Kaggle medal is a strong, verifiable CV signal. ENTERED - evidence, 4 Oct 2026 sweep: Sibusiso-K/RSNA-Knee-Abnormality-Detection shows training on the competition data through 23 Sept (a 0.893 ensemble, Kaggle CUDA/TPU kernel configs), and Kaggle only releases competition data to entrants. Field has grown from 640 teams at day 3 to 5,112 teams (Kaggle list, 4 Oct), so winnability 3 -> 2; the efficiency track stays the realistic angle. No commits since 23 Sept (Mintek crunch). Urgency 7 -> 8: entry/merger deadline 15 Oct, final 22 Oct, and the final week collides with BCG (16-17 Oct). WEEKLY SWEEP 11 Oct 2026: Kaggle overview shows 12 days to close (22 Oct), 5,733 teams (up from 5,112 on 4 Oct), 24,995 entrants. Entry/merger deadline is 15 Oct - four days. Urgency 8 -> 9, score 6.05 -> 6.2. Winnability stays 2. The overview page shows 'Join Competition', which this browser cannot confirm either way for the team's account.",
       "kind": "ml_competition",
       "career_track": "none",
-      "next_date": "2026-10-15",
-      "next_date_label": "entry deadline",
-      "days_remaining": 4,
+      "next_date": null,
+      "next_date_label": null,
+      "days_remaining": null,
       "confidence": "reported",
       "lifecycle": "committed",
       "tracks": [],
@@ -603,7 +739,7 @@
       "scope": "international",
       "format": "online",
       "location": "Virtual",
-      "status": "verify",
+      "status": "past",
       "tier": 2,
       "score": 6.2,
       "scores": {
@@ -635,14 +771,14 @@
         "main": "https://www.starhacks.org/ibm-z-datathon-2026",
         "register": "https://hack2skill.com/event/datathon-2026"
       },
-      "notes": "Register early: registrations after the deadline go to a waitlist. Clashes with BCG Platinion (16–17 Oct): Datathon is 17–18 Oct. Pick one; BCG wins on career leverage. Note: confirm your student eligibility status qualifies. LINK/PRIZE CORRECTION 14 Aug 2026: the board previously linked ibm-zdatathon.devpost.com, which is a PRIOR edition that has ended (\"This hackathon has ended\", Sept 24–25, register by Sept 10): removed. The organiser (Shooting Stars Foundation, starhacks.org) confirms this cycle as 17–18 Oct 2026 with $50,000+ in prizes, so the board's $30,000 figure: also taken from that ended page: was understated and is corrected. Registration goes through hack2skill, which is where the organiser's own REGISTER button points. Organiser also states 16,000+ students registered across 45+ countries and 8 in-person locations, not the 10,000+ previously noted. SWEEP 4 Oct 2026: the registration deadline (1 Oct) has passed with no registration on record here; per the organiser, late sign-ups go on a waitlist. Status open -> verify: if the team didn't register, this is waitlist-only, and it was always the fallback behind BCG (16-17 Oct), whose selection is also not on record yet. WEEKLY SWEEP 11 Oct 2026: starhacks.org confirms 17-18 Oct, 16,000+ students registered and $50K+ in prizes, but states no registration status. hack2skill.com's event page could not be read. Still verify.",
+      "notes": "Register early: registrations after the deadline go to a waitlist. Clashes with BCG Platinion (16–17 Oct): Datathon is 17–18 Oct. Pick one; BCG wins on career leverage. Note: confirm your student eligibility status qualifies. LINK/PRIZE CORRECTION 14 Aug 2026: the board previously linked ibm-zdatathon.devpost.com, which is a PRIOR edition that has ended (\"This hackathon has ended\", Sept 24–25, register by Sept 10): removed. The organiser (Shooting Stars Foundation, starhacks.org) confirms this cycle as 17–18 Oct 2026 with $50,000+ in prizes, so the board's $30,000 figure: also taken from that ended page: was understated and is corrected. Registration goes through hack2skill, which is where the organiser's own REGISTER button points. Organiser also states 16,000+ students registered across 45+ countries and 8 in-person locations, not the 10,000+ previously noted. SWEEP 4 Oct 2026: the registration deadline (1 Oct) has passed with no registration on record here; per the organiser, late sign-ups go on a waitlist. Status open -> verify: if the team didn't register, this is waitlist-only, and it was always the fallback behind BCG (16-17 Oct), whose selection is also not on record yet. WEEKLY SWEEP 11 Oct 2026: starhacks.org confirms 17-18 Oct, 16,000+ students registered and $50K+ in prizes, but states no registration status. hack2skill.com's event page could not be read. Still verify. STATUS 9 Nov 2026: marked past (event ended 18 Oct 2026). Outcome not recorded here.",
       "kind": "datathon",
       "career_track": "none",
-      "next_date": "2026-10-17",
-      "next_date_label": "event start",
-      "days_remaining": 6,
+      "next_date": null,
+      "next_date_label": null,
+      "days_remaining": null,
       "confidence": "reported",
-      "lifecycle": "discovered",
+      "lifecycle": "judged",
       "tracks": [],
       "challenges": [],
       "stages": [],
@@ -1037,7 +1173,7 @@
       "career_track": "none",
       "next_date": "2026-11-14",
       "next_date_label": "event start",
-      "days_remaining": 34,
+      "days_remaining": 5,
       "confidence": "confirmed",
       "lifecycle": "committed",
       "tracks": [],
@@ -1089,7 +1225,7 @@
       "career_track": "none",
       "next_date": "2026-11-12",
       "next_date_label": "event start",
-      "days_remaining": 32,
+      "days_remaining": 3,
       "confidence": "confirmed",
       "lifecycle": "scored",
       "tracks": [],
@@ -1148,7 +1284,7 @@
       "career_track": "none",
       "next_date": "2026-11-30",
       "next_date_label": "final submission",
-      "days_remaining": 50,
+      "days_remaining": 21,
       "confidence": "confirmed",
       "lifecycle": "submitted",
       "tracks": [],
@@ -1275,7 +1411,7 @@
       "scope": "international",
       "format": "online",
       "location": "Zindi",
-      "status": "open",
+      "status": "past",
       "tier": 3,
       "score": 5.2,
       "scores": {
@@ -1304,14 +1440,14 @@
       "links": {
         "competition": "https://zindi.world/competitions/bias-bounty-mapping-equity-challenge"
       },
-      "notes": "Found in the 25 Aug 2026 sweep, three days before it opens on 28 Aug. Data is entirely US-based despite Zindi's African focus, so nothing here transfers to the local portfolio story. The 1 Nov close is the one genuinely comfortable deadline on the board: it clears the whole October crunch. Treat as the fallback if the R.O.A.D. timing proves impossible, not as a second simultaneous entry. SWEEP 4 Oct 2026: not rechecked - Zindi now renders only its site shell to signed-out visitors. Dates carried from the 3 Sept check.",
+      "notes": "Found in the 25 Aug 2026 sweep, three days before it opens on 28 Aug. Data is entirely US-based despite Zindi's African focus, so nothing here transfers to the local portfolio story. The 1 Nov close is the one genuinely comfortable deadline on the board: it clears the whole October crunch. Treat as the fallback if the R.O.A.D. timing proves impossible, not as a second simultaneous entry. SWEEP 4 Oct 2026: not rechecked - Zindi now renders only its site shell to signed-out visitors. Dates carried from the 3 Sept check. STATUS 9 Nov 2026: marked past (submission deadline 1 Nov 2026 passed). Outcome not recorded here.",
       "kind": "ml_competition",
       "career_track": "adjacent",
-      "next_date": "2026-11-01",
-      "next_date_label": "submission deadline",
-      "days_remaining": 21,
+      "next_date": null,
+      "next_date_label": null,
+      "days_remaining": null,
       "confidence": "confirmed",
-      "lifecycle": "scored",
+      "lifecycle": "judged",
       "tracks": [],
       "challenges": [],
       "stages": [],
@@ -1490,7 +1626,7 @@
       "career_track": "adjacent",
       "next_date": "2026-11-13",
       "next_date_label": "submission deadline",
-      "days_remaining": 33,
+      "days_remaining": 4,
       "confidence": "confirmed",
       "lifecycle": "scored",
       "tracks": [],
@@ -1551,7 +1687,7 @@
       "career_track": "none",
       "next_date": "2026-11-12",
       "next_date_label": "submission deadline",
-      "days_remaining": 32,
+      "days_remaining": 3,
       "confidence": "confirmed",
       "lifecycle": "scored",
       "tracks": [],
@@ -1570,7 +1706,7 @@
       "scope": "international",
       "format": "online",
       "location": "Devpost",
-      "status": "open",
+      "status": "past",
       "tier": 3,
       "score": 5.35,
       "scores": {
@@ -1605,14 +1741,14 @@
         "main": "https://qloo.devpost.com/",
         "rules": "https://qloo.devpost.com/rules"
       },
-      "notes": "Found in the 4 Oct 2026 sweep: 380 registrants on day 5 - the smallest field among the open Devpost hackathons with a five-figure pool. Lands in the same fortnight as BCG, RSNA and the expected FNB window. Scored: career leverage 4 (small sponsor), winnability 5, prize 7, urgency 7.",
+      "notes": "Found in the 4 Oct 2026 sweep: 380 registrants on day 5 - the smallest field among the open Devpost hackathons with a five-figure pool. Lands in the same fortnight as BCG, RSNA and the expected FNB window. Scored: career leverage 4 (small sponsor), winnability 5, prize 7, urgency 7. STATUS 9 Nov 2026: marked past (submission deadline 31 Oct 2026 passed). Outcome not recorded here.",
       "kind": "hackathon",
       "career_track": "none",
-      "next_date": "2026-10-31",
-      "next_date_label": "submission deadline",
-      "days_remaining": 20,
+      "next_date": null,
+      "next_date_label": null,
+      "days_remaining": null,
       "confidence": "confirmed",
-      "lifecycle": "scored",
+      "lifecycle": "judged",
       "tracks": [],
       "challenges": [],
       "stages": [],
@@ -1629,7 +1765,7 @@
       "scope": "international",
       "format": "online",
       "location": "Devpost",
-      "status": "open",
+      "status": "past",
       "tier": 3,
       "score": 5.8,
       "scores": {
@@ -1664,13 +1800,700 @@
         "main": "https://gitlab-transcend.devpost.com/",
         "rules": "https://gitlab-transcend.devpost.com/rules"
       },
-      "notes": "Found in the 11 Oct 2026 weekly sweep, open with 1,632 registrants. Winnability 3: a new platform for the team and a large, mostly-individual field, offset by nine cash prizes. Urgency 8: 16 days to the submission deadline, and it overlaps RSNA's final week and the IBM TechXchange decision. Needs a go/no-go by about 18 Oct to leave time to build.",
+      "notes": "Found in the 11 Oct 2026 weekly sweep, open with 1,632 registrants. Winnability 3: a new platform for the team and a large, mostly-individual field, offset by nine cash prizes. Urgency 8: 16 days to the submission deadline, and it overlaps RSNA's final week and the IBM TechXchange decision. Needs a go/no-go by about 18 Oct to leave time to build. STATUS 9 Nov 2026: marked past (submission deadline 27 Oct 2026 passed (judging to 14 Nov, winners ~16 Nov)). Outcome not recorded here.",
       "kind": "hackathon",
       "career_track": "none",
-      "next_date": "2026-10-27",
-      "next_date_label": "submission deadline",
-      "days_remaining": 16,
+      "next_date": null,
+      "next_date_label": null,
+      "days_remaining": null,
       "confidence": "confirmed",
+      "lifecycle": "judged",
+      "tracks": [],
+      "challenges": [],
+      "stages": [],
+      "evidence": [],
+      "history": []
+    },
+    {
+      "id": "wits-ehub-tech-ai-day-2026",
+      "noticed_on": "2026-10-12",
+      "went_live_on": null,
+      "source": "organiser email to Sibusiso (Wits E-Hub)",
+      "name": "Wits Entrepreneurship Week 2026: Tech & AI Day and Tech Demo Showcase",
+      "organiser": "Wits Entrepreneurship Hub (E-Hub), Wits University",
+      "scope": "local",
+      "format": "in-person",
+      "location": "Wits Entrepreneurship Hub (E-Hub), Shop 2, Matrix Building, Wits, Johannesburg",
+      "status": "past",
+      "tier": 2,
+      "score": 6.65,
+      "scores": {
+        "career_leverage": 7,
+        "winnability": 7,
+        "prize": 3,
+        "urgency": 10
+      },
+      "dates": {
+        "application_deadline": "unknown - the Apply link and deadline are below the part of the email we have; read it off the email",
+        "event_start": "2026-10-15T09:00:00+02:00",
+        "event_end": "2026-10-15T14:00:00+02:00",
+        "confidence": "confirmed"
+      },
+      "prize": {
+        "currency": "N/A",
+        "pool": null,
+        "non_cash": "No prize stated. Value is the room: venture capitalists, funders, ecosystem partners, industry professionals; visibility and expert feedback."
+      },
+      "eligibility": "Student entrepreneurs (ideation stage, MVP or growing startup). Tech, AI, software, fintech, edtech, mobility or innovation-driven. APPLICATION REQUIRED - link and deadline not yet on record.",
+      "team_fit": "Two-person team (Sibusiso + Lethabo) is fine for an exhibition table. Bring VUKA: VIGIL on two phones (member + guardian) plus a laptop with the VUKA Ledger.",
+      "what_to_build": "Nothing new: a showcase, not a build. Demo VUKA live: VIGIL check-in, guardian alert, and a record verified on the public ledger (docs/demo in the VUKA repo has a LIVE-VERIFIED record and a tampered copy that fails).",
+      "scoring_formula": "None: not a competition. No winners or judging criteria stated.",
+      "deliverables": [
+        "application (form not yet seen)",
+        "demo table: two phones + laptop",
+        "one-line pitch for funders"
+      ],
+      "links": {
+        "main": "organiser email to Sibusiso, 2026 (no public page found 12 Oct 2026)",
+        "contact_older_ehub_page": "StudentEntrepreneurship.DLU@wits.ac.za"
+      },
+      "notes": "ADDED 12 Oct 2026 from the Wits E-Hub invitation email. Thursday 15 Oct, 09:00-14:00, 3 days out. No public page found; the email is the source, so date, time and venue are confirmed but the APPLY LINK AND DEADLINE ARE MISSING from what we have: find them in the email today, because a 3-day-out showcase may already be closing. WINNABILITY 7 is scored as fit, not odds: there is nothing to win, but VUKA is an unusually strong exhibit for funders (live Azure backend, real Hedera anchoring, a ledger anyone can verify, a bank-funded R20/member/month model), and the field is Wits students only. Prize 3: non-cash, investor exposure. Career 7: VCs and funders in the room, not corporate recruiters. Clashes: same day as the RSNA Knee entry deadline (15 Oct); BCG Platinion is 16-17 Oct (application window closed). Before the day: confirm Azure is up and server.json on the vigil-demo release points to Azure, and prepare the 60-second ledger demo (real record LIVE-VERIFIED, tampered fails at entry #3). STATUS 9 Nov 2026: marked past (event held 15 Oct 2026). Outcome not recorded here.",
+      "kind": "hackathon",
+      "career_track": "none",
+      "next_date": null,
+      "next_date_label": null,
+      "days_remaining": null,
+      "confidence": "confirmed",
+      "lifecycle": "judged",
+      "tracks": [],
+      "challenges": [],
+      "stages": [],
+      "evidence": [],
+      "history": []
+    },
+    {
+      "id": "more-than-a-hack-2027",
+      "noticed_on": "2026-10-18",
+      "went_live_on": null,
+      "source": "manual research",
+      "name": "More Than a Hack 2027",
+      "organiser": "Barça Innovation Hub (BIHub) and Mobile World Capital Barcelona; Metrica Sports supporting",
+      "scope": "international",
+      "location": "Barcelona. Final at Talent Arena 2027 per press coverage; format not confirmed",
+      "status": "verify",
+      "dates": {
+        "confidence": "reported"
+      },
+      "eligibility": "Not stated in any source read. First edition drew participants from 96+ countries.",
+      "what_to_build": "Generative AI applied to sports data: turn large volumes of data into useful knowledge and new applications. Six-month programme in phases. Top 20 teams go to an Innovation Challenge; five reach the grand final at Talent Arena 2027.",
+      "deliverables": [],
+      "links": {
+        "main": "https://landing.mobileworldcapital.com/more-than-a-hack-2027"
+      },
+      "notes": "UNSCORED. The landing page could not be read: the sandbox egress policy returned 403 for this host on 18 Oct 2026. Everything above comes from press coverage of the second edition (Barça news, Spanish; English paraphrase). Mapping that edition to this '2027' page is an inference. No deadlines, prize pool, team size or eligibility confirmed. To finish: read the landing page in a browser, fill dates and eligibility, add prize and team rules, then score. Check the sports-data theme against our team profile before committing time to it.",
+      "kind": "hackathon",
+      "career_track": "none",
+      "next_date": null,
+      "next_date_label": null,
+      "days_remaining": null,
+      "confidence": "reported",
+      "lifecycle": "discovered",
+      "tracks": [],
+      "challenges": [],
+      "stages": [],
+      "evidence": [],
+      "history": []
+    },
+    {
+      "id": "micro1-eval-hackathon-2026",
+      "noticed_on": "2026-10-19",
+      "went_live_on": null,
+      "source": "manual research",
+      "name": "micro1 Eval Hackathon",
+      "organiser": "micro1 (sponsor and organiser), hosted on HackerRank",
+      "scope": "international",
+      "format": "online",
+      "location": "Virtual (HackerRank event page)",
+      "status": "past",
+      "tier": 3,
+      "score": 5.95,
+      "scores": {
+        "career_leverage": 6,
+        "winnability": 5,
+        "prize": 5,
+        "urgency": 9
+      },
+      "dates": {
+        "event_start": "2026-10-23T12:00:00-07:00",
+        "event_start_sast": "2026-10-23T21:00:00+02:00",
+        "submission_deadline": "2026-11-02T09:00:00-08:00",
+        "submission_deadline_sast": "2026-11-02T19:00:00+02:00",
+        "confidence": "reported"
+      },
+      "prize": {
+        "currency": "USD",
+        "pool": 10000,
+        "breakdown": [
+          {
+            "place": "1st",
+            "amount": 5000,
+            "track": null
+          },
+          {
+            "place": "2nd",
+            "amount": 3000,
+            "track": null
+          },
+          {
+            "place": "3rd",
+            "amount": 2000,
+            "track": null
+          }
+        ]
+      },
+      "eligibility": "Free, worldwide, individual. Must be 18+ with AT LEAST 2 YEARS OF PROFESSIONAL EXPERIENCE and able to code or use AI coding tools. Residents of some countries are excluded (Russia, Iran and Syria named; full list not read, so check South Africa is not on it). Must accept the micro1 Participant Agreement before submitting. Core team, administrators and judges are not prize-eligible.",
+      "team_fit": "Individual event, one entry per person: no teaming up. Sibusiso and Lethabo can each register and enter separately, but the 2-year professional-experience rule may block one or both. Settle that first.",
+      "what_to_build": "Not an agent build. Pick a task in your own field that needs expert judgment, probe a frontier AI model with tough realistic scenarios to find where it still fails, then build a repeatable eval in code with clear scoring. 5 to 10 tasks suggested.",
+      "scoring_formula": "No weighted formula found. Judges look for: a practical limitation rather than a trick; clear tasks with a defensible grading standard; a grader that avoids false passes and false fails; an explanation of why frontier models fail; originality and reproducibility; and results showing how frontier models perform on the eval.",
+      "deliverables": [
+        "Eval tasks with clear scoring criteria",
+        "Grader/test code that reproduces the result",
+        "Results showing frontier-model failures"
+      ],
+      "links": {
+        "main": "https://www.hackerrank.com/event/micro1-eval-hackathon",
+        "faq": "https://www.micro1.ai/hackathon/faq",
+        "rules": "https://www.micro1.ai/hackathon/agreement"
+      },
+      "notes": "Dates, prize split and judging come from search results quoting the organiser's FAQ, the HackerRank page and micro1's X posts. None of those pages could be opened from the sandbox (DNS failure on hackerrank.com and micro1.ai, 19 Oct 2026), so confidence is reported, not confirmed. DATE CONFLICT: the FAQ (via search) says the challenge opens Fri 23 Oct 2026 12:00 PT and submissions close Mon 2 Nov 2026 09:00 PT, but a micro1 X post says kickoff is 30 Oct and the HackerRank page is quoted as closing registration 30 Oct 07:00 GMT. The X post also says '9 days', and 23 Oct to 2 Nov is 10. Treat 2 Nov 09:00 PT (19:00 SAST) as the working deadline until the page is read. Stored without the LinkedIn tracking parameters (utm_*). Do not confuse it with micro1's earlier Frontier Engineering Challenge (28-31 Aug 2026, HackerEarth), which was a coding-agent event. The earlier event promised paid micro1 opportunities to the top 50; nothing found says this one does, so the career-leverage score of 6 is a guess. It fits the team's ML and multi-agent evidence, and a good eval is a strong portfolio piece. Needs a domain where expert judgment is real, so pick one before the 23rd. STATUS 9 Nov 2026: past. Submissions closed 2 Nov on the FAQ's reading (30 Oct on the other), and no registration is on record here.",
+      "kind": "hackathon",
+      "career_track": "none",
+      "next_date": null,
+      "next_date_label": null,
+      "days_remaining": null,
+      "confidence": "reported",
+      "lifecycle": "judged",
+      "tracks": [],
+      "challenges": [],
+      "stages": [],
+      "evidence": [],
+      "history": []
+    },
+    {
+      "id": "gates-ai-fellow-africa-2026",
+      "noticed_on": "2026-11-09",
+      "went_live_on": null,
+      "source": "discovery sweep 2026-11-09",
+      "name": "Gates Foundation AI Fellow, Africa Regional Offices (12 months)",
+      "organiser": "Gates Foundation",
+      "scope": "continental",
+      "location": "Johannesburg, Abuja, Addis Ababa or Nairobi",
+      "status": "closing",
+      "tier": 2,
+      "score": 6.85,
+      "scores": {
+        "career_leverage": 9,
+        "winnability": 4,
+        "prize": 5,
+        "urgency": 10
+      },
+      "dates": {
+        "application_deadline": "2026-11-11",
+        "confidence": "reported",
+        "note": "Most listings give 11 Nov 2026. One aggregator says 11 Nov 2027, which looks like a typo."
+      },
+      "eligibility": "Legal right to work in the chosen country WITHOUT VISA SPONSORSHIP. No age limit found. 'Young African innovators' is aggregator framing, not the posting's wording. Experience requirements not read.",
+      "team_fit": "Individual, employment-style fellowship. Sibusiso and Lethabo can each apply, but it is a 12-month job, so it competes with every other plan, not just other hackathons.",
+      "what_to_build": "Not a build. A 12-month limited-term AI fellow role embedded in the foundation's Africa regional offices.",
+      "deliverables": [],
+      "links": {
+        "main": "https://www.unjobnet.org/jobs/detail/bmgf-ai-fellow-africa-regional-offices-90133649",
+        "aggregator": "https://opportunitiesforyouth.org/2026/11/03/gates-foundation-ai-fellowship-2026-apply-for-a-12-month-ai-fellow-position-in-africa-deadline-november-11/"
+      },
+      "notes": "TWO DAYS LEFT as of 9 Nov 2026. The posting sits on the foundation's Workday portal; I could not open it, so everything here is from a job-board copy and aggregators (reported, not confirmed). Pay is unconfirmed for Africa: the 2025 programme paid $148,920-$162,350, which may not apply here. Decide today whether you want a year-long role; if yes, read the real posting first.",
+      "kind": "hackathon",
+      "career_track": "none",
+      "next_date": "2026-11-11",
+      "next_date_label": "application deadline",
+      "days_remaining": 2,
+      "confidence": "reported",
+      "lifecycle": "scored",
+      "tracks": [],
+      "challenges": [],
+      "stages": [],
+      "evidence": [],
+      "history": []
+    },
+    {
+      "id": "samsung-tshimologong-dev-programme-2027",
+      "noticed_on": "2026-11-09",
+      "went_live_on": null,
+      "source": "discovery sweep 2026-11-09",
+      "name": "Samsung Software Development Programme 2027 (Tshimologong, Wits)",
+      "organiser": "Tshimologong Digital Innovation Precinct (Wits University) with Samsung",
+      "scope": "local",
+      "format": "in-person",
+      "location": "Braamfontein, Johannesburg",
+      "status": "open",
+      "tier": 3,
+      "score": 5.75,
+      "scores": {
+        "career_leverage": 7,
+        "winnability": 5,
+        "prize": 3,
+        "urgency": 8
+      },
+      "dates": {
+        "application_deadline": "2026-11-22",
+        "programme_start": "2027-01-16",
+        "confidence": "reported"
+      },
+      "eligibility": "South African citizens under 35 with matric and a completed 3-year diploma or degree, able to commit full time for the year. RESIDENCY UNCLEAR: one line says Gauteng, another says Johannesburg. Check the official notice.",
+      "team_fit": "Individual entry. Full time for 12 months from 16 Jan 2027, so it excludes anything else you plan for 2027.",
+      "what_to_build": "Not a build. 12 months full time in a real development team on South African problems, with senior-developer mentoring. The page claims 89 completions since 2020 and 89% employment.",
+      "deliverables": [],
+      "links": {
+        "main": "https://www.opportunitiesforafricans.com/?p=103140"
+      },
+      "notes": "Aggregator copy only; the Tshimologong and Samsung pages were not found or read, so confirm the deadline and stipend there. No stipend figure found, so the prize score of 3 is a guess. A career move, not a competition: worth it only if you want a structured year at a team.",
+      "kind": "hackathon",
+      "career_track": "none",
+      "next_date": "2026-11-22",
+      "next_date_label": "application deadline",
+      "days_remaining": 13,
+      "confidence": "reported",
+      "lifecycle": "scored",
+      "tracks": [],
+      "challenges": [],
+      "stages": [],
+      "evidence": [],
+      "history": []
+    },
+    {
+      "id": "sigma-africa-pitch-2027",
+      "noticed_on": "2026-11-09",
+      "went_live_on": null,
+      "source": "discovery sweep 2026-11-09",
+      "name": "SiGMA Africa Pitch 2027",
+      "organiser": "SiGMA",
+      "scope": "continental",
+      "format": "in-person",
+      "location": "GrandWest, Cape Town",
+      "status": "open",
+      "tier": 3,
+      "score": 4.8,
+      "scores": {
+        "career_leverage": 5,
+        "winnability": 5,
+        "prize": 4,
+        "urgency": 5
+      },
+      "dates": {
+        "application_deadline": "2027-01-06",
+        "shortlist_announced": "2027-01-22",
+        "deck_deadline": "2027-02-03",
+        "event_start": "2027-02-17",
+        "confidence": "reported"
+      },
+      "prize": {
+        "currency": null,
+        "pool": null,
+        "non_cash": [
+          {
+            "type": "publicity",
+            "value_est": 21300,
+            "description": "Startup Marketing Package, valued by the organiser at EUR 21,300"
+          }
+        ]
+      },
+      "eligibility": "Early-stage startups, seed to Series A, with no more than EUR 3 million raised. Free to apply. SiGMA does not pay or reimburse travel. Selection weighs application quality, business strength and relevance to the SiGMA audience (iGaming, fintech, AI, blockchain).",
+      "team_fit": "Needs a company or a product with a business story, not just a build. Six finalists get a 3-minute pitch and 5 minutes of Q&A. One application may cover the whole 2027 season (unclear).",
+      "what_to_build": "A startup pitch, not a build: an application, then a deck.",
+      "deliverables": [
+        "Application",
+        "Pitch deck (due 3 Feb 2027)"
+      ],
+      "links": {
+        "main": "https://sigma.world/africa/pitch/",
+        "aggregator": "https://www.techinafrica.com/sigma-opens-2027-africa-startup-pitch-applications/"
+      },
+      "notes": "Dates and terms come from search results quoting the organiser and press; the SiGMA page itself was not read. The only prize found is a marketing package, with no cash figure. Sector fit is the weak point: iGaming and blockchain are SiGMA's core, so Stokup or Bizplus-sa (fintech-adjacent) is a better pitch than the agent work. In Cape Town, so there is no travel subsidy.",
+      "kind": "hackathon",
+      "career_track": "none",
+      "next_date": "2027-01-06",
+      "next_date_label": "application deadline",
+      "days_remaining": 58,
+      "confidence": "reported",
+      "lifecycle": "scored",
+      "tracks": [],
+      "challenges": [],
+      "stages": [],
+      "evidence": [],
+      "history": []
+    },
+    {
+      "id": "tef-entrepreneurship-2027",
+      "noticed_on": "2026-11-09",
+      "went_live_on": null,
+      "source": "discovery sweep 2026-11-09",
+      "name": "Tony Elumelu Foundation Entrepreneurship Programme 2027",
+      "organiser": "Tony Elumelu Foundation",
+      "scope": "continental",
+      "format": "online",
+      "location": "Pan-African",
+      "status": "monitor",
+      "tier": 3,
+      "score": 3.65,
+      "scores": {
+        "career_leverage": 4,
+        "winnability": 4,
+        "prize": 3,
+        "urgency": 3
+      },
+      "dates": {
+        "confidence": "unconfirmed",
+        "note": "2027 cycle not announced; the 2026 portal is closed. Earlier cycles opened around 1 Jan (2025 ran 1 Jan to 1 Mar). One unverified listing says 31 Mar 2027."
+      },
+      "prize": {
+        "currency": "USD",
+        "pool": null,
+        "non_cash": [
+          {
+            "type": "mentorship",
+            "description": "Training and mentorship"
+          }
+        ]
+      },
+      "eligibility": "Not confirmed for 2027. The 2026 cycle offered $5,000 seed capital to African founders; check business-stage rules when it opens.",
+      "team_fit": "Needs a registered or early-stage business with a founder application. Fits Stokup or Bizplus-sa better than a hackathon build.",
+      "what_to_build": "A business application: plan, traction and a founder story.",
+      "deliverables": [],
+      "links": {
+        "main": "https://www.tonyelumelufoundation.org/"
+      },
+      "notes": "WATCH WINDOW: check from 1 Jan 2027. Dates are extrapolated from prior cycles (unconfirmed), and the $5,000 figure is from 2026 coverage. Nothing to do until the portal opens, except have the Stokup or Bizplus-sa business story and numbers ready.",
+      "kind": "hackathon",
+      "career_track": "none",
+      "next_date": null,
+      "next_date_label": null,
+      "days_remaining": null,
+      "confidence": "unconfirmed",
+      "lifecycle": "triaged",
+      "tracks": [],
+      "challenges": [],
+      "stages": [],
+      "evidence": [],
+      "history": []
+    },
+    {
+      "id": "anthropic-fellows-2027",
+      "noticed_on": "2026-11-09",
+      "went_live_on": null,
+      "source": "discovery sweep 2026-11-09",
+      "name": "Anthropic Fellows Program (January 2027 cohort)",
+      "organiser": "Anthropic",
+      "scope": "international",
+      "location": "Not confirmed",
+      "status": "verify",
+      "tier": 3,
+      "score": 5.85,
+      "scores": {
+        "career_leverage": 9,
+        "winnability": 3,
+        "prize": 6,
+        "urgency": 4
+      },
+      "dates": {
+        "confidence": "reported",
+        "note": "AI Safety & Security track closed 30 Oct 2026. The ML Systems & Reinforcement Learning and Economics & Policy tracks are said to review on a rolling basis with no deadline."
+      },
+      "eligibility": "Not confirmed: location, visa and experience rules were not found.",
+      "team_fit": "Individual research fellowship. The team's agent-security and multi-agent repos (Agent-Guardian, immunis-acin) are the relevant evidence.",
+      "what_to_build": "Research project on a track, mentored. Track-specific.",
+      "deliverables": [],
+      "links": {
+        "main": "https://www.extern.com/post/anthropic-fellows-program-guide"
+      },
+      "notes": "SECONDHAND ONLY: every detail comes from a third-party guide and search snippets; the official programme page was not read. Reported pay is $3,850 a week plus about $15,000 a month in compute: treat as unverified. Also found: Anthropic STEM and Conceptual Reasoning Fellowships (4 months from Jan 2027), aimed at scientists, philosophers and policy people, not developers, so not added. MATS Winter 2027 closed 31 Oct; next window expected March 2027 (matsprogram.org/apply).",
+      "kind": "hackathon",
+      "career_track": "none",
+      "next_date": null,
+      "next_date_label": null,
+      "days_remaining": null,
+      "confidence": "reported",
+      "lifecycle": "discovered",
+      "tracks": [],
+      "challenges": [],
+      "stages": [],
+      "evidence": [],
+      "history": []
+    },
+    {
+      "id": "kiroween-2026",
+      "noticed_on": "2026-11-09",
+      "went_live_on": null,
+      "source": "user-supplied link, 9 Nov 2026",
+      "name": "Kiroween 2026 (Kiro Hackathon)",
+      "organiser": "Kiro / AWS, hosted on Devpost",
+      "scope": "international",
+      "format": "online",
+      "location": "Online (Devpost)",
+      "status": "open",
+      "tier": 3,
+      "score": 5.9,
+      "scores": {
+        "career_leverage": 5,
+        "winnability": 5,
+        "prize": 8,
+        "urgency": 7
+      },
+      "dates": {
+        "event_start": "2026-10-30",
+        "kiro_credits_deadline": "2026-12-01T12:00:00-08:00",
+        "submission_deadline": "2026-12-04T14:00:00-08:00",
+        "submission_deadline_sast": "2026-12-05T00:00:00+02:00",
+        "judging": "2026-12-16 to 2027-01-29",
+        "winners_announced": "2027-02-03",
+        "confidence": "reported",
+        "note": "One aggregator shows 5 Dec: that is the same cutoff converted to IST. Winners date is approximate."
+      },
+      "prize": {
+        "currency": "USD",
+        "pool": 100000,
+        "breakdown": [
+          {
+            "place": "1st",
+            "amount": 30000,
+            "track": null
+          }
+        ],
+        "non_cash": [
+          {
+            "type": "compute_credits",
+            "value_est": null,
+            "description": "One-time allotment of 4,000 Kiro credits per participant, requested by 1 Dec"
+          }
+        ]
+      },
+      "eligibility": "Legal age where you live. Teams of up to 3. Amazon and Devpost employees and affiliates excluded; winners must pass identity and eligibility checks. One source says the project must be public and open source: CHECK THE RULES before building anything proprietary.",
+      "team_fit": "Good: a team of 2 is inside the limit of 3, and it is an agent-building brief in the team's lane.",
+      "what_to_build": "A Halloween-themed project built with Kiro (AWS's agentic IDE). Exact brief and categories not read.",
+      "deliverables": [
+        "Devpost submission",
+        "Project repository (public/open source may be required)"
+      ],
+      "links": {
+        "main": "https://kiroween.devpost.com/"
+      },
+      "notes": "Dates and prize come from search results (aggregators plus a Kiro community page); the Devpost page and rules were not read. The 2025 edition ran to 5 Dec 2025, so do not mix up years. The event exists to promote Kiro, so expect the rules to require building with it. Request the 4,000 free Kiro credits before 1 Dec. Last day to submit is 4 Dec 14:00 PT, which is midnight SAST: aim to submit on the 3rd.",
+      "kind": "hackathon",
+      "career_track": "none",
+      "next_date": "2026-12-04",
+      "next_date_label": "submission deadline",
+      "days_remaining": 25,
+      "confidence": "reported",
+      "lifecycle": "scored",
+      "tracks": [],
+      "challenges": [],
+      "stages": [],
+      "evidence": [],
+      "history": []
+    },
+    {
+      "id": "codegeist-2026",
+      "noticed_on": "2026-11-09",
+      "went_live_on": null,
+      "source": "user-supplied link, 9 Nov 2026",
+      "name": "Atlassian Codegeist 2026",
+      "organiser": "Atlassian, hosted on Devpost",
+      "scope": "international",
+      "format": "online",
+      "location": "Online (Devpost)",
+      "status": "verify",
+      "dates": {
+        "confidence": "unconfirmed",
+        "note": "2026 dates not found. Prior edition: submissions due 22 Dec 2025 10:00 PT, winners 21 Jan 2026."
+      },
+      "eligibility": "Not read.",
+      "what_to_build": "Apps for Atlassian products (Jira, Confluence) built on Forge, Atlassian's developer platform. 2026 brief not read.",
+      "deliverables": [],
+      "links": {
+        "main": "https://codegeist2026.devpost.com/"
+      },
+      "notes": "UNSCORED. Nothing about the 2026 edition turned up in search: only 2020-2025 pages. The 2025 edition's prize pool is reported inconsistently ($120,000 on one page, $170,000 and $300,000 on others, years unclear), so no figure is recorded. If the 2026 cycle follows 2025, the deadline falls in late December. To finish: read codegeist2026.devpost.com in a browser, then add dates, prizes, rules and a score.",
+      "kind": "hackathon",
+      "career_track": "none",
+      "next_date": null,
+      "next_date_label": null,
+      "days_remaining": null,
+      "confidence": "unconfirmed",
+      "lifecycle": "discovered",
+      "tracks": [],
+      "challenges": [],
+      "stages": [],
+      "evidence": [],
+      "history": []
+    },
+    {
+      "id": "aws-msp-ai-hackathon-2026",
+      "noticed_on": "2026-11-09",
+      "went_live_on": null,
+      "source": "user-supplied link, 9 Nov 2026",
+      "name": "AWS MSP AI Hackathon 2026",
+      "organiser": "AWS, hosted on Devpost",
+      "scope": "international",
+      "format": "online",
+      "location": "Online (Devpost)",
+      "status": "verify",
+      "tier": 3,
+      "score": 3.75,
+      "scores": {
+        "career_leverage": 3,
+        "winnability": 2,
+        "prize": 6,
+        "urgency": 6
+      },
+      "dates": {
+        "event_start": "2026-11-02",
+        "submission_deadline": "2026-12-11T12:00:00-08:00",
+        "submission_deadline_sast": "2026-12-11T22:00:00+02:00",
+        "confidence": "reported"
+      },
+      "prize": {
+        "currency": "USD",
+        "pool": 64000,
+        "breakdown": [
+          {
+            "place": "1st, per track",
+            "amount": 10000,
+            "track": "2 tracks"
+          },
+          {
+            "place": "2nd, per track",
+            "amount": 7000,
+            "track": "2 tracks"
+          },
+          {
+            "place": "3rd, per track",
+            "amount": 5000,
+            "track": "2 tracks"
+          },
+          {
+            "place": "10 special prizes",
+            "amount": 2000,
+            "track": null
+          }
+        ],
+        "non_cash": [
+          {
+            "type": "mentorship",
+            "description": "Inclusion in the MSP AI Use Case Library and priority consideration for AWS go-to-market support"
+          }
+        ]
+      },
+      "eligibility": "LIKELY A BLOCKER: this appears to be for AWS Partner Network companies and managed service providers (one source says an Indian company needs APN registration to enter). Amazon and Devpost employees excluded. Confirm whether an individual or a small team with no APN membership can enter before spending any time.",
+      "team_fit": "Probably poor unless we operate as, or with, an AWS partner.",
+      "what_to_build": "Two tracks: (1) AI that improves an MSP's own operations, (2) AI-powered services for an MSP's end customers. Projects can be new or significantly updated. Optional US$200 AWS promotional credits.",
+      "deliverables": [
+        "Devpost submission"
+      ],
+      "links": {
+        "main": "https://aws-agentic-msp.devpost.com/"
+      },
+      "notes": "Details come from two aggregators listing 'AWS MSP AI Hackathon 2026'; mapping that to your aws-agentic-msp link is an inference from the name. The Devpost page and rules were not read. Scores are low mainly because of the probable partner-only eligibility; if that is wrong, the $64,000 pool and a short build make it worth a second look.",
+      "kind": "hackathon",
+      "career_track": "none",
+      "next_date": "2026-12-11",
+      "next_date_label": "submission deadline",
+      "days_remaining": 32,
+      "confidence": "reported",
+      "lifecycle": "discovered",
+      "tracks": [],
+      "challenges": [],
+      "stages": [],
+      "evidence": [],
+      "history": []
+    },
+    {
+      "id": "melsoft-hackathon-2026",
+      "noticed_on": "2026-11-09",
+      "went_live_on": null,
+      "source": "user-supplied link, 9 Nov 2026",
+      "name": "Melsoft Hackathon 2026",
+      "organiser": "Melsoft",
+      "scope": "local",
+      "status": "registered",
+      "lifecycle": "committed",
+      "dates": {
+        "confidence": "unconfirmed",
+        "note": "Registered by Sibusiso (reported 9 Nov 2026). Dates, format and prize not found in any public source."
+      },
+      "eligibility": "Not found.",
+      "team_fit": "Registered; team details not recorded.",
+      "what_to_build": "Not found.",
+      "deliverables": [],
+      "links": {
+        "main": "https://hackathon-26.melsoft.org/"
+      },
+      "notes": "REGISTERED. Searching for the event found nothing, and the page could not be read from this environment. Scope 'local' is assumed from the organiser's South African profile, not confirmed. Add the event date, venue or format, prize and submission rules from the registration confirmation email, then score it and add its dates to the calendar.",
+      "kind": "hackathon",
+      "career_track": "none",
+      "next_date": null,
+      "next_date_label": null,
+      "days_remaining": null,
+      "confidence": "unconfirmed",
+      "tracks": [],
+      "challenges": [],
+      "stages": [],
+      "evidence": [],
+      "history": []
+    },
+    {
+      "id": "imagine-cup-2027",
+      "noticed_on": "2026-11-09",
+      "went_live_on": null,
+      "source": "user-supplied link, 9 Nov 2026",
+      "name": "Microsoft Imagine Cup 2027",
+      "organiser": "Microsoft",
+      "scope": "international",
+      "format": "online",
+      "location": "Online",
+      "status": "open",
+      "tier": 3,
+      "score": 5.35,
+      "scores": {
+        "career_leverage": 6,
+        "winnability": 4,
+        "prize": 8,
+        "urgency": 3
+      },
+      "dates": {
+        "submission_deadline": "2027-02-28",
+        "confidence": "reported",
+        "note": "CONFLICT: a staging FAQ and most sources say 28 Feb 2027; two aggregators say registration and submission close 8 Jan 2027. Treat 8 Jan as the safe date until the official rules are read."
+      },
+      "prize": {
+        "currency": "USD",
+        "pool": null,
+        "breakdown": []
+      },
+      "eligibility": "CONFLICTING. The 2026 edition was for enrolled high-school or university students 18+. Some 2027 listings say it now also takes qualifying early-stage startups; another still says enrolled students. Entries need at least 10 qualifying Azure workloads, each with at least US$1 of spend, by the deadline. Check the official rules for our situation.",
+      "team_fit": "Fits a 2-person team with a product (Stokup, VUKA) if eligible. The Azure-usage requirement adds build work.",
+      "what_to_build": "A student or early-stage startup product built on Azure. 2027 brief not read.",
+      "deliverables": [
+        "Registration",
+        "Submission with Azure usage evidence"
+      ],
+      "links": {
+        "main": "https://imaginecup.microsoft.com/en-us"
+      },
+      "notes": "Prize figures are inconsistent across sources (a top award reported as $25,000 cash plus $250,000 in startup credits, another listing a $250,000 first prize and $1,000,000 cash-and-credit structure), so no pool is recorded. Nothing here was read from Microsoft's own site. Read the 2027 official rules before registering; eligibility is the deciding question.",
+      "kind": "hackathon",
+      "career_track": "none",
+      "next_date": "2027-02-28",
+      "next_date_label": "submission deadline",
+      "days_remaining": 111,
+      "confidence": "reported",
       "lifecycle": "scored",
       "tracks": [],
       "challenges": [],
@@ -1948,6 +2771,72 @@
       "name": "MTN MoMo Developer",
       "url": "https://momodeveloper.mtn.com/",
       "cadence": "monthly"
+    },
+    {
+      "name": "TIA calls (Technology Innovation Agency)",
+      "url": "https://www.tia.org.za/calls",
+      "cadence": "monthly",
+      "note": "Startup-facing calls are rare; most are for implementing partners (incubators), who then fund startups. EMERGE360 (TIA + Savant Foundry) closed 8 Nov 2026."
+    },
+    {
+      "name": "develoPPP Ventures (GIZ)",
+      "url": "https://www.developpp.de/",
+      "cadence": "monthly",
+      "note": "Up to EUR 100k non-dilutive, matching funds required, SA-registered startups. Several windows a year; the 2026 one closed 30 Jun."
+    },
+    {
+      "name": "Orange Corners Innovation Fund (SA)",
+      "url": "https://pressportal.co.za/stream/story/830515fb7f428c85-20251106.html",
+      "cadence": "monthly",
+      "note": "Up to R1m for youth-owned businesses. 2025 round opened Nov 2025 and closed 31 Dec 2025: check for a 2026/27 round now."
+    },
+    {
+      "name": "Google for Startups Accelerator Africa",
+      "url": "https://blog.google/intl/en-africa/company-news/outreach-and-initiatives/applications-are-open-for-the-2026-google-for-startups-accelerator-south-africa/",
+      "cadence": "monthly",
+      "note": "Equity-free; SA startups eligible. 2026 cohort closed 18 Mar; there is a 'register interest' option for future programmes."
+    },
+    {
+      "name": "Red Bull Basement South Africa",
+      "url": "https://www.redbull.com/za-en/events/red-bull-basement-south-africa-2026",
+      "cadence": "monthly",
+      "note": "SA residents 18+, equity-free funding reported above R2m. Opened Jan 2026; the 2027 round will likely open around Jan."
+    },
+    {
+      "name": "South African Startup Awards",
+      "url": "https://startupclubza.com/awards/",
+      "cadence": "monthly",
+      "note": "Tech-driven, post-revenue, SA-led, under 5 years old, pre-Series A (2025 rules). 2026 entries closed ~30 Oct; ceremony 17/18 Nov in Cape Town."
+    },
+    {
+      "name": "Huawei Code4Mzansi",
+      "url": "https://www.itweb.co.za/article/sa-developers-take-centre-stage-as-code4mzansi-kicks-off/JN1gP7OADpyqjL6m",
+      "cadence": "monthly",
+      "note": "Registration ran to 31 Jan 2026, ~R1m total pool, teams up to five. Check Dec to Jan for a next round."
+    },
+    {
+      "name": "AISSA x Apart hackathons (Cape Town hub)",
+      "url": "https://luma.com/aaeiazdb",
+      "cadence": "weekly",
+      "note": "Recurring AI-safety hackathons hosted in Cape Town (Nov 2025, Mar 2026, Jun 2026). Cadence suggests one soon."
+    },
+    {
+      "name": "OfferZen Community AI Agent Hackathon",
+      "url": "https://flow.offerzen.com/developers/community-ai-hackathon",
+      "cadence": "monthly",
+      "note": "R50,000 in prizes, apply-to-join, limited spots. The only date found was '26 July' (no year)."
+    },
+    {
+      "name": "Standard Bank UniHack",
+      "url": "https://standardbank.co.za/southafrica/news-and-media/newsroom/standard-bank-concludes-third-annual-unihack-competition",
+      "cadence": "monthly",
+      "note": "University students and recent graduates. Held in Mar/Apr (Cape Town, 2025). Check Jan to Mar."
+    },
+    {
+      "name": "MATS",
+      "url": "https://matsprogram.org/apply",
+      "cadence": "monthly",
+      "note": "AI safety fellowship. Winter 2027 closed 31 Oct; next window expected March 2027."
     }
   ]
 }

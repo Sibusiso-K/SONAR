@@ -57,7 +57,12 @@ jobs:
       # since the rebuild (bun.lock replaced it). That silently failed this
       # step on every run since, skipping everything after it including the
       # sonar-radar sync below.
+      # Pinned. Unpinned, setup-bun resolves "latest" - 1.4.4 on 8 Nov 2026 -
+      # whose release download returned HTTP 504 on every retry, failing this
+      # job before any data moved. 1.4.2 is the version the last good runs used.
       - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: "1.4.2"
 
       - name: Rebuild opportunities.json from the source of truth
         run: python3 scripts/migrate_to_opportunities.py
@@ -141,6 +146,11 @@ jobs:
       # costs nothing to keep current. RADAR_SUPABASE_SCHEMA=app switches
       # sync_radar.py's PostgREST profile without touching sonar-radar at all.
       - name: Sync the board to the app schema (Lethabo's project)
+        # Non-critical mirror (see the comment above). Without this, a PostgREST
+        # error here (PGRST204, missing `status` column, since 10 Sep 2026) failed
+        # the job and the "Commit only if the data actually moved" step below
+        # never ran, so regenerated data/opportunities.json was never committed.
+        continue-on-error: true
         env:
           RADAR_SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           RADAR_SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
