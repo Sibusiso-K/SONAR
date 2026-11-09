@@ -18,22 +18,11 @@ import sonar
 ID_PATTERN = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*$")
 TRACKING = re.compile(r"(utm_|fbclid|gclid|[?&]_gl=|[?&]_ga=|ref_feature|ref_medium|mc_cid|igshid)", re.I)
 
-# Entries written before the schema's `prize` block was tightened. Their prize
-# data is shaped as {"1st": 25000} or free text where the schema wants arrays
-# of objects. This is known debt, not an exemption for new work: any entry NOT
-# listed here must validate, and an entry that is fixed must be removed from
-# this list (test_the_debt_list_only_shrinks fails otherwise).
-LEGACY_SCHEMA_DEBT = frozenset(
-    {
-        "adtc-2026", "ai-infra-summit-hackathon-2026", "bcg-platinion-2026", "entelect-university-cup-2027",
-        "fnb-aoty-2026", "govtech-2026", "huawei-ict-2026-2027", "ibm-devday-bob-2026", "ibm-z-datathon-2026",
-        "kaggle-gemma4-agent-paper-2026", "life-after-code-gitlab-2026", "meta-global-ai-dev-hackathon-2026",
-        "mintek-sci-2026", "mtn-momo-miniapp-2026", "nasa-space-apps-2026", "nebius-nvidia-global-ai-hackathon-2026",
-        "nedbank-youthx-awards-2026", "paypal-ai-hackathon-2026", "qloo-agentic-hackathon-2026", "rsna-knee-2026",
-        "shipaton-2026", "sme-toolkit-business-plan-2026", "unesco-youth-2026", "w3node-hackathon-2026",
-        "wbg-small-ai-development-2026", "wits-ehub-tech-ai-day-2026", "zindi-rolling",
-    }
-)
+# Entries that do not match the schema. Empty: every entry validates, because the
+# prize shapes were migrated to the schema's arrays. Do not add to this list; fix the
+# entry instead. An entry that becomes valid must be removed from it
+# (test_the_debt_list_only_shrinks fails otherwise).
+LEGACY_SCHEMA_DEBT = frozenset()
 
 # `links` values that are an email address or a sentence rather than a URL.
 # Same rule: do not add to this list; fix the entry instead.

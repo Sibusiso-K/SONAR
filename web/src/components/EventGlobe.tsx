@@ -313,7 +313,7 @@ export function EventGlobe({ opportunities }: { opportunities: Opportunity[] }) 
               width={width}
               height={480}
               backgroundColor="rgba(0,0,0,0)"
-              globeImageUrl="//unpkg.com/three-globe/example/img/earth-blue-marble.jpg"
+              globeImageUrl="/textures/earth-blue-marble.jpg"
               atmosphereColor="#7fd8dc"
               atmosphereAltitude={0.22}
               arcsData={arcs}

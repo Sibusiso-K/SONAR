@@ -46,4 +46,12 @@ describe("applySecurityHeaders", () => {
   it("does not set a script-src that would break hydration", () => {
     expect(SECURITY_HEADERS["Content-Security-Policy"]).not.toMatch(/script-src/);
   });
+
+  it("restricts fonts, images and styles to this origin", () => {
+    const csp = SECURITY_HEADERS["Content-Security-Policy"]!;
+    expect(csp).toContain("font-src 'self'");
+    expect(csp).toContain("img-src 'self'");
+    expect(csp).toContain("style-src 'self'");
+    expect(csp).not.toMatch(/googleapis|gstatic|google\.com|unpkg/);
+  });
 });

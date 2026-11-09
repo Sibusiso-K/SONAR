@@ -9,10 +9,11 @@ name: Refresh board
 #
 # Two jobs, deliberately separate:
 #   regenerate — recompute derived fields, commit only if something changed
-#   deploy     — ping Vercel's deploy hook so the site rebuilds regardless
+#   deploy     — optional backup: ping Vercel's deploy hook if one is set
 #
-# The deploy step runs even when nothing changed, because "nothing changed in
-# the data" still means "every countdown is one day shorter".
+# Countdowns are computed in the browser from each entry's date, so they never
+# need a rebuild. Vercel's git integration also builds every push to main,
+# including this job's data commit; the hook is only a second path.
 
 on:
   schedule:
@@ -195,14 +196,15 @@ jobs:
     needs: regenerate
     if: ${{ always() }}
     steps:
-      # Vercel → Project → Settings → Git → Deploy Hooks → create one,
+      # Optional. Vercel → Project → Settings → Git → Deploy Hooks → create one,
       # then store the URL as the VERCEL_DEPLOY_HOOK repository secret.
       - name: Trigger Vercel rebuild
         env:
           HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK }}
         run: |
           if [ -z "$HOOK" ]; then
-            echo "::warning::VERCEL_DEPLOY_HOOK not set — countdowns will go stale."
+            # Not an error: the git integration deploys main on every push.
+            echo "::notice::VERCEL_DEPLOY_HOOK not set; skipping the optional backup rebuild."
             exit 0
           fi
           curl -fsSL -X POST "$HOOK" -o /dev/null -w "vercel hook: %{http_code}\n"

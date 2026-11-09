@@ -54,8 +54,19 @@
       "prize": {
         "currency": "USD",
         "pool": 50000,
-        "breakdown": "Grand $20,000; 2nd $10,000; 3rd $6,000; Best Use of Tavily $3,000; 20 x City Winner $500 (IRL event attendees only); 10 x Most Valuable Feedback $100.",
-        "non_cash": "NVIDIA Jetson Orin Nano for each of the 4 track winners; NVIDIA swag. The Nebius Builder Program gives Token Factory, Tavily and Nebius Academy credits."
+        "breakdown": [
+          {
+            "place": "Grand $20,000; 2nd $10,000; 3rd $6,000; Best Use of Tavily $3,000; 20 x City Winner $500 (IRL event attendees only); 10 x Most Valuable Feedback $100.",
+            "amount": null,
+            "track": null
+          }
+        ],
+        "non_cash": [
+          {
+            "type": "other",
+            "description": "NVIDIA Jetson Orin Nano for each of the 4 track winners; NVIDIA swag. The Nebius Builder Program gives Token Factory, Tavily and Nebius Academy credits."
+          }
+        ]
       },
       "eligibility": "South Africa is not excluded. Excluded: Brazil, Quebec, Russia, Crimea, Cuba, Iran, North Korea and other OFAC-sanctioned regions; employers of judges and sponsors. Nebius Token Factory is reportedly unavailable in Pakistan (Devpost forum, Oct 2026), so confirm it works from SA before building.",
       "team_fit": "Two of us fits. Idea from the team Discord (Hailey, 13 Oct): SecureAgent, security alert triage that checks whether a vulnerability is exploitable in your own deployment. Fits the Coding & Agentic Engineering track.",
@@ -114,8 +125,19 @@
       "prize": {
         "currency": "USD",
         "pool": 1000000,
-        "breakdown": "Not published. Split across two tracks (indie, startup) with no per-track or per-place amounts yet.",
-        "non_cash": "$150 Meta Model API credits per selected participant; partner credits for select participants (Baseten $100, Modal $100, Fireworks $25)."
+        "breakdown": [
+          {
+            "place": "Not published. Split across two tracks (indie, startup) with no per-track or per-place amounts yet.",
+            "amount": null,
+            "track": null
+          }
+        ],
+        "non_cash": [
+          {
+            "type": "compute_credits",
+            "description": "$150 Meta Model API credits per selected participant; partner credits for select participants (Baseten $100, Modal $100, Fireworks $25)."
+          }
+        ]
       },
       "eligibility": "Open worldwide, South Africa is not on the restricted list. Excluded: Belarus, China, Russia, Ukraine, Syria, Cuba, North Korea, Iran, Crimea/Donetsk/Luhansk; Meta and Cerebral Valley staff; government-affiliated individuals. Max 20,000 accepted. One application each (duplicates can be disqualified). Official Rules must be accepted by selected participants.",
       "team_fit": "Indie track (individuals and students) or Startup track (teams and founders with a real product). One project enters one track only. Two of us can enter as separate indie applicants or as a team, but decide before applying.",
@@ -162,15 +184,44 @@
       "prize": {
         "currency": "USD",
         "pool": 16500,
-        "breakdown": {
-          "grand": 8000,
-          "second": 4000,
-          "third": 3000,
-          "best_african_use_case": 1500,
-          "finalist_stipends": "10 x $250 GPU credits",
-          "semifinalist_stipends": "20 x $50 GPU credits"
-        },
-        "non_cash": "6-month scale-up residency; direct pathway into the Africa AI XPrize"
+        "breakdown": [
+          {
+            "place": "Grand",
+            "amount": 8000,
+            "track": null
+          },
+          {
+            "place": "Second",
+            "amount": 4000,
+            "track": null
+          },
+          {
+            "place": "Third",
+            "amount": 3000,
+            "track": null
+          },
+          {
+            "place": "Best african use case",
+            "amount": 1500,
+            "track": null
+          },
+          {
+            "place": "Finalist stipends: 10 x $250 GPU credits",
+            "amount": null,
+            "track": null
+          },
+          {
+            "place": "Semifinalist stipends: 20 x $50 GPU credits",
+            "amount": null,
+            "track": null
+          }
+        ],
+        "non_cash": [
+          {
+            "type": "residency",
+            "description": "6-month scale-up residency; direct pathway into the Africa AI XPrize"
+          }
+        ]
       },
       "eligibility": "Legal age of majority; residents of 50 African countries incl. South Africa. Teams of 1–3.",
       "team_fit": "Perfect: 2-person team is inside the 1–3 limit.",
@@ -217,9 +268,14 @@
         "confidence": "confirmed"
       },
       "prize": {
-        "currency": "N/A",
+        "currency": null,
         "pool": null,
-        "non_cash": "Prizes for winners (unspecified); all travel + accommodation covered; direct exposure to BCG Platinion consultants and recruiters"
+        "non_cash": [
+          {
+            "type": "other",
+            "description": "Prizes for winners (unspecified); all travel + accommodation covered; direct exposure to BCG Platinion consultants and recruiters"
+          }
+        ]
       },
       "eligibility": "IT architects, AI tech architects, technical consultants, app devs, data scientists, AI engineers, web devs with basic coding skills and an interest in IT consulting.",
       "team_fit": "APPLY INDIVIDUALLY: you and Lethabo each submit your own application. Teams are formed on-site.",
@@ -265,11 +321,19 @@
       "prize": {
         "currency": "USD",
         "pool": 2000,
-        "breakdown": {
-          "grand": 2000
-        },
-        "non_cash": "Trip to IBM TechXchange 2026, Atlanta GA, 26–29 Oct 2026 for 1st place. Top 50 qualified submissions get 1 conference pass per team member (travel/lodging excluded).",
-        "result_placement": "3rd place"
+        "breakdown": [
+          {
+            "place": "Grand",
+            "amount": 2000,
+            "track": null
+          }
+        ],
+        "non_cash": [
+          {
+            "type": "conference_pass",
+            "description": "Trip to IBM TechXchange 2026, Atlanta GA, 26–29 Oct 2026 for 1st place. Top 50 qualified submissions get 1 conference pass per team member (travel/lodging excluded)."
+          }
+        ]
       },
       "eligibility": "Open. Free entry.",
       "team_fit": "Good: team-based, small teams fine.",
@@ -284,7 +348,7 @@
         "bob_trial": "https://bob.ibm.com/trial",
         "ibm_developer": "https://developer.ibm.com/events/ibm-techxchange-2026-pre-conference-dev-day-hackathon/"
       },
-      "notes": "COMPETED as Team Sonar, built BobSwarm: a Bob 2.0 multi-agent orchestrator (Debugger/Documenter/Refactorer/Onboarding/Data-Lineage subagents via spawn_subagent) with a React dashboard, MCP server, and a benchmark run of 41 literal-evidence findings across 5 agent roles in ~94s, fully parallel. Team of five: Sibusiso (orchestrator/lead), Lethabo, Arisha, Mmopiemang, Farheen. Repo: github.com/Sibusiso-K/Sonar-BobSwarm-. Demo video recorded (youtu.be/c8LodAVNJ5s, unlisted). RESULT CONFIRMED 28 Sept 2026: official email from the organiser (\"We are excited to announce that you are a third-place winner of IBM TechXchange 2026 Pre-conference Dev Day Hackathon!\") - the earlier \"did the automation operator press Submit\" doubt is resolved: it clearly went through. Third place, not first, so no travel/TechXchange pass implied by this result alone (that was tied to 1st, and to being one of the top 50 qualified submissions more broadly per the original prize terms - not re-verified here). CORRECTION 4 Oct 2026: the 28 Sept note above understated this. Third place is inside the top 50 qualified submissions, which the prize terms recorded on this entry say earns one IBM TechXchange 2026 conference pass per team member (Atlanta, 26-29 Oct); only travel and lodging (the 1st-place trip) are not covered. Check the winner email for pass details - the conference is three weeks out, so a go/no-go decision (and any visa question) is due now."
+      "notes": "COMPETED as Team Sonar, built BobSwarm: a Bob 2.0 multi-agent orchestrator (Debugger/Documenter/Refactorer/Onboarding/Data-Lineage subagents via spawn_subagent) with a React dashboard, MCP server, and a benchmark run of 41 literal-evidence findings across 5 agent roles in ~94s, fully parallel. Team of five: Sibusiso (orchestrator/lead), Lethabo, Arisha, Mmopiemang, Farheen. Repo: github.com/Sibusiso-K/Sonar-BobSwarm-. Demo video recorded (youtu.be/c8LodAVNJ5s, unlisted). RESULT CONFIRMED 28 Sept 2026: official email from the organiser (\"We are excited to announce that you are a third-place winner of IBM TechXchange 2026 Pre-conference Dev Day Hackathon!\") - the earlier \"did the automation operator press Submit\" doubt is resolved: it clearly went through. Third place, not first, so no travel/TechXchange pass implied by this result alone (that was tied to 1st, and to being one of the top 50 qualified submissions more broadly per the original prize terms - not re-verified here). CORRECTION 4 Oct 2026: the 28 Sept note above understated this. Third place is inside the top 50 qualified submissions, which the prize terms recorded on this entry say earns one IBM TechXchange 2026 conference pass per team member (Atlanta, 26-29 Oct); only travel and lodging (the 1st-place trip) are not covered. Check the winner email for pass details - the conference is three weeks out, so a go/no-go decision (and any visa question) is due now. Result placement on record: 3rd place."
     },
     {
       "id": "shipaton-2026",
@@ -314,9 +378,13 @@
       "prize": {
         "currency": "USD",
         "pool": 700000,
-        "breakdown": {
-          "note": "$700,000+ across nine award categories; some sources report >$1M including sponsor awards"
-        }
+        "breakdown": [
+          {
+            "place": "$700,000+ across nine award categories; some sources report >$1M including sponsor awards",
+            "amount": null,
+            "track": null
+          }
+        ]
       },
       "eligibility": "Open globally.",
       "team_fit": "Good: build one app, two people.",
@@ -363,7 +431,12 @@
       "prize": {
         "currency": "ZAR",
         "pool": null,
-        "non_cash": "Route into government/SITA procurement visibility; possible pilot-phase funding for winning solution(s), subject to SITA's discretion"
+        "non_cash": [
+          {
+            "type": "other",
+            "description": "Route into government/SITA procurement visibility; possible pilot-phase funding for winning solution(s), subject to SITA's discretion"
+          }
+        ]
       },
       "eligibility": "Open to SMMEs in the EME category registered in the Republic of South Africa (T&Cs 2.1). Teams of 3–5 members (2.2). Not open to SITA permanent or FTC employees (2.5). Only one team per company may register (1.2).",
       "team_fit": "SELECTED, PARTICIPATING REMOTELY. Entity: PILOT CORE (PTY) LTD, satisfying 2.1/2.2 as a 3-person team. Roster per SITA's selection email: Sibusiso Khumalo, Lethabo Masilo Phukile, Ipeleng Constance Modise. NOTE: Ipeleng Constance Modise is also on the Geekulcha roster; 'Lethabo Masilo Phukile' here vs 'Lethabo Hoaeane' on Geekulcha's platform - same first name, different surname recorded on each platform. Not merged/assumed identical without confirmation; flagging the discrepancy rather than guessing.",
@@ -408,9 +481,13 @@
       "prize": {
         "currency": "USD",
         "pool": 77000,
-        "breakdown": {
-          "note": "Includes, for the first time, awards for the most efficient models"
-        }
+        "breakdown": [
+          {
+            "place": "Includes, for the first time, awards for the most efficient models",
+            "amount": null,
+            "track": null
+          }
+        ]
       },
       "eligibility": "Open on Kaggle.",
       "team_fit": "Fine: 2-person Kaggle team.",
@@ -452,7 +529,12 @@
       "prize": {
         "currency": "ZAR",
         "pool": null,
-        "non_cash": "Winning teams qualify for the Best Hackathon Solution category at the FNB App of the Year Awards in December"
+        "non_cash": [
+          {
+            "type": "other",
+            "description": "Winning teams qualify for the Best Hackathon Solution category at the FNB App of the Year Awards in December"
+          }
+        ]
       },
       "eligibility": "Open: 10,000+ participants in 2025.",
       "team_fit": "Good.",
@@ -496,12 +578,23 @@
       "prize": {
         "currency": "USD",
         "pool": 10000,
-        "breakdown": {
-          "first": 5000,
-          "second": 3000,
-          "third": 2000
-        },
-        "note": "Prior-year South Africa pool; 2026 amounts not stated in the confirmation email, still unconfirmed for this cycle."
+        "breakdown": [
+          {
+            "place": "First",
+            "amount": 5000,
+            "track": null
+          },
+          {
+            "place": "Second",
+            "amount": 3000,
+            "track": null
+          },
+          {
+            "place": "Third",
+            "amount": 2000,
+            "track": null
+          }
+        ]
       },
       "eligibility": "African developers across 15 MTN markets incl. South Africa. Confirmed selected from 'a strong field of applicants'.",
       "team_fit": "SELECTED as a team of THREE (the first three-person entry on this board - see docs/TEAM.md). Three separate ideas were originally submitted under the one team; the confirmation email invites the team generically without naming which idea(s) advanced. AMAZWI, teammate 2 (Lethabo)'s submission, is recorded in what_to_build below as the team's application content - not confirmed by MTN as THE selected idea specifically, just the one supplied for the record.",
@@ -515,7 +608,7 @@
         "developer_portal": "https://momodeveloper.mtn.com/",
         "mtn": "https://www.mtn.com/"
       },
-      "notes": "COMPETED as Team Sonar, 2-3 Sept 2026, The Forum, Bryanston. RESULT, 3 Sept: did not place. Reported first-hand by Sibusiso; no further detail (ranking, judges feedback, which idea presented) recorded yet - add when available. Prior context kept for the record: SELECTED, confirmed by MTN's own confirmation email dated 28 Aug 2026, which also resolved the 24 Aug eligibility question (confirmed South African in-person venue rules out this being the separate Ghana/Uganda/Cote d'Ivoire/Cameroon/Zambia-only 'MoMo Open API' programme). Team confirmed at three people for this entry (see docs/TEAM.md)."
+      "notes": "COMPETED as Team Sonar, 2-3 Sept 2026, The Forum, Bryanston. RESULT, 3 Sept: did not place. Reported first-hand by Sibusiso; no further detail (ranking, judges feedback, which idea presented) recorded yet - add when available. Prior context kept for the record: SELECTED, confirmed by MTN's own confirmation email dated 28 Aug 2026, which also resolved the 24 Aug eligibility question (confirmed South African in-person venue rules out this being the separate Ghana/Uganda/Cote d'Ivoire/Cameroon/Zambia-only 'MoMo Open API' programme). Team confirmed at three people for this entry (see docs/TEAM.md). Prize note: Prior-year South Africa pool; 2026 amounts not stated in the confirmation email, still unconfirmed for this cycle."
     },
     {
       "id": "mintek-sci-2026",
@@ -551,12 +644,29 @@
       "prize": {
         "currency": "ZAR",
         "pool": 50000,
-        "breakdown": {
-          "1st": 25000,
-          "2nd": 15000,
-          "3rd": 10000
-        },
-        "non_cash": "Outstanding teams may be considered for vacation work at Mintek"
+        "breakdown": [
+          {
+            "place": "1st",
+            "amount": 25000,
+            "track": null
+          },
+          {
+            "place": "2nd",
+            "amount": 15000,
+            "track": null
+          },
+          {
+            "place": "3rd",
+            "amount": 10000,
+            "track": null
+          }
+        ],
+        "non_cash": [
+          {
+            "type": "other",
+            "description": "Outstanding teams may be considered for vacation work at Mintek"
+          }
+        ]
       },
       "eligibility": "University students, unemployed graduates, and interns under 35. Team-based, mentored.",
       "team_fit": "TOP 5 FINALIST (announced 2 Oct 2026). Explicitly aimed at unemployed graduates - directly on-target for your situation.",
@@ -606,9 +716,13 @@
       "prize": {
         "currency": "USD",
         "pool": 50000,
-        "breakdown": {
-          "note": "$50,000+ in prizes (organiser page, 14 Aug 2026)"
-        }
+        "breakdown": [
+          {
+            "place": "$50,000+ in prizes (organiser page, 14 Aug 2026)",
+            "amount": null,
+            "track": null
+          }
+        ]
       },
       "eligibility": "College/university students. Free entry. Beginners explicitly welcome. 16,000+ students registered across 45+ countries and 8 in-person locations.",
       "team_fit": "Good: individual registration first, then team lead completes team form.",
@@ -649,9 +763,14 @@
         "confidence": "confirmed"
       },
       "prize": {
-        "currency": "N/A",
+        "currency": null,
         "pool": null,
-        "non_cash": "Winning teams flown to Thessaloniki, Greece for the Voices European Festival, 26–28 Nov 2026"
+        "non_cash": [
+          {
+            "type": "travel",
+            "description": "Winning teams flown to Thessaloniki, Greece for the Voices European Festival, 26–28 Nov 2026"
+          }
+        ]
       },
       "eligibility": "Youth aged 18–30 worldwide.",
       "team_fit": "Good.",
@@ -692,8 +811,7 @@
       },
       "prize": {
         "currency": "USD",
-        "pool": null,
-        "note": "Typically $5,000–$10,000 per challenge; some offer only Zindi points"
+        "pool": null
       },
       "eligibility": "Open; 100k+ members.",
       "team_fit": "Good.",
@@ -706,7 +824,7 @@
         "jobs": "https://zindi.world/jobs",
         "sort_closing": "https://zindi.world/competitions?sort=newest"
       },
-      "notes": "Zindi also runs a JOBS BOARD where partner companies recruit directly off leaderboard performance: that is the real career value here, more than the prize money. Sort by 'Closing soon' every Monday. LESSON FROM THE 25 AUG 2026 SWEEP: keeping Zindi as one undated 'rolling' row was a mistake that cost the board seven weeks of visibility. A $25,000 competition opened on 3 July and never appeared anywhere on the board, because a rolling monitor row has no next_date, so it never surfaces in any deadline view and reads as 'nothing new'. Rolling sources still need their individual open competitions promoted to dated rows the moment they are seen. This row is now a pointer to the source, not a substitute for the entries."
+      "notes": "Zindi also runs a JOBS BOARD where partner companies recruit directly off leaderboard performance: that is the real career value here, more than the prize money. Sort by 'Closing soon' every Monday. LESSON FROM THE 25 AUG 2026 SWEEP: keeping Zindi as one undated 'rolling' row was a mistake that cost the board seven weeks of visibility. A $25,000 competition opened on 3 July and never appeared anywhere on the board, because a rolling monitor row has no next_date, so it never surfaces in any deadline view and reads as 'nothing new'. Rolling sources still need their individual open competitions promoted to dated rows the moment they are seen. This row is now a pointer to the source, not a substitute for the entries. Prize note: Typically $5,000–$10,000 per challenge; some offer only Zindi points"
     },
     {
       "id": "geekulcha-2026",
@@ -790,7 +908,12 @@
       "prize": {
         "currency": "USD",
         "pool": null,
-        "non_cash": "Huawei certification, all-expenses trip to the Global Final in China, direct Huawei recruitment pipeline"
+        "non_cash": [
+          {
+            "type": "other",
+            "description": "Huawei certification, all-expenses trip to the Global Final in China, direct Huawei recruitment pipeline"
+          }
+        ]
       },
       "eligibility": "BLOCKER: students and teachers at colleges/universities affiliated with a Huawei ICT Academy. Confirm your institutional status.",
       "team_fit": "Team-based via institution.",
@@ -833,7 +956,12 @@
       "prize": {
         "currency": "ZAR",
         "pool": null,
-        "non_cash": "Prior prizes were Nintendo Switches; real value is the Entelect graduate-hiring pipeline"
+        "non_cash": [
+          {
+            "type": "other",
+            "description": "Prior prizes were Nintendo Switches; real value is the Entelect graduate-hiring pipeline"
+          }
+        ]
       },
       "eligibility": "University students, teams of 2–3.",
       "team_fit": "Perfect team size: if you qualify as students. Discord (primary event hub, old server retired): https://discord.gg/hzwx8yj8T — join before the briefing.",
@@ -919,9 +1047,14 @@
         "confidence": "confirmed"
       },
       "prize": {
-        "currency": "N/A",
+        "currency": null,
         "pool": null,
-        "non_cash": "Global Award categories, NASA recognition, occasional launch-viewing invitations. No cash."
+        "non_cash": [
+          {
+            "type": "other",
+            "description": "Global Award categories, NASA recognition, occasional launch-viewing invitations. No cash."
+          }
+        ]
       },
       "eligibility": "Open to everyone, free.",
       "team_fit": "Good. Local event choice confirmed 8 Sept 2026: Pretoria.",
@@ -960,9 +1093,14 @@
         "confidence": "confirmed"
       },
       "prize": {
-        "currency": "N/A",
+        "currency": null,
         "pool": null,
-        "non_cash": "Hackathon prizes (amount not disclosed); Travel Grant winners get airfare, accommodation and meals covered"
+        "non_cash": [
+          {
+            "type": "travel",
+            "description": "Hackathon prizes (amount not disclosed); Travel Grant winners get airfare, accommodation and meals covered"
+          }
+        ]
       },
       "eligibility": "\"Ideal for Students, Developers, and Founding Teams.\" Free to apply. No nationality restriction found.",
       "team_fit": "Untested fit — the team's specialty is multi-agent AI/on-device ML, not Web3/blockchain, and W3Node markets itself as a Web3 developer conference (\"Africa's ultimate Web3 developer conference and hackathon\"). Worth a look for the VC/founder networking angle and the free travel grant, not for stack overlap.",
@@ -1004,10 +1142,19 @@
       "prize": {
         "currency": "ZAR",
         "pool": 100000,
-        "breakdown": {
-          "national_winner": "R50,000 cash + R50,000 mentorship voucher"
-        },
-        "non_cash": "1st and 2nd runner-up prizes also awarded, amounts not stated"
+        "breakdown": [
+          {
+            "place": "National winner: R50,000 cash + R50,000 mentorship voucher",
+            "amount": null,
+            "track": null
+          }
+        ],
+        "non_cash": [
+          {
+            "type": "other",
+            "description": "1st and 2nd runner-up prizes also awarded, amounts not stated"
+          }
+        ]
       },
       "eligibility": "\"Young and aspiring business owners between the ages of 18 and 35.\" No nationality restriction stated. Free to enter.",
       "team_fit": "SUBMITTED 18 Aug 2026, 13 days ahead of the 31 Aug Phase 1 close — the same \"submit early\" discipline Standing Agreement 6 asks for on every other entry, applied here on its own initiative. This is the only entry on the board that is genuinely NOT a shared team submission: SME Toolkit's eligibility is individual, so Sibusiso and Lethabo each entered their own separate business (see what_to_build). Practically, that means Phase 1 workshops, Phase 2 finalist interviews and any award are tracked per person, not per team — one plan could advance without the other. ADTC's earlier capacity concern is moot now that ADTC itself is dropped (NOT COMPETING, decided 16 Aug); Mintek's abstract (also due 30 Aug) is a separate, team-owned deliverable and does not compete with either individual's SME Toolkit plan for the same hours.",
@@ -1049,9 +1196,14 @@
         "confidence": "reported"
       },
       "prize": {
-        "currency": "N/A",
+        "currency": null,
         "pool": null,
-        "non_cash": "\"Shared rewards pool\" mentioned on the organiser page with no dollar figure given — do not assume a number"
+        "non_cash": [
+          {
+            "type": "other",
+            "description": "\"Shared rewards pool\" mentioned on the organiser page with no dollar figure given — do not assume a number"
+          }
+        ]
       },
       "eligibility": "Online track: \"apply to join... all applications are subject to approval by LabLab.ai.\" On-site: \"by invitation only,\" and \"travel and accommodation expenses will not be covered\" even if invited.",
       "team_fit": "Every project is built \"inside a partner-led Challenge Track — you pick a track, you get the technology behind it\" — so entering means committing to one sponsor's stack sight-unseen rather than the team's own tools. Realistic path is the online track only; on-site is invitation-only and self-funded travel to California, which is not a realistic ask for this team.",
@@ -1174,7 +1326,12 @@
       "prize": {
         "currency": null,
         "pool": null,
-        "non_cash": "Three winning teams get travel to Seoul to present at the Global AI and Digital Summit, Oct 2026. No cash figure stated."
+        "non_cash": [
+          {
+            "type": "travel",
+            "description": "Three winning teams get travel to Seoul to present at the Global AI and Digital Summit, Oct 2026. No cash figure stated."
+          }
+        ]
       },
       "eligibility": "Ages 18-35, from 150+ countries. UNCONFIRMED whether either team member qualifies - check before investing time.",
       "team_fit": "Unresolved on the age question above. Challenge areas are Agriculture, Health or Tourism, solutions must work with limited connectivity and familiar tech (SMS, voice) - a real skills match for low-resource-context work, distinct from the team's usual fintech/AI-infra angle.",
@@ -1219,13 +1376,34 @@
       "prize": {
         "currency": "ZAR",
         "pool": 675000,
-        "breakdown": {
-          "1st": 250000,
-          "2nd": 120000,
-          "3rd": 60000,
-          "4th_to_10th_each": 35000
-        },
-        "non_cash": "Top 3: a One Young World Summit 2026 ticket (Cape Town) with travel and accommodation. All top 10: three months with a dedicated Nedbank financial adviser, Nedbank Enterprise mentorship and financial literacy training. The site advertises 'over R700 000'; the cash in the T&Cs sums to R675,000."
+        "breakdown": [
+          {
+            "place": "1st",
+            "amount": 250000,
+            "track": null
+          },
+          {
+            "place": "2nd",
+            "amount": 120000,
+            "track": null
+          },
+          {
+            "place": "3rd",
+            "amount": 60000,
+            "track": null
+          },
+          {
+            "place": "4th to 10th each",
+            "amount": 35000,
+            "track": null
+          }
+        ],
+        "non_cash": [
+          {
+            "type": "other",
+            "description": "Top 3: a One Young World Summit 2026 ticket (Cape Town) with travel and accommodation. All top 10: three months with a dedicated Nedbank financial adviser, Nedbank Enterprise mentorship and financial literacy training. The site advertises 'over R700 000'; the cash in the T&Cs sums to R675,000."
+          }
+        ]
       },
       "eligibility": "Individuals aged 18-26 with a South African ID and a qualifying Nedbank account in good standing (MiGoals, MiGoals Plus/Premium, Unlocked.me, Pay-as-you-use, Savvy Plus/Bundle, Private Clients or Private Wealth); proof of the account is uploaded with the entry. Nedbank staff, associates, agents, contractors and sponsors are excluded. Entries are individual: collaborators must be credited, but the prize is paid to the entrant only.",
       "team_fit": "Individual entry, so Sibusiso and Lethabo would each enter separately (one person can enter a shared project with the other credited). Two eligibility facts only the team can confirm: both ages within 18-26, and a qualifying Nedbank account each in good standing. Strong existing material maps onto the judging criteria: the SME Toolkit business plans (Karoo Compute, Indlela AI) and shipped products (Stokup, MoyaMoya).",
@@ -1272,12 +1450,29 @@
       "prize": {
         "currency": "USD",
         "pool": 35000,
-        "breakdown": {
-          "best_paper": 15000,
-          "best_new_resource": 10000,
-          "best_new_application": 10000
-        },
-        "non_cash": "Top submissions highlighted at a Google-hosted expo during NeurIPS 2026"
+        "breakdown": [
+          {
+            "place": "Best paper",
+            "amount": 15000,
+            "track": null
+          },
+          {
+            "place": "Best new resource",
+            "amount": 10000,
+            "track": null
+          },
+          {
+            "place": "Best new application",
+            "amount": 10000,
+            "track": null
+          }
+        ],
+        "non_cash": [
+          {
+            "type": "publicity",
+            "description": "Top submissions highlighted at a Google-hosted expo during NeurIPS 2026"
+          }
+        ]
       },
       "eligibility": "Worldwide, 18+ (or age of majority), except residents of Crimea, DNR/LNR, Cuba, Iran, North Korea and US-sanctioned persons. Teams of up to 5. Winners license the winning work under an OSI-approved licence that allows commercial use (Apache 2.0).",
       "team_fit": "The closest research match on the board to work the team has already been judged on: BobSwarm (IBM Dev Day, 3rd place) is an evidence-grounded multi-agent developer tool, and the track's topics include new tasks/benchmarks and code comprehension. Main gap: the track centres on post-training open models (Gemma 4) into SWE agents on consumer hardware, which the team hasn't done - a paper needs new experiments, not a write-up of BobSwarm alone. Unpublished work only; the main leaderboard competition is optional.",
@@ -1321,13 +1516,34 @@
       "prize": {
         "currency": "USD",
         "pool": 67500,
-        "breakdown": {
-          "1st": 12000,
-          "2nd": 8000,
-          "3rd": 5000,
-          "honourable_mentions_x5_each": 5000
-        },
-        "non_cash": "Plus sponsor prizes of $500-$5,000"
+        "breakdown": [
+          {
+            "place": "1st",
+            "amount": 12000,
+            "track": null
+          },
+          {
+            "place": "2nd",
+            "amount": 8000,
+            "track": null
+          },
+          {
+            "place": "3rd",
+            "amount": 5000,
+            "track": null
+          },
+          {
+            "place": "Honourable mentions x5 each",
+            "amount": 5000,
+            "track": null
+          }
+        ],
+        "non_cash": [
+          {
+            "type": "other",
+            "description": "Plus sponsor prizes of $500-$5,000"
+          }
+        ]
       },
       "eligibility": "Age of majority; individuals, teams or organisations. Excludes residents of Brazil, Quebec, Russia, Crimea, Cuba, Iran, North Korea and OFAC-sanctioned countries - South Africa is not excluded.",
       "team_fit": "Payments is home ground: MoyaMoya (mobile payments with instant receipts) and the MTN MoMo mini-app build mean the team has shipped payment flows before. Eight cash places plus sponsor prizes widen the realistic target beyond the top 3.",
@@ -1370,11 +1586,23 @@
       "prize": {
         "currency": "USD",
         "pool": 25000,
-        "breakdown": {
-          "1st": 15000,
-          "2nd": 6000,
-          "3rd": 4000
-        }
+        "breakdown": [
+          {
+            "place": "1st",
+            "amount": 15000,
+            "track": null
+          },
+          {
+            "place": "2nd",
+            "amount": 6000,
+            "track": null
+          },
+          {
+            "place": "3rd",
+            "amount": 4000,
+            "track": null
+          }
+        ]
       },
       "eligibility": "Age of majority; individuals, teams or organisations. Excludes residents of Brazil, Quebec, Russia, Crimea, Cuba, Iran and North Korea - South Africa is not excluded.",
       "team_fit": "Agent builds are the team's strongest recent track record: BobSwarm (3rd at IBM), Stokup's LangGraph agent and Ai-middleman. Qloo is a taste and recommendation API, which suits consumer-facing products.",
@@ -1420,8 +1648,14 @@
       "prize": {
         "currency": "USD",
         "pool": 45000,
-        "breakdown": "Several cash prizes of $4,000-$5,000 across two build paths, plus DevSecOps awards (rules, section 8)",
-        "non_cash": null
+        "breakdown": [
+          {
+            "place": "Several cash prizes of $4,000-$5,000 across two build paths, plus DevSecOps awards (rules, section 8)",
+            "amount": null,
+            "track": null
+          }
+        ],
+        "non_cash": []
       },
       "eligibility": "Individuals at the age of majority where they live; teams and organisations. Not open to residents of Brazil, China, Quebec, Russia, Cuba, Iran, North Korea, Syria, Crimea, Donetsk or Luhansk, or countries where participation is prohibited. South Africa is not excluded.",
       "team_fit": "Agent builds are the team's track record: BobSwarm (3rd at IBM Dev Day) and Stokup's LangGraph agent. GitLab Duo Agent Platform is new to the team, so the first hours go on the platform, not the idea.",
@@ -1461,9 +1695,14 @@
         "confidence": "confirmed"
       },
       "prize": {
-        "currency": "N/A",
+        "currency": null,
         "pool": null,
-        "non_cash": "No prize stated. Value is the room: venture capitalists, funders, ecosystem partners, industry professionals; visibility and expert feedback."
+        "non_cash": [
+          {
+            "type": "other",
+            "description": "No prize stated. Value is the room: venture capitalists, funders, ecosystem partners, industry professionals; visibility and expert feedback."
+          }
+        ]
       },
       "eligibility": "Student entrepreneurs (ideation stage, MVP or growing startup). Tech, AI, software, fintech, edtech, mobility or innovation-driven. APPLICATION REQUIRED - link and deadline not yet on record.",
       "team_fit": "Two-person team (Sibusiso + Lethabo) is fine for an exhibition table. Bring VUKA: VIGIL on two phones (member + guardian) plus a laptop with the VUKA Ledger.",

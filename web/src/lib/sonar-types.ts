@@ -24,10 +24,23 @@ export type Scores = {
   urgency?: number;
 };
 
+export type PrizeTier = {
+  place: string;
+  amount: number | null;
+  track: string | null;
+};
+
+export type NonCashItem = {
+  type: string;
+  description: string;
+  value_est?: number | null;
+};
+
 export type Prize = {
   currency?: string;
   pool?: number;
-  breakdown?: string;
+  breakdown?: PrizeTier[];
+  non_cash?: NonCashItem[];
 };
 
 export type Opportunity = {
