@@ -1,6 +1,6 @@
 # SONAR Priority Board
 
-Generated 10 August 2026 · updated 14 August 2026 (Mintek selection letter). Weights: career 35% · winnability 30% · prize 20% · urgency 15%.
+Generated 10 August 2026 · updated 14 August 2026 (Mintek selection letter); row 20 added 9 November 2026 (rows 1–19 not refreshed since August). Weights: career 35% · winnability 30% · prize 20% · urgency 15%.
 
 ---
 
@@ -27,6 +27,7 @@ Generated 10 August 2026 · updated 14 August 2026 (Mintek selection letter). We
 | 17 | W3Node Conference & Hackathon | 3 | 4.6 | Continental | Non-cash | **12–14 Nov** | New find |
 | 18 | NASA Space Apps Challenge | 3 | 4.3 | Intl | No cash | **14–15 Nov** | Open |
 | 19 | AI Infra Summit Hackathon | 3 | 4.25 | Intl | Unstated | Event **15–16 Sep** | New find — online track only |
+| 20 | Gates Foundation AI Fellow, Africa (12-month role) | 2 | 6.85 | Continental | Pay unconfirmed | Apply **11 Nov** | New find 9 Nov — decide today; see `data/hackathons.json` |
 
 ---
 

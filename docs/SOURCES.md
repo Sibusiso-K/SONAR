@@ -45,6 +45,8 @@ Researched **10 August 2026**. Anything marked *unconfirmed* has no 2026 primary
 | GirlCode Pan-African Hackathon 2026: SA/Botswana 15–16 Aug | [ITWeb](https://www.itweb.co.za/article/girlcode-opens-registration-for-2026-pan-african-hackathon/j5alrMQAwVRMpYQk) |
 | **Discovery Gradhack 2026: ran 7 August 2026 at Discovery Place, Sandton. 50 IT students from SA universities, teams of 2–4, free entry, R12 500 per winning team member, permanent-employment pathway** — *verified 10 Aug 2026, three days after the event. Entry moved to `dropped_or_past` as MISSED.* | [Discovery Gradhack](https://www.discovery.co.za/corporate/discovery-gradhack) · [Gradhack FAQ 2026 (PDF)](https://www.discoverygreen.co.za/assets/microsites/gradhack/gradhack-faqs.pdf) · [Discovery on LinkedIn](https://www.linkedin.com/posts/discovery-limited_gradhack-2026-activity-7459931387517698048-gZTw) |
 | ADTC 2026 still reported as **25 August** by press/aggregators as of 10 Aug, one describing it as a *"first-stage deadline"* for *"initial proposals"* — possible multi-stage structure, unconfirmed | [TechAfrica News](https://techafricanews.com/2026/07/30/africa-deep-tech-foundation-launches-2026-laptop-llm-challenge/) · [Opportunities for Youth](https://opportunitiesforyouth.org/2026/07/27/africa-deep-tech-challenge-2026-win-up-to-8000-by-building-offline-ai-that-runs-on-everyday-laptops-across-africa/) · [africadeeptech.org](https://africadeeptech.org/challenge-2026/) |
+| micro1 Eval Hackathon 2026: online, individual, free, $10,000 pool ($5,000 / $3,000 / $2,000), challenge opens Fri 23 Oct 12:00 PT, submissions close Mon 2 Nov 09:00 PT, 18+ with 2+ years' professional experience, judged on eval quality and reproducibility — *via search results quoting the organiser FAQ and HackerRank page; neither read directly (DNS failure from the sandbox). A micro1 X post says kickoff is 30 Oct: unresolved conflict* | [HackerRank event](https://www.hackerrank.com/event/micro1-eval-hackathon) · [micro1 FAQ](https://www.micro1.ai/hackathon/faq) · [Participant Agreement](https://www.micro1.ai/hackathon/agreement) · [micro1 on X — $10,000 / 9 days](https://x.com/micro1_ai/status/2107962941907808436) · [micro1 on X — 30 Oct kickoff](https://x.com/micro1_ai/status/2109844618003288116) |
+| More Than a Hack 2027 (Barça Innovation Hub + Mobile World Capital Barcelona, with Metrica Sports): generative AI on sports data, six-month phased programme, top 20 to an Innovation Challenge, five finalists at Talent Arena 2027 — *press coverage of the second edition; the 2027 landing page itself was blocked, see the unread-sources section* | [FC Barcelona news (BIHub presentation)](https://www.fcbarcelona.es/es/noticias/4584971/el-bihub-y-mwcapital-unen-fuerzas-para-impulsar-el-talento-digital-con-la-presentacion-de-la-segunda-edicion-de-more-than-a-hack) · [Corresponsables](https://www.corresponsables.com/actualidad/mwcapital-talento-digital-desafio-innovacion-deporte/) |
 
 ---
 
@@ -199,6 +201,115 @@ entry/merger deadline.
 
 ---
 
+## Discovery sweep — 9 November 2026
+
+Requested by Sibusiso, widened from hackathons to **startup competitions, company
+grants, hackathons and tech fellowships**, with **South African opportunities
+first** (added mid-sweep). About 30 web searches. Times SAST.
+
+**Reading limits, so the confidence below is honest.** No organiser page was read
+directly. `WebFetch` could not resolve any of the hosts, and a shell fetch of the
+pages was refused by the session's auto-mode classifier, so every detail comes from
+search results quoting the pages. All five new entries are therefore `reported`
+or `unconfirmed`, never `confirmed`. A separate `SONAR` environment now allows
+`msmeafricaonline.com`, `bizcommunity.com`, `smesouthafrica.co.za`,
+`opportunitiesforafricans.com`, `afterschoolafrica.com`, `tia.org.za`,
+`opportunitydesk.org` and `devpost.com` through the proxy, but `WebFetch` still
+could not resolve them afterwards. Read the pages in a browser before relying on any date here.
+
+**Added (5):** Gates Foundation AI Fellow, Africa (closes **11 Nov**); Samsung
+Software Development Programme 2027 at Tshimologong (closes **22 Nov**); SiGMA Africa
+Pitch 2027 (closes **6 Jan 2027**); Tony Elumelu Foundation 2027 (monitor, window
+expected from ~1 Jan); Anthropic Fellows (rolling tracks, secondhand).
+**Changed:** `micro1-eval-hackathon-2026` moved to `past`.
+**Added to the watchlist (11):** TIA calls, develoPPP Ventures, Orange Corners
+Innovation Fund, Google for Startups Accelerator Africa, Red Bull Basement SA, SA
+Startup Awards, Huawei Code4Mzansi, AISSA x Apart (Cape Town), OfferZen community
+hackathon, Standard Bank UniHack, MATS.
+
+| Entry | Source relied on (all secondary) |
+|---|---|
+| Gates AI Fellow | [UNJobNet copy of the posting](https://www.unjobnet.org/jobs/detail/bmgf-ai-fellow-africa-regional-offices-90133649) · [Opportunities for Youth](https://opportunitiesforyouth.org/2026/11/03/gates-foundation-ai-fellowship-2026-apply-for-a-12-month-ai-fellow-position-in-africa-deadline-november-11/) |
+| Samsung / Tshimologong programme | [Opportunities for Africans](https://www.opportunitiesforafricans.com/?p=103140) |
+| SiGMA Africa Pitch 2027 | [SiGMA Africa Pitch](https://sigma.world/africa/pitch/) · [Tech in Africa](https://www.techinafrica.com/sigma-opens-2027-africa-startup-pitch-applications/) · [MSME Africa](https://msmeafricaonline.com/call-for-applications-sigma-pitch-startup-competition-2027-for-african-startups/) |
+| Tony Elumelu 2027 | [Tony Elumelu Foundation](https://www.tonyelumelufoundation.org/) · [Opportunity Desk](https://opportunitydesk.org/2026/01/03/tony-elumelu-foundation-entrepreneurship-programme-2026/) |
+| Anthropic Fellows | [Extern guide](https://www.extern.com/post/anthropic-fellows-program-guide) · [MATS Winter 2027 post](https://forum.effectivealtruism.org/posts/Cb8Py9osCsZeuCetn/mats-winter-2027-applications-are-now-open) |
+
+**Checked, real, closed or past by 9 November — not added:**
+
+| Event | What happened |
+|---|---|
+| Standard Bank Kasi SME Pitch Challenge (R1m) | Provincial applications closed 22 May 2026. Township SMEs only, 51% Black-owned: [not our eligibility](https://www.bizcommunity.com/article/standard-bank-launches-r1m-pitch-competition-for-township-smes-736572a). |
+| Africa Startup Congress Pitch Competition | Applications closed 30 Sep 2026; continental final Kigali, 24–26 Feb 2027. |
+| EMERGE360 (TIA + Savant Foundry) | Hardware and deep-tech screening form closed 8 Nov 2026, a day before this sweep. |
+| TIA Seed and Pre-Seed Fund calls | For implementing partners (incubators), not startups. Pre-seed closed 16 Oct 2026, seed 31 Mar 2026. |
+| develoPPP Ventures | Closed 30 Jun 2026. Up to EUR 100k non-dilutive, but matching funds are mandatory. New windows are expected: on the watchlist. |
+| Orange Corners Innovation Fund (R1m) | Closed 31 Dec 2025, pitching Aug 2026. Check for the next round. |
+| South African Startup Awards 2026 | Entries closed ~30 Oct; ceremony 17/18 Nov, Cape Town (sources conflict). |
+| Red Bull Basement SA 2026 | Opened Jan 2026; SA close date not found. Probably closed. |
+| Google for Startups Accelerator (Africa, South Africa) | Africa cohort closed 18 Mar 2026; SA 2026 cohort opened July. Watch for 2027. |
+| MEST AI Startup Program 2027 | Closed 20 Jul 2026; Ghana, Nigeria, Senegal and Kenya only. |
+| MATS Winter 2027 | Closed 31 Oct 2026. Next window expected March 2027. |
+| Y Combinator Winter 2027 | Reported deadline 2 Nov 2026 (LinkedIn post, unverified). Passed. |
+| TFG Data Science fellowship, Princeton in Africa, Tech Policy Press | Closed 30 Sep, 26 Oct and 24 Sep 2026. |
+| Haibot Agentic AI Challenge (R10,000) | Registration 9 Apr, closed 4 May 2026. |
+| Huawei Code4Mzansi | Registration closed 31 Jan 2026; finals May 2026. ~R1m pool. Watch Dec to Jan. |
+| Gauteng Youth Tech Expo G13 Hackathon | Finale 7–8 Jul 2026, won by Gridwise 10X. No cash prize found. |
+| MTN MoMo Hackathon, Standard Bank Group Technology Hackathon, SA Defence Tech Hackathon | All held between July and September 2026. |
+| BET Software payments hackathon | 2025 edition (late Aug); senior developers only. No 2026 round found. |
+| Global South AI Safety Hackathon (Cape Town hub) | 19–21 Jun 2026, unverified. The Cape Town hub has run Nov 2025, Mar 2026 and Jun 2026. |
+| OfferZen Community AI Agent Hackathon | Single day, '26 July' (year not shown), R50,000, apply-to-join. Watchlist. |
+
+**Checked, not added — sourcing too thin:** a 48-hour remote hackathon on 29–31 Jan
+2027 (no organiser, prize or eligibility found); Agentic Hackathon on Devpost (closes
+10 Nov, $480 pool); Pitch by Deel (regional, no African round date); GoGettaz
+Agripreneur Prize (no terms found); Dev3pack Hack Johannesburg and GDG Cape Town x
+Google DeepMind (no 2026 date found).
+
+**The finding that matters.** No South African hackathon with an open registration
+turned up for November or December 2026. The local pipeline is startup pitches,
+fellowships and programmes, plus a long list of annual hackathons whose next
+window opens between January and April 2027. See the new watchlist entries.
+
+---
+
+## Supplied links and status clean-up — 9 November 2026
+
+Five links supplied by Sibusiso, added with tracking parameters stripped. None of
+the event pages could be read from this environment, so every detail is from search
+results quoting them, and confidence is `reported` or `unconfirmed`.
+
+| Entry | What the sources say | Source |
+|---|---|---|
+| Kiroween 2026 | Online, $100,000 pool ($30,000 first), submissions 30 Oct to 4 Dec 2026 14:00 PT, teams of up to 3, Kiro credits to 1 Dec. | [Kiro community](https://kiro.dev/community/) · [Kiroween 2025 post](https://kiro.dev/blog/kiroween-2025/) · [StartupGrants India](https://www.startupgrantsindia.com/aws-kiroween-hackathon-2026) |
+| Atlassian Codegeist 2026 | Nothing on 2026 found. 2025: due 22 Dec 2025, winners 21 Jan 2026. Entry left unscored. | [Codegeist 2025 kickoff](https://www.atlassian.com/blog/development/codegeist-2025-kickoff) · [Codegeist](https://marketplace.atlassian.com/codegeist) |
+| AWS MSP AI Hackathon 2026 | Closes 11 Dec 2026 12:00 PT, $64,000 across two tracks. Likely for AWS Partner Network companies: a probable eligibility blocker. Matching the supplied `aws-agentic-msp` link to this event is an inference. | [StartupGrants India](https://www.startupgrantsindia.com/aws-msp-ai-hackathon-2026) |
+| Melsoft Hackathon 2026 | Registered by Sibusiso. No public information found. | none |
+| Microsoft Imagine Cup 2027 | Deadline 28 Feb 2027 per most sources, 8 Jan 2027 per two. Student-only versus startups-welcome is unresolved. | [Internshala](https://internshala.com/competitions/2027-imagine-cup-competition/) · [Opportunities for Africans](https://www.opportunitiesforafricans.com/?p=103217) |
+
+**Marked `past` (7):** IBM Z Datathon, Zindi Bias Bounty, Qloo Agentic Hackathon, Life
+After Code (GitLab), Wits E-Hub Tech & AI Day, Nebius x NVIDIA Global AI Hackathon, Meta
+Global AI Developer Hackathon. Judging for the last three is still running; this
+records that entry is closed, not that results are in.
+
+**Left unchanged, outcome needed from the team:** RSNA Knee (registered; competition
+ended 22 Oct), BCG Platinion (submitted; event ended 17 Oct), Mintek-SCi (selected;
+finals 1 Oct and conference 2 Oct), and FNB App of the Year (never had real dates;
+`expected_window` was late October).
+
+**Why the live board was stale (workflow findings).** `Refresh board` has failed on every
+scheduled run since at least 10 Sep 2026. Two separate causes, both fixed in
+`.github/workflows/refresh-board.yml`: (1) since late Oct, `setup-bun` resolves the
+latest Bun (1.4.4), whose release download returns HTTP 504, so the job dies before any
+data moves. Pinned to 1.4.2, the version the last good runs used. (2) The non-critical
+app-schema mirror fails with PostgREST `PGRST204` (missing `status` column; migration
+`0005_app_opportunities_status.sql` unapplied), and because that step failed the job,
+the commit step never ran, so regenerated `data/opportunities.json` was never committed.
+That step is now `continue-on-error`. The root fix for (2) is applying migration 0005 to
+the app-schema project.
+
+---
+
 ## Known conflicts in the sources
 
 | Conflict | What we're going with |
@@ -238,6 +349,10 @@ identically to a fully rendered page.
 ## Sources that could not be read
 
 **Zindi competitions list** — the page is fully JavaScript-rendered and returns an empty shell to any non-browser fetch. There is no reliable programmatic snapshot of live challenges. Zindi must be checked manually in a browser each Monday, sorted by "Closing soon". This is why `zindi-rolling` carries no dates.
+
+**More Than a Hack 2027 landing page** (`landing.mobileworldcapital.com/more-than-a-hack-2027`) — the sandbox egress policy returned 403 on 18 Oct 2026. Not a page-content problem; the host is blocked from this environment. Read it in a browser before scoring. Entry `more-than-a-hack-2027` stays `verify` until then.
+
+**micro1 Eval Hackathon** (`hackerrank.com/event/micro1-eval-hackathon`, `micro1.ai/hackathon/faq`, `micro1.ai/hackathon/agreement`) — DNS failure from the sandbox on 19 Oct 2026, so the entry rests on search results quoting these pages. Read the FAQ and Participant Agreement in a browser (IP terms, excluded-country list, date conflict) before registering. Entry `micro1-eval-hackathon-2026` stays `verify` until then.
 
 ## Meta Global AI Developer Hackathon
 
