@@ -1,7 +1,5 @@
 {
-  "note": "Written by scripts/sonar_db.py forecast. Predictions are never facts \u2014 they render on Radar as watch windows only, and are superseded automatically the moment a real source confirms a date. Empty until `editions` is backfilled with at least two years per recurring opportunity.",
-  "generation_note": "Computed locally on 2026-08-23 by calling forecast_from_editions() directly against data/editions.json - this session had no live Supabase credentials to run the real `sonar_db.py forecast` (which also POSTs to the `predictions` table). The next CI run of seed-editions + forecast will recompute and push these same numbers for real (upsert is idempotent on opportunity_slug/year), so this file is not stale relative to that - it's the same function, same input, just run ahead of the pipeline rather than by it.",
-  "generated": "2026-08-23T15:16:08Z",
+  "generated": "2026-11-09T09:55:50.198902Z",
   "predictions": [
     {
       "opportunity_slug": "discovery-gradhack",
