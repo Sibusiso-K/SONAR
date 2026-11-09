@@ -142,3 +142,41 @@ class TestRest:
         monkeypatch.setattr(db, "KEY", "k")
         with pytest.raises(ValueError, match="refusing"):
             db.rest("GET", "x")
+
+
+class TestDiscoveryKind:
+    """Regression: new kinds (fellowship, grant, ...) were pushed to a Postgres
+    enum that did not contain them, failing the nightly refresh."""
+
+    @staticmethod
+    def enum_values():
+        import re
+
+        from conftest import ROOT
+
+        sql = (ROOT / "supabase" / "migrations" / "0001_init.sql").read_text(encoding="utf-8")
+        block = re.search(r"create type opportunity_kind as enum \((.*?)\);", sql, re.S).group(1)
+        return set(re.findall(r"'([a-z_]+)'", block))
+
+    def test_every_kind_the_schema_allows_is_storable(self, schema):
+        enum = self.enum_values()
+        stored = {kind: db.discovery_kind(kind) for kind in schema["properties"]["kind"]["enum"]}
+        rejected = {k: v for k, v in stored.items() if v not in enum}
+        assert not rejected, f"the discovery enum would reject: {rejected}"
+
+    def test_kinds_the_enum_knows_pass_through_unchanged(self):
+        for kind in ("hackathon", "ml_competition", "grad_programme", "competition"):
+            assert db.discovery_kind(kind) == kind
+
+    def test_new_kinds_map_to_the_nearest_stored_kind(self):
+        assert db.discovery_kind("fellowship") == "grad_programme"
+        assert db.discovery_kind("startup_competition") == "competition"
+        assert db.discovery_kind("grant") == "accelerator"
+
+    def test_a_missing_kind_defaults_to_hackathon(self):
+        assert db.discovery_kind(None) == "hackathon"
+        assert db.discovery_kind("") == "hackathon"
+
+    def test_clean_uses_the_mapping(self):
+        row = db._clean({"id": "x", "name": "X", "kind": "fellowship", "status": "open", "dates": {}, "links": {}})
+        assert row["kind"] == "grad_programme"

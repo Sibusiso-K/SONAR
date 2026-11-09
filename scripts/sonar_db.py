@@ -39,6 +39,27 @@ from datetime import date, datetime, timedelta, timezone
 
 from _common import safe_urlopen, today_sast
 
+# The discovery database stores `kind` in a Postgres enum (opportunity_kind,
+# supabase/migrations/0001_init.sql) that predates fellowships, grants and
+# startup competitions. Pushing one of those raised `22P02 invalid input value
+# for enum` and failed the whole nightly refresh before the live-site sync ran.
+# This database only feeds forecasting, where a nearby kind is enough, so map
+# to the closest value it accepts. The live-site database keeps the precise
+# kind (its column is plain text). tests/test_sonar_db.py checks every kind the
+# schema allows against the enum, so a new kind cannot repeat this.
+DISCOVERY_KIND_FALLBACK = {
+    "fellowship": "grad_programme",
+    "programme": "grad_programme",
+    "startup_competition": "competition",
+    "grant": "accelerator",
+}
+
+
+def discovery_kind(kind):
+    """The enum value to store for an entry's kind (see DISCOVERY_KIND_FALLBACK)."""
+    kind = kind or "hackathon"
+    return DISCOVERY_KIND_FALLBACK.get(kind, kind)
+
 
 def _normalize_name(name):
     """Loose event-identity key: lowercase, with all spaces and punctuation removed.
@@ -262,7 +283,7 @@ def _clean(o):
         "slug":            o["id"],
         "name":            (o.get("name") or "").strip(),
         "organiser":       (o.get("organiser") or "").strip(),
-        "kind":            o.get("kind") or "hackathon",
+        "kind":            discovery_kind(o.get("kind")),
         "scope":           o.get("scope"),
         "format":          o.get("format"),
         "location":        o.get("location"),
