@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { askSonar } from "@/lib/assistant.functions";
+import { fitConversation } from "@/lib/assistant-limits";
 import { cn } from "@/lib/utils";
 import { X, CornerDownLeft, Loader2 } from "lucide-react";
 
@@ -30,15 +31,11 @@ export function Assistant({ open, onClose }: { open: boolean; onClose: () => voi
     return () => window.removeEventListener("keydown", onKey);
   }, [onClose]);
 
-  // The server validator rejects (not trims) a `messages` array over 24
-  // entries — sending the full, ever-growing local history hit that on
-  // roughly the 13th user message and every send after that then failed
-  // validation permanently, with no way to recover except reloading the
-  // page (docs/REVIEW_2026-09-14.md, additional follow-ups). Local display
-  // keeps the full conversation; only the network payload is capped, at a
-  // little under the server's ceiling so a couple of turns of headroom
-  // survive a slow request racing a fast one.
-  const MAX_SENT_MESSAGES = 20;
+  // Local display keeps the full conversation; only the network payload is
+  // trimmed (see lib/assistant-limits.ts). The server rejects, rather than
+  // trims, a request over its count or size ceiling, so a long conversation
+  // that was sent whole would fail every later send until a reload. History
+  // is fitted to a budget under those ceilings instead.
 
   async function send(text: string) {
     const trimmed = text.trim();
@@ -48,8 +45,7 @@ export function Assistant({ open, onClose }: { open: boolean; onClose: () => voi
     setInput("");
     setBusy(true);
     try {
-      const sent = next.length > MAX_SENT_MESSAGES ? next.slice(-MAX_SENT_MESSAGES) : next;
-      const res = await ask({ data: { messages: sent } });
+      const res = await ask({ data: { messages: fitConversation(next) } });
       setMessages([
         ...next,
         {

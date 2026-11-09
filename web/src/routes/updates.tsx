@@ -2,6 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { AppShell } from "@/components/AppShell";
 import { QueryError } from "@/components/QueryError";
 import { Reveal, RevealWords } from "@/components/Reveal";
+import { BOARD_TZ } from "@/lib/analytics";
+import { LOCALE } from "@/lib/format";
 import { useUpdates } from "@/lib/sonar-data";
 import { Bot, User } from "lucide-react";
 
@@ -78,7 +80,8 @@ function Updates() {
                 />
                 <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
                   <time className="font-mono text-[11px] tabular-nums text-muted-foreground">
-                    {new Date(u.created_at).toLocaleString("en-ZA", {
+                    {new Date(u.created_at).toLocaleString(LOCALE, {
+                      timeZone: BOARD_TZ,
                       day: "2-digit",
                       month: "short",
                       year: "numeric",

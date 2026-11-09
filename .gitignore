@@ -26,3 +26,10 @@ web/data/
 next-env.d.ts
 .vercel
 *.tsbuildinfo
+
+# tool caches and reports
+.coverage
+htmlcov/
+.pytest_cache/
+.ruff_cache/
+coverage/

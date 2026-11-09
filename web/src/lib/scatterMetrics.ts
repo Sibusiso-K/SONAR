@@ -1,5 +1,6 @@
 import type { Opportunity } from "./sonar-types";
 import { daysUntil, expectedValueZar, fieldSize, toZar, zar, winProbability } from "./analytics";
+import { formatNumber } from "./format";
 
 /** One selectable axis (or size) for the 3D scatter on /stats. `get` returns
  * null when an opportunity has no value for it — those points are excluded
@@ -86,7 +87,7 @@ export const METRICS: Metric[] = [
     axisLabel: "FIELD SIZE, LOG",
     log: true,
     get: (o) => fieldSize(o),
-    format: (v) => Math.round(v).toLocaleString("en-ZA"),
+    format: (v) => formatNumber(Math.round(v)),
   },
 ];
 

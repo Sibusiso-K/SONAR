@@ -29,7 +29,9 @@ import os
 import sys
 import urllib.error
 import urllib.request
-from datetime import date, datetime
+from datetime import date
+
+from _common import safe_urlopen, today_sast
 
 for _stream in (sys.stdout, sys.stderr):
     if hasattr(_stream, "reconfigure"):
@@ -77,7 +79,7 @@ def gh(path):
         },
     )
     try:
-        with urllib.request.urlopen(req, timeout=30) as resp:
+        with safe_urlopen(req, timeout=30) as resp:
             return json.loads(resp.read().decode())
     except urllib.error.HTTPError as e:
         sys.exit(f"GitHub {path} -> {e.code}\n{e.read().decode()[:400]}")
@@ -132,7 +134,7 @@ def main():
     spans.sort()
 
     derived = {
-        "generated": datetime.now().date().isoformat(),
+        "generated": today_sast().isoformat(),
         "source": f"GitHub API, users {' and '.join(USERS)}",
         "members": ["Sibusiso K", "Lethabo"],
         "repo_count": len(repos),

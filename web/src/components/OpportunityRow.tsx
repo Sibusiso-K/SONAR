@@ -1,4 +1,5 @@
 import { Star } from "lucide-react";
+import { kindLabel } from "@/lib/format";
 import { Link } from "@tanstack/react-router";
 import { CountdownClock } from "@/components/CountdownClock";
 import { OrgLogo } from "@/components/OrgLogo";
@@ -64,7 +65,7 @@ export function OpportunityRow({
           <span className="font-mono text-[11px] tabular-nums text-muted-foreground">
             {String(index + 1).padStart(2, "0")}
           </span>
-          <span className="label-caps">{o.kind}</span>
+          <span className="label-caps">{kindLabel(o.kind)}</span>
           <span className="label-caps">{o.format}</span>
           <span className="border border-border px-1.5 py-px font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
             tier {o.tier}

@@ -1,0 +1,50 @@
+# Tooling configuration only. SONAR's scripts are standard-library Python and
+# are not packaged; nothing here is installed into a user's environment.
+[project]
+name = "sonar"
+version = "0.0.0"
+description = "Hackathon finder, sorter and executor."
+requires-python = ">=3.10"
+
+[tool.ruff]
+target-version = "py310"
+line-length = 120
+extend-exclude = ["web", ".claude"]
+
+[tool.ruff.lint]
+# E/W pycodestyle, F pyflakes, B bugbear, S bandit, UP pyupgrade, SIM simplify,
+# I imports. The scripts predate this config, so style-only rules that would
+# churn every line (docstring style, quote style) are left off.
+select = ["E", "F", "W", "B", "S", "UP", "SIM", "I"]
+ignore = [
+  "E501",   # long lines: the scripts use aligned tables and long prose strings
+  "E402",   # watch_sources.py adds its own directory to sys.path before importing siblings
+  "E701",   # one-line `if x: y` is used deliberately in a few table-like blocks
+  "E702",
+  "E741",   # short names like `l` in comprehension-heavy report code
+  "SIM108", # ternary suggestions often hurt readability in the reporting code
+  "S603", "S607",  # subprocess is not used; keeps the list future-proof without noise
+]
+
+[tool.ruff.lint.per-file-ignores]
+# Tests assert on literals and use fixed fake secrets and URLs by design.
+"tests/**" = ["S101", "S105", "S106", "S108"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["_common", "sonar", "sonar_db", "sync_radar", "watch_sources", "migrate_to_opportunities", "build_team_profile"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["scripts"]
+addopts = "-ra --strict-markers"
+
+[tool.coverage.run]
+source = ["scripts"]
+branch = true
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = false
+
+[tool.bandit]
+exclude_dirs = ["tests", "web", ".claude"]

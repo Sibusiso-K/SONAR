@@ -37,17 +37,22 @@ import urllib.parse
 import urllib.request
 from datetime import date, datetime, timedelta, timezone
 
+from _common import safe_urlopen, today_sast
+
 
 def _normalize_name(name):
-    """Loose event-identity key: lowercase, collapse whitespace/punctuation.
+    """Loose event-identity key: lowercase, with all spaces and punctuation removed.
 
     Not a fuzzy matcher - this only catches exact-modulo-formatting matches
-    (e.g. "GKHack26" vs "GKHack 26"). A genuinely new edition of a tracked
+    (e.g. "GKHack26" vs "GKHack 26" vs "GK-Hack 26"). Spaces are removed, not
+    collapsed: collapsing kept "gkhack26" and "gkhack 26" apart, so the very
+    example this describes was never matched and a tracked event came back
+    as a "new" candidate. A genuinely new edition of a tracked
     event (different year, different name) is deliberately NOT caught here;
     that is the "new candidate" case this whole promote step exists to
     surface for human review, not something to suppress automatically.
     """
-    return re.sub(r"[^a-z0-9]+", " ", (name or "").lower()).strip()
+    return re.sub(r"[^a-z0-9]+", "", (name or "").lower())
 
 # Status/error text uses non-ASCII punctuation (—, →, ↔). On Windows, stdout
 # defaults to the console codepage (cp1252), which can't encode "→" and
@@ -98,7 +103,7 @@ def rest(method, path, body=None, params=None, prefer=None):
         url += "?" + urllib.parse.urlencode(params, safe="*.,()")
 
     data = json.dumps(body).encode() if body is not None else None
-    req = urllib.request.Request(url, data=data, method=method)
+    req = urllib.request.Request(url, data=data, method=method)  # noqa: S310 - opened via safe_urlopen
     req.add_header("apikey", KEY)
     req.add_header("Authorization", f"Bearer {KEY}")
     req.add_header("Content-Type", "application/json")
@@ -106,12 +111,12 @@ def rest(method, path, body=None, params=None, prefer=None):
         req.add_header("Prefer", prefer)
 
     try:
-        with urllib.request.urlopen(req, timeout=60) as resp:
+        with safe_urlopen(req, timeout=60) as resp:
             raw = resp.read().decode()
             return json.loads(raw) if raw.strip() else []
     except urllib.error.HTTPError as e:
         detail = e.read().decode()[:600]
-        raise RestError(f"Supabase {method} {path} → {e.code}\n{detail}", e.code, detail)
+        raise RestError(f"Supabase {method} {path} → {e.code}\n{detail}", e.code, detail) from e
 
 
 def has_column(table, column):
@@ -286,7 +291,8 @@ def _clean(o):
 
 
 def cmd_push(_args):
-    board = json.load(open(OPPS, encoding="utf-8"))
+    with open(OPPS, encoding="utf-8") as fh:
+        board = json.load(fh)
     rows = [_clean(o) for o in board["opportunities"]]
     out = upsert("opportunities", rows, on_conflict="slug")
     print(f"pushed {len(out)} opportunities")
@@ -346,6 +352,37 @@ def _doy_to_date(doy, year):
     return date(year, 1, 1) + timedelta(days=int(round(doy)) - 1)
 
 
+def _iso_day(value):
+    """YYYY-MM-DD prefix of a stored date, or None if absent or malformed."""
+    if not value:
+        return None
+    try:
+        return date.fromisoformat(str(value)[:10])
+    except ValueError:
+        return None
+
+
+def _event_dates(rows):
+    """One event date per edition, falling back per row, not per slug.
+
+    Some editions only ever have a deadline on record (closes_on), others the
+    actual event date. Choosing one field for the whole slug silently dropped
+    a real edition's closes_on the moment any other row had an event_start.
+    """
+    return [d for r in rows if (d := _iso_day(r.get("event_start") or r.get("closes_on")))]
+
+
+def _observed_leads(rows):
+    """Days between announcement and event, from editions that have both."""
+    leads = []
+    for r in rows:
+        announced = _iso_day(r.get("announced_on"))
+        event = _iso_day(r.get("event_start") or r.get("closes_on"))
+        if announced and event and (event - announced).days > 0:
+            leads.append((event - announced).days)
+    return leads
+
+
 def forecast_from_editions(editions):
     """
     Predict the next edition's announcement and event window.
@@ -360,44 +397,14 @@ def forecast_from_editions(editions):
     for e in editions:
         by_slug.setdefault(e["opportunity_slug"], []).append(e)
 
-    today = date.today()
+    today = today_sast()
 
     for slug, rows in by_slug.items():
         rows = sorted(rows, key=lambda r: r["year"])
         if len(rows) < 2:
             continue  # one data point is an anecdote, not a season
 
-        def collect(field):
-            out = []
-            for r in rows:
-                v = r.get(field)
-                if v:
-                    try:
-                        out.append(date.fromisoformat(v[:10]))
-                    except ValueError:
-                        pass
-            return out
-
-        def collect_event_dates():
-            # Per-row fallback, not per-slug: some editions only ever have a
-            # deadline on record (closes_on), others have the actual event
-            # date. `collect("event_start") or collect("closes_on")` picked
-            # one field for the whole slug, which silently dropped a real
-            # edition's closes_on the moment any other row for that slug had
-            # an event_start - undercounting editions that are genuinely
-            # there, just recorded with different precision.
-            out = []
-            for r in rows:
-                v = r.get("event_start") or r.get("closes_on")
-                if v:
-                    try:
-                        out.append(date.fromisoformat(v[:10]))
-                    except ValueError:
-                        pass
-            return out
-
-        events = collect_event_dates()
-        announces = collect("announced_on")
+        events = _event_dates(rows)
         if not events:
             continue
 
@@ -414,9 +421,12 @@ def forecast_from_editions(editions):
 
         # Announcement: use observed lead time if we have it, else assume the
         # organiser gives about six weeks' notice — and say so in `basis`.
-        if announces and len(announces) == len(events):
-            leads = [(e - a).days for a, e in zip(announces, events) if (e - a).days > 0]
-            lead = statistics.median(leads) if leads else 42
+        # Pair announcement and event within the SAME edition. Zipping two
+        # separately filtered lists matched a year's announcement with a
+        # different year's event whenever the fields were not all present.
+        leads = _observed_leads(rows)
+        if leads:
+            lead = statistics.median(leads)
             lead_note = f"median observed lead {int(lead)}d"
         else:
             lead = 42

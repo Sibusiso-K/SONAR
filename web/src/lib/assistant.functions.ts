@@ -6,6 +6,7 @@ import {
   expectedValueZar,
   collisions,
   confidenceTrend,
+  boardDateKey,
   daysUntil,
   discoveryLag,
   seasonStats,
@@ -13,6 +14,8 @@ import {
 } from "@/lib/analytics";
 import { participationBadge } from "@/lib/participation";
 import { chat } from "@/lib/assistant.providers";
+import { createRateLimiter } from "@/lib/rate-limit";
+import { MAX_MESSAGES, MAX_MESSAGE_CHARS, MAX_TOTAL_CHARS } from "@/lib/assistant-limits";
 import { BENCHMARK, PLAYBOOK, gapToLeaderPct } from "@/lib/playbook";
 import type { Opportunity, PastOpportunity, UpdateRow } from "@/lib/sonar-types";
 
@@ -37,6 +40,16 @@ function truncate(s: string | null | undefined, n: number) {
   return s.length > n ? `${s.slice(0, n)}…` : s;
 }
 
+/**
+ * Two brakes, both per warm server instance (see lib/rate-limit.ts): a
+ * per-client cap so one visitor cannot hammer the endpoint, and a global cap
+ * so the total spend per minute is bounded however many clients there are.
+ * Each answer costs ~6,000 prompt tokens, against a provider ceiling of
+ * 8,000 tokens per minute, so these are generous, not tight.
+ */
+const perClientLimit = createRateLimiter({ limit: 6, windowMs: 60_000 });
+const globalLimit = createRateLimiter({ limit: 30, windowMs: 60_000 });
+
 export const askSonar = createServerFn({ method: "POST" })
   .inputValidator((data: unknown) =>
     z
@@ -45,15 +58,33 @@ export const askSonar = createServerFn({ method: "POST" })
           .array(
             z.object({
               role: z.enum(["user", "assistant"]),
-              content: z.string().min(1).max(4000),
+              content: z.string().min(1).max(MAX_MESSAGE_CHARS),
             }),
           )
           .min(1)
-          .max(24),
+          .max(MAX_MESSAGES),
+      })
+      .refine((d) => d.messages.reduce((n, m) => n + m.content.length, 0) <= MAX_TOTAL_CHARS, {
+        message: `Conversation too long (over ${MAX_TOTAL_CHARS} characters).`,
       })
       .parse(data),
   )
   .handler(async ({ data }) => {
+    // Throttle before doing any work. The client key is the first hop of
+    // X-Forwarded-For, which the hosting edge sets (a client cannot choose
+    // it on Vercel); "unknown" shares one bucket rather than bypassing it.
+    const { getRequestHeader } = await import("@tanstack/react-start/server");
+    const clientKey =
+      getRequestHeader("x-forwarded-for")?.split(",")[0]?.trim() ||
+      getRequestHeader("x-real-ip") ||
+      "unknown";
+    const mine = perClientLimit.check(clientKey);
+    const all = globalLimit.check("all");
+    if (!mine.ok || !all.ok) {
+      const wait = Math.max(mine.ok ? 0 : mine.retryAfterSec, all.ok ? 0 : all.retryAfterSec);
+      return { error: `Too many questions just now. Try again in ${wait}s.` as const };
+    }
+
     // No GROQ_API_KEY check here any more: a missing key is no longer fatal,
     // because a running local Ollama can answer on its own. Which backends
     // are actually available is decided in assistant.providers, and if none
@@ -93,9 +124,12 @@ export const askSonar = createServerFn({ method: "POST" })
     // supplementary context, so a failure there is noted in the prompt
     // instead of failing the whole request.
     if (oppRes.error) {
+      // The database's own message can name tables and columns; keep it in
+      // the server log and give the visitor the part they can act on.
+      console.error("[assistant] board read failed:", oppRes.error.message);
       return {
         error:
-          `Couldn't read the board (${oppRes.error.message}). Not answering from an empty result — try again once the read succeeds.` as const,
+          "Couldn't read the board right now. Not answering from an empty result — try again shortly." as const,
       };
     }
 
@@ -207,7 +241,7 @@ export const askSonar = createServerFn({ method: "POST" })
         `${gapToLeaderPct()}% behind at leaderboard freeze, standing ${BENCHMARK.standing} ` +
         `(NOT confirmed - the portal closed its leaderboard and keeps no history, so never state this as a final rank).`,
       "",
-      `Today is ${new Date().toISOString().slice(0, 10)}.`,
+      `Today is ${boardDateKey()}.`,
     ].join("\n");
 
     // Ollama gets a deliberately smaller prompt, not the same one truncated
@@ -251,7 +285,7 @@ export const askSonar = createServerFn({ method: "POST" })
       "NEAREST LIVE DEADLINES:",
       nearestLive || "(none with a recorded date)",
       "",
-      `Today is ${new Date().toISOString().slice(0, 10)}.`,
+      `Today is ${boardDateKey()}.`,
     ].join("\n");
 
     // Provider selection, retries and <think>-stripping all live in

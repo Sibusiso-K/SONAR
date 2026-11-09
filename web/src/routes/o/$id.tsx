@@ -1,8 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { kindLabel } from "@/lib/format";
 import { AppShell } from "@/components/AppShell";
 import { CountdownClock } from "@/components/CountdownClock";
 import { OrgLogo } from "@/components/OrgLogo";
 import { participationBadge } from "@/lib/participation";
+import { safeHref } from "@/lib/safe-url";
 import { useOpportunities, usePastOpportunities } from "@/lib/sonar-data";
 import {
   daysUntil,
@@ -72,7 +74,12 @@ function OpportunityDetail() {
   const scoreEntries = Object.entries(o.scores ?? {}).filter(
     (entry): entry is [string, number] => typeof entry[1] === "number",
   );
-  const linkEntries = Object.entries(o.links ?? {});
+  // Drop anything that is not a plain http(s) URL rather than render a link
+  // that could run script (see lib/safe-url.ts).
+  const linkEntries = Object.entries(o.links ?? {}).flatMap(([k, v]) => {
+    const href = safeHref(v);
+    return href ? [[k, href] as const] : [];
+  });
 
   return (
     <AppShell>
@@ -84,7 +91,7 @@ function OpportunityDetail() {
         <div className="mt-8 flex flex-wrap items-center gap-3">
           <OrgLogo organiser={o.organiser} size={32} />
           <p className="label-caps" style={{ color: severityToken[sev] }}>
-            {o.kind} · {o.format} · tier {o.tier}
+            {kindLabel(o.kind)} · {o.format} · tier {o.tier}
           </p>
           <span
             className="border px-1.5 py-px font-mono text-[10px] uppercase tracking-widest"
@@ -146,7 +153,7 @@ function OpportunityDetail() {
                   key={k}
                   href={v}
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   className="font-mono text-sm underline underline-offset-4"
                 >
                   {k}

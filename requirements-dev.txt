@@ -1,0 +1,8 @@
+# Development and CI tooling only. The SONAR scripts themselves are
+# standard-library Python (see scripts/requirements.txt) and need none of this.
+ruff>=0.8
+pytest>=8
+pytest-cov>=5
+jsonschema>=4.21
+bandit>=1.7
+pglast>=7

@@ -19,6 +19,8 @@ import re
 import sys
 from datetime import date, datetime, timedelta, timezone
 
+from _common import today_sast
+
 # Board text uses non-ASCII punctuation (—, ·, →). On Windows, stdout defaults
 # to the console codepage (cp1252), which can't encode "→" and crashes with
 # UnicodeEncodeError. Force UTF-8 so the CLI works the same on every platform.
@@ -67,7 +69,7 @@ DEADLINE_KEYS = (
 
 def next_date(h):
     """Soonest meaningful upcoming date for a hackathon entry."""
-    today = date.today()
+    today = today_sast()
     best = None
     for key in DEADLINE_KEYS:
         d = parse_day(h.get("dates", {}).get(key))
@@ -94,23 +96,23 @@ def cmd_list(args):
         rows = [h for h in rows if h.get("scope") == args.scope]
     if args.status:
         rows = [h for h in rows if h.get("status") == args.status]
-    rows.sort(key=lambda h: -h.get("score", 0))
+    rows.sort(key=lambda h: -(h.get("score") or 0))
 
-    print(f"\n{BOLD}SONAR board{RST}  ·  {len(rows)} entries  ·  today {date.today():%d %b %Y}\n")
+    print(f"\n{BOLD}SONAR board{RST}  ·  {len(rows)} entries  ·  today {today_sast():%d %b %Y}\n")
     print(f"{DIM}{'SCORE':>5}  {'T':<2} {'NEXT DATE':<12} {'DAYS':>5}  {'SCOPE':<14} {'PRIZE':<14} NAME{RST}")
     print(f"{DIM}{'-' * 100}{RST}")
     for h in rows:
         nxt = next_date(h)
         if nxt:
             label, d = nxt
-            days = (d - date.today()).days
+            days = (d - today_sast()).days
             colour = RED if days <= 14 else (YEL if days <= 30 else "")
             dstr, daystr = f"{d:%Y-%m-%d}", f"{colour}{days}d{RST}"
         else:
             dstr, daystr = "—", f"{DIM}—{RST}"
         tier = h.get("tier", "?")
         tcol = GRN if tier == 1 else (CYN if tier == 2 else DIM)
-        print(f"{h.get('score', 0):>5.2f}  {tcol}{tier}{RST}  {dstr:<12} {daystr:>10}  "
+        print(f"{h.get('score') or 0:>5.2f}  {tcol}{tier}{RST}  {dstr:<12} {daystr:>10}  "
               f"{h.get('scope', ''):<14} {fmt_prize(h):<14} {h['name'][:44]}")
     print()
 
@@ -123,14 +125,14 @@ def cmd_next(args):
         if nxt:
             upcoming.append((nxt[1], nxt[0], h))
     upcoming.sort(key=lambda t: t[0])
-    horizon = date.today() + timedelta(days=args.days)
+    horizon = today_sast() + timedelta(days=args.days)
 
-    print(f"\n{BOLD}Next {args.days} days{RST}  ·  today {date.today():%A %d %B %Y}\n")
+    print(f"\n{BOLD}Next {args.days} days{RST}  ·  today {today_sast():%A %d %B %Y}\n")
     shown = 0
     for d, label, h in upcoming:
         if d > horizon:
             break
-        days = (d - date.today()).days
+        days = (d - today_sast()).days
         colour = RED if days <= 7 else (YEL if days <= 21 else GRN)
         print(f"  {colour}{d:%d %b}  ({days:>3}d){RST}  {BOLD}{h['name']}{RST}")
         print(f"            {DIM}{label.replace('_', ' ')} · tier {h.get('tier')} · "
@@ -177,10 +179,10 @@ def cmd_stale(args):
     bad = [h for h in data["hackathons"]
            if h.get("dates", {}).get("confidence") != "confirmed"]
     print(f"\n{BOLD}Needs verification{RST}  ·  {len(bad)} of {len(data['hackathons'])} entries\n")
-    for h in sorted(bad, key=lambda x: -x.get("score", 0)):
+    for h in sorted(bad, key=lambda x: -(x.get("score") or 0)):
         conf = h.get("dates", {}).get("confidence", "missing")
         colour = RED if conf in ("unconfirmed", "missing") else YEL
-        print(f"  {colour}{conf:<12}{RST} {h.get('score', 0):>5.2f}  {h['name']}")
+        print(f"  {colour}{conf:<12}{RST} {h.get('score') or 0:>5.2f}  {h['name']}")
         link = (h.get("links") or {}).get("main") or next(iter((h.get("links") or {}).values()), "")
         print(f"  {DIM}{'':<12}        {link}{RST}")
     print(f"\n  {DIM}Verify these before committing a weekend to them.{RST}\n")

@@ -12,6 +12,8 @@ import { useEffect, useMemo, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { Toaster } from "@/components/ui/sonner";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { Splash } from "@/components/Splash";
+import { SPLASH_BOOT_SCRIPT } from "@/lib/splash";
 
 function NotFoundComponent() {
   return (
@@ -79,6 +81,9 @@ function ErrorComponent({ error: rawError, reset }: { error: unknown; reset: () 
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
+    // Runs before first paint: applies the saved theme and hides the splash
+    // on repeat visits. See lib/splash.ts.
+    scripts: [{ children: SPLASH_BOOT_SCRIPT }],
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
@@ -114,7 +119,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    // suppressHydrationWarning: the boot script sets a class and a data
+    // attribute on <html> before React hydrates, by design.
+    <html lang="en" suppressHydrationWarning>
       <head>
         <HeadContent />
       </head>
@@ -131,6 +138,7 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <Splash />
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
       <Toaster position="bottom-right" />

@@ -1,11 +1,13 @@
 import { useMemo, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { boardDateKey } from "@/lib/analytics";
+import { LOCALE } from "@/lib/format";
 import type { Opportunity } from "@/lib/sonar-types";
 import { TIER_COLOR, tierColor } from "@/lib/tierColor";
 import { cn } from "@/lib/utils";
 
 function monthLabel(d: Date) {
-  return d.toLocaleDateString("en-ZA", { month: "long", year: "numeric" });
+  return d.toLocaleDateString(LOCALE, { month: "long", year: "numeric" });
 }
 
 function startOfMonth(d: Date) {
@@ -48,7 +50,13 @@ function buildGrid(monthStart: Date) {
 const WEEKDAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
 export function EventCalendar({ opportunities }: { opportunities: Opportunity[] }) {
-  const today = useMemo(() => new Date(), []);
+  // "Today" is the board's calendar date (Johannesburg), not the machine's:
+  // the server renders in UTC, so using the host clock can highlight a
+  // different cell on the server than in the browser and trip hydration.
+  const today = useMemo(() => {
+    const [y, m, d] = boardDateKey().split("-").map(Number);
+    return new Date(y!, m! - 1, d!);
+  }, []);
   const [cursor, setCursor] = useState(() => startOfMonth(today));
 
   const byDay = useMemo(() => {

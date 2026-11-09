@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { kindLabel } from "@/lib/format";
 import { AppShell } from "@/components/AppShell";
 import { EventCalendar } from "@/components/EventCalendar";
 import { EventGlobe } from "@/components/EventGlobe";
@@ -93,7 +94,7 @@ function Radar() {
             <Reveal key={o.id} delay={Math.min(i, 6) * 50}>
               <div className="h-full bg-paper p-6">
                 <div className="flex items-center justify-between">
-                  <span className="label-caps">{o.kind}</span>
+                  <span className="label-caps">{kindLabel(o.kind)}</span>
                   <span
                     className="font-mono text-[10px] uppercase tracking-widest"
                     style={{
@@ -159,7 +160,7 @@ function Radar() {
                 <div className="col-start-2 md:col-start-3">
                   <h3 className="text-lg font-bold">{p.name}</h3>
                   <p className="text-sm text-muted-foreground">
-                    {p.organiser} · {p.kind}
+                    {p.organiser} · {kindLabel(p.kind)}
                   </p>
                   {p.note && <p className="mt-2 max-w-2xl text-sm">{p.note}</p>}
                   {p.corrected && (

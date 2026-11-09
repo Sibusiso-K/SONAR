@@ -1,0 +1,8 @@
+* text=auto eol=lf
+
+# Generated files: collapse in diffs and exclude from language stats.
+web/bun.lock            linguist-generated=true -diff
+web/src/routeTree.gen.ts linguist-generated=true
+data/opportunities.json linguist-generated=true
+calendar/*.ics          linguist-generated=true -text
+web/public/*.ico        binary

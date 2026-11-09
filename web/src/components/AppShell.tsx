@@ -97,7 +97,7 @@ export function AppShell({ children }: { children: ReactNode }) {
           that wraps. ---- */}
       <aside
         className={cn(
-          "fixed inset-y-0 right-0 z-40 flex flex-col border-l border-rule bg-background transition-transform duration-200 md:translate-x-0",
+          "vt-site-nav fixed inset-y-0 right-0 z-40 flex flex-col border-l border-rule bg-background transition-transform duration-200 md:translate-x-0",
           SIDEBAR_WIDTH,
           navOpen ? "translate-x-0" : "translate-x-full",
         )}
@@ -143,7 +143,7 @@ export function AppShell({ children }: { children: ReactNode }) {
       )}
 
       <div className="md:pr-56">
-        <header className="sticky top-0 z-20 flex items-center gap-x-4 border-b border-rule bg-background/85 px-5 py-3 backdrop-blur-md md:hidden">
+        <header className="vt-site-header sticky top-0 z-20 flex items-center gap-x-4 border-b border-rule bg-background/85 px-5 py-3 backdrop-blur-md md:hidden">
           <span className="font-display text-xl font-bold tracking-[-0.05em]">SONAR</span>
           <div className="ml-auto flex items-center gap-2">
             <ThemeToggle />
@@ -165,7 +165,7 @@ export function AppShell({ children }: { children: ReactNode }) {
           </div>
         </header>
 
-        <main>{children}</main>
+        <main className="page-enter">{children}</main>
 
         <footer className="mt-24 border-t border-rule">
           <div className="mx-auto max-w-[88rem] px-5 py-10 md:px-10">

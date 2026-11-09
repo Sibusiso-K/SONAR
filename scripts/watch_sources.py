@@ -47,6 +47,7 @@ from datetime import datetime, timezone
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import sonar_db  # noqa: E402  (reuse its PostgREST client, not reimplement it)
+from _common import safe_urlopen  # noqa: E402
 
 GROQ_URL = "https://api.groq.com/openai/v1/chat/completions"
 GROQ_KEY = os.environ.get("GROQ_API_KEY", "")
@@ -237,8 +238,8 @@ def audit_page(url: str, visible: str, hidden: str) -> list:
 
 
 def fetch(url: str) -> tuple[int, str]:
-    req = urllib.request.Request(url, headers={"User-Agent": "SONAR-watchlist/1.0"})
-    with urllib.request.urlopen(req, timeout=30) as resp:
+    req = urllib.request.Request(url, headers={"User-Agent": "SONAR-watchlist/1.0"})  # noqa: S310 - opened via safe_urlopen
+    with safe_urlopen(req, timeout=30) as resp:
         body = resp.read().decode("utf-8", errors="replace")
         return resp.status, body
 
@@ -289,7 +290,7 @@ def call_groq(url: str, page_text: str) -> tuple[list, dict, bool]:
         },
     )
     try:
-        with urllib.request.urlopen(req, timeout=60) as resp:
+        with safe_urlopen(req, timeout=60) as resp:
             body = json.loads(resp.read().decode())
     except urllib.error.HTTPError as e:
         detail = e.read().decode()[:600]
@@ -367,7 +368,7 @@ def sweep(limit=None, dry_run=False):
                     "content": page_text, "byte_size": len(page_text),
                 }], on_conflict="sha")
 
-            candidates, usage, extracted_ok = call_groq(url, page_text)
+            candidates, _usage, extracted_ok = call_groq(url, page_text)
             if not extracted_ok:
                 total_extract_failed += 1
             total_candidates += len(candidates)

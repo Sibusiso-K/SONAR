@@ -1,0 +1,29 @@
+name: New opportunity
+description: A hackathon, competition, grant, fellowship or programme we should track.
+labels: [board]
+body:
+  - type: input
+    id: name
+    attributes: { label: Name }
+    validations: { required: true }
+  - type: input
+    id: url
+    attributes:
+      label: Official page
+      description: The organiser's own page, without tracking parameters (utm_*, fbclid).
+    validations: { required: true }
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Kind
+      options: [hackathon, datathon, ml_competition, build_competition, competition, challenge, startup_competition, grant, fellowship, programme, recruiting_event, grad_programme]
+    validations: { required: true }
+  - type: input
+    id: deadline
+    attributes:
+      label: Deadline or key date, with timezone
+      description: Say "not stated" if the page does not say. Do not guess.
+  - type: textarea
+    id: notes
+    attributes:
+      label: Eligibility, prize, anything that could block us

@@ -21,7 +21,7 @@
       "reported": "From a secondary source (news/aggregator); verify before relying on it",
       "unconfirmed": "Not yet announced for 2026; based on prior-year pattern"
     },
-    "generated": "2026-11-09T09:59:57Z",
+    "generated": "2026-11-09T10:40:31Z",
     "generator": "scripts/migrate_to_opportunities.py",
     "kinds": {
       "hackathon": "Build something in a fixed window",
@@ -32,6 +32,10 @@
       "competition": "Structured multi-round contest",
       "grad_programme": "Graduate hiring programme with a build component",
       "recruiting_event": "The event is the interview",
+      "startup_competition": "Pitch or demo for a startup, judged as a business",
+      "grant": "Funding or seed capital with no equity taken",
+      "fellowship": "A paid or funded role or placement, usually 6 to 12 months",
+      "programme": "A structured training or employment programme, not a contest",
       "accelerator": "Funding + programme",
       "bursary": "Study funding"
     },
@@ -1359,7 +1363,7 @@
       "format": "online",
       "location": "Zindi",
       "status": "past",
-      "tier": 2,
+      "tier": 3,
       "score": 5.6,
       "scores": {
         "career_leverage": 5,
@@ -1387,7 +1391,7 @@
       "links": {
         "competition": "https://zindi.world/competitions/road-barbados-historic-handwriting-challenge"
       },
-      "notes": "Found in the 25 Aug 2026 sweep. This was invisible to the board for seven weeks because Zindi was carried as a single dateless 'rolling' placeholder rather than as the individual dated competitions it actually runs: it went live 3 July. Field at time of discovery: 1397 joined, 374 active, which is a real field but not the Kaggle-grandmaster wall that RSNA is, hence winnability 4 against RSNA's 3. TIMING WARNING: the 5 Oct close sits four days after the mandatory Mintek final hacking day (1 Oct) and the Mintek SCI Conference (2 Oct), and five days after Shipaton (30 Sept). The last week of this competition falls inside the worst crunch on the calendar. Either start early and freeze before 29 Sept, or do not start. SWEEP 4 Oct 2026: closes tomorrow (5 Oct) with no entry on record. Zindi now renders only its site shell to signed-out visitors (list and competition pages alike), so the page couldn't be rechecked; moves to past after the close unless an entry exists. WEEKLY SWEEP 11 Oct 2026: closed 5 Oct with no entry on record, so it moves to past. Zindi still renders only its site shell to signed-out visitors, so the close could not be confirmed on the page.",
+      "notes": "Found in the 25 Aug 2026 sweep. This was invisible to the board for seven weeks because Zindi was carried as a single dateless 'rolling' placeholder rather than as the individual dated competitions it actually runs: it went live 3 July. Field at time of discovery: 1397 joined, 374 active, which is a real field but not the Kaggle-grandmaster wall that RSNA is, hence winnability 4 against RSNA's 3. TIMING WARNING: the 5 Oct close sits four days after the mandatory Mintek final hacking day (1 Oct) and the Mintek SCI Conference (2 Oct), and five days after Shipaton (30 Sept). The last week of this competition falls inside the worst crunch on the calendar. Either start early and freeze before 29 Sept, or do not start. SWEEP 4 Oct 2026: closes tomorrow (5 Oct) with no entry on record. Zindi now renders only its site shell to signed-out visitors (list and competition pages alike), so the page couldn't be rechecked; moves to past after the close unless an entry exists. WEEKLY SWEEP 11 Oct 2026: closed 5 Oct with no entry on record, so it moves to past. Zindi still renders only its site shell to signed-out visitors, so the close could not be confirmed on the page. TIER CORRECTED 9 Nov 2026: stored tier 2 did not match score 5.6 (tier 3 is below 6.0 per CONTRIBUTING.md).",
       "kind": "ml_competition",
       "career_track": "adjacent",
       "next_date": null,
@@ -1912,6 +1916,7 @@
       "name": "micro1 Eval Hackathon",
       "organiser": "micro1 (sponsor and organiser), hosted on HackerRank",
       "scope": "international",
+      "kind": "competition",
       "format": "online",
       "location": "Virtual (HackerRank event page)",
       "status": "past",
@@ -1966,7 +1971,6 @@
         "rules": "https://www.micro1.ai/hackathon/agreement"
       },
       "notes": "Dates, prize split and judging come from search results quoting the organiser's FAQ, the HackerRank page and micro1's X posts. None of those pages could be opened from the sandbox (DNS failure on hackerrank.com and micro1.ai, 19 Oct 2026), so confidence is reported, not confirmed. DATE CONFLICT: the FAQ (via search) says the challenge opens Fri 23 Oct 2026 12:00 PT and submissions close Mon 2 Nov 2026 09:00 PT, but a micro1 X post says kickoff is 30 Oct and the HackerRank page is quoted as closing registration 30 Oct 07:00 GMT. The X post also says '9 days', and 23 Oct to 2 Nov is 10. Treat 2 Nov 09:00 PT (19:00 SAST) as the working deadline until the page is read. Stored without the LinkedIn tracking parameters (utm_*). Do not confuse it with micro1's earlier Frontier Engineering Challenge (28-31 Aug 2026, HackerEarth), which was a coding-agent event. The earlier event promised paid micro1 opportunities to the top 50; nothing found says this one does, so the career-leverage score of 6 is a guess. It fits the team's ML and multi-agent evidence, and a good eval is a strong portfolio piece. Needs a domain where expert judgment is real, so pick one before the 23rd. STATUS 9 Nov 2026: past. Submissions closed 2 Nov on the FAQ's reading (30 Oct on the other), and no registration is on record here.",
-      "kind": "hackathon",
       "career_track": "none",
       "next_date": null,
       "next_date_label": null,
@@ -1987,6 +1991,7 @@
       "name": "Gates Foundation AI Fellow, Africa Regional Offices (12 months)",
       "organiser": "Gates Foundation",
       "scope": "continental",
+      "kind": "fellowship",
       "location": "Johannesburg, Abuja, Addis Ababa or Nairobi",
       "status": "closing",
       "tier": 2,
@@ -2011,7 +2016,6 @@
         "aggregator": "https://opportunitiesforyouth.org/2026/11/03/gates-foundation-ai-fellowship-2026-apply-for-a-12-month-ai-fellow-position-in-africa-deadline-november-11/"
       },
       "notes": "TWO DAYS LEFT as of 9 Nov 2026. The posting sits on the foundation's Workday portal; I could not open it, so everything here is from a job-board copy and aggregators (reported, not confirmed). Pay is unconfirmed for Africa: the 2025 programme paid $148,920-$162,350, which may not apply here. Decide today whether you want a year-long role; if yes, read the real posting first.",
-      "kind": "hackathon",
       "career_track": "none",
       "next_date": "2026-11-11",
       "next_date_label": "application deadline",
@@ -2032,6 +2036,7 @@
       "name": "Samsung Software Development Programme 2027 (Tshimologong, Wits)",
       "organiser": "Tshimologong Digital Innovation Precinct (Wits University) with Samsung",
       "scope": "local",
+      "kind": "programme",
       "format": "in-person",
       "location": "Braamfontein, Johannesburg",
       "status": "open",
@@ -2056,7 +2061,6 @@
         "main": "https://www.opportunitiesforafricans.com/?p=103140"
       },
       "notes": "Aggregator copy only; the Tshimologong and Samsung pages were not found or read, so confirm the deadline and stipend there. No stipend figure found, so the prize score of 3 is a guess. A career move, not a competition: worth it only if you want a structured year at a team.",
-      "kind": "hackathon",
       "career_track": "none",
       "next_date": "2026-11-22",
       "next_date_label": "application deadline",
@@ -2077,6 +2081,7 @@
       "name": "SiGMA Africa Pitch 2027",
       "organiser": "SiGMA",
       "scope": "continental",
+      "kind": "startup_competition",
       "format": "in-person",
       "location": "GrandWest, Cape Town",
       "status": "open",
@@ -2118,7 +2123,6 @@
         "aggregator": "https://www.techinafrica.com/sigma-opens-2027-africa-startup-pitch-applications/"
       },
       "notes": "Dates and terms come from search results quoting the organiser and press; the SiGMA page itself was not read. The only prize found is a marketing package, with no cash figure. Sector fit is the weak point: iGaming and blockchain are SiGMA's core, so Stokup or Bizplus-sa (fintech-adjacent) is a better pitch than the agent work. In Cape Town, so there is no travel subsidy.",
-      "kind": "hackathon",
       "career_track": "none",
       "next_date": "2027-01-06",
       "next_date_label": "application deadline",
@@ -2139,6 +2143,7 @@
       "name": "Tony Elumelu Foundation Entrepreneurship Programme 2027",
       "organiser": "Tony Elumelu Foundation",
       "scope": "continental",
+      "kind": "grant",
       "format": "online",
       "location": "Pan-African",
       "status": "monitor",
@@ -2172,7 +2177,6 @@
         "main": "https://www.tonyelumelufoundation.org/"
       },
       "notes": "WATCH WINDOW: check from 1 Jan 2027. Dates are extrapolated from prior cycles (unconfirmed), and the $5,000 figure is from 2026 coverage. Nothing to do until the portal opens, except have the Stokup or Bizplus-sa business story and numbers ready.",
-      "kind": "hackathon",
       "career_track": "none",
       "next_date": null,
       "next_date_label": null,
@@ -2193,6 +2197,7 @@
       "name": "Anthropic Fellows Program (January 2027 cohort)",
       "organiser": "Anthropic",
       "scope": "international",
+      "kind": "fellowship",
       "location": "Not confirmed",
       "status": "verify",
       "tier": 3,
@@ -2215,7 +2220,6 @@
         "main": "https://www.extern.com/post/anthropic-fellows-program-guide"
       },
       "notes": "SECONDHAND ONLY: every detail comes from a third-party guide and search snippets; the official programme page was not read. Reported pay is $3,850 a week plus about $15,000 a month in compute: treat as unverified. Also found: Anthropic STEM and Conceptual Reasoning Fellowships (4 months from Jan 2027), aimed at scientists, philosophers and policy people, not developers, so not added. MATS Winter 2027 closed 31 Oct; next window expected March 2027 (matsprogram.org/apply).",
-      "kind": "hackathon",
       "career_track": "none",
       "next_date": null,
       "next_date_label": null,
@@ -2236,6 +2240,7 @@
       "name": "Kiroween 2026 (Kiro Hackathon)",
       "organiser": "Kiro / AWS, hosted on Devpost",
       "scope": "international",
+      "kind": "hackathon",
       "format": "online",
       "location": "Online (Devpost)",
       "status": "open",
@@ -2286,7 +2291,6 @@
         "main": "https://kiroween.devpost.com/"
       },
       "notes": "Dates and prize come from search results (aggregators plus a Kiro community page); the Devpost page and rules were not read. The 2025 edition ran to 5 Dec 2025, so do not mix up years. The event exists to promote Kiro, so expect the rules to require building with it. Request the 4,000 free Kiro credits before 1 Dec. Last day to submit is 4 Dec 14:00 PT, which is midnight SAST: aim to submit on the 3rd.",
-      "kind": "hackathon",
       "career_track": "none",
       "next_date": "2026-12-04",
       "next_date_label": "submission deadline",
@@ -2307,6 +2311,7 @@
       "name": "Atlassian Codegeist 2026",
       "organiser": "Atlassian, hosted on Devpost",
       "scope": "international",
+      "kind": "hackathon",
       "format": "online",
       "location": "Online (Devpost)",
       "status": "verify",
@@ -2321,7 +2326,6 @@
         "main": "https://codegeist2026.devpost.com/"
       },
       "notes": "UNSCORED. Nothing about the 2026 edition turned up in search: only 2020-2025 pages. The 2025 edition's prize pool is reported inconsistently ($120,000 on one page, $170,000 and $300,000 on others, years unclear), so no figure is recorded. If the 2026 cycle follows 2025, the deadline falls in late December. To finish: read codegeist2026.devpost.com in a browser, then add dates, prizes, rules and a score.",
-      "kind": "hackathon",
       "career_track": "none",
       "next_date": null,
       "next_date_label": null,
@@ -2342,6 +2346,7 @@
       "name": "AWS MSP AI Hackathon 2026",
       "organiser": "AWS, hosted on Devpost",
       "scope": "international",
+      "kind": "hackathon",
       "format": "online",
       "location": "Online (Devpost)",
       "status": "verify",
@@ -2401,7 +2406,6 @@
         "main": "https://aws-agentic-msp.devpost.com/"
       },
       "notes": "Details come from two aggregators listing 'AWS MSP AI Hackathon 2026'; mapping that to your aws-agentic-msp link is an inference from the name. The Devpost page and rules were not read. Scores are low mainly because of the probable partner-only eligibility; if that is wrong, the $64,000 pool and a short build make it worth a second look.",
-      "kind": "hackathon",
       "career_track": "none",
       "next_date": "2026-12-11",
       "next_date_label": "submission deadline",
@@ -2422,6 +2426,7 @@
       "name": "Colleague Zero (Melsoft Academy 24-hour Hackathon)",
       "organiser": "Melsoft Academy; partner workshop by GDG Pretoria and Alis Exchange",
       "scope": "local",
+      "kind": "hackathon",
       "status": "registered",
       "lifecycle": "committed",
       "dates": {
@@ -2475,7 +2480,6 @@
           }
         ]
       },
-      "kind": "hackathon",
       "career_track": "none",
       "next_date": "2026-11-13",
       "next_date_label": "event start",
@@ -2495,6 +2499,7 @@
       "name": "Microsoft Imagine Cup 2027",
       "organiser": "Microsoft",
       "scope": "international",
+      "kind": "startup_competition",
       "format": "online",
       "location": "Online",
       "status": "open",
@@ -2527,7 +2532,6 @@
         "main": "https://imaginecup.microsoft.com/en-us"
       },
       "notes": "Prize figures are inconsistent across sources (a top award reported as $25,000 cash plus $250,000 in startup credits, another listing a $250,000 first prize and $1,000,000 cash-and-credit structure), so no pool is recorded. Nothing here was read from Microsoft's own site. Read the 2027 official rules before registering; eligibility is the deciding question.",
-      "kind": "hackathon",
       "career_track": "none",
       "next_date": "2027-02-28",
       "next_date_label": "submission deadline",

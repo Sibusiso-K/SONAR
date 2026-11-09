@@ -17,6 +17,8 @@ import os
 import sys
 from datetime import date, datetime, timezone
 
+from _common import today_sast
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC = os.path.join(ROOT, "data", "hackathons.json")
 OUT = os.path.join(ROOT, "data", "opportunities.json")
@@ -91,7 +93,7 @@ def parse_day(value):
 
 def next_date(entry):
     """Soonest meaningful upcoming date, as (label, iso)."""
-    today = date.today()
+    today = today_sast()
     best = None
     for key in DEADLINE_KEYS:
         d = parse_day(entry.get("dates", {}).get(key))
@@ -104,7 +106,7 @@ def main():
     with open(SRC, encoding="utf-8") as fh:
         src = json.load(fh)
 
-    today = date.today()
+    today = today_sast()
     out_items = []
 
     # `score` is derived: it is the weighted sum of `scores` using
@@ -144,7 +146,9 @@ def main():
         item = dict(h)  # carry every v1 field through untouched
         oid = h["id"]
 
-        item["kind"] = KIND.get(oid, "hackathon")
+        # An entry states its own kind; the table above is only the fallback for
+        # entries written before `kind` existed in the source data.
+        item["kind"] = h.get("kind") or KIND.get(oid, "hackathon")
         item["career_track"] = CAREER_TRACK.get(oid, "none")
 
         label, iso = next_date(h)
@@ -234,6 +238,10 @@ def main():
                 "competition": "Structured multi-round contest",
                 "grad_programme": "Graduate hiring programme with a build component",
                 "recruiting_event": "The event is the interview",
+                "startup_competition": "Pitch or demo for a startup, judged as a business",
+                "grant": "Funding or seed capital with no equity taken",
+                "fellowship": "A paid or funded role or placement, usually 6 to 12 months",
+                "programme": "A structured training or employment programme, not a contest",
                 "accelerator": "Funding + programme",
                 "bursary": "Study funding",
             },

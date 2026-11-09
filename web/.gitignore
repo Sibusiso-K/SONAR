@@ -36,3 +36,9 @@ package-lock.json
 *.njsproj
 *.sln
 *.sw?
+
+# e2e
+e2e/.generated/
+test-results/
+playwright-report/
+coverage/

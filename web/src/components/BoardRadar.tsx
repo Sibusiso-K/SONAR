@@ -1,4 +1,5 @@
 import { useMemo, useRef, useState } from "react";
+import { kindLabel } from "@/lib/format";
 import type { PointerEvent as ReactPointerEvent } from "react";
 import type { Opportunity } from "@/lib/sonar-types";
 import { clamp, daysUntil, formatMoney, severityOf, severityToken } from "@/lib/analytics";
@@ -72,11 +73,21 @@ export function BoardRadar({ opportunities }: { opportunities: Opportunity[] }) 
   };
 
   return (
-    <div className="flex flex-col items-center">
+    // overflow-x: clip, on this wrapper and not on the 3D disc: the rotating
+    // sweep layer is a square whose bounding box reaches ~1.4x the disc width,
+    // and although clip-path hides it visually it still counts as scrollable
+    // overflow, which widened the whole page on phones. `clip` (unlike
+    // `hidden`) makes no scroll container and leaves the shadow below visible.
+    <div className="flex flex-col items-center" style={{ overflowX: "clip" }}>
       <div
         ref={containerRef}
         className="relative touch-none select-none"
-        style={{ width: SIZE, height: SIZE, perspective: 1000 }}
+        // Shrinks to fit narrow screens (page padding is 1.25rem each side).
+        style={{
+          width: `min(${SIZE}px, calc(100vw - 2.5rem))`,
+          aspectRatio: "1 / 1",
+          perspective: 1000,
+        }}
         onPointerDown={onPointerDown}
         onPointerMove={onPointerMove}
         onPointerUp={endDrag}
@@ -174,7 +185,7 @@ export function BoardRadar({ opportunities }: { opportunities: Opportunity[] }) 
           <div className="paper-panel p-4">
             <div className="flex items-center justify-between gap-3">
               <span className="label-caps" style={{ color: severityToken[severityOf(hovered.o)] }}>
-                Tier {hovered.o.tier} · {hovered.o.kind}
+                Tier {hovered.o.tier} · {kindLabel(hovered.o.kind)}
               </span>
               <span
                 className="font-mono text-xs whitespace-nowrap"

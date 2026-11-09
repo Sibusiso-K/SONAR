@@ -1,160 +1,90 @@
 # SONAR
 
-**Hackathon finder, sorter, and executor.**
-Make bread. Get a job. Win everything.
+**A shared opportunity board for two people: hackathons, competitions, grants, fellowships and programmes, scored, sourced and counted down to the deadline.**
 
-Operators: **Sibusiso K** and **Lethabo**. Two people, one board, the rest of 2026.
+[![CI](https://github.com/Sibusiso-K/SONAR/actions/workflows/ci.yml/badge.svg)](https://github.com/Sibusiso-K/SONAR/actions/workflows/ci.yml)
+[![CodeQL](https://github.com/Sibusiso-K/SONAR/actions/workflows/codeql.yml/badge.svg)](https://github.com/Sibusiso-K/SONAR/actions/workflows/codeql.yml)
 
----
+Operators: **Sibusiso K** and **Lethabo**. Live board: `sonar-two-brown.vercel.app` (private; Vercel sign-in).
 
-## Read this first, Lethabo
+SONAR exists because a good opportunity is lost the day nobody is watching for it. It keeps one verified list, ranks it with an explicit formula, says honestly how sure it is of every date, and watches for the next one.
 
-You just pulled the repo. Everything you need is here — no context transfer required.
+## How it works
 
-| You want to know | Open this |
-|---|---|
-| What we're doing this week | [`docs/PRIORITY_BOARD.md`](docs/PRIORITY_BOARD.md) |
-| September/October event preparation and readiness gates | [`docs/WAR_ROOM_PREPARATION.md`](docs/WAR_ROOM_PREPARATION.md) |
-| Repository review, findings and validation (14 September) | [`docs/REVIEW_2026-09-14.md`](docs/REVIEW_2026-09-14.md) |
-| Proposed War Room and SONAR improvements | [`docs/IMPROVEMENT_PLAN.md`](docs/IMPROVEMENT_PLAN.md) |
-| Every hackathon, full detail, machine-readable | [`data/hackathons.json`](data/hackathons.json) |
-| Every date in one place | [`docs/CALENDAR.md`](docs/CALENDAR.md) + [`calendar/sonar-2026.ics`](calendar/sonar-2026.ics) |
-| How we actually run a hackathon | [`docs/PLAYBOOK.md`](docs/PLAYBOOK.md) |
-| Who does what | [`docs/TEAM.md`](docs/TEAM.md) |
-| Where every fact came from | [`docs/SOURCES.md`](docs/SOURCES.md) |
-| How to add or update an entry | [`CONTRIBUTING.md`](CONTRIBUTING.md) |
-| Getting set up from scratch | [`docs/ONBOARDING.md`](docs/ONBOARDING.md) |
-| **Where this is going — the autonomous v2 design** | [**`docs/AUTONOMY.md`**](docs/AUTONOMY.md) |
-
-Import `calendar/sonar-2026.ics` into your Google Calendar and you have the same dates Sibusiso does.
-
----
-
-## The situation as of 14 August 2026
-
-**We are in the Mintek SCI Grad Hackathon.** The selection letter landed 14 August — R50,000 across the top three, possible vacation work at Mintek, abstract due 30 August, and a mandatory in-person final day at Randburg on 1 October. It is now the highest-scored entry on the board (8.2), because it is the only one where we already hold a place.
-
-Beyond that, three things close inside 16 days. One of them is 2 days out.
-
-```
-Aug 16  UNESCO Youth Hackathon          SUBMIT OR DROP — 2 days
-Aug 24  Africa Deep Tech Challenge      $16,500 — 10 days — PRIMARY
-Aug 27  IBM Dev Day: Bob in Action      register before this date
-Aug 28  IBM hackathon starts (to 30 Aug)
-Aug 30  Mintek abstract due             WE ARE SELECTED — R50,000 pool
-Sep 07  BCG Platinion application       HIGHEST career value on the board
-Sep 30  RevenueCat Shipaton             $700k+ pool — submit by Sep 29, see below
-Oct 01  Mintek FINAL HACKING DAY        in person, Randburg — submit by 13:00
-Oct 02  Mintek SCI Conference           mandatory — 5 finalists announced
-Oct 15  RSNA Knee (Kaggle) entry        $77,000
-Oct 16  BCG Platinion Hackathon, Johannesburg
-Nov 14  NASA Space Apps
+```mermaid
+flowchart LR
+  subgraph repo["Git repository (source of truth)"]
+    H["data/hackathons.json<br/>reviewed in a PR"] --> M["migrate_to_opportunities.py"]
+    M --> O["data/opportunities.json<br/>(generated)"]
+    E["data/calendar_events.json"] --> I["calendar/sonar-2026.ics<br/>(generated)"]
+  end
+  O -->|"sync_radar.py, nightly + on merge"| DB[("Supabase<br/>live site data")]
+  DB --> W["Web app<br/>(Vercel)"]
+  W -.->|"/ask"| G["Groq LLM"]
+  WS["watch_sources.py<br/>every 6 hours"] --> D[("Supabase<br/>discovery")]
+  D -->|"data/candidates.json"| R["A person reviews it<br/>and opens a PR"]
+  R --> H
 ```
 
-Full board with reasoning: [`docs/PRIORITY_BOARD.md`](docs/PRIORITY_BOARD.md)
+Nothing reaches the published board without passing through a reviewed diff. The scraping pipeline only ever proposes; a person decides. More in [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
 
-> **Closed loose end — and the reason SONAR needs to run itself.** That empty Google Calendar named *"Discovery Gradhack -Team Sonar- 2026"* was tracking a real event: **Discovery Gradhack ran on 7 August 2026 at Discovery Place, Sandton.** 50 IT students, teams of 2–4, R12 500 per winning team member, and a permanent-employment pathway at Discovery. An earlier pass recorded this as missed — it wasn't: the team made the deadline and competed, placing **Top 6**. Correction logged 11 Aug 2026 in `data/hackathons.json`. The near-miss stands regardless of the good outcome — the only warning beforehand was a calendar nobody filled in, and discovery was late.
->
-> Moved to `dropped_or_past`. Watch set for ~August 2027. This is finding #1 in [`docs/AUTONOMY.md`](docs/AUTONOMY.md), which is the plan for making sure the *discovery-timing* gap doesn't happen twice.
+## Quick start
 
----
-
-## How things are ranked
-
-Every event gets four scores out of 10, weighted in the order Sibusiso set:
-
-| Factor | Weight | What it measures |
-|---|---|---|
-| Career leverage | 35% | Does this put us in front of people who hire? |
-| Winnability | 30% | Realistic odds for a 2-person SA team |
-| Prize | 20% | Cash and cash-equivalent value |
-| Urgency | 15% | How soon it closes |
-
-`score = 0.35·career + 0.30·winnability + 0.20·prize + 0.15·urgency`
-
-**Tier 1** (≥7.0) — clear the calendar.
-**Tier 2** (6.0–6.9) — do if capacity allows.
-**Tier 3** (<6.0) — opportunistic, or blocked on eligibility.
-
-Scores live in `data/hackathons.json` under `scores`. Argue with them in a PR, don't change them silently.
-
----
-
-## Repo layout
-
-```
-SONAR/
-├── README.md                    ← you are here
-├── CONTRIBUTING.md              ← how to add/update a hackathon
-├── data/
-│   └── hackathons.json          ← single source of truth
-├── docs/
-│   ├── ONBOARDING.md            ← start here if you just got access
-│   ├── PRIORITY_BOARD.md        ← the ranked board + reasoning
-│   ├── CALENDAR.md              ← every date, chronological
-│   ├── PLAYBOOK.md              ← how we run a hackathon weekend
-│   ├── TEAM.md                  ← roles, split, standing agreements
-│   └── SOURCES.md               ← citation for every claim
-├── calendar/
-│   └── sonar-2026.ics           ← import into Google Calendar
-├── scripts/
-│   ├── sonar.py                 ← CLI: next / list / brief / ics
-│   ├── setup-repo.sh            ← create repo + push + invite Lethabo
-│   ├── push-to-github.sh        ← push only
-│   └── requirements.txt         ← (none — stdlib only)
-├── templates/
-│   ├── hackathon-brief.md       ← fill one per event we enter
-│   ├── submission-checklist.md  ← run before every submit
-│   └── retro.md                 ← 20 minutes after every event
-└── entries/                     ← one folder per hackathon we actually enter
-    └── .gitkeep
-```
-
----
-
-## The CLI
-
-Pure Python 3, no dependencies.
+You need Python 3.10+ and [Bun](https://bun.sh) 1.4+. The scripts use only the Python standard library.
 
 ```bash
-python3 scripts/sonar.py next            # what's closing soonest
-python3 scripts/sonar.py list            # full board, ranked
-python3 scripts/sonar.py list --tier 1   # tier 1 only
-python3 scripts/sonar.py list --scope local
-python3 scripts/sonar.py brief adtc-2026 # everything about one event
-python3 scripts/sonar.py ics             # regenerate calendar/sonar-2026.ics
-python3 scripts/sonar.py stale           # entries needing re-verification
+git clone https://github.com/Sibusiso-K/SONAR && cd SONAR
+make install        # dev tools (ruff, pytest) and the web app's dependencies
+make check          # lint, type-check, unit and data tests (~15s)
+
+python3 scripts/sonar.py next      # what closes soonest
+python3 scripts/sonar.py list      # the full ranked board
 ```
 
----
+Run the site locally against your own Supabase project, or against the test fixtures:
 
-## Data confidence — read this before you trust a date
+```bash
+cd web
+cp .env.example .env               # then fill in the VITE_SUPABASE_* values
+bun run dev                        # http://localhost:8080
 
-Every date carries a `confidence` field:
+make e2e                           # browser tests; no database needed
+```
 
-- **`confirmed`** — read directly off the organiser's official page. Trust it.
-- **`reported`** — from news or an aggregator. Verify before you commit a weekend.
-- **`unconfirmed`** — 2026 edition not announced; based on last year's pattern. Do not plan around it.
+`make help` lists every task.
 
-`python3 scripts/sonar.py stale` lists everything that is not `confirmed`.
+## What is in the repo
 
----
+| Path | What it is |
+|---|---|
+| `data/hackathons.json` | **The source of truth.** Every opportunity, its scores, dates and confidence. Edit this, then run `make data`. |
+| `data/opportunities.json`, `calendar/*.ics` | Generated from the above. CI fails if they are stale. |
+| `schema/` | JSON Schema for an entry. New entries must validate. |
+| `scripts/` | The pipeline: CLI, migration, sync to the live database, source watcher, forecaster, smoke test. Standard library only. |
+| `web/` | The site: TanStack Start + React 19, Tailwind 4, Supabase client, deployed on Vercel. |
+| `supabase/`, `web/supabase/` | Database migrations for the discovery project and the live-site project. |
+| `tests/`, `web/e2e/`, `web/src/**/*.test.ts` | Python tests, browser tests, unit tests. See [docs/TESTING.md](docs/TESTING.md). |
+| `.github/workflows/` | CI, CodeQL, nightly board refresh, source watcher, migrations, post-deploy smoke test. |
+| `docs/` | Everything else. Start at [docs/README.md](docs/README.md). |
 
-## Standing rhythm
+## Adding an opportunity
 
-- **Monday 08:00** — review the board, run `sonar.py next`, check the monitoring sources in `data/hackathons.json`.
-- **Any new find** — add to `hackathons.json`, score it, PR it. Never keep it in your head.
-- **After every event** — fill `templates/retro.md` into `entries/<id>/retro.md`. Same week, while it still stings.
+1. Find it on the **organiser's own page**. Do not copy tracking parameters (`utm_*`, `fbclid`) into links.
+2. Score it: `python3 scripts/sonar.py score --career 8 --win 6 --prize 7 --urgency 9`.
+3. Add the entry to `data/hackathons.json` (copy a recent one), set `kind`, and set `dates.confidence` honestly: `confirmed`, `reported` or `unconfirmed`.
+4. Add the source to `docs/SOURCES.md`.
+5. `make data && make check`, then open a pull request.
 
----
+The full rules, the schema and the scoring weights are in [CONTRIBUTING.md](CONTRIBUTING.md). How the board is ranked and the standing weekly rhythm are in [docs/OPERATING_GUIDE.md](docs/OPERATING_GUIDE.md).
 
-## Ground rules
+## Quality gates
 
-1. **`hackathons.json` is the only source of truth.** Docs are generated from it or reference it. If they disagree, the JSON wins.
-2. **No date goes in without a link.** `docs/SOURCES.md` gets a line for every claim.
-3. **We do not enter more than two overlapping builds.** Two people. Capacity is the constraint, not ambition.
-4. **Every entry produces a reusable artefact** — a model, a component, a deploy script. Losing is fine; losing with nothing to show is not.
+Every pull request runs: Python lint and tests (including schema, calendar and generated-file freshness checks), web type-check, lint, unit tests and build, browser end-to-end tests on desktop and mobile viewports, `bandit`, `bun audit`, and CodeQL. A smoke test probes the deployed site after each production deploy.
 
----
+## Security
 
-*Last full refresh: 10 August 2026. Mintek selection applied 14 August 2026. Weekly discovery sweep 17 August 2026 — 3 new entries. Next review: 24 August 2026.*
+The site's public database key can only read the board. Writes belong to CI. Responses carry security headers, the assistant endpoint is rate-limited, and data-driven links are restricted to `http(s)`. To report a vulnerability, see [SECURITY.md](SECURITY.md). The model and the review are in [docs/SECURITY_REVIEW_2026-11-09.md](docs/SECURITY_REVIEW_2026-11-09.md).
+
+## When something breaks
+
+[docs/RUNBOOK.md](docs/RUNBOOK.md): the board is stale, the nightly refresh is red, a deploy needs rolling back, a migration needs applying, a key needs rotating.
