@@ -45,7 +45,8 @@ import urllib.error
 import urllib.parse
 import urllib.request
 import uuid
-from datetime import date, datetime, timezone
+
+from _common import safe_urlopen, today_sast
 
 # Status/error text may use non-ASCII punctuation. On Windows, stdout defaults
 # to the console codepage (cp1252), which can't encode some of it and crashes
@@ -141,7 +142,7 @@ def rest(method, path, body=None, params=None, prefer=None, fatal=True):
         url += "?" + urllib.parse.urlencode(params, safe="*.,()")
 
     data = json.dumps(body).encode() if body is not None else None
-    req = urllib.request.Request(url, data=data, method=method)
+    req = urllib.request.Request(url, data=data, method=method)  # noqa: S310 - opened via safe_urlopen
     req.add_header("apikey", KEY)
     req.add_header("Authorization", f"Bearer {KEY}")
     req.add_header("Content-Type", "application/json")
@@ -155,13 +156,13 @@ def rest(method, path, body=None, params=None, prefer=None, fatal=True):
         req.add_header("Content-Profile", SCHEMA)
 
     try:
-        with urllib.request.urlopen(req, timeout=60) as resp:
+        with safe_urlopen(req, timeout=60) as resp:
             raw = resp.read().decode()
             return json.loads(raw) if raw.strip() else []
     except urllib.error.HTTPError as e:
         detail = e.read().decode()[:600]
         if not fatal and e.code in (401, 403):
-            raise PermissionError(f"{method} {path} -> {e.code}: {detail[:200]}")
+            raise PermissionError(f"{method} {path} -> {e.code}: {detail[:200]}") from e
         sys.exit(f"Supabase {method} {path} -> {e.code}\n{detail}")
 
 
@@ -214,13 +215,42 @@ def append_only(table, rows, on_conflict="id"):
     return len(written or [])
 
 
-def delete_not_in(table, ids):
-    """Remove every row whose id isn't in `ids`. Empty `ids` deletes nothing
-    (a truncated source list is far more likely to be a bug than intent)."""
+# A sync that would remove more than this share of the live table is treated
+# as a broken source file, not an intentional clean-up.
+MAX_DELETE_FRACTION = 0.5
+# Below this many existing rows the ratio is meaningless (one removal out of
+# three is not a stampede), so small tables are not guarded.
+MIN_ROWS_FOR_GUARD = 6
+
+
+def delete_not_in(table, ids, *, max_fraction=MAX_DELETE_FRACTION):
+    """Remove every row whose id isn't in `ids`.
+
+    Two guards, because this runs against the live site's database on every
+    push and the source list comes from a generated file:
+      * empty `ids` deletes nothing (a truncated list is more likely a bug
+        than intent);
+      * if the sync would remove more than `max_fraction` of the rows that
+        exist, it stops. A half-written opportunities.json (a failed
+        migrate step, a bad merge) would otherwise delete most of the live
+        board and report success.
+    """
     if not ids:
         return
-    id_list = ",".join(f'"{i}"' for i in ids)
-    rest("DELETE", table, params={"id": f"not.in.({id_list})"})
+    existing = [r["id"] for r in (rest("GET", table, params={"select": "id"}) or [])]
+    keep = set(ids)
+    doomed = [i for i in existing if i not in keep]
+    if len(existing) >= MIN_ROWS_FOR_GUARD and len(doomed) > max_fraction * len(existing):
+        sys.exit(
+            f"refusing to delete {len(doomed)} of {len(existing)} rows from {table}: "
+            f"that is more than {max_fraction:.0%} of the table, which looks like a "
+            "truncated source file, not an intentional clean-up. "
+            "Check data/opportunities.json, then re-run."
+        )
+    if not doomed:
+        return
+    id_list = ",".join(f'"{i}"' for i in doomed)
+    rest("DELETE", table, params={"id": f"in.({id_list})"})
 
 
 # --------------------------------------------------------------------------- #
@@ -275,7 +305,9 @@ def to_radar_opportunity(o):
         # dropped/...), distinct from confidence. web/src/lib/participation.ts
         # collapses anything not in its map to "still to submit".
         "status": o.get("status"),
-        "archived": o.get("status") in ("past", "dropped"),
+        # `closed` joins `past` and `dropped`: the deadline has gone, so it must
+        # not sit on the live "open" board next to things you can still enter.
+        "archived": o.get("status") in ("past", "closed", "dropped"),
     }
 
 
@@ -425,7 +457,7 @@ def cmd_push(_args):
     # burying the real entries under a daily "Board resynced" drumbeat. The
     # counts below are therefore the first sync of the day's, which is the
     # right trade for an append-only trail - see append_only().
-    today = date.today().isoformat()
+    today = today_sast().isoformat()
     append_only(
         "updates",
         [{

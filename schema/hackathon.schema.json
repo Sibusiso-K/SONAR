@@ -3,150 +3,376 @@
   "$id": "https://github.com/Sibusiso-K/SONAR/schema/hackathon.schema.json",
   "title": "SONAR hackathon record (v2)",
   "description": "Superset of the v1 record. Every v1 field is preserved so scripts/sonar.py keeps working while v2 is built alongside. New fields carry provenance, verification state, stage/track structure and planning data. Validated in CI on every write.",
-
   "type": "object",
-  "required": ["id", "name", "organiser", "scope", "status"],
+  "required": [
+    "id",
+    "name",
+    "organiser",
+    "scope",
+    "status"
+  ],
   "additionalProperties": false,
-
   "properties": {
     "id": {
       "type": "string",
       "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
       "description": "Stable slug. Never reused, never renamed — calendar event IDs derive from it."
     },
-    "name": { "type": "string", "minLength": 3 },
-    "organiser": { "type": "string" },
-    "scope": { "enum": ["local", "continental", "international"] },
-    "format": { "enum": ["online", "in-person", "hybrid"] },
-    "location": { "type": "string" },
-
+    "name": {
+      "type": "string",
+      "minLength": 3
+    },
+    "organiser": {
+      "type": "string"
+    },
+    "scope": {
+      "enum": [
+        "local",
+        "continental",
+        "international"
+      ]
+    },
+    "kind": {
+      "enum": [
+        "hackathon",
+        "datathon",
+        "ml_competition",
+        "build_competition",
+        "competition",
+        "challenge",
+        "startup_competition",
+        "grant",
+        "fellowship",
+        "programme",
+        "recruiting_event",
+        "grad_programme",
+        "accelerator",
+        "bursary"
+      ],
+      "description": "What sort of opportunity this is. Optional: entries written before this field existed fall back to a table in scripts/migrate_to_opportunities.py (default hackathon). Set it explicitly for anything that is not a hackathon: a fellowship, a grant, a startup pitch competition."
+    },
+    "format": {
+      "enum": [
+        "online",
+        "in-person",
+        "hybrid"
+      ]
+    },
+    "location": {
+      "type": "string"
+    },
     "source": {
       "type": "string",
       "description": "How this was actually found - 'manual research', or the discovering org/feed name once the pipeline promotes something. Feeds /stats' discovery-lag-by-source chart."
     },
     "went_live_on": {
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "format": "date",
       "description": "When the organiser announced/opened this, if evidence establishes it. Null is honest for anything with no announcement-date evidence - never fabricate this."
     },
     "noticed_on": {
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "format": "date",
       "description": "When SONAR first recorded this. For the initial 2026-08-10 research sprint, backfilled from git history, not guessed."
     },
-
     "status": {
-      "enum": ["open", "closing", "monitor", "monitor-weekly", "verify", "closed",
-               "registered", "selected", "submitted", "past", "dropped"],
+      "enum": [
+        "open",
+        "closing",
+        "monitor",
+        "monitor-weekly",
+        "verify",
+        "closed",
+        "registered",
+        "selected",
+        "submitted",
+        "past",
+        "dropped"
+      ],
       "description": "Externally observable state of the competition itself. registered/selected/submitted added 2026-09-14 (docs/REVIEW_2026-09-14.md, finding 9) - they were already in live use across the board but absent from this enum, so no record with them could ever have validated against this schema."
     },
     "lifecycle": {
-      "enum": ["discovered", "triaged", "verified", "scored", "committed",
-               "submitted", "judged", "retro_done", "abandoned"],
+      "enum": [
+        "discovered",
+        "triaged",
+        "verified",
+        "scored",
+        "committed",
+        "submitted",
+        "judged",
+        "retro_done",
+        "abandoned"
+      ],
       "description": "OUR state on it. Distinct from status: a competition can be open while we have abandoned it."
     },
-
-    "tier": { "type": "integer", "minimum": 1, "maximum": 3 },
-    "score": { "type": ["number", "null"], "minimum": 0, "maximum": 10 },
+    "tier": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 3
+    },
+    "score": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0,
+      "maximum": 10
+    },
     "scores": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "career_leverage": { "type": ["number", "null"], "minimum": 0, "maximum": 10 },
-        "winnability":     { "type": ["number", "null"], "minimum": 0, "maximum": 10 },
-        "prize":           { "type": ["number", "null"], "minimum": 0, "maximum": 10 },
-        "urgency":         { "type": ["number", "null"], "minimum": 0, "maximum": 10 },
-        "effort_cost":     { "type": ["number", "null"], "minimum": 0, "maximum": 10,
-                             "description": "NEW. Higher = cheaper in hours. Prize-per-hour matters at team size 2." },
-        "reusability":     { "type": ["number", "null"], "minimum": 0, "maximum": 10,
-                             "description": "NEW. Does this produce an artefact reusable next event? (Ground Rule 4.)" },
-        "collision":       { "type": ["number", "null"], "minimum": 0, "maximum": 10,
-                             "description": "NEW. Higher = less overlap with existing commitments." },
-        "justification":   { "type": "object", "additionalProperties": { "type": "string" },
-                             "description": "One line per sub-score. Required when a model proposes a score." }
+        "career_leverage": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 10
+        },
+        "winnability": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 10
+        },
+        "prize": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 10
+        },
+        "urgency": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 10
+        },
+        "effort_cost": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 10,
+          "description": "NEW. Higher = cheaper in hours. Prize-per-hour matters at team size 2."
+        },
+        "reusability": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 10,
+          "description": "NEW. Does this produce an artefact reusable next event? (Ground Rule 4.)"
+        },
+        "collision": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 10,
+          "description": "NEW. Higher = less overlap with existing commitments."
+        },
+        "justification": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "One line per sub-score. Required when a model proposes a score."
+        }
       }
     },
-
     "dates": {
       "type": "object",
       "description": "v1 shape, retained. New work should prefer stages[] — dates{} stays for CLI compatibility.",
       "properties": {
-        "confidence": { "$ref": "#/$defs/confidence" },
-        "note": { "type": "string" }
+        "confidence": {
+          "$ref": "#/$defs/confidence"
+        },
+        "note": {
+          "type": "string"
+        }
       },
-      "additionalProperties": { "type": ["string", "null"] }
+      "additionalProperties": {
+        "type": [
+          "string",
+          "null"
+        ]
+      }
     },
-
     "stages": {
       "type": "array",
       "description": "NEW. Multi-stage competitions modelled properly. Modelling ADTC as a single deadline is why its possible stage-2 is invisible.",
       "items": {
         "type": "object",
-        "required": ["name"],
+        "required": [
+          "name"
+        ],
         "additionalProperties": false,
         "properties": {
-          "name": { "type": "string" },
-          "opens":  { "type": ["string", "null"], "format": "date-time" },
-          "closes": { "type": ["string", "null"], "format": "date-time",
-                      "description": "MUST carry an explicit offset. A deadline without a timezone is not a deadline." },
-          "closes_sast": { "type": ["string", "null"], "format": "date-time",
-                           "description": "Computed by code, never by a model." },
-          "deliverable": { "type": "string" },
-          "is_hard_cutoff": { "type": "boolean", "default": true },
-          "confidence": { "$ref": "#/$defs/confidence" }
+          "name": {
+            "type": "string"
+          },
+          "opens": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          },
+          "closes": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time",
+            "description": "MUST carry an explicit offset. A deadline without a timezone is not a deadline."
+          },
+          "closes_sast": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time",
+            "description": "Computed by code, never by a model."
+          },
+          "deliverable": {
+            "type": "string"
+          },
+          "is_hard_cutoff": {
+            "type": "boolean",
+            "default": true
+          },
+          "confidence": {
+            "$ref": "#/$defs/confidence"
+          }
         }
       }
     },
-
     "tracks": {
       "type": "array",
       "description": "NEW. Surfaced on the calendar event body — explicitly requested.",
       "items": {
         "type": "object",
-        "required": ["name"],
+        "required": [
+          "name"
+        ],
         "additionalProperties": false,
         "properties": {
-          "name": { "type": "string" },
-          "description": { "type": "string" },
-          "prize": { "type": ["number", "null"] },
-          "our_fit": { "enum": ["high", "medium", "low", "unknown"] },
-          "chosen": { "type": "boolean", "default": false }
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "prize": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "our_fit": {
+            "enum": [
+              "high",
+              "medium",
+              "low",
+              "unknown"
+            ]
+          },
+          "chosen": {
+            "type": "boolean",
+            "default": false
+          }
         }
       }
     },
-
     "challenges": {
       "type": "array",
       "description": "NEW. Problem statements / judged criteria.",
       "items": {
         "type": "object",
-        "required": ["title"],
+        "required": [
+          "title"
+        ],
         "additionalProperties": false,
         "properties": {
-          "title": { "type": "string" },
-          "statement": { "type": "string" },
-          "judging_weight": { "type": ["number", "null"], "minimum": 0, "maximum": 1 }
+          "title": {
+            "type": "string"
+          },
+          "statement": {
+            "type": "string"
+          },
+          "judging_weight": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 1
+          }
         }
       }
     },
-
     "prize": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "currency": { "type": ["string", "null"], "pattern": "^[A-Z]{3}$" },
-        "pool": { "type": ["number", "null"], "minimum": 0 },
-        "pool_disputed": { "type": ["number", "null"],
-                           "description": "NEW. Competing figure from a lower-trust source. ADTC: 16500 vs 20000." },
+        "currency": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[A-Z]{3}$"
+        },
+        "pool": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "pool_disputed": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "description": "NEW. Competing figure from a lower-trust source. ADTC: 16500 vs 20000."
+        },
         "breakdown": {
           "type": "array",
           "items": {
             "type": "object",
             "additionalProperties": false,
             "properties": {
-              "place": { "type": "string" },
-              "amount": { "type": ["number", "null"] },
-              "track": { "type": ["string", "null"] }
+              "place": {
+                "type": "string"
+              },
+              "amount": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "track": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
             }
           }
         },
@@ -155,87 +381,247 @@
           "description": "NEW. Structured, not prose. ADTC's 6-month residency is material and currently uncaptured.",
           "items": {
             "type": "object",
-            "required": ["type"],
+            "required": [
+              "type"
+            ],
             "additionalProperties": false,
             "properties": {
-              "type": { "enum": ["compute_credits", "hardware", "residency", "interview",
-                                 "conference_pass", "travel", "mentorship", "publicity", "other"] },
-              "value_est": { "type": ["number", "null"] },
-              "description": { "type": "string" }
+              "type": {
+                "enum": [
+                  "compute_credits",
+                  "hardware",
+                  "residency",
+                  "interview",
+                  "conference_pass",
+                  "travel",
+                  "mentorship",
+                  "publicity",
+                  "other"
+                ]
+              },
+              "value_est": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "description": {
+                "type": "string"
+              }
             }
           }
         },
-        "zar_equivalent": { "type": ["number", "null"] },
-        "fx_rate_date": { "type": ["string", "null"], "format": "date" }
+        "zar_equivalent": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "fx_rate_date": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date"
+        }
       }
     },
-
-    "eligibility": { "type": "string", "description": "v1 prose. Kept for humans." },
+    "eligibility": {
+      "type": "string",
+      "description": "v1 prose. Kept for humans."
+    },
     "eligibility_check": {
       "type": "object",
       "description": "NEW. Machine-checkable. The GovTech EME/SMME requirement is the kind of trap this catches before a weekend is spent.",
       "additionalProperties": false,
       "properties": {
-        "age_range": { "type": ["array", "null"], "items": { "type": "integer" }, "minItems": 2, "maxItems": 2 },
-        "nationality": { "type": "array", "items": { "type": "string" } },
-        "student_required": { "type": ["boolean", "null"] },
-        "team_size": { "type": ["array", "null"], "items": { "type": "integer" }, "minItems": 2, "maxItems": 2 },
-        "entity_required": { "type": ["string", "null"],
-                             "description": "e.g. 'registered EME or SMME'. null = individuals may enter." },
-        "we_qualify": { "type": ["boolean", "null"] },
-        "blockers": { "type": "array", "items": { "type": "string" } }
+        "age_range": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "integer"
+          },
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "nationality": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "student_required": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "team_size": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "integer"
+          },
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "entity_required": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "e.g. 'registered EME or SMME'. null = individuals may enter."
+        },
+        "we_qualify": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "blockers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
       }
     },
-
-    "team_fit": { "type": "string" },
-    "what_to_build": { "type": "string" },
-    "scoring_formula": { "type": "string" },
-    "deliverables": { "type": "array", "items": { "type": "string" } },
-    "links": { "type": "object", "additionalProperties": { "type": "string", "format": "uri" } },
-    "notes": { "type": "string" },
-    "effort_estimate_hours": { "type": ["number", "null"], "minimum": 0 },
-
+    "team_fit": {
+      "type": "string"
+    },
+    "what_to_build": {
+      "type": "string"
+    },
+    "scoring_formula": {
+      "type": "string"
+    },
+    "deliverables": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "links": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "format": "uri"
+      }
+    },
+    "notes": {
+      "type": "string"
+    },
+    "effort_estimate_hours": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0
+    },
     "evidence": {
       "type": "array",
       "description": "NEW. The anti-hallucination backbone. One entry per extracted field. quoted_span MUST appear verbatim in the stored snapshot or the extraction is rejected outright.",
       "items": {
         "type": "object",
-        "required": ["field", "quoted_span", "source_url", "snapshot_sha", "extracted_at"],
+        "required": [
+          "field",
+          "quoted_span",
+          "source_url",
+          "snapshot_sha",
+          "extracted_at"
+        ],
         "additionalProperties": false,
         "properties": {
-          "field": { "type": "string", "description": "JSON pointer, e.g. /stages/0/closes" },
+          "field": {
+            "type": "string",
+            "description": "JSON pointer, e.g. /stages/0/closes"
+          },
           "value": {},
-          "quoted_span": { "type": "string", "minLength": 1 },
-          "source_url": { "type": "string", "format": "uri" },
-          "source_trust": { "$ref": "#/$defs/sourceTrust" },
-          "snapshot_sha": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
-          "extracted_at": { "type": "string", "format": "date-time" },
-          "model": { "type": "string" }
+          "quoted_span": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "source_trust": {
+            "$ref": "#/$defs/sourceTrust"
+          },
+          "snapshot_sha": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "extracted_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "model": {
+            "type": "string"
+          }
         }
       }
     },
-
     "verification": {
       "type": "object",
       "description": "NEW. Confidence is COMPUTED from evidence, never asserted by a model.",
-      "required": ["status"],
+      "required": [
+        "status"
+      ],
       "additionalProperties": false,
       "properties": {
-        "status": { "$ref": "#/$defs/confidence" },
-        "last_checked": { "type": ["string", "null"], "format": "date-time" },
-        "next_check": { "type": ["string", "null"], "format": "date-time" },
-        "check_interval_hours": { "type": ["number", "null"], "minimum": 1,
-                                  "description": "Shrinks as the deadline nears. See AUTONOMY.md 6.4." },
-        "corroborating_sources": { "type": "integer", "minimum": 0 },
-        "gates_passed": { "type": "array", "items": { "type": "string" } },
+        "status": {
+          "$ref": "#/$defs/confidence"
+        },
+        "last_checked": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "next_check": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "check_interval_hours": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 1,
+          "description": "Shrinks as the deadline nears. See AUTONOMY.md 6.4."
+        },
+        "corroborating_sources": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "gates_passed": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
         "conflicts": {
           "type": "array",
           "items": {
             "type": "object",
-            "required": ["field", "values"],
+            "required": [
+              "field",
+              "values"
+            ],
             "additionalProperties": false,
             "properties": {
-              "field": { "type": "string" },
+              "field": {
+                "type": "string"
+              },
               "values": {
                 "type": "array",
                 "items": {
@@ -243,93 +629,215 @@
                   "additionalProperties": false,
                   "properties": {
                     "v": {},
-                    "src": { "type": "string" },
-                    "trust": { "type": "integer", "minimum": 1, "maximum": 6 }
+                    "src": {
+                      "type": "string"
+                    },
+                    "trust": {
+                      "type": "integer",
+                      "minimum": 1,
+                      "maximum": 6
+                    }
                   }
                 }
               },
-              "resolution": { "type": ["string", "null"] },
-              "rule": { "type": ["string", "null"], "description": "Which precedence rule decided it, or the model's justification." },
-              "adjudicated_by": { "type": ["string", "null"] },
-              "human_ack": { "type": "boolean", "default": false }
+              "resolution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "rule": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "description": "Which precedence rule decided it, or the model's justification."
+              },
+              "adjudicated_by": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "human_ack": {
+                "type": "boolean",
+                "default": false
+              }
             }
           }
         }
       }
     },
-
     "prep_plan": {
       "type": "array",
       "description": "NEW. Generated backward from the deadline. Rescheduled automatically if a date moves.",
       "items": {
         "type": "object",
-        "required": ["block"],
+        "required": [
+          "block"
+        ],
         "additionalProperties": false,
         "properties": {
-          "block": { "type": "string" },
-          "starts": { "type": ["string", "null"], "format": "date-time" },
-          "ends": { "type": ["string", "null"], "format": "date-time" },
-          "hours": { "type": ["number", "null"] },
-          "owner": { "enum": ["sibusiso", "lethabo", "both", "unassigned"] },
-          "is_buffer": { "type": "boolean", "default": false,
-                         "description": "T-1 buffer. Ground Rule 6: submit a day early. The planner never fills these." }
+          "block": {
+            "type": "string"
+          },
+          "starts": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          },
+          "ends": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          },
+          "hours": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "owner": {
+            "enum": [
+              "sibusiso",
+              "lethabo",
+              "both",
+              "unassigned"
+            ]
+          },
+          "is_buffer": {
+            "type": "boolean",
+            "default": false,
+            "description": "T-1 buffer. Ground Rule 6: submit a day early. The planner never fills these."
+          }
         }
       }
     },
-
     "calendar_sync": {
       "type": "object",
       "description": "NEW. Deterministic event IDs make re-sync idempotent — no duplicate events on re-run.",
       "additionalProperties": false,
       "properties": {
-        "events": { "type": "object", "additionalProperties": true },
-        "last_synced": { "type": ["string", "null"], "format": "date-time" },
-        "drift_detected": { "type": "boolean", "default": false,
-                            "description": "A human hand-edited a SONAR event. Ask before overwriting." }
+        "events": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "last_synced": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "drift_detected": {
+          "type": "boolean",
+          "default": false,
+          "description": "A human hand-edited a SONAR event. Ask before overwriting."
+        }
       }
     },
-
     "history": {
       "type": "array",
       "description": "NEW. Prior editions. Powers prediction of unannounced editions (AUTONOMY.md 7.4) — the direct fix for missing Discovery Gradhack.",
       "items": {
         "type": "object",
-        "required": ["year"],
+        "required": [
+          "year"
+        ],
         "additionalProperties": false,
         "properties": {
-          "year": { "type": "integer" },
-          "announced_on": { "type": ["string", "null"], "format": "date" },
-          "event_start": { "type": ["string", "null"], "format": "date" },
-          "prize_pool": { "type": ["number", "null"] },
-          "winner_profile": { "type": "string" },
-          "source": { "type": ["string", "null"], "format": "uri" }
+          "year": {
+            "type": "integer"
+          },
+          "announced_on": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date"
+          },
+          "event_start": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date"
+          },
+          "prize_pool": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "winner_profile": {
+            "type": "string"
+          },
+          "source": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "uri"
+          }
         }
       }
     },
-
     "monitoring": {
       "type": "object",
       "description": "NEW. Per-entry source watch config, overriding the global registry.",
       "additionalProperties": false,
       "properties": {
-        "watch_urls": { "type": "array", "items": { "type": "string", "format": "uri" } },
-        "watch_orgs": { "type": "array", "items": { "type": "string" } },
+        "watch_urls": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "watch_orgs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
         "predicted_window": {
-          "type": ["object", "null"],
+          "type": [
+            "object",
+            "null"
+          ],
           "additionalProperties": false,
           "properties": {
-            "earliest": { "type": "string", "format": "date" },
-            "latest": { "type": "string", "format": "date" },
-            "basis": { "type": "string", "description": "e.g. 'ran Aug 2023, Aug 2024, 7 Aug 2026'" }
+            "earliest": {
+              "type": "string",
+              "format": "date"
+            },
+            "latest": {
+              "type": "string",
+              "format": "date"
+            },
+            "basis": {
+              "type": "string",
+              "description": "e.g. 'ran Aug 2023, Aug 2024, 7 Aug 2026'"
+            }
           }
         }
       }
     }
   },
-
   "$defs": {
     "confidence": {
-      "enum": ["confirmed", "corroborated", "reported", "unconfirmed", "predicted", "conflicted"],
+      "enum": [
+        "confirmed",
+        "corroborated",
+        "reported",
+        "unconfirmed",
+        "predicted",
+        "conflicted"
+      ],
       "description": "confirmed = rank-1 source, span-verified, all gates pass. corroborated = 2+ independent sources at rank<=4. reported = single rank 3-5. unconfirmed = rank 6 or organiser silent. predicted = extrapolated from history[], no source. conflicted = sources disagree. ONLY confirmed and corroborated may reach a committed calendar."
     },
     "sourceTrust": {
