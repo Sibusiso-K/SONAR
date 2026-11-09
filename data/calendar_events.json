@@ -121,6 +121,16 @@
 
     {"id": "imagine-cup-early-check", "kind": "admin", "summary": "Imagine Cup 2027: confirm the real deadline (8 Jan vs 28 Feb) and eligibility", "start": "2026-12-14T09:00", "end": "2026-12-14T09:30", "reminders": [1440], "description": "Sources conflict on the deadline and on whether startups can enter. Read the official rules at https://imaginecup.microsoft.com/en-us before 8 Jan."},
 
+    {"id": "melsoft-workshop", "kind": "prep", "summary": "Melsoft prep: GDG Pretoria x Alis Exchange agent workshop (online)", "start": "2026-11-11T18:00", "end": "2026-11-11T21:00", "reminders": [1440, 60], "description": "Accelerating Agent Deployment on Google Cloud with the AlisX Platform: Go, Google's Agent Development Kit, Cloud Run. Registration is required and space is limited: use the link in the Melsoft email. Optional but directly relevant to Colleague Zero."},
+
+    {"id": "melsoft-day1", "kind": "event", "summary": "Colleague Zero Day 1 (online): kickoff 09:00, pitches 12:00, dev 14:00", "start": "2026-11-13T09:00", "end": "2026-11-13T23:59", "reminders": [1440, 60], "description": "09:00 opening, 09:30 team setup, 10:00 ideation and planning, 12:00 idea pitches, 14:00 development, 20:00 progress updates, 21:00 continued hacking. A kickoff email follows before 09:00. Team SONAR, 2 people. https://hackathon-26.melsoft.org/"},
+
+    {"id": "melsoft-loom-deadline", "kind": "deadline", "summary": "DEADLINE: Colleague Zero Loom progress report (midnight)", "start": "2026-11-13T23:00", "end": "2026-11-13T23:59", "reminders": [180, 60], "description": "Loom progress reports due at midnight Friday 13 Nov. Record it before 22:00, not at 23:55."},
+
+    {"id": "melsoft-day2", "kind": "event", "summary": "Colleague Zero Day 2 (in person): WeWork The Link, Rosebank", "start": "2026-11-14T09:00", "end": "2026-11-14T14:00", "reminders": [1440, 120], "description": "WeWork The Link, 173 Oxford Rd, Rosebank, Johannesburg, 2196. 09:00 arrival and check-in, 09:15 deployment and testing, 11:00 submission, 12:00 final presentations, 13:00 deliberation, 14:00 winner (R10,000). CLASHES with NASA Space Apps (14-15 Nov)."},
+
+    {"id": "melsoft-submission-deadline", "kind": "deadline", "summary": "DEADLINE: Colleague Zero project submission (11:00)", "start": "2026-11-14T10:30", "end": "2026-11-14T11:00", "reminders": [60], "description": "Project submission at 11:00 Saturday 14 Nov. Deploy and test from 09:15; do not leave it to 10:59."},
+
     { "id": "sonar-2027-planning", "kind": "review", "summary": "SONAR: full-year retro + build the 2027 board", "start": "2026-12-14T09:00", "end": "2026-12-14T12:00", "reminders": [10080, 1440], "description": "Retro on every entry. Then diarise the 2027 cycle now:\n- ITWeb Security Summit Hackathon — registration ~Feb, event ~June\n- MICT SETA National Skills Challenge — ~March\n- Entelect University Cup — ~April\n- Monkey and River Hackathon — ~July\n- Mintek-SCi Grad Hackathon — applications ~15 July\n- Geekulcha Annual — ~Sept/Oct\n- Huawei ICT Competition — registration ~Sept" }
   ]
 }

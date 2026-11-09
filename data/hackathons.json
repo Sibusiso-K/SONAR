@@ -1908,23 +1908,62 @@
       "noticed_on": "2026-11-09",
       "went_live_on": null,
       "source": "user-supplied link, 9 Nov 2026",
-      "name": "Melsoft Hackathon 2026",
-      "organiser": "Melsoft",
+      "name": "Colleague Zero (Melsoft Academy 24-hour Hackathon)",
+      "organiser": "Melsoft Academy; partner workshop by GDG Pretoria and Alis Exchange",
       "scope": "local",
       "status": "registered",
       "lifecycle": "committed",
       "dates": {
-        "confidence": "unconfirmed",
-        "note": "Registered by Sibusiso (reported 9 Nov 2026). Dates, format and prize not found in any public source."
+        "workshop": "2026-11-11T18:00:00+02:00",
+        "event_start": "2026-11-13T09:00:00+02:00",
+        "ideation": "2026-11-13T10:00:00+02:00",
+        "idea_pitches": "2026-11-13T12:00:00+02:00",
+        "development_start": "2026-11-13T14:00:00+02:00",
+        "progress_updates": "2026-11-13T20:00:00+02:00",
+        "loom_report_due": "2026-11-13T23:59:00+02:00",
+        "arrival": "2026-11-14T09:00:00+02:00",
+        "deployment_and_testing": "2026-11-14T09:15:00+02:00",
+        "submission_deadline": "2026-11-14T11:00:00+02:00",
+        "final_presentations": "2026-11-14T12:00:00+02:00",
+        "winner_announced": "2026-11-14T14:00:00+02:00",
+        "confidence": "confirmed",
+        "note": "From Melsoft Academy's own confirmation email to Sibusiso, received 9 Nov 2026. Times are SAST. A kickoff email follows before 09:00 on 13 Nov."
       },
-      "eligibility": "Not found.",
-      "team_fit": "Registered; team details not recorded.",
-      "what_to_build": "Not found.",
-      "deliverables": [],
+      "eligibility": "Entered as team SONAR, 2 people, confirmed by the organiser. Other eligibility rules not stated in the email.",
+      "team_fit": "Strong: multi-agent workflows is the team's primary demonstrated domain (Agent-Guardian, immunis-acin, apex-trading-organism). Team of 2 accepted.",
+      "what_to_build": "A 'digital colleague' for multi-agent workflows. Our idea as entered: an autonomous digital colleague that turns ambiguous educational goals into precise workflows via adaptive prompt engineering and context management, assembling specialised agent swarms orchestrated through execution graphs and persistent memory to research, plan, execute, verify, self-correct and deliver educational tasks (lesson prep, assessment, personalised learner support) with transparent evidence and human oversight. The idea can be changed on the day.",
+      "deliverables": [
+        "Idea pitch (Fri 12:00)",
+        "Loom progress report (due midnight Fri 13 Nov)",
+        "Deployed, tested project (Sat 09:15)",
+        "Project submission (Sat 11:00)",
+        "Final presentation (Sat 12:00)"
+      ],
       "links": {
         "main": "https://hackathon-26.melsoft.org/"
       },
-      "notes": "REGISTERED. Searching for the event found nothing, and the page could not be read from this environment. Scope 'local' is assumed from the organiser's South African profile, not confirmed. Add the event date, venue or format, prize and submission rules from the registration confirmation email, then score it and add its dates to the calendar."
+      "notes": "REGISTERED AND CONFIRMED. 24 hours, Fri 13 Nov (online) to Sat 14 Nov (in person, Rosebank). Winner R10,000. Scores are our opinion: the prize is small (about US$550), so the 2 on prize and 5 on career (Melsoft is a South African software firm; no hiring link stated) pull it into tier 3 despite the strong fit and a 10 on urgency. Optional prep: GDG Pretoria x Alis Exchange workshop 'Accelerating Agent Deployment on Google Cloud with the AlisX Platform', Wed 11 Nov 18:00-21:00 SAST, online (Go, Google's Agent Development Kit, Cloud Run); registration required, space limited. Melsoft Academy team: 010 158 4346. CLASH: Sat 14 Nov in person overlaps NASA Space Apps (14-15 Nov, registered) and Friday's Gemma 4 paper track closes 13 Nov. The standing rule is two overlapping builds at most, so decide the split before Friday.",
+      "format": "hybrid",
+      "location": "Fri 13 Nov online; Sat 14 Nov in person at WeWork The Link, 173 Oxford Rd, Rosebank, Johannesburg",
+      "tier": 3,
+      "score": 5.75,
+      "scores": {
+        "career_leverage": 5,
+        "winnability": 7,
+        "prize": 2,
+        "urgency": 10
+      },
+      "prize": {
+        "currency": "ZAR",
+        "pool": 10000,
+        "breakdown": [
+          {
+            "place": "Winner",
+            "amount": 10000,
+            "track": null
+          }
+        ]
+      }
     },
     {
       "id": "imagine-cup-2027",
