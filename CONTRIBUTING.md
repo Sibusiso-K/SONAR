@@ -53,7 +53,7 @@ Commit messages: one imperative summary line, then a paragraph on *why* if it is
 - Ids are unique and `kebab-case`; ids never change once published.
 - No two entries share a specific main link or a name.
 - Links are `https` URLs with **no tracking parameters** (`utm_*`, `fbclid`, `_gl`, `ref_*`). Put emails and notes in `notes`, not in `links`.
-- New and changed entries validate against `schema/hackathon.schema.json`. Use `prize.breakdown` as an array of `{place, amount, track}` and `prize.non_cash` as an array of `{type, description}`. (Older entries in `LEGACY_SCHEMA_DEBT` have an old shape; do not copy it, and fix one when you touch it.)
+- New and changed entries validate against `schema/hackathon.schema.json`. Use `prize.breakdown` as an array of `{place, amount, track}` and `prize.non_cash` as an array of `{type, description}`. (`LEGACY_SCHEMA_DEBT` in `tests/test_data_integrity.py` is empty; keep it that way.)
 - Calendar times are `YYYY-MM-DDTHH:MM` in SAST, all-day events are `YYYY-MM-DD`, and an event never ends before it starts.
 
 ### Entry shape

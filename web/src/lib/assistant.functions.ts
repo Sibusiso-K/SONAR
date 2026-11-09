@@ -15,6 +15,7 @@ import {
 import { participationBadge } from "@/lib/participation";
 import { chat } from "@/lib/assistant.providers";
 import { createRateLimiter } from "@/lib/rate-limit";
+import { formatPrizeBreakdown } from "@/lib/prize";
 import { MAX_MESSAGES, MAX_MESSAGE_CHARS, MAX_TOTAL_CHARS } from "@/lib/assistant-limits";
 import { BENCHMARK, PLAYBOOK, gapToLeaderPct } from "@/lib/playbook";
 import type { Opportunity, PastOpportunity, UpdateRow } from "@/lib/sonar-types";
@@ -151,7 +152,7 @@ export const askSonar = createServerFn({ method: "POST" })
           `  prize=${o.prize?.pool ?? 0} ${o.prize?.currency ?? "n/a"} (~R${toZar(
             o.prize?.pool,
             o.prize?.currency,
-          )}); breakdown=${o.prize?.breakdown ?? "unknown"}`,
+          )}); breakdown=${formatPrizeBreakdown(o.prize?.breakdown, o.prize?.currency) || "unknown"}`,
           `  win_probability=${wp}/100; expected_value=R${expectedValueZar(o)}`,
           `  career_track=${o.career_track}; source=${o.source ?? "unknown"}; went_live=${
             o.went_live_on ?? "unknown"

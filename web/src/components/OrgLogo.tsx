@@ -1,37 +1,12 @@
-import { useState } from "react";
-import { cn } from "@/lib/utils";
-
 /**
- * Most organisers' `links.main` points at a third-party event platform
- * (Devpost, BeMyApp, Eightfold), not the organiser's own domain — using
- * that for a logo lookup would show the platform's brand, not theirs. This
- * is a small, curated map instead: match a recognisable fragment of the
- * organiser string to their real domain, keyed lowercase.
+ * Organiser mark: a deterministic initials badge, the same on every visit.
+ *
+ * This used to load each organiser's favicon from Google's favicon service,
+ * one request per organiser on every page view, which told Google which
+ * opportunities each visitor looked at. That request is gone. To bring real
+ * logos back, add the image files under web/public and map organiser names to
+ * them here, so the page still makes no third-party request.
  */
-const ORG_DOMAIN: [string, string][] = [
-  ["africa deep tech foundation", "africadeeptech.org"],
-  ["bcg platinion", "bcgplatinion.com"],
-  ["ibm", "ibm.com"],
-  ["revenuecat", "revenuecat.com"],
-  ["sita", "govtech.gov.za"],
-  ["govtech", "govtech.gov.za"],
-  ["radiological society of north america", "kaggle.com"],
-  ["fnb", "fnb.co.za"],
-  ["mtn", "mtn.com"],
-  ["mintek", "mintek.co.za"],
-  ["unesco", "unesco.org"],
-  ["zindi", "zindi.africa"],
-  ["geekulcha", "geekulcha.com"],
-  ["huawei", "huawei.com"],
-  ["entelect", "entelect.co.za"],
-  ["nasa", "nasa.gov"],
-];
-
-function domainFor(organiser: string): string | null {
-  const lower = organiser.toLowerCase();
-  const hit = ORG_DOMAIN.find(([key]) => lower.includes(key));
-  return hit ? hit[1] : null;
-}
 
 const BADGE_COLORS = ["#0e6e75", "#a8620a", "#1b7a4b", "#7a3ea1", "#b6394a", "#3a5da8"];
 
@@ -52,31 +27,10 @@ function initialsOf(name: string) {
   );
 }
 
-/** Real logo when the organiser's domain is known and loads; a deterministic
- * initials badge otherwise — never a broken image or a wrong company's mark. */
 export function OrgLogo({ organiser, size = 28 }: { organiser: string; size?: number }) {
-  const domain = domainFor(organiser);
-  const [failed, setFailed] = useState(false);
-
-  if (domain && !failed) {
-    return (
-      <img
-        src={`https://www.google.com/s2/favicons?domain=${domain}&sz=64`}
-        alt=""
-        width={size}
-        height={size}
-        onError={() => setFailed(true)}
-        className="shrink-0 rounded-sm border border-border bg-white object-contain p-0.5"
-        style={{ width: size, height: size }}
-      />
-    );
-  }
-
   return (
     <span
-      className={cn(
-        "flex shrink-0 items-center justify-center rounded-sm font-mono font-bold text-white",
-      )}
+      className="flex shrink-0 items-center justify-center rounded-sm font-mono font-bold text-white"
       style={{
         width: size,
         height: size,

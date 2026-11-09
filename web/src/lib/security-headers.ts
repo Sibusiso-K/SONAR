@@ -16,6 +16,13 @@ const CSP = [
   "base-uri 'self'",
   "object-src 'none'",
   "form-action 'self'",
+  // Fonts, images and styles come from this origin only. The globe texture is
+  // bundled, and the Google Fonts and favicon requests were removed. data: is
+  // allowed because Vite inlines small font files as data URIs. Inline styles
+  // stay allowed because React and the splash screen set style attributes.
+  "img-src 'self' data:",
+  "font-src 'self' data:",
+  "style-src 'self' 'unsafe-inline'",
 ].join("; ");
 
 export const SECURITY_HEADERS: Readonly<Record<string, string>> = {

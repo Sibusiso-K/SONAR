@@ -153,8 +153,10 @@ def cmd_brief(args):
             print(f"  {BOLD}Organiser{RST}   {h.get('organiser')}")
             print(f"  {BOLD}Location{RST}    {h.get('location')}")
             print(f"  {BOLD}Prize{RST}       {fmt_prize(h)}")
-            if (h.get("prize") or {}).get("non_cash"):
-                print(f"              {DIM}{h['prize']['non_cash']}{RST}")
+            non_cash = (h.get("prize") or {}).get("non_cash") or []
+            if non_cash:
+                descriptions = [item.get("description", "") for item in non_cash if isinstance(item, dict)]
+                print(f"              {DIM}{'; '.join(descriptions)}{RST}")
             print(f"\n  {BOLD}Dates{RST}")
             for k, v in h.get("dates", {}).items():
                 print(f"    {k:<26} {v}")
