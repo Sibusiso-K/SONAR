@@ -201,6 +201,78 @@ entry/merger deadline.
 
 ---
 
+## Discovery sweep — 9 November 2026
+
+Requested by Sibusiso, widened from hackathons to **startup competitions, company
+grants, hackathons and tech fellowships**, with **South African opportunities
+first** (added mid-sweep). About 30 web searches. Times SAST.
+
+**Reading limits, so the confidence below is honest.** No organiser page was read
+directly. `WebFetch` could not resolve any of the hosts, and a shell fetch of the
+pages was refused by the session's auto-mode classifier, so every detail comes from
+search results quoting the pages. All five new entries are therefore `reported`
+or `unconfirmed`, never `confirmed`. A separate `SONAR` environment now allows
+`msmeafricaonline.com`, `bizcommunity.com`, `smesouthafrica.co.za`,
+`opportunitiesforafricans.com`, `afterschoolafrica.com`, `tia.org.za`,
+`opportunitydesk.org` and `devpost.com` through the proxy, but `WebFetch` still
+could not resolve them afterwards. Read the pages in a browser before relying on any date here.
+
+**Added (5):** Gates Foundation AI Fellow, Africa (closes **11 Nov**); Samsung
+Software Development Programme 2027 at Tshimologong (closes **22 Nov**); SiGMA Africa
+Pitch 2027 (closes **6 Jan 2027**); Tony Elumelu Foundation 2027 (monitor, window
+expected from ~1 Jan); Anthropic Fellows (rolling tracks, secondhand).
+**Changed:** `micro1-eval-hackathon-2026` moved to `past`.
+**Added to the watchlist (11):** TIA calls, develoPPP Ventures, Orange Corners
+Innovation Fund, Google for Startups Accelerator Africa, Red Bull Basement SA, SA
+Startup Awards, Huawei Code4Mzansi, AISSA x Apart (Cape Town), OfferZen community
+hackathon, Standard Bank UniHack, MATS.
+
+| Entry | Source relied on (all secondary) |
+|---|---|
+| Gates AI Fellow | [UNJobNet copy of the posting](https://www.unjobnet.org/jobs/detail/bmgf-ai-fellow-africa-regional-offices-90133649) · [Opportunities for Youth](https://opportunitiesforyouth.org/2026/11/03/gates-foundation-ai-fellowship-2026-apply-for-a-12-month-ai-fellow-position-in-africa-deadline-november-11/) |
+| Samsung / Tshimologong programme | [Opportunities for Africans](https://www.opportunitiesforafricans.com/?p=103140) |
+| SiGMA Africa Pitch 2027 | [SiGMA Africa Pitch](https://sigma.world/africa/pitch/) · [Tech in Africa](https://www.techinafrica.com/sigma-opens-2027-africa-startup-pitch-applications/) · [MSME Africa](https://msmeafricaonline.com/call-for-applications-sigma-pitch-startup-competition-2027-for-african-startups/) |
+| Tony Elumelu 2027 | [Tony Elumelu Foundation](https://www.tonyelumelufoundation.org/) · [Opportunity Desk](https://opportunitydesk.org/2026/01/03/tony-elumelu-foundation-entrepreneurship-programme-2026/) |
+| Anthropic Fellows | [Extern guide](https://www.extern.com/post/anthropic-fellows-program-guide) · [MATS Winter 2027 post](https://forum.effectivealtruism.org/posts/Cb8Py9osCsZeuCetn/mats-winter-2027-applications-are-now-open) |
+
+**Checked, real, closed or past by 9 November — not added:**
+
+| Event | What happened |
+|---|---|
+| Standard Bank Kasi SME Pitch Challenge (R1m) | Provincial applications closed 22 May 2026. Township SMEs only, 51% Black-owned: [not our eligibility](https://www.bizcommunity.com/article/standard-bank-launches-r1m-pitch-competition-for-township-smes-736572a). |
+| Africa Startup Congress Pitch Competition | Applications closed 30 Sep 2026; continental final Kigali, 24–26 Feb 2027. |
+| EMERGE360 (TIA + Savant Foundry) | Hardware and deep-tech screening form closed 8 Nov 2026, a day before this sweep. |
+| TIA Seed and Pre-Seed Fund calls | For implementing partners (incubators), not startups. Pre-seed closed 16 Oct 2026, seed 31 Mar 2026. |
+| develoPPP Ventures | Closed 30 Jun 2026. Up to EUR 100k non-dilutive, but matching funds are mandatory. New windows are expected: on the watchlist. |
+| Orange Corners Innovation Fund (R1m) | Closed 31 Dec 2025, pitching Aug 2026. Check for the next round. |
+| South African Startup Awards 2026 | Entries closed ~30 Oct; ceremony 17/18 Nov, Cape Town (sources conflict). |
+| Red Bull Basement SA 2026 | Opened Jan 2026; SA close date not found. Probably closed. |
+| Google for Startups Accelerator (Africa, South Africa) | Africa cohort closed 18 Mar 2026; SA 2026 cohort opened July. Watch for 2027. |
+| MEST AI Startup Program 2027 | Closed 20 Jul 2026; Ghana, Nigeria, Senegal and Kenya only. |
+| MATS Winter 2027 | Closed 31 Oct 2026. Next window expected March 2027. |
+| Y Combinator Winter 2027 | Reported deadline 2 Nov 2026 (LinkedIn post, unverified). Passed. |
+| TFG Data Science fellowship, Princeton in Africa, Tech Policy Press | Closed 30 Sep, 26 Oct and 24 Sep 2026. |
+| Haibot Agentic AI Challenge (R10,000) | Registration 9 Apr, closed 4 May 2026. |
+| Huawei Code4Mzansi | Registration closed 31 Jan 2026; finals May 2026. ~R1m pool. Watch Dec to Jan. |
+| Gauteng Youth Tech Expo G13 Hackathon | Finale 7–8 Jul 2026, won by Gridwise 10X. No cash prize found. |
+| MTN MoMo Hackathon, Standard Bank Group Technology Hackathon, SA Defence Tech Hackathon | All held between July and September 2026. |
+| BET Software payments hackathon | 2025 edition (late Aug); senior developers only. No 2026 round found. |
+| Global South AI Safety Hackathon (Cape Town hub) | 19–21 Jun 2026, unverified. The Cape Town hub has run Nov 2025, Mar 2026 and Jun 2026. |
+| OfferZen Community AI Agent Hackathon | Single day, '26 July' (year not shown), R50,000, apply-to-join. Watchlist. |
+
+**Checked, not added — sourcing too thin:** a 48-hour remote hackathon on 29–31 Jan
+2027 (no organiser, prize or eligibility found); Agentic Hackathon on Devpost (closes
+10 Nov, $480 pool); Pitch by Deel (regional, no African round date); GoGettaz
+Agripreneur Prize (no terms found); Dev3pack Hack Johannesburg and GDG Cape Town x
+Google DeepMind (no 2026 date found).
+
+**The finding that matters.** No South African hackathon with an open registration
+turned up for November or December 2026. The local pipeline is startup pitches,
+fellowships and programmes, plus a long list of annual hackathons whose next
+window opens between January and April 2027. See the new watchlist entries.
+
+---
+
 ## Known conflicts in the sources
 
 | Conflict | What we're going with |
