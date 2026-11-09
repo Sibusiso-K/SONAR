@@ -29,17 +29,18 @@ concurrency:
 jobs:
   sweep:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
       # Pinned explicitly: a schedule/workflow_dispatch run with no ref checks
       # out the repo's default branch, whatever that happens to be set to -
       # not necessarily main. That silently diverged this workflow's commits
       # onto a stale autonomous-agent branch for several runs in a row before
       # the default branch was corrected back to main on 13 Sept 2026.
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
           ref: main
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
         with:
           python-version: "3.12"
 
@@ -62,13 +63,19 @@ jobs:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          # Passed through the environment, never interpolated into the script:
+          # a dispatch input containing shell syntax would otherwise run as code.
+          SWEEP_LIMIT: ${{ github.event.inputs.limit }}
         run: |
           if [ -z "$SUPABASE_URL" ] || [ -z "$SUPABASE_SERVICE_KEY" ] || [ -z "$GROQ_API_KEY" ]; then
             echo "::warning::SUPABASE_URL/SUPABASE_SERVICE_KEY/GROQ_API_KEY not all set — skipping sweep."
             exit 0
           fi
-          if [ -n "${{ github.event.inputs.limit }}" ]; then
-            python3 scripts/watch_sources.py --limit "${{ github.event.inputs.limit }}"
+          if [ -n "$SWEEP_LIMIT" ]; then
+            case "$SWEEP_LIMIT" in
+              *[!0-9]*) echo "::error::limit must be a whole number, got '$SWEEP_LIMIT'"; exit 1 ;;
+            esac
+            python3 scripts/watch_sources.py --limit "$SWEEP_LIMIT"
           else
             python3 scripts/watch_sources.py
           fi

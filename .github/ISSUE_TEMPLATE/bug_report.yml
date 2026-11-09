@@ -1,0 +1,24 @@
+name: Bug report
+description: Something on the board, the site or the pipeline is wrong.
+labels: [bug]
+body:
+  - type: dropdown
+    id: area
+    attributes:
+      label: Where
+      options: [Web app, Data on the board, Refresh / sync workflow, Scripts, Docs]
+    validations: { required: true }
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened, and what you expected
+    validations: { required: true }
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: URL, browser and device if it is the site; the command and its output if it is a script.
+  - type: input
+    id: link
+    attributes:
+      label: Link to a failing workflow run or deployment

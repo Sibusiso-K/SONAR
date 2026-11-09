@@ -56,8 +56,9 @@ concurrency:
 jobs:
   migrate:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
 
       - name: Resolve the migration file
         id: resolve
@@ -77,6 +78,16 @@ jobs:
             web)  DIR="web/supabase/migrations" ;;
             *) echo "::error::unknown project '$PROJECT'"; exit 1 ;;
           esac
+          # A bare filename only: no directories, no "..", no spaces or shell
+          # characters. Without this a value like ../../etc/x resolved outside
+          # the migrations directory.
+          case "$FILE_INPUT" in
+            *[!A-Za-z0-9._-]*|""|.*) echo "::error::file must be a plain migration filename like 0003_x.sql"; exit 1 ;;
+          esac
+          case "$FILE_INPUT" in
+            *.sql) ;;
+            *) echo "::error::file must end in .sql"; exit 1 ;;
+          esac
           FILE="$DIR/$FILE_INPUT"
           if [ ! -f "$FILE" ]; then
             echo "::error::$FILE not found. Available in $DIR:"
@@ -88,13 +99,16 @@ jobs:
           echo "Applying $FILE ($(wc -l < "$FILE") lines) to the $PROJECT project"
 
       - name: Show the SQL
-        run: cat "${{ steps.resolve.outputs.path }}"
+        env:
+          MIGRATION_PATH: ${{ steps.resolve.outputs.path }}
+        run: cat "$MIGRATION_PATH"
 
       - name: Apply
         if: ${{ inputs.dry_run != 'true' }}
         env:
           DB_URL: ${{ steps.resolve.outputs.project == 'web' && secrets.RADAR_SUPABASE_DB_URL || secrets.SUPABASE_DB_URL }}
           PROJECT: ${{ steps.resolve.outputs.project }}
+          MIGRATION_PATH: ${{ steps.resolve.outputs.path }}
         run: |
           if [ -z "$DB_URL" ]; then
             if [ "$PROJECT" = "web" ]; then
@@ -109,5 +123,5 @@ jobs:
           psql "$DB_URL" \
             --set ON_ERROR_STOP=1 \
             --single-transaction \
-            -f "${{ steps.resolve.outputs.path }}"
-          echo "applied ${{ steps.resolve.outputs.path }}"
+            -f "$MIGRATION_PATH"
+          echo "applied $MIGRATION_PATH"

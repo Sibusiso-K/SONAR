@@ -1,0 +1,6 @@
+# Both operators review everything; data and CI changes affect the live site.
+*                       @Sibusiso-K @LethaboMH14
+/data/                  @Sibusiso-K @LethaboMH14
+/.github/               @Sibusiso-K
+/supabase/              @Sibusiso-K
+/web/supabase/          @Sibusiso-K
