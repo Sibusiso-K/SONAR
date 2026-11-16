@@ -52,6 +52,7 @@ DISCOVERY_KIND_FALLBACK = {
     "programme": "grad_programme",
     "startup_competition": "competition",
     "grant": "accelerator",
+    "internship": "grad_programme",
 }
 
 

@@ -21,7 +21,7 @@
       "reported": "From a secondary source (news/aggregator); verify before relying on it",
       "unconfirmed": "Not yet announced for 2026; based on prior-year pattern"
     },
-    "generated": "2026-11-16T11:01:32Z",
+    "generated": "2026-11-16T19:05:31Z",
     "generator": "scripts/migrate_to_opportunities.py",
     "kinds": {
       "hackathon": "Build something in a fixed window",
@@ -31,6 +31,7 @@
       "challenge": "Concept or proposal submission, not code",
       "competition": "Structured multi-round contest",
       "grad_programme": "Graduate hiring programme with a build component",
+      "internship": "Paid internship: apply, get selected, get a stipend. No prize pool.",
       "recruiting_event": "The event is the interview",
       "startup_competition": "Pitch or demo for a startup, judged as a business",
       "grant": "Funding or seed capital with no equity taken",

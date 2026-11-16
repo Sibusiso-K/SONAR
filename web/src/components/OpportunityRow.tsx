@@ -114,11 +114,10 @@ export function OpportunityRow({
         )}
 
         <div className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-2">
-          <Stat
-            label={moneyLabel(o.kind)}
-            value={formatMoney(o.prize?.pool, o.prize?.currency)}
-          />
-          {!isCareerKind(o.kind) && <Stat label="expected value" value={zar(expectedValueZar(o))} />}
+          <Stat label={moneyLabel(o.kind)} value={formatMoney(o.prize?.pool, o.prize?.currency)} />
+          {!isCareerKind(o.kind) && (
+            <Stat label="expected value" value={zar(expectedValueZar(o))} />
+          )}
           <Stat
             label="next date"
             value={o.next_date ?? o.dates?.["expected_window"] ?? "no window"}
