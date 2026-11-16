@@ -72,8 +72,8 @@ function Radar() {
         </h1>
         <Reveal delay={200}>
           <p className="mt-8 max-w-xl text-base leading-relaxed text-muted-foreground">
-            The score space shows what each entry is worth on any three measures you pick. Below
-            it: the entries we can't yet put in a calendar with a straight face, kept visible so a
+            The score space shows what each entry is worth on any three measures you pick. Below it:
+            the entries we can't yet put in a calendar with a straight face, kept visible so a
             predicted window doesn't quietly become a missed deadline.
           </p>
         </Reveal>
