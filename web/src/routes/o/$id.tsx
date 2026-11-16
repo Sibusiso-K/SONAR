@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { kindLabel } from "@/lib/format";
+import { isCareerKind, kindName, moneyLabel } from "@/lib/kinds";
 import { AppShell } from "@/components/AppShell";
 import { CountdownClock } from "@/components/CountdownClock";
 import { OrgLogo } from "@/components/OrgLogo";
@@ -91,7 +91,7 @@ function OpportunityDetail() {
         <div className="mt-8 flex flex-wrap items-center gap-3">
           <OrgLogo organiser={o.organiser} size={32} />
           <p className="label-caps" style={{ color: severityToken[sev] }}>
-            {kindLabel(o.kind)} · {o.format} · tier {o.tier}
+            {kindName(o.kind)} · {o.format} · tier {o.tier}
           </p>
           <span
             className="border px-1.5 py-px font-mono text-[10px] uppercase tracking-widest"
@@ -102,7 +102,8 @@ function OpportunityDetail() {
         </div>
         <h1 className="display-lg mt-3 max-w-[20ch]">{o.name}</h1>
         <p className="mt-3 text-base text-muted-foreground">
-          {o.organiser} · {o.scope} · {o.career_track} career track
+          {o.organiser} · {o.scope}
+          {!isCareerKind(o.kind) && ` · ${o.career_track} career track`}
         </p>
 
         <div className="mt-10 grid grid-cols-2 gap-px bg-rule sm:grid-cols-3">
@@ -120,9 +121,13 @@ function OpportunityDetail() {
             value={o.next_date ?? o.dates?.["expected_window"] ?? "no window"}
           />
           <Stat label="confidence" value={o.confidence} />
-          <Stat label="prize" value={formatMoney(o.prize?.pool, o.prize?.currency)} />
-          <Stat label="expected value" value={zar(expectedValueZar(o))} />
-          <Stat label="win probability" value={`${wp}%`} />
+          <Stat label={moneyLabel(o.kind)} value={formatMoney(o.prize?.pool, o.prize?.currency)} />
+          {!isCareerKind(o.kind) && (
+            <>
+              <Stat label="expected value" value={zar(expectedValueZar(o))} />
+              <Stat label="win probability" value={`${wp}%`} />
+            </>
+          )}
         </div>
 
         {scoreEntries.length > 0 && (

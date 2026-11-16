@@ -100,7 +100,6 @@ export function DebriefPrompt() {
 
   if (!identity || !current) return null;
   const { o, daysAgo } = current;
-  const needsWords = outcome !== "withdrew" && outcome !== "missed";
 
   async function sort() {
     if (!text.trim() || busy) return;
@@ -117,16 +116,34 @@ export function DebriefPrompt() {
   }
 
   async function save() {
-    if (!outcome || !identity) return;
+    if (!outcome || !identity || busy) return;
+    const trimmed = text.trim();
+    // Save used to be disabled until "Structure it" had been pressed, and
+    // gave no feedback when it was not. Structure here instead. If that fails,
+    // the person's own words are filed exactly as written.
+    let structured = result;
+    if (trimmed && !structured) {
+      setBusy(true);
+      try {
+        const res = await structure({ data: { eventName: o.name, text: trimmed } });
+        if ("error" in res) toast(res.error);
+        else structured = { fields: res.fields, by: res.structuredBy };
+      } catch {
+        toast("Could not sort your words, so they are filed as you wrote them.");
+      } finally {
+        setBusy(false);
+      }
+      if (structured) setResult(structured);
+    }
     const row: Debrief = {
-      ...(result?.fields ?? EMPTY_FIELDS),
+      ...(structured?.fields ?? EMPTY_FIELDS),
       id: crypto.randomUUID(),
       opportunity_id: o.id,
       opportunity_name: o.name,
       filed_by: identity,
       outcome,
-      raw_text: text.trim() || OUTCOME_LABEL[outcome],
-      structured_by: result?.by ?? "not structured",
+      raw_text: trimmed || OUTCOME_LABEL[outcome],
+      structured_by: structured?.by ?? "not structured",
       created_at: new Date().toISOString(),
     };
     const where = await file.mutateAsync(row);
@@ -144,7 +161,7 @@ export function DebriefPrompt() {
     reset();
   }
 
-  const canSave = Boolean(outcome) && (!needsWords || !text.trim() || Boolean(result));
+  const canSave = Boolean(outcome);
   const rows: [string, string | null][] = [
     ["outcome", outcome],
     ["placement", result?.fields.placement ?? null],
@@ -278,7 +295,7 @@ export function DebriefPrompt() {
           <button
             type="button"
             onClick={() => void save()}
-            disabled={!canSave || file.isPending}
+            disabled={!canSave || file.isPending || busy}
             className="mt-auto flex min-h-12 items-center justify-center rounded-full bg-ink-panel-foreground text-sm font-semibold text-ink-panel transition-opacity disabled:opacity-30"
           >
             Save to evaluation

@@ -1,5 +1,5 @@
 import { Star } from "lucide-react";
-import { kindLabel } from "@/lib/format";
+import { kindName, isCareerKind, moneyLabel } from "@/lib/kinds";
 import { Link } from "@tanstack/react-router";
 import { CountdownClock } from "@/components/CountdownClock";
 import { OrgLogo } from "@/components/OrgLogo";
@@ -49,9 +49,11 @@ export function OpportunityRow({
   const stale = o.confidence === "confirmed" && noticedDaysAgo !== null && noticedDaysAgo > 30;
   const participation = participationBadge(o.status);
 
+  // Named so that a re-sort animates each row to its new place.
   return (
     <article
       id={`opp-${o.id}`}
+      style={{ viewTransitionName: `opp-${o.id.replace(/[^a-zA-Z0-9_-]/g, "_")}` }}
       className="glass-card group relative grid scroll-mt-24 grid-cols-[4px_1fr] gap-x-4 p-5 md:grid-cols-[4px_1fr_auto] md:gap-x-6 md:p-6"
     >
       <div
@@ -65,7 +67,7 @@ export function OpportunityRow({
           <span className="font-mono text-[11px] tabular-nums text-muted-foreground">
             {String(index + 1).padStart(2, "0")}
           </span>
-          <span className="label-caps">{kindLabel(o.kind)}</span>
+          <span className="label-caps">{kindName(o.kind)}</span>
           <span className="label-caps">{o.format}</span>
           <span className="rounded-full border border-border px-2 py-px font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
             tier {o.tier}
@@ -101,7 +103,8 @@ export function OpportunityRow({
           </h3>
         </div>
         <p className="mt-1.5 text-sm text-muted-foreground">
-          {o.organiser} · {o.scope} · {o.career_track} career track
+          {kindName(o.kind)} · {o.organiser} · {o.scope}
+          {!isCareerKind(o.kind) && ` · ${o.career_track} career track`}
         </p>
 
         {o.notes && (
@@ -111,8 +114,11 @@ export function OpportunityRow({
         )}
 
         <div className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-2">
-          <Stat label="prize" value={formatMoney(o.prize?.pool, o.prize?.currency)} />
-          <Stat label="expected value" value={zar(expectedValueZar(o))} />
+          <Stat
+            label={moneyLabel(o.kind)}
+            value={formatMoney(o.prize?.pool, o.prize?.currency)}
+          />
+          {!isCareerKind(o.kind) && <Stat label="expected value" value={zar(expectedValueZar(o))} />}
           <Stat
             label="next date"
             value={o.next_date ?? o.dates?.["expected_window"] ?? "no window"}

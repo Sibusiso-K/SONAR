@@ -1,4 +1,5 @@
 import { LOCALE, formatNumber } from "./format";
+import { isCareerKind } from "./kinds";
 import type { Opportunity, PastOpportunity, UpdateRow } from "./sonar-types";
 
 /**
@@ -149,6 +150,9 @@ export function winProbability(o: Opportunity): number {
 }
 
 export function expectedValueZar(o: Opportunity): number {
+  // A salaried placement or stipend has no pool to win, so a win-chance times
+  // prize figure would be meaningless for it.
+  if (isCareerKind(o.kind)) return 0;
   return Math.round((toZar(o.prize?.pool, o.prize?.currency) * winProbability(o)) / 100);
 }
 

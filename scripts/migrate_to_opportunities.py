@@ -237,6 +237,7 @@ def main():
                 "challenge": "Concept or proposal submission, not code",
                 "competition": "Structured multi-round contest",
                 "grad_programme": "Graduate hiring programme with a build component",
+                "internship": "Paid internship: apply, get selected, get a stipend. No prize pool.",
                 "recruiting_event": "The event is the interview",
                 "startup_competition": "Pitch or demo for a startup, judged as a business",
                 "grant": "Funding or seed capital with no equity taken",

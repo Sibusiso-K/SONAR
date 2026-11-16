@@ -18,6 +18,7 @@ import {
   seasonStats,
   toZar,
 } from "@/lib/analytics";
+import { isCareerKind, kindName } from "@/lib/kinds";
 import { participationBadge } from "@/lib/participation";
 import { formatPrizeBreakdown } from "@/lib/prize";
 import { BENCHMARK, PLAYBOOK, gapToLeaderPct } from "@/lib/playbook";
@@ -83,7 +84,9 @@ export function buildSystemPrompt(snap: BoardSnapshot): string {
       const wp = winProbability(o);
       const days = daysUntil(o.next_date, now);
       return [
-        `- ${o.name} (${o.id}) — ${o.organiser}, ${o.kind}, ${o.format}, ${o.scope}, tier ${o.tier}`,
+        `- ${o.name} (${o.id}) — ${o.organiser}, ${kindName(o.kind)} (${o.kind}), ${o.format}, ${o.scope}, tier ${o.tier}${
+          isCareerKind(o.kind) ? " — hiring: no prize pool, no win probability" : ""
+        }`,
         `  confidence=${o.confidence}; participation=${participationBadge(o.status).label}; next_date=${o.next_date ?? "none"}${
           o.next_date ? ` (${days} days away)` : ""
         }`,
