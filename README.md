@@ -33,7 +33,7 @@ Nothing reaches the published board without passing through a reviewed diff. The
 ## What the site does
 
 - **Board:** the next three deadlines, totals, a deadline field (every dated entry by kind and week, sized by score), date confidence, recent updates, then every live entry.
-- **Radar:** where each entry happens on a globe, and what each is worth in a 3D score space you can rotate and re-axis.
+- **Radar:** what each entry is worth in a 3D score space you can rotate and re-axis. The globe of where each entry happens is on the board.
 - **Ask the board:** questions answered from the live rows. Free open models answer first; a built-in engine answers when they cannot, so it never goes dark. Each reply says which one answered. See [docs/MODELS.md](docs/MODELS.md).
 - **Debriefs:** once an event's dates have passed, the board asks whoever is signed in how it went, sorts the answer into retro fields, and files it to their Crew tab.
 - **Crew:** a tab each for Sibusiso and Lethabo: what each owns, the team's record, and their evaluation.

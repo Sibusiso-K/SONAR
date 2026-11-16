@@ -3,7 +3,6 @@ import { ClientOnly, createFileRoute } from "@tanstack/react-router";
 import { kindLabel } from "@/lib/format";
 import { AppShell } from "@/components/AppShell";
 import { EventCalendar } from "@/components/EventCalendar";
-import { EventGlobe } from "@/components/EventGlobe";
 import { OrgLogo } from "@/components/OrgLogo";
 import { QueryError } from "@/components/QueryError";
 import { Reveal, RevealWords } from "@/components/Reveal";
@@ -32,7 +31,7 @@ export const Route = createFileRoute("/radar")({
 });
 
 // three.js touches `window` at import time, so the score space is loaded and
-// rendered only in the browser. EventGlobe does the same for react-globe.gl.
+// rendered only in the browser. The globe now lives on the board (routes/index.tsx).
 const Scatter3D = lazy(() =>
   import("@/components/Scatter3D").then((m) => ({ default: m.Scatter3D })),
 );
@@ -69,14 +68,13 @@ function Radar() {
       <section className="mx-auto max-w-[88rem] px-5 pb-10 pt-8 md:px-10 md:pt-10">
         <p className="label-caps">Radar</p>
         <h1 className="display-xl mt-5 max-w-[14ch]">
-          <RevealWords text="Where it happens, and what it is worth." />
+          <RevealWords text="What each entry is worth." />
         </h1>
         <Reveal delay={200}>
           <p className="mt-8 max-w-xl text-base leading-relaxed text-muted-foreground">
-            The globe shows where each entry happens; the score space shows what each is worth on
-            any three measures you pick. Below them: the entries we can't yet put in a calendar with
-            a straight face, kept visible so a predicted window doesn't quietly become a missed
-            deadline.
+            The score space shows what each entry is worth on any three measures you pick. Below
+            it: the entries we can't yet put in a calendar with a straight face, kept visible so a
+            predicted window doesn't quietly become a missed deadline.
           </p>
         </Reveal>
       </section>
@@ -93,11 +91,8 @@ function Radar() {
         </section>
       )}
 
-      <section className="mx-auto grid max-w-[88rem] gap-5 px-5 pb-12 md:px-10 2xl:grid-cols-2">
+      <section className="mx-auto max-w-[88rem] px-5 pb-12 md:px-10">
         <Reveal>
-          <EventGlobe opportunities={all} />
-        </Reveal>
-        <Reveal delay={80}>
           <ClientOnly fallback={<ScatterPlaceholder />}>
             <Suspense fallback={<ScatterPlaceholder />}>
               <Scatter3D opportunities={all} />
