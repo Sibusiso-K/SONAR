@@ -1,18 +1,13 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { askSonar } from "@/lib/assistant.functions";
 import { fitConversation } from "@/lib/assistant-limits";
+import { assistantSuggestions, sourceLabel, type AnswerSource } from "@/lib/assistant-ui";
+import { useOpportunities } from "@/lib/sonar-data";
 import { cn } from "@/lib/utils";
 import { X, CornerDownLeft, Loader2 } from "lucide-react";
 
-type Msg = { role: "user" | "assistant"; content: string };
-
-const SUGGESTIONS = [
-  "Which opportunity should we prioritise this week?",
-  "Why is ARC Prize scored the way it is?",
-  "Draft a submission checklist for the Entelect University Cup.",
-  "What conflicts or risks do you see in the board right now?",
-];
+type Msg = { role: "user" | "assistant"; content: string; source?: AnswerSource };
 
 export function Assistant({ open, onClose }: { open: boolean; onClose: () => void }) {
   const ask = useServerFn(askSonar);
@@ -20,6 +15,10 @@ export function Assistant({ open, onClose }: { open: boolean; onClose: () => voi
   const [input, setInput] = useState("");
   const [busy, setBusy] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
+  // Suggestions name rows that are on the board today. They used to be
+  // hardcoded and outlived the entries they mentioned.
+  const { data: live } = useOpportunities();
+  const suggestions = useMemo(() => assistantSuggestions(live ?? []), [live]);
 
   useEffect(() => {
     scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: "smooth" });
@@ -48,10 +47,13 @@ export function Assistant({ open, onClose }: { open: boolean; onClose: () => voi
       const res = await ask({ data: { messages: fitConversation(next) } });
       setMessages([
         ...next,
-        {
-          role: "assistant",
-          content: "reply" in res && res.reply ? res.reply : (res as { error: string }).error,
-        },
+        "reply" in res && res.reply
+          ? {
+              role: "assistant",
+              content: res.reply,
+              source: { provider: res.provider, model: res.model, skipped: res.skipped },
+            }
+          : { role: "assistant", content: (res as { error: string }).error },
       ]);
     } catch {
       setMessages([
@@ -75,11 +77,11 @@ export function Assistant({ open, onClose }: { open: boolean; onClose: () => voi
       <aside
         aria-hidden={!open}
         className={cn(
-          "fixed right-0 top-0 z-50 flex h-dvh w-full max-w-[30rem] flex-col border-l bg-paper transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
-          open ? "translate-x-0" : "translate-x-full",
+          "fixed inset-y-0 right-0 z-50 flex w-full max-w-[30rem] flex-col bg-paper shadow-2xl transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] sm:inset-y-3 sm:right-3 sm:rounded-[1.75rem]",
+          open ? "translate-x-0" : "translate-x-[110%]",
         )}
       >
-        <header className="flex items-start justify-between gap-4 border-b px-6 py-5">
+        <header className="flex items-start justify-between gap-4 px-6 pb-3 pt-6">
           <div>
             <h2 className="text-2xl font-bold">Ask the board</h2>
             <p className="mt-1 text-sm text-muted-foreground">
@@ -89,9 +91,9 @@ export function Assistant({ open, onClose }: { open: boolean; onClose: () => voi
           <button
             onClick={onClose}
             aria-label="Close assistant"
-            className="rounded-sm p-1 text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
+            className="flex size-11 shrink-0 items-center justify-center rounded-full bg-foreground/5 text-foreground"
           >
-            <X className="size-5" />
+            <X className="size-4" />
           </button>
         </header>
 
@@ -99,11 +101,11 @@ export function Assistant({ open, onClose }: { open: boolean; onClose: () => voi
           {messages.length === 0 && (
             <div className="space-y-3">
               <p className="label-caps">Try</p>
-              {SUGGESTIONS.map((s) => (
+              {suggestions.map((s) => (
                 <button
                   key={s}
                   onClick={() => send(s)}
-                  className="block w-full border border-border bg-background px-4 py-3 text-left text-sm transition-colors hover:border-accent hover:text-accent"
+                  className="block w-full rounded-2xl border border-border bg-background px-4 py-3 text-left text-sm transition-colors hover:border-accent hover:text-accent"
                 >
                   {s}
                 </button>
@@ -113,18 +115,28 @@ export function Assistant({ open, onClose }: { open: boolean; onClose: () => voi
 
           <div className="space-y-5">
             {messages.map((m, i) => (
-              <div key={i}>
-                <p className="label-caps mb-1.5">{m.role === "user" ? "You" : "SONAR"}</p>
+              <div key={i} className={cn("flex flex-col", m.role === "user" && "items-end")}>
                 <div
                   className={cn(
-                    "whitespace-pre-wrap text-sm leading-relaxed",
+                    "max-w-[92%] whitespace-pre-wrap px-4 py-3 text-sm leading-relaxed",
                     m.role === "user"
-                      ? "border-l-2 border-accent pl-3 text-foreground"
-                      : "text-foreground",
+                      ? "rounded-[1.25rem_1.25rem_0.375rem_1.25rem] bg-primary text-primary-foreground"
+                      : m.source && m.source.provider !== "builtin"
+                        ? "rounded-[0.375rem_1.25rem_1.25rem_1.25rem] border border-accent/25 bg-accent/10"
+                        : "rounded-[0.375rem_1.25rem_1.25rem_1.25rem] border border-border bg-background",
                   )}
                 >
                   {m.content}
                 </div>
+                {m.source && (
+                  <p
+                    className="mt-2 px-1 font-mono text-[10px] uppercase tracking-[0.14em] text-muted-foreground"
+                    data-testid="assistant-source"
+                    data-provider={m.source.provider}
+                  >
+                    {sourceLabel(m.source)}
+                  </p>
+                )}
               </div>
             ))}
             {busy && (
@@ -140,7 +152,7 @@ export function Assistant({ open, onClose }: { open: boolean; onClose: () => voi
             e.preventDefault();
             void send(input);
           }}
-          className="border-t p-4"
+          className="p-4 pt-2"
         >
           <div className="flex items-end gap-2">
             <textarea
@@ -154,12 +166,12 @@ export function Assistant({ open, onClose }: { open: boolean; onClose: () => voi
               }}
               rows={2}
               placeholder="Ask about priorities, scores, eligibility, clashes…"
-              className="min-h-[3.5rem] flex-1 resize-none border border-input bg-background px-3 py-2 text-sm outline-none focus:border-accent"
+              className="min-h-[3.5rem] flex-1 resize-none rounded-2xl border border-input bg-background px-4 py-3 text-sm outline-none focus:border-accent"
             />
             <button
               type="submit"
               disabled={busy || !input.trim()}
-              className="flex h-[3.5rem] items-center gap-1.5 bg-primary px-4 text-sm font-medium text-primary-foreground transition-opacity disabled:opacity-40"
+              className="flex h-[3.5rem] items-center gap-1.5 rounded-full bg-primary px-5 text-sm font-semibold text-primary-foreground transition-opacity disabled:opacity-40"
             >
               Send <CornerDownLeft className="size-3.5" />
             </button>

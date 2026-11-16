@@ -23,7 +23,7 @@ export function QueryError({ error, onRetry }: { error: unknown; onRetry: () => 
       <p className="mt-1 font-mono text-xs text-muted-foreground">{message}</p>
       <button
         onClick={onRetry}
-        className="mt-3 flex items-center gap-1.5 border border-border px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.16em] text-foreground transition-colors hover:border-foreground"
+        className="pill mt-3 border border-border text-foreground hover:border-foreground"
       >
         <RefreshCw className="size-3.5" /> Retry
       </button>

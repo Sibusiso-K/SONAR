@@ -17,7 +17,10 @@
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
     "build:e2e": "NITRO_PRESET=node-server VITE_SUPABASE_URL=http://127.0.0.1:54321 VITE_SUPABASE_PUBLISHABLE_KEY=e2e-publishable-key VITE_SUPABASE_PROJECT_ID=e2e vite build",
-    "e2e:serve": "bun run build:e2e && PORT=4173 HOST=127.0.0.1 node .output/server/index.mjs",
+    "e2e:serve": "bun run build:e2e && PORT=4173 HOST=127.0.0.1 SUPABASE_URL=http://127.0.0.1:54329 SUPABASE_PUBLISHABLE_KEY=e2e-publishable-key ASSISTANT_PROVIDER=builtin node .output/server/index.mjs",
+    "e2e:board": "node e2e/board-stub.mjs",
+    "eval": "bun evals/run.ts",
+    "eval:catalogue": "bun evals/catalogue.ts",
     "test:e2e": "playwright test",
     "check": "bun run typecheck && bun run lint && bun run test"
   },

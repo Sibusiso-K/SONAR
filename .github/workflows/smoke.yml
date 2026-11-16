@@ -1,6 +1,8 @@
 name: Smoke test (deployed site)
 
-# Runs after Vercel reports a successful deployment, daily, and on demand.
+# Runs after Vercel reports a successful deployment (production AND preview:
+# a preview is the pre-production check for a pull request's branch), daily
+# against production, and on demand.
 # A Vercel deployment behind Vercel Authentication answers 401 to anything
 # without a session; add the project's "Protection Bypass for Automation"
 # secret as VERCEL_PROTECTION_BYPASS so this can reach it.
@@ -21,11 +23,13 @@ permissions:
 
 jobs:
   smoke:
-    # For deployment_status runs, only act on successful production deployments.
+    # For deployment_status runs, act on every successful deployment. A
+    # preview failing here is the pre-production signal: it shows on the
+    # pull request before anything reaches the production alias.
+    name: Smoke (${{ github.event.deployment_status.environment || 'Production' }})
     if: >-
       github.event_name != 'deployment_status' ||
-      (github.event.deployment_status.state == 'success' &&
-       github.event.deployment_status.environment == 'Production')
+      github.event.deployment_status.state == 'success'
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:

@@ -8,7 +8,7 @@
  */
 
 /** Sidebar order. Keep in step with NAV in components/AppShell.tsx. */
-export const SECTION_ORDER = ["/", "/stats", "/radar", "/war-room", "/updates"] as const;
+export const SECTION_ORDER = ["/", "/stats", "/radar", "/war-room", "/updates", "/crew"] as const;
 
 export type TransitionType = "forward" | "backward" | "fade";
 

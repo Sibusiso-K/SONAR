@@ -1,12 +1,13 @@
 /**
- * Organiser mark: a deterministic initials badge, the same on every visit.
+ * Organiser mark. A logo from web/public/org-logos when one is mapped in
+ * lib/org-logos.ts, otherwise a deterministic initials badge.
  *
- * This used to load each organiser's favicon from Google's favicon service,
- * one request per organiser on every page view, which told Google which
- * opportunities each visitor looked at. That request is gone. To bring real
- * logos back, add the image files under web/public and map organiser names to
- * them here, so the page still makes no third-party request.
+ * Logos are served from this site, never fetched from a third party, so a
+ * page view tells no one which opportunities were looked at.
  */
+
+import { useState } from "react";
+import { logoSrc } from "@/lib/org-logos";
 
 const BADGE_COLORS = ["#0e6e75", "#a8620a", "#1b7a4b", "#7a3ea1", "#b6394a", "#3a5da8"];
 
@@ -28,6 +29,22 @@ function initialsOf(name: string) {
 }
 
 export function OrgLogo({ organiser, size = 28 }: { organiser: string; size?: number }) {
+  const [broken, setBroken] = useState(false);
+  const src = logoSrc(organiser);
+  if (src && !broken) {
+    return (
+      <img
+        src={src}
+        alt=""
+        width={size}
+        height={size}
+        loading="lazy"
+        onError={() => setBroken(true)}
+        className="shrink-0 rounded-sm bg-white object-contain p-0.5"
+        style={{ width: size, height: size }}
+      />
+    );
+  }
   return (
     <span
       className="flex shrink-0 items-center justify-center rounded-sm font-mono font-bold text-white"

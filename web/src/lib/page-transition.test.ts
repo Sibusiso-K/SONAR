@@ -3,7 +3,7 @@ import { SECTION_ORDER, sectionIndex, transitionType } from "./page-transition";
 
 describe("sectionIndex", () => {
   it("follows the sidebar order", () => {
-    expect(SECTION_ORDER.map((p) => sectionIndex(p))).toEqual([0, 1, 2, 3, 4]);
+    expect(SECTION_ORDER.map((p) => sectionIndex(p))).toEqual([0, 1, 2, 3, 4, 5]);
   });
 
   it("treats entry detail pages as deeper than every section", () => {

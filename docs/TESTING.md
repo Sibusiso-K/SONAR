@@ -10,6 +10,7 @@ Run the fast checks before every push. Run the browser tests when you touch the 
 | `make e2e` | Browser tests (Playwright), desktop and mobile viewports | ~2 min |
 | `make audit` | `bun audit` and `bandit` | ~10 s |
 | `make smoke URL=...` | Smoke test of a running site | ~5 s |
+| `make eval` | Assistant evaluation: the built-in engine on the frozen board (no key) | ~1 s |
 
 CI runs all of these on every pull request. `CI result` is the single check to require on `main`.
 
@@ -29,7 +30,9 @@ CI runs all of these on every pull request. `CI result` is the single check to r
 
 **Web unit tests (`web/src/**/*.test.ts`)** cover the pure modules: date arithmetic in the board's time zone, win probability, number formatting, URL safety, the rate limiter, conversation trimming, security headers, and the splash and transition logic.
 
-**Browser tests (`web/e2e/`)** run the production build (`NITRO_PRESET=node-server`) in Chromium against a mocked database. The fixture is built by the real `sync_radar.build_rows()`, so they exercise the actual data contract. They cover first-load and repeat-visit behaviour, every section on desktop and a phone viewport, error states, hostile data, the rate limit, security headers, and horizontal overflow.
+**Assistant evaluation (`web/evals/`)** grades answers against a frozen copy of the board with rules a person can read, including a check that every date in an answer exists on the board. The built-in engine must pass every case in CI; language models are run by hand because each run spends a free-tier quota. See [MODELS.md](MODELS.md).
+
+**Browser tests (`web/e2e/`)** run the production build (`NITRO_PRESET=node-server`) in Chromium against a mocked database. The fixture is built by the real `sync_radar.build_rows()`, so they exercise the actual data contract. A small stand-in for the database (`e2e/board-stub.mjs`) serves the same fixture to the server side, so the assistant answers real questions in the browser tests rather than only failing politely. They cover first-load and repeat-visit behaviour, the debrief popup end to end, the crew tabs, the background, every section on desktop and a phone viewport, error states, hostile data, the rate limit, security headers, and horizontal overflow.
 
 ## Writing tests here
 

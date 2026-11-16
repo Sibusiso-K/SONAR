@@ -2,7 +2,7 @@
 .DEFAULT_GOAL := help
 PY ?= python3
 
-.PHONY: help install data lint test test-web e2e check audit smoke serve
+.PHONY: help install data lint test test-web e2e eval check audit smoke serve sweep
 
 help: ## Show this help
 	@grep -E '^[a-z-]+:.*##' $(MAKEFILE_LIST) | awk -F':.*## ' '{printf "  \033[36m%-10s\033[0m %s\n", $$1, $$2}'
@@ -28,7 +28,13 @@ test-web: ## Web unit tests
 e2e: ## Browser end-to-end tests (builds the app, serves fixtures)
 	cd web && bun run test:e2e
 
-check: lint test test-web ## Everything fast: lint, types, unit and data tests
+eval: ## Assistant evaluation: built-in engine on the frozen board
+	cd web && bun run eval
+
+sweep: ## Monday discovery sweep, dry run, built-in extractor only
+	$(PY) scripts/monday_sweep.py --dry-run --builtin-only
+
+check: lint test test-web eval ## Everything fast: lint, types, unit, data and eval tests
 
 audit: ## Dependency and static security scans
 	cd web && bun audit --audit-level=high

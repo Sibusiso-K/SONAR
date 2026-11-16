@@ -48,8 +48,8 @@ describe("timings", () => {
     expect(SPLASH_TOTAL_MS).toBe(SPLASH_LIFT_MS + SPLASH_EXIT_MS);
   });
 
-  it("keeps the whole opening under three seconds", () => {
-    expect(SPLASH_TOTAL_MS).toBeLessThan(3000);
+  it("keeps the whole opening at ten seconds", () => {
+    expect(SPLASH_TOTAL_MS).toBe(10_000);
     expect(SPLASH_SKIP_EXIT_MS).toBeLessThan(SPLASH_EXIT_MS);
   });
 });

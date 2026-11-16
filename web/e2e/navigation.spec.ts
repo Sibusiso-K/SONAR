@@ -8,6 +8,7 @@ const SECTIONS = [
   { label: "Radar", path: "/radar" },
   { label: "War Room", path: "/war-room" },
   { label: "Updates", path: "/updates" },
+  { label: "Crew", path: "/crew" },
 ] as const;
 
 test.describe("sections", () => {

@@ -15,8 +15,9 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * SONAR design system — warm editorial, not dark SaaS admin.
- * Paper/cream base, ink black type, one restrained brand accent.
+ * SONAR design system: glass on paper.
+ * A warm paper ground with a live sonar field behind it, frosted panels on
+ * top, ink type, one restrained blue accent.
  * Urgency (critical/warning/stable/none) is a DELIBERATELY SEPARATE
  * spot-colour system, like a printed infographic. Never reuse the brand
  * accent for urgency, or the countdown stops reading as a countdown.
@@ -57,6 +58,13 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
 
+  --color-glass: var(--glass);
+  --color-glass-strong: var(--glass-strong);
+  --color-glass-edge: var(--glass-edge);
+  --color-ink-panel: var(--ink-panel);
+  --color-ink-panel-foreground: var(--ink-panel-foreground);
+  --color-ink-panel-muted: var(--ink-panel-muted);
+
   --color-critical: var(--critical);
   --color-warning: var(--warning);
   --color-stable: var(--stable);
@@ -78,9 +86,9 @@
 }
 
 :root {
-  --radius: 0.25rem;
+  --radius: 1rem;
 
-  --background: oklch(0.968 0.011 88);
+  --background: oklch(0.925 0.017 86);
   --paper: oklch(0.985 0.008 90);
   --foreground: oklch(0.19 0.008 60);
 
@@ -104,10 +112,20 @@
   --destructive: oklch(0.52 0.2 27);
   --destructive-foreground: oklch(0.98 0.008 90);
 
-  --border: oklch(0.885 0.014 84);
-  --rule: oklch(0.82 0.016 82);
-  --input: oklch(0.885 0.014 84);
+  --border: oklch(0.19 0.008 60 / 10%);
+  --rule: oklch(0.19 0.008 60 / 16%);
+  --input: oklch(0.19 0.008 60 / 16%);
   --ring: oklch(0.46 0.128 258);
+
+  /* Frosted panels. Light lets the paper and the field show through. */
+  --glass: oklch(1 0 0 / 60%);
+  --glass-strong: oklch(1 0 0 / 80%);
+  --glass-edge: oklch(1 0 0 / 88%);
+  --glass-shadow: 0 18px 40px oklch(0.35 0.04 70 / 12%);
+  --ink-panel: oklch(0.19 0.008 60);
+  --ink-panel-foreground: oklch(0.965 0.012 88);
+  --ink-panel-muted: oklch(0.82 0.018 85);
+  --field-dot: 46 74 158;
 
   /* Urgency spot colours — independent of the brand accent. */
   --critical: oklch(0.55 0.203 26);
@@ -161,6 +179,15 @@
   --input: oklch(1 0 0 / 16%);
   --ring: oklch(0.72 0.128 250);
 
+  --glass: oklch(1 0 0 / 6%);
+  --glass-strong: oklch(1 0 0 / 9%);
+  --glass-edge: oklch(1 0 0 / 14%);
+  --glass-shadow: 0 18px 40px oklch(0 0 0 / 35%);
+  --ink-panel: oklch(0.13 0.008 70);
+  --ink-panel-foreground: oklch(0.945 0.011 88);
+  --ink-panel-muted: oklch(0.74 0.014 80);
+  --field-dot: 126 156 255;
+
   --critical: oklch(0.68 0.19 26);
   --warning: oklch(0.78 0.15 72);
   --stable: oklch(0.7 0.13 158);
@@ -192,8 +219,12 @@
     text-rendering: optimizeLegibility;
   }
 
-  body {
+  html {
     background-color: var(--color-background);
+  }
+
+  body {
+    background-color: transparent;
     color: var(--color-foreground);
     font-family: var(--font-sans);
     font-feature-settings: "ss01", "cv01";
@@ -204,8 +235,8 @@
   h3,
   h4 {
     font-family: var(--font-display);
-    letter-spacing: -0.035em;
-    line-height: 0.94;
+    letter-spacing: -0.03em;
+    line-height: 1.05;
   }
 }
 
@@ -214,17 +245,17 @@
 @utility display-xl {
   font-family: var(--font-display);
   font-weight: 700;
-  letter-spacing: -0.045em;
-  line-height: 0.86;
-  font-size: clamp(3rem, 11vw, 9rem);
+  letter-spacing: -0.035em;
+  line-height: 1;
+  font-size: clamp(2.25rem, 5vw, 4rem);
 }
 
 @utility display-lg {
   font-family: var(--font-display);
   font-weight: 700;
-  letter-spacing: -0.04em;
-  line-height: 0.9;
-  font-size: clamp(2.25rem, 6vw, 4.5rem);
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  font-size: clamp(1.75rem, 3.5vw, 2.75rem);
 }
 
 @utility numeral {
@@ -247,9 +278,104 @@
   border-top: 1px solid var(--color-rule);
 }
 
+/* A frosted panel. `paper-panel` is the name older sections use; it is the
+   same surface, so every page moved to the new look together. */
+@utility glass {
+  background-color: var(--glass);
+  border: 1px solid var(--glass-edge);
+  border-radius: 1.5rem;
+  box-shadow: var(--glass-shadow);
+  backdrop-filter: blur(18px);
+}
+
+@utility glass-card {
+  background-color: var(--glass-strong);
+  border: 1px solid var(--glass-edge);
+  border-radius: 1.25rem;
+}
+
 @utility paper-panel {
-  background-color: var(--color-paper);
-  border: 1px solid var(--color-border);
+  background-color: var(--glass-strong);
+  border: 1px solid var(--glass-edge);
+  border-radius: 1.25rem;
+}
+
+@utility ink-panel {
+  background-color: var(--ink-panel);
+  color: var(--ink-panel-foreground);
+  border-radius: 1.5rem;
+}
+
+@utility pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 2.75rem;
+  padding: 0 1.125rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition:
+    background-color 0.2s,
+    color 0.2s,
+    transform 0.2s;
+}
+
+/* Panels enter in sequence: set --i on each to stagger. */
+@utility rise {
+  animation: rise 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: calc(var(--i, 0) * 45ms);
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+
+@keyframes ping-ring {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.55;
+  }
+  100% {
+    transform: scale(2.8);
+    opacity: 0;
+  }
+}
+
+@keyframes bubble-pop {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.2);
+  }
+}
+
+@keyframes dialog-pop {
+  from {
+    opacity: 0;
+    transform: translate(-50%, calc(-50% + 18px)) scale(0.97);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rise,
+  .ping-ring,
+  .bubble-pop {
+    animation: none !important;
+  }
+}
+
+/* The next-up stack fans open under the pointer. */
+.stack-card {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.stack:hover .stack-l {
+  transform: translateX(-16px) rotate(-2deg);
+}
+.stack:hover .stack-r {
+  transform: translateX(16px) rotate(2deg);
 }
 
 /* ---------- Scroll reveal ---------- */
@@ -303,31 +429,10 @@
   }
 }
 
-/* ---------- Board radar ---------- */
-
-@keyframes radar-sweep {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes radar-blip {
-  0%,
-  100% {
-    transform: scale(1);
-    opacity: 0.7;
-  }
-  50% {
-    transform: scale(1.7);
-    opacity: 1;
-  }
-}
-
 /* ---------- Opening splash ---------- */
 
+/* A sonar sweep turns once and finds the nearest deadlines, the wordmark
+   rises out of its mask, a hairline fills, and the dark panel lifts away. */
 .splash {
   position: fixed;
   inset: 0;
@@ -335,12 +440,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--color-background);
-  color: var(--color-foreground);
+  overflow: hidden;
+  background-color: oklch(0.16 0.008 70);
+  color: oklch(0.965 0.012 88);
   cursor: pointer;
   /* Self-timed fallback: lifts away on its own even if JavaScript never
-     runs. React shortens this by switching to data-phase="leaving". */
-  animation: splash-exit 650ms cubic-bezier(0.76, 0, 0.24, 1) 1700ms forwards;
+     runs (10s in all; the lift starts at 9.35s). React shortens this by
+     switching to data-phase="leaving". Keep in step with SPLASH_TOTAL_MS. */
+  animation: splash-exit 650ms cubic-bezier(0.76, 0, 0.24, 1) 9350ms forwards;
 }
 
 .splash[data-phase="leaving"] {
@@ -354,6 +461,10 @@
 /* Repeat visit or reduced motion: gone before first paint. */
 :root[data-splash="off"] .splash {
   display: none;
+}
+
+.splash .label-caps {
+  color: oklch(0.82 0.018 85);
 }
 
 .splash-center {
@@ -370,13 +481,13 @@
   font-family: var(--font-display);
   font-weight: 800;
   line-height: 0.82;
-  font-size: clamp(4rem, 17vw, 11rem);
+  font-size: clamp(4rem, 17vw, 10rem);
 }
 
 /* Each letter rises out of its own mask. The mask is padded past the glyph on
    every side so curves and overshoot are not clipped, and the padding is
    cancelled by an equal negative margin so the letters keep their tight
-   tracking (-0.05em) and the wordmark's width is unchanged. */
+   tracking and the wordmark's width is unchanged. */
 .splash-mask {
   display: inline-block;
   overflow: hidden;
@@ -392,18 +503,18 @@
 
 .splash-bar {
   width: min(16rem, 60vw);
-  height: 1px;
-  background-color: var(--color-rule);
+  height: 2px;
+  background-color: oklch(1 0 0 / 14%);
   overflow: hidden;
 }
 
 .splash-bar > span {
   display: block;
   height: 100%;
-  background-color: var(--color-foreground);
+  background-color: oklch(0.72 0.128 250);
   transform-origin: left center;
   transform: scaleX(0);
-  animation: splash-progress 1500ms cubic-bezier(0.65, 0, 0.35, 1) 150ms forwards;
+  animation: splash-progress 9200ms cubic-bezier(0.4, 0, 0.2, 1) 150ms forwards;
 }
 
 .splash-caption,
@@ -426,33 +537,62 @@
   animation: splash-fade 600ms ease-out 900ms forwards;
 }
 
-/* Sonar pings: thin rings that grow out from behind the wordmark. */
-.splash-rings {
+/* The scope: fixed rings, a crosshair and one turning beam. */
+.splash-scope {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: min(92vmin, 46rem);
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  opacity: 0;
+  animation: splash-fade 500ms ease-out forwards;
+}
+
+.splash-scope > .ring {
+  position: absolute;
+  border: 1px solid oklch(1 0 0 / 13%);
+  border-radius: 9999px;
+}
+
+.splash-scope > .beam {
   position: absolute;
   inset: 0;
+  border-radius: 9999px;
+  background: conic-gradient(
+    from -90deg,
+    oklch(0.72 0.128 250 / 0%) 0deg,
+    oklch(0.72 0.128 250 / 0%) 300deg,
+    oklch(0.72 0.128 250 / 45%) 360deg
+  );
+  /* Sweeps around for the whole opening, not just once. */
+  animation: splash-beam 1500ms linear 100ms infinite;
+}
+
+/* A contact: a dot the beam has just passed, with its date. */
+.splash-contact {
+  position: absolute;
   display: flex;
   align-items: center;
-  justify-content: center;
-  pointer-events: none;
-}
-
-.splash-rings > span {
-  position: absolute;
-  width: min(70vmin, 36rem);
-  aspect-ratio: 1;
-  border: 1px solid var(--color-foreground);
-  border-radius: 9999px;
+  gap: 0.6rem;
+  white-space: nowrap;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   opacity: 0;
-  transform: scale(0.15);
-  animation: splash-ping 1700ms cubic-bezier(0.2, 0.6, 0.3, 1) forwards;
+  transform: translate(-0.4rem, -50%) scale(0.6);
+  transform-origin: left center;
+  animation: splash-contact 420ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-.splash-rings > span:nth-child(2) {
-  animation-delay: 380ms;
-}
-
-.splash-rings > span:nth-child(3) {
-  animation-delay: 760ms;
+.splash-contact > i {
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 9999px;
+  background-color: currentColor;
+  box-shadow: 0 0 0 0.35rem oklch(1 0 0 / 8%);
 }
 
 @keyframes splash-letter {
@@ -473,17 +613,24 @@
   }
 }
 
-@keyframes splash-ping {
-  0% {
-    opacity: 0;
-    transform: scale(0.15);
+@keyframes splash-beam {
+  from {
+    transform: rotate(0deg);
+    opacity: 1;
   }
-  15% {
-    opacity: 0.35;
+  90% {
+    opacity: 1;
   }
-  100% {
+  to {
+    transform: rotate(360deg);
     opacity: 0;
-    transform: scale(1.35);
+  }
+}
+
+@keyframes splash-contact {
+  to {
+    opacity: 1;
+    transform: translate(-0.4rem, -50%) scale(1);
   }
 }
 
@@ -558,6 +705,12 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
+  /* Rows re-sorted on the board glide to their new place (see changeSort). */
+  ::view-transition-group(*) {
+    animation-duration: 520ms;
+    animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
   ::view-transition-old(root),
   ::view-transition-new(root) {
     animation-duration: 420ms;

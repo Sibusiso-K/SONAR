@@ -1,6 +1,9 @@
-# Both operators review everything; data and CI changes affect the live site.
+# Both operators own every path. Either can review and approve any change,
+# including workflows and database migrations; neither is a single point of
+# failure. Data and CI changes affect the live site, so they still get a
+# second pair of eyes.
 *                       @Sibusiso-K @LethaboMH14
 /data/                  @Sibusiso-K @LethaboMH14
-/.github/               @Sibusiso-K
-/supabase/              @Sibusiso-K
-/web/supabase/          @Sibusiso-K
+/.github/               @Sibusiso-K @LethaboMH14
+/supabase/              @Sibusiso-K @LethaboMH14
+/web/supabase/          @Sibusiso-K @LethaboMH14

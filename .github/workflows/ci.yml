@@ -57,6 +57,9 @@ jobs:
       - run: bun run typecheck
       - run: bun run lint
       - run: bun run test
+      # The assistant's floor: the built-in engine must answer every graded
+      # case on the frozen board. Deterministic, no network, no key.
+      - run: bun run eval
       - run: bun run build
 
   e2e:
@@ -111,6 +114,12 @@ jobs:
       - name: Known vulnerabilities in web dependencies (high and above fail)
         working-directory: web
         run: bun install --frozen-lockfile && bun audit --audit-level=high
+      # Reporting only until its first run has been read: a new gate that
+      # fails on day one on a dev-only tool would block every pull request.
+      # Make it blocking (drop continue-on-error) once the report is clean.
+      - name: Known vulnerabilities in Python dev dependencies (report)
+        continue-on-error: true
+        run: pip install pip-audit && pip-audit -r requirements-dev.txt
 
   ci-result:
     name: CI result

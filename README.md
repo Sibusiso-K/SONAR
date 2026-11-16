@@ -20,13 +20,23 @@ flowchart LR
   end
   O -->|"sync_radar.py, nightly + on merge"| DB[("Supabase<br/>live site data")]
   DB --> W["Web app<br/>(Vercel)"]
-  W -.->|"/ask"| G["Groq LLM"]
+  W -.->|"ask the board"| G["Free open models<br/>(OpenRouter), then the<br/>built-in engine"]
+  W -->|"debriefs after an event"| DB
   WS["watch_sources.py<br/>every 6 hours"] --> D[("Supabase<br/>discovery")]
   D -->|"data/candidates.json"| R["A person reviews it<br/>and opens a PR"]
+  MS["monday_sweep.py<br/>Mondays"] -->|"data/discoveries.json"| R
   R --> H
 ```
 
 Nothing reaches the published board without passing through a reviewed diff. The scraping pipeline only ever proposes; a person decides. More in [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
+
+## What the site does
+
+- **Board:** the next three deadlines, totals, a deadline field (every dated entry by kind and week, sized by score), date confidence, recent updates, then every live entry.
+- **Radar:** what each entry is worth in a 3D score space you can rotate and re-axis. The globe of where each entry happens is on the board.
+- **Ask the board:** questions answered from the live rows. Free open models answer first; a built-in engine answers when they cannot, so it never goes dark. Each reply says which one answered. See [docs/MODELS.md](docs/MODELS.md).
+- **Debriefs:** once an event's dates have passed, the board asks whoever is signed in how it went, sorts the answer into retro fields, and files it to their Crew tab.
+- **Crew:** a tab each for Sibusiso and Lethabo: what each owns, the team's record, and their evaluation.
 
 ## Quick start
 
@@ -35,7 +45,7 @@ You need Python 3.10+ and [Bun](https://bun.sh) 1.4+. The scripts use only the P
 ```bash
 git clone https://github.com/Sibusiso-K/SONAR && cd SONAR
 make install        # dev tools (ruff, pytest) and the web app's dependencies
-make check          # lint, type-check, unit and data tests (~15s)
+make check          # lint, type-check, unit, data and assistant tests (~20s)
 
 python3 scripts/sonar.py next      # what closes soonest
 python3 scripts/sonar.py list      # the full ranked board
@@ -64,7 +74,8 @@ make e2e                           # browser tests; no database needed
 | `web/` | The site: TanStack Start + React 19, Tailwind 4, Supabase client, deployed on Vercel. |
 | `supabase/`, `web/supabase/` | Database migrations for the discovery project and the live-site project. |
 | `tests/`, `web/e2e/`, `web/src/**/*.test.ts` | Python tests, browser tests, unit tests. See [docs/TESTING.md](docs/TESTING.md). |
-| `.github/workflows/` | CI, CodeQL, nightly board refresh, source watcher, migrations, post-deploy smoke test. |
+| `web/evals/` | Assistant evaluation: graded cases on a frozen board, and recorded runs against free models. |
+| `.github/workflows/` | CI, CodeQL, nightly board refresh, source watcher, Monday sweep, migrations, smoke test of every deployment. |
 | `docs/` | Everything else. Start at [docs/README.md](docs/README.md). |
 
 ## Adding an opportunity
@@ -79,11 +90,11 @@ The full rules, the schema and the scoring weights are in [CONTRIBUTING.md](CONT
 
 ## Quality gates
 
-Every pull request runs: Python lint and tests (including schema, calendar and generated-file freshness checks), web type-check, lint, unit tests and build, browser end-to-end tests on desktop and mobile viewports, `bandit`, `bun audit`, and CodeQL. A smoke test probes the deployed site after each production deploy.
+Every pull request runs: Python lint and tests (including schema, calendar and generated-file freshness checks), web type-check, lint, unit tests and build, the assistant evaluation, browser end-to-end tests on desktop and mobile viewports, `bandit`, `bun audit`, a Python dependency report, and CodeQL. **Pre-production:** a smoke test probes every Vercel preview deployment. **Post-production:** the same test runs after each production deploy and daily.
 
 ## Security
 
-The site's public database key can only read the board. Writes belong to CI. Responses carry security headers, the assistant endpoint is rate-limited, and data-driven links are restricted to `http(s)`. To report a vulnerability, see [SECURITY.md](SECURITY.md). The model and the review are in [docs/SECURITY_REVIEW_2026-11-09.md](docs/SECURITY_REVIEW_2026-11-09.md).
+The site's public database key can only read the board; the only rows it may add are watchlist stars and debriefs, both bounded by policy. Board writes belong to CI. Model output is checked against its source before anything is stored. Responses carry security headers, the assistant endpoint is rate-limited, and data-driven links are restricted to `http(s)`. To report a vulnerability, see [SECURITY.md](SECURITY.md). The model and the review are in [docs/SECURITY_REVIEW_2026-11-09.md](docs/SECURITY_REVIEW_2026-11-09.md).
 
 ## When something breaks
 

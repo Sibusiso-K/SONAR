@@ -34,9 +34,9 @@ Never paste SQL from an untrusted place. Migrations live in the repo and are app
 
 The anon key is public, so Row Level Security is the only barrier between a visitor and your data.
 
-1. Open the live-site Supabase project, SQL editor.
-2. Paste [`supabase/audit/rls_audit.sql`](../supabase/audit/rls_audit.sql) and run it. It only reads.
-3. Every query should come back with the expected result stated in its comment. In particular: no table without RLS, and no write policy open to `anon` except the `watchlist` and the watch-action `updates` insert.
+1. Actions, **Apply Supabase migrations**, **Run workflow**, `project: web`, `audit: true` (leave `file` empty). It runs [`supabase/audit/rls_audit.sql`](../supabase/audit/rls_audit.sql) inside a read-only transaction that is rolled back, and prints the results in the log. Or paste the file into the live-site project's SQL editor.
+2. It only reads.
+3. Every query should come back with the expected result stated in its comment. In particular: no table without RLS, and no write policy open to `anon` except the `watchlist`, the watch-action `updates` insert and the bounded `debriefs` insert.
 
 ## Roll back a bad deploy
 
@@ -61,13 +61,43 @@ Vercel Authentication answers 401 to anyone without a session. Create **Protecti
 | Supabase service key | GitHub Secrets (`SUPABASE_SERVICE_KEY`, `RADAR_SUPABASE_SERVICE_KEY`) | Roll it in the Supabase dashboard (Project Settings, API), update the secret, re-run **Refresh board**. |
 | Supabase anon key | Vercel (`VITE_SUPABASE_PUBLISHABLE_KEY`) | Public by design. Rotate if abused; update the Vercel variable and redeploy. |
 | Groq key | Vercel and GitHub (`GROQ_API_KEY`) | Create a new key, update both, delete the old one. |
+| OpenRouter key | Vercel and GitHub (`OPENROUTER_API_KEY`) | Create a new key at openrouter.ai (Keys), update both, delete the old one. |
 
 If a secret was ever committed: rotate it first, then remove it from history, then tell the other operator. `gitleaks` and GitGuardian are the tools for finding it; a scan of this repository's full history on 9 Nov 2026 found none.
 
-## The assistant says "Too many questions" or "could not answer"
+## The assistant answers, but only from the built-in engine
 
-- **Too many questions:** the per-client limit is 6 a minute and the global limit 30. It resets on its own. Limits are per warm server instance, so they are a brake, not a guarantee.
-- **Could not answer:** the message names which backends were tried. Groq's free tier allows about 8,000 tokens a minute and one answer uses about 6,000, so two asks in a minute can trip it. Set `GROQ_MODEL` if the model was retired.
+The line under each answer says what produced it. "Built-in engine" means no
+language model answered. The assistant still works; it just cannot draft or
+reason across rows.
+
+- **"language models are rate limited just now":** the free OpenRouter quota.
+  An unfunded account gets 50 free requests a day (shared with the Monday
+  sweep and debriefs); it resets at 00:00 UTC. Buying $10 of credit once
+  raises it to 1,000 a day.
+- **No note at all:** no `OPENROUTER_API_KEY` in Vercel. Add it (Project,
+  Settings, Environment Variables), redeploy.
+- **"did not answer":** the models timed out or were retired. Run
+  `cd web && bun run eval:catalogue`; if a model has gone, follow
+  "Changing the model order" in [MODELS.md](MODELS.md).
+- **"Too many questions":** the per-client limit is 6 a minute, the global 18.
+  It resets on its own.
+
+## Debriefs are only showing on one device
+
+The Crew page says "Showing only debriefs kept in this browser" when the
+`debriefs` table cannot be read. Apply
+`web/supabase/migrations/20261116_debriefs.sql` to the live-site project (see
+**Apply a migration**, project `web`). Debriefs filed before that are in that
+browser's local storage, not lost; re-file them once the table exists.
+
+## The Monday sweep
+
+Runs Mondays 05:23 SAST (Actions, **Monday sweep**). New findings land in
+`data/discoveries.json` with `status: new`; each quotes its source page. At
+the 08:00 review, promote one by writing a real entry in `hackathons.json` and
+setting the finding to `promoted`, or set `dismissed` with a reason. A red run
+means no source page could be fetched at all.
 
 ## The source watcher found nothing, or too much
 

@@ -311,7 +311,46 @@ def to_radar_opportunity(o):
     }
 
 
+_NOT_ENTERED = re.compile(r"\bnot entered\b|\bdid not enter\b|\bwithdr[ae]w", re.I)
+_NO_PLACE = re.compile(r"\bdid not place\b|\bnot placed\b|\bno placement\b|\bunplaced\b", re.I)
+_WON = re.compile(r"\b1st\b|\bfirst place\b|\bwinners?\b|\bwon\b", re.I)
+
+
+def past_outcome(p):
+    """How a finished entry went: missed, entered, placed or won. None means
+    there is nothing to record.
+
+    `result` is free text. Any non-empty result used to count as "placed", so
+    "Did not place" was synced as a placement and "Not entered" as an entry
+    the team placed in. The stats page then reported nine placements out of
+    nine where the real figure was three. The words are read instead:
+
+      missed flag            -> missed
+      no result / not entered -> None (no engagement to record: most of
+                                 dropped_or_past is "this existed, diarise
+                                 for next year", and calling that "entered"
+                                 would invent a participation record)
+      did not place          -> entered
+      1st / winner / won     -> won
+      anything else          -> placed ("3rd place", "Top 6", "\u224810th")
+    """
+    if p.get("missed"):
+        return "missed"
+    result = (p.get("result") or "").strip()
+    if not result or _NOT_ENTERED.search(result):
+        return None
+    if _NO_PLACE.search(result):
+        return "entered"
+    if _WON.search(result):
+        return "won"
+    return "placed"
+
+
 def to_radar_past(p, used_ids):
+    outcome = past_outcome(p)
+    if outcome is None:
+        return None
+
     base = slugify(p["name"])
     pid, n = base, 2
     while pid in used_ids:
@@ -321,18 +360,6 @@ def to_radar_past(p, used_ids):
 
     reason = p.get("reason") or ""
     corrected = "correction" in reason.lower()
-
-    if p.get("missed"):
-        outcome = "missed"
-    elif p.get("result"):
-        outcome = "placed"
-    else:
-        # Neither missed nor placed just means the entry has no engagement
-        # signal at all — most of dropped_or_past is "this event existed,
-        # diarise for next year" monitoring notes we never actually entered.
-        # Defaulting that to "entered" was fabricating a participation
-        # record; the honest move is to not sync it as a past entry at all.
-        return None
 
     return {
         "id": pid,

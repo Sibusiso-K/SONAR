@@ -367,3 +367,20 @@ identically to a fully rendered page.
 - Nemotron 3 announcement: https://nvidianews.nvidia.com/news/nvidia-debuts-nemotron-3-family-of-open-models
 - NemoClaw announcement: https://nvidianews.nvidia.com/news/nvidia-announces-nemoclaw
 - GTC Berlin dates (20 to 22 Oct): https://www.nvidia.com/gtc/
+
+---
+
+## Source index for migrated entries — 16 November 2026
+
+Eight entries came through the opportunities migration without a line here that named them by id, link or host. This index ties each one to the links recorded on the entry itself. **These links were not re-read on 16 Nov 2026**: they are where each claim was originally taken from, as recorded at the time; the entry's own `confidence` still says how far to trust it.
+
+| Entry id | Confidence | Recorded sources |
+|---|---|---|
+| `huawei-ict-2026-2027` (Huawei ICT Competition 2026–2027) | unconfirmed | [ict academy](https://e.huawei.com/en/talent/ict-academy/#/ict-contest) · [global final](https://www.huawei.com/minisite/ict-competition-2025-2026-global/en/index.html) · [unisa roadshow](https://www.unisa.ac.za/sites/myunisa/default/News/Events/Huawei-ICT-competition-roadshow) |
+| `kaggle-gemma4-agent-paper-2026` (Google: The Gemma 4 Developer Agent Paper Track (Kaggle)) | confirmed | [competition](https://www.kaggle.com/competitions/gemma-4-developer-agent-paper) · [main competition](https://www.kaggle.com/competitions/gemma-4-developer-agent) |
+| `life-after-code-gitlab-2026` (Life After Code: GitLab Duo Agent Platform (Devpost)) | confirmed | [main](https://gitlab-transcend.devpost.com/) · [rules](https://gitlab-transcend.devpost.com/rules) |
+| `mtn-momo-miniapp-2026` (MTN MoMo Mini App Hackathon 2026) | confirmed | [developer portal](https://momodeveloper.mtn.com/) · [mtn](https://www.mtn.com/) |
+| `rsna-knee-2026` (RSNA Knee Abnormality Detection (Kaggle)) | reported | [kaggle](https://www.kaggle.com/competitions/rsna-knee-abnormality-detection) · [rsna](https://www.rsna.org/artificial-intelligence/ai-image-challenge/knee-mri-ai-challenge) |
+| `wbg-small-ai-development-2026` (Small AI for Development Hackathon Challenge) | reported | [learn more](https://lnkd.in/gCpfi3kB) · [apply](https://lnkd.in/gyftT4Vu) · [platform](https://hack-nation.ai/) |
+| `wits-ehub-tech-ai-day-2026` (Wits Entrepreneurship Week 2026: Tech & AI Day and Tech Demo Showcase) | confirmed | main: organiser email to Sibusiso, 2026 (no public page found 12 Oct 2026) · contact older ehub page: StudentEntrepreneurship.DLU@wits.ac.za |
+| `zindi-rolling` (Zindi Challenges (rolling)) | unconfirmed | [competitions](https://zindi.world/competitions) · [jobs](https://zindi.world/jobs) · [sort closing](https://zindi.world/competitions?sort=newest) |

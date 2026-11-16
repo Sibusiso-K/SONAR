@@ -37,6 +37,8 @@ def make_handler(**quirks):
             path = self.path
             if quirks.get("gate") and self.headers.get("x-vercel-protection-bypass") != quirks["gate"]:
                 return self.reply(401, "Authentication Required")
+            if quirks.get("sso_wall") and self.headers.get("x-vercel-protection-bypass") != quirks["sso_wall"]:
+                return self.reply(200, "<html><title>Login – Vercel</title>Log in to Vercel</html>")
             headers = {} if quirks.get("no_security_headers") else dict(GOOD_HEADERS)
             if path == "/assets/app.js":
                 cache = "no-cache" if quirks.get("uncached_assets") else "public, max-age=31536000, immutable"
@@ -109,6 +111,13 @@ def test_a_protected_site_explains_the_bypass_instead_of_failing_cryptically(ser
     checks = smoke_check.run_checks(serve(gate="s3cret"))
     assert len(checks) == 1 and not checks[0].ok
     assert "VERCEL_PROTECTION_BYPASS" in checks[0].detail
+
+
+def test_a_vercel_login_page_served_as_200_explains_the_bypass(serve):
+    checks = smoke_check.run_checks(serve(sso_wall="s3cret"))
+    assert len(checks) == 1 and not checks[0].ok
+    assert "login wall" in checks[0].detail
+    assert failed(smoke_check.run_checks(serve(sso_wall="s3cret"), bypass="s3cret")) == set()
 
 
 def test_the_bypass_secret_is_sent_as_a_header(serve):

@@ -8,12 +8,12 @@
 
 export const SPLASH_STORAGE_KEY = "sonar.splash.seen";
 
-/** When the curtain starts to lift, measured from first paint. */
-export const SPLASH_LIFT_MS = 1700;
+/** Hard upper bound: the overlay is gone this long after first paint. */
+export const SPLASH_TOTAL_MS = 10_000;
 /** How long the lift itself takes (must match `splash-exit` in styles.css). */
 export const SPLASH_EXIT_MS = 650;
-/** Hard upper bound: the overlay is removed no later than this. */
-export const SPLASH_TOTAL_MS = SPLASH_LIFT_MS + SPLASH_EXIT_MS;
+/** When the curtain starts to lift, measured from first paint. */
+export const SPLASH_LIFT_MS = SPLASH_TOTAL_MS - SPLASH_EXIT_MS;
 /** How long a click- or key-triggered skip takes to lift. */
 export const SPLASH_SKIP_EXIT_MS = 450;
 

@@ -24,6 +24,8 @@ order by tablename;
 --      past_opportunities  SELECT only
 --      updates             SELECT, plus INSERT limited to change_kind = 'watch'
 --      watchlist           ALL (deliberate: the no-login shared watchlist)
+--      debriefs            SELECT, plus INSERT limited to filed_by in the crew
+--                          (20261116_debriefs.sql); never UPDATE or DELETE
 --    Anything else with cmd = 'ALL' or 'INSERT'/'UPDATE'/'DELETE' on a board
 --    table is a hole.
 select tablename, policyname, cmd, roles, qual as using_expr, with_check

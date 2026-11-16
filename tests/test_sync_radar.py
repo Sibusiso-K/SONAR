@@ -53,6 +53,41 @@ class TestToRadarPast:
         assert missed["outcome"] == "missed" and placed["outcome"] == "placed"
         assert placed["placement"] == "Top 6"
 
+    @pytest.mark.parametrize(
+        ("result", "expected"),
+        [
+            ("3rd place", "placed"),
+            ("Top 6", "placed"),
+            ("\u224810th", "placed"),
+            ("Did not place", "entered"),
+            ("did not place (finalist)", "entered"),
+            ("1st place", "won"),
+            ("Winner, best use of AI", "won"),
+        ],
+    )
+    def test_the_outcome_is_read_from_the_result_text(self, result, expected):
+        row = sr.to_radar_past({"name": "E", "result": result}, set())
+        assert row["outcome"] == expected
+        assert row["placement"] == result
+
+    @pytest.mark.parametrize("result", ["Not entered", "not entered: deadline unresolved", "", None])
+    def test_an_event_we_did_not_enter_is_not_a_past_entry(self, result):
+        used = set()
+        assert sr.to_radar_past({"name": "Skipped", "result": result}, used) is None
+        # and it must not reserve an id a real entry might need
+        assert used == set()
+
+    def test_the_missed_flag_wins_over_any_result_text(self):
+        row = sr.to_radar_past({"name": "M", "missed": True, "result": "Top 6"}, set())
+        assert row["outcome"] == "missed"
+
+    def test_the_real_board_does_not_count_a_non_placement_as_placed(self):
+        _, past, _ = sr.build_rows()
+        for row in past:
+            if row["outcome"] in ("placed", "won"):
+                assert "not place" not in (row["placement"] or "").lower(), row["name"]
+                assert "not entered" not in (row["placement"] or "").lower(), row["name"]
+
     def test_an_entry_with_no_engagement_signal_is_not_invented_as_entered(self):
         assert sr.to_radar_past({"name": "Existed", "reason": "diarise for next year"}, set()) is None
 

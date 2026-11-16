@@ -187,7 +187,7 @@ const NEEDS_ATTENTION: ActionItem[] = [
 function WarRoom() {
   return (
     <AppShell>
-      <section className="mx-auto max-w-[88rem] px-5 pb-12 pt-16 md:px-10 md:pt-24">
+      <section className="mx-auto max-w-[88rem] px-5 pb-12 pt-8 md:px-10 md:pt-10">
         <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2">
           <p className="label-caps">War room</p>
           <p className="label-caps tabular-nums">Updated 5 Oct 2026</p>

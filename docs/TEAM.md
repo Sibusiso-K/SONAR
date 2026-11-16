@@ -1,7 +1,7 @@
 # Team
 
 **Sibusiso K** · ksibusiso023@gmail.com · [@Sibusiso-K](https://github.com/Sibusiso-K) · repo owner
-**Lethabo** · [@LethaboMH14](https://github.com/LethaboMH14) · Write access
+**Lethabo** · [@LethaboMH14](https://github.com/LethaboMH14) · Admin access, code owner on every path
 
 Two people. The whole plan is built around that constraint, not around what a six-person team could do.
 
