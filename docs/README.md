@@ -18,6 +18,8 @@
 | [PLAYBOOK.md](PLAYBOOK.md) | How competitions actually get won, source-traced. |
 | [TEAM.md](TEAM.md) | Who owns what; standing agreements. |
 | [SOURCES.md](SOURCES.md) | Where every fact on the board came from, plus each discovery sweep's findings. |
+| [MODELS.md](MODELS.md) | Which language models answer, the evaluation behind the order, and how to change it. |
+| [RESEARCH_COMPARABLE_SITES.md](RESEARCH_COMPARABLE_SITES.md) | What similar opportunity sites do well and what SONAR takes from them. |
 | [CALENDAR.md](CALENDAR.md) | Calendar import and how events map to the `.ics`. |
 | [PRIORITY_BOARD.md](PRIORITY_BOARD.md) | The ranked board as a document (last fully refreshed in August 2026). |
 | [WAR_ROOM_PREPARATION.md](WAR_ROOM_PREPARATION.md) | Readiness gates for the autumn events. |
@@ -32,6 +34,7 @@
 | [IMPROVEMENT_PLAN.md](IMPROVEMENT_PLAN.md), [REVIEW_2026-09-14.md](REVIEW_2026-09-14.md) | The September repository review and its findings. |
 | [SECURITY_REVIEW_2026-11-09.md](SECURITY_REVIEW_2026-11-09.md) | The November security review: findings, fixes, what is still open. |
 | [QA_REPORT_2026-11-09.md](QA_REPORT_2026-11-09.md) | The November QA pass: what was tested, bugs found, known gaps. |
+| [QA_REPORT_2026-11-16.md](QA_REPORT_2026-11-16.md) | The redesign, assistant and debrief release: tests, bugs fixed, what is still open. |
 | [ONBOARDING.md](ONBOARDING.md), [HANDOVER_SBU.md](HANDOVER_SBU.md), [LOVABLE_PROMPT.md](LOVABLE_PROMPT.md) | Setup history and the original site brief. |
 
 Documents carrying a date in their name are snapshots; they record what was true on that day.

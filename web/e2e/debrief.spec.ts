@@ -31,7 +31,9 @@ test.describe("debrief popup", () => {
 
     const dialog = page.getByTestId("debrief");
     await expect(dialog).toBeVisible({ timeout: 10_000 });
-    await expect(dialog.getByRole("heading")).toContainText("E2E Finished Hackathon has passed");
+    await expect(dialog.getByRole("heading", { level: 2 })).toContainText(
+      "E2E Finished Hackathon has passed",
+    );
 
     // Saving needs an outcome first.
     const save = dialog.getByRole("button", { name: "Save to evaluation" });
@@ -48,6 +50,8 @@ test.describe("debrief popup", () => {
       filed_by: "Lethabo",
       outcome: "entered",
     });
+    // The database sets the time; a browser must not be able to backdate one.
+    expect(filed?.body).not.toHaveProperty("created_at");
     errors.expectNone();
   });
 
@@ -68,9 +72,11 @@ test.describe("debrief popup", () => {
 
     // The e2e server has no model key, so the built-in rules sort it.
     await expect(dialog.getByText("built-in rules")).toBeVisible({ timeout: 15_000 });
-    await expect(dialog.getByText("3rd", { exact: true })).toBeVisible();
-    await expect(dialog.getByText("30", { exact: true })).toBeVisible();
-    await expect(dialog.getByText(/auth flow broke/)).toBeVisible();
+    // Read the filed fields, not the textarea that also contains the words.
+    const filed = dialog.getByRole("complementary", { name: "What gets filed" });
+    await expect(filed.getByText("3rd", { exact: true })).toBeVisible();
+    await expect(filed.getByText("30", { exact: true })).toBeVisible();
+    await expect(filed.getByText(/auth flow broke/)).toBeVisible();
   });
 
   test("asks nobody who has not picked a name, and stays away once put off", async ({ page }) => {

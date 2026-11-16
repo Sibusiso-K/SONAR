@@ -14,9 +14,11 @@ The repository is the source of truth for what SONAR has *verified*. Databases h
 | Generators | `scripts/migrate_to_opportunities.py`, `scripts/sonar.py ics` | CI and `make data` | `data/opportunities.json`, `calendar/sonar-2026.ics` |
 | Live-site sync | `scripts/sync_radar.py` | GitHub Actions, nightly and on merge to `main` | the **live-site Supabase project** (`opportunities`, `past_opportunities`, `updates`) |
 | Source watcher | `scripts/watch_sources.py` | GitHub Actions, every 6 hours | the **discovery Supabase project** (`observations`, `snapshots`), then `data/candidates.json` |
+| Monday sweep | `scripts/monday_sweep.py` | GitHub Actions, Mondays 05:23 SAST | `data/discoveries.json` (findings for review, never the board) |
 | Forecaster | `scripts/sonar_db.py forecast` | Nightly | `data/predictions.json` |
-| Web app | `web/` | Vercel (server-rendered, Nitro) | nothing on the board; the watchlist and watch-action audit rows only |
-| Assistant | `web/src/lib/assistant.*` | Vercel server function | nothing; read-only over the board, answers via Groq |
+| Web app | `web/` | Vercel (server-rendered, Nitro) | nothing on the board; the watchlist, watch-action audit rows and debriefs only |
+| Assistant | `web/src/lib/assistant.*` | Vercel server function | nothing; read-only over the board. Free OpenRouter models first, the built-in engine last ([MODELS.md](MODELS.md)) |
+| Debriefs | `web/src/lib/debrief*.ts`, `components/DebriefPrompt.tsx` | Browser plus one server function | the live-site `debriefs` table (or the browser, until it exists) |
 
 ## Two Supabase projects, on purpose
 
@@ -42,6 +44,8 @@ The website never talks to the discovery project. See [DATA.md](DATA.md) for why
 | Public internet to the site | Vercel sign-in on `*.vercel.app` URLs; security headers on every response ([`security-headers.ts`](../web/src/lib/security-headers.ts)); CSRF middleware on server functions |
 | Browser to database | The anon key is compiled into the bundle and **is public**. Row Level Security must make it read-only on the board tables. Audit with [`supabase/audit/rls_audit.sql`](../supabase/audit/rls_audit.sql). |
 | Browser to assistant | Unauthenticated, so: per-client and global rate limits, size-capped conversations, upstream error detail kept in server logs |
+| Language model to stored data | A model's output is never stored as it comes back. Debrief fields are checked against the person's own text, sweep findings against the source page; anything not found there is dropped ([`debrief.ts`](../web/src/lib/debrief.ts), [`monday_sweep.py`](../scripts/monday_sweep.py)) |
+| Browser to debriefs | No login, so the anon key may insert (never update or delete) rows whose `filed_by` is one of the two crew names and whose sizes are bounded; the database, not the browser, sets the time. Debriefs are never put into the assistant's prompt |
 | Scraped pages to the language model | Hidden text is stripped before extraction, steering phrases are flagged, and every extracted fact must be backed by an exact quote from the page ([`watch_sources.py`](../scripts/watch_sources.py)) |
 | CI to databases | Service keys live only in GitHub Secrets. Workflow inputs are passed through the environment and validated, never interpolated into shell. |
 | Data to links in the UI | Hrefs from data are restricted to `http(s)` ([`safe-url.ts`](../web/src/lib/safe-url.ts)) |
@@ -55,7 +59,9 @@ The board is a South African calendar. Every "today" is computed in `Africa/Joha
 | Variable | Where | Secret? | Used for |
 |---|---|---|---|
 | `VITE_SUPABASE_URL`, `VITE_SUPABASE_PUBLISHABLE_KEY`, `VITE_SUPABASE_PROJECT_ID` | Vercel | Public by design (compiled into the bundle) | The browser's database client |
-| `GROQ_API_KEY` | Vercel and GitHub | **Yes** | Assistant answers; source extraction |
+| `OPENROUTER_API_KEY` | Vercel and GitHub | **Yes** | Assistant answers, debrief structuring, Monday sweep (all work without it, on built-in fallbacks) |
+| `OPENROUTER_MODELS` | Vercel, GitHub variable (optional) | No | Replace the measured model order |
+| `GROQ_API_KEY` | Vercel and GitHub | **Yes** | Second assistant vendor (optional); the 6-hourly source extraction |
 | `GROQ_MODEL`, `ASSISTANT_PROVIDER`, `OLLAMA_BASE_URL`, `OLLAMA_MODEL` | Vercel (optional) | No | Choose the assistant's model and backend |
 | `SUPABASE_URL`, `SUPABASE_SERVICE_KEY` | GitHub Secrets | **Yes** | Discovery project writes |
 | `RADAR_SUPABASE_URL`, `RADAR_SUPABASE_SERVICE_KEY` | GitHub Secrets | **Yes** | Live-site project writes |

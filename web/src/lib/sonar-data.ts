@@ -137,6 +137,11 @@ export function useDebriefs({ enabled = true }: { enabled?: boolean } = {}) {
   });
 }
 
+function stripClientTime(d: Debrief): Omit<Debrief, "created_at"> {
+  const { created_at: _ignored, ...rest } = d;
+  return rest;
+}
+
 /** Save a debrief. Resolves to where it ended up, never throws: losing what
  * someone just typed is the one outcome this must not have. */
 export function useFileDebrief() {
@@ -149,7 +154,9 @@ export function useFileDebrief() {
         }
       )
         .from("debriefs")
-        .insert(d);
+        // created_at is left to the database: a browser must not be able to
+        // backdate a debrief. The local copy below keeps the device's clock.
+        .insert(stripClientTime(d));
       if (!error) return "database";
       keepLocally(browserStorage(), d);
       return "device";

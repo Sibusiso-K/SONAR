@@ -13,6 +13,8 @@ import { createRateLimiter } from "@/lib/rate-limit";
 
 /** Each call may spend a model request, so it is throttled like the assistant. */
 const perClient = createRateLimiter({ limit: 6, windowMs: 60_000 });
+/** All clients together: the model quota is shared with the assistant. */
+const global = createRateLimiter({ limit: 12, windowMs: 60_000 });
 
 export type StructuredDebrief = { fields: DebriefFields; structuredBy: string };
 
