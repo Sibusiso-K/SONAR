@@ -84,6 +84,14 @@ def run_checks(base: str, bypass: str | None = None) -> list[Check]:
     if home.status in (401, 403):
         add("site is reachable", False, f"HTTP {home.status}: behind authentication. Set VERCEL_PROTECTION_BYPASS.")
         return checks
+    # Vercel SSO can answer 200 with its own login page instead of 401.
+    if home.status == 200 and "SONAR" not in home.body and "vercel" in home.body.lower():
+        add(
+            "site is reachable",
+            False,
+            "HTTP 200 but the page is Vercel's login wall, not SONAR. Set VERCEL_PROTECTION_BYPASS.",
+        )
+        return checks
 
     for path in SECTIONS:
         resp = home if path == "/" else fetch(base + path, bypass)
