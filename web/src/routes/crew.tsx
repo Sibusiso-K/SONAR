@@ -184,6 +184,17 @@ function Hero({
             {profile.headline}
           </p>
         )}
+        {profile.about && (
+          <p
+            data-testid="crew-about"
+            className={cn(
+              "mt-4 max-w-2xl whitespace-pre-line leading-relaxed",
+              bench ? "font-mono text-xs opacity-75" : "text-base text-muted-foreground",
+            )}
+          >
+            {profile.about}
+          </p>
+        )}
         <p className="mt-4 flex flex-wrap gap-2">
           {profile.links.map((l) => {
             const href = safeHref(l.href);
