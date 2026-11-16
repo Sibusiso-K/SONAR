@@ -1,12 +1,10 @@
 # Comparable sites: what they do well, and what SONAR should take
 
-Written 16 November 2026. Sources are marked: **[read]** means the page was
-fetched that day and its visible text read; **[known]** means general product
-knowledge, not re-checked that day. Most of these sites render their listings
-with JavaScript, so a plain fetch saw navigation but not cards; mlh.io,
-lablab.ai and zindi.africa were blocked by this session's network policy, and
-Kaggle served a bot check. Treat the **[known]** notes as hypotheses to check
-in a browser, not as findings.
+Written 16 November 2026. Sources are marked: **[read]** means the page's
+visible text was read that day; **[browser]** means it was read the same
+evening in a real browser session, after a plain fetch had been blocked or had
+seen only an empty shell. Everything below is now one or the other except
+lablab.ai, whose old address no longer lists any events (noted below).
 
 ## The short version
 
@@ -31,10 +29,11 @@ from them is the **mechanics of deciding fast**, not the catalogue.
 - **[read]** Navigation splits participants from hosts cleanly ("Join a
   hackathon" vs "Host a hackathon"), and hackathons are grouped by use case
   ("AI hackathons", "Public hackathons").
-- **[known]** Filters on the left: location (online / in person), status
-  (upcoming, open, ended), length, themes, open to (public, students),
-  managed by Devpost. Each card shows: time left, prize total, number of
-  participants, host, themes. Sort by "submission date" or "prize amount".
+- **[browser]** Filters: Location, Length, Interests, More, and a
+  **"Match my eligibility"** toggle. 14,359 hackathons listed. Each card
+  shows online/in person, title, **time left** ("18 days left"), the date
+  range, **prize total**, **participant count**, host, "Managed by Devpost",
+  and theme tags such as "Beginner Friendly". Featured cards are badged.
 - **Good:** "time left" and "participants" side by side is the most useful
   pair on any listing: urgency and competition in one glance.
 - **For SONAR:** show field size beside the countdown wherever we have it
@@ -44,9 +43,12 @@ from them is the **mechanics of deciding fast**, not the catalogue.
 - **[read]** Grid and list views; sort; filters for status, location, region
   and tags. Tags lead with frontier topics: Quantum, AI, Crypto / PQC,
   Biology, Student. A "find a team" entry point sits in the top navigation.
-- **[known]** Cards show prize pool (often in tokens or USD), status, and
-  number of BUIDLs (submissions). Some prizes are decided by on-chain
-  quadratic voting.
+- **[browser]** Each card: host, **status** (Ongoing, Pre-registration,
+  Upcoming, Extended, Ended, Winner Announced), days left, submission count,
+  virtual or city, topic tags, **a separate row of required tech** ("Solidity,
+  Foundry", "OpenAI, Claude"), and the prize pool. When there is no cash it
+  says so plainly ("No cash, tokens, merch or other rewards"), and gated
+  events say "Password needed for submitting Build".
 - **Good:** "Student" as a tag is the right idea: an eligibility fact turned
   into a filter.
 - **For SONAR:** a grid/list toggle is cheap and helps on the phone.
@@ -55,9 +57,12 @@ from them is the **mechanics of deciding fast**, not the catalogue.
 - **[read]** One brand across competitions, quizzes, hackathons,
   scholarships and internships for students. The listing is rendered by
   JavaScript.
-- **[known]** Filters by user type (student, fresher, professional), course,
-  location, fee or free, and category. Cards show registrations so far, days
-  left, and the organiser's logo. Strong mobile app.
+- **[browser]** Filters: Team Size, Payment, Categories, Sort. Each card
+  shows the organiser, **team size** ("2 - 4 Members", "Individual
+  Participation"), **entry fee where there is one** ("1500 Fee"), online or
+  the venue, who can apply ("Everyone can apply", "Undergraduate"), prize
+  ("Prizes worth 3,50,000"), **"Pre-Placement Interviews"** as a reward,
+  days left, and on popular ones "28,182 Registered".
 - **Good:** "Registered: 2,341" is a field-size signal before the deadline.
 - **For SONAR:** our tiers do this job for two people; the lesson is to
   surface competition size early.
@@ -85,30 +90,38 @@ from them is the **mechanics of deciding fast**, not the catalogue.
   one.
 
 ### Kaggle — kaggle.com/competitions
-- **[read]** Served a bot check to a script.
-- **[known]** Competitions grouped as Featured, Research, Getting Started,
-  Playground, Community; each shows prize, team count, days to go, and
-  tags. Public leaderboards, discussion and shared notebooks.
+- **[browser]** Grouped as Getting Started, Featured Hackathons, Featured
+  Competitions, Community Spotlight, Recently Ended, Community. Every card:
+  title, one-line brief, **team count** ("5899 Teams"), prize or "Swag" /
+  "Kudos" / "Knowledge", and time to go ("16 days to go", "5 hours to go").
+  Recently Ended keeps prize, track and team count (ARC Prize 2026 ARC-AGI-2:
+  $700,000, 3,543 teams).
 - **Good:** "Teams: 5,733" next to the prize is exactly the expected-value
   input SONAR computes.
 - **For SONAR:** we already track field size for RSNA; pull the team count
   automatically when the sweep reads a Kaggle page.
 
 ### Zindi — zindi.africa
-- **[blocked here; known]** Africa's data-science competition platform.
-  Cards show prize, participants, days left, and an eligibility note when a
-  prize is restricted to African residents. Monthly "knowledge" challenges
-  sit alongside prize challenges.
+- **[browser]** zindi.africa now redirects to zindi.world. Header counts
+  ("Open Challenges: 8, Past Challenges: 517"), a **"Closing soon"** sort,
+  and a "start with a practice challenge" entry for newcomers. Cards: prize
+  in its own currency ("$5 000 USD", "€25 000 EUR"), title naming the
+  sponsor ("... by the French Embassy in South Africa"), **participants**,
+  days left, Join. Several open challenges have South African sponsors
+  (Dis-Chem, the French Embassy in South Africa).
 - **Good:** explicit "prize eligible for residents of …" is the eligibility
   pattern we want on every row.
 
 ### lablab.ai and MLH
-- **[blocked here; known]** lablab.ai runs short AI hackathons with sponsor
-  tech stacks (OpenAI, Google, etc.) on each card and in-platform team
-  formation. MLH lists its season's events as a grid of cards with date,
-  city or "Digital", and a high-school badge.
-- **Good:** stack on the card ("built with Gemini") helps decide whether
-  the team's existing work transfers.
+- **[browser]** lablab.ai/event now redirects to starfieldlabs.ai/events,
+  which says "No events yet". It cannot be relied on as a source until that
+  settles.
+- **[browser]** MLH (mlh.io now redirects to mlh.com) lists the 2027 season
+  as date, name, city, **IN-PERSON**, and badges for **HIGH SCHOOL**,
+  **HARDWARE** and **DIVERSITY**. Filters: This Month, Next Month, Diversity
+  Focused, Region. Nearly every event is in North America or Europe.
+- **Good:** DoraHacks' required-tech row and MLH's badges both answer "is
+  this for us?" before the reader opens anything.
 - **For SONAR:** match a brief's required stack against the repos in
   `team_profile.json`.
 
@@ -126,3 +139,11 @@ from them is the **mechanics of deciding fast**, not the catalogue.
 4. **Next:** eligibility-first subtitles, a grid/list toggle on phones, and
    automatic field-size capture from Kaggle and Devpost pages during the
    sweep.
+5. **Learned from the browser pass (16 Nov):** every site that shows a
+   participant or team count puts it beside the time left, which confirms
+   item 4. Three cheap additions follow from what they do: say "no cash
+   prize" outright instead of leaving the prize blank (DoraHacks); show an
+   entry fee when there is one (Unstop); and show a required-stack line so a
+   brief that demands Solidity or a specific vendor can be dismissed at a
+   glance (DoraHacks). Devpost's "Match my eligibility" toggle is the same
+   idea as eligibility-first subtitles, done as a filter.
