@@ -445,8 +445,9 @@
   color: oklch(0.965 0.012 88);
   cursor: pointer;
   /* Self-timed fallback: lifts away on its own even if JavaScript never
-     runs. React shortens this by switching to data-phase="leaving". */
-  animation: splash-exit 650ms cubic-bezier(0.76, 0, 0.24, 1) 1700ms forwards;
+     runs (10s in all; the lift starts at 9.35s). React shortens this by
+     switching to data-phase="leaving". Keep in step with SPLASH_TOTAL_MS. */
+  animation: splash-exit 650ms cubic-bezier(0.76, 0, 0.24, 1) 9350ms forwards;
 }
 
 .splash[data-phase="leaving"] {
@@ -513,7 +514,7 @@
   background-color: oklch(0.72 0.128 250);
   transform-origin: left center;
   transform: scaleX(0);
-  animation: splash-progress 1500ms cubic-bezier(0.65, 0, 0.35, 1) 150ms forwards;
+  animation: splash-progress 9200ms cubic-bezier(0.4, 0, 0.2, 1) 150ms forwards;
 }
 
 .splash-caption,
@@ -565,7 +566,8 @@
     oklch(0.72 0.128 250 / 0%) 300deg,
     oklch(0.72 0.128 250 / 45%) 360deg
   );
-  animation: splash-beam 1500ms linear 100ms both;
+  /* Sweeps around for the whole opening, not just once. */
+  animation: splash-beam 1500ms linear 100ms infinite;
 }
 
 /* A contact: a dot the beam has just passed, with its date. */

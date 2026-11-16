@@ -16,15 +16,15 @@ test.describe("opening splash", () => {
     await expect(splash).toBeVisible();
     await expect(splash).toHaveAccessibleName("Loading SONAR");
 
-    // Gone within the timeline (lift 1.7s + exit 0.65s), well inside 6s.
-    await expect(splash).toHaveCount(0, { timeout: 6_000 });
+    // Gone within the timeline (10s in all, lift starts at 9.35s), inside 12s.
+    await expect(splash).toHaveCount(0, { timeout: 12_000 });
     await expect(page.getByRole("heading", { level: 1 }).first()).toBeVisible();
     errors.expectNone();
   });
 
   test("plays once per session: a reload goes straight to the board", async ({ page }) => {
     await page.goto("/");
-    await expect(page.getByTestId("splash")).toHaveCount(0, { timeout: 6_000 });
+    await expect(page.getByTestId("splash")).toHaveCount(0, { timeout: 12_000 });
     expect(await page.evaluate(() => sessionStorage.getItem("sonar.splash.seen"))).toBe("1");
 
     await page.reload({ waitUntil: "domcontentloaded" });
@@ -69,7 +69,7 @@ test.describe("opening splash", () => {
     page.on("pageerror", (e) => errors.push(e.message));
     await page.goto("/", { waitUntil: "commit" });
     await expect(page.getByTestId("splash")).toBeVisible();
-    await expect(page.getByTestId("splash")).toHaveCount(0, { timeout: 6_000 });
+    await expect(page.getByTestId("splash")).toHaveCount(0, { timeout: 12_000 });
     expect(errors.filter((m) => /SecurityError|blocked/.test(m))).toEqual([]);
   });
 });
