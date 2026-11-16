@@ -6,6 +6,12 @@
 
 The repository is the source of truth for what SONAR has *verified*. Databases hold what it has merely *seen*. The automated pipeline can propose; only a merged pull request publishes.
 
+## Where the live site's data lives
+
+Since 16 Nov 2026 the live site reads **sonar-radar**, Supabase project `dvpozmjhoxfvdafmphyr` (eu-west-2) in Sibusiso-K's Org. It was recreated there because the earlier sonar-radar sat under a login nobody could reach any more. It holds only what `scripts/sync_radar.py` pushes from the repo, so it can always be rebuilt: apply `web/supabase/migrations/` in order (schema only; the first file's seed rows are Lovable placeholders, not data), then run **Refresh board**. Watchlist stars and debriefs are the only rows that exist nowhere else.
+
+Lethabo's SONAR project (`txmxygjqndenkcdpweym`) keeps the discovery pipeline in `public` and a non-critical mirror of the board in `app`; the site does not read it.
+
 ## Components
 
 | Component | Where | Runs | Writes to |
