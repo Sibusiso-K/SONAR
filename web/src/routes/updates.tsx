@@ -44,7 +44,7 @@ function Updates() {
 
   return (
     <AppShell>
-      <section className="mx-auto max-w-[88rem] px-5 pb-12 pt-16 md:px-10 md:pt-24">
+      <section className="mx-auto max-w-[88rem] px-5 pb-12 pt-8 md:px-10 md:pt-10">
         <p className="label-caps">Updates</p>
         <h1 className="display-xl mt-5 max-w-[13ch]">
           <RevealWords text="Nothing changes quietly." />

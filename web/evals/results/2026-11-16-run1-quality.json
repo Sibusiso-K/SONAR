@@ -1,0 +1,722 @@
+{
+ "ranOn": "2026-11-16T17:04:03.449Z",
+ "frozenBoard": "2026-11-16",
+ "promptChars": 30440,
+ "settings": {
+  "maxTokens": 1500,
+  "reasoningEffort": null,
+  "temperature": 0
+ },
+ "cases": 8,
+ "summary": [
+  {
+   "engine": "sonar-core-1",
+   "cases": 8,
+   "answered": 8,
+   "passed": 8,
+   "passRateWhenAnswered": 100,
+   "ungroundedDateAnswers": 0,
+   "medianLatencyMs": 1,
+   "maxLatencyMs": 3,
+   "failed": []
+  },
+  {
+   "engine": "nvidia/nemotron-3.5-lightning:free",
+   "cases": 8,
+   "answered": 7,
+   "passed": 7,
+   "passRateWhenAnswered": 100,
+   "ungroundedDateAnswers": 0,
+   "medianLatencyMs": 209,
+   "maxLatencyMs": 499,
+   "failed": [
+    "soonest"
+   ]
+  },
+  {
+   "engine": "google/gemma-4-31b-it:free",
+   "cases": 8,
+   "answered": 1,
+   "passed": 1,
+   "passRateWhenAnswered": 100,
+   "ungroundedDateAnswers": 0,
+   "medianLatencyMs": 1256,
+   "maxLatencyMs": 1256,
+   "failed": [
+    "countdown",
+    "unconfirmed",
+    "absent",
+    "score",
+    "prize",
+    "archive",
+    "scope"
+   ]
+  },
+  {
+   "engine": "nvidia/nemotron-3-ultra-550b-a55b:free",
+   "cases": 8,
+   "answered": 8,
+   "passed": 8,
+   "passRateWhenAnswered": 100,
+   "ungroundedDateAnswers": 0,
+   "medianLatencyMs": 439,
+   "maxLatencyMs": 669,
+   "failed": []
+  },
+  {
+   "engine": "liquid/lfm-3-1.7b:free",
+   "cases": 8,
+   "answered": 6,
+   "passed": 6,
+   "passRateWhenAnswered": 100,
+   "ungroundedDateAnswers": 0,
+   "medianLatencyMs": 467,
+   "maxLatencyMs": 797,
+   "failed": [
+    "soonest",
+    "scope"
+   ]
+  }
+ ],
+ "rows": [
+  {
+   "engine": "sonar-core-1",
+   "case": "soonest",
+   "skill": "Nearest deadline",
+   "ok": true,
+   "latencyMs": 2,
+   "reply": "Nearest dates on the live board:\n- Samsung Software Development Programme 2027 (Tshimologong, Wits): 22 Nov 2026, in 6 days. still to submit, score 57.5.\n- 17th Annual SME Toolkit SA Business Plan Competition 2026: 30 Nov 2026, in 14 days. submitted, score 50.\n- Kiroween 2026 (Kiro Hackathon): 4 Dec 2026, in 18 days. still to submit, score 59.\n- AWS MSP AI Hackathon 2026: 11 Dec 2026, in 25 days. still to submit, score 37.5.\n- SiGMA Africa Pitch 2027: 6 Jan 2027, in 51 days. still to submit, score 48.\n\n16 other live rows have no next date recorded, so they cannot appear here.",
+   "grade": {
+    "pass": true,
+    "missing": [],
+    "violations": [],
+    "ungroundedDates": [],
+    "tooLong": false
+   }
+  },
+  {
+   "engine": "sonar-core-1",
+   "case": "countdown",
+   "skill": "Days until a named deadline",
+   "ok": true,
+   "latencyMs": 2,
+   "reply": "Kiroween 2026 (Kiro Hackathon): next date 4 Dec 2026, in 18 days.\nDate confidence: reported.\nAll dates on the row:\n- event start: 30 Oct 2026 (17 days ago)\n- kiro credits deadline: 1 Dec 2026 (in 15 days)\n- submission deadline: 4 Dec 2026 (in 18 days)\n- submission deadline sast: 5 Dec 2026 (in 19 days)\n- judging: 16 Dec 2026 (in 30 days)\n- winners announced: 3 Feb 2027 (in 79 days)",
+   "grade": {
+    "pass": true,
+    "missing": [],
+    "violations": [],
+    "ungroundedDates": [],
+    "tooLong": false
+   }
+  },
+  {
+   "engine": "sonar-core-1",
+   "case": "unconfirmed",
+   "skill": "Admits a missing, unconfirmed date",
+   "ok": true,
+   "latencyMs": 1,
+   "reply": "FNB App of the Year Hackathon 2026 has no upcoming date on record. [unconfirmed: not calendar-safe]\nDate confidence: unconfirmed.\nAll dates on the row:\n- prior year event: 24 Oct 2025 (388 days ago)\n- checked on: 4 Oct 2026 (43 days ago)",
+   "grade": {
+    "pass": true,
+    "missing": [],
+    "violations": [],
+    "ungroundedDates": [],
+    "tooLong": false
+   }
+  },
+  {
+   "engine": "sonar-core-1",
+   "case": "absent",
+   "skill": "Refuses to invent an unknown event",
+   "ok": true,
+   "latencyMs": 3,
+   "reply": "No row on the board matches that name, so there is nothing recorded to answer from. Check the spelling; it may also simply not be tracked yet.",
+   "grade": {
+    "pass": true,
+    "missing": [],
+    "violations": [],
+    "ungroundedDates": [],
+    "tooLong": false
+   }
+  },
+  {
+   "engine": "sonar-core-1",
+   "case": "score",
+   "skill": "Explains a score from its inputs",
+   "ok": true,
+   "latencyMs": 1,
+   "reply": "Mintek-SCi Grad Hackathon 2026 scores 82.5 overall (tier 1).\nThe four inputs on record:\n- career leverage: 90\n- winnability: 90\n- prize: 60\n- urgency: 80\nDerived from those: win chance about 66/100, expected value R33k. Both are ranking devices, not forecasts.\nNotes on the row: SELECTED: confirmed by Mintek's letter dated 14 Aug 2026 (signed Boitumelo Lekalakala). Team is in the hackathon, not just applied. Immediate action: one-page abstract due 30 Aug, plus per-member ID/T-shirt/contact/mentor info back to Mintek. Final hacking day is mandatory in-per\u2026",
+   "grade": {
+    "pass": true,
+    "missing": [],
+    "violations": [],
+    "ungroundedDates": [],
+    "tooLong": false
+   }
+  },
+  {
+   "engine": "sonar-core-1",
+   "case": "prize",
+   "skill": "Quotes a prize with its currency",
+   "ok": true,
+   "latencyMs": 1,
+   "reply": "PayPal AI Hackathon: $67,500 (about R1.2m).\nBreakdown: 1st: $12,000; 2nd: $8,000; 3rd: $5,000; Honourable mentions x5 each: $5,000.\nNon-cash:\n- Plus sponsor prizes of $500-$5,000\nExpected value at a win chance of about 29/100: R356.3k. A ranking device, not a forecast.",
+   "grade": {
+    "pass": true,
+    "missing": [],
+    "violations": [],
+    "ungroundedDates": [],
+    "tooLong": false
+   }
+  },
+  {
+   "engine": "sonar-core-1",
+   "case": "archive",
+   "skill": "Reads a result from the archive",
+   "ok": true,
+   "latencyMs": 1,
+   "reply": "That one is in the archive, not on the live board.\nIBM Dev Day: Bob in Action + Hackathon (30 Aug 2026): placed, 3rd place.",
+   "grade": {
+    "pass": true,
+    "missing": [],
+    "violations": [],
+    "ungroundedDates": [],
+    "tooLong": false
+   }
+  },
+  {
+   "engine": "sonar-core-1",
+   "case": "scope",
+   "skill": "Declines an unrelated request",
+   "ok": true,
+   "latencyMs": 1,
+   "reply": "That is outside what this assistant does. I answer from the board's rows: what closes next, what to prioritise, why a row scores what it does, eligibility, prizes, a submission checklist, and conflicts or stale rows. Name an opportunity, or ask for one of those.",
+   "grade": {
+    "pass": true,
+    "missing": [],
+    "violations": [],
+    "ungroundedDates": [],
+    "tooLong": false
+   }
+  },
+  {
+   "engine": "nvidia/nemotron-3.5-lightning:free",
+   "case": "soonest",
+   "skill": "Nearest deadline",
+   "ok": false,
+   "transportError": "empty reply",
+   "latencyMs": 603,
+   "reply": "",
+   "latencyNote": "headers only"
+  },
+  {
+   "engine": "nvidia/nemotron-3.5-lightning:free",
+   "case": "countdown",
+   "skill": "Days until a named deadline",
+   "ok": true,
+   "latencyMs": 193,
+   "promptTokens": 9940,
+   "completionTokens": 394,
+   "reasoningTokens": 390,
+   "reply": "18",
+   "grade": {
+    "pass": true,
+    "missing": [],
+    "violations": [],
+    "ungroundedDates": [],
+    "tooLong": false
+   },
+   "latencyNote": "headers only"
+  },
+  {
+   "engine": "nvidia/nemotron-3.5-lightning:free",
+   "case": "unconfirmed",
+   "skill": "Admits a missing, unconfirmed date",
+   "ok": true,
+   "latencyMs": 192,
+   "promptTokens": 9943,
+   "completionTokens": 1500,
+   "reasoningTokens": 1432,
+   "reply": "The FNB App of the Year Hackathon 2026 row has confidence=unconfirmed. The board does not record event_start or event_end dates for the 2026 edition; only prior_year_event=2025-10-24 and checked_on=2026-1",
+   "grade": {
+    "pass": true,
+    "missing": [],
+    "violations": [],
+    "ungroundedDates": [],
+    "tooLong": false
+   },
+   "latencyNote": "headers only"
+  },
+  {
+   "engine": "nvidia/nemotron-3.5-lightning:free",
+   "case": "absent",
+   "skill": "Refuses to invent an unknown event",
+   "ok": true,
+   "latencyMs": 209,
+   "promptTokens": 9942,
+   "completionTokens": 1073,
+   "reasoningTokens": 1034,
+   "reply": "The board does not have a record for the Standard Bank Fintech Cup. To verify, I would need the competition\u2019s organiser, edition, and year, or a source link.",
+   "grade": {
+    "pass": true,
+    "missing": [],
+    "violations": [],
+    "ungroundedDates": [],
+    "tooLong": false
+   },
+   "latencyNote": "headers only"
+  },
+  {
+   "engine": "nvidia/nemotron-3.5-lightning:free",
+   "case": "score",
+   "skill": "Explains a score from its inputs",
+   "ok": true,
+   "latencyMs": 324,
+   "promptTokens": 9943,
+   "completionTokens": 1324,
+   "reasoningTokens": 1214,
+   "reply": "The total score of 82.5 derives from the board's score breakdown: career_leverage=90, winnability=90, prize=60, urgency=80. Both career_leverage and winnability are maxed at 90, which dominates the total. The row is confirmed and the team was selected by Mintek (letter dated 14 Aug 2026), with a reported win probability of 66/100. No other hidden factors are recorded.",
+   "grade": {
+    "pass": true,
+    "missing": [],
+    "violations": [],
+    "ungroundedDates": [],
+    "tooLong": false
+   },
+   "latencyNote": "headers only"
+  },
+  {
+   "engine": "nvidia/nemotron-3.5-lightning:free",
+   "case": "prize",
+   "skill": "Quotes a prize with its currency",
+   "ok": true,
+   "latencyMs": 185,
+   "promptTokens": 9942,
+   "completionTokens": 955,
+   "reasoningTokens": 848,
+   "reply": "The board records the PayPal AI Hackathon prize pool as 67500 USD (~R1228500), broken down as 1st: $12,000; 2nd: $8,000; 3rd: $5,000; and five honourable mentions at $5,000 each. Expected value is listed as R356265 with a win probability of 29/100.",
+   "grade": {
+    "pass": true,
+    "missing": [],
+    "violations": [],
+    "ungroundedDates": [],
+    "tooLong": false
+   },
+   "latencyNote": "headers only"
+  },
+  {
+   "engine": "nvidia/nemotron-3.5-lightning:free",
+   "case": "archive",
+   "skill": "Reads a result from the archive",
+   "ok": true,
+   "latencyMs": 220,
+   "promptTokens": 9941,
+   "completionTokens": 752,
+   "reasoningTokens": 718,
+   "reply": "Placed 3rd. A 2026-10-04 audit trail note adds that this qualifies for TechXchange passes.",
+   "grade": {
+    "pass": true,
+    "missing": [],
+    "violations": [],
+    "ungroundedDates": [],
+    "tooLong": false
+   },
+   "latencyNote": "headers only"
+  },
+  {
+   "engine": "nvidia/nemotron-3.5-lightning:free",
+   "case": "scope",
+   "skill": "Declines an unrelated request",
+   "ok": true,
+   "latencyMs": 499,
+   "promptTokens": 9937,
+   "completionTokens": 748,
+   "reasoningTokens": 729,
+   "reply": "I don't generate creative writing; my purpose is tracking competition opportunities from the board.",
+   "grade": {
+    "pass": true,
+    "missing": [],
+    "violations": [],
+    "ungroundedDates": [],
+    "tooLong": false
+   },
+   "latencyNote": "headers only"
+  },
+  {
+   "engine": "google/gemma-4-31b-it:free",
+   "case": "soonest",
+   "skill": "Nearest deadline",
+   "ok": true,
+   "latencyMs": 1256,
+   "promptTokens": 9982,
+   "completionTokens": 52,
+   "reasoningTokens": 0,
+   "reply": "The Samsung Software Development Programme 2027 closes soonest on 2026-11-22.\n\nNote that this entry is reported, not confirmed; the deadline should be verified via the Tshimologong or Samsung pages.",
+   "grade": {
+    "pass": true,
+    "missing": [],
+    "violations": [],
+    "ungroundedDates": [],
+    "tooLong": false
+   },
+   "latencyNote": "headers only"
+  },
+  {
+   "engine": "google/gemma-4-31b-it:free",
+   "case": "countdown",
+   "skill": "Days until a named deadline",
+   "ok": false,
+   "transportError": "HTTP 429",
+   "latencyMs": 484,
+   "reply": "",
+   "latencyNote": "headers only"
+  },
+  {
+   "engine": "google/gemma-4-31b-it:free",
+   "case": "unconfirmed",
+   "skill": "Admits a missing, unconfirmed date",
+   "ok": false,
+   "transportError": "HTTP 429",
+   "latencyMs": 589,
+   "reply": "",
+   "latencyNote": "headers only"
+  },
+  {
+   "engine": "google/gemma-4-31b-it:free",
+   "case": "absent",
+   "skill": "Refuses to invent an unknown event",
+   "ok": false,
+   "transportError": "skipped: model unavailable",
+   "latencyMs": 0,
+   "reply": "",
+   "latencyNote": "headers only"
+  },
+  {
+   "engine": "google/gemma-4-31b-it:free",
+   "case": "score",
+   "skill": "Explains a score from its inputs",
+   "ok": false,
+   "transportError": "skipped: model unavailable",
+   "latencyMs": 0,
+   "reply": "",
+   "latencyNote": "headers only"
+  },
+  {
+   "engine": "google/gemma-4-31b-it:free",
+   "case": "prize",
+   "skill": "Quotes a prize with its currency",
+   "ok": false,
+   "transportError": "skipped: model unavailable",
+   "latencyMs": 0,
+   "reply": "",
+   "latencyNote": "headers only"
+  },
+  {
+   "engine": "google/gemma-4-31b-it:free",
+   "case": "archive",
+   "skill": "Reads a result from the archive",
+   "ok": false,
+   "transportError": "skipped: model unavailable",
+   "latencyMs": 0,
+   "reply": "",
+   "latencyNote": "headers only"
+  },
+  {
+   "engine": "google/gemma-4-31b-it:free",
+   "case": "scope",
+   "skill": "Declines an unrelated request",
+   "ok": false,
+   "transportError": "skipped: model unavailable",
+   "latencyMs": 0,
+   "reply": "",
+   "latencyNote": "headers only"
+  },
+  {
+   "engine": "nvidia/nemotron-3-ultra-550b-a55b:free",
+   "case": "soonest",
+   "skill": "Nearest deadline",
+   "ok": true,
+   "latencyMs": 375,
+   "promptTokens": 9934,
+   "completionTokens": 1483,
+   "reasoningTokens": 945,
+   "reply": "**Soonest closing deadlines from today (2026-11-16):**\n\n| Opportunity | Deadline | Days left | Confidence | Notes |\n|-------------|----------|-----------|------------|-------|\n| **Samsung Software Development Programme 2027** (Tshimologong/Wits) | 2026-11-22 | **6** | reported | 12-month dev programme, SA citizens <35, diploma/degree required. Aggregator copy only \u2014 confirm deadline & stipend on Tshimologong/Samsung pages. |\n| **17th Annual SME Toolkit SA Business Plan Competition 2026** | 2026-11-30 | **14** | confirmed | Phase 2 final submission. You already entered Phase 1 (two individual plans, 18 Aug). National winner: R50k cash + R50k mentorship. |\n| **Kiroween 2026 (Kiro Hackathon)** | 2026-12-04 | **18** | reported | Devpost submission, Halloween-themed build with Kiro (AWS agentic IDE). $100k prize pool. Devpost page & rules not read \u2014 verify. |\n| **AWS MSP AI Hackathon 2026** | 2026-12-11 | **25** | reported | **Likely blocker**: appears restricted to AWS Partner Network / MSP companies. Two tracks, $64k pool. Details from aggregators only. |\n\n**Already past (for reference):**\n- Gates Foundation AI Fellow \u2014 2026-11-11 (5 days ago)\n- PayPal AI Hackathon \u2014 2026-11-12 (4 days ago)\n- Google Gemma 4 Paper Track \u2014 2026-11-13 (3 days ago)\n- Colleague Zero (Melsoft) \u2014 event ran 13\u201314 Nov\n- NASA Space Apps \u2014 event ran 14\u201315 Nov\n- W3Node \u2014 event ran 12\u201314 Nov\n\n**Actionable now:** Samsung (6 days) and SME Toolkit (14 days) are the only two with calendar-safe or near-calendar-safe deadlines you can still hit. Samsung is `reported` \u2014 verify the Tshimologong page before committing effort.",
+   "grade": {
+    "pass": true,
+    "missing": [],
+    "violations": [],
+    "ungroundedDates": [],
+    "tooLong": false
+   },
+   "latencyNote": "headers only"
+  },
+  {
+   "engine": "nvidia/nemotron-3-ultra-550b-a55b:free",
+   "case": "countdown",
+   "skill": "Days until a named deadline",
+   "ok": true,
+   "latencyMs": 514,
+   "promptTokens": 9940,
+   "completionTokens": 249,
+   "reasoningTokens": 227,
+   "reply": "18 days (submission deadline is 2026-12-04).",
+   "grade": {
+    "pass": true,
+    "missing": [],
+    "violations": [],
+    "ungroundedDates": [],
+    "tooLong": false
+   },
+   "latencyNote": "headers only"
+  },
+  {
+   "engine": "nvidia/nemotron-3-ultra-550b-a55b:free",
+   "case": "unconfirmed",
+   "skill": "Admits a missing, unconfirmed date",
+   "ok": true,
+   "latencyMs": 629,
+   "promptTokens": 9943,
+   "completionTokens": 605,
+   "reasoningTokens": 456,
+   "reply": "The board does not have the 2026 event dates for FNB App of the Year. The row is marked **unconfirmed** and only records:\n\n- Prior year event: 24 Oct 2025\n- Last checked: 4 Oct 2026 (problem statements were already published on the official site at that point)\n\nWhat would need to be verified:\n1. Registration open/close dates for 2026\n2. Hackathon sprint dates (the 72-hour build window)\n3. Whether the published problem statements are final or still draft\n\nCheck the official FNB App of the Year site or their developer portal for the 2026 calendar.",
+   "grade": {
+    "pass": true,
+    "missing": [],
+    "violations": [],
+    "ungroundedDates": [],
+    "tooLong": false
+   },
+   "latencyNote": "headers only"
+  },
+  {
+   "engine": "nvidia/nemotron-3-ultra-550b-a55b:free",
+   "case": "absent",
+   "skill": "Refuses to invent an unknown event",
+   "ok": true,
+   "latencyMs": 410,
+   "promptTokens": 9942,
+   "completionTokens": 438,
+   "reasoningTokens": 362,
+   "reply": "The Standard Bank Fintech Cup is not on the current board. The board has no record of it \u2014 no dates, prize, eligibility, or status.\n\nIf you want it tracked, I\u2019d need a verifiable source (organiser page, Devpost/Kaggle listing, or official rules) to confirm the prize structure, deadlines, and entry requirements.",
+   "grade": {
+    "pass": true,
+    "missing": [],
+    "violations": [],
+    "ungroundedDates": [],
+    "tooLong": false
+   },
+   "latencyNote": "headers only"
+  },
+  {
+   "engine": "nvidia/nemotron-3-ultra-550b-a55b:free",
+   "case": "score",
+   "skill": "Explains a score from its inputs",
+   "ok": true,
+   "latencyMs": 669,
+   "promptTokens": 9943,
+   "completionTokens": 751,
+   "reasoningTokens": 238,
+   "reply": "**Mintek-SCi Grad Hackathon \u2014 score 82.5 breakdown**\n\n| Component | Score | Why it\u2019s high |\n|-----------|-------|---------------|\n| **Career leverage** | 90/100 | `career_track=direct` \u2014 this is a graduate programme pipeline. Selection letter (14 Aug 2026, signed Boitumelo Lekalakala) confirms you\u2019re *in* the hackathon, not just applying. A win or strong showing feeds straight into a Mintek role. |\n| **Winnability** | 90/100 | Team already selected, mentored, and building a known repo (KHANYA, github.com/Sibusiso-K/KHANYA). Small, defined competitor pool (university students, unemployed grads, interns <35). You\u2019re not up against grandmasters or open-internet fields. |\n| **Prize** | 60/100 | R50k total (1st R25k, 2nd R15k, 3rd R10k). Respectable for a local grad hackathon, but not life-changing \u2014 hence the 60. |\n| **Urgency** | 80/100 | Hard deadlines: abstract due 30 Aug (done), final submission 1 Oct, conference 2 Oct. The clock is moving and the work is scoped. |\n\n**Composite**: the four sub-scores average to 80; the board\u2019s 82.5 suggests a slight weighting toward career leverage and winnability (the two 90s).\n\n**Key differentiators vs. the rest of the board**\n- **Confirmed entry** \u2014 not \u201cstill to submit\u201d or \u201csigned up\u201d. You have a selection letter.\n- **Direct career track** \u2014 only BCG Platinion and this one have `career_track=direct`.\n- **Measured win probability** \u2014 66% (highest on the board) because the field is bounded and you\u2019re already inside.\n- **Expected value R33k** \u2014 highest EV of any *confirmed* row.\n\n**Caveat**: the score is a ranking device, not a forecast. The 90 winnability assumes the mentored, team-based format plays to your strengths; if the judging criteria shift unexpectedly, that number softens.",
+   "grade": {
+    "pass": true,
+    "missing": [],
+    "violations": [],
+    "ungroundedDates": [],
+    "tooLong": false
+   },
+   "latencyNote": "headers only"
+  },
+  {
+   "engine": "nvidia/nemotron-3-ultra-550b-a55b:free",
+   "case": "prize",
+   "skill": "Quotes a prize with its currency",
+   "ok": true,
+   "latencyMs": 397,
+   "promptTokens": 9942,
+   "completionTokens": 666,
+   "reasoningTokens": 528,
+   "reply": "**PayPal AI Hackathon (paypal-ai-hackathon-2026)**\n\n- **Total prize pool:** $67,500 USD (~R1,228,500)\n- **Breakdown:**\n  - 1st place: $12,000\n  - 2nd place: $8,000\n  - 3rd place: $5,000\n  - Honourable mentions (\u00d75): $5,000 each\n\n*Source: Devpost listing captured in the 4 Oct 2026 discovery sweep. Confidence: confirmed.*",
+   "grade": {
+    "pass": true,
+    "missing": [],
+    "violations": [],
+    "ungroundedDates": [],
+    "tooLong": false
+   },
+   "latencyNote": "headers only"
+  },
+  {
+   "engine": "nvidia/nemotron-3-ultra-550b-a55b:free",
+   "case": "archive",
+   "skill": "Reads a result from the archive",
+   "ok": true,
+   "latencyMs": 439,
+   "promptTokens": 9941,
+   "completionTokens": 200,
+   "reasoningTokens": 151,
+   "reply": "IBM Dev Day: Bob in Action + Hackathon (30 Aug 2026) \u2014 **3rd place**.\n\nThe audit trail notes the 3rd-place finish also qualifies the team for TechXchange passes.",
+   "grade": {
+    "pass": true,
+    "missing": [],
+    "violations": [],
+    "ungroundedDates": [],
+    "tooLong": false
+   },
+   "latencyNote": "headers only"
+  },
+  {
+   "engine": "nvidia/nemotron-3-ultra-550b-a55b:free",
+   "case": "scope",
+   "skill": "Declines an unrelated request",
+   "ok": true,
+   "latencyMs": 370,
+   "promptTokens": 9937,
+   "completionTokens": 131,
+   "reasoningTokens": 115,
+   "reply": "That is outside my scope as SONAR's in-board assistant.",
+   "grade": {
+    "pass": true,
+    "missing": [],
+    "violations": [],
+    "ungroundedDates": [],
+    "tooLong": false
+   },
+   "latencyNote": "headers only"
+  },
+  {
+   "engine": "liquid/lfm-3-1.7b:free",
+   "case": "soonest",
+   "skill": "Nearest deadline",
+   "ok": false,
+   "transportError": "empty reply",
+   "latencyMs": 703,
+   "reply": "",
+   "latencyNote": "headers only"
+  },
+  {
+   "engine": "liquid/lfm-3-1.7b:free",
+   "case": "countdown",
+   "skill": "Days until a named deadline",
+   "ok": true,
+   "latencyMs": 797,
+   "promptTokens": 9025,
+   "completionTokens": 657,
+   "reasoningTokens": 583,
+   "reply": "Kiroween 2026 submission deadline is **2026-12-04**. Today is 2026-11-16, so that\u2019s **18 days** away.\n\n(Other related dates: credits deadline 2026-12-01, SAST scorer deadline 2026-12-05, judging 2026-12-16.)",
+   "grade": {
+    "pass": true,
+    "missing": [],
+    "violations": [],
+    "ungroundedDates": [],
+    "tooLong": false
+   },
+   "latencyNote": "headers only"
+  },
+  {
+   "engine": "liquid/lfm-3-1.7b:free",
+   "case": "unconfirmed",
+   "skill": "Admits a missing, unconfirmed date",
+   "ok": true,
+   "latencyMs": 352,
+   "promptTokens": 9028,
+   "completionTokens": 788,
+   "reasoningTokens": 670,
+   "reply": "For FNB App of the Year Hackathon 2026 (fnb-aoty-2026): the live board lists **prior_year_event = 2025\u201110\u201124** and a **checked_on = 2026\u201110\u201104**, but no `event_start` or `event_end` date for this year is recorded. Participation is still pending (\"still to submit\"), so the exact 2026 dates aren\u2019t confirmed in the current data. You\u2019d need to check the official FNB site or the Devpost listing for the 2026 schedule.",
+   "grade": {
+    "pass": true,
+    "missing": [],
+    "violations": [],
+    "ungroundedDates": [],
+    "tooLong": false
+   },
+   "latencyNote": "headers only"
+  },
+  {
+   "engine": "liquid/lfm-3-1.7b:free",
+   "case": "absent",
+   "skill": "Refuses to invent an unknown event",
+   "ok": true,
+   "latencyMs": 255,
+   "promptTokens": 9026,
+   "completionTokens": 327,
+   "reasoningTokens": 264,
+   "reply": "The live board does not contain an entry for a \"Standard Bank Fintech Cup.\" I can't confirm its prize from the recorded fields. If you have the exact event ID or alternate name (e.g., \"StandardBank FinTech,\" \"SB Fintech\"), let me know and I'll check again.",
+   "grade": {
+    "pass": true,
+    "missing": [],
+    "violations": [],
+    "ungroundedDates": [],
+    "tooLong": false
+   },
+   "latencyNote": "headers only"
+  },
+  {
+   "engine": "liquid/lfm-3-1.7b:free",
+   "case": "score",
+   "skill": "Explains a score from its inputs",
+   "ok": true,
+   "latencyMs": 467,
+   "promptTokens": 9028,
+   "completionTokens": 1149,
+   "reasoningTokens": 792,
+   "reply": "Mintek\u2011SCi\u2019s score of **82.5** comes from its four component scores: **career_leverage\u202f=\u202f90**, **winnability\u202f=\u202f90**, **prize\u202f=\u202f60**, **urgency\u202f=\u202f80**. Both career_leverage and winnability sit at the maximum 90, meaning the board judges this competition as offering the highest long\u2011term career upside and the best chance of winning. The prize structure also supports a high ranking: a total payout of R50\u202f000, with the top spot paying R25\u202f000 cash plus additional credits, signals a healthy prize pool and competitive field. \n\nAdditional factors behind the high mark:\n\n- **Confirmation**: Mintek\u2019s official letter (14\u202fAug\u202f2026, signed Boitumelo Lekalakala) confirms the team is entered and active, not just pre\u2011submitted.\n- **Team effort**: The project \u201cKHANYA\u201d was built under two distinct names with deliberately separated implementations, showing depth and originality\u2014exactly the kind of work that boosts winnability.\n- **Direct track & mentorship**: It\u2019s a direct graduate\u2011program track, requires university students under 35, and is team\u2011based with mentoring, which aligns well with the board\u2019s scoring weights.\n- **Timing**: Final submission deadline was 1\u202fOct\u202f2026, and the team finished before the conference on 2\u202fOct\u202f2026, giving them a full run\u2011time to polish the demo.\n\nIn short, the combination of near\u2011perfect career and winnability scores, a substantial prize pool, and verified team execution makes Mintek\u2011SCi stand out among the tracked entries.",
+   "grade": {
+    "pass": true,
+    "missing": [],
+    "violations": [],
+    "ungroundedDates": [],
+    "tooLong": false
+   },
+   "latencyNote": "headers only"
+  },
+  {
+   "engine": "liquid/lfm-3-1.7b:free",
+   "case": "prize",
+   "skill": "Quotes a prize with its currency",
+   "ok": true,
+   "latencyMs": 621,
+   "promptTokens": 9027,
+   "completionTokens": 1469,
+   "reasoningTokens": 1391,
+   "reply": "The PayPal AI Hackathon (paypal\u2011ai\u2011hackathon\u20112026) has a prize of **67,500\u202fUSD (\u2248\u202fR1,228,500)**. The breakdown listed shows first place $12,000, second $8,000, third $5,000, and five honourable\u2011mention awards of $5,000 each.",
+   "grade": {
+    "pass": true,
+    "missing": [],
+    "violations": [],
+    "ungroundedDates": [],
+    "tooLong": false
+   },
+   "latencyNote": "headers only"
+  },
+  {
+   "engine": "liquid/lfm-3-1.7b:free",
+   "case": "archive",
+   "skill": "Reads a result from the archive",
+   "ok": true,
+   "latencyMs": 319,
+   "promptTokens": 9026,
+   "completionTokens": 209,
+   "reasoningTokens": 161,
+   "reply": "At IBM Dev Day on 2026-08-30 you placed third place in the Bob in Action + Hackathon. That also qualified you for TechXchange passes per the correction logged on 2026-10-04.",
+   "grade": {
+    "pass": true,
+    "missing": [],
+    "violations": [],
+    "ungroundedDates": [],
+    "tooLong": false
+   },
+   "latencyNote": "headers only"
+  },
+  {
+   "engine": "liquid/lfm-3-1.7b:free",
+   "case": "scope",
+   "skill": "Declines an unrelated request",
+   "ok": false,
+   "transportError": "HTTP 429",
+   "latencyMs": 523,
+   "reply": "",
+   "latencyNote": "headers only"
+  }
+ ],
+ "note": "Run 1: answer quality. Latency here was timed to the response headers, not the body, so it understates model time; see run 2 for real latency. Re-marked once (regradedOn) after two grading patterns proved too narrow for correct answers ('isn't on the current board', 'aren't confirmed'); the answers themselves are unchanged."
+}

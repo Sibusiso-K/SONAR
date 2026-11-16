@@ -29,12 +29,23 @@ export default defineConfig({
     { name: "desktop", use: { ...devices["Desktop Chrome"] } },
     { name: "mobile", use: { ...devices["Pixel 7"] } },
   ],
-  webServer: {
-    command: "bun run e2e:serve",
-    url: `http://127.0.0.1:${PORT}`,
-    reuseExistingServer: !process.env["CI"],
-    timeout: 180_000,
-    stdout: "ignore",
-    stderr: "pipe",
-  },
+  webServer: [
+    {
+      // The board the server-side assistant reads (see e2e/board-stub.mjs).
+      command: "bun run e2e:board",
+      url: "http://127.0.0.1:54329/health",
+      reuseExistingServer: !process.env["CI"],
+      timeout: 30_000,
+      stdout: "ignore",
+      stderr: "pipe",
+    },
+    {
+      command: "bun run e2e:serve",
+      url: `http://127.0.0.1:${PORT}`,
+      reuseExistingServer: !process.env["CI"],
+      timeout: 180_000,
+      stdout: "ignore",
+      stderr: "pipe",
+    },
+  ],
 });

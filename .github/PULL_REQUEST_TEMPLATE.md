@@ -16,7 +16,14 @@
 - [ ] New or changed entries have a source URL in `docs/SOURCES.md` and an honest `confidence`
 - [ ] Score changes are explained here (scores are opinions, so say why)
 - [ ] Browser-visible change: `make e2e` passes, and screenshots attached if the UI changed
+- [ ] Assistant or model change: `cd web && bun run eval` passes, and any model-order change has a new run in `web/evals/results/` and an updated `docs/MODELS.md`
+- [ ] Database change: a new file in `supabase/migrations/` or `web/supabase/migrations/`, with RLS stated, and a note on whether it has been applied
 - [ ] No secrets, tokens or personal data in the diff
+
+## Pre- and post-production
+
+- [ ] The preview deployment's smoke test passed (it runs automatically on the Vercel preview)
+- [ ] After merge: the production smoke test and the next Refresh board run are green
 
 ## Notes for the reviewer
 

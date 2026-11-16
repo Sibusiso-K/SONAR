@@ -1,0 +1,66 @@
+name: Monday sweep
+
+# Weekly discovery sweep (scripts/monday_sweep.py): reads every listing page in
+# data/hackathons.json's monitoring_sources, keeps findings whose quotes check
+# out against the page and that the board does not already track, and commits
+# them to data/discoveries.json for the 08:00 board review. Never edits the
+# board itself.
+#
+# Uses free OpenRouter models when OPENROUTER_API_KEY is set and the built-in
+# extractor otherwise, so it runs (more thinly) even with no key at all.
+
+on:
+  schedule:
+    - cron: "23 3 * * 1" # Monday 05:23 SAST, before the 08:00 review
+  workflow_dispatch:
+    inputs:
+      builtin_only:
+        description: "Skip the language models and use only the built-in extractor"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: monday-sweep
+  cancel-in-progress: false
+
+jobs:
+  sweep:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: main
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: "3.12"
+
+      - name: Sweep the sources
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          OPENROUTER_MODELS: ${{ vars.OPENROUTER_MODELS }}
+          BUILTIN_ONLY: ${{ github.event.inputs.builtin_only }}
+        run: |
+          if [ -z "$OPENROUTER_API_KEY" ]; then
+            echo "::notice::OPENROUTER_API_KEY not set: using the built-in extractor only."
+          fi
+          if [ "$BUILTIN_ONLY" = "true" ]; then
+            python3 scripts/monday_sweep.py --builtin-only
+          else
+            python3 scripts/monday_sweep.py
+          fi
+
+      - name: Commit the digest only if it changed
+        run: |
+          git config user.name  "sonar-bot"
+          git config user.email "actions@github.com"
+          if git diff --quiet -- data/discoveries.json && [ -z "$(git ls-files --others --exclude-standard data/discoveries.json)" ]; then
+            echo "no new findings"
+          else
+            git add data/discoveries.json
+            git commit -m "data: Monday sweep $(date -u +%Y-%m-%d)"
+            git push || { git pull --rebase origin main && git push; }
+          fi

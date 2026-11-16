@@ -7,7 +7,7 @@ const entry = liveRows(fixture)[0]!.id;
 // Regression: the home page's radar was a fixed 380px square with a rotating
 // layer wider than that, which widened the layout on phones and gave visitors
 // sideways scrolling and a zoomed-out page.
-for (const path of ["/", "/stats", "/radar", "/war-room", "/updates", `/o/${entry}`]) {
+for (const path of ["/", "/stats", "/radar", "/war-room", "/updates", "/crew", `/o/${entry}`]) {
   test(`${path} does not scroll sideways`, async ({ page }) => {
     await mockSupabase(page, fixture);
     await page.goto(path);

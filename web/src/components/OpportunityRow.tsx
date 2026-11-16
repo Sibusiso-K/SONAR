@@ -52,10 +52,10 @@ export function OpportunityRow({
   return (
     <article
       id={`opp-${o.id}`}
-      className="group relative grid scroll-mt-24 grid-cols-[3px_1fr] gap-x-5 border-b border-border py-7 md:grid-cols-[3px_1fr_auto] md:gap-x-8"
+      className="glass-card group relative grid scroll-mt-24 grid-cols-[4px_1fr] gap-x-4 p-5 md:grid-cols-[4px_1fr_auto] md:gap-x-6 md:p-6"
     >
       <div
-        className="row-span-2 w-[3px] md:row-span-1"
+        className="row-span-2 w-1 rounded-full md:row-span-1"
         style={{ backgroundColor: severityToken[sev] }}
         aria-hidden
       />
@@ -67,11 +67,11 @@ export function OpportunityRow({
           </span>
           <span className="label-caps">{kindLabel(o.kind)}</span>
           <span className="label-caps">{o.format}</span>
-          <span className="border border-border px-1.5 py-px font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+          <span className="rounded-full border border-border px-2 py-px font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
             tier {o.tier}
           </span>
           <span
-            className="border px-1.5 py-px font-mono text-[10px] uppercase tracking-widest"
+            className="rounded-full border px-2 py-px font-mono text-[10px] uppercase tracking-widest"
             style={{ borderColor: participation.color, color: participation.color }}
           >
             {participation.label}
@@ -94,7 +94,7 @@ export function OpportunityRow({
 
         <div className="mt-2 flex items-center gap-2.5">
           <OrgLogo organiser={o.organiser} />
-          <h3 className="text-2xl font-bold leading-none md:text-3xl">
+          <h3 className="text-xl font-bold leading-tight md:text-2xl">
             <Link to="/o/$id" params={{ id: o.id }} className="hover:underline">
               {o.name}
             </Link>
@@ -105,7 +105,9 @@ export function OpportunityRow({
         </p>
 
         {o.notes && (
-          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground">{o.notes}</p>
+          <p className="mt-3 line-clamp-3 max-w-2xl text-sm leading-relaxed text-muted-foreground">
+            {o.notes}
+          </p>
         )}
 
         <div className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-2">
@@ -151,7 +153,7 @@ export function OpportunityRow({
               });
             }}
             className={cn(
-              "flex size-9 items-center justify-center border transition-colors",
+              "flex size-11 items-center justify-center rounded-full border transition-colors",
               mine
                 ? "border-accent text-accent"
                 : "border-border text-muted-foreground hover:border-foreground hover:text-foreground",

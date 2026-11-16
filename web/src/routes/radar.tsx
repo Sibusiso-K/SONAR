@@ -1,4 +1,5 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { Suspense, lazy } from "react";
+import { ClientOnly, createFileRoute } from "@tanstack/react-router";
 import { kindLabel } from "@/lib/format";
 import { AppShell } from "@/components/AppShell";
 import { EventCalendar } from "@/components/EventCalendar";
@@ -30,6 +31,20 @@ export const Route = createFileRoute("/radar")({
   component: Radar,
 });
 
+// three.js touches `window` at import time, so the score space is loaded and
+// rendered only in the browser. EventGlobe does the same for react-globe.gl.
+const Scatter3D = lazy(() =>
+  import("@/components/Scatter3D").then((m) => ({ default: m.Scatter3D })),
+);
+
+function ScatterPlaceholder() {
+  return (
+    <div className="ink-panel grid h-[520px] place-items-center font-mono text-xs opacity-80">
+      Loading the score space…
+    </div>
+  );
+}
+
 const OUTCOME_COLOR: Record<string, string> = {
   won: "var(--stable)",
   placed: "var(--stable)",
@@ -51,15 +66,17 @@ function Radar() {
 
   return (
     <AppShell>
-      <section className="mx-auto max-w-[88rem] px-5 pb-12 pt-16 md:px-10 md:pt-24">
+      <section className="mx-auto max-w-[88rem] px-5 pb-10 pt-8 md:px-10 md:pt-10">
         <p className="label-caps">Radar</p>
         <h1 className="display-xl mt-5 max-w-[14ch]">
-          <RevealWords text="Not calendar-safe. Not ignored either." />
+          <RevealWords text="Where it happens, and what it is worth." />
         </h1>
         <Reveal delay={200}>
           <p className="mt-8 max-w-xl text-base leading-relaxed text-muted-foreground">
-            Entries we believe exist but can't put in a calendar with a straight face. Kept visible
-            so a predicted window doesn't quietly become a missed deadline.
+            The globe shows where each entry happens; the score space shows what each is worth on
+            any three measures you pick. Below them: the entries we can't yet put in a calendar with
+            a straight face, kept visible so a predicted window doesn't quietly become a missed
+            deadline.
           </p>
         </Reveal>
       </section>
@@ -76,9 +93,16 @@ function Radar() {
         </section>
       )}
 
-      <section className="mx-auto max-w-[88rem] px-5 pb-12 md:px-10">
+      <section className="mx-auto grid max-w-[88rem] gap-5 px-5 pb-12 md:px-10 2xl:grid-cols-2">
         <Reveal>
           <EventGlobe opportunities={all} />
+        </Reveal>
+        <Reveal delay={80}>
+          <ClientOnly fallback={<ScatterPlaceholder />}>
+            <Suspense fallback={<ScatterPlaceholder />}>
+              <Scatter3D opportunities={all} />
+            </Suspense>
+          </ClientOnly>
         </Reveal>
       </section>
 
@@ -89,10 +113,10 @@ function Radar() {
       </section>
 
       <section className="mx-auto max-w-[88rem] px-5 md:px-10">
-        <div className="grid gap-px bg-rule md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {unverified.map((o, i) => (
             <Reveal key={o.id} delay={Math.min(i, 6) * 50}>
-              <div className="h-full bg-paper p-6">
+              <div className="glass-card h-full p-6">
                 <div className="flex items-center justify-between">
                   <span className="label-caps">{kindLabel(o.kind)}</span>
                   <span

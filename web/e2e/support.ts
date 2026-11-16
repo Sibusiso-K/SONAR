@@ -30,6 +30,8 @@ type MockOptions = {
   failWith?: number;
   /** Make every read fail at the network level, as if the database were down. */
   unreachable?: boolean;
+  /** Rows for the debriefs table (default: none). */
+  debriefs?: Record<string, unknown>[];
 };
 
 /** A 1x1 transparent PNG. */
@@ -120,6 +122,8 @@ export async function mockSupabase(page: Page, fixture: Fixture, opts: MockOptio
         return json(200, fixture.updates);
       case "watchlist":
         return json(200, []);
+      case "debriefs":
+        return json(200, opts.debriefs ?? []);
       default:
         return json(404, { message: `unmocked table ${table}` });
     }

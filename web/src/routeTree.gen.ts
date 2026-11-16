@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CrewRouteImport } from './routes/crew'
 import { Route as RadarRouteImport } from './routes/radar'
 import { Route as StatsRouteImport } from './routes/stats'
 import { Route as UpdatesRouteImport } from './routes/updates'
@@ -19,6 +20,11 @@ import { Route as OIdRouteImport } from './routes/o/$id'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CrewRoute = CrewRouteImport.update({
+  id: '/crew',
+  path: '/crew',
   getParentRoute: () => rootRouteImport,
 } as any)
 const RadarRoute = RadarRouteImport.update({
@@ -49,6 +55,7 @@ const OIdRoute = OIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/crew': typeof CrewRoute
   '/radar': typeof RadarRoute
   '/stats': typeof StatsRoute
   '/updates': typeof UpdatesRoute
@@ -57,6 +64,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/crew': typeof CrewRoute
   '/radar': typeof RadarRoute
   '/stats': typeof StatsRoute
   '/updates': typeof UpdatesRoute
@@ -66,6 +74,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/crew': typeof CrewRoute
   '/radar': typeof RadarRoute
   '/stats': typeof StatsRoute
   '/updates': typeof UpdatesRoute
@@ -74,15 +83,24 @@ export interface FileRoutesById {
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/radar' | '/stats' | '/updates' | '/war-room' | '/o/$id'
+  fullPaths:
+    '/' | '/crew' | '/radar' | '/stats' | '/updates' | '/war-room' | '/o/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/radar' | '/stats' | '/updates' | '/war-room' | '/o/$id'
+  to: '/' | '/crew' | '/radar' | '/stats' | '/updates' | '/war-room' | '/o/$id'
   id:
-    '__root__' | '/' | '/radar' | '/stats' | '/updates' | '/war-room' | '/o/$id'
+    | '__root__'
+    | '/'
+    | '/crew'
+    | '/radar'
+    | '/stats'
+    | '/updates'
+    | '/war-room'
+    | '/o/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CrewRoute: typeof CrewRoute
   RadarRoute: typeof RadarRoute
   StatsRoute: typeof StatsRoute
   UpdatesRoute: typeof UpdatesRoute
@@ -97,6 +115,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/crew': {
+      id: '/crew'
+      path: '/crew'
+      fullPath: '/crew'
+      preLoaderRoute: typeof CrewRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/radar': {
@@ -139,6 +164,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CrewRoute: CrewRoute,
   RadarRoute: RadarRoute,
   StatsRoute: StatsRoute,
   UpdatesRoute: UpdatesRoute,

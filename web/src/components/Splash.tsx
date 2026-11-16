@@ -5,10 +5,19 @@ type Phase = "show" | "leaving" | "gone";
 
 const WORD = "SONAR".split("");
 
+/** Where the four contacts sit on the scope, and when the beam (one turn in
+ * 1.5 s, starting at twelve o'clock) reaches each. */
+const CONTACTS = [
+  { left: "67%", top: "23%", color: "oklch(0.72 0.17 30)", at: 250 },
+  { left: "82%", top: "64%", color: "oklch(0.8 0.13 80)", at: 620 },
+  { left: "38%", top: "82%", color: "oklch(0.8 0.13 80)", at: 980 },
+  { left: "20%", top: "34%", color: "oklch(0.95 0.01 88)", at: 1330 },
+];
+
 /**
- * Opening animation: the wordmark rises out of a mask while sonar pings
- * radiate from behind it, a hairline fills, then the whole panel lifts away
- * like a curtain.
+ * Opening animation: a sonar beam turns once across a dark scope and picks
+ * out four contacts, the wordmark rises out of a mask, a hairline fills, then
+ * the whole panel lifts away like a curtain onto the board.
  *
  * Rendered by the server and driven by CSS first, so it also disappears with
  * JavaScript off or before hydration (the exit animation has a built-in
@@ -80,10 +89,23 @@ export function Splash() {
         skip();
       }}
     >
-      <div className="splash-rings" aria-hidden="true">
-        <span />
-        <span />
-        <span />
+      <div className="splash-scope" aria-hidden="true">
+        {[0, 12.5, 25, 37.5].map((inset) => (
+          <span key={inset} className="ring" style={{ inset: `${inset}%` }} />
+        ))}
+        <span className="beam" />
+        {/* Contacts light up as the beam passes their bearing. They carry no
+            labels: the splash plays before the board has loaded, and a date
+            shown here would be one nobody had read from the data. */}
+        {CONTACTS.map((c, i) => (
+          <span
+            key={i}
+            className="splash-contact"
+            style={{ left: c.left, top: c.top, color: c.color, animationDelay: `${c.at}ms` }}
+          >
+            <i />
+          </span>
+        ))}
       </div>
 
       <div className="splash-center">

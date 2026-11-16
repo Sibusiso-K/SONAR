@@ -83,7 +83,7 @@ function OpportunityDetail() {
 
   return (
     <AppShell>
-      <section className="mx-auto max-w-[60rem] px-5 pb-24 pt-16 md:px-10 md:pt-24">
+      <section className="mx-auto max-w-[60rem] px-5 pb-24 pt-8 md:px-10 md:pt-10">
         <Link to="/" className="label-caps underline underline-offset-4">
           ← Back to the board
         </Link>

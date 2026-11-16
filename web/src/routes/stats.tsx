@@ -1,5 +1,5 @@
-import { Suspense, lazy, useEffect, useMemo, useRef, useState } from "react";
-import { ClientOnly, createFileRoute } from "@tanstack/react-router";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { createFileRoute } from "@tanstack/react-router";
 import { AppShell } from "@/components/AppShell";
 import { CompetitionBaseline } from "@/components/CompetitionBaseline";
 import { QueryError } from "@/components/QueryError";
@@ -7,27 +7,6 @@ import { Reveal, RevealWords } from "@/components/Reveal";
 import { WinRing } from "@/components/WinRing";
 import { formatNumber } from "@/lib/format";
 
-// three.js (and the libraries bundled alongside it) touch `window` when they
-// are evaluated, so importing them during server rendering aborts the whole
-// page and silently drops it to client-only rendering. Load the scatter lazily
-// and render it only after mount. EventGlobe does the same for react-globe.gl.
-const Scatter3D = lazy(() =>
-  import("@/components/Scatter3D").then((m) => ({ default: m.Scatter3D })),
-);
-
-/** Holds the scatter's space (same height) until it has loaded, so the page
- * does not jump when the 3D view appears. */
-function ScatterPlaceholder() {
-  return (
-    <div
-      className="flex items-center justify-center font-mono text-[11px] uppercase tracking-widest text-white/50"
-      style={{ height: 520, background: "#0d1016" }}
-      aria-busy="true"
-    >
-      Loading 3D view
-    </div>
-  );
-}
 import { useOpportunities, usePastOpportunities, useUpdates } from "@/lib/sonar-data";
 import {
   clamp,
@@ -145,7 +124,7 @@ function Stats() {
 
   return (
     <AppShell>
-      <section className="mx-auto max-w-[88rem] px-5 pb-16 pt-16 md:px-10 md:pt-24">
+      <section className="mx-auto max-w-[88rem] px-5 pb-16 pt-8 md:px-10 md:pt-10">
         <p className="label-caps">Statistics</p>
         <h1 className="display-xl mt-5 max-w-[15ch]">
           <RevealWords text="The point of this page is to make us win more." />
@@ -322,20 +301,6 @@ function Stats() {
             })}
           </div>
         )}
-      </Section>
-
-      {/* ---- scatter ---- */}
-      <Section
-        id="scatter"
-        kicker="Winnability vs prize vs leverage"
-        title="Explore it from any angle."
-        blurb="A 3D scatter, not a fixed chart: swap what's on each axis, rotate it, zoom in on one cluster. Defaults: winnability, prize (log), career leverage."
-      >
-        <ClientOnly fallback={<ScatterPlaceholder />}>
-          <Suspense fallback={<ScatterPlaceholder />}>
-            <Scatter3D opportunities={live} />
-          </Suspense>
-        </ClientOnly>
       </Section>
 
       {/* ---- discovery lag ---- */}

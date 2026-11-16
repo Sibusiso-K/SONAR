@@ -28,7 +28,7 @@ from dataclasses import dataclass
 
 from _common import safe_urlopen
 
-SECTIONS = ("/", "/stats", "/radar", "/war-room", "/updates")
+SECTIONS = ("/", "/stats", "/radar", "/war-room", "/updates", "/crew")
 REQUIRED_HEADERS = {
     "x-content-type-options": re.compile(r"nosniff", re.I),
     "referrer-policy": re.compile(r"."),
