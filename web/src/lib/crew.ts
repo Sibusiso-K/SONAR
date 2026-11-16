@@ -28,7 +28,8 @@ export const CREW_PROFILES: Record<CrewMember, CrewProfile> = {
     id: "Sibusiso",
     fullName: "Sibusiso Khumalo",
     initials: "SK",
-    headline: "",
+    headline:
+      "AI Engineer & Full-Stack Developer | Python · FastAPI · Multi-Agent Systems · Azure | 3rd Place IBM Bob 2.0 Hackathon · Top 6 Discovery Gradhack | Ex-Clinician | Wits Electrical Engineering",
     about: "",
     strap: "systems, models, deadlines",
     owns: [
@@ -47,7 +48,8 @@ export const CREW_PROFILES: Record<CrewMember, CrewProfile> = {
     id: "Lethabo",
     fullName: "Lethabo Hoaeane",
     initials: "LH",
-    headline: "",
+    headline:
+      "Data Science & AI Engineering | Multi-agent LLM systems · ML · Optimisation | 3× hackathon winner: Isazi AI, ITWeb Security Summit, IBM TechXchange | Final-year BCom Business Informatics, UNISA",
     about: "",
     strap: "App, story, demo",
     owns: [
