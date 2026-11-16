@@ -703,6 +703,12 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
+  /* Rows re-sorted on the board glide to their new place (see changeSort). */
+  ::view-transition-group(*) {
+    animation-duration: 520ms;
+    animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
   ::view-transition-old(root),
   ::view-transition-new(root) {
     animation-duration: 420ms;

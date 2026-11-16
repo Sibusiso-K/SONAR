@@ -1,6 +1,8 @@
 import { useMemo, useState } from "react";
+import { flushSync } from "react-dom";
 import { createFileRoute } from "@tanstack/react-router";
 import { AppShell } from "@/components/AppShell";
+import { EventGlobe } from "@/components/EventGlobe";
 import { OpportunityRow } from "@/components/OpportunityRow";
 import {
   ConfidenceArc,
@@ -50,6 +52,19 @@ function Board() {
   const { identity, hydrated } = useIdentity();
   const [sort, setSort] = useState<SortKey>("deadline");
   const [watchedOnly, setWatchedOnly] = useState(false);
+
+  // Re-sorting animates each row to its new place where the browser supports
+  // view transitions; otherwise (and for reduced motion) it just swaps.
+  function changeSort(next: SortKey) {
+    const doc = document as Document & { startViewTransition?: (cb: () => void) => unknown };
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (next === sort) return;
+    if (typeof doc.startViewTransition === "function" && !reduce) {
+      doc.startViewTransition(() => flushSync(() => setSort(next)));
+    } else {
+      setSort(next);
+    }
+  }
 
   const live = useMemo(
     () => opportunities.filter((o) => o.confidence !== "predicted"),
@@ -144,6 +159,12 @@ function Board() {
                 </div>
               </div>
             </section>
+
+            <Reveal delay={60}>
+              <section aria-label="Where the live entries are">
+                <EventGlobe opportunities={live} />
+              </section>
+            </Reveal>
           </>
         )}
 
@@ -178,7 +199,7 @@ function Board() {
             ).map(([key, label]) => (
               <button
                 key={key}
-                onClick={() => setSort(key)}
+                onClick={() => changeSort(key)}
                 aria-pressed={sort === key}
                 className={cn(
                   "pill",
