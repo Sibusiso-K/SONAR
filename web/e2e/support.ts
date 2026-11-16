@@ -146,7 +146,16 @@ export function trackErrors(page: Page) {
   };
 }
 
-/** Wait for the opening splash to finish so it cannot cover what a test clicks. */
+/** Get the opening splash out of the way so it cannot cover what a test clicks.
+ * It runs for 10s, so skip it the way a visitor can, with a key press; the
+ * longer timeout is the fallback if the skip is missed. */
 export async function waitForSplashGone(page: Page) {
-  await expect(page.getByTestId("splash")).toHaveCount(0, { timeout: 6_000 });
+  const splash = page.getByTestId("splash");
+  if (await splash.count()) {
+    await expect(splash)
+      .toHaveAttribute("data-ready", "true")
+      .catch(() => {});
+    await page.keyboard.press("Shift");
+  }
+  await expect(splash).toHaveCount(0, { timeout: 12_000 });
 }
