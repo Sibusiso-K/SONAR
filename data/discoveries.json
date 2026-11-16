@@ -1,0 +1,282 @@
+{
+  "note": "Written by scripts/monday_sweep.py every Monday. Nothing here is on the board. Every finding quotes its source page, and the quote was checked against the page. A person sets status to 'promoted' (after adding the real entry to data/hackathons.json) or 'dismissed' (with a reason in `note`).",
+  "runs": [
+    {
+      "on": "2026-11-17",
+      "sources": 24,
+      "fetched": 23,
+      "fetch_failed": 1,
+      "by_model": 22,
+      "by_builtin": 1,
+      "new": 20,
+      "already_tracked": 3
+    }
+  ],
+  "findings": {
+    "https://www.geekulcha.dev/events#ss26hack-assembly-hackathon": {
+      "status": "new",
+      "name": "SS26Hack Assembly Hackathon",
+      "deadline_as_written": null,
+      "quoted_span": "SS26Hack Assembly Hackathon",
+      "source": "Geekulcha events",
+      "source_url": "https://www.geekulcha.dev/events",
+      "found_by": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "first_seen": "2026-11-17",
+      "last_seen": "2026-11-17",
+      "page_flags": [
+        "190 chars of hidden text — excluded from extraction"
+      ]
+    },
+    "https://za.allhackathons.com/#girlcode-ghana-hackathon-2025": {
+      "status": "new",
+      "name": "GIRLCODE GHANA HACKATHON 2025",
+      "deadline_as_written": null,
+      "quoted_span": "GIRLCODE GHANA HACKATHON 2025",
+      "source": "AllHackathons South Africa",
+      "source_url": "https://za.allhackathons.com/",
+      "found_by": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "first_seen": "2026-11-17",
+      "last_seen": "2026-11-17",
+      "page_flags": []
+    },
+    "https://hackon.co.za/category/upcoming-events/#informatica-s-integration-for-ai-genai-hackathon-2025": {
+      "status": "new",
+      "name": "Informatica’s Integration for AI/GenAI Hackathon 2025",
+      "deadline_as_written": null,
+      "quoted_span": "Informatica’s *Integration for AI/GenAI Hackathon* 2025 is here!",
+      "source": "HackOn South Africa",
+      "source_url": "https://hackon.co.za/category/upcoming-events/",
+      "found_by": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "first_seen": "2026-11-17",
+      "last_seen": "2026-11-17",
+      "page_flags": [
+        "30 chars of hidden text — excluded from extraction"
+      ]
+    },
+    "https://hackon.co.za/category/upcoming-events/#south-africa-policy-hackathon": {
+      "status": "new",
+      "name": "South Africa Policy Hackathon",
+      "deadline_as_written": null,
+      "quoted_span": "South Africa Policy Hackathon",
+      "source": "HackOn South Africa",
+      "source_url": "https://hackon.co.za/category/upcoming-events/",
+      "found_by": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "first_seen": "2026-11-17",
+      "last_seen": "2026-11-17",
+      "page_flags": [
+        "30 chars of hidden text — excluded from extraction"
+      ]
+    },
+    "https://hackon.co.za/category/upcoming-events/#blockchain-and-music": {
+      "status": "new",
+      "name": "Blockchain and Music",
+      "deadline_as_written": null,
+      "quoted_span": "Blockchain and Music",
+      "source": "HackOn South Africa",
+      "source_url": "https://hackon.co.za/category/upcoming-events/",
+      "found_by": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "first_seen": "2026-11-17",
+      "last_seen": "2026-11-17",
+      "page_flags": [
+        "30 chars of hidden text — excluded from extraction"
+      ]
+    },
+    "https://hackon.co.za/category/upcoming-events/#civic-tech-innovation-forum-ctif-and-jamfest-2023": {
+      "status": "new",
+      "name": "Civic Tech Innovation Forum (CTIF) And Jamfest 2023",
+      "deadline_as_written": null,
+      "quoted_span": "Civic Tech Innovation Forum (CTIF) And Jamfest 2023",
+      "source": "HackOn South Africa",
+      "source_url": "https://hackon.co.za/category/upcoming-events/",
+      "found_by": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "first_seen": "2026-11-17",
+      "last_seen": "2026-11-17",
+      "page_flags": [
+        "30 chars of hidden text — excluded from extraction"
+      ]
+    },
+    "https://hackon.co.za/category/upcoming-events/#sas-hackthon": {
+      "status": "new",
+      "name": "SAS Hackthon",
+      "deadline_as_written": null,
+      "quoted_span": "SAS Hackthon",
+      "source": "HackOn South Africa",
+      "source_url": "https://hackon.co.za/category/upcoming-events/",
+      "found_by": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "first_seen": "2026-11-17",
+      "last_seen": "2026-11-17",
+      "page_flags": [
+        "30 chars of hidden text — excluded from extraction"
+      ]
+    },
+    "https://sdc.dirisa.ac.za/programme/#student-datathon-challenge-sdc-2025": {
+      "status": "new",
+      "name": "Student Datathon Challenge (SDC) 2025",
+      "deadline_as_written": null,
+      "quoted_span": "Student Datathon Challenge (SDC) 2025",
+      "source": "DIRISA Student Datathon Challenge (CSIR)",
+      "source_url": "https://sdc.dirisa.ac.za/programme/",
+      "found_by": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "first_seen": "2026-11-17",
+      "last_seen": "2026-11-17",
+      "page_flags": [
+        "hidden text contains date/deadline language (2874 chars concealed) — excluded from extraction"
+      ]
+    },
+    "https://www.tia.org.za/calls#expression-of-interest-commercialisation-opportunity-mechani": {
+      "status": "new",
+      "name": "Expression of Interest – Commercialisation Opportunity: Mechanical Expander Technology",
+      "deadline_as_written": null,
+      "quoted_span": "Expression of Interest – Commercialisation Opportunity: Mechanical Expander Technology",
+      "source": "TIA calls (Technology Innovation Agency)",
+      "source_url": "https://www.tia.org.za/calls",
+      "found_by": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "first_seen": "2026-11-17",
+      "last_seen": "2026-11-17",
+      "page_flags": [
+        "39 chars of hidden text — excluded from extraction"
+      ]
+    },
+    "https://www.tia.org.za/calls#call-for-proposals-living-labs-programme-ehlanzeni-district-": {
+      "status": "new",
+      "name": "Call for Proposals – Living Labs Programme Ehlanzeni District Municipality, Mpumalanga and Bojanala Platinum District Municipality, North West",
+      "deadline_as_written": null,
+      "quoted_span": "Call for Proposals – Living Labs Programme Ehlanzeni District Municipality, Mpumalanga and Bojanala Platinum District Municipality, North West",
+      "source": "TIA calls (Technology Innovation Agency)",
+      "source_url": "https://www.tia.org.za/calls",
+      "found_by": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "first_seen": "2026-11-17",
+      "last_seen": "2026-11-17",
+      "page_flags": [
+        "39 chars of hidden text — excluded from extraction"
+      ]
+    },
+    "https://www.tia.org.za/calls#tia-invitation-for-call-for-expression-to-join-external-expe": {
+      "status": "new",
+      "name": "TIA Invitation for Call for Expression to Join External Expert Database",
+      "deadline_as_written": null,
+      "quoted_span": "TIA Invitation for Call for Expression to Join External Expert Database",
+      "source": "TIA calls (Technology Innovation Agency)",
+      "source_url": "https://www.tia.org.za/calls",
+      "found_by": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "first_seen": "2026-11-17",
+      "last_seen": "2026-11-17",
+      "page_flags": [
+        "39 chars of hidden text — excluded from extraction"
+      ]
+    },
+    "https://www.developpp.de/#developpp-ventures": {
+      "status": "new",
+      "name": "develoPPP Ventures",
+      "deadline_as_written": null,
+      "quoted_span": "develoPPP Ventures: Neue Bewerbungsrunde gestartet!",
+      "source": "develoPPP Ventures (GIZ)",
+      "source_url": "https://www.developpp.de/",
+      "found_by": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "first_seen": "2026-11-17",
+      "last_seen": "2026-11-17",
+      "page_flags": []
+    },
+    "https://www.developpp.de/#sonderwettbewerb-madagaskar": {
+      "status": "new",
+      "name": "Sonderwettbewerb Madagaskar",
+      "deadline_as_written": null,
+      "quoted_span": "Sonderwettbewerb Madagaskar",
+      "source": "develoPPP Ventures (GIZ)",
+      "source_url": "https://www.developpp.de/",
+      "found_by": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "first_seen": "2026-11-17",
+      "last_seen": "2026-11-17",
+      "page_flags": []
+    },
+    "https://pressportal.co.za/stream/story/830515fb7f428c85-20251106.html#ocif-grow": {
+      "status": "new",
+      "name": "OCIF Grow",
+      "deadline_as_written": null,
+      "quoted_span": "OCIF Grow is part of the global Orange Corners incubation and acceleration programme",
+      "source": "Orange Corners Innovation Fund (SA)",
+      "source_url": "https://pressportal.co.za/stream/story/830515fb7f428c85-20251106.html",
+      "found_by": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "first_seen": "2026-11-17",
+      "last_seen": "2026-11-17",
+      "page_flags": [
+        "hidden text contains date/deadline language (490 chars concealed) — excluded from extraction"
+      ]
+    },
+    "https://blog.google/intl/en-africa/company-news/outreach-and-initiatives/applications-are-open-for-the-2026-google-for-startups-accelerator-south-africa/#2026-google-for-startups-accelerator-south-africa": {
+      "status": "new",
+      "name": "2026 Google for Startups Accelerator South Africa",
+      "deadline_as_written": null,
+      "quoted_span": "2026 Google for Startups Accelerator South Africa",
+      "source": "Google for Startups Accelerator Africa",
+      "source_url": "https://blog.google/intl/en-africa/company-news/outreach-and-initiatives/applications-are-open-for-the-2026-google-for-startups-accelerator-south-africa/",
+      "found_by": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "first_seen": "2026-11-17",
+      "last_seen": "2026-11-17",
+      "page_flags": [
+        "764 chars of hidden text — excluded from extraction"
+      ]
+    },
+    "https://www.itweb.co.za/article/sa-developers-take-centre-stage-as-code4mzansi-kicks-off/JN1gP7OADpyqjL6m#code4mzansi": {
+      "status": "new",
+      "name": "Code4Mzansi",
+      "deadline_as_written": null,
+      "quoted_span": "The Huawei Developer Competition, Code4Mzansi",
+      "source": "Huawei Code4Mzansi",
+      "source_url": "https://www.itweb.co.za/article/sa-developers-take-centre-stage-as-code4mzansi-kicks-off/JN1gP7OADpyqjL6m",
+      "found_by": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "first_seen": "2026-11-17",
+      "last_seen": "2026-11-17",
+      "page_flags": []
+    },
+    "https://www.itweb.co.za/article/sa-developers-take-centre-stage-as-code4mzansi-kicks-off/JN1gP7OADpyqjL6m#2026-cleantech-challenge": {
+      "status": "new",
+      "name": "2026 cleantech challenge",
+      "deadline_as_written": null,
+      "quoted_span": "Applications open for 2026 cleantech challenge",
+      "source": "Huawei Code4Mzansi",
+      "source_url": "https://www.itweb.co.za/article/sa-developers-take-centre-stage-as-code4mzansi-kicks-off/JN1gP7OADpyqjL6m",
+      "found_by": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "first_seen": "2026-11-17",
+      "last_seen": "2026-11-17",
+      "page_flags": []
+    },
+    "https://www.itweb.co.za/article/sa-developers-take-centre-stage-as-code4mzansi-kicks-off/JN1gP7OADpyqjL6m#sa-agritech-cleantech-disruptors-accelerator": {
+      "status": "new",
+      "name": "SA agritech, cleantech disruptors accelerator",
+      "deadline_as_written": null,
+      "quoted_span": "Accelerator seeks SA agritech, cleantech disruptors",
+      "source": "Huawei Code4Mzansi",
+      "source_url": "https://www.itweb.co.za/article/sa-developers-take-centre-stage-as-code4mzansi-kicks-off/JN1gP7OADpyqjL6m",
+      "found_by": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "first_seen": "2026-11-17",
+      "last_seen": "2026-11-17",
+      "page_flags": []
+    },
+    "https://luma.com/aaeiazdb#global-south-ai-safety-hackathon-cape-town": {
+      "status": "new",
+      "name": "Global South AI Safety Hackathon: Cape Town",
+      "deadline_as_written": null,
+      "quoted_span": "Global South AI Safety Hackathon: Cape Town",
+      "source": "AISSA x Apart hackathons (Cape Town hub)",
+      "source_url": "https://luma.com/aaeiazdb",
+      "found_by": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "first_seen": "2026-11-17",
+      "last_seen": "2026-11-17",
+      "page_flags": []
+    },
+    "https://flow.offerzen.com/developers/community-ai-hackathon#community-ai-agent-hackathon": {
+      "status": "new",
+      "name": "Community AI Agent Hackathon",
+      "deadline_as_written": null,
+      "quoted_span": "Community AI Agent Hackathon",
+      "source": "OfferZen Community AI Agent Hackathon",
+      "source_url": "https://flow.offerzen.com/developers/community-ai-hackathon",
+      "found_by": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "first_seen": "2026-11-17",
+      "last_seen": "2026-11-17",
+      "page_flags": []
+    }
+  },
+  "generated": "2026-11-16T23:01:00Z"
+}
