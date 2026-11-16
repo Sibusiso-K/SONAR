@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { flushSync } from "react-dom";
 import { createFileRoute } from "@tanstack/react-router";
 import { AppShell } from "@/components/AppShell";
@@ -43,6 +43,34 @@ export const Route = createFileRoute("/")({
 });
 
 type SortKey = "deadline" | "probability";
+
+/** Mounts its children only once they scroll near the screen. The globe pulls
+ * in three.js and react-globe.gl; loading them while the board starts up made
+ * the page slow to become interactive on phones. */
+function WhenNear({ children, minHeight }: { children: ReactNode; minHeight: number }) {
+  const ref = useRef<HTMLDivElement | null>(null);
+  const [near, setNear] = useState(false);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || near) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          setNear(true);
+          io.disconnect();
+        }
+      },
+      { rootMargin: "200px 0px" },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [near]);
+  return (
+    <div ref={ref} style={near ? undefined : { minHeight }}>
+      {near ? children : null}
+    </div>
+  );
+}
 
 function Board() {
   const { data: opportunities = [], isLoading, isError, error, refetch } = useOpportunities();
@@ -162,7 +190,9 @@ function Board() {
 
             <Reveal delay={60}>
               <section aria-label="Where the live entries are">
-                <EventGlobe opportunities={live} />
+                <WhenNear minHeight={520}>
+                  <EventGlobe opportunities={live} />
+                </WhenNear>
               </section>
             </Reveal>
           </>
