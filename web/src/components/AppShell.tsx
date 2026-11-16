@@ -9,6 +9,8 @@ import {
   Menu,
   MessageSquareText,
   Moon,
+  PanelLeftClose,
+  PanelLeftOpen,
   Sun,
   Users,
   X,
@@ -118,26 +120,57 @@ function SidebarNav({ onNavigate }: { onNavigate?: () => void }) {
   );
 }
 
+const NAV_COLLAPSED_KEY = "sonar.nav.collapsed";
+
 export function AppShell({ children }: { children: ReactNode }) {
   const [assistantOpen, setAssistantOpen] = useState(false);
   const [navOpen, setNavOpen] = useState(false);
+  // Desktop only: the sidebar can be tucked away, and stays tucked across pages.
+  const [collapsed, setCollapsed] = useState(false);
+
+  useEffect(() => {
+    try {
+      setCollapsed(window.localStorage.getItem(NAV_COLLAPSED_KEY) === "1");
+    } catch {
+      // Blocked storage: the sidebar just starts open.
+    }
+  }, []);
+
+  function setNavCollapsed(next: boolean) {
+    setCollapsed(next);
+    try {
+      window.localStorage.setItem(NAV_COLLAPSED_KEY, next ? "1" : "0");
+    } catch {
+      // Blocked storage: the choice lasts until reload.
+    }
+  }
 
   return (
     <div className="min-h-dvh">
       <SonarField />
 
-      {/* ---- sidebar: a floating glass column on desktop, an off-canvas
-          drawer on phones (which also get the tab bar below). ---- */}
+      {/* ---- sidebar: a floating glass column on desktop that can be
+          retracted, an off-canvas drawer on phones (which also get the tab
+          bar below). ---- */}
       <aside
         className={cn(
-          "vt-site-nav glass fixed inset-y-4 left-4 z-40 flex w-60 flex-col gap-4 p-3.5 transition-transform duration-300 md:translate-x-0",
+          "vt-site-nav glass fixed inset-y-4 left-4 z-40 flex w-60 flex-col gap-4 p-3.5 transition-transform duration-300",
           navOpen ? "translate-x-0" : "-translate-x-[120%]",
+          collapsed ? "md:-translate-x-[120%]" : "md:translate-x-0",
         )}
       >
         <div className="flex items-center justify-between px-2 pt-1">
           <Link to="/" onClick={() => setNavOpen(false)} aria-label="SONAR home">
             <Wordmark />
           </Link>
+          <button
+            onClick={() => setNavCollapsed(true)}
+            aria-label="Hide the side panel"
+            title="Hide the side panel"
+            className="hidden size-11 items-center justify-center rounded-full text-muted-foreground hover:text-foreground md:flex"
+          >
+            <PanelLeftClose className="size-4" />
+          </button>
           <button
             onClick={() => setNavOpen(false)}
             aria-label="Close navigation"
@@ -195,7 +228,23 @@ export function AppShell({ children }: { children: ReactNode }) {
         />
       )}
 
-      <div className="md:pl-[17rem]">
+      {collapsed && (
+        <button
+          onClick={() => setNavCollapsed(false)}
+          aria-label="Show the side panel"
+          title="Show the side panel"
+          className="glass fixed left-4 top-4 z-40 hidden size-11 items-center justify-center rounded-full text-muted-foreground hover:text-foreground md:flex"
+        >
+          <PanelLeftOpen className="size-4" />
+        </button>
+      )}
+
+      <div
+        className={cn(
+          "transition-[padding] duration-300",
+          collapsed ? "md:pl-16" : "md:pl-[17rem]",
+        )}
+      >
         <header className="vt-site-header sticky top-0 z-20 flex items-center gap-2 px-4 py-3 md:hidden">
           <Link to="/" aria-label="SONAR home" className="glass-card rounded-full px-4 py-2.5">
             <Wordmark />
