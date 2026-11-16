@@ -34,9 +34,9 @@ Never paste SQL from an untrusted place. Migrations live in the repo and are app
 
 The anon key is public, so Row Level Security is the only barrier between a visitor and your data.
 
-1. Open the live-site Supabase project, SQL editor.
-2. Paste [`supabase/audit/rls_audit.sql`](../supabase/audit/rls_audit.sql) and run it. It only reads.
-3. Every query should come back with the expected result stated in its comment. In particular: no table without RLS, and no write policy open to `anon` except the `watchlist` and the watch-action `updates` insert.
+1. Actions, **Apply Supabase migrations**, **Run workflow**, `project: web`, `audit: true` (leave `file` empty). It runs [`supabase/audit/rls_audit.sql`](../supabase/audit/rls_audit.sql) inside a read-only transaction that is rolled back, and prints the results in the log. Or paste the file into the live-site project's SQL editor.
+2. It only reads.
+3. Every query should come back with the expected result stated in its comment. In particular: no table without RLS, and no write policy open to `anon` except the `watchlist`, the watch-action `updates` insert and the bounded `debriefs` insert.
 
 ## Roll back a bad deploy
 

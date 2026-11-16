@@ -40,9 +40,14 @@ on:
         default: root
       file:
         description: "Migration filename (e.g. 0003_team_evidence.sql) - no path, just the filename"
-        required: true
+        required: false
+        default: ""
       dry_run:
         description: "Print the SQL and stop, without applying it"
+        required: false
+        default: "false"
+      audit:
+        description: "Instead of a migration, run the read-only RLS audit (supabase/audit/rls_audit.sql) against this project and print the results. `file` is ignored."
         required: false
         default: "false"
 
@@ -60,7 +65,21 @@ jobs:
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
 
+      # Read-only: a transaction that is always rolled back, so even a query
+      # added to the audit by mistake cannot change anything.
+      - name: RLS audit (read-only)
+        if: ${{ inputs.audit == 'true' }}
+        env:
+          DB_URL: ${{ inputs.project == 'web' && secrets.RADAR_SUPABASE_DB_URL || secrets.SUPABASE_DB_URL }}
+        run: |
+          if [ -z "$DB_URL" ]; then
+            echo "::error::No database URL secret for the ${{ inputs.project }} project."; exit 1
+          fi
+          { echo "begin read only;"; cat supabase/audit/rls_audit.sql; echo "rollback;"; } \
+            | psql "$DB_URL" --set ON_ERROR_STOP=1 --pset pager=off
+
       - name: Resolve the migration file
+        if: ${{ inputs.audit != 'true' }}
         id: resolve
         # The filename comes from workflow_dispatch input, i.e. from
         # whoever has write access to trigger this workflow - not from an
@@ -99,12 +118,13 @@ jobs:
           echo "Applying $FILE ($(wc -l < "$FILE") lines) to the $PROJECT project"
 
       - name: Show the SQL
+        if: ${{ inputs.audit != 'true' }}
         env:
           MIGRATION_PATH: ${{ steps.resolve.outputs.path }}
         run: cat "$MIGRATION_PATH"
 
       - name: Apply
-        if: ${{ inputs.dry_run != 'true' }}
+        if: ${{ inputs.dry_run != 'true' && inputs.audit != 'true' }}
         env:
           DB_URL: ${{ steps.resolve.outputs.project == 'web' && secrets.RADAR_SUPABASE_DB_URL || secrets.SUPABASE_DB_URL }}
           PROJECT: ${{ steps.resolve.outputs.project }}
