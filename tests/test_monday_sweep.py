@@ -92,3 +92,60 @@ def test_a_model_that_fails_falls_back_to_the_builtin_extractor(tmp_path, monkey
     assert ms.sweep() == 0
     data = json.loads((tmp_path / "d.json").read_text())
     assert data["runs"][0]["by_builtin"] == 1
+
+
+def test_a_deadline_beside_the_quoted_name_is_kept():
+    f = [{"name": "Ubuntu AI Hackathon 2027", "deadline": "14 March 2027",
+          "quoted_span": "Ubuntu AI Hackathon 2027"}]
+    assert ms.verified(f, PAGE)[0]["deadline"] == "14 March 2027"
+
+
+def test_past_events_are_recognised_from_their_own_dates():
+    from datetime import date
+    today = date(2026, 11, 17)
+    assert ms.is_past({"name": "GIRLCODE GHANA HACKATHON 2025", "quoted_span": ""}, today)
+    assert ms.is_past({"name": "X", "deadline": "2026-11-01"}, today)
+    assert not ms.is_past({"name": "X", "deadline": "2026-12-13"}, today)
+    assert not ms.is_past({"name": "Hackathon 2025-2027", "quoted_span": ""}, today)
+    assert not ms.is_past({"name": "Undated Fellowship", "quoted_span": ""}, today)
+
+
+def test_devpost_and_zindi_are_read_from_their_feeds(monkeypatch):
+    devpost = {"hackathons": [{"title": "Build Week", "submission_period_dates": "Nov 20 - Dec 4, 2026",
+                               "registrations_count": 812, "url": "https://bw.devpost.com/",
+                               "organization_name": "Acme", "prize_amount": "$<span>10,000</span>",
+                               "displayed_location": {"location": "Online"}, "prizes_counts": {"cash": 3}},
+                              {"title": "Class project", "displayed_location": {"location": "Online"},
+                               "prizes_counts": {"cash": 0}},
+                              {"title": "Houston only", "displayed_location": {"location": "Houston, TX"},
+                               "prizes_counts": {"cash": 2}}]}
+    zindi = {"data": [
+        {"title": "Crop Yield", "open": True, "end_time": "2026-12-13T04:59:00.000Z", "id": "crop",
+         "participations_count": 571, "organization": "Org", "reward": "$5 000 USD"},
+        {"title": "Private", "open": True, "secret_code_required": True},
+    ]}
+    monkeypatch.setattr(ms, "fetch_json", lambda url: devpost if "devpost" in url else zindi)
+    d = ms.devpost_findings()
+    assert [x["name"] for x in d] == ["Build Week"] and d[0]["field_size"] == 812
+    assert d[0]["prize_as_written"] == "$10,000"
+    z = ms.zindi_findings()
+    assert [x["name"] for x in z] == ["Crop Yield"]
+    assert z[0]["deadline"] == "2026-12-13" and z[0]["link"] == "https://zindi.africa/competitions/crop"
+    assert ms.feed_for("https://devpost.com/hackathons")[0] == "Devpost API"
+    assert ms.feed_for("https://www.kaggle.com/competitions") is None
+
+
+def test_the_sweep_marks_old_finds_past(tmp_path, monkeypatch):
+    digest = tmp_path / "d.json"
+    digest.write_text(json.dumps({"note": "", "runs": [], "findings": {
+        "u#old": {"status": "new", "name": "CTIF And Jamfest 2023", "quoted_span": "CTIF", "deadline_as_written": None},
+        "u#kept": {"status": "dismissed", "name": "Old Thing 2020", "quoted_span": "x"},
+    }}), encoding="utf-8")
+    monkeypatch.setattr(ms, "DIGEST", str(digest))
+    monkeypatch.setattr(ms, "sources", lambda: [{"name": "T", "url": "https://example.org/e"}])
+    monkeypatch.setattr(ms, "fetch", lambda url: PAGE)
+    monkeypatch.setattr(ms, "known_names", lambda: [])
+    ms.sweep(builtin_only=True)
+    f = json.loads(digest.read_text(encoding="utf-8"))["findings"]
+    assert f["u#old"]["status"] == "past"
+    assert f["u#kept"]["status"] == "dismissed"
