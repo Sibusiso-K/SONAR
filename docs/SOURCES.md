@@ -384,3 +384,21 @@ Eight entries came through the opportunities migration without a line here that 
 | `wbg-small-ai-development-2026` (Small AI for Development Hackathon Challenge) | reported | [learn more](https://lnkd.in/gCpfi3kB) · [apply](https://lnkd.in/gyftT4Vu) · [platform](https://hack-nation.ai/) |
 | `wits-ehub-tech-ai-day-2026` (Wits Entrepreneurship Week 2026: Tech & AI Day and Tech Demo Showcase) | confirmed | main: organiser email to Sibusiso, 2026 (no public page found 12 Oct 2026) · contact older ehub page: StudentEntrepreneurship.DLU@wits.ac.za |
 | `zindi-rolling` (Zindi Challenges (rolling)) | unconfirmed | [competitions](https://zindi.world/competitions) · [jobs](https://zindi.world/jobs) · [sort closing](https://zindi.world/competitions?sort=newest) |
+
+
+---
+
+## Added from the Monday sweep, 17 November 2026
+
+Found by `scripts/monday_sweep.py` (Devpost and Zindi listing feeds), then checked against each competition's own record. Zindi values come from its public competition API, which serves the same data as the competition page.
+
+| Claim | Source |
+|---|---|
+| #BuildHybridAI 2026: submissions 11-30 Nov 2026, close 14:00 PT 30 Nov; judging 10-16 Dec; USD 30,000; open everywhere except Brazil, Italy, Quebec, Crimea, Cuba, Iran, Syria, North Korea, Sudan, Belarus, Russia; 2,784 registered. Rules read in a browser 17 Nov 2026 | [Official rules](https://firebasehybridaihackathon.devpost.com/rules) · [Devpost listing API](https://devpost.com/api/hackathons) |
+| GenAI for Good: Cities Edition (Phase 1), IEEE HT x UNDP: 5 Nov - 13 Dec 2026 04:59 UTC; USD 40,000; open to US residents and other jurisdictions where local law permits; 572 entrants | [Zindi](https://zindi.africa/competitions/GenAI-for-Good-Challenge) · [API](https://api.zindi.africa/v1/competitions/GenAI-for-Good-Challenge) |
+| Underwater Vessel Noise Challenge, French Embassy in SA: 16 Oct - 13 Dec 2026 12:00 UTC; USD 5,000; open to all; 1,209 entrants | [Zindi](https://zindi.africa/competitions/french-embassy-underwater-vessel-noise-challenge) |
+| Dis-Chem Product Data Enrichment: 13 Nov - 13 Dec 2026 23:59 UTC; USD 5,000; open to all; 262 entrants | [Zindi](https://zindi.africa/competitions/dischem-product-data-entichment-challenge) |
+| TelcoRetrieve (ITU): opens 13 Nov 2026, entries close 6 Jan 2027, ends 13 Jan 2027; EUR 25,000; open to all; 329 entrants | [Zindi](https://zindi.africa/competitions/telcoretrieve-challenge-unlocking-telco-knowledge) |
+| AMD Global Physical AI Behavioral Safety: 9 Nov 2026 - 31 Jan 2027; USD 10,000; open to all; 333 entrants | [Zindi](https://zindi.africa/competitions/amd-global-physical-ai-safety-challenge) |
+| AI Agents for RAN (ITU): 27 Nov 2026 - 5 Feb 2027; EUR 20,000; open to all; 152 entrants | [Zindi](https://zindi.africa/competitions/ai-agents-for-ran-challenge) |
+| Green Rising Methane Innovation: 11 Dec 2026 - 14 Feb 2027; USD 10,000; open to all; 294 entrants | [Zindi](https://zindi.africa/competitions/green-rising-methane-innovation-challenge) |
