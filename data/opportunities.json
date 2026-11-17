@@ -21,7 +21,7 @@
       "reported": "From a secondary source (news/aggregator); verify before relying on it",
       "unconfirmed": "Not yet announced for 2026; based on prior-year pattern"
     },
-    "generated": "2026-11-16T22:55:26Z",
+    "generated": "2026-11-17T06:58:22Z",
     "generator": "scripts/migrate_to_opportunities.py",
     "kinds": {
       "hackathon": "Build something in a fixed window",
@@ -2778,6 +2778,432 @@
       "days_remaining": 103,
       "confidence": "reported",
       "lifecycle": "scored",
+      "tracks": [],
+      "challenges": [],
+      "stages": [],
+      "evidence": [],
+      "history": []
+    },
+    {
+      "id": "buildhybridai-2026",
+      "noticed_on": "2026-11-17",
+      "went_live_on": null,
+      "source": "Devpost API, read 17 Nov 2026 via the Monday sweep, 17 Nov 2026; official rules page read in a browser the same day",
+      "name": "#BuildHybridAI 2026",
+      "organiser": "Google (Firebase), hosted on Devpost",
+      "scope": "international",
+      "kind": "hackathon",
+      "format": "online",
+      "location": "Online",
+      "status": "open",
+      "tier": 3,
+      "score": 5.75,
+      "scores": {
+        "career_leverage": 6,
+        "winnability": 3,
+        "prize": 7,
+        "urgency": 9
+      },
+      "dates": {
+        "opens": "2026-11-11",
+        "submission_deadline": "2026-11-30",
+        "note": "Submissions close 30 Nov 2026 at 14:00 Pacific (00:00 SAST on 1 Dec). Judging 10-16 Dec, winners around 21 Dec. Free model-quota sprints: request by 18 Nov or 25 Nov, 10:00 PT.",
+        "confidence": "confirmed"
+      },
+      "prize": {
+        "currency": "USD",
+        "pool": 30000
+      },
+      "eligibility": "Open to everyone above the age of majority except residents of Brazil, Italy, Quebec, Crimea, Cuba, Iran, Syria, North Korea, Sudan, Belarus and Russia; South Africa is eligible. Individuals or teams.",
+      "team_fit": "Fits a 2-person team.",
+      "what_to_build": "A gen-AI app on Firebase AI Logic that runs on-device (Gemini Nano 4 on web/Chrome or Android, or Apple Foundation Models on iOS) and in the cloud.",
+      "deliverables": [
+        "Working project with test access",
+        "Demo video",
+        "Text description of what was built in the period"
+      ],
+      "links": {
+        "main": "https://firebasehybridaihackathon.devpost.com/"
+      },
+      "notes": "2,784 entrants when found. Rules read in a browser on 17 Nov 2026; Devpost blocks scripted reads.",
+      "career_track": "none",
+      "next_date": "2026-11-30",
+      "next_date_label": "submission deadline",
+      "days_remaining": 13,
+      "confidence": "confirmed",
+      "lifecycle": "scored",
+      "tracks": [],
+      "challenges": [],
+      "stages": [],
+      "evidence": [],
+      "history": []
+    },
+    {
+      "id": "zindi-genai-for-good-cities-2026",
+      "noticed_on": "2026-11-17",
+      "went_live_on": null,
+      "source": "Zindi competition API (api.zindi.africa), read 17 Nov 2026 via the Monday sweep, 17 Nov 2026",
+      "name": "GenAI for Good Challenge: Cities Edition (Phase 1)",
+      "organiser": "IEEE Humanitarian Technologies x UNDP, on Zindi",
+      "scope": "international",
+      "kind": "ml_competition",
+      "format": "online",
+      "location": "Online",
+      "status": "open",
+      "tier": 3,
+      "score": 5.95,
+      "scores": {
+        "career_leverage": 6,
+        "winnability": 4,
+        "prize": 8,
+        "urgency": 7
+      },
+      "dates": {
+        "opens": "2026-11-05",
+        "submission_deadline": "2026-12-13",
+        "note": "Closes 13 Dec 2026 04:59 UTC (06:59 SAST).",
+        "confidence": "confirmed"
+      },
+      "prize": {
+        "currency": "USD",
+        "pool": 40000
+      },
+      "eligibility": "CHECK: open to legal residents of the United States and international jurisdictions where permitted by local law. Not a plain 'open to all'; read the rules for South Africa before entering.",
+      "team_fit": "Fits a 2-person team.",
+      "what_to_build": "An AI assistant that answers municipal questions using evidence from documents, tables and maps (Phase 1 technical assessment).",
+      "deliverables": [
+        "Leaderboard submissions",
+        "Reproducible code for prize review"
+      ],
+      "links": {
+        "main": "https://zindi.africa/competitions/GenAI-for-Good-Challenge"
+      },
+      "notes": "572 entrants when found. Closes the same day as the Zindi vessel-noise and Dis-Chem challenges: pick one.",
+      "career_track": "none",
+      "next_date": "2026-12-13",
+      "next_date_label": "submission deadline",
+      "days_remaining": 26,
+      "confidence": "confirmed",
+      "lifecycle": "scored",
+      "tracks": [],
+      "challenges": [],
+      "stages": [],
+      "evidence": [],
+      "history": []
+    },
+    {
+      "id": "zindi-vessel-noise-2026",
+      "noticed_on": "2026-11-17",
+      "went_live_on": null,
+      "source": "Zindi competition API (api.zindi.africa), read 17 Nov 2026 via the Monday sweep, 17 Nov 2026",
+      "name": "Underwater Vessel Noise Challenge",
+      "organiser": "French Embassy in South Africa, on Zindi",
+      "scope": "international",
+      "kind": "ml_competition",
+      "format": "online",
+      "location": "Online",
+      "status": "open",
+      "tier": 3,
+      "score": 4.5,
+      "scores": {
+        "career_leverage": 5,
+        "winnability": 3,
+        "prize": 4,
+        "urgency": 7
+      },
+      "dates": {
+        "opens": "2026-10-16",
+        "submission_deadline": "2026-12-13",
+        "note": "Closes 13 Dec 2026 12:00 UTC (14:00 SAST).",
+        "confidence": "confirmed"
+      },
+      "prize": {
+        "currency": "USD",
+        "pool": 5000
+      },
+      "eligibility": "Open to all.",
+      "team_fit": "Fits a 2-person team.",
+      "what_to_build": "Machine learning to detect and characterise underwater vessel noise for marine scientists.",
+      "deliverables": [
+        "Leaderboard submissions",
+        "Reproducible code for prize review"
+      ],
+      "links": {
+        "main": "https://zindi.africa/competitions/french-embassy-underwater-vessel-noise-challenge"
+      },
+      "notes": "1,209 entrants when found. Largest field of the Zindi finds. Closes the same day as GenAI for Good and Dis-Chem.",
+      "career_track": "none",
+      "next_date": "2026-12-13",
+      "next_date_label": "submission deadline",
+      "days_remaining": 26,
+      "confidence": "confirmed",
+      "lifecycle": "scored",
+      "tracks": [],
+      "challenges": [],
+      "stages": [],
+      "evidence": [],
+      "history": []
+    },
+    {
+      "id": "zindi-dischem-data-enrichment-2026",
+      "noticed_on": "2026-11-17",
+      "went_live_on": null,
+      "source": "Zindi competition API (api.zindi.africa), read 17 Nov 2026 via the Monday sweep, 17 Nov 2026",
+      "name": "Dis-Chem Product Data Enrichment Challenge",
+      "organiser": "Dis-Chem, on Zindi",
+      "scope": "international",
+      "kind": "ml_competition",
+      "format": "online",
+      "location": "Online",
+      "status": "open",
+      "tier": 3,
+      "score": 5.8,
+      "scores": {
+        "career_leverage": 7,
+        "winnability": 5,
+        "prize": 4,
+        "urgency": 7
+      },
+      "dates": {
+        "opens": "2026-11-13",
+        "submission_deadline": "2026-12-13",
+        "note": "Closes 13 Dec 2026 23:59 UTC (14 Dec 01:59 SAST).",
+        "confidence": "confirmed"
+      },
+      "prize": {
+        "currency": "USD",
+        "pool": 5000
+      },
+      "eligibility": "Open to all.",
+      "team_fit": "Fits a 2-person team.",
+      "what_to_build": "An AI solution that makes product information more complete, consistent and reliable.",
+      "deliverables": [
+        "Leaderboard submissions",
+        "Reproducible code for prize review"
+      ],
+      "links": {
+        "main": "https://zindi.africa/competitions/dischem-product-data-entichment-challenge"
+      },
+      "notes": "262 entrants when found. A South African retailer: the career value is higher than the prize. Closes the same day as GenAI for Good and vessel noise.",
+      "career_track": "none",
+      "next_date": "2026-12-13",
+      "next_date_label": "submission deadline",
+      "days_remaining": 26,
+      "confidence": "confirmed",
+      "lifecycle": "scored",
+      "tracks": [],
+      "challenges": [],
+      "stages": [],
+      "evidence": [],
+      "history": []
+    },
+    {
+      "id": "zindi-telcoretrieve-2027",
+      "noticed_on": "2026-11-17",
+      "went_live_on": null,
+      "source": "Zindi competition API (api.zindi.africa), read 17 Nov 2026 via the Monday sweep, 17 Nov 2026",
+      "name": "TelcoRetrieve Challenge: Unlocking Telco Knowledge",
+      "organiser": "ITU, on Zindi",
+      "scope": "international",
+      "kind": "ml_competition",
+      "format": "online",
+      "location": "Online",
+      "status": "open",
+      "tier": 3,
+      "score": 5.65,
+      "scores": {
+        "career_leverage": 6,
+        "winnability": 4,
+        "prize": 8,
+        "urgency": 5
+      },
+      "dates": {
+        "opens": "2026-11-13",
+        "registration_deadline": "2027-01-06",
+        "submission_deadline": "2027-01-13",
+        "note": "Entries close 6 Jan 2027 23:59 UTC; the competition ends 13 Jan 2027 22:55 UTC. Join before 6 Jan.",
+        "confidence": "confirmed"
+      },
+      "prize": {
+        "currency": "EUR",
+        "pool": 25000
+      },
+      "eligibility": "Open to all.",
+      "team_fit": "Fits a 2-person team.",
+      "what_to_build": "An AI system that gives accurate, trustworthy answers grounded in telecom standards (retrieval and question answering).",
+      "deliverables": [
+        "Leaderboard submissions",
+        "Reproducible code for prize review"
+      ],
+      "links": {
+        "main": "https://zindi.africa/competitions/telcoretrieve-challenge-unlocking-telco-knowledge"
+      },
+      "notes": "329 entrants when found. One submission per day.",
+      "career_track": "none",
+      "next_date": "2027-01-06",
+      "next_date_label": "registration deadline",
+      "days_remaining": 50,
+      "confidence": "confirmed",
+      "lifecycle": "scored",
+      "tracks": [],
+      "challenges": [],
+      "stages": [],
+      "evidence": [],
+      "history": []
+    },
+    {
+      "id": "zindi-amd-physical-ai-safety-2027",
+      "noticed_on": "2026-11-17",
+      "went_live_on": null,
+      "source": "Zindi competition API (api.zindi.africa), read 17 Nov 2026 via the Monday sweep, 17 Nov 2026",
+      "name": "AMD Global Physical AI Behavioral Safety Challenge",
+      "organiser": "AMD, on Zindi",
+      "scope": "international",
+      "kind": "ml_competition",
+      "format": "online",
+      "location": "Online",
+      "status": "open",
+      "tier": 3,
+      "score": 5.1,
+      "scores": {
+        "career_leverage": 6,
+        "winnability": 4,
+        "prize": 6,
+        "urgency": 4
+      },
+      "dates": {
+        "opens": "2026-11-09",
+        "submission_deadline": "2027-01-31",
+        "note": "Closes 31 Jan 2027 23:59 UTC.",
+        "confidence": "confirmed"
+      },
+      "prize": {
+        "currency": "USD",
+        "pool": 10000
+      },
+      "eligibility": "Open to all.",
+      "team_fit": "Fits a 2-person team.",
+      "what_to_build": "Predict how a robot's next action could affect the safety of people nearby.",
+      "deliverables": [
+        "Leaderboard submissions",
+        "Reproducible code for prize review"
+      ],
+      "links": {
+        "main": "https://zindi.africa/competitions/amd-global-physical-ai-safety-challenge"
+      },
+      "notes": "333 entrants when found. Code must reproduce to qualify for phase 2 or prizes.",
+      "career_track": "none",
+      "next_date": "2027-01-31",
+      "next_date_label": "submission deadline",
+      "days_remaining": 75,
+      "confidence": "confirmed",
+      "lifecycle": "scored",
+      "tracks": [],
+      "challenges": [],
+      "stages": [],
+      "evidence": [],
+      "history": []
+    },
+    {
+      "id": "zindi-ai-agents-for-ran-2027",
+      "noticed_on": "2026-11-17",
+      "went_live_on": null,
+      "source": "Zindi competition API (api.zindi.africa), read 17 Nov 2026 via the Monday sweep, 17 Nov 2026",
+      "name": "AI Agents for RAN Challenge",
+      "organiser": "ITU, on Zindi",
+      "scope": "international",
+      "kind": "ml_competition",
+      "format": "online",
+      "location": "Online",
+      "status": "monitor",
+      "tier": 3,
+      "score": 5.6,
+      "scores": {
+        "career_leverage": 6,
+        "winnability": 5,
+        "prize": 7,
+        "urgency": 4
+      },
+      "dates": {
+        "opens": "2026-11-27",
+        "submission_deadline": "2027-02-05",
+        "note": "Opens 27 Nov 2026; closes 5 Feb 2027 22:00 UTC.",
+        "confidence": "confirmed"
+      },
+      "prize": {
+        "currency": "EUR",
+        "pool": 20000
+      },
+      "eligibility": "Open to all.",
+      "team_fit": "Fits a 2-person team.",
+      "what_to_build": "An AI agent that reasons, experiments and solves radio access network problems.",
+      "deliverables": [
+        "Leaderboard submissions",
+        "Reproducible code for prize review"
+      ],
+      "links": {
+        "main": "https://zindi.africa/competitions/ai-agents-for-ran-challenge"
+      },
+      "notes": "152 entrants when found. Smallest field of the Zindi finds; fits the team's multi-agent work.",
+      "career_track": "none",
+      "next_date": "2027-02-05",
+      "next_date_label": "submission deadline",
+      "days_remaining": 80,
+      "confidence": "confirmed",
+      "lifecycle": "triaged",
+      "tracks": [],
+      "challenges": [],
+      "stages": [],
+      "evidence": [],
+      "history": []
+    },
+    {
+      "id": "zindi-green-rising-methane-2027",
+      "noticed_on": "2026-11-17",
+      "went_live_on": null,
+      "source": "Zindi competition API (api.zindi.africa), read 17 Nov 2026 via the Monday sweep, 17 Nov 2026",
+      "name": "Green Rising Methane Innovation Challenge",
+      "organiser": "Zindi",
+      "scope": "international",
+      "kind": "ml_competition",
+      "format": "online",
+      "location": "Online",
+      "status": "monitor",
+      "tier": 3,
+      "score": 4.6,
+      "scores": {
+        "career_leverage": 5,
+        "winnability": 4,
+        "prize": 6,
+        "urgency": 3
+      },
+      "dates": {
+        "opens": "2026-12-11",
+        "submission_deadline": "2027-02-14",
+        "note": "Opens 11 Dec 2026; closes 14 Feb 2027 12:00 UTC.",
+        "confidence": "confirmed"
+      },
+      "prize": {
+        "currency": "USD",
+        "pool": 10000
+      },
+      "eligibility": "Open to all.",
+      "team_fit": "Fits a 2-person team.",
+      "what_to_build": "Forecast daily methane concentrations at monitoring stations five days ahead.",
+      "deliverables": [
+        "Leaderboard submissions",
+        "Reproducible code for prize review"
+      ],
+      "links": {
+        "main": "https://zindi.africa/competitions/green-rising-methane-innovation-challenge"
+      },
+      "notes": "294 entrants when found. Organiser not named in the Zindi listing.",
+      "career_track": "none",
+      "next_date": "2027-02-14",
+      "next_date_label": "submission deadline",
+      "days_remaining": 89,
+      "confidence": "confirmed",
+      "lifecycle": "triaged",
       "tracks": [],
       "challenges": [],
       "stages": [],
