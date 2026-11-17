@@ -367,9 +367,46 @@ def feed_for(url: str):
 # already over?
 # --------------------------------------------------------------------------- #
 
+_MONTHS = {m: i + 1 for i, m in enumerate(
+    ("jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"))}
+_MON = r"(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?"
+_WRITTEN_DATE = re.compile(
+    # "Nov 15 - 21, 2026": a range inside one month; the end day counts.
+    rf"\b{_MON}\s+(\d{{1,2}})\s*[-–]\s*(\d{{1,2}})\b"
+    # "1 June 2026", "Mon, 01 Jun 2026"
+    rf"|\b(\d{{1,2}})(?:st|nd|rd|th)?\s+{_MON}"
+    # "June 1, 2026", "Nov 20, 2026"
+    rf"|\b{_MON}\s+(\d{{1,2}})(?:st|nd|rd|th)?\b",
+    re.I,
+)
+
+
+def written_dates(text: str) -> list[date]:
+    """Calendar dates written out in words, each with the next year after it
+    in the text. A date with no year anywhere after it is ignored rather
+    than guessed."""
+    out = []
+    for m in _WRITTEN_DATE.finditer(text):
+        if m.group(1):
+            month, day = m.group(1), m.group(3)
+        elif m.group(4):
+            month, day = m.group(5), m.group(4)
+        else:
+            month, day = m.group(6), m.group(7)
+        year = re.search(r"\b(20\d\d)\b", text[m.end():])
+        if not year:
+            continue
+        try:
+            out.append(date(int(year.group(1)), _MONTHS[month.lower()[:3]], int(day)))
+        except ValueError:
+            continue
+    return out
+
+
 def is_past(f: dict, today: date) -> bool:
-    """True when the finding's own words place it before today: an ISO date
-    that has passed, or only years earlier than this one ("Hackathon 2025").
+    """True when the finding's own words place it before today: a deadline
+    (ISO or written out, e.g. "Mon, 01 Jun 2026") whose latest date has
+    passed, or only years earlier than this one ("Hackathon 2025").
     Undated findings are kept; a person can judge those."""
     deadline = str(f.get("deadline") or "")
     iso = re.fullmatch(r"(20\d\d)-(\d\d)-(\d\d)", deadline)
@@ -378,6 +415,9 @@ def is_past(f: dict, today: date) -> bool:
             return date(*map(int, iso.groups())) < today
         except ValueError:
             return False
+    written = written_dates(deadline)
+    if written:
+        return max(written) < today
     years = [int(y) for y in re.findall(r"\b(20\d\d)\b", f"{f.get('name', '')} {f.get('quoted_span', '')} {deadline}")]
     return bool(years) and max(years) < today.year
 

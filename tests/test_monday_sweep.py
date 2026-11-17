@@ -149,3 +149,17 @@ def test_the_sweep_marks_old_finds_past(tmp_path, monkeypatch):
     f = json.loads(digest.read_text(encoding="utf-8"))["findings"]
     assert f["u#old"]["status"] == "past"
     assert f["u#kept"]["status"] == "dismissed"
+
+
+def test_written_out_deadlines_are_checked_too():
+    from datetime import date
+    today = date(2026, 11, 17)
+    assert ms.is_past({"name": "Top 15 Young Geeks", "deadline": "Mon, 01 Jun 2026 14:00PM"}, today)
+    assert ms.is_past({"name": "X", "deadline": "Applications close 30 September 2026"}, today)
+    assert ms.is_past({"name": "X", "deadline": "Oct 26 - Nov 16, 2026"}, today)
+    # still running: a range is judged by its end, in the same month or across months
+    assert not ms.is_past({"name": "X", "deadline": "Nov 15 - 21, 2026"}, today)
+    assert not ms.is_past({"name": "X", "deadline": "Oct 26 - Nov 20, 2026"}, today)
+    assert not ms.is_past({"name": "X", "deadline": "December 4, 2026"}, today)
+    # a date with no year is not guessed at
+    assert not ms.is_past({"name": "X", "deadline": "closes 3 March"}, today)
