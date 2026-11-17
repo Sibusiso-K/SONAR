@@ -7,6 +7,18 @@
       "fetched": 24,
       "fetch_failed": 0,
       "by_feed": 2,
+      "by_model": 18,
+      "by_builtin": 4,
+      "new": 4,
+      "already_tracked": 3,
+      "past": 8
+    },
+    {
+      "on": "2026-11-17",
+      "sources": 24,
+      "fetched": 24,
+      "fetch_failed": 0,
+      "by_feed": 2,
       "by_model": 19,
       "by_builtin": 3,
       "new": 19,
@@ -546,7 +558,7 @@
       "prize_as_written": "$10 000 USD"
     },
     "https://www.geekulcha.dev/events#announcement-of-2026-top-15-young-geeks": {
-      "status": "new",
+      "status": "past",
       "name": "Announcement of 2026 Top 15 Young Geeks",
       "deadline_as_written": "Mon, 01 Jun 2026 14:00PM",
       "quoted_span": "Announcement of 2026 Top 15 Young Geeks",
@@ -557,7 +569,8 @@
       "last_seen": "2026-11-17",
       "page_flags": [
         "190 chars of hidden text — excluded from extraction"
-      ]
+      ],
+      "note": "marked past by the sweep on 2026-11-17: its own dates are over"
     },
     "https://pressportal.co.za/stream/story/830515fb7f428c85-20251106.html#orange-corners-innovation-fund": {
       "status": "new",
@@ -586,7 +599,59 @@
       "page_flags": [
         "hidden text contains date/deadline language (174242 chars concealed) — excluded from extraction"
       ]
+    },
+    "https://devpost.com/hackathons#launchpad-hacks-580k-in-prizes": {
+      "status": "new",
+      "name": "LaunchPad Hacks (580k In Prizes!)",
+      "deadline_as_written": "Oct 16 - Dec 04, 2026",
+      "quoted_span": "LaunchPad Hacks (580k In Prizes!) · Oct 16 - Dec 04, 2026",
+      "source": "Devpost hackathons",
+      "source_url": "https://devpost.com/hackathons",
+      "found_by": "Devpost API",
+      "first_seen": "2026-11-17",
+      "last_seen": "2026-11-17",
+      "page_flags": [],
+      "field_size": 599,
+      "link": "https://launchpad-hacks.devpost.com/",
+      "organiser": "Hack4TodayOrg",
+      "prize_as_written": "$300"
+    },
+    "https://www.itweb.co.za/article/sa-developers-take-centre-stage-as-code4mzansi-kicks-off/JN1gP7OADpyqjL6m#the-huawei-developer-competition-code4mzansi": {
+      "status": "new",
+      "name": "The Huawei Developer Competition, Code4Mzansi",
+      "deadline_as_written": null,
+      "quoted_span": "The Huawei Developer Competition, Code4Mzansi",
+      "source": "Huawei Code4Mzansi",
+      "source_url": "https://www.itweb.co.za/article/sa-developers-take-centre-stage-as-code4mzansi-kicks-off/JN1gP7OADpyqjL6m",
+      "found_by": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "first_seen": "2026-11-17",
+      "last_seen": "2026-11-17",
+      "page_flags": []
+    },
+    "https://www.itweb.co.za/article/sa-developers-take-centre-stage-as-code4mzansi-kicks-off/JN1gP7OADpyqjL6m#applications-open-for-2026-cleantech-challenge": {
+      "status": "new",
+      "name": "Applications open for 2026 cleantech challenge",
+      "deadline_as_written": null,
+      "quoted_span": "Applications open for 2026 cleantech challenge",
+      "source": "Huawei Code4Mzansi",
+      "source_url": "https://www.itweb.co.za/article/sa-developers-take-centre-stage-as-code4mzansi-kicks-off/JN1gP7OADpyqjL6m",
+      "found_by": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "first_seen": "2026-11-17",
+      "last_seen": "2026-11-17",
+      "page_flags": []
+    },
+    "https://www.itweb.co.za/article/sa-developers-take-centre-stage-as-code4mzansi-kicks-off/JN1gP7OADpyqjL6m#accelerator-seeks-sa-agritech-cleantech-disruptors": {
+      "status": "new",
+      "name": "Accelerator seeks SA agritech, cleantech disruptors",
+      "deadline_as_written": null,
+      "quoted_span": "Accelerator seeks SA agritech, cleantech disruptors",
+      "source": "Huawei Code4Mzansi",
+      "source_url": "https://www.itweb.co.za/article/sa-developers-take-centre-stage-as-code4mzansi-kicks-off/JN1gP7OADpyqjL6m",
+      "found_by": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "first_seen": "2026-11-17",
+      "last_seen": "2026-11-17",
+      "page_flags": []
     }
   },
-  "generated": "2026-11-17T05:25:12Z"
+  "generated": "2026-11-17T06:23:01Z"
 }
