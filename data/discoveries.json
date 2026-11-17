@@ -4,6 +4,18 @@
     {
       "on": "2026-11-17",
       "sources": 24,
+      "fetched": 24,
+      "fetch_failed": 0,
+      "by_feed": 2,
+      "by_model": 19,
+      "by_builtin": 3,
+      "new": 19,
+      "already_tracked": 3,
+      "past": 4
+    },
+    {
+      "on": "2026-11-17",
+      "sources": 24,
       "fetched": 23,
       "fetch_failed": 1,
       "by_model": 22,
@@ -28,7 +40,7 @@
       ]
     },
     "https://za.allhackathons.com/#girlcode-ghana-hackathon-2025": {
-      "status": "new",
+      "status": "past",
       "name": "GIRLCODE GHANA HACKATHON 2025",
       "deadline_as_written": null,
       "quoted_span": "GIRLCODE GHANA HACKATHON 2025",
@@ -37,10 +49,11 @@
       "found_by": "nvidia/nemotron-3-ultra-550b-a55b:free",
       "first_seen": "2026-11-17",
       "last_seen": "2026-11-17",
-      "page_flags": []
+      "page_flags": [],
+      "note": "marked past by the sweep on 2026-11-17: its own dates are over"
     },
     "https://hackon.co.za/category/upcoming-events/#informatica-s-integration-for-ai-genai-hackathon-2025": {
-      "status": "new",
+      "status": "past",
       "name": "Informatica’s Integration for AI/GenAI Hackathon 2025",
       "deadline_as_written": null,
       "quoted_span": "Informatica’s *Integration for AI/GenAI Hackathon* 2025 is here!",
@@ -51,7 +64,8 @@
       "last_seen": "2026-11-17",
       "page_flags": [
         "30 chars of hidden text — excluded from extraction"
-      ]
+      ],
+      "note": "marked past by the sweep on 2026-11-17: its own dates are over"
     },
     "https://hackon.co.za/category/upcoming-events/#south-africa-policy-hackathon": {
       "status": "new",
@@ -82,7 +96,7 @@
       ]
     },
     "https://hackon.co.za/category/upcoming-events/#civic-tech-innovation-forum-ctif-and-jamfest-2023": {
-      "status": "new",
+      "status": "past",
       "name": "Civic Tech Innovation Forum (CTIF) And Jamfest 2023",
       "deadline_as_written": null,
       "quoted_span": "Civic Tech Innovation Forum (CTIF) And Jamfest 2023",
@@ -93,7 +107,8 @@
       "last_seen": "2026-11-17",
       "page_flags": [
         "30 chars of hidden text — excluded from extraction"
-      ]
+      ],
+      "note": "marked past by the sweep on 2026-11-17: its own dates are over"
     },
     "https://hackon.co.za/category/upcoming-events/#sas-hackthon": {
       "status": "new",
@@ -110,7 +125,7 @@
       ]
     },
     "https://sdc.dirisa.ac.za/programme/#student-datathon-challenge-sdc-2025": {
-      "status": "new",
+      "status": "past",
       "name": "Student Datathon Challenge (SDC) 2025",
       "deadline_as_written": null,
       "quoted_span": "Student Datathon Challenge (SDC) 2025",
@@ -121,7 +136,8 @@
       "last_seen": "2026-11-17",
       "page_flags": [
         "hidden text contains date/deadline language (2874 chars concealed) — excluded from extraction"
-      ]
+      ],
+      "note": "marked past by the sweep on 2026-11-17: its own dates are over"
     },
     "https://www.tia.org.za/calls#expression-of-interest-commercialisation-opportunity-mechani": {
       "status": "new",
@@ -276,7 +292,301 @@
       "first_seen": "2026-11-17",
       "last_seen": "2026-11-17",
       "page_flags": []
+    },
+    "https://devpost.com/hackathons#dakar-bitcoin-hack-by-btrust": {
+      "status": "new",
+      "name": "Dakar Bitcoin Hack by BTrust",
+      "deadline_as_written": "Oct 26 - Nov 20, 2026",
+      "quoted_span": "Dakar Bitcoin Hack by BTrust · Oct 26 - Nov 20, 2026",
+      "source": "Devpost hackathons",
+      "source_url": "https://devpost.com/hackathons",
+      "found_by": "Devpost API",
+      "first_seen": "2026-11-17",
+      "last_seen": "2026-11-17",
+      "page_flags": [],
+      "field_size": 300,
+      "link": "https://dakar-bitcoin-hack-2026.devpost.com/",
+      "organiser": "Dakar Bitcoin Days",
+      "prize_as_written": "$900"
+    },
+    "https://devpost.com/hackathons#bridge-the-gap-hacks": {
+      "status": "new",
+      "name": "Bridge The Gap Hacks",
+      "deadline_as_written": "Nov 15 - 21, 2026",
+      "quoted_span": "Bridge The Gap Hacks · Nov 15 - 21, 2026",
+      "source": "Devpost hackathons",
+      "source_url": "https://devpost.com/hackathons",
+      "found_by": "Devpost API",
+      "first_seen": "2026-11-17",
+      "last_seen": "2026-11-17",
+      "page_flags": [],
+      "field_size": 95,
+      "link": "https://sq-hacks.devpost.com/",
+      "organiser": "Bridge The Gap Hacks",
+      "prize_as_written": "$0"
+    },
+    "https://devpost.com/hackathons#teens-hack-houston-hackathon": {
+      "status": "new",
+      "name": "Teens Hack Houston Hackathon",
+      "deadline_as_written": "Nov 14 - 21, 2026",
+      "quoted_span": "Teens Hack Houston Hackathon · Nov 14 - 21, 2026",
+      "source": "Devpost hackathons",
+      "source_url": "https://devpost.com/hackathons",
+      "found_by": "Devpost API",
+      "first_seen": "2026-11-17",
+      "last_seen": "2026-11-17",
+      "page_flags": [],
+      "field_size": 136,
+      "link": "https://tripleh.devpost.com/",
+      "organiser": "HackClub  ✓⃝",
+      "prize_as_written": "$300"
+    },
+    "https://devpost.com/hackathons#kuk-virtual-hackathon": {
+      "status": "new",
+      "name": "KUK VIRTUAL HACKATHON",
+      "deadline_as_written": "Nov 15 - 22, 2026",
+      "quoted_span": "KUK VIRTUAL HACKATHON · Nov 15 - 22, 2026",
+      "source": "Devpost hackathons",
+      "source_url": "https://devpost.com/hackathons",
+      "found_by": "Devpost API",
+      "first_seen": "2026-11-17",
+      "last_seen": "2026-11-17",
+      "page_flags": [],
+      "field_size": 47,
+      "link": "https://kuk-virtual-hackathon.devpost.com/",
+      "organiser": "Kelab UMNO Korea",
+      "prize_as_written": "$800"
+    },
+    "https://devpost.com/hackathons#hackwithaditya": {
+      "status": "new",
+      "name": "HackWithAditya",
+      "deadline_as_written": "Oct 16 - Nov 25, 2026",
+      "quoted_span": "HackWithAditya · Oct 16 - Nov 25, 2026",
+      "source": "Devpost hackathons",
+      "source_url": "https://devpost.com/hackathons",
+      "found_by": "Devpost API",
+      "first_seen": "2026-11-17",
+      "last_seen": "2026-11-17",
+      "page_flags": [],
+      "field_size": 222,
+      "link": "https://hackwithaditya.devpost.com/",
+      "organiser": "Aditya University",
+      "prize_as_written": "₹ 500,000"
+    },
+    "https://devpost.com/hackathons#csc-winter-sparkathon": {
+      "status": "new",
+      "name": "CSC Winter Sparkathon",
+      "deadline_as_written": "Oct 29 - Nov 30, 2026",
+      "quoted_span": "CSC Winter Sparkathon · Oct 29 - Nov 30, 2026",
+      "source": "Devpost hackathons",
+      "source_url": "https://devpost.com/hackathons",
+      "found_by": "Devpost API",
+      "first_seen": "2026-11-17",
+      "last_seen": "2026-11-17",
+      "page_flags": [],
+      "field_size": 217,
+      "link": "https://csc-winter-sparkathon.devpost.com/",
+      "organiser": "The Webb Schools CSC",
+      "prize_as_written": "$300"
+    },
+    "https://devpost.com/hackathons#buildhybridai-2026": {
+      "status": "new",
+      "name": "#BuildHybridAI 2026",
+      "deadline_as_written": "Nov 11 - 30, 2026",
+      "quoted_span": "#BuildHybridAI 2026 · Nov 11 - 30, 2026",
+      "source": "Devpost hackathons",
+      "source_url": "https://devpost.com/hackathons",
+      "found_by": "Devpost API",
+      "first_seen": "2026-11-17",
+      "last_seen": "2026-11-17",
+      "page_flags": [],
+      "field_size": 2784,
+      "link": "https://firebasehybridaihackathon.devpost.com/",
+      "organiser": "Google",
+      "prize_as_written": "$30,000"
+    },
+    "https://devpost.com/hackathons#idealab-hacks": {
+      "status": "new",
+      "name": "IdeaLab Hacks",
+      "deadline_as_written": "Nov 04 - 30, 2026",
+      "quoted_span": "IdeaLab Hacks · Nov 04 - 30, 2026",
+      "source": "Devpost hackathons",
+      "source_url": "https://devpost.com/hackathons",
+      "found_by": "Devpost API",
+      "first_seen": "2026-11-17",
+      "last_seen": "2026-11-17",
+      "page_flags": [],
+      "field_size": 74,
+      "link": "https://idealab-hacks.devpost.com/",
+      "organiser": "IdeaLab",
+      "prize_as_written": "$0"
+    },
+    "https://devpost.com/hackathons#code-for-change": {
+      "status": "new",
+      "name": "Code for Change",
+      "deadline_as_written": "Nov 05 - Dec 01, 2026",
+      "quoted_span": "Code for Change · Nov 05 - Dec 01, 2026",
+      "source": "Devpost hackathons",
+      "source_url": "https://devpost.com/hackathons",
+      "found_by": "Devpost API",
+      "first_seen": "2026-11-17",
+      "last_seen": "2026-11-17",
+      "page_flags": [],
+      "field_size": 145,
+      "link": "https://code-for-change-global.devpost.com/",
+      "organiser": "HackathonForEveryone",
+      "prize_as_written": "$200"
+    },
+    "https://zindi.world/competitions#genai-for-good-challenge-cities-edition-phase-1-technical-as": {
+      "status": "new",
+      "name": "GenAI for Good Challenge: Cities Edition (Phase 1 Technical Assessment)",
+      "deadline_as_written": "2026-12-13",
+      "quoted_span": "GenAI for Good Challenge: Cities Edition (Phase 1 Technical Assessment) · closes 2026-12-13",
+      "source": "Zindi competitions",
+      "source_url": "https://zindi.world/competitions",
+      "found_by": "Zindi API",
+      "first_seen": "2026-11-17",
+      "last_seen": "2026-11-17",
+      "page_flags": [],
+      "field_size": 571,
+      "link": "https://zindi.africa/competitions/GenAI-for-Good-Challenge",
+      "organiser": "IEEE Humanitarian Technologies x UNDP",
+      "prize_as_written": "$40 000 USD"
+    },
+    "https://zindi.world/competitions#underwater-vessel-noise-challenge-by-the-french-embassy-in-s": {
+      "status": "new",
+      "name": "Underwater Vessel Noise Challenge by the French Embassy in South Africa",
+      "deadline_as_written": "2026-12-13",
+      "quoted_span": "Underwater Vessel Noise Challenge by the French Embassy in South Africa · closes 2026-12-13",
+      "source": "Zindi competitions",
+      "source_url": "https://zindi.world/competitions",
+      "found_by": "Zindi API",
+      "first_seen": "2026-11-17",
+      "last_seen": "2026-11-17",
+      "page_flags": [],
+      "field_size": 1209,
+      "link": "https://zindi.africa/competitions/french-embassy-underwater-vessel-noise-challenge",
+      "prize_as_written": "$5 000 USD"
+    },
+    "https://zindi.world/competitions#dis-chem-product-data-enrichment-challenge": {
+      "status": "new",
+      "name": "Dis-Chem Product Data Enrichment Challenge",
+      "deadline_as_written": "2026-12-13",
+      "quoted_span": "Dis-Chem Product Data Enrichment Challenge · closes 2026-12-13",
+      "source": "Zindi competitions",
+      "source_url": "https://zindi.world/competitions",
+      "found_by": "Zindi API",
+      "first_seen": "2026-11-17",
+      "last_seen": "2026-11-17",
+      "page_flags": [],
+      "field_size": 262,
+      "link": "https://zindi.africa/competitions/dischem-product-data-entichment-challenge",
+      "prize_as_written": "$5 000 USD"
+    },
+    "https://zindi.world/competitions#telcoretrieve-challenge-unlocking-telco-knowledge": {
+      "status": "new",
+      "name": "TelcoRetrieve Challenge: Unlocking Telco Knowledge",
+      "deadline_as_written": "2027-01-06",
+      "quoted_span": "TelcoRetrieve Challenge: Unlocking Telco Knowledge · closes 2027-01-06",
+      "source": "Zindi competitions",
+      "source_url": "https://zindi.world/competitions",
+      "found_by": "Zindi API",
+      "first_seen": "2026-11-17",
+      "last_seen": "2026-11-17",
+      "page_flags": [],
+      "field_size": 328,
+      "link": "https://zindi.africa/competitions/telcoretrieve-challenge-unlocking-telco-knowledge",
+      "organiser": "ITU",
+      "prize_as_written": "€25 000 EUR"
+    },
+    "https://zindi.world/competitions#amd-global-physical-ai-behavioral-safety-challenge": {
+      "status": "new",
+      "name": "AMD Global Physical AI Behavioral Safety Challenge",
+      "deadline_as_written": "2027-01-31",
+      "quoted_span": "AMD Global Physical AI Behavioral Safety Challenge · closes 2027-01-31",
+      "source": "Zindi competitions",
+      "source_url": "https://zindi.world/competitions",
+      "found_by": "Zindi API",
+      "first_seen": "2026-11-17",
+      "last_seen": "2026-11-17",
+      "page_flags": [],
+      "field_size": 333,
+      "link": "https://zindi.africa/competitions/amd-global-physical-ai-safety-challenge",
+      "prize_as_written": "$10 000 USD"
+    },
+    "https://zindi.world/competitions#ai-agents-for-ran-challenge": {
+      "status": "new",
+      "name": "AI Agents for RAN Challenge",
+      "deadline_as_written": "2027-02-05",
+      "quoted_span": "AI Agents for RAN Challenge · closes 2027-02-05",
+      "source": "Zindi competitions",
+      "source_url": "https://zindi.world/competitions",
+      "found_by": "Zindi API",
+      "first_seen": "2026-11-17",
+      "last_seen": "2026-11-17",
+      "page_flags": [],
+      "field_size": 152,
+      "link": "https://zindi.africa/competitions/ai-agents-for-ran-challenge",
+      "organiser": "ITU",
+      "prize_as_written": "€20 000 EUR"
+    },
+    "https://zindi.world/competitions#green-rising-methane-innovation-challenge": {
+      "status": "new",
+      "name": "Green Rising Methane Innovation Challenge",
+      "deadline_as_written": "2027-02-14",
+      "quoted_span": "Green Rising Methane Innovation Challenge · closes 2027-02-14",
+      "source": "Zindi competitions",
+      "source_url": "https://zindi.world/competitions",
+      "found_by": "Zindi API",
+      "first_seen": "2026-11-17",
+      "last_seen": "2026-11-17",
+      "page_flags": [],
+      "field_size": 293,
+      "link": "https://zindi.africa/competitions/green-rising-methane-innovation-challenge",
+      "prize_as_written": "$10 000 USD"
+    },
+    "https://www.geekulcha.dev/events#announcement-of-2026-top-15-young-geeks": {
+      "status": "new",
+      "name": "Announcement of 2026 Top 15 Young Geeks",
+      "deadline_as_written": "Mon, 01 Jun 2026 14:00PM",
+      "quoted_span": "Announcement of 2026 Top 15 Young Geeks",
+      "source": "Geekulcha events",
+      "source_url": "https://www.geekulcha.dev/events",
+      "found_by": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "first_seen": "2026-11-17",
+      "last_seen": "2026-11-17",
+      "page_flags": [
+        "190 chars of hidden text — excluded from extraction"
+      ]
+    },
+    "https://pressportal.co.za/stream/story/830515fb7f428c85-20251106.html#orange-corners-innovation-fund": {
+      "status": "new",
+      "name": "Orange Corners Innovation Fund",
+      "deadline_as_written": null,
+      "quoted_span": "Orange Corners Innovation Fund",
+      "source": "Orange Corners Innovation Fund (SA)",
+      "source_url": "https://pressportal.co.za/stream/story/830515fb7f428c85-20251106.html",
+      "found_by": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "first_seen": "2026-11-17",
+      "last_seen": "2026-11-17",
+      "page_flags": [
+        "hidden text contains date/deadline language (490 chars concealed) — excluded from extraction"
+      ]
+    },
+    "https://www.redbull.com/za-en/events/red-bull-basement-south-africa-2026#red-bull-basement-world-final-2026": {
+      "status": "new",
+      "name": "Red Bull Basement World Final 2026",
+      "deadline_as_written": null,
+      "quoted_span": "Red Bull Basement World Final 2026",
+      "source": "Red Bull Basement South Africa",
+      "source_url": "https://www.redbull.com/za-en/events/red-bull-basement-south-africa-2026",
+      "found_by": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "first_seen": "2026-11-17",
+      "last_seen": "2026-11-17",
+      "page_flags": [
+        "hidden text contains date/deadline language (174242 chars concealed) — excluded from extraction"
+      ]
     }
   },
-  "generated": "2026-11-16T23:01:00Z"
+  "generated": "2026-11-17T05:25:12Z"
 }
