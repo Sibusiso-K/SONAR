@@ -6,17 +6,17 @@ import { cn } from "@/lib/utils";
 export const Route = createFileRoute("/war-room")({
   head: () => ({
     meta: [
-      { title: "War Room: Mintek Top 5 | SONAR" },
+      { title: "War Room: 2nd runner-up at Mintek | SONAR" },
       {
         name: "description",
         content:
-          "Mintek named the team in its Top 5. What happens before winners are announced, what else is open this month, and the results so far.",
+          "Team Sonar finished 2nd runner-up (3rd place) at the Mintek-SCi Grad Hackathon 2026 with KHANYA / REEFPRINT. What is open next, and the results so far.",
       },
-      { property: "og:title", content: "War Room: Mintek Top 5 | SONAR" },
+      { property: "og:title", content: "War Room: 2nd runner-up at Mintek | SONAR" },
       {
         property: "og:description",
         content:
-          "Top 5 at Mintek, with the originality check and IP assessment still to come. An honest scoreboard for everything decided.",
+          "2nd runner-up at Mintek with KHANYA / REEFPRINT. An honest scoreboard for everything decided.",
       },
     ],
   }),
@@ -78,9 +78,9 @@ const RESULTS: ResultRow[] = [
   {
     name: "Mintek-SCi Grad Hackathon",
     when: "1–2 Oct",
-    result: "Top 5 finalist",
+    result: "2nd runner-up",
     tone: "win",
-    note: "KHANYA. Not decided: winners follow authentication and an IP assessment.",
+    note: "3rd place, R10,000. KHANYA, with the REEFPRINT workbench. Reported 18 Nov.",
   },
 ];
 
@@ -101,9 +101,9 @@ const DOSSIERS: Dossier[] = [
   {
     n: 1,
     name: "Mintek-SCi Grad Hackathon",
-    tagline: "Top 5 finalist · winners TBA",
-    meta: "Prize: R25k / R15k / R10k across the top 3 · Project: KHANYA (REEFPRINT workbench)",
-    when: "DONE: 1 OCT build day, 2 OCT conference. NEXT: originality check, MOTT IP assessment, winners (no date published)",
+    tagline: "2nd runner-up · 3rd place",
+    meta: "Prize: R10,000 for 3rd (of R25k / R15k / R10k) · Project: KHANYA (REEFPRINT workbench)",
+    when: "DONE: 1 OCT build day, 2 OCT top-5 finalist, then 2nd runner-up (3rd place), reported 18 NOV",
     what: "REEFPRINT — mineralogical characterisation by optical proxy",
     wins: {
       text: "2025's winner, H2Optimise (UJ), paired real mining-engineering domain knowledge with a data-driven model on a genuine operational problem — mine-water reprocessing, framed in cost and sustainability terms an industry judge already cares about. Mintek's published criteria include innovation, feasibility, impact, technical execution and presentation clarity; this board has not verified their relative weighting, so treat all five as capable of deciding the result rather than assuming one dominates.",
@@ -114,8 +114,8 @@ const DOSSIERS: Dossier[] = [
       "Costs already in Rand and tCO2e against gazetted Eskom/carbon-tax rates — exactly the register H2Optimise won on, though current tariff/rate figures still need verifying before presenting them as numbers",
       "Positioned as a StarCS/FloatStar/MillStar module, not a rip-and-replace pitch to an industry that hates those — as a proposed interface, since no integration with those systems has been demonstrated",
     ],
-    risk: "Finalists go through originality and AI-generation authentication, then Mintek's technology-transfer office (MOTT) runs an IP assessment on the top-ranked entries before winners are named. Two things in the repo's own record could trip that: commits carry a UNISA email while the documents say Wits, and commits are co-authored by an AI assistant while invention credits are awarded per person (KHANYA WORKBOARD item D6; HANDOVER on authorship). Separately, per-class recall and the abstention behaviour are commitments in the abstract; show the evidence, not the claim, if asked.",
-    move: "Reconcile the commit email and authorship position before authentication starts, and keep the repo exactly as submitted. Finish the technical report on Mintek's template (12-page cap) if it is still required; its due date is not recorded anywhere checked, so ask Mintek. Keep writing in your own words and cite sources. Add the winners date to the calendar the moment Mintek sends it.",
+    risk: "The result is in. What is still open: Mintek said standout teams may be considered for vacation work, and its technology-transfer office (MOTT) assesses IP on top-ranked entries, with invention credits per person. Neither outcome is on record yet.",
+    move: "Ask Mintek about vacation work and the MOTT IP outcome while the result is fresh. Keep the KHANYA repo exactly as submitted. Add the 2nd runner-up finish to both CVs and LinkedIn, and file a debrief on the Crew page.",
   },
 ];
 
@@ -138,7 +138,7 @@ const RULES: { evidence: "ours" | "external"; title: string; body: string }[] = 
   {
     evidence: "ours",
     title: "A pattern worth naming: builds that work, pitches that don't place",
-    body: "Entelect, GovTech and Geekulcha all produced real, working builds and none placed; Mintek is the first to get through. Spend ten minutes on what was different about how it was framed, and reuse that shape for YouthX, FNB and BCG.",
+    body: "Entelect, GovTech and Geekulcha all produced real, working builds and none placed; Mintek finished 2nd runner-up. Spend ten minutes on what was different about how it was framed, and reuse that shape for the next judged event.",
   },
 ];
 
@@ -158,9 +158,9 @@ const NEEDS_ATTENTION: ActionItem[] = [
   },
   {
     severity: "warning",
-    title: "Mintek: reconcile commit email and authorship before authentication",
-    note: "UNISA email on commits vs Wits in the documents; AI co-authorship vs per-person invention credits",
-    due: "Before Mintek's check",
+    title: "Mintek: follow up on vacation work and the IP assessment",
+    note: "Finished 2nd runner-up. Mintek said standout teams may be considered for vacation work",
+    due: "This week",
   },
   {
     severity: "warning",
@@ -190,21 +190,20 @@ function WarRoom() {
       <section className="mx-auto max-w-[88rem] px-5 pb-12 pt-8 md:px-10 md:pt-10">
         <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2">
           <p className="label-caps">War room</p>
-          <p className="label-caps tabular-nums">Updated 5 Oct 2026</p>
+          <p className="label-caps tabular-nums">Updated 18 Nov 2026</p>
         </div>
         <h1 className="display-xl mt-5 max-w-[16ch]">
-          <RevealWords text="Top 5 at Mintek. Now the check that decides it." />
+          <RevealWords text="2nd runner-up at Mintek." />
         </h1>
         <Reveal delay={200}>
           <p className="mt-8 max-w-2xl text-base leading-relaxed text-muted-foreground">
-            Mintek named the team one of its five finalists. Entelect, GovTech, Geekulcha and UNESCO
-            did not place, and IBM's Dev Day hackathon came back a confirmed 3rd.{" "}
             <strong className="font-semibold text-foreground">
-              Before winners are announced, finalists face an originality check and an IP
-              assessment.
+              Team Sonar finished 2nd runner-up (3rd place) at the Mintek-SCi Grad Hackathon 2026
+              with KHANYA and its REEFPRINT workbench.
             </strong>{" "}
-            What that means for the team, what is still open this month, and an honest scoreboard
-            for everything decided so far.
+            IBM's Dev Day hackathon also came back a confirmed 3rd; Entelect, GovTech, Geekulcha and
+            UNESCO did not place. What is still open, and an honest scoreboard for everything
+            decided so far.
           </p>
         </Reveal>
       </section>
